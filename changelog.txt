@@ -1,0 +1,11 @@
+
+
+## V0.7 , August 3rd, 2018
+
+- added jupman.py pytut() for displaying Python tutor in the cells
+- added  jupman.py toc=False option to jupman.py init to disable toc
+- removed  jupman.pyuseless networkx import from 
+
+- fixed usage indentation
+- added changelog.txt
+

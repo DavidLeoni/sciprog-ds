@@ -29,6 +29,7 @@ var jupman = {
     resize : function(){
         if (jupman.isReduced()){
             $("#jupman-toc").hide();
+                
         } else {
             $("#jupman-toc").show();
             $("#jupman-toc").css("background","rgba(255, 255, 255, 0)");
@@ -53,7 +54,9 @@ var jupman = {
                 }                
             }
             
-            $('#jupman-toc').toc(tocParams);
+            if ($('#jupman-toc').toc){
+                $('#jupman-toc').toc(tocParams);
+            }
         }
     },
     /**
@@ -156,11 +159,11 @@ var jupman = {
           
         
         
-       // TODO THIS HIDE STUFF DOES NOT WORK ANYMORE AFTER PORTING TO NBSPHINX 
-       // WE SHOULD USE 
-       // 
+       // ****************************     WARNING      ********************************
+       //         THIS HIDE STUFF DOES NOT WORK ANYMORE AFTER PORTING TO NBSPHINX 
+       // ******************************************************************************
        jupman.hideCell("%%HTML");
-       jupman.hideCell("import jupman");   
+       jupman.hideCell("import jupman");
        
         // TODO this is a bit too hacky   
        jupman.hideCell(/from exercise(.+)_solution import \*/)
@@ -169,11 +172,13 @@ var jupman = {
        jupman.hideCell("jupman.show_run(");
        jupman.hideCell("nxpd.draw(");
        jupman.hideCellAll("jupman.run("); 
-              
-       if ($("#jupman-toc").length === 0){
-           $("body").append(toc);       
-       } else {
-           $("#jupman-toc").replaceWith(toc);
+       
+       if (toc){
+           if ($("#jupman-toc").length === 0){
+               $("body").append(toc);       
+           } else {
+               $("#jupman-toc").replaceWith(toc);
+           }
        }
        
        if ($("#jupman-nav").length === 0){
@@ -192,9 +197,8 @@ var jupman = {
             if (jupman.isReduced()){
                 if (event.pageX < 50) {            
                      $("#jupman-toc").show(); 
-                    $("#jupman-toc").css("background","rgba(255, 255, 255, 1.0)");
+                     $("#jupman-toc").css("background","rgba(255, 255, 255, 1.0)");
                 } else {
-
                     if (jupman.hoverToc()) {                    
                     } else {
                         $("#jupman-toc").hide();                        

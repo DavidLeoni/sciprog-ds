@@ -6,9 +6,9 @@ import sys
 import unittest
 import inspect
 import os
-import networkx as nx
 import conf
 from IPython.core.display import HTML
+
 
 
 def get_class(meth):
@@ -58,7 +58,7 @@ def show_run(classOrMethod):
     """    
     run(classOrMethod)
         
-def init(root=''):
+def init(root='', toc=True):
     """ To be called at the beginning of Jupyter sheets
     """
     on_rtd = os.environ.get('READTHEDOCS') == 'True'
@@ -82,8 +82,9 @@ def init(root=''):
         ret += "<script>\n"
         ret += "var JUPMAN_IN_JUPYTER = true;"  
         ret += "\n"
-        ret += tocjs
-        ret += "\n"    
+        if toc:
+            ret += tocjs
+            ret += "\n"    
         ret += js
         ret += "\n</script>\n"
 
@@ -104,3 +105,33 @@ def init_exam(exam_date):
 
 def assertNotNone(ret, function_name):
     return function_name + " specs say nothing about returning objects! Instead you are returning " + str(ret)
+
+
+def pytut():
+    """ Embeds a Python tutor in the output of the current cell, with code *current* cell stripped from the call to 
+        pytut() itself. 
+        
+        - The GUI will be shown on the built Sphinx website.
+        - Requires internet connection. Without, it will show standard browser message telling there is no connectivity        
+    """
+    # Gets notebook variables from stack
+    # Soooo hacky :-)
+    import inspect
+    notebook_globals = inspect.stack()[1][0].f_globals
+
+    code = notebook_globals["In"][-1]
+
+    new_code =  code.replace('jupman.pytut()', '').replace('pytut()', '')
+    
+    import urllib
+    from IPython.display import IFrame
+    
+    params = {'code':new_code,
+              'cumulative': 'false',
+              'py':3,
+              'curInstr':0} 
+        
+    src = "http://pythontutor.com/iframe-embed.html#" + urllib.parse.urlencode(params)
+    base = 200
+    return IFrame(src, 900,max(base,(new_code.count('\n')*25) + base))
+    
