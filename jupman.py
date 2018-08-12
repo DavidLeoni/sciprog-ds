@@ -58,7 +58,7 @@ def show_run(classOrMethod):
     """    
     run(classOrMethod)
         
-def init(root='', toc=True):
+def init(root='', toc=False):
     """ To be called at the beginning of Jupyter sheets
     """
     on_rtd = os.environ.get('READTHEDOCS') == 'True'
@@ -90,17 +90,15 @@ def init(root='', toc=True):
 
     return  HTML(ret)
 
-def init_exam(exam_date):
+def init_exam(exam_date, toc=False):
     """ To be called at the beginning of Jupyter exam sheets
         
         exam_date : exam date string in the format 'yyyy-mm-dd'
     """
-    if exam_date != '_JM_(exam.date)':
+    if exam_date != '_JM_{exam.date}':
         conf.parse_date(exam_date) # little hack so the template can work somewhat properly
-    import sys
-    sys.path.append('solutions/')
-    sys.path.append('exercises/')
-    return init('../../')
+    import sys    
+    return init('../../', toc)
 
 
 def assertNotNone(ret, function_name):

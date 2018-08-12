@@ -12,15 +12,16 @@ import os
 import inspect
 import zipfile
 import sys
-
+import re
+import types
 
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 ###################   TODO EDIT AS NEEDED !!  ####################
 
-course = "Python Course" 
-degree = "Pythonology Master"
-author = 'Mr Python Guru' 
+course = "TODO CHANGE COURSE" 
+degree = "TODO CHANGE DEGREE"
+author = 'TODO CHANGE NAME' 
 copyright = '# 2017, ' + author                              
 
 #####    'filename' IS *VERY* IMPORTANT !!!!
@@ -30,8 +31,20 @@ copyright = '# 2017, ' + author
 
 filename = 'jupman'   # The filename without the extension
 
+# common files for exercise and exams as paths. Paths are intended relative to the project root. Globs are allowed.
+# note 'overlay/_static/css','overlay/_static/js' are automatically injected when you call jupman.init()
+exercise_common_files = ['jupman.py', 'my_lib.py', 'img/cc-by.png' ]
+
+
 #################################################################
 
+zip_ignored = ['__pycache__', '.ipynb_checkpoints', '.pyc']
+
+def zip_ignored_file(fname):
+    
+    for i in zip_ignored:
+        if fname.find(i) != -1:
+            return True
 
 FORMATS = ["html", "epub", "latex"]
 SYSTEMS = {
@@ -55,15 +68,43 @@ system = 'default'
 
 project = MANUALS[manual]['name']
 
+    
+def fatal(msg, ex=None):
+    """ Prints error and exits (halts program execution immediatly)
+    """
+    if ex == None:
+        exMsg = ""
+    else:
+        exMsg = " \n  " + repr(ex)
+    info("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
+    exit(1)
 
+def error(msg, ex=None):
+    """ Prints error and reraises exception (printing is useful as sphinx puts exception errors in a separate log)
+    """
+    if ex == None:
+        exMsg = ""
+    else:
+        exMsg = " \n  " + repr(ex)
+    info("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
+    raise ex
+
+    
+    
+def info(msg=""):
+    print("  %s" % msg)
+
+def warn(msg):
+    print("\n\n   WARNING: %s" % msg)
+
+    
 # note if I include the project name I can't reference it from index.rst for very silly reasons, see  http://stackoverflow.com/a/23855541
 
 def parse_date(ld):
     try:
         return datetime.datetime.strptime( str(ld), "%Y-%m-%d")
     except:
-        print("\n\nERROR! NEED FORMAT 'yyyy-mm-dd', GOT INSTEAD: '" + str(ld) + "'\n\n")
-        raise
+        raise Exception("NEED FORMAT 'yyyy-mm-dd', GOT INSTEAD: '" + str(ld))
 
     
 def parse_date_str(ld):
@@ -72,11 +113,12 @@ def parse_date_str(ld):
     """
     return str(parse_date(ld)).replace(' 00:00:00','')
     
-def warn(msg):
-    print("")
-    print("   WARNING: " + str(msg))
-    print("")
 
+def get_exam_student_folder(ld):
+    parse_date(ld)
+    return filename + '-' + ld + '-FIRSTNAME-LASTNAME-ID'    
+
+    
 def super_doc_dir():
     return os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
@@ -87,51 +129,92 @@ def get_version(release):
     sl = release.split(".")
     return sl[0] + '.' + sl[1]
 
-def zip_folder(folder, zip_path):
+def zip_paths(rel_paths, zip_path, patterns=[]):
+    """ zips provided rel_folder to file zip_path (WITHOUT .zip) !
+        rel_folder MUST be relative to project root
+        
+        This function was needed as default python zipping machinery created weird zips 
+        people couldn't open in Windows
+        
+        patterns is a map of regexes from source to dest 
+        
+    """
     
-    ignored = ['.__pycache__', '.ipynb_checkpoints', '.pyc']
     
-    def ignored_file(filename):
-        for i in ignored:
-            if filename.find(i)!=-1:
-                return True
-    
-    folder = folder
-    parent_folder = folder[len(os.path.dirname(folder.strip('/')))+1:-1]
-    #print("parent_folder = " + parent_folder)
-    #print("folder = " + folder)
-    archive = zipfile.ZipFile(zip_path, "w")
-    for dirname, dirs, files in os.walk(folder):
-        #print("dirname=" + dirname)
-        dirNamePrefix = dirname + "/*"
-        #print("dirNamePrefix=" + dirNamePrefix)
-        filenames = glob.glob(dirNamePrefix)
-        #print("filenames=" + str(filenames))
-        for filename in filenames:
-            if os.path.isfile(filename) and not ignored_file(filename) :
-                #print('Zipping: %s' % filename)                    
-                name = parent_folder + '/' + filename[len(folder):]
-                archive.write(filename, name, zipfile.ZIP_DEFLATED)
+    if zip_path.endswith('.zip'):
+        raise Exception("zip_path must not end with .zip ! Found instead: " + zip_path)
 
+    for rel_path in rel_paths:
+        abs_path = super_doc_dir() + '/' + rel_path
+
+        if not(os.path.exists(abs_path)):
+            raise Exception("Expected an existing file or folder relative to project root ! Found instead: " + rel_path)
+
+      
+    def write_file(fname):
+        
+        
+        if not zip_ignored_file(fname) :
+            #info('Zipping: %s' % fname)            
+            
+            
+            if isinstance(patterns, (list,)):
+                if len(patterns) > 0:
+                    to_name = fname
+                    for pattern, to in patterns:    
+                        try:
+                            to_name = re.sub(pattern, to, to_name)
+                        except Exception as ex:
+                            error("Couldn't substitute pattern \n  %s\nto\n  %s\nin string\n  %s\n\n" % (pattern, to, to_name) , ex)
+                else:
+                    to_name = '/' + fname
+                    
+            elif isinstance(patterns, types.FunctionType):
+                to_name = patterns(fname)
+            else:
+                error('Unknown patterns type %s' % type(patterns))
+
+            #info('to_name = %s' % to_name)                    
+                
+            archive.write(fname, to_name, zipfile.ZIP_DEFLATED)
+
+    archive = zipfile.ZipFile(zip_path + '.zip', "w")
+    
+    for rel_path in rel_paths:
+
+        if os.path.isdir(rel_path):            
+            for dirname, dirs, files in os.walk(rel_path):
+                #info("dirname=" + dirname)
+                dirNamePrefix = dirname + "/*"
+                #info("dirNamePrefix=" + dirNamePrefix)
+                filenames = glob.glob(dirNamePrefix)
+                #info("filenames=" + str(filenames))
+                for fname in filenames:
+                    if os.path.isfile(fname):
+                        write_file(fname)
+        elif os.path.isfile(rel_path):
+            info('Writing %s' % rel_path)
+            write_file(rel_path)
+        else:
+            raise Exception("Don't know how to handle " + rel_path)
     archive.close()
         
-    print("Wrote " + zip_path)
+    info("Wrote " + zip_path)
             
-def zip_exercises():
-    
-    exercises =  glob.glob("exercises/*/")
-    if len(exercises) > 0:
+def zip_folders(folder, prefix='', suffix=''):
+    global exercise_common_files
+    folders =  glob.glob(folder + "/*/")
+    if len(folders) > 0:
         outdir = 'overlay/_static/'
-        print("Found stuff in exercises/ , zipping them to " + outdir)
-        for d in exercises:
-            dir_name= d[len('exercises/'):].strip('/')
-            # print("dir_name = " + dir_name)
-            zip_name = dir_name + '-exercises.zip'
+        info("Found stuff in %s , zipping them to %s" % (folder, outdir))
+        for d in folders:
+            dir_name= d[len(folder + '/'):].strip('/')
+            #info("dir_name = " + dir_name)
+            zip_name = prefix + dir_name + suffix
             zip_path = outdir + zip_name
-            zip_folder(d, zip_path)
-        print("Done zipping exercises.") 
+            zip_paths(exercise_common_files + [d], zip_path)
+        info("Done zipping " + folder ) 
 
-#zip_exercises()        
 
 # Use sphinx-quickstart to create your own conf.py file!
 # After that, you have to edit a few things.  See below.
@@ -200,12 +283,12 @@ try:
     release = release.decode().strip()
     if not '.' in release[0]:
         release = '0.1.0'
-        #print("Couldn't find git tag, defaulting to: " + release)
+        #info("Couldn't find git tag, defaulting to: " + release)
     #else:    
-    #   print("Detected release from git: " + str(release))
+    #   info("Detected release from git: " + str(release))
 except Exception:
     release = '0.1.0'
-    #print("Couldn't find git version, defaulting to: " + release)
+    #info("Couldn't find git version, defaulting to: " + release)
 
 version  = get_version(release)
 
@@ -233,18 +316,12 @@ todo_include_todos = True
 #
 # html_theme_options = {}
 
-
-#os.environ.putenv('READTHEDOCS','True')
-html_theme = 'pyramid'
-
-"""
-
 if not on_rtd:
+
 
     import sphinx_rtd_theme
     html_theme = 'sphinx_rtd_theme'
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]    
-"""
 
     
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -261,13 +338,6 @@ html_extra_path = ['overlay']
 # Output file base name for HTML help builder.
 htmlhelp_basename = project + 'doc'
 
-
-html_sidebars = {
-    '**': ['globaltoc.html', 'sidebarhelp.html',
-           'searchbox.html'],
-    'index': ['localtocindex.html', 'globaltocindex.html', 'sidebarhelp.html',
-           'searchbox.html'],
-}
 
 #DAVID: NOTE: THESE ARE *ONLY* FOR HTML TEMPLATES, WHICH IS DIFFERENT FROM jm-templates
 # see https://github.com/DavidLeoni/jupman/issues/10
@@ -437,7 +507,17 @@ def setup(app):
         app.add_transform(AutoStructify)
         app.add_javascript('js/jupman.js')
         app.add_stylesheet('css/jupman.css')
-        zip_exercises()
+        zip_folders('exercises', suffix='-exercises')
+        zip_folders('exams', prefix=filename + '-', suffix='-exam')
+        zip_paths(['jm-templates/project-NAME-SURNAME-ID'], 
+                    'overlay/_static/project-template',
+                    patterns=[(r"^(jm-templates)/project-(.*)", "/\\2")])
+        
+        # check home.ipynb 
+        from pathlib import Path
+        ref = "https://github.com/DavidLeoni/jupman/issues/11"
+        if not Path('home.ipynb').exists():  # the file pointed to
+            raise Exception("MISSING home.ipynb ! For more info about Jupman layout, see %s" % ref)         
 
 
 exclude_patterns.extend(MANUALS[manual]['exclude_patterns'])
