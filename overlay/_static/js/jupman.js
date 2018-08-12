@@ -163,10 +163,10 @@ var jupman = {
         // TODO this is a bit too hacky   
        jupman.hideCell(/from exercise(.+)_solution import \*/)
        
-       jupman.hideCellAll(/.*jupman.init.*/); 
-       jupman.hideCell("jupman.show_run(");
+       jupman.hideCellAll(/.*jupman_init.*/); 
+       jupman.hideCell("jupman_show_run(");
        jupman.hideCell("nxpd.draw(");
-       jupman.hideCellAll("jupman.run("); 
+       jupman.hideCellAll("jupman_run("); 
        
        if (jupman.hasToc()){
            if ($("#jupman-toc").length === 0){
