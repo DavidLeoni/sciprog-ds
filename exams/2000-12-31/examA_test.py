@@ -1,4 +1,4 @@
-from exercise1_solution import *
+from exercise1 import *
 
 import unittest
 

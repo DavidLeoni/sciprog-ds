@@ -81,49 +81,6 @@ def init(parser,context,args):
     info("   " + eld_solutions)
 
     
-def copy_code(source_dir, dest_dir, copy_exercises=True, copy_test=True, copy_solutions=False):
-    
-    
-    info("  Copying exercises %s \n      from  %s \n      to    %s" % ('and solutions' if copy_solutions else '', source_dir, dest_dir))
-    # creating folders
-    for dirpath, dirnames, filenames in os.walk(source_dir):
-        structure = dest_dir + dirpath[len(source_dir):]
-        #print("structure = " + structure)
-        #print("  FOUND DIR " + dirpath) 
-        
-        if not conf.zip_ignored_file(structure):
-            if not os.path.isdir(structure) :
-                print("Creating dir %s" % structure)
-                os.makedirs(structure)
-
-            for source_filename in filenames:
-                                
-                if not conf.zip_ignored_file(source_filename):
-                    
-                    source_abs_filename = dirpath + '/' + source_filename
-                    dest_filename = structure + '/' + source_filename                    
-
-                    #print("source_abs_filename = " + source_abs_filename)
-                    #print("dest_filename = " + dest_filename)
-
-                    # TODO use regex instead !
-                    if "_solution" in source_filename:
-                        if copy_solutions:
-                            print("  Writing " + source_filename)
-                            shutil.copy(source_abs_filename, dest_filename)
-                    elif source_filename.startswith("exercise"):
-                        if copy_exercises:
-                            print("  Writing " + source_filename)
-                            shutil.copy(source_abs_filename, dest_filename)                                
-                    elif source_filename.endswith("_test.py") :
-                        with open(source_abs_filename, encoding='utf-8') as source_f:
-                            data=source_f.read().replace('_solution ', ' ')
-                            print('  Writing patched test to %s' % source_filename) 
-                            with open(dest_filename, 'w', encoding='utf-8') as dest_f:
-                                writer = dest_f.write(data)                         
-                    else:  
-                        print("  Writing " + source_filename)
-                        shutil.copy(source_abs_filename, dest_filename)
 
                         
 """
@@ -173,7 +130,7 @@ def package(parser,context,args):
 
     if os.path.exists(server_jupman):
         info("Cleaning " + server_jupman + " ...")
-        delete_tree(server_jupman, "server/" + conf.filename)
+        conf.delete_tree(server_jupman, "server/" + conf.filename)
 
     info("Copying built website ...")        
     shutil.copytree(built_site_dir, server_jupman)
@@ -199,7 +156,7 @@ def package(parser,context,args):
             
             
     info("Copying exercises to " + str(target_student))
-    copy_code(eld_solutions, target_student)
+    conf.copy_code(eld_solutions, target_student)
 
     
     info("Creating student exercises zip:  " + target_student_zip + ".zip" )        
@@ -297,7 +254,7 @@ def publish(parser,context,args):
         fatal("TARGET PUBLIC EXAM ZIP " + dest_zip + ".zip ALREADY EXISTS !")    
 
     info("Copying solutions to " + str(dest))
-    copy_code(source_solutions, dest, copy_solutions=True)
+    conf.copy_code(source_solutions, dest, copy_solutions=True)
     info("Copying exam HTML text")
     shutil.copyfile(student_html, dest + '/' + get_exam_text_filename(ld, 'html'))
     
@@ -312,63 +269,6 @@ def publish(parser,context,args):
     info("  git commit -m 'published " + ld + " exam'")
     info("  git push")
     info()
-
-def check_paths(path, path_check):
-    if not isinstance(path, str):
-        raise Exception("Path to delete must be a string! Found instead: " + str(type(path)))
-    if len(path.strip()) == 0:
-        raise Exception("Provided an empty path !")
-    if not isinstance(path_check, str):
-        raise Exception("Path check to delete must be a string! Found instead: " + str(type(path_check)))
-    if len(path_check.strip()) == 0:
-        raise Exception("Provided an empty path check!")
-
-
-def delete_file(path, path_check):
-    """ Deletes a file, checking you are deleting what you really want
-
-        path: the path to delete as a string
-        path_check: the end of the path to delete, as a string
-    """
-    check_paths(path, path_check)
-
-    if path.endswith(path_check):
-        os.remove(path)
-    else:
-        fatal("FAILED SAFETY CHECK FOR DELETING DIRECTORY " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
-
-def delete_tree(path, path_check):
-    """ Deletes a directory, checking you are deleting what you really want
-
-        path: the path to delete as a string
-        path_check: the end of the path to delete, as a string
-    """
-    check_paths(path, path_check)
-
-    if not os.path.isdir(path):
-        raise Exception("Provided path is not a directory: %s" % path)
-
-    if path.endswith(path_check):
-        shutil.rmtree(path)
-    else:
-        fatal("FAILED SAFETY CHECK FOR DELETING DIRECTORY " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
-
-def delete_file(path, path_check):
-    """ Deletes a file, checking you are deleting what you really want
-
-        path: the path to delete as a string
-        path_check: the end of the path to delete, as a string
-    """
-    check_paths(path, path_check)
-
-    if not os.path.isfile(path):
-        raise Exception("Provided path is not a file: %s" % path)
-    
-    
-    if path.endswith(path_check):
-        os.remove(path)
-    else:
-        fatal("FAILED SAFETY CHECK FOR DELETING FILE " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
 
         
 @subcmd('delete', help="Deletes an existing exam")
@@ -401,9 +301,9 @@ def delete_exam(parser,context,args):
         if os.path.exists(path):
             info("Deleting " + path + " ...")
             if os.path.isfile(path): 
-                delete_file(path, confirm_path)
+                conf.delete_file(path, confirm_path)
             elif os.path.isdir(path):
-                delete_tree(path, confirm_path)
+                conf.delete_tree(path, confirm_path)
             else:
                 raise Exception("File is neither a directory nor a file: %s" % path)
             deleted.append(path)

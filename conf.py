@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3# -*- coding: utf-8 -*-
 
 # This is the configuration file of Sphynx, edit it as needed.
 
@@ -14,6 +13,7 @@ import zipfile
 import sys
 import re
 import types
+import shutil
 
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
@@ -68,7 +68,15 @@ system = 'default'
 
 project = MANUALS[manual]['name']
 
-    
+JUPMAN_SOLUTION = "jupman-sol"
+jupman_tags = [JUPMAN_SOLUTION]
+
+def jupman_tag_start(tag):
+    return '#' + tag
+
+def jupman_tag_end(tag):
+    return '#/' + tag
+
 def fatal(msg, ex=None):
     """ Prints error and exits (halts program execution immediatly)
     """
@@ -84,10 +92,12 @@ def error(msg, ex=None):
     """
     if ex == None:
         exMsg = ""
+        the_ex = Exception(msg)
     else:
         exMsg = " \n  " + repr(ex)
+        the_ex = ex 
     info("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
-    raise ex
+    raise the_ex
 
     
     
@@ -97,6 +107,9 @@ def info(msg=""):
 def warn(msg):
     print("\n\n   WARNING: %s" % msg)
 
+
+def debug(msg=""):
+    print("  DEBUG=%s" % msg) 
     
 # note if I include the project name I can't reference it from index.rst for very silly reasons, see  http://stackoverflow.com/a/23855541
 
@@ -129,6 +142,249 @@ def get_version(release):
     sl = release.split(".")
     return sl[0] + '.' + sl[1]
 
+
+
+SUPPORTED_DISTRIB_EXT = ['py', 'ipynb']
+    
+
+from enum import Enum
+class DistribFileKind(Enum):
+    SOLUTION = 1
+    EXERCISE = 2
+    TEST = 3
+    OTHER = 4
+
+    @staticmethod
+    def is_supported_ext(fname):
+        for ext in SUPPORTED_DISTRIB_EXT:
+            if fname.endswith('.' + ext):
+                return True
+        return False
+    
+    @staticmethod
+    def detect(fname):
+        l = fname.split(".")
+        if len(l) > 0:
+            ext = l[-1]
+        else:
+            ext = ''
+        if fname.endswith("_solution" + '.' + ext):
+            return DistribFileKind.SOLUTION            
+        elif fname.endswith("_exercise" + '.' + ext):
+            return DistribFileKind.EXERCISE 
+        elif fname.endswith("_test.py") :
+            return DistribFileKind.TEST        
+        else:
+            return DistribFileKind.OTHER
+
+    @staticmethod
+    def check_ext(fname):
+        if not DistribFileKind.is_supported_ext(fname):
+            raise Exception("%s extension is not supported. Valid values are: %s" % (fname, SUPPORTED_DISTRIB_EXT))
+        
+    @staticmethod        
+    def exercise(radix, ext):      
+        DistribFileKind.check_ext(ext)
+        return radix + '_exercise.' + ext
+
+    @staticmethod
+    def exercise_from_solution(fname):
+        DistribFileKind.check_ext(fname)
+        ext = fname.split(".")[-1]
+               
+        return fname.replace("_solution." + ext, "_exercise." + ext)
+        
+    @staticmethod
+    def solution(radix, ext):
+        DistribFileKind.check_ext(ext)
+        return radix + '_solution.' + ext
+
+    @staticmethod
+    def test(radix):
+        return radix + '_test.py'
+
+    
+    
+
+def check_paths(path, path_check):
+    if not isinstance(path, str):
+        raise Exception("Path to delete must be a string! Found instead: " + str(type(path)))
+    if len(path.strip()) == 0:
+        raise Exception("Provided an empty path !")
+    if not isinstance(path_check, str):
+        raise Exception("Path check to delete must be a string! Found instead: " + str(type(path_check)))
+    if len(path_check.strip()) == 0:
+        raise Exception("Provided an empty path check!")
+
+
+def delete_file(path, path_check):
+    """ Deletes a file, checking you are deleting what you really want
+
+        path: the path to delete as a string
+        path_check: the end of the path to delete, as a string
+    """
+    check_paths(path, path_check)
+
+    if path.endswith(path_check):
+        os.remove(path)
+    else:
+        fatal("FAILED SAFETY CHECK FOR DELETING DIRECTORY " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
+
+def delete_tree(path, path_check):
+    """ Deletes a directory, checking you are deleting what you really want
+
+        path: the path to delete as a string
+        path_check: the end of the path to delete, as a string
+    """
+    check_paths(path, path_check)
+
+    if not os.path.isdir(path):
+        raise Exception("Provided path is not a directory: %s" % path)
+
+    if path.endswith(path_check):
+        shutil.rmtree(path)
+    else:
+        fatal("FAILED SAFETY CHECK FOR DELETING DIRECTORY " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
+
+def delete_file(path, path_check):
+    """ Deletes a file, checking you are deleting what you really want
+
+        path: the path to delete as a string
+        path_check: the end of the path to delete, as a string
+    """
+    check_paths(path, path_check)
+
+    if not os.path.isfile(path):
+        raise Exception("Provided path is not a file: %s" % path)
+    
+    
+    if path.endswith(path_check):
+        os.remove(path)
+    else:
+        fatal("FAILED SAFETY CHECK FOR DELETING FILE " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
+
+    
+def validate_tags(text, fname):
+    tag_starts = {}
+    tag_ends = {}
+
+    for tag in jupman_tags:
+        tag_starts[tag] = text.count(jupman_tag_start(tag))                                           
+        tag_ends[tag] = text.count(jupman_tag_end(tag))
+
+    for tag in tag_starts:
+        if tag not in tag_ends or tag_starts[tag] != tag_ends[tag] :
+            raise Exception("Missing final tag for %s in %s" % (tag, fname) )
+
+    for tag in tag_ends:
+        if tag not in tag_starts or tag_starts[tag] != tag_ends[tag] :
+            raise Exception("Missing initial tag for %s in %s" % (tag, fname) )
+    
+    return sum(tag_starts.values()) > 0
+
+
+
+def copy_sols(source_filename, source_abs_filename, dest_filename):
+    if DistribFileKind.is_supported_ext(source_filename):
+        info("Stripping jupman tags from %s " % source_filename)
+        with open(source_abs_filename) as sol_source_f:
+            text = sol_source_f.read()
+            stripped_text = text
+            for tag in jupman_tags:
+
+                stripped_text = stripped_text \
+                                .replace(jupman_tag_start(tag), '') \
+                                .replace(jupman_tag_end(tag), '')
+
+            with open(dest_filename, 'w') as solution_dest_f:
+                solution_dest_f.write(stripped_text)
+
+    else: # solution format not supported                           
+        info("Writing " + source_filename)
+        shutil.copy(source_abs_filename, dest_filename)
+                            
+
+def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
+    exercise_fname = DistribFileKind.exercise_from_solution(source_filename)
+    debug("exercise from solution:%s" % exercise_fname)
+    exercise_abs_filename = dirpath + '/' + exercise_fname
+    exercise_dest_filename = structure + '/' + exercise_fname
+
+
+    if DistribFileKind.is_supported_ext(source_filename):
+
+        with open(source_abs_filename) as sol_source_f:
+            text = sol_source_f.read()                                
+
+            found_tag = validate_tags(text, source_abs_filename)                                                                                
+
+            if found_tag:
+
+                if os.path.isfile(exercise_abs_filename) :
+                    raise Exception("Found jupman tags in solution file but an exercise file exists already !\n  solution: %s\n  exercise: %s" % (source_abs_filename, exercise_abs_filename))
+
+                info('Found jupman tags in solution file, going to derive from solution exercise file %s' % exercise_fname )                                    
+
+
+                with open(exercise_dest_filename, 'w') as exercise_dest_f:
+                    sol_pattern = jupman_tag_start(JUPMAN_SOLUTION) + '.*?' + jupman_tag_end(JUPMAN_SOLUTION)
+                    debug(sol_pattern)
+                    stripped_text = re.sub(sol_pattern, 
+                                           'raise Exception("TODO IMPLEMENT ME !")', text, flags=re.DOTALL)
+                    debug("STRIPPED TEXT=\n%s" % stripped_text)
+                    exercise_dest_f.write(stripped_text)
+            else:
+                if not os.path.isfile(exercise_abs_filename) :
+                    error("There is no exercise file and couldn't find any jupman tag in solution file for generating exercise !"
+                          +"\n  solution: %s\n  exercise: %s" % (source_abs_filename, exercise_abs_filename))
+                    
+def copy_code(source_dir, dest_dir, copy_test=True, copy_solutions=False):
+    
+    
+    info("  Copying exercises %s \n      from  %s \n      to    %s" % ('and solutions' if copy_solutions else '', source_dir, dest_dir))
+    # creating folders
+    for dirpath, dirnames, filenames in os.walk(source_dir):
+        structure = dest_dir + dirpath[len(source_dir):]
+        #print("structure = " + structure)
+        #print("  FOUND DIR " + dirpath) 
+        
+        if not zip_ignored_file(structure):
+            if not os.path.isdir(structure) :
+                print("Creating dir %s" % structure)
+                os.makedirs(structure)
+
+            for source_filename in filenames:
+                                
+                if not zip_ignored_file(source_filename):
+                    
+                    source_abs_filename = dirpath + '/' + source_filename
+                    dest_filename = structure + '/' + source_filename                    
+
+                    #print("source_abs_filename = " + source_abs_filename)
+                    #print("dest_filename = " + dest_filename)
+
+                    fileKind = DistribFileKind.detect(source_filename)
+                    
+                    if fileKind == DistribFileKind.SOLUTION:                  
+                        
+                        if copy_solutions:                                           
+                            copy_sols(source_filename, source_abs_filename, dest_filename)
+                        
+                        if DistribFileKind.is_supported_ext(source_filename):
+                            generate_exercise(source_filename, source_abs_filename, dirpath, structure)    
+                                        
+                            
+                    elif fileKind == DistribFileKind.TEST:
+                        with open(source_abs_filename, encoding='utf-8') as source_f:
+                            data=source_f.read().replace('_solution ', ' ')
+                            info('Writing patched test %s' % source_filename) 
+                            with open(dest_filename, 'w', encoding='utf-8') as dest_f:
+                                writer = dest_f.write(data)                         
+                    else:  # EXERCISE and OTHER
+                        print("  Writing " + source_filename)
+                        shutil.copy(source_abs_filename, dest_filename)
+
+
 def zip_paths(rel_paths, zip_path, patterns=[]):
     """ zips provided rel_folder to file zip_path (WITHOUT .zip) !
         rel_folder MUST be relative to project root
@@ -136,7 +392,9 @@ def zip_paths(rel_paths, zip_path, patterns=[]):
         This function was needed as default python zipping machinery created weird zips 
         people couldn't open in Windows
         
-        patterns is a map of regexes from source to dest 
+        patterns can be:
+         - a list of tuples source regexes to dest 
+         - a function that takes a string and returns a string
         
     """
     
@@ -203,16 +461,31 @@ def zip_paths(rel_paths, zip_path, patterns=[]):
             
 def zip_folders(folder, prefix='', suffix=''):
     global exercise_common_files
-    folders =  glob.glob(folder + "/*/")
-    if len(folders) > 0:
+    source_folders =  glob.glob(folder + "/*/")
+    
+    if folder.startswith('..'):
+        fatal("BAD FOLDER TO ZIP ! IT STARTS WITH '..'")
+    if len(folder.strip()) == 0:
+        fatal("BAD FOLDER TO ZIP ! BLANK STRING")
+
+    build_folder = '_build/' + folder
+    if os.path.exists(build_folder):
+        info('Cleaning %s' % build_folder)
+        delete_tree(build_folder, '_build/' + folder)
+    
+    copy_code(folder, build_folder, copy_test=True, copy_solutions=True)
+    
+    build_folders =   glob.glob(build_folder + "/*/")
+    
+    if len(source_folders) > 0:
         outdir = 'overlay/_static/'
         info("Found stuff in %s , zipping them to %s" % (folder, outdir))
-        for d in folders:
-            dir_name= d[len(folder + '/'):].strip('/')
+        for d in build_folders:
+            dir_name= d[len(build_folder + '/'):].strip('/')
             #info("dir_name = " + dir_name)
             zip_name = prefix + dir_name + suffix
             zip_path = outdir + zip_name
-            zip_paths(exercise_common_files + [d], zip_path)
+            zip_paths(exercise_common_files + [d], zip_path, patterns= [("^(_build/)","")])
         info("Done zipping " + folder ) 
 
 
