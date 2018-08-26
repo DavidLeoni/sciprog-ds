@@ -4,6 +4,11 @@
 Jupman Jupyter Manager  http://jupman.readthedocs.com
 
 
+## 0.9, August 26th, 2018
+
+- implemented generation of exercises from solutions, see #14
+- reverted to old jupman.init() code
+
 ## v0.8, August 12th, 2018
 
 - Prepended all functions in jupman.py with `jupman_`

@@ -1,5 +1,5 @@
 
-from intro_exercise import *
+from intro1_solution import *
 
 import unittest
 
