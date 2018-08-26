@@ -14,6 +14,8 @@ import sys
 import re
 import types
 import shutil
+from enum import Enum
+
 
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
@@ -22,7 +24,7 @@ on_rtd = os.environ.get('READTHEDOCS') == 'True'
 course = "TODO CHANGE COURSE" 
 degree = "TODO CHANGE DEGREE"
 author = 'TODO CHANGE NAME' 
-copyright = '# 2017, ' + author                              
+copyright = '# TODO FIRST YEAR - %s, %s' % (datetime.datetime.now().year, author)
 
 #####    'filename' IS *VERY* IMPORTANT !!!!
 #####     IT IS PREPENDED IN MANY GENERATED FILES
@@ -36,15 +38,18 @@ filename = 'jupman'   # The filename without the extension
 exercise_common_files = ['jupman.py', 'my_lib.py', 'img/cc-by.png' ]
 
 
+# words used in ipynb files - you might want to translate these in your language. Use plural.
+IPYNB_SOLUTION = "solutions"
+IPYNB_EXERCISE = "exercises"
+
 #################################################################
 
-zip_ignored = ['__pycache__', '.ipynb_checkpoints', '.pyc']
+#pattern as in ipynb json file - note markdown has no output in ipynb
+IPYNB_TITLE_PATTERN = re.compile(r"(\"source\"\: \[\n\s*\"\s*#.*)(" + IPYNB_SOLUTION + r")(\\n\")")
 
-def zip_ignored_file(fname):
-    
-    for i in zip_ignored:
-        if fname.find(i) != -1:
-            return True
+
+
+zip_ignored = ['__pycache__', '.ipynb_checkpoints', '.pyc']
 
 FORMATS = ["html", "epub", "latex"]
 SYSTEMS = {
@@ -68,14 +73,31 @@ system = 'default'
 
 project = MANUALS[manual]['name']
 
-JUPMAN_SOLUTION = "jupman-sol"
-jupman_tags = [JUPMAN_SOLUTION]
+
+
+JUPMAN_RAISE = "jupman-raise"
+JUPMAN_STRIP = "jupman-strip"
+
+#WARNING: this string can end end up in a .ipynb json, so it must be a valid JSON string  !
+#         Be careful with the double quotes and \n  !!
+RAISE_STRING = "raise Exception('TODO IMPLEMENT ME !')"
+
+
+jupman_tags = [JUPMAN_RAISE, JUPMAN_STRIP]
+
 
 def jupman_tag_start(tag):
     return '#' + tag
 
 def jupman_tag_end(tag):
     return '#/' + tag
+
+
+RAISE_PATTERN = re.compile(jupman_tag_start(JUPMAN_RAISE) + '.*?' + jupman_tag_end(JUPMAN_RAISE), flags=re.DOTALL)
+
+STRIP_PATTERN = re.compile(jupman_tag_start(JUPMAN_STRIP) + '.*?' + jupman_tag_end(JUPMAN_STRIP), flags=re.DOTALL)
+
+
 
 def fatal(msg, ex=None):
     """ Prints error and exits (halts program execution immediatly)
@@ -142,18 +164,29 @@ def get_version(release):
     sl = release.split(".")
     return sl[0] + '.' + sl[1]
 
+def zip_ignored_file(fname):
+    
+    for i in zip_ignored:
+        if fname.find(i) != -1:
+            return True
 
 
 SUPPORTED_DISTRIB_EXT = ['py', 'ipynb']
     
 
-from enum import Enum
-class DistribFileKind(Enum):
+class FileKinds(Enum):
     SOLUTION = 1
     EXERCISE = 2
     TEST = 3
     OTHER = 4
 
+    @staticmethod
+    def sep(ext):
+        if ext == 'py':
+            return '_'
+        else:
+            return '-'
+    
     @staticmethod
     def is_supported_ext(fname):
         for ext in SUPPORTED_DISTRIB_EXT:
@@ -168,36 +201,36 @@ class DistribFileKind(Enum):
             ext = l[-1]
         else:
             ext = ''
-        if fname.endswith("_solution" + '.' + ext):
-            return DistribFileKind.SOLUTION            
-        elif fname.endswith("_exercise" + '.' + ext):
-            return DistribFileKind.EXERCISE 
+        if fname.endswith(FileKinds.sep(ext) + "solution" + '.' + ext):
+            return FileKinds.SOLUTION            
+        elif fname.endswith(FileKinds.sep(ext) + "exercise" + '.' + ext):
+            return FileKinds.EXERCISE 
         elif fname.endswith("_test.py") :
-            return DistribFileKind.TEST        
+            return FileKinds.TEST        
         else:
-            return DistribFileKind.OTHER
+            return FileKinds.OTHER
 
     @staticmethod
     def check_ext(fname):
-        if not DistribFileKind.is_supported_ext(fname):
+        if not FileKinds.is_supported_ext(fname):
             raise Exception("%s extension is not supported. Valid values are: %s" % (fname, SUPPORTED_DISTRIB_EXT))
         
     @staticmethod        
     def exercise(radix, ext):      
-        DistribFileKind.check_ext(ext)
-        return radix + '_exercise.' + ext
+        FileKinds.check_ext(ext)
+        return radix + FileKinds.sep(ext) + 'exercise.' + ext
 
     @staticmethod
     def exercise_from_solution(fname):
-        DistribFileKind.check_ext(fname)
+        FileKinds.check_ext(fname)
         ext = fname.split(".")[-1]
                
-        return fname.replace("_solution." + ext, "_exercise." + ext)
+        return fname.replace(FileKinds.sep(ext) + "solution." + ext, FileKinds.sep(ext) + "exercise." + ext)
         
     @staticmethod
     def solution(radix, ext):
-        DistribFileKind.check_ext(ext)
-        return radix + '_solution.' + ext
+        FileKinds.check_ext(ext)
+        return radix + FileKinds.sep(ext) + 'solution.' + ext
 
     @staticmethod
     def test(radix):
@@ -285,7 +318,7 @@ def validate_tags(text, fname):
 
 
 def copy_sols(source_filename, source_abs_filename, dest_filename):
-    if DistribFileKind.is_supported_ext(source_filename):
+    if FileKinds.is_supported_ext(source_filename):
         info("Stripping jupman tags from %s " % source_filename)
         with open(source_abs_filename) as sol_source_f:
             text = sol_source_f.read()
@@ -305,13 +338,12 @@ def copy_sols(source_filename, source_abs_filename, dest_filename):
                             
 
 def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
-    exercise_fname = DistribFileKind.exercise_from_solution(source_filename)
-    debug("exercise from solution:%s" % exercise_fname)
+    exercise_fname = FileKinds.exercise_from_solution(source_filename)
     exercise_abs_filename = dirpath + '/' + exercise_fname
     exercise_dest_filename = structure + '/' + exercise_fname
 
 
-    if DistribFileKind.is_supported_ext(source_filename):
+    if FileKinds.is_supported_ext(source_filename):
 
         with open(source_abs_filename) as sol_source_f:
             text = sol_source_f.read()                                
@@ -327,12 +359,26 @@ def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
 
 
                 with open(exercise_dest_filename, 'w') as exercise_dest_f:
-                    sol_pattern = jupman_tag_start(JUPMAN_SOLUTION) + '.*?' + jupman_tag_end(JUPMAN_SOLUTION)
-                    debug(sol_pattern)
-                    stripped_text = re.sub(sol_pattern, 
-                                           'raise Exception("TODO IMPLEMENT ME !")', text, flags=re.DOTALL)
-                    debug("STRIPPED TEXT=\n%s" % stripped_text)
-                    exercise_dest_f.write(stripped_text)
+                    
+                    
+                    
+                    
+                    formatted_text = re.sub(RAISE_PATTERN, RAISE_STRING, text)
+                    
+                    
+                    formatted_text = re.sub(STRIP_PATTERN, '', formatted_text)
+                    
+                    if source_abs_filename.endswith('.ipynb'):
+                        
+                        if not IPYNB_TITLE_PATTERN.search(formatted_text):
+                            error("Couldn't find title in file: \n   %s\nThere should be a markdown cell beginning with text (note string '%s' is mandatory)\n# bla bla %s" % (source_abs_filename, IPYNB_SOLUTION, IPYNB_SOLUTION))
+                                                
+                        formatted_text = re.sub(IPYNB_TITLE_PATTERN, 
+                                               r"\1" + IPYNB_EXERCISE + r"\3", formatted_text)                    
+                    
+                    
+                    #debug("FORMATTED TEXT=\n%s" % formatted_text)
+                    exercise_dest_f.write(formatted_text)
             else:
                 if not os.path.isfile(exercise_abs_filename) :
                     error("There is no exercise file and couldn't find any jupman tag in solution file for generating exercise !"
@@ -363,18 +409,18 @@ def copy_code(source_dir, dest_dir, copy_test=True, copy_solutions=False):
                     #print("source_abs_filename = " + source_abs_filename)
                     #print("dest_filename = " + dest_filename)
 
-                    fileKind = DistribFileKind.detect(source_filename)
+                    fileKind = FileKinds.detect(source_filename)
                     
-                    if fileKind == DistribFileKind.SOLUTION:                  
+                    if fileKind == FileKinds.SOLUTION:                  
                         
                         if copy_solutions:                                           
                             copy_sols(source_filename, source_abs_filename, dest_filename)
                         
-                        if DistribFileKind.is_supported_ext(source_filename):
+                        if FileKinds.is_supported_ext(source_filename):
                             generate_exercise(source_filename, source_abs_filename, dirpath, structure)    
                                         
                             
-                    elif fileKind == DistribFileKind.TEST:
+                    elif fileKind == FileKinds.TEST:
                         with open(source_abs_filename, encoding='utf-8') as source_f:
                             data=source_f.read().replace('_solution ', ' ')
                             info('Writing patched test %s' % source_filename) 
@@ -468,10 +514,11 @@ def zip_folders(folder, prefix='', suffix=''):
     if len(folder.strip()) == 0:
         fatal("BAD FOLDER TO ZIP ! BLANK STRING")
 
-    build_folder = '_build/' + folder
+    build_jupman = '_build/jupman/'
+    build_folder = build_jupman + folder
     if os.path.exists(build_folder):
         info('Cleaning %s' % build_folder)
-        delete_tree(build_folder, '_build/' + folder)
+        delete_tree(build_folder, '_build/jupman/' + folder)
     
     copy_code(folder, build_folder, copy_test=True, copy_solutions=True)
     
@@ -485,7 +532,7 @@ def zip_folders(folder, prefix='', suffix=''):
             #info("dir_name = " + dir_name)
             zip_name = prefix + dir_name + suffix
             zip_path = outdir + zip_name
-            zip_paths(exercise_common_files + [d], zip_path, patterns= [("^(_build/)","")])
+            zip_paths(exercise_common_files + [d], zip_path, patterns= [("^(%s)" % build_jupman,"")])
         info("Done zipping " + folder ) 
 
 

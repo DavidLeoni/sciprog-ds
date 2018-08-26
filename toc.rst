@@ -8,7 +8,8 @@
     usage.md
     jupman-tests.ipynb
 
-    exercises/intro/intro.ipynb
+    exercises/python-intro/python-intro.ipynb
+    exercises/jupyter-intro/jupyter-intro-solutions.ipynb
 
     past-exams.ipynb
     exam-project.ipynb
