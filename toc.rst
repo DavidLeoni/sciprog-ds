@@ -9,7 +9,7 @@
     jupman-tests.ipynb
 
     exercises/python-intro/python-intro.ipynb
-    exercises/jupyter-intro/jupyter-intro-solutions.ipynb
+    Jupyter introduction <exercises/jupyter-intro/jupyter-intro-solution.ipynb>
 
     past-exams.ipynb
     exam-project.ipynb
