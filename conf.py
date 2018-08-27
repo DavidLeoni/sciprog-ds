@@ -42,11 +42,14 @@ exercise_common_files = ['jupman.py', 'my_lib.py', 'img/cc-by.png' ]
 IPYNB_SOLUTION = "solutions"
 IPYNB_EXERCISE = "exercises"
 
+#NOTE: the following string is not just a translation, it's also a command that removes the cell it is contained in 
+#      when building the exercises. If the user inserts extra spaces the phrase will be recognized anyway
+WRITE_SOLUTION_HERE = "# write solution here"
+
 #################################################################
 
 #pattern as in ipynb json file - note markdown has no output in ipynb
-IPYNB_TITLE_PATTERN = re.compile(r"(\"source\"\: \[\n\s*\"\s*#.*)(" + IPYNB_SOLUTION + r")(\\n\")")
-
+IPYNB_TITLE_PATTERN = re.compile(r"(\s*#.*)(" + IPYNB_SOLUTION + r")")
 
 
 zip_ignored = ['__pycache__', '.ipynb_checkpoints', '.pyc']
@@ -78,6 +81,7 @@ project = MANUALS[manual]['name']
 JUPMAN_RAISE = "jupman-raise"
 JUPMAN_STRIP = "jupman-strip"
 
+
 #WARNING: this string can end end up in a .ipynb json, so it must be a valid JSON string  !
 #         Be careful with the double quotes and \n  !!
 RAISE_STRING = "raise Exception('TODO IMPLEMENT ME !')"
@@ -93,10 +97,16 @@ def jupman_tag_end(tag):
     return '#/' + tag
 
 
+
 RAISE_PATTERN = re.compile(jupman_tag_start(JUPMAN_RAISE) + '.*?' + jupman_tag_end(JUPMAN_RAISE), flags=re.DOTALL)
 
 STRIP_PATTERN = re.compile(jupman_tag_start(JUPMAN_STRIP) + '.*?' + jupman_tag_end(JUPMAN_STRIP), flags=re.DOTALL)
 
+def make_write_solution_here_pattern():
+    removed_spaces = " ".join(WRITE_SOLUTION_HERE.split()).replace(' ', '\s+')
+    return re.compile("(" + removed_spaces + ")(.*)", flags=re.DOTALL )
+
+WRITE_SOLUTION_HERE_PATTERN = make_write_solution_here_pattern()
 
 
 def fatal(msg, ex=None):
@@ -120,8 +130,6 @@ def error(msg, ex=None):
         the_ex = ex 
     info("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
     raise the_ex
-
-    
     
 def info(msg=""):
     print("  %s" % msg)
@@ -134,6 +142,8 @@ def debug(msg=""):
     print("  DEBUG=%s" % msg) 
     
 # note if I include the project name I can't reference it from index.rst for very silly reasons, see  http://stackoverflow.com/a/23855541
+
+#debug("WRITE_SOLUTION_HERE_PATTERN = %s" % WRITE_SOLUTION_HERE_PATTERN)
 
 def parse_date(ld):
     try:
@@ -307,13 +317,15 @@ def validate_tags(text, fname):
 
     for tag in tag_starts:
         if tag not in tag_ends or tag_starts[tag] != tag_ends[tag] :
-            raise Exception("Missing final tag for %s in %s" % (tag, fname) )
+            raise Exception("Missing final tag %s in %s" % (jupman_tag_end(tag), fname) )
 
     for tag in tag_ends:
         if tag not in tag_starts or tag_starts[tag] != tag_ends[tag] :
-            raise Exception("Missing initial tag for %s in %s" % (tag, fname) )
+            raise Exception("Missing initial tag %s in %s" % (jupman_tag_start(tag), fname) )
     
-    return sum(tag_starts.values()) > 0
+    write_solution_here_count = len(WRITE_SOLUTION_HERE_PATTERN.findall(text))
+    
+    return sum(tag_starts.values()) + write_solution_here_count > 0
 
 
 
@@ -335,7 +347,13 @@ def copy_sols(source_filename, source_abs_filename, dest_filename):
     else: # solution format not supported                           
         info("Writing " + source_filename)
         shutil.copy(source_abs_filename, dest_filename)
-                            
+          
+def solution_to_exercise_text(solution_text):
+                        
+    formatted_text = re.sub(RAISE_PATTERN, RAISE_STRING, solution_text)                    
+    formatted_text = re.sub(STRIP_PATTERN, '', formatted_text)
+    formatted_text = re.sub(WRITE_SOLUTION_HERE_PATTERN, r'\1\n\n', formatted_text)
+    return formatted_text            
 
 def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
     exercise_fname = FileKinds.exercise_from_solution(source_filename)
@@ -346,9 +364,9 @@ def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
     if FileKinds.is_supported_ext(source_filename):
 
         with open(source_abs_filename) as sol_source_f:
-            text = sol_source_f.read()                                
+            solution_text = sol_source_f.read()                                
 
-            found_tag = validate_tags(text, source_abs_filename)                                                                                
+            found_tag = validate_tags(solution_text, source_abs_filename)                                                                                
 
             if found_tag:
 
@@ -357,28 +375,43 @@ def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
 
                 info('Found jupman tags in solution file, going to derive from solution exercise file %s' % exercise_fname )                                    
 
-
+                                                        
                 with open(exercise_dest_filename, 'w') as exercise_dest_f:
                     
                     
-                    
-                    
-                    formatted_text = re.sub(RAISE_PATTERN, RAISE_STRING, text)
-                    
-                    
-                    formatted_text = re.sub(STRIP_PATTERN, '', formatted_text)
-                    
                     if source_abs_filename.endswith('.ipynb'):
                         
-                        if not IPYNB_TITLE_PATTERN.search(formatted_text):
+                        import nbformat
+                        # note: for weird reasons nbformat does not like the sol_source_f 
+                        nb_ex = nbformat.read(source_abs_filename, nbformat.NO_CONVERT)
+                                                                        
+                        
+                        # look for title
+                        for cell in nb_ex.cells:
+                            if cell.cell_type == "markdown":
+                                if IPYNB_TITLE_PATTERN.search(cell.source):
+                                    found_title = True
+                                    cell.source = re.sub(IPYNB_TITLE_PATTERN, 
+                                                   r"\1" + IPYNB_EXERCISE, cell.source) 
+                                    break
+                        
+                        if not found_title:
                             error("Couldn't find title in file: \n   %s\nThere should be a markdown cell beginning with text (note string '%s' is mandatory)\n# bla bla %s" % (source_abs_filename, IPYNB_SOLUTION, IPYNB_SOLUTION))
-                                                
-                        formatted_text = re.sub(IPYNB_TITLE_PATTERN, 
-                                               r"\1" + IPYNB_EXERCISE + r"\3", formatted_text)                    
+    
+    
+                        # look for tags
+                        for cell in nb_ex.cells:
+                            if cell.cell_type == "code":
+                                cell.source = solution_to_exercise_text(cell.source)                                
+                                
+                        nbformat.write(nb_ex, exercise_dest_f)
                     
-                    
-                    #debug("FORMATTED TEXT=\n%s" % formatted_text)
-                    exercise_dest_f.write(formatted_text)
+                    else:
+                        
+                        exercise_text = solution_to_exercise_text(solution_text)
+                        #debug("FORMATTED TEXT=\n%s" % exercise_text)
+                        exercise_dest_f.write(exercise_text)                    
+                                                                
             else:
                 if not os.path.isfile(exercise_abs_filename) :
                     error("There is no exercise file and couldn't find any jupman tag in solution file for generating exercise !"

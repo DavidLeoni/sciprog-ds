@@ -12,3 +12,10 @@ def help_func(x,y):
     return x - y
 #/jupman-strip
 
+
+# everything after next comment will be discarded
+
+# write solution here
+
+def f(x):
+    return x + 1
