@@ -42,10 +42,21 @@ exercise_common_files = ['jupman.py', 'my_lib.py', 'img/cc-by.png' ]
 IPYNB_SOLUTION = "solutions"
 IPYNB_EXERCISE = "exercises"
 
-#NOTE: the following string is not just a translation, it's also a command that removes the cell it is contained in 
-#      when building the exercises. If the user inserts extra spaces the phrase will be recognized anyway
-WRITE_SOLUTION_HERE = "# write solution here"
+#NOTE: the following string is not just a translation, it's also a command that   when building the exercises
+#      removes the content after it in the code cell it is contained in
+#      If the user inserts extra spaces the phrase will be recognized anyway
+WRITE_SOLUTION_HERE = "# write here"
 
+#NOTE: the following string is not just a translation, it's also a command that  when building the exercises 
+#      completely removes the content of the cell it is contained in (solution comment included)
+#      If the user inserts extra spaces the phrase will be recognized anyway
+
+SOLUTION = "# SOLUTION"
+
+#NOTE: the following string is not just a translation, it's also a command that   when building the exercises
+#      removes the content after it in the markdown cell it is contained in
+
+MARKDOWN_ANSWER = "**ANSWER**:"
 #################################################################
 
 #pattern as in ipynb json file - note markdown has no output in ipynb
@@ -385,7 +396,7 @@ def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
                         # note: for weird reasons nbformat does not like the sol_source_f 
                         nb_ex = nbformat.read(source_abs_filename, nbformat.NO_CONVERT)
                                                                         
-                        
+                        found_title = False
                         # look for title
                         for cell in nb_ex.cells:
                             if cell.cell_type == "markdown":
@@ -402,7 +413,13 @@ def generate_exercise(source_filename, source_abs_filename, dirpath, structure):
                         # look for tags
                         for cell in nb_ex.cells:
                             if cell.cell_type == "code":
-                                cell.source = solution_to_exercise_text(cell.source)                                
+                                if cell.source.strip().startswith(SOLUTION):
+                                    cell.source = " " 
+                                else:
+                                    cell.source = solution_to_exercise_text(cell.source)
+                            if cell.cell_type == "markdown":
+                                if cell.source.strip().startswith(MARKDOWN_ANSWER):                                    
+                                    cell.source = " " # space, otherwise it shows 'Type markdown or latex'                               
                                 
                         nbformat.write(nb_ex, exercise_dest_f)
                     
@@ -656,7 +673,7 @@ language = None
 
 # -- Options for HTML output ----------------------------------------------
 
-html_title = project + ' version ' + release
+html_title = project # + ' version ' + release
 
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
@@ -695,6 +712,19 @@ htmlhelp_basename = project + 'doc'
 #DAVID: NOTE: THESE ARE *ONLY* FOR HTML TEMPLATES, WHICH IS DIFFERENT FROM jm-templates
 # see https://github.com/DavidLeoni/jupman/issues/10
 templates_path = ['_templates']
+
+#DAVID: you can use html_additional_pages for directly copying html files from _templates
+#       to the project root
+
+# For example, it could be useful for copying Google Search Console files. 
+# Just put the google file in the _templates directory, 
+# and add the following code. Note that afterwards you would still need to 
+# go to readthethedocs and in Redirects section add an absolute redirect 
+# like /google3dea3b29336ca0e5.html -> /it/latest/google3dea3b29336ca0e5.html 
+
+#html_additional_pages = {
+#    'google3dea3b29336ca0e5.html': 'google3dea3b29336ca0e5.html',
+#}
 
 
 # -- Options for LaTeX output ---------------------------------------------# -- Options for LaTeX output ---------------------------------------------

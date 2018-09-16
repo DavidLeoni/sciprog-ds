@@ -15,7 +15,7 @@ def help_func(x,y):
 
 # everything after next comment will be discarded
 
-# write solution here
+# write here
 
 def f(x):
     return x + 1
