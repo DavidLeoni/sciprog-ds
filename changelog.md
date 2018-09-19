@@ -4,6 +4,13 @@
 Jupman Jupyter Manager  http://jupman.readthedocs.com
 
 
+## 1.0, September 19th, 2018
+
+- fixed build.py
+- added html templates examples
+- cleaned toc (was showing too much when loading)
+
+
 ## 0.9, August 26th, 2018
 
 - implemented generation of exercises from solutions
