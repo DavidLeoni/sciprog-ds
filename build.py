@@ -222,7 +222,7 @@ def replace_html(stext, rtext):
     files = glob.glob(path, recursive=True)  # recursive since python 3.5 https://stackoverflow.com/a/2186565
     
     for fname in files:
-        debug(fname)
+        #debug(fname)
         
         # debug([p.name for p in Path(relfname).parents])
         # for some reason it adds an empty string:    DEBUG=['exam-solutions', 'jm-templates', '']        

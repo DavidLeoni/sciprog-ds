@@ -5,7 +5,8 @@
     :glob:
     :hidden:
 
-    home.ipynb
+
+    Home <home.ipynb>
     usage.md
     jupman-tests.ipynb
 
@@ -18,8 +19,6 @@
     jm-templates/project-NAME-SURNAME-ID/markdown.ipynb
     jm-templates/project-NAME-SURNAME-ID/requirements.txt
     changelog.md
-    
-    
-Table of Contents
----------------------
-    
+
+.
+--------
