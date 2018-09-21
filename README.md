@@ -1,6 +1,15 @@
 
-# Jupman
+# DataSciproLab
 
-Jupyter Python 3 worksheets build system and exam manager, see manual at [http://jupman.readthedocs.io](jupman.readthedocs.io)
 
-Jupman uses [NbSphinx](http://nbsphinx.readthedocs.io/) and [ReadTheDocs](https://readthedocs.org). 
+Source code as Jupyter Python worksheets for algorithms lab of Scientific Programming course (Data Science master, University of Trento)
+
+
+For Students: 
+
+* Officiale course website is here  [datasciprolab.readthedocs.org](http://datasciprolab.readthedocs.org) 
+* In this repository you will find the pages for building the website, the only thing interesting to you
+should be the [exercises folder](exercises)
+
+
+For instructors: see [Jupman](http://jupman.readthedocs.io)

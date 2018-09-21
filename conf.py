@@ -21,21 +21,21 @@ on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 ###################   TODO EDIT AS NEEDED !!  ####################
 
-course = "TODO CHANGE COURSE" 
-degree = "TODO CHANGE DEGREE"
-author = 'TODO CHANGE NAME' 
-copyright = '# TODO FIRST YEAR - %s, %s' % (datetime.datetime.now().year, author)
+course = "Data Science Scientific Programming Lab" 
+degree = "Data Science @ University of Trento"
+author = 'David Leoni' 
+copyright = '# 2018 - %s, %s' % (datetime.datetime.now().year, author)
 
 #####    'filename' IS *VERY* IMPORTANT !!!!
 #####     IT IS PREPENDED IN MANY GENERATED FILES
 #####     AND IT SHOULD ALSO BE THE SAME NAME ON READTHEDOCS 
 #####     (like i.e. jupman.readthedocs.org)
 
-filename = 'jupman'   # The filename without the extension
+filename = 'datasciprolab'   # The filename without the extension
 
 # common files for exercise and exams as paths. Paths are intended relative to the project root. Globs are allowed.
 # note 'overlay/_static/css','overlay/_static/js' are automatically injected when you call jupman.init()
-exercise_common_files = ['jupman.py', 'my_lib.py', 'img/cc-by.png' ]
+exercise_common_files = ['jupman.py', 'sciprog.py', 'img/cc-by.png' ]
 
 
 # words used in ipynb files - you might want to translate these in your language. Use plural.
@@ -75,7 +75,7 @@ SYSTEMS = {
 }
 MANUALS = {
     "student": {
-        "name" : "Jupman",  # TODO put manual name, like "Scientific Programming"
+        "name" : "DS Sciprog Lab",  # TODO put manual name, like "Scientific Programming"
         "audience" : "studenti",
         "args" : "",
         "output" : "",
