@@ -33,9 +33,14 @@ copyright = '# 2018 - %s, %s' % (datetime.datetime.now().year, author)
 
 filename = 'datasciprolab'   # The filename without the extension
 
-# common files for exercise and exams as paths. Paths are intended relative to the project root. Globs are allowed.
-# note 'overlay/_static/css','overlay/_static/js' are automatically injected when you call jupman.init()
-exercise_common_files = ['jupman.py', 'sciprog.py', 'img/cc-by.png' ]
+# common files for exercise and exams as paths. Paths are intended relative to the project root. Globs like /**/* are allowed.
+
+exercise_common_files = ['jupman.py', 'sciprog.py', 'img/cc-by.png',
+                         
+                         'overlay/_static/js/jupman.js',  # these files are injected when you call jupman.init()
+                         'overlay/_static/css/jupman.css', 
+                         'overlay/_static/js/toc.js']
+
 
 
 # words used in ipynb files - you might want to translate these in your language. Use plural.
@@ -574,6 +579,11 @@ def zip_folders(folder, prefix='', suffix=''):
     
     build_folders =   glob.glob(build_folder + "/*/")
     
+    deglobbed_common_files = []
+    for common_path in exercise_common_files:                
+        cur_deglobbed = glob.glob(common_path, recursive=True)       
+        deglobbed_common_files.extend(cur_deglobbed)                
+    
     if len(source_folders) > 0:
         outdir = 'overlay/_static/'
         info("Found stuff in %s , zipping them to %s" % (folder, outdir))
@@ -582,7 +592,7 @@ def zip_folders(folder, prefix='', suffix=''):
             #info("dir_name = " + dir_name)
             zip_name = prefix + dir_name + suffix
             zip_path = outdir + zip_name
-            zip_paths(exercise_common_files + [d], zip_path, patterns= [("^(%s)" % build_jupman,"")])
+            zip_paths(deglobbed_common_files + [d], zip_path, patterns= [("^(%s)" % build_jupman,"")])
         info("Done zipping " + folder ) 
 
 
