@@ -7,7 +7,10 @@
 
     Home <home.ipynb>
 
-    exercises/intro/intro.ipynb
+    slides.ipynb
+    commandments.ipynb
+    exercises/testing/testing.ipynb
+    exercises/sorting/sorting.ipynb
 
     past-exams.ipynb
 .
