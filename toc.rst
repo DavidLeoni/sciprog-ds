@@ -3,9 +3,8 @@
 .. toctree::
     :maxdepth: 2
     :glob:
-    :hidden:
 
-    Home <home.ipynb>
+    Home <index.ipynb>
 
     slides.ipynb
     commandments.ipynb
@@ -14,5 +13,6 @@
     exercises/sorting/sorting.ipynb
 
     past-exams.ipynb
-.
+
+Index
 --------
