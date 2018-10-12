@@ -8,7 +8,7 @@
 
     slides.ipynb
     commandments.ipynb
-    exercises/introduction/introduction.ipynb
+    Introduction <exercises/introduction/introduction-solution.ipynb>
     Basic data structures <exercises/basic-data-structures/basic-data-structures-solution.ipynb>
     Matrices <exercises/matrices/matrices-solution.ipynb>
     
