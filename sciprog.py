@@ -676,8 +676,41 @@ def to_nx(algolab_digraph):
             ret.add_edge(sv, tv)
     return ret
     
-# the draw here does not work ....     
-#def draw_digraph(algolab_digraph):
-# import networkx as nx
-#   nxg = to_networkx(algolab_digraph)
-    # nxpd.draw(ret, show='ipynb')
+def draw_mat(mat):    
+    """ Draws a matrix as a DiGraph 
+        In order to work, requires GraphViz (which is not a python package !)
+        
+        other libraries: networkx , pydot
+    """
+
+    import numpy as np
+    import matplotlib
+    import matplotlib.pyplot as plt
+    import matplotlib.image as mpimg
+    from IPython.display import Image, display
+    import networkx as nx
+    
+
+    m = np.matrix(mat)
+
+    G=nx.OrderedDiGraph(m)
+    
+    # add graphviz layout options (see https://stackoverflow.com/a/39662097)
+    G.graph['node'] = {'color': 'blue', 'fontcolor':'blue'}
+    G.graph['edge'] = {'arrowsize': '0.6', 'splines': 'curved', 'fontcolor':'brown'}
+    G.graph['graph'] = {'scale': '3'}
+
+    # adding attributes to edges in multigraphs is more complicated but see
+    # https://stackoverflow.com/a/26694158                    
+    #G[0][0]['color']='red'
+    
+    if not isinstance(mat[0][0], bool):
+        for i in range(len(mat)):
+            for j in range(len(mat)):
+                if i in G and j in G[i]:
+                    G[i][j]['label'] = G[i][j]['weight']
+
+    
+    pdot = nx.drawing.nx_pydot.to_pydot(G)
+    plt = Image(pdot.create_png())
+    display(plt)
