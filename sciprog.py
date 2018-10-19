@@ -676,24 +676,14 @@ def to_nx(algolab_digraph):
             ret.add_edge(sv, tv)
     return ret
     
-def draw_mat(mat):    
-    """ Draws a matrix as a DiGraph 
-        In order to work, requires GraphViz (which is not a python package !)
-        
-        other libraries: networkx , pydot
+def draw_nx(G):
+    """ Draws a NetworkX graph object. By default, assumes it is a DiGraph.
     """
-
-    import numpy as np
     import matplotlib
     import matplotlib.pyplot as plt
     import matplotlib.image as mpimg
     from IPython.display import Image, display
     import networkx as nx
-    
-
-    m = np.matrix(mat)
-
-    G=nx.OrderedDiGraph(m)
     
     # add graphviz layout options (see https://stackoverflow.com/a/39662097)
     G.graph['node'] = {'color': 'blue', 'fontcolor':'blue'}
@@ -703,7 +693,26 @@ def draw_mat(mat):
     # adding attributes to edges in multigraphs is more complicated but see
     # https://stackoverflow.com/a/26694158                    
     #G[0][0]['color']='red'
+        
+    pdot = nx.drawing.nx_pydot.to_pydot(G)
+    plt = Image(pdot.create_png())
+    display(plt)    
     
+def draw_mat(mat):    
+    """ Draws a matrix as a DiGraph 
+        In order to work, requires GraphViz (which is not a python package !)
+        
+        other libraries: networkx , pydot
+    """
+
+    import numpy as np
+    import networkx as nx
+    
+
+    m = np.matrix(mat)
+
+    G=nx.DiGraph(m)
+
     if not isinstance(mat[0][0], bool):
         for i in range(len(mat)):
             for j in range(len(mat)):
@@ -711,6 +720,21 @@ def draw_mat(mat):
                     G[i][j]['label'] = G[i][j]['weight']
 
     
-    pdot = nx.drawing.nx_pydot.to_pydot(G)
-    plt = Image(pdot.create_png())
-    display(plt)
+    draw_nx(G)
+
+def draw_adj(d):
+    """
+        Draws a a graph represented as a dictionary of adjancency lists. 
+        Node identifiers can be any immutable data structure, like numbers, strings, tuples ...
+    
+            {
+              'c': ['a','d'],  # node 'c' links to node 'a' and 'd'
+              'f': ['c']       # node 'f' links to node 'c'
+            }
+
+    """
+    
+    import networkx as nx
+    
+    G=nx.DiGraph(d)
+    draw_nx(G)
