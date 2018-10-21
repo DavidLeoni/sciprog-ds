@@ -720,11 +720,11 @@ html_extra_path = ['overlay']
 htmlhelp_basename = project + 'doc'
 
 
-#DAVID: NOTE: THESE ARE *ONLY* FOR HTML TEMPLATES, WHICH IS DIFFERENT FROM jm-templates
+#JUPMAN: NOTE: THESE ARE *ONLY* FOR HTML TEMPLATES, WHICH IS DIFFERENT FROM jm-templates
 # see https://github.com/DavidLeoni/jupman/issues/10
 templates_path = ['_templates']
 
-#DAVID: you can use html_additional_pages for directly copying html files from _templates
+#JUPMAN: you can use html_additional_pages for directly copying html files from _templates
 #       to the project root
 
 # For example, it could be useful for copying Google Search Console files. 
@@ -733,8 +733,10 @@ templates_path = ['_templates']
 # go to readthethedocs and in Redirects section add an absolute redirect 
 # like /google3dea3b29336ca0e5.html -> /it/latest/google3dea3b29336ca0e5.html 
 
+# NOTE: don't put the extension on the left  !
+
 #html_additional_pages = {
-#    'google3dea3b29336ca0e5.html': 'google3dea3b29336ca0e5.html',
+#    'google3dea3b29336ca0e5': 'google3dea3b29336ca0e5.html',
 #}
 
 
