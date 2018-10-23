@@ -685,6 +685,14 @@ def draw_nx(G):
     from IPython.display import Image, display
     import networkx as nx
     
+    # fix graphviz path for anaconda in windows ...
+    import os
+    if os.name == 'nt':
+        graphviz_path = 'C:\\Users\\' + os.getlogin() + '\\Anaconda3\\Library\\bin\\graphviz'
+        if os.path.exists(graphviz_path) and "PATH" in os.environ and (graphviz_path not in os.environ["PATH"]) :
+            os.environ["PATH"] += ';' + graphviz_path
+    
+    
     # add graphviz layout options (see https://stackoverflow.com/a/39662097)
     G.graph['node'] = {'color': 'blue', 'fontcolor':'blue'}
     G.graph['edge'] = {'arrowsize': '0.6', 'splines': 'curved', 'fontcolor':'brown'}
