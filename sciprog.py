@@ -678,6 +678,10 @@ def to_nx(algolab_digraph):
     
 def draw_nx(G):
     """ Draws a NetworkX graph object. By default, assumes it is a DiGraph.
+    
+        For required libraries, see 
+        https://datasciprolab.readthedocs.io/en/latest/exercises/matrix-networks/matrix-networks-solution.html#Required-libraries
+    
     """
     import matplotlib
     import matplotlib.pyplot as plt
@@ -708,9 +712,10 @@ def draw_nx(G):
     
 def draw_mat(mat):    
     """ Draws a matrix as a DiGraph 
-        In order to work, requires GraphViz (which is not a python package !)
         
-        other libraries: networkx , pydot
+        For required libraries, see 
+        https://datasciprolab.readthedocs.io/en/latest/exercises/matrix-networks/matrix-networks-solution.html#Required-libraries
+        
     """
 
     import numpy as np
@@ -739,6 +744,10 @@ def draw_adj(d):
               'c': ['a','d'],  # node 'c' links to node 'a' and 'd'
               'f': ['c']       # node 'f' links to node 'c'
             }
+
+        For required libraries, see 
+        https://datasciprolab.readthedocs.io/en/latest/exercises/matrix-networks/matrix-networks-solution.html#Required-libraries
+
 
     """
     
