@@ -6,8 +6,10 @@
 
     Home <index.ipynb>
 
+    past-exams.ipynb
     slides.ipynb
     commandments.ipynb
+    
     Introduction <exercises/introduction/introduction-solution.ipynb>
     Lists <exercises/lists/lists-solution.ipynb>    
     Dictionaries <exercises/dictionaries/dictionaries-solution.ipynb>
@@ -23,7 +25,7 @@
     exercises/testing/testing.ipynb
     exercises/sorting/sorting.ipynb
 
-    past-exams.ipynb
+    
 
 Index
 --------
