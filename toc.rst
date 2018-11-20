@@ -23,6 +23,7 @@
     Pandas <exercises/pandas/pandas-solution.ipynb>
     
     exercises/testing/testing.ipynb
+    exercises/oop/oop.ipynb
     exercises/sorting/sorting.ipynb
 
     
