@@ -17,17 +17,7 @@ class ComplexNumber:
             https://en.wikipedia.org/wiki/Complex_number#Absolute_value_and_argument
         """
         return math.atan2(self.imaginary, self.real)    
-    
-    def log(self, base):
-        """ Returns another ComplexNumber which is the logarithm of this complex number 
-            
-            This method is something we introduce by ourselves, according to the definition:
-            (accomodated for generic base b)
-            https://en.wikipedia.org/wiki/Complex_number#Natural_logarithm
-        """      
-        return ComplexNumber(math.log(self.real) / math.log(base), self.phase() / math.log(base)) 
-    
-    
+
     def magnitude(self):
         """ Returns a float which is the magnitude (that is, the absolute value) of the complex number 
         
@@ -39,12 +29,15 @@ class ComplexNumber:
         #/jupman-raise
     
     
-    def __eq__(self, other): 
-        # subtitute this with more precise code using the properties of the object
-        return self is other
-        #jupman-strip
-        return self.real == other.real  and self.imaginary == other.imaginary
-        #/jupman-strip
+    def log(self, base):
+        """ Returns another ComplexNumber which is the logarithm of this complex number 
+            
+            This method is something we introduce by ourselves, according to the definition:
+            (accomodated for generic base b)
+            https://en.wikipedia.org/wiki/Complex_number#Natural_logarithm
+        """      
+        return ComplexNumber(math.log(self.real) / math.log(base), self.phase() / math.log(base)) 
+    
     
     def isclose(self, c, delta):
         """ Returns True if the complex number is within a delta distance from complex number c.                                
@@ -52,10 +45,17 @@ class ComplexNumber:
         #jupman-raise
         return math.sqrt((self.real-c.real)**2 + (self.imaginary-c.imaginary)**2) < delta
         #/jupman-raise
-        
-    def __add__(self, other): 
+    
+    
+    def __eq__(self, other):         
+        #jupman-strip
+        return self.real == other.real  and self.imaginary == other.imaginary
+        #/jupman-strip
         # subtitute this with more precise code using the properties of the object
-        return NotImplemented
+        return self is other
+    
+        
+    def __add__(self, other):         
         #jupman-strip
         if isinstance(other, ComplexNumber): 
             return ComplexNumber(self.real + other.real,self.imaginary + other.imaginary)
@@ -64,10 +64,10 @@ class ComplexNumber:
         else:
             return NotImplemented
         #/jupman-strip
-
-    def __radd__(self, other): 
         # subtitute this with more precise code using the properties of the object
         return NotImplemented
+
+    def __radd__(self, other):         
         
         #jupman-strip
         if (type(other) is int or type(other) is float):
@@ -75,10 +75,10 @@ class ComplexNumber:
         else:
             return NotImplemented
         #/jupman-strip
-    
-    def __mul__(self, other): 
         # subtitute this with more precise code using the properties of the object
         return NotImplemented
+    
+    def __mul__(self, other): 
         
         #jupman-strip
         if isinstance(other, ComplexNumber): 
@@ -89,14 +89,16 @@ class ComplexNumber:
         else:
             return NotImplemented
         #/jupman-strip
-        
-    def __rmul__(self, other):
         # subtitute this with more precise code using the properties of the object
         return NotImplemented
+        
+    def __rmul__(self, other):        
         
         #jupman-strip
         if (type(other) is int or type(other) is float):
             return ComplexNumber(self.real * other, self.imaginary * other)
         else:
             return NotImplemented
-         #/jupman-strip
+        #/jupman-strip
+        # subtitute this with more precise code using the properties of the object
+        return NotImplemented    

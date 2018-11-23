@@ -76,7 +76,7 @@ class AddTest(unittest.TestCase):
         self.assertEquals(ComplexNumber(1,2) + ComplexNumber(3,4), ComplexNumber(4,6));
 
 class RaddTest(unittest.TestCase):
-     def test_01_add_scalar_right(self):        
+    def test_01_add_scalar_right(self):        
         self.assertEquals(ComplexNumber(1,2) + 3, ComplexNumber(4,2));        
 
     def test_02_add_scalar_left(self):        
@@ -84,4 +84,21 @@ class RaddTest(unittest.TestCase):
 
     def test_03_add_negative(self):
         self.assertEquals(ComplexNumber(-1,0) + ComplexNumber(0,-1), ComplexNumber(-1,-1));
+
+class MulTest(unittest.TestCase):
+
+    def test_01_mul_by_zero(self):
+        self.assertEquals(ComplexNumber(0,0) * ComplexNumber(1,2), ComplexNumber(0,0));
+
+    def test_02_mul_just_real(self):
+        self.assertEquals(ComplexNumber(1,0) * ComplexNumber(2,0), ComplexNumber(2,0));
+
+    def test_03_mul_just_imaginary(self):
+        self.assertEquals(ComplexNumber(0,1) * ComplexNumber(0,2), ComplexNumber(-2,0));        
+
+    def test_04_mul_scalar_right(self):
+        self.assertEquals(ComplexNumber(1,2) * 3, ComplexNumber(3,6));
+
+    def test_05_mul_scalar_left(self):
+        self.assertEquals(3 * ComplexNumber(1,2), ComplexNumber(3,6));   
 
