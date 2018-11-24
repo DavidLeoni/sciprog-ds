@@ -39,11 +39,11 @@ class ComplexNumber:
         return ComplexNumber(math.log(self.real) / math.log(base), self.phase() / math.log(base)) 
     
     
-    def isclose(self, c, delta):
-        """ Returns True if the complex number is within a delta distance from complex number c.                                
+    def isclose(self, z, delta):
+        """ Returns True if the complex number is within a delta distance from complex number z.                                
         """
         #jupman-raise
-        return math.sqrt((self.real-c.real)**2 + (self.imaginary-c.imaginary)**2) < delta
+        return math.sqrt((self.real-z.real)**2 + (self.imaginary-z.imaginary)**2) < delta
         #/jupman-raise
     
     
