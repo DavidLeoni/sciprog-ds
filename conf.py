@@ -478,7 +478,7 @@ def copy_code(source_dir, dest_dir, copy_test=True, copy_solutions=False):
                             
                     elif fileKind == FileKinds.TEST:
                         with open(source_abs_filename, encoding='utf-8') as source_f:
-                            data=source_f.read().replace('_solution ', ' ')
+                            data=source_f.read().replace('_solution ', '_exercise ')
                             info('Writing patched test %s' % source_filename) 
                             with open(dest_filename, 'w', encoding='utf-8') as dest_f:
                                 writer = dest_f.write(data)                         
