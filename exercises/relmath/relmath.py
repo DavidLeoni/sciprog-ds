@@ -32,15 +32,15 @@ class BinOp(Expr):
         raise NotImplementedError("IMPLEMENT ME!")    
 
     
-class MatMul(BinOp):
+class RelMul(BinOp):
     def __init__(self, left, right):
         super().__init__(left, right)
     
     def python_token(self):
-        return '@'
+        return '*'
 
     def python_method(self):
-        return '__matmul__'
+        return '__mul__'
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -56,7 +56,7 @@ class MatMul(BinOp):
     def simp(self):
         lsimp = self.left.simp()
         rsimp = self.right.simp()
-        return lsimp @ rsimp
+        return lsimp * rsimp
 
 class UnOp(Expr):
     def __init__(self, val):
@@ -77,13 +77,13 @@ class T(UnOp):
 
 
     def python_token(self):
-        return '~'
+        raise NotImplementedError
 
     def python_method(self):
-        return '__inverse__'
+        return '.T'
 
     def __str__(self):
-        return "%s%s" % (self.python_token(), self.val)
+        return "%s%s" % (self.val, self.python_method())
 
     @property
     def dom(self):
@@ -94,7 +94,7 @@ class T(UnOp):
         return self.val.dom
    
     def simp(self):
-        return ~self.val
+        return self.val.T
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -207,6 +207,8 @@ class Rel(Val):
         return self._cod
 
     def nodes(self):
+        """ Ordered list of unique nodes. First dom, then cod
+        """
         inter = set(self.dom).intersection(self.cod)
         if len(inter) > 0:
             return [x for x in self.dom if x not in inter] + self.cod
@@ -227,7 +229,9 @@ class Rel(Val):
                 row.append(self.g[i][j] + r2.g[i][j])
         return Rel(res_g, self.dom, self.cod)
                 
-    def __matmul__(self, r2):
+    def __mul__(self, r2):
+        """ we don't consider __matmul__ for now (dont like the '@')
+        """
         res_g = []
         
         for i in range(len(self.dom)):
@@ -243,7 +247,8 @@ class Rel(Val):
     def __str__(self):
         return str(self.g)
 
-    def __invert__(self):
+    
+    def transpose(self):
         res_g = []
         for i in range(len(self.cod)):
             row = []
@@ -252,6 +257,8 @@ class Rel(Val):
                 row.append(self.g[j][i])
 
         return Rel(res_g, self.cod, self.dom)
+
+    T = property(transpose, None, None, "Matrix transposition.")
 
     def __neg__(self):
         res_g = []
@@ -269,11 +276,11 @@ M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] )
 
 
 print('M = \n%s' % M)
-print('~M = \n%s' % ~M)
+print('M.T = \n%s' % M.T)
 print('-M = \n%s' % -M)
 
-E = MatMul(M, T(M))
-print('M@~M=\n%s' % (M@~M))
-print("MatMul(M, T(M))\n%s" % MatMul(M, T(M)))
-print("MatMul(M, T(M)).simp()\n%s" % MatMul(M, T(M)).simp())
+E = RelMul(M, T(M))
+print('M*M.T=\n%s' % (M*M.T))
+print("RelMul(M, T(M))\n%s" % RelMul(M, T(M)))
+print("RelMul(M, T(M)).simp()\n%s" % RelMul(M, T(M)).simp())
 
