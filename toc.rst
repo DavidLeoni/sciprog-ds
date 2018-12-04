@@ -25,6 +25,7 @@
     exercises/testing/testing.ipynb
     exercises/oop/oop.ipynb
     exercises/sorting/sorting.ipynb
+    exercises/linked-lists/linked-lists.ipynb
 
     
 
