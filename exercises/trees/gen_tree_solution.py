@@ -1,3 +1,5 @@
+
+
 class GenericTree:
     """ A tree in which each node can have any number of children. 
     
@@ -91,11 +93,11 @@ class GenericTree:
     
     def insert_child(self, new_child):        
         """ Inserts new_child at the beginning of the children sequence. """
-        
+        #jupman-raise
         new_child._sibling = self._child
         new_child._parent = self
         self._child = new_child
-        
+        #/jupman-raise
 
     def insert_children(self, new_children):        
         """ Takes a list of children and inserts them at the beginning of the current children sequence,
@@ -120,20 +122,24 @@ class GenericTree:
                 ├b                
                 └c
         """
+        #jupman-raise
         for c in reversed(new_children):
             self.insert_child(c)        
-        
+        #/jupman-raise
+
     def insert_sibling(self, new_sibling):
         """ Inserts new_sibling as the *immediate* next sibling.
             
             If self is a root, raises an Exception.           
         """
+        #jupman-raise
         if (self.is_root()):
             raise Exception("Can't add siblings to a root node !!")
             
         new_sibling._parent = self._parent
         new_sibling._sibling = self._sibling
         self._sibling = new_sibling
+        #/jupman-raise
 
     def insert_siblings(self, new_siblings):
         """ Inserts new_siblings at the beginning of the siblings sequence.
@@ -160,18 +166,20 @@ class GenericTree:
                 └c
 
         """
+        #jupman-raise
         if (self.is_root()):
             raise Exception("Can't add siblings to a root node !!")
         
         for s in reversed(new_siblings):
             self.insert_sibling(s)
-            
+        #/jupman-raise
+
     def detach_child(self):
         """ Detaches the first child. 
         
             if there is no child, raises an Exception 
         """
-
+        #jupman-raise
         if (self._child == None):
             raise Exception("There is no child !")            
         else:
@@ -180,14 +188,14 @@ class GenericTree:
             self._child = self._child._sibling 
             detached._parent = None
             detached._sibling = None
-            
+        #/jupman-raise
             
     def detach_sibling(self):
         """ Detaches the first sibling.
         
             If there is no sibling, raises an Exception 
         """
-        
+        #jupman-raise
         if (self._sibling == None):
             raise Exception("There is no sibling !")
         else:
@@ -195,13 +203,14 @@ class GenericTree:
             self._sibling = self._sibling._sibling             
             detached._parent = None
             detached._sibling = None
-            
+        #/jupman-raise
+
     def detach(self, data):
         """ Detaches the first child that holds the provided data.
         
             If no such node is found, raises an Exception
         """
-
+        #jupman-raise
         if (self._child != None):
             current = self._child
             prev = None
@@ -218,6 +227,7 @@ class GenericTree:
                     prev = current
                     current = current._sibling                        
         raise Exception("Couldn't find any children holding this data:" + str(data))
+        #/jupman-raise
 
     def ancestors(self):
         """ Return the ancestors up until the root as a Python list.             
@@ -225,14 +235,15 @@ class GenericTree:
             
             NOTE: this function return the *nodes*, not the data.
         """
-        
+        #jupman-raise
         ret = []
         current = self._parent
         while current != None:
             ret.append(current)
             current = current._parent
         return ret
-    
+        #/jupman-raise
+
     def grandchildren(self):
         """ Returns a python list containing the data of all the grandchildren of this
             node.
@@ -254,6 +265,7 @@ class GenericTree:
             
             Returns ['c','d','h']
         """        
+        #jupman-raise
         ret = []        
         
         c = self._child
@@ -266,9 +278,17 @@ class GenericTree:
             c = c._sibling
         
         return ret
+        #/jupman-raise
 
     def zig(self):
-                
+        """ RETURN as output a list of data of the root and all the nodes in the chain of child attributes.
+            Basically, you just have to follow the red lines and gather data in a list, 
+            until there are no more red lines to follow. 
+
+            See site for more info
+        
+        """
+        #jupman-raise        
         ret = [self._data]    
         current = self        
 
@@ -277,9 +297,15 @@ class GenericTree:
             current = current._child
 
         return ret
+        #/jupman-raise
 
     def zag(self):
-
+        """ This function is quite similar to zig, but this time it RETURN the data it gathers going right,
+            along the sibling arrows. 
+        
+            See site for more info
+        """
+        #jupman-raise
         ret = [self._data]                
         current = self
             
@@ -288,10 +314,15 @@ class GenericTree:
             current = current._sibling    
 
         return ret
-        
+        #/jupman-raise
 
     def zigzag(self):
-                
+        """
+            First zigs collecting data along the child vertical red chain as much as it can. Then, if the last node links to at least a sibling, the method continues to collect data along the siblings horizontal chain as much as it can. At this point, if it finds a child, it goes zigging again along the child vertical red chain as much as it can, and then horizontal zaging, and so on. It continues zig-zaging like this until it reaches a node that has no child nor sibling: when this happens returns the list of data found so far.
+
+            See site for more info.
+        """
+        #jupman-raise        
         current = self
         
         ret = [self._data]
@@ -308,9 +339,10 @@ class GenericTree:
             while current._sibling != None:
                 ret.append(current._sibling._data)
                 current = current._sibling    
-    
+        #/jupman-raise
+
     def uncles(self):
-        """ Returns a python list containing the data of all the uncles of this
+        """ RETURN a python list containing the data of all the uncles of this
             node (that is, *all* the siblings of its parent).
             
             NOTE: returns also the father siblings which are *BEFORE* the father !! 
@@ -353,7 +385,7 @@ class GenericTree:
 
         
     def common_ancestor(self, gt2):
-        """ Return the first common ancestor of current node and the provided gt2 node
+        """ RETURN the first common ancestor of current node and the provided gt2 node
             If gt2 is not a node of the same tree, raises LookupError
 
             NOTE: this function returns a *node*, not the data.
@@ -411,7 +443,7 @@ class GenericTree:
 
             
     def clone(self):
-        """ Clones this tree, by returning an *entirely* new tree which is an 
+        """ Clones this tree, by RETURNING an *entirely* new tree which is an 
             exact copy of this tree (so returned node and *all* its descendants must be new). 
             
             - MUST run in O(n) where n is the number of nodes
