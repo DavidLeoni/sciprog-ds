@@ -26,12 +26,11 @@ def bt(*args):
     children = args[1:]
     
     ret = BinaryTree(data)    
-
-    cs = list(reversed(children))
-    if len(cs) > 0:
-        ret._left = cs[0]
-    if len(cs) == 2:
-        ret._right = cs[1]
+    
+    if len(children) > 0:
+        ret._left = children[0]
+    if len(children) == 2:
+        ret._right = children[1]
     return ret
 
 
@@ -222,3 +221,5 @@ class InsertRightTest(BinaryTreeTest):
         self.assertEqual(tb.right(), tc)
         self.assertEqual(tc.left(), None)
         self.assertEqual(tc.right(), None)
+
+

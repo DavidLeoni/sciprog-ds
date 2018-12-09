@@ -17,7 +17,41 @@ class BinaryTree:
     def right(self):
         return self._right
                     
-                
+    def __str__(self):
+        """ Returns a pretty string of the tree """
+        def str_branches(node, branches):
+            """ Returns a string with the tree pretty printed. 
+
+                branches: a list of characters representing the parent branches. Characters can be either ` ` or '│'            
+            """
+            strings = [str(node._data)]
+
+            i = 0           
+            if node._left != None or node._right != None:
+                for current in [node._left, node._right]:
+                    if i == 0:            
+                        joint = '├'
+                    else:
+                        joint = '└' 
+
+                    strings.append('\n')
+                    for b in branches:
+                        strings.append(b)
+                    strings.append(joint)
+                    if i == 0:
+                        branches.append('│')                    
+                    else:
+                        branches.append(' ')
+
+                    if current != None:                
+                        strings.append(str_branches(current, branches))
+                    branches.pop()                
+                    i += 1
+            return "".join(strings)
+        
+        return str_branches(self, [])
+
+
     def insert_left(self, data):
         """ Takes as input DATA (*NOT* a node !!) and MODIFIES current node this way:
         
@@ -74,20 +108,19 @@ class BinaryTree:
 
     def depth_dfs(self, level):
         """
-            - MODIFIES the tree by putting in the data field the value level + 1,
+            - MODIFIES the tree by putting in the data field the provided value level (which is an integer),
               and recursively calls itself on left and right nodes (if present)  passing level + 1
             - implement it as a recursive Depth First Search (DFS) traversal
               NOTE: with big trees a recursive solution would surely exceed the call stack,
                     but here we don't mind
             - The root of a tree has depth zero.
-            
+            - does not return anything            
         """
         #jupman-raise
-        self._data = level + 1
+        self._data = level
         if self.left() != None:
             self.left().depth_dfs(level + 1) 
         if self.right() != None:
             self.right().depth_dfs(level + 1)         
         #/jupman-raise        
 
-    
