@@ -98,12 +98,18 @@ class BinaryTree:
             
         """
         #jupman-raise
-        if self.left() != None:
-            h_left = self.left().height() 
-        if self.right() != None:
-            h_right = self.right().height() 
+        if self.left() == None:
+            h_left = 0
+        else:
+            h_left = self.left().height_rec() + 1
         
-        return max(h_left, h_right) + 1
+        if self.right() == None:
+            h_right = 0
+        else:
+            h_right = self.right().height_rec() + 1
+
+        
+        return max(h_left, h_right)
         #/jupman-raise
 
     def depth_dfs(self, level):
@@ -122,5 +128,6 @@ class BinaryTree:
             self.left().depth_dfs(level + 1) 
         if self.right() != None:
             self.right().depth_dfs(level + 1)         
+        
         #/jupman-raise        
 

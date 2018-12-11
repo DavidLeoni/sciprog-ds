@@ -408,7 +408,7 @@ class AncestorsTest(GenericTreeTest):
 
     """
         a
-        |-b
+        ├b
         └c  <-
     """        
     def test_brothers(self):        
@@ -420,9 +420,9 @@ class AncestorsTest(GenericTreeTest):
 
     """
         a
-        |-b
-        | |-d
-        | └e
+        ├b
+        |├d
+        |└e
         └c
          └f
     """   
@@ -446,47 +446,47 @@ class GrandChildrenTest(GenericTreeTest):
 
     """
         a
-        \-b
+        └b
     """            
     def test_grandchildren_one_child_no_children(self):
         self.assertEqual(gt('a',  gt('b')).grandchildren(), [])        
 
     """
         a
-        \-b
-          \-c
+        └b
+         └c
     """            
     def test_grandchildren_one_child_one_grandchildren(self):
         self.assertEqual(gt('a',  gt('b', gt('c'))).grandchildren(), ['c'])        
 
     """
         a
-        \-b
-          |-c
-          \-d
+        └b
+         ├c
+         └d
     """            
     def test_grandchildren_one_child_two_grandchildren(self):
         self.assertEqual(gt('a',  gt('b', gt('c'), gt('d'))).grandchildren(), ['c', 'd'])        
 
     """
         a
-        |-b
-        | \-c
-        \-d
-          \-e
+        ├b
+        |└c
+        └d
+          └e
     """            
     def test_grandchildren_two_children_two_grandchildren(self):
         self.assertEqual(gt('a',  gt('b', gt('c')), gt('d', gt('e'))).grandchildren(), ['c', 'e'])        
 
     """
             a
-            |-b
-            | |-c
-            | \-d
-            |   \-g
-            |-e
-            | \-h  
-            \-f    
+            ├b
+            |├c
+            |└d
+            | └g
+            ├e
+            |└h  
+            └f    
     """
     def test_grandchildren_complex_grandgrandchildren(self):
         self.assertEqual(gt('a',  gt('b', gt('c'), gt('d', gt('g'))), 
@@ -503,25 +503,25 @@ class ZigTest(GenericTreeTest):
     def test_zig_last__one_child(self):
         """ 
             a
-            \-b <-
+            └b <-
         """
         self.assertEqual(gt('a', gt('b')).zig(), ['a', 'b'])
 
     def test_zig_last_two_children(self):
         """ 
             a
-            |-b 
-            \-c 
+            ├b 
+            └c 
         """    
         self.assertEqual(gt('a', gt('b'), gt('c')).zig(), ['a', 'b'])
         
     def test_zig_depth_three(self):
         """ 
             a
-            |-b
-            | |-c
-            | \-d
-            \-e 
+            ├b
+            |├c
+            |└d
+            └e 
         """    
         self.assertEqual(gt('a', gt('b', gt('c'), gt('d')), gt('e')).zig(), ['a','b', 'c'])        
 
@@ -534,7 +534,7 @@ class ZagTest(GenericTreeTest):
     def test_zag_one_child(self):
         """ 
             a    
-            \-b 
+            └b 
         """
         self.assertEqual(gt('a', gt('b')).zag(), ['a'])
         self.assertEqual(gt('a', gt('b')).child().zag(), ['b'])
@@ -542,8 +542,8 @@ class ZagTest(GenericTreeTest):
     def test_zag_two_children(self):
         """ 
             a
-            |-b 
-            \-c 
+            ├b 
+            └c 
         """    
         self.assertEqual(gt('a', gt('b'), gt('c')).child().zag(),
                          ['b', 'c'])
@@ -551,10 +551,10 @@ class ZagTest(GenericTreeTest):
     def test_zag_depth_three(self):
         """ 
             a
-            |-b   <-- start from
-            | |-c
-            | \-d
-            \-e   
+            ├b   <-- start from
+            |├c
+            |└d
+            └e   
         """    
         t = gt('a', gt('b', gt('c'), gt('d')), gt('e'))
             
@@ -571,7 +571,7 @@ class ZigZagTest(GenericTreeTest):
     def test_zigzag_one_child(self):
         """ 
             a
-            \-b 
+            └b 
             
         """
         self.assertEqual(gt('a', gt('b')).zigzag(),
@@ -580,8 +580,8 @@ class ZigZagTest(GenericTreeTest):
     def test_zigzag_two_children(self):
         """ 
             a
-            |-b 
-            \-c 
+            ├b 
+            └c 
         """    
         self.assertEqual(gt('a', gt('b'), gt('c')).zigzag(),
                          ['a', 'b', 'c'])
@@ -589,10 +589,10 @@ class ZigZagTest(GenericTreeTest):
     def test_zigzag_middle_child(self):
         """ 
             a
-            |-b  
-            |-c
-            | \-e
-            \-d 
+            ├b  
+            ├c
+            |└e
+            └d 
             
             Notice the siblings chain must arrive to the end up to 'd' !
         """    
@@ -603,12 +603,12 @@ class ZigZagTest(GenericTreeTest):
     def test_zigzag_complex(self):
         """ 
             a
-            |-b
-            |-c
-            | |-e
-            \-d
-              |-f
-              \-g
+            ├b
+            ├c
+            |└e
+            └d
+             ├f
+             └g
             
         """    
         self.assertEqual( gt('a', gt('b'), gt('c', gt('e')), gt('d', gt('f'), gt('g'))).zigzag(),
@@ -621,8 +621,8 @@ class UnclesTest(GenericTreeTest):
 
     """
         a
-        \-b    <- 
-          \-c          
+        └b    <- 
+         └c          
     """            
     def test_uncles_unique_single_child(self):
         
@@ -634,8 +634,8 @@ class UnclesTest(GenericTreeTest):
 
     """
         a
-        \-b
-          \-c <-         
+        └b
+         └c <-         
     """            
     def test_uncles_unique_single_grandchild(self):
         
@@ -646,9 +646,9 @@ class UnclesTest(GenericTreeTest):
 
     """
         a
-        |-b
-          \-c <-         
-        \-d  
+        ├b
+        |└c <-         
+        └d  
     """            
     def test_uncles_one_uncle_after(self):
         
@@ -661,9 +661,9 @@ class UnclesTest(GenericTreeTest):
 
     """
         a
-        |-b
-        \-c
-          \-d <-         
+        ├b
+        └c
+         └d <-         
           
     """            
     def test_uncles_one_uncle_before(self):
@@ -676,10 +676,10 @@ class UnclesTest(GenericTreeTest):
 
     """
         a
-        |-b
-        |-c
-        | \-d <-
-        \-e
+        ├b
+        ├c
+        |└d <-
+        └e
           
     """            
     def test_uncles_middle(self):
@@ -691,13 +691,13 @@ class UnclesTest(GenericTreeTest):
         
     """
             a
-            |-b
-            | |-c
-            | \-d
-            |   \-g
-            |-e
-            | \-h  <- 
-            \-f    
+            ├b
+            |├c
+            |└d
+            | └g
+            ├e
+            |└h  <- 
+            └f    
     """
     def test_uncles_complex_1(self):
         
@@ -709,13 +709,13 @@ class UnclesTest(GenericTreeTest):
 
     """
             a
-            |-b
-            | |-c
-            | \-d
-            |   \-g <-            
-            |-e
-            | \-h   
-            \-f    
+            ├b
+            |├c
+            |└d
+            | └g <-            
+            ├e
+            |└h   
+            └f    
     """
     def test_uncles_complex_2(self):
         
@@ -753,11 +753,11 @@ class CommonAncestorTest(GenericTreeTest):
         
     """
         a
-        |-b
-        | |-d
-        | \-e
-        \-c
-          \-f
+        ├b
+        |├d
+        |└e
+        └c
+         └f
     """   
     def test_level_2(self):
         
@@ -775,11 +775,11 @@ class CommonAncestorTest(GenericTreeTest):
 
     """
         a
-        \-b
-          |-c
-          |  |-d
-          |  \-e
-          \-f
+        └b
+         ├c
+         |├d
+         |└e
+         └f
         
     """   
     def test_level_3(self):
@@ -805,7 +805,7 @@ class MirrorTest(GenericTreeTest):
 
     """
     a   <-   Becomes  a
-    \-b               \-b
+    └b               └b
     """       
     def test_ab(self):
         t = gt('a',gt('b'))
@@ -814,9 +814,9 @@ class MirrorTest(GenericTreeTest):
     
 
     """
-    a   <-   Becomes:  a
-    |-b                |-c
-    \-c                \-b
+    a   <-   Becomes: a
+    ├b                ├c
+    └c                └b
     
     """    
     def test_abc(self):
@@ -826,12 +826,12 @@ class MirrorTest(GenericTreeTest):
 
 
     """
-    a   <-     Becomes:     a
-    |-b                     |-f
-    | |-c                   \-b
-    | |-d                     |-e
-    | \-e                     |-d
-    \-f                       \-c 
+    a   <-     Becomes:   a
+    ├b                    ├f
+    |├c                   └b
+    |├d                    ├e
+    |└e                    ├d
+    └f                     └c 
                           
     """    
     def test_abcdef(self):
@@ -841,11 +841,11 @@ class MirrorTest(GenericTreeTest):
     
     
     """
-    a                         a 
-    |-b   <-     Becomes:     |-b
-    | |-c                     | |-d
-    | \-d                     | \-c
-    \-e                       \-e
+    a                       a 
+    ├b   <-     Becomes:    ├b
+    |├c                     |├d
+    |└d                     |└c
+    └e                      └e
     """
     def test_non_root(self):
         tb = gt('b', gt('c'), gt('d'))        
@@ -870,7 +870,7 @@ class CloneTest(GenericTreeTest):
 
     """
     a
-    \-b
+    └b
     """
     def test_ab(self):
         tb= gt('b')
@@ -885,9 +885,9 @@ class CloneTest(GenericTreeTest):
 
     """
     a
-    |-b
-    |-c
-      \-d
+    ├b
+    └c
+     └d
     """
     def test_abcd(self):
         td = gt('d')

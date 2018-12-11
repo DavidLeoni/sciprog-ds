@@ -200,7 +200,6 @@ class InsertLeftTest(BinaryTreeTest):
 
 class InsertRightTest(BinaryTreeTest):
 
-
     def test_insert_right(self):        
         ta = BinaryTree('a')        
         self.assertEqual(ta.left(), None)
@@ -223,3 +222,63 @@ class InsertRightTest(BinaryTreeTest):
         self.assertEqual(tc.right(), None)
 
 
+class HeightRecTest(BinaryTreeTest):
+
+    def test_01(self):        
+        self.assertEqual(bt('a').height_rec(), 0)
+
+    def test_02(self):        
+        self.assertEqual(bt('a', bt('b')).height_rec(), 1)
+
+    def test_03(self):        
+        self.assertEqual(bt('a', None, bt('b')).height_rec(), 1)
+
+    def test_04(self):        
+        self.assertEqual(bt('a', bt('b'), bt('c')).height_rec(), 1)
+
+    def test_05(self):        
+        self.assertEqual(bt('a', bt('b', bt('c')), bt('d')).height_rec(), 2)
+
+    def test_06(self):        
+        self.assertEqual(bt('a', bt('d'), bt('b', bt('c'))).height_rec(), 2)
+
+    def test_07(self):        
+        self.assertEqual(bt('a', bt('b', bt('c', bt('d', bt('e')))), bt('f', bt('g'))).height_rec(), 4)
+
+
+class DepthDfsTest(BinaryTreeTest):
+        
+    def test_01(self):   
+        t = bt('a')     
+        t.depth_dfs(0)
+        self.assertTreeEqual(t, bt(0))
+
+    def test_02(self):      
+        t = bt('a', bt('b'))
+        t.depth_dfs(0)      
+        self.assertTreeEqual(t, bt(0, bt(1)))
+
+    def test_03(self):  
+        t = bt('a', None, bt('b'))
+        t.depth_dfs(0)
+        self.assertTreeEqual(t, bt(0, None, bt(1)))
+
+    def test_04(self):   
+        t = bt('a', bt('b'), bt('c'))
+        t.depth_dfs(0)
+        self.assertTreeEqual(t, bt(0, bt(1), bt(1)))
+
+    def test_05(self):    
+        t = bt('a', bt('b', bt('c')), bt('d'))    
+        t.depth_dfs(0)
+        self.assertTreeEqual(t, bt(0, bt(1, bt(2)), bt(1)))
+
+    def test_06(self):   
+        t = bt('a', bt('d'), bt('b', bt('c')))     
+        t.depth_dfs(0)
+        self.assertTreeEqual(t, bt(0, bt(1), bt(1, bt(2))))
+
+    def test_07(self):  
+        t = bt('a', bt('b', bt('c', bt('d', bt('e')))), bt('f', bt('g')))      
+        t.depth_dfs(0)
+        self.assertTreeEqual(t, bt(0, bt(1, bt(2, bt(3, bt(4)))), bt(1, bt(2))))
