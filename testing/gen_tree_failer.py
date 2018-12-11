@@ -2,17 +2,17 @@
 """
 Test suite to fail all tree tests, so we see what happens when students make something wrong.
 
-David Leoni - December 2017
+David Leoni - December 2018
 """
 
 
 import sys
-sys.path.append('exercises/trees/')
+sys.path.append('../exercises/trees/')
 
 import unittest
 
-from tree_solution import *
-from algolab import gt, GenericTreeTest
+from gen_tree_test import gt
+from gen_tree_test import GenericTreeTest
 
 
 class TreeFailTest(GenericTreeTest):

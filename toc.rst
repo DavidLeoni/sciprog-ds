@@ -27,8 +27,8 @@
     exercises/sorting/sorting.ipynb
     exercises/linked-lists/linked-lists.ipynb
     exercises/trees/trees.ipynb
+    exercises/graph-algos/graph-algos.ipynb
 
-    
 
 Index
 --------

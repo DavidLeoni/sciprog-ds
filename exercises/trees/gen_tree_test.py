@@ -111,15 +111,15 @@ class GenericTreeTest(unittest.TestCase):
         def rec_assert(c1, c2, row):                    
             
             if c2 == None:
-                raise Exception("Bad test code! Found a None node in EXPECTED tree!\n\n" 
+                raise Exception("Found a None node in EXPECTED tree!\n\n" 
                                 + str_trees(actual,expected,row))
             
             if c1 == None:
-                raise Exception("Found a None node in actual tree! \n\n"
+                raise Exception("Found a None node in ACTUAL tree! \n\n"
                                 + str_trees(actual,expected,row))                     
 
             if not isinstance(c2, GenericTree):
-                raise Exception("Bad test code! EXPECTED value is an instance of  %s , which is not a GenericTree !\n\n%s" % (type(c2).__name__ , str_trees(actual,expected,row)))
+                raise Exception("EXPECTED value is an instance of  %s , which is not a GenericTree !\n\n%s" % (type(c2).__name__ , str_trees(actual,expected,row)))
                                 
             if not isinstance(c1, GenericTree):
                 raise Exception("ACTUAL node is an instance of  %s  , which is not a  GenericTree  !\n\n%s"
@@ -157,7 +157,7 @@ class GenericTreeTest(unittest.TestCase):
                                     + "   Expected parent = None"
                                     + "\n\n" + str_trees(actual,expected,row)) 
                 else: # let's just check data for now
-                    self.assertEquals(c1.parent().data(), c2.parent().data(),
+                    self.assertEqual(c1.parent().data(), c2.parent().data(),
                                   "Different parents ! " 
                                  + "Actual parent.data() = " + str(c1.parent().data()) 
                                     + "   Expected parent.data() = " + str(c2.parent().data()
@@ -442,14 +442,14 @@ class AncestorsTest(GenericTreeTest):
 class GrandChildrenTest(GenericTreeTest):
             
     def test_grandchildren_root(self):
-        self.assertEquals(gt('a').grandchildren(), [])
+        self.assertEqual(gt('a').grandchildren(), [])
 
     """
         a
         \-b
     """            
     def test_grandchildren_one_child_no_children(self):
-        self.assertEquals(gt('a',  gt('b')).grandchildren(), [])        
+        self.assertEqual(gt('a',  gt('b')).grandchildren(), [])        
 
     """
         a
@@ -457,7 +457,7 @@ class GrandChildrenTest(GenericTreeTest):
           \-c
     """            
     def test_grandchildren_one_child_one_grandchildren(self):
-        self.assertEquals(gt('a',  gt('b', gt('c'))).grandchildren(), ['c'])        
+        self.assertEqual(gt('a',  gt('b', gt('c'))).grandchildren(), ['c'])        
 
     """
         a
@@ -466,7 +466,7 @@ class GrandChildrenTest(GenericTreeTest):
           \-d
     """            
     def test_grandchildren_one_child_two_grandchildren(self):
-        self.assertEquals(gt('a',  gt('b', gt('c'), gt('d'))).grandchildren(), ['c', 'd'])        
+        self.assertEqual(gt('a',  gt('b', gt('c'), gt('d'))).grandchildren(), ['c', 'd'])        
 
     """
         a
@@ -476,7 +476,7 @@ class GrandChildrenTest(GenericTreeTest):
           \-e
     """            
     def test_grandchildren_two_children_two_grandchildren(self):
-        self.assertEquals(gt('a',  gt('b', gt('c')), gt('d', gt('e'))).grandchildren(), ['c', 'e'])        
+        self.assertEqual(gt('a',  gt('b', gt('c')), gt('d', gt('e'))).grandchildren(), ['c', 'e'])        
 
     """
             a
@@ -489,7 +489,7 @@ class GrandChildrenTest(GenericTreeTest):
             \-f    
     """
     def test_grandchildren_complex_grandgrandchildren(self):
-        self.assertEquals(gt('a',  gt('b', gt('c'), gt('d', gt('g'))), 
+        self.assertEqual(gt('a',  gt('b', gt('c'), gt('d', gt('g'))), 
                                    gt('e', gt('h')),
                                    gt('f')).grandchildren(), ['c', 'd', 'h'])
         
@@ -629,7 +629,7 @@ class UnclesTest(GenericTreeTest):
         tb = gt('b')
         ta = gt('a',  tb, gt('c') )
         
-        self.assertEquals(tb.uncles(), [])        
+        self.assertEqual(tb.uncles(), [])        
 
 
     """
@@ -642,7 +642,7 @@ class UnclesTest(GenericTreeTest):
         tc = gt('c')
         ta = gt('a',  gt('b'), tc)
         
-        self.assertEquals(tc.uncles(), [])        
+        self.assertEqual(tc.uncles(), [])        
 
     """
         a
@@ -655,7 +655,7 @@ class UnclesTest(GenericTreeTest):
         tc = gt('c')
         ta = gt('a',  gt('b', tc), gt('d'))
         
-        self.assertEquals(tc.uncles(), ['d'])        
+        self.assertEqual(tc.uncles(), ['d'])        
 
 
 
@@ -671,7 +671,7 @@ class UnclesTest(GenericTreeTest):
         td = gt('d')
         ta = gt('a',  gt('b'), gt('c', td))
         
-        self.assertEquals(td.uncles(), ['b'])
+        self.assertEqual(td.uncles(), ['b'])
 
 
     """
@@ -687,7 +687,7 @@ class UnclesTest(GenericTreeTest):
         td = gt('d')
         ta = gt('a',  gt('b'), gt('c', td), gt('e'))
         
-        self.assertEquals(td.uncles(), ['b', 'e'])
+        self.assertEqual(td.uncles(), ['b', 'e'])
         
     """
             a
@@ -705,7 +705,7 @@ class UnclesTest(GenericTreeTest):
         ta = gt('a',  gt('b', gt('c'), gt('d', gt('g'))), 
                       gt('e', th),
                       gt('f'))
-        self.assertEquals(th.uncles(), ['b', 'f'])
+        self.assertEqual(th.uncles(), ['b', 'f'])
 
     """
             a
@@ -723,7 +723,7 @@ class UnclesTest(GenericTreeTest):
         ta = gt('a',  gt('b', gt('c'), gt('d', tg)), 
                       gt('e', gt('h')),
                       gt('f'))
-        self.assertEquals(tg.uncles(), ['c'])
+        self.assertEqual(tg.uncles(), ['c'])
 
         
 class CommonAncestorTest(GenericTreeTest):

@@ -110,15 +110,15 @@ class BinaryTreeTest(unittest.TestCase):
         def rec_assert(c1, c2, row):                    
             
             if c2 == None:
-                raise Exception("Bad test code! Found a None node in EXPECTED tree!\n\n" 
+                raise Exception("Found a None node in EXPECTED tree!\n\n" 
                                 + str_btrees(actual,expected,row))
             
             if c1 == None:
-                raise Exception("Found a None node in actual tree! \n\n"
+                raise Exception("Found a None node in ACTUAL tree! \n\n"
                                 + str_btrees(actual,expected,row))                     
 
             if not isinstance(c2, BinaryTree):
-                raise Exception("Bad test code! EXPECTED value is an instance of  %s , which is not a BinaryTree !\n\n%s" % (type(c2).__name__ , str_btrees(actual,expected,row)))
+                raise Exception("EXPECTED value is an instance of  %s , which is not a BinaryTree !\n\n%s" % (type(c2).__name__ , str_btrees(actual,expected,row)))
                                 
             if not isinstance(c1, BinaryTree):
                 raise Exception("ACTUAL node is an instance of  %s  , which is not a  BinaryTree  !\n\n%s"
