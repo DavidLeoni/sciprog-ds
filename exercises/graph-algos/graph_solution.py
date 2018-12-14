@@ -40,21 +40,6 @@ class DiGraph:
         """ Returns true if graph contains given vertex. A vertex can be any object. """
         return vertex in self._edges
     
-    def remove_vertex(self, vertex):
-        """ Removes the provided vertex  and returns it
-            
-            If the vertex is not found, raises an Exception.
-        """
-                
-        if not vertex in self._edges:
-            raise Exception("Couldn't find vertex:" +str(vertex))
-        
-        for source in self.verteces():
-            if vertex in self._edges[source]:
-                self._edges[source].remove(vertex)
-        
-        return self._edges.pop(vertex)
-        
     def add_edge(self, vertex1, vertex2):
         """ Adds an edge to the graph, from vertex1 to vertex2
         
@@ -109,8 +94,6 @@ class DiGraph:
         
     def __repr__(self):              
         return self.__str__()
-
-
 
     def adj(self, vertex):
         """ Returns the verteces adjacent to vertex. 
@@ -234,11 +217,34 @@ class DiGraph:
         return target in self._edges[source]                                
         #/jupman-raise
 
+    def remove_vertex(self, vertex):
+        """ Removes the provided vertex  and returns it
+            
+            If the vertex is not found, raises an Exception.
+        """
+        #jupman-raise        
+        if not vertex in self._edges:
+            raise Exception("Couldn't find vertex:" +str(vertex))
+        
+        for source in self.verteces():
+            if vertex in self._edges[source]:
+                self._edges[source].remove(vertex)
+        
+        return self._edges.pop(vertex)
+        #/jupman-raise
+
+
     def transpose(self):
         """ Reverses the direction of all the edges 
         
-            Note this one changes in-place the graph: does **not** create a new instance
-            and does *not* return anything !!        
+            NOTE: this method changes in-place the graph: does **not** create a new instance
+            and does *not* return anything !!
+            
+            NOTE: To implement it *avoid* modifying the existing _edges dictionary (would
+            probably more problems than anything else).
+            Instead, create a new dictionary, fill it with the required 
+            verteces and edges ad then set _edges to point to the new dictionary.
+
         """
         #jupman-raise
            
