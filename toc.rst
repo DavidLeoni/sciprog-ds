@@ -25,7 +25,10 @@
     exercises/testing/testing.ipynb
     exercises/oop/oop.ipynb
     exercises/sorting/sorting.ipynb
+    exercises/stacks/stacks.ipynb
+    exercises/queues/queues.ipynb    
     exercises/linked-lists/linked-lists.ipynb
+    exercises/sets/sets.ipynb
     exercises/trees/trees.ipynb
     exercises/graph-algos/graph-algos.ipynb
 
