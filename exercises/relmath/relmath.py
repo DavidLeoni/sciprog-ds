@@ -1,7 +1,131 @@
+from terminaltables import AsciiTable
+from contextlib import contextmanager
+from wcwidth import wcswidth
+
+class _:
+    _quotes = [False]
+    level = 0
+
+    def q():
+        return _._quotes[-1]
+
+@contextmanager
+def Q(p):
+    debug('quoting...')
+    _._quotes.append(True)
+    _.level += 2
+    yield 
+    _.level -= 2   
+    debug('unquoting...')
+    _._quotes.pop()
+    
+
+def sheight(s):
+    """ Return the height of provided text block.
+        Min height is one.
+    """
+    return s.strip().count("\n") + 1
+
+def swidth(s):
+    """ Return the width of provided text block.
+        Min height is one.
+    """
+
+    return max( [wcswidth(row) for row in s.strip().split('\n')] ) 
+
+
+def sjoin(s1,s2, valign='top'):
+    """ Horizontally joins two blocks of text possibly containing \n
+        and retrun the newly formed block as a string
+    """
+
+    h1 = sheight(s1)
+    h2 = sheight(s2)
+
+    if valign == 'center' and h2 > h1:
+        left_extra_rows =  (h2-h1) // 2
+    else:
+        left_extra_rows =  0
+
+
+    rows1 = ['\n']*left_extra_rows + s1.split('\n')
+    rows2 = s2.split('\n')
+    ret = ""
+    left_width = swidth(s1)
+    for i in range(min(len(rows1), len(rows2))):
+        ret += "%-*s%s\n" % (left_width,rows1[i].strip('\n'),rows2[i])
+
+    if len(rows1) > len(rows2):
+        for j in range(i+1, len(rows1)):
+            ret += rows1[j] + '\n'
+    else:
+        for j in range(i+1, len(rows2)):
+            ret += " "*left_width + rows2[j] + '\n'
+    return ret
+
+def format_log(msg=""):
+    return " "* _.level + str(msg)
+
+def fatal(msg, ex=None):
+    """ Prints error and exits (halts program execution immediatly)
+    """
+    if ex == None:
+        exMsg = ""
+    else:
+        exMsg = " \n  " + repr(ex)
+    s = format_log("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
+    print(s)
+    exit(1)
+
+def log_error(msg, ex=None):
+    """ Prints error but does not rethrow exception
+    """
+    if ex == None:
+        exMsg = ""
+        the_ex = Exception(msg)
+    else:
+        exMsg = " \n  " + repr(ex)
+    the_ex = ex
+    s = format_log("\n\n    ERROR! %s%s\n\n" % (msg,exMsg))
+    print(s)
+
+def error(msg, ex=None):
+    """ Prints error and reraises Exception
+    """
+    log_error(msg, ex)
+    raise ex
+
+def warn(msg, ex=None):
+    if ex == None:
+        exMsg = ""
+    else:
+        exMsg = " \n  " + repr(ex)
+
+    s = format_log("\n\n   WARNING: %s%s\n\n" % (msg,exMsg))
+    print(s)
+
+def info(msg=""):
+    print(format_log(msg))
+
+def debug(msg=""):
+    print(format_log("DEBUG=%s" % msg))
+
+
+
+
+print(_._quotes)
+
+with Q(_):
+    print(_._quotes)
+print(_._quotes)
 
 class Expr:
-    def __init__(self):
-        ""
+    def __init__(self, name=""):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
 
     @property
     def dom(self):
@@ -26,7 +150,11 @@ class BinOp(Expr):
         raise NotImplementedError("IMPLEMENT ME!")      
 
     def __str__(self):
-        return "%s%s%s" % (str(self.left), self.python_token(), str(self.right))
+        return sjoin(str(self.left), sjoin(str(self.python_token()), str(self.right), valign='center'))
+
+    def __repr__(self):
+        return "%s%s%s" % (repr(self.left), self.python_token(), repr(self.right))
+
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -65,12 +193,16 @@ class UnOp(Expr):
     def python_token(self):
         raise NotImplementedError("IMPLEMENT ME!")    
 
-    def __str__(self):
-        raise NotImplementedError("IMPLEMENT ME!")    
-
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
+
+    def __str__(self):
+        s = str(self.val)
+        return sjoin(self.python_token(), str(self.val), valign='center')
+
+    def __repr__(self):
+        return "%s(%s)" % (self.__class__.__name__ , repr(self.val))
 
 
 class T(UnOp):
@@ -83,7 +215,7 @@ class T(UnOp):
         return '.T'
 
     def __str__(self):
-        return "%s%s" % (self.val, self.python_method())
+        return sjoin(str(self.val), self.python_method())
 
     @property
     def dom(self):
@@ -108,8 +240,6 @@ class Neg(UnOp):
     def python_method(self):
         return '__neg__'
 
-    def __str__(self):
-        return "%s%s" % (self.python_token(), self.val)
 
     def simp(self):
         return -self.val
@@ -128,8 +258,18 @@ class Neg(UnOp):
 class Val(Expr):
     def __init__(self, val,name=''):
         ""
+        super().__init__(name=name)
         self.val=val
-        self.name = name
+        
+    def __eq__(self, v2):
+        return  super().__eq__(v2)      \
+                and self.val == v2.val
+
+    def __str__(self):
+        return str(self.val)
+
+    def __repr__(self):
+        return "%s(%s)" % (self.__class__.__name__ , repr(self.val))
 
 
 class Dioid(Val):
@@ -157,11 +297,7 @@ class Dioid(Val):
     def one(self):
         raise NotImplementedError("IMPLEMENT ME!")    
         
-    def __str__(self):
-        return str(self.val)
 
-    def __repr__(self):
-        return self.__str__()    
     
 
 
@@ -221,66 +357,131 @@ class Rel(Val):
         return self.g[0][0]
 
     def __add__(self, r2):
-        res_g = []
-        for i in range(len(self.dom)):
-            row = []
-            res_g.append(row)
-            for j in range(len(self.cod)):
-                row.append(self.g[i][j] + r2.g[i][j])
-        return Rel(res_g, self.dom, self.cod)
+        if _.q():
+            return T(self, r2)
+        else:
+
+            res_g = []
+            for i in range(len(self.dom)):
+                row = []
+                res_g.append(row)
+                for j in range(len(self.cod)):
+                    row.append(self.g[i][j] + r2.g[i][j])
+            return Rel(res_g, self.dom, self.cod)
                 
     def __mul__(self, r2):
         """ we don't consider __matmul__ for now (dont like the '@')
         """
-        res_g = []
-        
-        for i in range(len(self.dom)):
-            row = []
-            res_g.append(row)
-            for j in range(len(r2.cod)):
-                val = self.dioid().zero()
-                for k in range(len(self.cod)):
-                    val = self.g[i][k] * r2.g[k][j]
-                row.append(val)
-        return Rel(res_g, self.dom, r2.cod)
+        if _.q():
+            return RelMul(self, r2)
+        else:
+            res_g = []
+            
+            for i in range(len(self.dom)):
+                row = []
+                res_g.append(row)
+                for j in range(len(r2.cod)):
+                    val = self.dioid().zero()
+                    for k in range(len(self.cod)):
+                        val = self.g[i][k] * r2.g[k][j]
+                    row.append(val)
+            return Rel(res_g, self.dom, r2.cod)
 
     def __str__(self):
-        return str(self.g)
+        if _.q() and self.name:
+            return self.name
+        else:
+            from terminaltables import SingleTable
+            data = []
+            header = [" "]
+            header.extend(self.cod)
+            data.append(header)
+            for i in range(len(self.g)):
+                row = [self.dom[i]]
+                row.extend(self.g[i])
+                data.append(row)
+            table = SingleTable(data)
+            if self.name:
+                table.title = self.name
+            return table.table
 
+    def __repr__(self):
+        if self.name:
+            strname = ',name=%s' % self.name        
+        else:
+            strname = ''
+        return "Rel(%s,%s,%s%s)" % (repr(self.g), repr(self.dom), repr(self.cod) , strname)
     
     def transpose(self):
-        res_g = []
-        for i in range(len(self.cod)):
-            row = []
-            res_g.append(row)
-            for j in range(len(self.dom)):
-                row.append(self.g[j][i])
+        if _.q():
+            return T(self)
+        else:
+            res_g = []
+            for i in range(len(self.cod)):
+                row = []
+                res_g.append(row)
+                for j in range(len(self.dom)):
+                    row.append(self.g[j][i])
 
-        return Rel(res_g, self.cod, self.dom)
+            return Rel(res_g, self.cod, self.dom)
 
     T = property(transpose, None, None, "Matrix transposition.")
 
     def __neg__(self):
-        res_g = []
-        for i in range(len(self.dom)):
-            row = []
-            res_g.append(row)
-            for j in range(len(self.cod)):
-                row.append(-self.g[i][j])
+        if _.q():
+            return Neg(self)
+        else:
+            res_g = []
+            for i in range(len(self.dom)):
+                row = []
+                res_g.append(row)
+                for j in range(len(self.cod)):
+                    row.append(-self.g[i][j])
 
-        return Rel(res_g, self.cod, self.dom)
+            return Rel(res_g, self.cod, self.dom)
 
+    def __eq__(self,r2):
+        print('eq')
+        return self.dom == r2.dom     \
+               and self.cod == r2.cod \
+               and self.g == r2.g
 
     
-M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] )
+M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] , name='M')
+
+U = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'])
 
 
-print('M = \n%s' % M)
-print('M.T = \n%s' % M.T)
-print('-M = \n%s' % -M)
+info('M:\n%s' % M)
+info('M.T:\n%s' % M.T)
+with Q(_):
+    info('M.T\n%s' % M.T)
+info('-M:\n%s' % -M)
+with Q(_):    
+    info('-M:\n%s' % -M)
 
 E = RelMul(M, T(M))
-print('M*M.T=\n%s' % (M*M.T))
-print("RelMul(M, T(M))\n%s" % RelMul(M, T(M)))
-print("RelMul(M, T(M)).simp()\n%s" % RelMul(M, T(M)).simp())
+info('M*M.T:\n%s' % (M*M.T))
+with Q(_):
+    info('M*M.T:\n%s' % (M*M.T))
 
+info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
+with Q(_):
+    info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
+
+info("RelMul(M, T(M)).simp():\n%s" % RelMul(M, T(M)).simp())
+with Q(_):
+    info("RelMul(M, T(M)).simp():\n%r" % RelMul(M, T(M)).simp())
+
+print(sjoin("ciao\npippo", "hello\ndear\nworld"))
+
+print(sjoin("ciao\npippo", "hello\ndear\nworld\nciao\nmondo\nche\nbello", valign='center'))
+
+
+with Q(_):    
+    info('-U:\n%s' % -U)
+
+with Q(_):    
+    info('U.T\n%s' % U.T)
+
+info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
