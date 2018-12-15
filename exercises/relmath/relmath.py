@@ -1,4 +1,4 @@
-from terminaltables import AsciiTable
+from terminaltables import SingleTable
 from contextlib import contextmanager
 from wcwidth import wcswidth
 
@@ -391,7 +391,7 @@ class Rel(Val):
         if _.q() and self.name:
             return self.name
         else:
-            from terminaltables import SingleTable
+            
             data = []
             header = [" "]
             header.extend(self.cod)
