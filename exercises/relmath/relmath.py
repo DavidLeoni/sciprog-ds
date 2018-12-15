@@ -11,12 +11,12 @@ class _:
 
 @contextmanager
 def Q(p):
-    debug('quoting...')
+    debug('quoted')
     _._quotes.append(True)
     _.level += 2
     yield 
     _.level -= 2   
-    debug('unquoting...')
+    debug('/quoted')
     _._quotes.pop()
     
 
@@ -64,7 +64,8 @@ def sjoin(s1,s2, valign='top'):
     return ret
 
 def format_log(msg=""):
-    return " "* _.level + str(msg)
+    pad = " "* _.level
+    return pad + str(msg).replace('\n','\n' + pad)
 
 def fatal(msg, ex=None):
     """ Prints error and exits (halts program execution immediatly)
@@ -447,13 +448,24 @@ class Rel(Val):
                and self.g == r2.g
 
     
-M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] , name='M')
+def pex(msg, expr):
+    info("python:  %s" % msg)
+    info('repr:    %r ' % expr) 
+    info('str:\n%s' % str(expr))
 
+M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] , name='M')
 U = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'])
+
+pex('M.T', M.T)
+with Q(_):
+    pex('M.T', M.T)
+pex('U.T', U.T)
+with Q(_):
+    pex('U.T', U.T)
 
 
 info('M:\n%s' % M)
-info('M.T:\n%s' % M.T)
+
 with Q(_):
     info('M.T\n%s' % M.T)
 info('-M:\n%s' % -M)
@@ -485,3 +497,4 @@ with Q(_):
     info('U.T\n%s' % U.T)
 
 info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
+
