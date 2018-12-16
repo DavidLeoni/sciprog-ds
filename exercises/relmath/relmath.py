@@ -1,6 +1,8 @@
-from terminaltables import SingleTable
-from contextlib import contextmanager
+
+from tabulate import tabulate
 from wcwidth import wcswidth
+
+from contextlib import contextmanager
 
 class _:
     _quotes = [False]
@@ -124,6 +126,13 @@ class Expr:
     def __init__(self, name=""):
         self._name = name
 
+    def _reprname(self):
+        """ only to be used inside repr """
+        if self.name:
+            return ",name='%s'" % self.name        
+        else:
+            return ''
+
     @property
     def name(self):
         return self._name
@@ -139,8 +148,13 @@ class Expr:
     def simp(self):
         return self
 
+    def __eq__(self, expr2):
+        return  expr2 != None \
+                and self.__class__ == expr2.__class__
+
 class BinOp(Expr):
-    def __init__(self, left, right):
+    def __init__(self, left, right, name=''):
+        super().__init__(name)
         self.left = left
         self.right = right
 
@@ -154,16 +168,21 @@ class BinOp(Expr):
         return sjoin(str(self.left), sjoin(str(self.python_token()), str(self.right), valign='center'))
 
     def __repr__(self):
-        return "%s%s%s" % (repr(self.left), self.python_token(), repr(self.right))
+        
+        return "%s(%s,%s%s)" % (self.__class__.__name__, repr(self.left),repr(self.right), self._reprname())
 
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
 
+    def __eq__(self, binop2):
+        return  super.__eq__(binop2) \
+                and self.left == binop2.left \
+                and self.right == binop2.right
     
 class RelMul(BinOp):
-    def __init__(self, left, right):
-        super().__init__(left, right)
+    def __init__(self, left, right, name=''):
+        super().__init__(left, right, name)
     
     def python_token(self):
         return '*'
@@ -187,8 +206,36 @@ class RelMul(BinOp):
         rsimp = self.right.simp()
         return lsimp * rsimp
 
+class RelAdd(BinOp):
+    def __init__(self, left, right, name=''):
+        super().__init__(left, right, name=name)
+    
+    def python_token(self):
+        return '+'
+
+    def python_method(self):
+        return '__add__'
+
+    def latex(self):
+        raise NotImplementedError("IMPLEMENT ME!")    
+
+    @property
+    def dom(self):
+        return self.left.dom
+
+    @property
+    def cod(self):
+        return self.right.cod
+   
+    def simp(self):
+        lsimp = self.left.simp()
+        rsimp = self.right.simp()
+        return lsimp * rsimp
+
+
 class UnOp(Expr):
-    def __init__(self, val):
+    def __init__(self, val, name=''):
+        super().__init__(name=name)
         self.val = val
 
     def python_token(self):
@@ -203,7 +250,12 @@ class UnOp(Expr):
         return sjoin(self.python_token(), str(self.val), valign='center')
 
     def __repr__(self):
-        return "%s(%s)" % (self.__class__.__name__ , repr(self.val))
+
+        return "%s(%s%s)" % (self.__class__.__name__ , repr(self.val), self._reprname())
+
+    def __eq__(self, unop2):
+        return  super.__eq__(unop2) \
+                and self.val == unop2.val
 
 
 class T(UnOp):
@@ -260,7 +312,11 @@ class Val(Expr):
     def __init__(self, val,name=''):
         ""
         super().__init__(name=name)
-        self.val=val
+        self._val = val
+
+    @property
+    def val(self):
+        return self._val
         
     def __eq__(self, v2):
         return  super().__eq__(v2)      \
@@ -270,7 +326,7 @@ class Val(Expr):
         return str(self.val)
 
     def __repr__(self):
-        return "%s(%s)" % (self.__class__.__name__ , repr(self.val))
+        return "%s(%s%s)" % (self.__class__.__name__ , repr(self.val), self._reprname())
 
 
 class Dioid(Val):
@@ -318,22 +374,35 @@ class RD(Dioid):
     def __neg__(self):
         """ NOTE: in a dioid, negation is _not_ mandatory. See page 7 of Graphs, Dioids and Semirings book
         """
-        return - self.val
+        return RD(- self.val)
         
     def __add__(self, d2):
-        return self.val + d2.val
+        return RD(self.val + d2.val)
     
     def __mul__(self, d2):
-        return self.val * d2.val
+        return RD(self.val * d2.val)
 
-class Rel(Val):
+class Rel(Expr):
     
     def __init__(self,  g, dom, cod, name=''):
         "" 
+        super().__init__(name=name)
+        if type(g) is not list:
+            raise ValueError("Expected a list of lists, got instead type %s" % type(g))
+        if len(g) == 0:
+            raise ValueError("Expected at least one row, got instead %s" % g)
+        if type(g[0]) is not list:
+            raise ValueError("Expected a list of lists, got instead first row type %s" % type(g[0]))
+        if len(g[0]) == 0:
+            raise ValueError("Expected at least one column, got instead %s" % g)
+        if len(dom) != len(g):
+            raise ValueError("dom has different size than g rows! dom=%s g=%s" % (len(dom), len(g)))
+        if len(cod) != len(g[0]):
+            raise ValueError("cod has different size than g columns! cod=%s g=%s" % (len(cod), len(g[0])))
+
         self.g = g
         self._dom = dom
-        self._cod = cod
-        super().__init__(self, name=name)
+        self._cod = cod        
     
     @property
     def dom(self):
@@ -359,7 +428,7 @@ class Rel(Val):
 
     def __add__(self, r2):
         if _.q():
-            return T(self, r2)
+            return RelAdd(self, r2)
         else:
 
             res_g = []
@@ -368,7 +437,7 @@ class Rel(Val):
                 res_g.append(row)
                 for j in range(len(self.cod)):
                     row.append(self.g[i][j] + r2.g[i][j])
-            return Rel(res_g, self.dom, self.cod)
+            return Rel(res_g, self.dom, self.cod, name=self.name)
                 
     def __mul__(self, r2):
         """ we don't consider __matmul__ for now (dont like the '@')
@@ -386,7 +455,7 @@ class Rel(Val):
                     for k in range(len(self.cod)):
                         val = self.g[i][k] * r2.g[k][j]
                     row.append(val)
-            return Rel(res_g, self.dom, r2.cod)
+            return Rel(res_g, self.dom, r2.cod, name=self.name)
 
     def __str__(self):
         if _.q() and self.name:
@@ -401,17 +470,16 @@ class Rel(Val):
                 row = [self.dom[i]]
                 row.extend(self.g[i])
                 data.append(row)
-            table = SingleTable(data)
+            """
+            table = DoubleTable(data)
             if self.name:
                 table.title = self.name
             return table.table
-
+            """
+            return tabulate(data, headers="firstrow", tablefmt="fancy_grid")
+            
     def __repr__(self):
-        if self.name:
-            strname = ',name=%s' % self.name        
-        else:
-            strname = ''
-        return "Rel(%s,%s,%s%s)" % (repr(self.g), repr(self.dom), repr(self.cod) , strname)
+        return "Rel(%s,%s,%s%s)" % (repr(self.g), repr(self.dom), repr(self.cod) , self._reprname())
     
     def transpose(self):
         if _.q():
@@ -424,7 +492,7 @@ class Rel(Val):
                 for j in range(len(self.dom)):
                     row.append(self.g[j][i])
 
-            return Rel(res_g, self.cod, self.dom)
+            return Rel(res_g, self.cod, self.dom, name=self.name)
 
     T = property(transpose, None, None, "Matrix transposition.")
 
@@ -439,16 +507,11 @@ class Rel(Val):
                 for j in range(len(self.cod)):
                     row.append(-self.g[i][j])
 
-            return Rel(res_g, self.cod, self.dom)
+            return Rel(res_g, self.dom, self.cod, name=self.name)
 
-    def __eq__(self,r2):
-        print('eq')
-        return self.dom == r2.dom     \
-               and self.cod == r2.cod \
-               and self.g == r2.g
 
     
-def pex(msg, expr):
+def pexpr(msg, expr):
     info("python:  %s" % msg)
     info('repr:    %r ' % expr) 
     info('str:\n%s' % str(expr))
@@ -456,34 +519,36 @@ def pex(msg, expr):
 M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] , name='M')
 U = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'])
 
-pex('M.T', M.T)
+print(-Rel([[RD(1)]],['a'],['x'],name='M') == Rel([[RD(-1)]],['a'],['x'],name='M'))
+
+pexpr('M.T', M.T)
 with Q(_):
-    pex('M.T', M.T)
-pex('U.T', U.T)
+    pexpr('M.T', M.T)
+pexpr('U.T', U.T)
 with Q(_):
-    pex('U.T', U.T)
+    pexpr('U.T', U.T)
 
 
-info('M:\n%s' % M)
+pexpr('M', M)
 
 with Q(_):
-    info('M.T\n%s' % M.T)
-info('-M:\n%s' % -M)
+    pexpr('M.T', M.T)
+pexpr('-M', -M)
 with Q(_):    
-    info('-M:\n%s' % -M)
+    pexpr('-M', -M)
 
 E = RelMul(M, T(M))
-info('M*M.T:\n%s' % (M*M.T))
+pexpr('M*M.T', (M*M.T))
 with Q(_):
-    info('M*M.T:\n%s' % (M*M.T))
+    pexpr('M*M.T', (M*M.T))
 
-info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
+pexpr("RelMul(M, T(M))", RelMul(M, T(M)))
 with Q(_):
-    info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
+    pexpr("RelMul(M, T(M))", RelMul(M, T(M)))
 
-info("RelMul(M, T(M)).simp():\n%s" % RelMul(M, T(M)).simp())
+pexpr("RelMul(M, T(M)).simp()" , RelMul(M, T(M)).simp())
 with Q(_):
-    info("RelMul(M, T(M)).simp():\n%r" % RelMul(M, T(M)).simp())
+    pexpr("RelMul(M, T(M)).simp()" , RelMul(M, T(M)).simp())
 
 print(sjoin("ciao\npippo", "hello\ndear\nworld"))
 
@@ -491,10 +556,12 @@ print(sjoin("ciao\npippo", "hello\ndear\nworld\nciao\nmondo\nche\nbello", valign
 
 
 with Q(_):    
-    info('-U:\n%s' % -U)
+    pexpr('-U' , -U)
 
 with Q(_):    
-    info('U.T\n%s' % U.T)
+    pexpr('U.T',  U.T)
 
-info("RelMul(M, T(M)):\n%s" % RelMul(M, T(M)))
+pexpr("RelMul(M, T(M))" , RelMul(M, T(M)))
+
+pexpr(" -Rel([[RD(1)]],['a'],['x'],name='M')",  -Rel([[RD(1)]],['a'],['x'],name='M'))
 
