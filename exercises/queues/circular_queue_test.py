@@ -27,7 +27,7 @@ class InitCapacityTest(unittest.TestCase):
 
     def test_05_two(self):           
         self.assertEqual(CircularQueue(2).capacity(), 2)
-      
+
 class EnqueueTest(unittest.TestCase):
 
     def test_01_exceed_capacity(self):

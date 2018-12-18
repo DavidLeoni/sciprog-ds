@@ -476,7 +476,7 @@ class Rel(Expr):
                 table.title = self.name
             return table.table
             """
-            return tabulate(data, headers="firstrow", tablefmt="fancy_grid")
+            return tabulate(data, tablefmt="fancy_grid")
             
     def __repr__(self):
         return "Rel(%s,%s,%s%s)" % (repr(self.g), repr(self.dom), repr(self.cod) , self._reprname())
