@@ -21,6 +21,16 @@ def m12():
                ], ['x'], ['a','b'] , name='M12')
 
 
+class TestState:
+    
+    def test_quotes(self):
+        print(S._quotes)
+
+        with Q(S):
+            print(S._quotes)
+        print(S._quotes)
+
+
 class TestRD:
     def test_eq(self):
         assert RD(1) == RD(1)
@@ -62,6 +72,13 @@ class TestRel:
         M1 = m1()
         assert M1 == m1()
 
+    def test_val_RD(self):
+        assert Rel([[1]],['a'],['x']) == Rel([[RD(1)]],['a'],['x'])
+
+    def test_val_BD(self):
+        assert Rel([[False]],['a'],['x']) == Rel([[BD(False)]],['a'],['x'])
+
+
     def test_T(self):
         M1 = m1()
         assert M1.T.g == m1().g
@@ -89,3 +106,59 @@ class TestRel:
 
         M21 = m21()
         assert -(-M21) == m21()
+
+    
+def pexpr(msg, expr):
+    info("python:  %s" % msg)
+    info('repr:    %r ' % expr) 
+    info('str:\n%s' % str(expr))
+
+M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] , name='M')
+U = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'])
+
+print(-Rel([[RD(1)]],['a'],['x'],name='M') == Rel([[RD(-1)]],['a'],['x'],name='M'))
+
+pexpr('M.T', M.T)
+with Q(S):
+    pexpr('M.T', M.T)
+pexpr('U.T', U.T)
+with Q(S):
+    pexpr('U.T', U.T)
+
+
+pexpr('M', M)
+
+with Q(StopAsyncIteration):
+    pexpr('M.T', M.T)
+pexpr('-M', -M)
+with Q(S):    
+    pexpr('-M', -M)
+
+E = RelMul(M, T(M))
+pexpr('M*M.T', (M*M.T))
+with Q(S):
+    pexpr('M*M.T', (M*M.T))
+
+pexpr("RelMul(M, T(M))", RelMul(M, T(M)))
+with Q(S):
+    pexpr("RelMul(M, T(M))", RelMul(M, T(M)))
+
+pexpr("RelMul(M, T(M)).simp()" , RelMul(M, T(M)).simp())
+with Q(S):
+    pexpr("RelMul(M, T(M)).simp()" , RelMul(M, T(M)).simp())
+
+print(sjoin("ciao\npippo", "hello\ndear\nworld"))
+
+print(sjoin("ciao\npippo", "hello\ndear\nworld\nciao\nmondo\nche\nbello", valign='center'))
+
+
+with Q(S):    
+    pexpr('-U' , -U)
+
+with Q(S):    
+    pexpr('U.T',  U.T)
+
+pexpr("RelMul(M, T(M))" , RelMul(M, T(M)))
+
+pexpr(" -Rel([[RD(1)]],['a'],['x'],name='M')",  -Rel([[RD(1)]],['a'],['x'],name='M'))
+

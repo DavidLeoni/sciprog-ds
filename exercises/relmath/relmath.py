@@ -4,22 +4,32 @@ from wcwidth import wcswidth
 
 from contextlib import contextmanager
 
-class _:
+class LogLevel:
+    NOTHING = 0
+    FATAL = 1
+    ERROR = 2
+    WARNING = 3
+    INFO = 4
+    DEBUG = 5
+
+class S:
     _quotes = [False]
     level = 0
+    
+    verbosity = LogLevel.INFO
 
     def q():
-        return _._quotes[-1]
+        return S._quotes[-1]
 
 @contextmanager
 def Q(p):
     debug('quoted')
-    _._quotes.append(True)
-    _.level += 2
+    S._quotes.append(True)
+    S.level += 2
     yield 
-    _.level -= 2   
+    S.level -= 2   
     debug('/quoted')
-    _._quotes.pop()
+    S._quotes.pop()
     
 
 def sheight(s):
@@ -66,18 +76,20 @@ def sjoin(s1,s2, valign='top'):
     return ret
 
 def format_log(msg=""):
-    pad = " "* _.level
+    pad = " "* S.level
     return pad + str(msg).replace('\n','\n' + pad)
 
 def fatal(msg, ex=None):
     """ Prints error and exits (halts program execution immediatly)
     """
-    if ex == None:
-        exMsg = ""
-    else:
-        exMsg = " \n  " + repr(ex)
-    s = format_log("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
-    print(s)
+    if S.verbosity >= LogLevel.FATAL:    
+
+        if ex == None:
+            exMsg = ""
+        else:
+            exMsg = " \n  " + repr(ex)
+        s = format_log("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
+        print(s)
     exit(1)
 
 def log_error(msg, ex=None):
@@ -95,32 +107,32 @@ def log_error(msg, ex=None):
 def error(msg, ex=None):
     """ Prints error and reraises Exception
     """
-    log_error(msg, ex)
-    raise ex
+    if S.verbosity >= LogLevel.ERROR:    
+
+        log_error(msg, ex)
+        raise ex
 
 def warn(msg, ex=None):
-    if ex == None:
-        exMsg = ""
-    else:
-        exMsg = " \n  " + repr(ex)
+    if S.verbosity >= LogLevel.WARNING:    
+        if ex == None:
+            exMsg = ""
+        else:
+            exMsg = " \n  " + repr(ex)
 
-    s = format_log("\n\n   WARNING: %s%s\n\n" % (msg,exMsg))
-    print(s)
+        s = format_log("\n\n   WARNING: %s%s\n\n" % (msg,exMsg))
+        print(s)
 
 def info(msg=""):
-    print(format_log(msg))
+    if S.verbosity >= LogLevel.INFO:
+        print(format_log(msg))
 
 def debug(msg=""):
-    print(format_log("DEBUG=%s" % msg))
+    
+    if S.verbosity >= LogLevel.DEBUG:
+        print(format_log("DEBUG=%s" % msg))
 
 
 
-
-print(_._quotes)
-
-with Q(_):
-    print(_._quotes)
-print(_._quotes)
 
 class Expr:
     def __init__(self, name=""):
@@ -354,19 +366,16 @@ class Dioid(Val):
     def one(self):
         raise NotImplementedError("IMPLEMENT ME!")    
         
-
     
-
-
 class RD(Dioid):
     def __init__(self, val, name=''):
         super().__init__(val, name=name)
     
     def zero(self):
-        return 0
+        return RD(0)
     
     def one(self):
-        return 1
+        return RD(1)
     
     def s(self):
         return "TODO R^ set "
@@ -381,6 +390,33 @@ class RD(Dioid):
     
     def __mul__(self, d2):
         return RD(self.val * d2.val)
+
+
+    
+class BD(Dioid):
+    def __init__(self, val, name=''):
+        super().__init__(val, name=name)
+    
+    def zero(self):
+        return BD(False)
+    
+    def one(self):
+        return BD(True)
+    
+    def s(self):
+        return "TODO R^ set "
+
+    def __neg__(self):
+        """ NOTE: in a dioid, negation is _not_ mandatory. See page 7 of Graphs, Dioids and Semirings book
+        """
+        return BD(not self.val)
+        
+    def __add__(self, d2):
+        return BD(self.val or d2.val)
+    
+    def __mul__(self, d2):
+        return BD(self.val and d2.val)
+
 
 class Rel(Expr):
     
@@ -399,6 +435,19 @@ class Rel(Expr):
             raise ValueError("dom has different size than g rows! dom=%s g=%s" % (len(dom), len(g)))
         if len(cod) != len(g[0]):
             raise ValueError("cod has different size than g columns! cod=%s g=%s" % (len(cod), len(g[0])))
+
+        # fixing values
+
+        for row in g:
+            for j in range(len(row)):
+                el = row[j]
+                if not isinstance(el, Dioid):
+                    if type(el) == float or type(el) == int:
+                        row[j] = RD(el)
+                    elif type(el) == bool:
+                        row[j] = BD(el)
+                    else:
+                        raise ValueError("Found unrecognized type %s for element %s" % (type(el), el))            
 
         self.g = g
         self._dom = dom
@@ -427,7 +476,7 @@ class Rel(Expr):
         return self.g[0][0]
 
     def __add__(self, r2):
-        if _.q():
+        if S.q():
             return RelAdd(self, r2)
         else:
 
@@ -442,7 +491,7 @@ class Rel(Expr):
     def __mul__(self, r2):
         """ we don't consider __matmul__ for now (dont like the '@')
         """
-        if _.q():
+        if S.q():
             return RelMul(self, r2)
         else:
             res_g = []
@@ -453,12 +502,12 @@ class Rel(Expr):
                 for j in range(len(r2.cod)):
                     val = self.dioid().zero()
                     for k in range(len(self.cod)):
-                        val = self.g[i][k] * r2.g[k][j]
+                        val += self.g[i][k] * r2.g[k][j]
                     row.append(val)
             return Rel(res_g, self.dom, r2.cod, name=self.name)
 
     def __str__(self):
-        if _.q() and self.name:
+        if S.q() and self.name:
             return self.name
         else:
             
@@ -482,7 +531,7 @@ class Rel(Expr):
         return "Rel(%s,%s,%s%s)" % (repr(self.g), repr(self.dom), repr(self.cod) , self._reprname())
     
     def transpose(self):
-        if _.q():
+        if S.q():
             return T(self)
         else:
             res_g = []
@@ -497,7 +546,7 @@ class Rel(Expr):
     T = property(transpose, None, None, "Matrix transposition.")
 
     def __neg__(self):
-        if _.q():
+        if S.q():
             return Neg(self)
         else:
             res_g = []
@@ -509,59 +558,4 @@ class Rel(Expr):
 
             return Rel(res_g, self.dom, self.cod, name=self.name)
 
-
-    
-def pexpr(msg, expr):
-    info("python:  %s" % msg)
-    info('repr:    %r ' % expr) 
-    info('str:\n%s' % str(expr))
-
-M = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'] , name='M')
-U = Rel([[RD(9),RD(0), RD(6)], [RD(0),RD(5), RD(7)]], ['a','b'], ['x','y','z'])
-
-print(-Rel([[RD(1)]],['a'],['x'],name='M') == Rel([[RD(-1)]],['a'],['x'],name='M'))
-
-pexpr('M.T', M.T)
-with Q(_):
-    pexpr('M.T', M.T)
-pexpr('U.T', U.T)
-with Q(_):
-    pexpr('U.T', U.T)
-
-
-pexpr('M', M)
-
-with Q(_):
-    pexpr('M.T', M.T)
-pexpr('-M', -M)
-with Q(_):    
-    pexpr('-M', -M)
-
-E = RelMul(M, T(M))
-pexpr('M*M.T', (M*M.T))
-with Q(_):
-    pexpr('M*M.T', (M*M.T))
-
-pexpr("RelMul(M, T(M))", RelMul(M, T(M)))
-with Q(_):
-    pexpr("RelMul(M, T(M))", RelMul(M, T(M)))
-
-pexpr("RelMul(M, T(M)).simp()" , RelMul(M, T(M)).simp())
-with Q(_):
-    pexpr("RelMul(M, T(M)).simp()" , RelMul(M, T(M)).simp())
-
-print(sjoin("ciao\npippo", "hello\ndear\nworld"))
-
-print(sjoin("ciao\npippo", "hello\ndear\nworld\nciao\nmondo\nche\nbello", valign='center'))
-
-
-with Q(_):    
-    pexpr('-U' , -U)
-
-with Q(_):    
-    pexpr('U.T',  U.T)
-
-pexpr("RelMul(M, T(M))" , RelMul(M, T(M)))
-
-pexpr(" -Rel([[RD(1)]],['a'],['x'],name='M')",  -Rel([[RD(1)]],['a'],['x'],name='M'))
 
