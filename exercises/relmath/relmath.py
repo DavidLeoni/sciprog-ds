@@ -391,6 +391,13 @@ class RD(Dioid):
     def __mul__(self, d2):
         return RD(self.val * d2.val)
 
+    def __str__(self):
+        cand = str(self.val)
+        formatted = "%.2f" % self.val
+        if len(cand) > len(formatted):
+            return formatted + (' ...')
+        else:
+            return cand
 
     
 class BD(Dioid):
