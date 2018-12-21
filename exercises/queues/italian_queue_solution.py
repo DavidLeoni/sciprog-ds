@@ -36,7 +36,8 @@ class ItalianQueue:
                         
         Each element is assigned a group; during enqueing, queue is scanned from head to tail
         to find if there is another element with a matching group. 
-            - If there is, element to be enqueued is inserted after the last element in the same group sequence
+            - If there is, element to be enqueued is inserted after the last element in the same
+              group sequence (that is, to the right of the group)
             - otherwise the element is inserted at the end of the queue
     """
     
@@ -141,7 +142,7 @@ class ItalianQueue:
         """ Enqueues provided element v having group g, with the following criteria:
         
             Queue is scanned from head to find if there is another element with a matching group:
-                - if there is, v is inserted after the last element in the same group sequence
+                - if there is, v is inserted after the last element in the same group sequence (so to the right of the group)
                 - otherwise v is inserted at the end of the queue
 
             - Complexity: O(n)
