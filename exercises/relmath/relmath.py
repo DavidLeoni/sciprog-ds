@@ -18,6 +18,7 @@ class S:
     
     verbosity = LogLevel.INFO
 
+    @staticmethod
     def q():
         return S._quotes[-1]
 
@@ -53,6 +54,10 @@ def sjoin(s1,s2, valign='top'):
 
     h1 = sheight(s1)
     h2 = sheight(s2)
+
+    # TODO hack for one liners, prevents weird results as ['M*M.T\n  \n \n']: 
+    if h1 == 1 and h2 == 1:
+        return s1 + s2
 
     if valign == 'center' and h2 > h1:
         left_extra_rows =  (h2-h1) // 2
@@ -110,7 +115,10 @@ def error(msg, ex=None):
     if S.verbosity >= LogLevel.ERROR:    
 
         log_error(msg, ex)
-        raise ex
+        if ex != None:
+            raise new_ex
+        else:
+            raise Exception(msg)
 
 def warn(msg, ex=None):
     if S.verbosity >= LogLevel.WARNING:    
@@ -191,16 +199,13 @@ class BinOp(Expr):
         return  super.__eq__(binop2) \
                 and self.left == binop2.left \
                 and self.right == binop2.right
-    
+
+
+
 class RelMul(BinOp):
     def __init__(self, left, right, name=''):
         super().__init__(left, right, name)
     
-    def python_token(self):
-        return '*'
-
-    def python_method(self):
-        return '__mul__'
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -212,7 +217,14 @@ class RelMul(BinOp):
     @property
     def cod(self):
         return self.right.cod
-   
+
+
+    def python_token(self):
+        return '*'
+
+    def python_method(self):
+        return '__mul__'
+
     def simp(self):
         lsimp = self.left.simp()
         rsimp = self.right.simp()
@@ -222,11 +234,6 @@ class RelAdd(BinOp):
     def __init__(self, left, right, name=''):
         super().__init__(left, right, name=name)
     
-    def python_token(self):
-        return '+'
-
-    def python_method(self):
-        return '__add__'
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -238,11 +245,17 @@ class RelAdd(BinOp):
     @property
     def cod(self):
         return self.right.cod
-   
+
+    def python_token(self):
+        return '+'
+
+    def python_method(self):
+        return '__add__'
+
     def simp(self):
         lsimp = self.left.simp()
         rsimp = self.right.simp()
-        return lsimp * rsimp
+        return lsimp + rsimp
 
 
 class UnOp(Expr):
@@ -355,7 +368,7 @@ class Dioid(Val):
     def __neg__(self):
         """ NOTE: in a dioid, negation is _not_ mandatory. See page 7 of Graphs, Dioids and Semirings book
         """
-        raise NotImplemented("Not available for this dioid !")
+        raise NotImplementedError("Not available for this dioid !")
 
     def s(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -399,6 +412,8 @@ class RD(Dioid):
         else:
             return cand
 
+    def __round__(self, ndigits=0):
+        return RD(round(self.val, ndigits))
     
 class BD(Dioid):
     def __init__(self, val, name=''):
@@ -482,6 +497,25 @@ class Rel(Expr):
         """
         return self.g[0][0]
 
+
+    def map(self, f):
+        """ Maps f to all elements of the matrix
+        """
+        res_g = []
+        for row in self.g:
+            new_row = []
+            res_g.append(new_row)
+            for x in row:
+                new_row.append(f(x))
+        return Rel(res_g, self.dom, self.cod, name=self.name)
+
+    def __round__(self, ndigits=0):
+        if not isinstance(self.dioid(), RD):
+            raise ValueError("Unsupported dioid for round function: %s" % type(self.dioid()))
+        
+        return self.map(lambda x: round(x, ndigits))
+        
+
     def __add__(self, r2):
         if S.q():
             return RelAdd(self, r2)
@@ -564,5 +598,4 @@ class Rel(Expr):
                     row.append(-self.g[i][j])
 
             return Rel(res_g, self.dom, self.cod, name=self.name)
-
 

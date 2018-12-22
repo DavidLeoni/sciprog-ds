@@ -1,6 +1,10 @@
 import pytest
 from relmath import *
 
+def m0():
+    return Rel([[RD(0)]], ['a'], ['x'] , name='M')
+
+
 def m1():
     return Rel([[RD(1)]], ['a'], ['x'] , name='M')
 
@@ -45,15 +49,15 @@ class TestRel:
         with pytest.raises(ValueError):
             Rel([[RD(1)]], ['a'], ['x', 'y'])
 
-    def test_min_dim(self):
+    def test_min_dim_1(self):
         with pytest.raises(ValueError):
             Rel([[]], ['a'], [])
 
-    def test_min_dim(self):
+    def test_min_dim_2(self):
         with pytest.raises(ValueError):
             Rel([[], []], ['a','b'], [])
 
-    def test_min_dim(self):
+    def test_min_dim_3(self):
         with pytest.raises(ValueError):
             Rel([], [], [])
 
@@ -99,7 +103,7 @@ class TestRel:
 
     def test_neg_neg(self):
         M1 = m1()
-        assert -(-M1) == m1()
+        assert - (-M1) == m1()
 
         M12 = m12()
         assert -(-M12) == m12()
@@ -107,7 +111,42 @@ class TestRel:
         M21 = m21()
         assert -(-M21) == m21()
 
-    
+
+class TestMul:
+
+    def test_id(self):
+        M1 = m1()
+        M1p = m1()
+        M1r = m1()
+        assert round(M1 * M1p, 7) == round(M1r, 7)
+
+    def test_zero_10(self):
+        M1 = m1()
+        M0 = m0()
+        Mr = m0()
+        assert round(M1 * M0, 7) == round(Mr, 7)
+    def test_zero_01(self):
+        
+        M1 = m1()
+        M0 = m0()
+        Mr = m0()
+        assert round(M0 * M1, 7) == round(Mr, 7)
+
+    def test_m21_id(self):
+        
+        M12 = m21()
+        M1 = m1()
+        Mr = m21()
+        assert round(M12 * M1, 7) == round(Mr, 7)
+
+    def test_m12_m21(self):
+        
+        M12 = m12()
+        M21 = m21()
+        Mr = Rel([[M12.g[0][0]*M21.g[0][0]+ M12.g[0][1]*M21.g[1][0] ]],M12.dom, M21.cod)
+        assert round(M12 * M21, 7) == round(Mr, 7)
+
+
 def pexpr(msg, expr):
     info("python:  %s" % msg)
     info('repr:    %r ' % expr) 
