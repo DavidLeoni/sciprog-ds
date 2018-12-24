@@ -329,7 +329,7 @@ class DiGraphTestTest(DiGraphTest):
 
 class HasEdgeTest(DiGraphTest):
     
-    def test_has_edge(self):
+    def test_01_has_edge(self):
         self.assertTrue(dig({'a':['b']}).has_edge('a','b'))    
         self.assertFalse(dig({'a':['b']}).has_edge('a','a'))    
         self.assertTrue(dig({'a':['b'],
@@ -342,7 +342,7 @@ class HasEdgeTest(DiGraphTest):
         
 class FullGraphTest(DiGraphTest):
     
-    def test_full_graph(self):
+    def test_01_full_graph(self):
         self.assertDiGraphEqual(full_graph([]),
                                 dig({}))
         self.assertDiGraphEqual(full_graph(['a']),
@@ -353,7 +353,7 @@ class FullGraphTest(DiGraphTest):
 
 class DagTest(DiGraphTest):        
     
-    def test_dag(self):
+    def test_01_dag(self):
         self.assertDiGraphEqual(dag([]), dig({}))
         self.assertDiGraphEqual(dag(['a']), dig({'a': []}))
         self.assertDiGraphEqual(dag(['a', 'b']), dig({'a': ['b']}))
@@ -363,17 +363,17 @@ class DagTest(DiGraphTest):
 
 class ListGraphTest(DiGraphTest):        
     
-    def test_list_graph(self):
+    def test_01_list_graph(self):
         with self.assertRaises(Exception):
             list_graph(-4)
                     
-        self.assertEquals(dig({}), list_graph(0))
-        self.assertEquals(dig({1:[]}), list_graph(1))
-        self.assertEquals(dig({1:[2],2:[3]}), list_graph(3))
+        self.assertEqual(dig({}), list_graph(0))
+        self.assertEqual(dig({1:[]}), list_graph(1))
+        self.assertEqual(dig({1:[2],2:[3]}), list_graph(3))
         
 class StarGraphTest(DiGraphTest):        
 
-    def test_star_graph(self):
+    def test_01_star_graph(self):
         with self.assertRaises(Exception):
             star_graph(-4)
         self.assertDiGraphEqual(star_graph(0),
@@ -390,42 +390,42 @@ class StarGraphTest(DiGraphTest):
         
 class OddLineTest(DiGraphTest):
        
-    def test_0(self):        
+    def test_00(self):        
         self.assertDiGraphEqual(odd_line(0), dig({}))
 
-    def test_1(self):        
+    def test_01(self):        
         self.assertDiGraphEqual(odd_line(1), dig({1: []}))
 
-    def test_2(self):        
+    def test_02(self):        
         self.assertDiGraphEqual(odd_line(2), dig({1: [3]}))
 
 
-    def test_3(self):        
+    def test_03(self):        
         self.assertDiGraphEqual(odd_line(3), dig({1: [3],
                                                  3: [5]}))
 
-    def test_4(self):        
+    def test_04(self):        
         self.assertDiGraphEqual(odd_line(4), dig({1: [3],
                                                  3: [5],
                                                  5: [7]}))
 
 class EvenLineTest(DiGraphTest):
         
-    def test_0(self):        
+    def test_00(self):        
         self.assertDiGraphEqual(even_line(0), dig({}))
 
-    def test_1(self):        
+    def test_01(self):        
         self.assertDiGraphEqual(even_line(1), dig({2: []}))
 
-    def test_2(self):        
+    def test_02(self):        
         self.assertDiGraphEqual(even_line(2), dig({4: [2]}))
 
 
-    def test_3(self):        
+    def test_03(self):        
         self.assertDiGraphEqual(even_line(3), dig({4: [2],
                                                   6: [4]}))
 
-    def test_4(self):        
+    def test_04(self):        
         self.assertDiGraphEqual(even_line(4), dig({4: [2],
                                                    6: [4],
                                                    8: [6]}))
@@ -433,24 +433,24 @@ class EvenLineTest(DiGraphTest):
 class QuadsTest(DiGraphTest):
     
     
-    def test_0(self):
+    def test_00(self):
         
         self.assertDiGraphEqual(quads(0), dig({}))
 
-    def test_1(self):
+    def test_01(self):
         
         self.assertDiGraphEqual(quads(1), dig({1: [],
                                                2: [1]}))
 
     
-    def test_2(self):
+    def test_02(self):
         
         self.assertDiGraphEqual(quads(2), dig({1: [3],
                                                2: [1],
                                                3: [4],
                                                4: [2]}))
 
-    def test_3(self):
+    def test_03(self):
         
         self.assertDiGraphEqual(quads(3), dig({1: [3],
                                                2: [1],
@@ -460,7 +460,7 @@ class QuadsTest(DiGraphTest):
                                                6: [4, 5]}))
 
 
-    def test_4(self):
+    def test_04(self):
         
         self.assertDiGraphEqual(quads(4), dig({1: [3],
                                                2: [1],
@@ -476,22 +476,22 @@ class PieTest(DiGraphTest):
     def test_0(self):        
         self.assertDiGraphEqual(pie(0), dig({}))
 
-    def test_1(self):        
+    def test_01(self):        
         self.assertDiGraphEqual(pie(1), dig({0: [1],
                                              1: [1]}))
 
-    def test_2(self):        
+    def test_02(self):        
         self.assertDiGraphEqual(pie(2), dig({0: [1,2],
                                              1: [2],
                                              2: [1]}))
 
-    def test_3(self):
+    def test_03(self):
         self.assertDiGraphEqual(pie(3), dig({0: [1,2,3],
                                              1: [2],
                                              2: [3],
                                              3: [1]}))
 
-    def test_4(self):
+    def test_04(self):
         self.assertDiGraphEqual(pie(4), dig({0: [1,2,3,4],
                                              1: [2],
                                              2: [3],
@@ -500,25 +500,25 @@ class PieTest(DiGraphTest):
 
 class FluxTest(DiGraphTest):        
 
-    def test_negative(self):
+    def test_01_negative(self):
         with self.assertRaises(ValueError):
             flux(-1)
         with self.assertRaises(ValueError):
             flux(-2)
     
-    def test_zero(self):
+    def test_02_zero(self):
         self.assertDiGraphEqual(flux(0), dig({0: []}))
 
-    def test_one(self):        
+    def test_03_one(self):        
         self.assertDiGraphEqual(flux(1), dig({0: [1,2,3]}))
     
-    def test_two(self):        
+    def test_04_two(self):        
         self.assertDiGraphEqual(flux(2), dig({0: [1,2,3],
                                               1: [4],
                                               2: [5],
                                               3: [6]}))
 
-    def test_three(self):        
+    def test_05_three(self):        
         self.assertDiGraphEqual(flux(3), dig({0: [1,2,3],
                                               1: [4],
                                               2: [5],
@@ -530,11 +530,11 @@ class FluxTest(DiGraphTest):
         
 class TestRemoveVertex(DiGraphTest):
     
-    def test_empty(self):
+    def test_01_empty(self):
         with self.assertRaises(Exception):
             dig({}).remove_vertex('a')
         
-    def test_two(self):        
+    def test_02_two(self):        
         g = dig({'a': ['b'],
                  'b': ['a']})
         
@@ -544,7 +544,7 @@ class TestRemoveVertex(DiGraphTest):
         g.remove_vertex('b')
         self.assertDiGraphEqual(g, dig({}))
 
-    def test_self(self):        
+    def test_03_self(self):        
         g = dig({'a': ['a'],
                  'b': ['a', 'b']})
         
@@ -556,28 +556,28 @@ class TestRemoveVertex(DiGraphTest):
 
 class TransposeTest(DiGraphTest):
     
-    def test_empty(self):
+    def test_01_empty(self):
         g = dig({})
         g.transpose()
         self.assertDiGraphEqual(dig({}), g)
         
-    def test_return_none(self):
+    def test_02_return_none(self):
         self.assertReturnNone(dig({}).transpose(), 'transpose')
         self.assertReturnNone(dig({'a': ['b']}).transpose(), 'transpose')                
 
-    def test_self(self):
+    def test_03_self(self):
         g = dig({'a': ['a']})
         g.transpose()
         self.assertDiGraphEqual(g, g)
         
-    def test_bipartite(self):
+    def test_04_bipartite(self):
         g = dig({'a': ['c'],
                 'b' : ['d']})
         g.transpose()
         self.assertDiGraphEqual(g, dig({'c': ['a'],
                                         'd': ['b']}))
 
-    def test_star(self):
+    def test_05_star(self):
         g = dig({'a': ['b','c','d']})
         g.transpose()
         self.assertDiGraphEqual(g, dig({'b': ['a'],
@@ -589,14 +589,14 @@ class TransposeTest(DiGraphTest):
         
 class HasSelfLoopsTest(DiGraphTest):       
         
-    def test_empty(self):        
+    def test_01_empty(self):        
         self.assertFalse(dig({}).has_self_loops())
 
-    def test_one(self):        
+    def test_02_one(self):        
         self.assertFalse(dig({'a':[]}).has_self_loops())
         self.assertTrue(dig({'a':['a']}).has_self_loops())
 
-    def test_two(self):        
+    def test_03_two(self):        
         self.assertFalse(dig({'a':[]}).has_self_loops())
         self.assertTrue(dig({'a':['b', 'a']}).has_self_loops())
         self.assertFalse(dig({'a':['b'],
@@ -605,17 +605,17 @@ class HasSelfLoopsTest(DiGraphTest):
 
 class RemoveSelfLoopTest(DiGraphTest):
         
-    def test_empty(self):
+    def test_01_empty(self):
         g = dig({})
         g.remove_self_loops()
         self.assertDiGraphEqual(g, dig({}))
 
-    def test_no_loops(self):
+    def test_02_no_loops(self):
         g = dig({'a':[]})
         g.remove_self_loops()
         self.assertDiGraphEqual(g, dig({'a':[]}))
 
-    def test_complex(self):
+    def test_03_complex(self):
         g = dig({'a':['a','b'],
                  'b':['c', 'b']})
         g.remove_self_loops()
@@ -626,15 +626,15 @@ class RemoveSelfLoopTest(DiGraphTest):
         
 class UndirTest(DiGraphTest):
     
-    def test_empty(self):
+    def test_01_empty(self):
         g = dig({})        
         self.assertDiGraphEqual(g.undir(), dig({}))
         
-    def test_self(self):
+    def test_02_self(self):
         g = dig({'a': ['a']})        
         self.assertDiGraphEqual(g.undir(), g)
         
-    def test_bipartite(self):
+    def test_03_bipartite(self):
         g = dig({'a': ['c'],
                 'b': ['d']})        
         self.assertDiGraphEqual(g.undir(), dig({'a': ['c'],
@@ -642,7 +642,7 @@ class UndirTest(DiGraphTest):
                                                 'c': ['a'],
                                                 'd': ['b']}))
 
-    def test_star(self):
+    def test_04_star(self):
         g = dig({'a':['b','c','d']})
         self.assertDiGraphEqual(g.undir(), dig({'a': ['b','c','d'],
                                                 'b': ['a'],
@@ -656,34 +656,34 @@ class UndirTest(DiGraphTest):
 
 class DistancesTest(DiGraphTest):
     
-    def test_empty(self):
+    def test_01_empty(self):
         with self.assertRaises(Exception):
             dig({}).distances('a')
 
-    def test_not_found(self):
+    def test_02_not_found(self):
         with self.assertRaises(Exception):
             dig({'a'}).distances('b')
 
 
-    def test_root(self):        
+    def test_03_root(self):        
         self.assertEqual(dig({'a': []}).distances('a'),
                              {'a': 0})
         self.assertEqual(dig({'a': ['a']}).distances('a'),
                         {'a': 0})
 
-    def test_one(self):        
+    def test_04_one(self):        
         self.assertEqual(dig({'a': ['b']}).distances('a'),
                           {'a': 0, 
                            'b': 1})
 
 
-    def test_unreachable(self):        
+    def test_05_unreachable(self):        
         self.assertEqual(dig({'a': [],
                               'b': []}).distances('a'),
                           {'a': 0, 
                           'b': -1})
 
-    def test_triangle(self):        
+    def test_06_triangle(self):        
         self.assertEqual(dig({'a': ['b'],
                               'b': ['c'],
                               'c': ['a']}).distances('a'),
@@ -691,7 +691,7 @@ class DistancesTest(DiGraphTest):
                            'b': 1,
                            'c': 2})
         
-    def test_square(self):        
+    def test_07_square(self):        
         self.assertEqual(dig({'a': ['b','c'],
                               'b': ['d'],
                               'c': ['d']}).distances('a'),
@@ -792,49 +792,111 @@ class CCTest(DiGraphTest):
 
 
 class HasCycleTest(DiGraphTest):
-    def test_empty(self):
+    def test_01_empty(self):
         self.assertEqual(dig({}).has_cycle(), False)
     
-    def test_one_no_cycle(self):
+    def test_02_one_no_cycle(self):
         self.assertEqual(dig({'a':[]}).has_cycle(), False)
 
-    def test_one_with_cycle(self):
+    def test_03_one_with_cycle(self):
         self.assertEqual(dig({'a':['a']}).has_cycle(), True)
 
-    def test_two_without_cycle(self):
+    def test_04_two_without_cycle(self):
         self.assertEqual(dig({'a':['b']}).has_cycle(), False)
 
-    def test_two_with_cycle(self):
+    def test_05_two_with_cycle(self):
         self.assertEqual(dig({'a':['b'],
                               'b':['a'] }).has_cycle(), True) 
 
-    def test_two_with_self_loop_1(self):
+    def test_06_two_with_self_loop_1(self):
         self.assertEqual(dig({'a':['a'],
                               'b':['a'] }).has_cycle(), True)                               
 
-    def test_two_with_self_loop_2(self):
+    def test_07_two_with_self_loop_2(self):
         self.assertEqual(dig({'a':['b'],
                               'b':['b'] }).has_cycle(), True)                                                             
 
-    def test_triangle(self):
+    def test_08_triangle(self):
         self.assertEqual(dig({'a':['b'],
                               'b':['c'],
                               'c':['a'] }).has_cycle(), True)                                                                           
-    def test_triangle(self):
+    def test_09_line(self):
         self.assertEqual(dig({'a':['b'],
                               'b':['c'],
                               'c':[] }).has_cycle(), False)
 
    
-    def test_complex_with_cycle(self):
+    def test_10_complex_with_cycle_1(self):
         self.assertEqual(dig({'a':['b','c'],
                               'b':['d','e'],
                               'c':['b'] }).has_cycle(), False)
 
    
-    def test_complex_with_cycle(self):
+    def test_11_complex_with_cycle_2(self):
         self.assertEqual(dig({'a':['b','c'],
                               'b':['d','e','c'],
                               'c':['b'] }).has_cycle(), True)
 
-                                                         
+
+class TopSortTest(DiGraphTest):                                                   
+
+    def test_empty(self):
+        self.assertEqual(dig({}).top_sort(), [])
+
+    def test_one(self):
+        self.assertEqual(dig({'a':[]}).top_sort(), ['a'])
+
+
+    def test_ab(self):
+        self.assertEqual(dig({'a':['b']}).top_sort(), ['a','b'])
+
+
+    def test_abc_v(self):
+        ts = dig({'a':['c'],'b':['c']}).top_sort()
+        self.assertIn(ts, [
+                            ['a','b','c'],
+                            ['b','a','c']
+                          ])
+
+    def test_ab_cd(self):
+        ts = dig({'a':['b'], 'c':['d']}).top_sort()
+        # Observe that given this graph has two components each of size 2,
+        # once two positions are fixed the other two are univocally determined
+        # So first we write all possible sequences with a and b at distance 0
+        # Then all possible sequences with a and b at distance 1
+        # Then all possible sequences with a and b at distance 2
+        self.assertIn(ts, [                    # 0123    
+                            ['a','b','c','d'], # ab
+                            ['c','a','b','d'],  #  ab
+                            ['c','d','a','b'], #   ab
+                            ['a','c','b','d'], # a b
+                            ['c','a','d','b'], #  a b
+                            ['a','c','d','b'], # a  b
+                          ] )
+
+    def test_simple_diamond(self):
+        ts = dig({'a':['b','c'], 'b':['d'], 'c':['d']}).top_sort()
+        self.assertIn(ts, [
+                            ['a','b','c','d'],
+                            ['a','c','b','d']
+                          ] )
+
+
+    def test_complex_diamond(self):
+        ts = dig({'a':['b','c','d'], 'b':['e'], 'c':['e'], 'd':['e']}).top_sort()
+        # Observe a and e will always stay at beginning and the end, respectively
+        # Then progressively move b to the right, observing that for each b position
+        # you can only have two other configurations for c and d
+        self.assertIn(ts, [
+                            ['a','b','c','d','e'],
+                            ['a','b','d','c','e'],
+                            ['a','d','b','c','e'],
+                            ['a','c','b','d','e'],
+                            ['a','c','d','b','e'],
+                            ['a','d','c','b','e'],
+                          ] )
+
+
+    def test_dag(self):
+        ts = dig({'a':['b','c','d'], 'b':['c','d'], 'c':['d'], 'd':[]}).top_sort()
+        self.assertEqual(ts, ['a','b','c','d'] )

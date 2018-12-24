@@ -449,6 +449,32 @@ class DiGraph:
         return False
         #/jupman-raise
 
+    def top_sort(self):
+        """ RETURN a topological sort of the graph. To implement this code, 
+            feel free to adapt Montresor algorithm
+
+            - implement  Stack S  as a list
+            - implement  visited  as a set
+            - NOTE: differently from Montresor code, for tests to pass 
+                    you will need to return a reversed list. Why ?
+        """
+        #jupman-raise
+        def topSortRec(u, visited, S):
+            visited.add(u)
+            for v in self.adj(u):
+                if not v in visited:
+                    topSortRec(v, visited, S)
+            S.append(u)
+
+        S = []
+        visited = set()
+        for u in self.verteces():
+            if not u in visited:
+                topSortRec(u, visited, S)
+        S.reverse()
+        return S
+        #/jupman-raise
+
 def full_graph(verteces):
     """ Returns a DiGraph which is a full graph with provided verteces list.
     
@@ -705,3 +731,7 @@ def flux(depth):
 
     return g 
     #/jupman-raise
+
+##def collect(g):
+    
+#dig({'ar':['bg','cv'],})
