@@ -11,13 +11,16 @@
   "relmath_test.py::TestRel::test_eq",
   "relmath_test.py::TestRel::test_val_RD",
   "relmath_test.py::TestRel::test_val_BD",
-  "relmath_test.py::TestRel::test_T",
-  "relmath_test.py::TestRel::test_TT",
   "relmath_test.py::TestRel::test_neg",
   "relmath_test.py::TestRel::test_neg_neg",
+  "relmath_test.py::TestTranspose::test_T",
+  "relmath_test.py::TestTranspose::test_simp_T",
+  "relmath_test.py::TestTranspose::test_TT",
+  "relmath_test.py::TestTranspose::test_simp_TT",
   "relmath_test.py::TestMul::test_id",
   "relmath_test.py::TestMul::test_zero_10",
   "relmath_test.py::TestMul::test_zero_01",
   "relmath_test.py::TestMul::test_m21_id",
-  "relmath_test.py::TestMul::test_m12_m21"
+  "relmath_test.py::TestMul::test_m12_m21",
+  "relmath_test.py::test_trial"
 ]

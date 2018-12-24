@@ -20,6 +20,8 @@ class S:
 
     @staticmethod
     def q():
+        """ Return True if system is operating under quotation, False otherwise
+        """
         return S._quotes[-1]
 
 @contextmanager
@@ -31,7 +33,18 @@ def Q(p):
     S.level -= 2   
     debug('/quoted')
     S._quotes.pop()
-    
+
+@contextmanager
+def UQ(p):
+    debug('unquoted')
+    S._quotes.append(False)
+    S.level += 2
+    yield 
+    S.level -= 2   
+    debug('/unquoted')
+    S._quotes.pop()
+
+
 
 def sheight(s):
     """ Return the height of provided text block.
@@ -165,6 +178,18 @@ class Expr:
     def cod(self):
         raise NotImplementedError("IMPLEMENT ME!")      
 
+    def transpose(self):
+        if S.q():
+            return T(self)
+        else:
+            s = self.simp()
+            if s == self:
+                return T(self)
+            else:
+                return s.T
+
+    T = property(transpose, None, None, "Matrix transposition.")
+
     def simp(self):
         return self
 
@@ -196,7 +221,7 @@ class BinOp(Expr):
         raise NotImplementedError("IMPLEMENT ME!")    
 
     def __eq__(self, binop2):
-        return  super.__eq__(binop2) \
+        return  super().__eq__(binop2) \
                 and self.left == binop2.left \
                 and self.right == binop2.right
 
@@ -226,9 +251,10 @@ class RelMul(BinOp):
         return '__mul__'
 
     def simp(self):
-        lsimp = self.left.simp()
-        rsimp = self.right.simp()
-        return lsimp * rsimp
+        with UQ(S):
+            lsimp = self.left.simp()
+            rsimp = self.right.simp()
+            return lsimp * rsimp
 
 class RelAdd(BinOp):
     def __init__(self, left, right, name=''):
@@ -253,9 +279,10 @@ class RelAdd(BinOp):
         return '__add__'
 
     def simp(self):
-        lsimp = self.left.simp()
-        rsimp = self.right.simp()
-        return lsimp + rsimp
+        with UQ(S):
+            lsimp = self.left.simp()
+            rsimp = self.right.simp()
+            return lsimp + rsimp
 
 
 class UnOp(Expr):
@@ -279,7 +306,7 @@ class UnOp(Expr):
         return "%s(%s%s)" % (self.__class__.__name__ , repr(self.val), self._reprname())
 
     def __eq__(self, unop2):
-        return  super.__eq__(unop2) \
+        return  super().__eq__(unop2) \
                 and self.val == unop2.val
 
 
@@ -304,7 +331,8 @@ class T(UnOp):
         return self.val.dom
    
     def simp(self):
-        return self.val.T
+        with UQ(S):
+            return self.val.simp().T
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -320,7 +348,8 @@ class Neg(UnOp):
 
 
     def simp(self):
-        return -self.val
+        with UQ(S):
+            return -self.val
 
     def latex(self):
         raise NotImplementedError("IMPLEMENT ME!")    
@@ -532,6 +561,8 @@ class Rel(Expr):
     def __mul__(self, r2):
         """ we don't consider __matmul__ for now (dont like the '@')
         """
+        if r2 == None:
+            raise ValueError("Can't multiply by None !")
         if S.q():
             return RelMul(self, r2)
         else:
@@ -583,9 +614,8 @@ class Rel(Expr):
                     row.append(self.g[j][i])
 
             return Rel(res_g, self.cod, self.dom, name=self.name)
-
     T = property(transpose, None, None, "Matrix transposition.")
-
+    
     def __neg__(self):
         if S.q():
             return Neg(self)

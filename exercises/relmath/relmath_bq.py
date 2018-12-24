@@ -13,11 +13,22 @@ def Rel_bq_npartite(rel_exprs):
         c   \   z  /
               \ w
     """    
+    if len(rel_exprs) == 0:
+        raise ValueError("Expected a non-empty list !")
     i = 0
     for expr in rel_exprs:
         if not isinstance(expr, Expr):
             raise ValueError("Expected an Expr ! Instead Found as value at index %s this  %s " % (i,expr))
         i += 1
+
+    """
+        node_data = [
+            {'label': 'A', 'shape': 'circle', 'shape_attrs': {'r': 20}, 'foo': 1},
+            {'label': 'Node B', 'shape': 'rect', 'shape_attrs': {'rx': 10, 'ry': 10, 'width': 40}, 'foo': 2},
+            {'label': 'C', 'shape': 'ellipse', 'foo': 4},
+            {'label': 'D', 'shape': 'rect', 'shape_attrs': {'width': 30, 'height': 30}, 'foo': 100},
+        ]    
+    """
 
     texts = []
     node_data = []    
@@ -25,14 +36,12 @@ def Rel_bq_npartite(rel_exprs):
     x = []
     y = []
 
-    i = 0
-
     base = 0
     x_distance = 100
-    for rel in rel_exprs:
+    # fake rel
+    
+    for rel in rel_exprs :
         srel = rel.simp()
-        node_data.extend(srel.dom)
-
         n = len(srel.dom)
         m = len(srel.cod)
         for i in range(n):
@@ -40,19 +49,20 @@ def Rel_bq_npartite(rel_exprs):
                 link_data.append({'source': base + i, 'target': base + n + j, 'value': srel.g[i][j].val})
         base += n
     
-        with Q(S):
-            texts.append(str(rel))
-            
+    i = 0
+    for rel in rel_exprs + [rel_exprs[-1].simp().T]:
+        srel = rel.simp()
+        node_data.extend([{'label':dom, 'r':30} for dom in srel.dom])
+        n = len(srel.dom)
         
         x.extend(([(i+1)*x_distance] * n))
         y.extend(reversed(range(n)))
 
-        i += 1
+        if i < len(rel_exprs):
+            with Q(S):
+                texts.append(str(rel))
 
-    last_srel = rel_exprs[-1].simp()
-    node_data.extend(last_srel.cod)
-    x.extend([(i+1)*x_distance] * len(last_srel.cod))
-    y.extend(reversed(range(len(last_srel.cod))))
+        i += 1
 
 
     fig_layout = Layout(width='960px', height='300px')
@@ -62,7 +72,7 @@ def Rel_bq_npartite(rel_exprs):
     lcs = ColorScale(scheme='Reds')
     
     # TODO !!! WORKS FOR BINOPS ONLY IF I PUT MAGIC 3 NUMBER !!!!!!!!!
-    labels = Label(x=[(i*x_distance) + (x_distance/2) for i in range(3, len(rel_exprs)+3)],
+    labels = Label(x=[(i*x_distance) + (x_distance/2) for i in range(1, len(rel_exprs)+1)],
                    y=[max(y)+1]*2, scales={'x': xs, 'y': ys},
                 text=texts, default_size=26, font_weight='bolder',
                 colors=['black'], update_on_move=True)
@@ -78,7 +88,7 @@ def Rel_bq_npartite(rel_exprs):
 
     """
 
-    graph = Graph(node_data=node_data, link_data=link_data, link_type='line',
+    graph = Graph(  node_data=node_data, link_data=link_data, link_type='line',
                     colors=['orange'], directed=False, 
                     scales={'x': xs, 'y': ys, 'link_color': lcs}, 
                     x=x, y=y,  color=['black']*len(node_data))

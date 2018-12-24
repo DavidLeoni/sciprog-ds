@@ -15,7 +15,7 @@ class SwapTest(unittest.TestCase):
         
     def test_return_none(self):
         v = ['a','b', 'c', 'd'];
-        self.assertEquals(None, swap(v,1,3))        
+        self.assertEqual(None, swap(v,1,3))        
         
     def test_long_list(self):
         v = ['a','b', 'c', 'd'];
@@ -70,7 +70,7 @@ class QuicksortTest(unittest.TestCase):
         self.assertEqual(v,[])     
         
     def test_return_none(self):    
-        self.assertEquals(None, qs([2]))        
+        self.assertEqual(None, qs([2]))        
         
     def test_one_element(self):
         v = ["a"]

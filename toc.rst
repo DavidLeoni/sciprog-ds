@@ -29,7 +29,6 @@
     exercises/sets/sets.ipynb
     exercises/stacks/stacks.ipynb
     exercises/queues/queues.ipynb    
-
     exercises/trees/trees.ipynb
     exercises/graph-algos/graph-algos.ipynb
 
