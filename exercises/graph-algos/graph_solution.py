@@ -326,8 +326,6 @@ class DiGraph:
         if not source in self.verteces():
             raise Exception("Can't find vertex:" + str(source))
         
-        ret = {}
-
         Q = deque()
         # we start from source 
 
@@ -474,6 +472,7 @@ class DiGraph:
         S.reverse()
         return S
         #/jupman-raise
+
 
 def full_graph(verteces):
     """ Returns a DiGraph which is a full graph with provided verteces list.

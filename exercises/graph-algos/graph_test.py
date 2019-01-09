@@ -840,25 +840,25 @@ class HasCycleTest(DiGraphTest):
 
 class TopSortTest(DiGraphTest):                                                   
 
-    def test_empty(self):
+    def test_01_empty(self):
         self.assertEqual(dig({}).top_sort(), [])
 
-    def test_one(self):
+    def test_02_one(self):
         self.assertEqual(dig({'a':[]}).top_sort(), ['a'])
 
 
-    def test_ab(self):
+    def test_03_ab(self):
         self.assertEqual(dig({'a':['b']}).top_sort(), ['a','b'])
 
 
-    def test_abc_v(self):
+    def test_04_abc_v(self):
         ts = dig({'a':['c'],'b':['c']}).top_sort()
         self.assertIn(ts, [
                             ['a','b','c'],
                             ['b','a','c']
                           ])
 
-    def test_ab_cd(self):
+    def test_05_ab_cd(self):
         ts = dig({'a':['b'], 'c':['d']}).top_sort()
         # Observe that given this graph has two components each of size 2,
         # once two positions are fixed the other two are univocally determined
@@ -874,7 +874,7 @@ class TopSortTest(DiGraphTest):
                             ['a','c','d','b'], # a  b
                           ] )
 
-    def test_simple_diamond(self):
+    def test_06_simple_diamond(self):
         ts = dig({'a':['b','c'], 'b':['d'], 'c':['d']}).top_sort()
         self.assertIn(ts, [
                             ['a','b','c','d'],
@@ -882,7 +882,7 @@ class TopSortTest(DiGraphTest):
                           ] )
 
 
-    def test_complex_diamond(self):
+    def test_07_complex_diamond(self):
         ts = dig({'a':['b','c','d'], 'b':['e'], 'c':['e'], 'd':['e']}).top_sort()
         # Observe a and e will always stay at beginning and the end, respectively
         # Then progressively move b to the right, observing that for each b position
@@ -897,6 +897,6 @@ class TopSortTest(DiGraphTest):
                           ] )
 
 
-    def test_dag(self):
+    def test_08_dag(self):
         ts = dig({'a':['b','c','d'], 'b':['c','d'], 'c':['d'], 'd':[]}).top_sort()
         self.assertEqual(ts, ['a','b','c','d'] )
