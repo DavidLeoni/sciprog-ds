@@ -68,7 +68,7 @@ MARKDOWN_ANSWER = "**ANSWER**:"
 IPYNB_TITLE_PATTERN = re.compile(r"(\s*#.*)(" + IPYNB_SOLUTION + r")")
 
 
-zip_ignored = ['__pycache__', '.ipynb_checkpoints', '.pyc']
+zip_ignored = ['__pycache__', '.ipynb_checkpoints', '.pyc', '.cache', '.pytest_cache', '.vscode']
 
 FORMATS = ["html", "epub", "latex"]
 SYSTEMS = {
