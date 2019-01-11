@@ -252,7 +252,7 @@ def publish(parser,context,args):
         fatal("TARGET PUBLIC EXAM ZIP " + dest_zip + ".zip ALREADY EXISTS !")    
 
     info("Copying solutions to " + str(dest))
-    conf.copy_code(source_solutions, dest, copy_solutions=True)
+    shutil.copytree(source_solutions, dest)
     info("Copying exam HTML text")
     shutil.copyfile(student_html, dest + '/' + get_exam_text_filename(ld, 'html'))
     
