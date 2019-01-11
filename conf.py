@@ -119,7 +119,7 @@ RAISE_PATTERN = re.compile(jupman_tag_start(JUPMAN_RAISE) + '.*?' + jupman_tag_e
 STRIP_PATTERN = re.compile(jupman_tag_start(JUPMAN_STRIP) + '.*?' + jupman_tag_end(JUPMAN_STRIP), flags=re.DOTALL)
 
 def make_write_solution_here_pattern():
-    removed_spaces = " ".join(WRITE_SOLUTION_HERE.split()).replace(' ', '\s+')
+    removed_spaces = " ".join(WRITE_SOLUTION_HERE.split()).replace(' ', r'\s+')
     return re.compile("(" + removed_spaces + ")(.*)", flags=re.DOTALL )
 
 WRITE_SOLUTION_HERE_PATTERN = make_write_solution_here_pattern()
@@ -275,19 +275,6 @@ def check_paths(path, path_check):
     if len(path_check.strip()) == 0:
         raise Exception("Provided an empty path check!")
 
-
-def delete_file(path, path_check):
-    """ Deletes a file, checking you are deleting what you really want
-
-        path: the path to delete as a string
-        path_check: the end of the path to delete, as a string
-    """
-    check_paths(path, path_check)
-
-    if path.endswith(path_check):
-        os.remove(path)
-    else:
-        fatal("FAILED SAFETY CHECK FOR DELETING DIRECTORY " + path + " ! \n REASON: PATH DOES NOT END IN " + path_check)
 
 def delete_tree(path, path_check):
     """ Deletes a directory, checking you are deleting what you really want
@@ -481,7 +468,7 @@ def copy_code(source_dir, dest_dir, copy_test=True, copy_solutions=False):
                             data=source_f.read().replace('_solution ', '_exercise ')
                             info('Writing patched test %s' % source_filename) 
                             with open(dest_filename, 'w', encoding='utf-8') as dest_f:
-                                writer = dest_f.write(data)                         
+                                dest_f.write(data)                         
                     else:  # EXERCISE and OTHER
                         print("  Writing " + source_filename)
                         shutil.copy(source_abs_filename, dest_filename)
