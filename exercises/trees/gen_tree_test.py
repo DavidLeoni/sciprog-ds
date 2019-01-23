@@ -30,7 +30,16 @@ def gt(*args):
         r._child = c        
     return r
 
-
+def get_children(gt):
+    """ Handy methods to get children. Try not to use this in exercise code !!!!
+    """
+    current = gt._child
+    ret = []
+    while current != None:
+        ret.append(current)        
+        current = current.sibling()
+    return ret
+        
 
 def str_trees(t1, t2, error_row=-1):
     """ Returns a string version of the two trees side by side
@@ -130,12 +139,12 @@ class GenericTreeTest(unittest.TestCase):
                                 + str_trees(actual,expected,row))
             
             self.assertTrue(c1 == actual or c1.parent() != None, 
-                            "Actual parent is None!"
+                            "Parent of ACTUAL node is None!"
                            + "\n\n" +  str_trees(actual,expected,row) )
 
             self.assertTrue(c2 == expected or c2.parent() != None, 
-                            "Expected parent is None!" 
-                             + "\n\n" +  str_trees(actual,expected,row) )            
+                            "Parent of EXPECTED node is  %s !\n\n%s" 
+                             % ( c2.parent(),str_trees(actual,expected,row)) )            
             
             self.assertTrue(c1.parent() == None or isinstance(c1.parent(), GenericTree), 
                            "Actual parent is not a GenericTree instance!"
@@ -164,8 +173,8 @@ class GenericTreeTest(unittest.TestCase):
                                     + "\n\n" + str_trees(actual,expected,row) ))
             i = 0            
             
-            cs1 = c1.children()
-            cs2 = c2.children()
+            cs1 = get_children(c1)
+            cs2 = get_children(c2)
             if (len(cs1) != len(cs2)):
                 raise Exception("Children sizes are different !\n\n"
                                 + str_trees(actual, expected, row + min(len(cs1), len(cs2))) )

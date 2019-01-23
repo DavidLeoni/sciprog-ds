@@ -38,21 +38,7 @@ class GenericTree:
         """
         return self._parent != None
         
-        
-    def children(self):
-        """ Returns the children as a Python list
-            NOTE 1: this method return the *nodes*, not the data.  
-            NOTE 2: This method is O(n) where n is the number of children, 
-                    DO NOT abuse it for i.e. only getting easily first or second child !
-        """
-        
-        ret = []
-        current = self._child
-        while current != None:
-            ret.append(current)
-            current = current._sibling
-        return ret    
-        
+                
     def __str__(self):
         """ Returns a pretty string of the tree """
         
@@ -431,10 +417,15 @@ class GenericTree:
               
         """
         
-        cs = self.children()     
+        cs = []
+        current = self._child
+        while current != None:
+            cs.append(current)
+            current = current.sibling()
+        
+        
         self._child = None
     
-        
         for c in cs:
             self.insert_child(c)
         
@@ -451,7 +442,13 @@ class GenericTree:
         """
         ret = GenericTree(self._data)
         
-        for c in reversed(self.children()):
+        cs = []
+        current = self._child
+        while current != None:
+            cs.append(current)
+            current = current.sibling()
+        
+        for c in reversed(cs):
             ret.insert_child(c.clone())
         
         return ret
