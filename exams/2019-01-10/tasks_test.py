@@ -168,7 +168,8 @@ class DoLevelTest(unittest.TestCase):
         self.assertEqual(do_level('a', subtasks),
                          [('a', 0),('b',1),('c',2),('d',1)])
 
-
+        
+        
     def test_06_abcdfeg(self):
 
         subtasks = {
@@ -185,6 +186,26 @@ class DoLevelTest(unittest.TestCase):
                          [('a', 0), ('b', 1), ('c', 2), ('d', 2), ('f', 3), ('e', 2), ('g', 1)])
         
         
+
+    def test_07_abcde(self):
+        """ Remember a level always depend on the *parent* task level !
+        
+        level 0   1   2
+              a
+                  b
+                      d
+                  c
+                      e
+        """
+        subtasks = {
+            'a': ['b','c'],
+            'b': ['d'],
+            'c': ['e'],
+            'd': [],
+            'e': [] 
+        }
+        self.assertEqual(do_level('a', subtasks), 
+                         [('a',0),('b',1),('d',2),('c',1), ('e',2)])
 
         
 
