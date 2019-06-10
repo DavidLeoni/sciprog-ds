@@ -1,5 +1,4 @@
-import unittest
-        
+       
 class CappedStack:
     
     def __init__(self, cap):
