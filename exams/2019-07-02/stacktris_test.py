@@ -6,8 +6,8 @@ from stacktris_solution import *
 class StacktrisTest(unittest.TestCase):    
 
     def test_init(self): 
-       st = Stacktris()
-       self.assertEqual(st._stack, [])
+        st = Stacktris()
+        self.assertEqual(st._stack, [])
     
     def test_str(self):
         s = Stacktris()
@@ -28,7 +28,7 @@ class ShortenTest(unittest.TestCase):
 
     def test_empty(self):
         st = Stacktris()
-        st._shorten()
+        self.assertEqual(st._shorten(), [])
         self.assertEqual(st._stack, [])
 
     def test_010(self):
@@ -36,7 +36,7 @@ class ShortenTest(unittest.TestCase):
         st._stack = [
             [0,1,0]
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [])
         self.assertEqual(st._stack, [
             [0,1,0]
         ])
@@ -46,7 +46,7 @@ class ShortenTest(unittest.TestCase):
         st._stack = [
             [1,1,1]
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [1,1,1])
         self.assertEqual(st._stack, [            
         ])
 
@@ -56,7 +56,7 @@ class ShortenTest(unittest.TestCase):
         st._stack = [
             [2,1,2]
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [2,1,2])
         self.assertEqual(st._stack, [            
         ])
 
@@ -66,7 +66,7 @@ class ShortenTest(unittest.TestCase):
             [0,1,0],
             [2,2,1]
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [2,2,1])
         self.assertEqual(st._stack, [
             [0,1,0]
         ])
@@ -77,7 +77,7 @@ class ShortenTest(unittest.TestCase):
             [1,2,1],
             [0,1,1],            
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [1,2,1])
         self.assertEqual(st._stack, [
             [0,1,1]
         ])
@@ -88,7 +88,7 @@ class ShortenTest(unittest.TestCase):
             [1,2,1],
             [2,2,1],            
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [2,2,1])
         self.assertEqual(st._stack, [
             [1,2,1]
         ])
@@ -100,7 +100,7 @@ class ShortenTest(unittest.TestCase):
             [2,2,1],
             [0,1,1],            
         ]
-        st._shorten()
+        self.assertEqual(st._shorten(), [2,2,1])
         self.assertEqual(st._stack, [
             [0,1,2],
             [0,1,1]

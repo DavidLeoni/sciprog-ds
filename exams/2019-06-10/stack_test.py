@@ -4,7 +4,7 @@ from stack_solution import *
 class WStackTest(unittest.TestCase):    
 
     def test_01_init(self): 
-       s = WStack()
+        s = WStack()
 
     def test_02_weight(self):
         s = WStack()
