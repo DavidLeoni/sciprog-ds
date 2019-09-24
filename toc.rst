@@ -11,9 +11,11 @@
     commandments.ipynb
     
     Introduction <exercises/introduction/introduction-solution.ipynb>
+    Python basics <exercises/basics/basics-solution.ipynb>
+    Strings <exercises/strings/strings-solution.ipynb>
     Lists <exercises/lists/lists-solution.ipynb>    
     Dictionaries <exercises/dictionaries/dictionaries-solution.ipynb>
-    Strings <exercises/strings/strings-solution.ipynb>
+    
     Matrices as list of lists <exercises/matrix-lists/matrix-lists-solution.ipynb>
     Matrix networks <exercises/matrix-networks/matrix-networks-solution.ipynb>
     Graph formats <exercises/graph-formats/graph-formats-solution.ipynb>
