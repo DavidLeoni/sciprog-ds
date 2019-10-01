@@ -16,6 +16,8 @@
     Lists <exercises/lists/lists-solution.ipynb>    
     Dictionaries <exercises/dictionaries/dictionaries-solution.ipynb>
     
+    Errors and testing <exercises/errors-and-testing/errors-and-testing-solution.ipynb>
+    
     Matrices as list of lists <exercises/matrix-lists/matrix-lists-solution.ipynb>
     Matrix networks <exercises/matrix-networks/matrix-networks-solution.ipynb>
     Graph formats <exercises/graph-formats/graph-formats-solution.ipynb>
@@ -24,7 +26,6 @@
     Visualization <exercises/visualization/visualization-solution.ipynb>
     Pandas <exercises/pandas/pandas-solution.ipynb>
     
-    exercises/testing/testing.ipynb
     exercises/oop/oop.ipynb
     exercises/sorting/sorting.ipynb
     exercises/linked-lists/linked-lists.ipynb    
