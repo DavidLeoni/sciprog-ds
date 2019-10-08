@@ -15,7 +15,7 @@
     Strings <exercises/strings/strings-solution.ipynb>
     Lists <exercises/lists/lists-solution.ipynb> 
     Tuples <exercises/tuples/tuples-solution.ipynb>     
-    Sets exercises/sets/sets-solution.ipynb
+    Sets <exercises/sets/sets-solution.ipynb>
     Dictionaries <exercises/dictionaries/dictionaries-solution.ipynb>
     Control flow <exercises/control-flow/control-flow-solution.ipynb>
     
