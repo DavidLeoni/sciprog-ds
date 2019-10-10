@@ -17,17 +17,16 @@
     Tuples <exercises/tuples/tuples-solution.ipynb>     
     Sets <exercises/sets/sets-solution.ipynb>
     Dictionaries <exercises/dictionaries/dictionaries-solution.ipynb>
-    Control flow <exercises/control-flow/control-flow-solution.ipynb>
-    
+    Control flow <exercises/control-flow/control-flow-solution.ipynb>    
     Errors and testing <exercises/errors-and-testing/errors-and-testing-solution.ipynb>
     
-    Matrices as list of lists <exercises/matrix-lists/matrix-lists-solution.ipynb>
-    Matrix networks <exercises/matrix-networks/matrix-networks-solution.ipynb>
+    Matrices: list of lists <exercises/matrices-lists/matrices-lists-solution.ipynb>
+    Matrices: numpy <exercises/matrices-numpy/matrices-numpy-solution.ipynb>
+    Data formats <exercises/formats/formats-solution.ipynb>
     Graph formats <exercises/graph-formats/graph-formats-solution.ipynb>
-    Binary relations <exercises/binary-relations/binary-relations-solution.ipynb>
-    Network statistics <exercises/network-statistics/network-statistics-solution.ipynb>
     Visualization <exercises/visualization/visualization-solution.ipynb>
     Pandas <exercises/pandas/pandas-solution.ipynb>
+    Binary relations <exercises/binary-relations/binary-relations-solution.ipynb>    
     
     exercises/oop/oop.ipynb
     exercises/sorting/sorting.ipynb
