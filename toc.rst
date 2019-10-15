@@ -20,7 +20,7 @@
     Control flow <exercises/control-flow/control-flow-solution.ipynb>    
     Errors and testing <exercises/errors-and-testing/errors-and-testing-solution.ipynb>
     
-    Matrices: list of lists <exercises/matrices-lists/matrices-lists-solution.ipynb>
+    Matrices: lists <exercises/matrices-lists/matrices-lists-solution.ipynb>
     Matrices: numpy <exercises/matrices-numpy/matrices-numpy-solution.ipynb>
     Data formats <exercises/formats/formats-solution.ipynb>
     Graph formats <exercises/graph-formats/graph-formats-solution.ipynb>
