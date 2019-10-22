@@ -34,10 +34,10 @@ def dig_to_nx(algolab_digraph):
             ret.add_edge(sv, tv)
     return ret
 
-def draw_dig(sciprog_digraph):
+def draw_dig(sciprog_digraph,legend_edges=None, label='', save_to=''):
     """ Draws a Sciprog DiGraph"""
     
-    draw_nx(dig_to_nx(sciprog_digraph))
+    draw_nx(dig_to_nx(sciprog_digraph),legend_edges, label=label, save_to=save_to)
 
 
 def get_pydot_mod(obj):
@@ -54,12 +54,15 @@ def get_pydot_mod(obj):
     base, _sep, _stem = mod.__name__.partition('.')
     return sys.modules[base]
 
+
     
-def draw_nx(G, legend_edges=None, label=''):
+def draw_nx(G, legend_edges=None, label='', save_to=''):
     """ Draws a NetworkX graph object. By default, assumes it is a DiGraph.
+        
+        Optionally, saves it as .png image to filepath  save_to 
     
         For required libraries, see 
-        https://datasciprolab.readthedocs.io/en/latest/exercises/matrix-networks/matrix-networks-solution.html#Required-libraries
+        https://datasciprolab.readthedocs.io/en/latest/exercises/graph-formats/graph-formats-solution.html#Required-libraries
     
         legend_edges example:
         
@@ -72,19 +75,31 @@ def draw_nx(G, legend_edges=None, label=''):
             ]
     
     """
+    
+    if G == None:
+        raise ValueError('Provided Graph is None !')
+    
+    if save_to:
+        if not save_to.lower().endswith('.png'):
+            raise ValueError("Provided filename should end with .png  found instead save_to=%s" % save_to)
+            
     import matplotlib
     import matplotlib.pyplot as plt
     import matplotlib.image as mpimg
-    from IPython.display import Image, display
     import networkx as nx
-    
+       
     # fix graphviz path for anaconda in windows ...
-    import os
-    if os.name == 'nt':
-        graphviz_path = 'C:\\Users\\' + os.getlogin() + '\\Anaconda3\\Library\\bin\\graphviz'
-        if os.path.exists(graphviz_path) and "PATH" in os.environ and (graphviz_path not in os.environ["PATH"]) :
-            os.environ["PATH"] += ';' + graphviz_path
-    
+    try:
+        import os
+        if os.name == 'nt':
+            from os.path import expanduser
+            home = expanduser("~")   # because in windows actual path can differ from user login !!!
+            graphviz_path = 'C:\\Users\\' + home + '\\Anaconda3\\Library\\bin\\graphviz'
+            if os.path.exists(graphviz_path) and "PATH" in os.environ and (graphviz_path not in os.environ["PATH"]) :
+                os.environ["PATH"] += ';' + graphviz_path
+    except Exception as e:
+        print(e)
+        
     
     if not 'node' in G.graph:
         G.graph['node'] = {}
@@ -136,48 +151,37 @@ def draw_nx(G, legend_edges=None, label=''):
             pdot.add_subgraph(glegend)
 
     make_legend()
-    plt = Image(pdot.create_png())
-    display(plt)    
-
-""" TODO Review these - taken from  https://stackoverflow.com/a/42102761
-         notice 
-{
-    'rankdir':'LR',       # horizontal layout
-    'size':'7.75,10.25',
     
-    'overlap':'false',
-    'maxiter':99999999,
-    'damping':9999999,
-    'voro_margin':'001',
-    'start':0.1,
-    'K':1,
-    'nodesep':999999999999,
-    'labelloc':'c',
-    'defaultdist':9999999,
-    'size':'20,20',
-    'sep':'+1',
-    'normalize':99999999,
-    'labeljust':'l',
-    'outputorder':'nodesfirst',
-    'concentrate':'true',
-    'mindist':2,
-    'fontsize':99999999,
-    'center':'true',
-    'scale':'.01',
-    'inputscale':99999999,
-    'levelsgap':9999999,
-    'epsilon':0.0001,
-}    
-"""
+    # if we are in jupyter ...
+    import importlib
+    ipython_spec = importlib.util.find_spec("IPython")
+    if ipython_spec:
+        from IPython.display import Image, display
+        plt = Image(pdot.create_png())
+        display(plt)
+    if save_to:
+        try:
+            pdot.write_png(save_to)
+            print("Image saved to file: ", save_to)
+        except Exception as e:
+            print("ERROR: Could not save file to ", save_to)
+            print(e)
     
-def draw_mat(mat):    
+    
+def draw_mat(mat, legend_edges=None, label='', save_to=''):    
     """ Draws a matrix as a DiGraph 
         
+        Optionally, saves it as .png image to filepath  save_to
+        
         For required libraries, see 
-        https://datasciprolab.readthedocs.io/en/latest/exercises/matrix-networks/matrix-networks-solution.html#Required-libraries
+        https://datasciprolab.readthedocs.io/en/latest/exercises/graph-formats/graph-formats-solution.html#Required-libraries
+        
+        For other options, see draw_nx
         
     """
-
+    if mat == None:
+        raise ValueError('Provided matrix is None !')    
+        
     import numpy as np
     import networkx as nx
     
@@ -191,11 +195,12 @@ def draw_mat(mat):
             for j in range(len(mat)):
                 if i in G and j in G[i]:
                     G[i][j]['label'] = G[i][j]['weight']
+    
 
     
-    draw_nx(G)
+    draw_nx(G,legend_edges, label=label, save_to=save_to)
 
-def draw_adj(d):
+def draw_adj(d,legend_edges=None, label='', save_to=''):
     """
         Draws a a graph represented as a dictionary of adjancency lists. 
         Node identifiers can be any immutable data structure, like numbers, strings, tuples ...
@@ -205,13 +210,20 @@ def draw_adj(d):
               'f': ['c']       # node 'f' links to node 'c'
             }
 
+        Optionally, saves it as .png image to filepath  save_to
+        
         For required libraries, see 
-        https://datasciprolab.readthedocs.io/en/latest/exercises/matrix-networks/matrix-networks-solution.html#Required-libraries
+        https://datasciprolab.readthedocs.io/en/latest/exercises/graph-formats/graph-formats-solution.html#Required-libraries
+        
+        For other options, see draw_nx
 
 
     """
     
+    if d == None:
+        raise ValueError('Provided dictionary is None !')  
+    
     import networkx as nx
     
     G=nx.DiGraph(d)
-    draw_nx(G)
+    draw_nx(G,legend_edges, label=label, save_to=save_to)
