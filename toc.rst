@@ -18,6 +18,7 @@
     Sets <exercises/sets/sets-solution.ipynb>
     Dictionaries <exercises/dictionaries/dictionaries-solution.ipynb>
     Control flow <exercises/control-flow/control-flow-solution.ipynb>    
+    Functions <exercises/functions/functions-solution.ipynb>    
     Errors and testing <exercises/errors-and-testing/errors-and-testing-solution.ipynb>
     
     Matrices: lists <exercises/matrices-lists/matrices-lists-solution.ipynb>
