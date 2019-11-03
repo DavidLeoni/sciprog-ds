@@ -227,3 +227,47 @@ def draw_adj(d,legend_edges=None, label='', save_to=''):
     
     G=nx.DiGraph(d)
     draw_nx(G,legend_edges, label=label, save_to=save_to)
+    
+
+def draw_proof(proof, db, step_id=None, only_ids=False):
+    """ Draw all statements reachable from given row_id
+    
+        THIS FUNCTION IS ALREADY COMPLETE, *DO NOT* CHANGE IT !
+    """    
+    import networkx as nx
+    
+    stmt_type_to_color = {
+        '$a' : 'blue',
+        '$f' : 'purple'
+    }
+  
+    G=nx.DiGraph()
+
+    if step_id == None:
+        step_id = max(proof.keys())
+    
+    stack = [step_id]
+    while len(stack) > 0:
+        dep_id = stack.pop()
+                
+        attrs = proof[dep_id]        
+        
+        if only_ids:
+            label = str(dep_id)
+        else:            
+            label = '%s\n%s\n%s: %s' % (dep_id, 
+                                        attrs['sequence'], 
+                                        attrs['label'],
+                                        db[attrs['label']]['sequence'])
+
+        color = stmt_type_to_color[attrs['keyword']]
+        G.add_node( dep_id,
+                    label=label, 
+                    color=color)
+        stack.extend(reversed(attrs['step_ids'])) # NOTE: IT IS REVERSED !
+        
+    for key in G.nodes():
+
+        for target in proof[key]['step_ids']:
+            G.add_edge(key, target)
+    draw_nx(G)
