@@ -2,6 +2,12 @@ import pprint
 from queue import Queue
 from collections import deque
 
+DEBUG = True
+def debug(msg):
+    if DEBUG:
+        print("DEBUG: ", str(msg).replace('\n', '\n' + (' '*8)))
+
+
 #PrettyPrint(indent=4)
 pp = pprint.PrettyPrinter(indent=4).pprint
 pformat = pprint.PrettyPrinter(indent=4).pformat
@@ -152,18 +158,18 @@ class DiGraph:
 
         while len(Q)>0:
             u = Q.popleft()
-            print("Removed from queue: %s" % u)
+            debug("Removed from queue: %s" % u)
             # Visit node u
             for v in self._edges[u]:         
-                print("  Found neighbor: %s" % v)   
+                debug("  Found neighbor: %s" % v)   
                 # Visit edge (u,v)
                 if not visited[v]:
-                    print("    not yet visited, enqueueing ..")
+                    debug("    not yet visited, enqueueing ..")
                     visited[v] = True
                     Q.append(v)                                        
                 else:
-                    print("    already visited")
-            print("  Queue is: %s " % list(Q))
+                    debug("    already visited")
+            debug("  Queue is: %s " % list(Q))
 
     def dfs(self, source):
         """ Example of a simple recursive depth first search on the graph,
@@ -182,21 +188,21 @@ class DiGraph:
         for v in self.verteces():
             visited[v] = False
 
-        print("Stack is: %s " % S)
+        debug("Stack is: %s " % S)
         while not len(S) == 0:
             u = S.pop()
-            print("popping from stack: %s" % u)
+            debug("popping from stack: %s" % u)
             if not visited[u]:
-                print("  not yet visited")
+                debug("  not yet visited")
                 # visit node u (pre-order)
                 visited[u] = True
                 for v in self.adj(u):
-                    print("  Scheduling for visit: %s" % v)
+                    debug("  Scheduling for visit: %s" % v)
                     # visit edge (u,v)
                     S.append(v)
-                print("Stack is : %s " % S)
+                debug("Stack is : %s " % S)
             else:
-                print("  already visited!")
+                debug("  already visited!")
         
 
     def has_edge(self, source, target):
@@ -253,20 +259,20 @@ class DiGraph:
 
         while len(Q)>0:
             u = Q.popleft()
-            print("Removed from queue: %s" % u)
+            debug("Removed from queue: %s" % u)
             # Visit node u
             for v in self._edges[u]:         
-                print("  Found neighbor: %s" % v)   
+                debug("  Found neighbor: %s" % v)   
                 # Visit edge (u,v)
                 if not visited[v]:
-                    print("    not yet visited, enqueueing ..")
+                    debug("    not yet visited, enqueueing ..")
                     visited[v] = True
                     ret[v] = u
                     Q.append(v)                                         
                     
                 else:
-                    print("    already visited")
-            print("  Queue is: %s " % list(Q))
+                    debug("    already visited")
+            debug("  Queue is: %s " % list(Q))
 
         return ret
         #/jupman-raise

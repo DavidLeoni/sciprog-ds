@@ -2,6 +2,11 @@ import pprint
 from queue import Queue
 from collections import deque
 
+DEBUG = True
+def debug(msg):
+    if DEBUG:
+        print("DEBUG: ", msg.replace('\n', '\n' + (' '*8)))
+
 #PrettyPrint(indent=4)
 pp = pprint.PrettyPrinter(indent=4).pprint
 pformat = pprint.PrettyPrinter(indent=4).pformat
@@ -153,18 +158,18 @@ class DiGraph:
 
         while len(Q)>0:
             u = Q.popleft()
-            print("Removed from queue: %s" % u)
+            debug("Removed from queue: %s" % u)
             # Visit node u
             for v in self._edges[u]:         
-                print("  Found neighbor: %s" % v)   
+                debug("  Found neighbor: %s" % v)   
                 # Visit edge (u,v)
                 if not visited[v]:
-                    print("    not yet visited, enqueueing ..")
+                    debug("    not yet visited, enqueueing ..")
                     visited[v] = True
                     Q.append(v)                                        
                 else:
-                    print("    already visited")
-            print("  Queue is: %s " % list(Q))
+                    debug("    already visited")
+            debug("  Queue is: %s " % list(Q))
 
     def dfs(self, source):
         """ Example of a simple recursive depth first search on the graph,
@@ -183,21 +188,21 @@ class DiGraph:
         for v in self.verteces():
             visited[v] = False
 
-        print("Stack is: %s " % S)
+        debug("Stack is: %s " % S)
         while not len(S) == 0:
             u = S.pop()
-            print("popping from stack: %s" % u)
+            debug("popping from stack: %s" % u)
             if not visited[u]:
-                print("  not yet visited")
+                debug("  not yet visited")
                 # visit node u (pre-order)
                 visited[u] = True
                 for v in self.adj(u):
-                    print("  Scheduling for visit: %s" % v)
+                    debug("  Scheduling for visit: %s" % v)
                     # visit edge (u,v)
                     S.append(v)
-                print("Stack is : %s " % S)
+                debug("Stack is : %s " % S)
             else:
-                print("  already visited!")
+                debug("  already visited!")
         
 
     def has_edge(self, source, target):
@@ -348,22 +353,78 @@ class DiGraph:
 
         while len(Q)>0:
             u = Q.popleft()
-            #print("Removed from queue: %s" % u)
+            #debug("Removed from queue: %s" % u)
             # Visit node u
             for v in self._edges[u]:
                 # Visit edge (u,v)
                 if not visited[v]:
-                    #print("  not yet visited")
+                    #debug("  not yet visited")
                     visited[v] = True
                     distances[v] = distances[u] + 1
                     Q.append(v)
                 #else:
-                    #print("  already yet visited")
+                    #debug("  already yet visited")
 
 
         return distances  
         #/jupman-raise      
         
+    def cp(self, source):
+        """ Performs a BFS search starting from provided node label source and 
+            RETURN a dictionary of nodes representing the visit tree in the 
+            child-to-parent format, that is, each key is a node label and as value 
+            has the node label from which it was discovered for the first time
+
+            So if node "n2" was discovered for the first time while
+            inspecting the neighbors of "n1", then in the output dictionary there 
+            will be the pair "n2":"n1".
+
+            The source node will have None as parent, so if source is "n1" in the 
+            output dictionary there will be the pair  "n1": None
+
+            NOTE: This method must *NOT* distinguish between exits 
+                  and normal nodes, in the tests we label them n1, e1 etc just
+                  because we will reuse in next exercise
+            NOTE: You are allowed to put debug prints, but the only thing that
+                  matters for the evaluation and tests to pass is the returned 
+                  dictionary
+
+        """
+        #jupman-raise
+        if not source in self.verteces():
+            raise Exception("Can't find vertex:" + str(source))
+        
+        ret = {}
+
+        Q = deque()
+        # we start from source 
+
+        Q.append(source)
+        visited = {}
+        for v in self._edges:
+            visited[v] = False
+        visited[source] = True
+        ret[source] = None
+
+        while len(Q)>0:
+            u = Q.popleft()
+            debug("Removed from queue: %s" % u)
+            # Visit node u
+            for v in self._edges[u]:         
+                debug("  Found neighbor: %s" % v)   
+                # Visit edge (u,v)
+                if not visited[v]:
+                    debug("    not yet visited, enqueueing ..")
+                    visited[v] = True
+                    ret[v] = u
+                    Q.append(v)                                         
+                    
+                else:
+                    debug("    already visited")
+            debug("  Queue is: %s " % list(Q))
+
+        return ret
+        #/jupman-raise
         
     def cc(self):
         """ Finds the connected components of the graph, returning a dict object
@@ -730,6 +791,35 @@ def flux(depth):
     return g 
     #/jupman-raise
 
-##def collect(g):
+def exits(cp):
+    """
+        INPUT: a dictionary of nodes representing a visit tree in the 
+        child-to-parent format, that is, each key is a node label and 
+        as value has its parent as a node label. The root has
+        associated None as parent.
+
+        OUTPUT: a dictionary mapping node labels of exits to a list
+                of node labels representing the the shortest path from 
+                the root to the exit (root and exit included)
+                
+    """
+    #jupman-raise
+    ret = {}
+    for v in cp:
+        if v.startswith('e'):
+            ret[v] = []
     
-#dig({'ar':['bg','cv'],})
+    # find traces until source node
+    for v in ret:
+        u = v
+        while u != None:
+            ret[v].append(u)
+            u = cp[u]
+    
+    # reverses
+    for v in ret:
+        ret[v].reverse()
+
+    return ret
+    #/jupman-raise
+    

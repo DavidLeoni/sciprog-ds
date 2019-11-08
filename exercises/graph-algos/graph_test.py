@@ -700,6 +700,191 @@ class DistancesTest(DiGraphTest):
                            'c': 1,
                            'd': 2})
 
+
+class CpTest(DiGraphTest):
+
+    def test_01_wrong_source(self):
+        with self.assertRaises(Exception):
+             dig({}).cp('n666')
+
+    def test_02_one(self):
+        """   e1
+        """        
+        self.assertEqual(dig({'e1':[]}).cp('e1'), {'e1':None})
+
+    def test_03_e1_selfloop(self):
+        # if a node points to itself, we don't want to consider it a parent of itself"""
+        self.assertEqual(dig({'e1':['e1']}).cp('e1'), 
+                         {'e1':None}) 
+
+
+    def test_04_n1_e1(self):
+        """   n1 <- e1
+        """        
+        self.assertEqual(dig({'n1':['e1']}).cp('n1'), 
+                              {
+                               'n1':None, 
+                               'e1':'n1'
+                              })    
+
+    def test_05_n1_n2_e1(self):
+        """   n1 <- n2 <- e2
+        """        
+        self.assertEqual(dig({'n1':['n2'],
+                              'n2':['e1']}).cp('n1'), 
+                              {
+                               'n1':None, 
+                               'n2':'n1',
+                               'e1':'n2'
+                              })    
+
+    def test_06_n1_e1_e2(self):
+        """ n1 <- e2
+            ^
+            |
+            e1
+        """        
+        self.assertEqual(dig({'n1':['e1','e2']}).cp('n1'), 
+                              {
+                               'n1':None, 
+                               'e1':'n1',
+                               'e2':'n1'
+                              })    
+
+    def test_07_n1_n2_e1_triangle(self):
+        self.assertEqual(dig({'n1':['n2'],
+                              'n2':['e1'],
+                              'e1':['n1']}).cp('n1'), 
+                              {
+                               'n1':None, 
+                               'n2':'n1',
+                               'e1':'n2'
+                              })   
+
+    def test_08_n1_n2_n3_e1_diamond(self):
+        """
+              n1
+             /   \ 
+            .     .
+           n2     n3
+             \   /
+              . .
+              e1
+        """
+        self.assertEqual(dig({'n1':['n2','n3'],
+                              'n2':['e1'],
+                              'n3':['e1']}).cp('n1'), 
+                              {
+                               'n1':None, 
+                               'n2':'n1',
+                               'n3':'n1',
+                               'e1':'n2'   # n2 is the leftmost in the queue
+                              })   
+
+    def test_09_complex(self):        
+        """            
+            See schema in exam text
+        """
+
+        self.assertEqual(dig({'n1':['n2','e2'],
+                              'n2':['e1'],
+                              'e1':['n1'],
+                              'e2':['n2','n3', 'n4'],
+                              'n3':['e3'],
+                              'n4':['n1']}).cp('n1'),
+                         {
+                            'n1':None,
+                            'n2':'n1',
+                            'e1':'n2',
+                            'e2':'n1',
+                            'n3':'e2',
+                            'n4':'e2',
+                            'e3':'n3'
+                          })
+
+                     
+class ExitsTest(DiGraphTest):
+
+
+    def test_01_e1(self):
+        """   e1
+        """
+        self.assertEqual(exits({'e1':None}),
+                         {'e1':['e1']})  # the path to reach exit 1 starts with exit 1 itself
+
+    def test_02_n1_e1(self):
+        """   n1 <- e1
+        """
+        self.assertEqual(exits({'n1':None,
+                                'e1':'n1'}),
+                         {'e1':['n1','e1']})  # the path to reach exit 1 starts with n1
+
+    def test_03_n1_n2_e1(self):
+        """   n1 <- n2 <- e2
+        """
+        self.assertEqual(exits({'n1':None,
+                                'n2':'n1',
+                                'e1':'n2'}),
+                         {
+                           'e1':['n1','n2','e1']
+                         }) 
+
+
+    def test_04_n1_e1_e2_V(self):
+        """ n1 <- e2
+            ^
+            |
+            e1
+        """
+        self.assertEqual(exits({'n1':None,
+                                'e1':'n1',
+                                'e2':'n1'}),
+                         {
+                           'e1':['n1','e1'],
+                           'e2':['n1','e2']
+                         }) 
+    def test_05_n1_e1_e2_seq(self):
+        """   n1 <- e1 <- e2
+        """
+        self.assertEqual(exits({'n1':None,
+                                'e1':'n1',
+                                'e2':'e1'}),   
+                        # to avoid congestion, half crowd may be told to exit e1, 
+                        # while other half can go to e2 even if it is farther.
+                         {
+                           'e1':['n1','e1'],
+                           'e2':['n1','e1','e2']
+                         }) 
+
+
+    def test_06_complex(self):        
+        """
+
+              n1
+             /   \
+           n2     e2
+            \    /  \
+            e1   n3  n4
+                 |
+                 e3
+        """
+
+        self.assertEqual(exits({'n1':None,
+                                'n2':'n1',
+                                'e1':'n2',
+                                'e2':'n1',
+                                'n3':'e2',
+                                'n4':'e2',
+                                'e3':'n3'}),   
+                         {
+                            'e1': ['n1','n2','e1'],
+                            'e2': ['n1','e2'],
+                            'e3': ['n1','e2','n3','e3']
+                        })   
+                     
+
+        
+        
 class CCTest(DiGraphTest):
        
     def assertCCEqual(self, actual, expected):

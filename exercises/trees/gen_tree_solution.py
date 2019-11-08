@@ -453,3 +453,139 @@ class GenericTree:
         
         return ret
             
+    def rightmost(self):
+        """ RETURN a list containing the *data* of the nodes 
+            in the *rightmost* branch of the tree. 
+
+            Example: 
+
+            a
+            ├b
+            ├c
+            |└e
+            └d
+             ├f
+             └g
+              ├h
+              └i
+
+            should give
+
+            ['a','d','g','i']
+        """
+        #jupman-raise
+        ret = []        
+        last = self
+        while last != None:
+            ret.append(last.data())
+            current = last._child
+            last = None
+            while current != None:
+                last = current
+                current = current.sibling()
+        return ret              
+        #/jupman-raise             
+
+    def fill_left(self, stuff):
+        """ MODIFIES the tree by filling the leftmost branch data
+            with values from provided array 'stuff'
+            
+            - if there aren't enough nodes to fill, raise ValueError
+            - root data is not modified
+            - *DO NOT* use recursion
+
+        """
+        #jupman-raise
+        lev = 0
+        current = self._child
+        while lev < len(stuff):
+            if current == None:
+                raise ValueError("Not enough nodes !")
+            current._data = stuff[lev]
+            current = current._child
+            lev += 1
+        #/jupman-raise
+        
+    def follow(self, positions):
+        """
+            RETURN an array of node data, representing a branch from the
+            root down to a certain depth.
+            The path to follow is determined by given positions, which
+            is an array of integer indeces, see example.
+
+            - if provided indeces lead to non-existing nodes, raise ValueError
+            - IMPORTANT: *DO NOT* use recursion, use a couple of while instead.
+            - IMPORTANT: *DO NOT* attempt to convert siblings to 
+                         a python list !!!! Doing so will give you less points!
+
+        """
+        #jupman-raise
+        ret = [self._data]
+        current = self._child
+        lev = 0
+        
+        while lev < len(positions):
+            if current == None:
+                raise ValueError("Can't find the position !")
+            
+            i = 0
+            while i < positions[lev]:
+                if current == None:
+                    raise ValueError("Can't find the position !")
+                current = current._sibling
+                i += 1
+            if current == None:
+                raise ValueError("Can't find position !")
+            ret.append(current._data)
+            current = current._child
+            lev += 1
+
+        return ret
+           
+        #/jupman-raise    
+        
+    def is_triangle(self, elems):
+        """ RETURN True if this node is a triangle matching the data  
+            given by list elems. 
+            
+            In order to match:
+            - first list item must be equal to this node data
+            - second list item must be equal to this node first child data
+            - third list item must be equal to this node second child data
+
+            - if elems has less than three elements, raises ValueError
+        """
+        #jupman-raise
+        if len(elems) != 3:
+            raise ValueError("Must receive exactly 3 elements, got %s instead" % elems)
+        
+        if self._data != elems[0]:
+            return False
+        if self._child == None:
+            return False
+        if self._child._data != elems[1]:
+            return False
+        if self._child._sibling == None:
+            return False
+        if self._child._sibling._data != elems[2]:
+            return False
+        return self._child._sibling._sibling == None
+        #/jupman-raise
+
+    def has_triangle(self, elems):
+        """ RETURN True is this node *or one of its descendants* is a triangle
+            matching given elems. Otherwise, return False.
+
+            - a recursive solution is acceptable
+        """
+        #jupman-raise
+        if self.is_triangle(elems):
+            return True
+        else:
+            current = self._child
+            while current != None:
+                if current.has_triangle(elems):
+                    return True
+                current = current._sibling
+        return False
+        #/jupman-raise        
