@@ -2,7 +2,7 @@ import unittest
 from more_solution import *
 
 def to_py(linked_list):
-    """ Returns linked_list as a regular Python list - very handy for testing.
+    """ Creates a regular Python list from a LinkedList - very handy for testing.
     """
     python_list = []
     current = linked_list._head        
@@ -12,6 +12,14 @@ def to_py(linked_list):
         current = current.get_next()                       
     return python_list        
 
+def to_ll(python_list):
+    """ Creates a LinkedList from a regular Python list - very handy for testing.
+    """
+    ret = LinkedList()
+    
+    for el in reversed(python_list):
+        ret.add(el)
+    return ret
 
 class LinkedListTest(unittest.TestCase):
 
@@ -45,46 +53,6 @@ class AddTest(LinkedListTest):
         ul.add('a')
         self.assertEqual(to_py(ul), ['a', 'b'])
 
-        
-class RemoveTest(LinkedListTest):        
-    
-    def test_01_remove_empty_list(self):
-        ul = LinkedList()
-        with self.assertRaises(Exception):
-            ul.remove('a')
-
-            
-    def test_02_remove_one_element(self):
-        ul = LinkedList()
-        ul.add('a')
-        with self.assertRaises(Exception):
-            ul.remove('b')
-        ul.remove('a')
-        self.assertEqual(to_py(ul), [])
-        
-    def test_03_remove_two_element(self):
-        ul = LinkedList()
-        ul.add('b')
-        ul.add('a')
-        with self.assertRaises(Exception):
-            ul.remove('c')
-        ul.remove('b')
-        self.assertEqual(to_py(ul), ['a'])        
-        ul.remove('a')
-        self.assertEqual(to_py(ul), [])        
-
-        
-    def test_04_remove_first_occurrence(self):
-        ul = LinkedList()
-        ul.add('b')
-        ul.add('b')
-        with self.assertRaises(Exception):
-            ul.remove('c')
-        ul.remove('b')
-        self.assertEqual(to_py(ul), ['b'])        
-        ul.remove('b')
-        self.assertEqual(to_py(ul), [])
-  
 
 class OccurrencesTest(LinkedListTest):
 
@@ -428,6 +396,259 @@ class SwapTest(LinkedListTest):
         ul.swap(1,2)
         self.assertEqual(to_py(ul), ['b', 'c','a'])
 
+class GapsTest(LinkedListTest):
+
+    def test_empty(self):
+        ul = LinkedList()
+
+        self.assertEqual(ul.gaps(), [])
+
+    def test_one(self):
+        ul = LinkedList()
+        ul.add(5)
+        self.assertEqual(ul.gaps(), [])
+
+    def test_5_7_one_gap(self):
+        """    data: 5 7
+              index: 0 1
+        """
+        ul = LinkedList()
+        ul.add(7)
+        ul.add(5)
+        self.assertEqual(ul.gaps(), [1])  
+
+    def test_7_5_no_gap(self):
+        """    data: 7 5
+              index: 0 1
+        """
+        ul = LinkedList()
+        ul.add(5)
+        ul.add(7)
+        self.assertEqual(ul.gaps(), [])  
+
+    def test_5_5_same(self):
+        """   data:  5 5
+              index: 0 1
+        """
+        ul = LinkedList()
+        ul.add(5)
+        ul.add(5)
+        self.assertEqual(ul.gaps(), [])  
 
 
+    def test_5_7_8_two_gaps(self):
+        """    data: 5 7 8
+              index: 0 1 2
+        """
+        ul = LinkedList()
+        ul.add(8)
+        ul.add(7)
+        ul.add(5)
+        self.assertEqual(ul.gaps(), [1,2])  
+
+    def test_9_7_8_one_gap(self):
+        """   9 7 8
+              0 1 2
+        """
+        ul = LinkedList()
+        ul.add(8)
+        ul.add(7)
+        ul.add(9)
+        self.assertEqual(ul.gaps(), [2])  
+
+
+    def test_complex(self):
+        """   
+              data:  9 7 6 8 9 2 2 5 
+              index: 0 1 2 3 4 5 6 7              
+        """
+        ul = LinkedList()
+        
+        ul.add(5)
+        ul.add(2)
+        ul.add(2)
+        ul.add(9)
+        ul.add(8)
+        ul.add(6)
+        ul.add(7)
+        ul.add(9)
+        self.assertEqual(ul.gaps(), [3,4,7]) 
+        
+class FlatvTest(unittest.TestCase):
+
+    def test_01_empty(self):
+        ul = LinkedList()
+        ul.flatv()
+        self.assertEqual(to_py(ul),[] )
+
+    def test_02_5(self): 
+        ul = LinkedList()
+        ul.add(5)
+        ul.flatv()
+        self.assertEqual(to_py(ul),[5] )
+
+    def test_03_57(self): 
+        ul = LinkedList()
+        ul.add(7)
+        ul.add(5)
+        ul.flatv()
+        self.assertEqual(to_py(ul),[5,7] )
+
+    def test_04_757(self): 
+        ul = LinkedList()
+        ul.add(7)
+        ul.add(5)
+        ul.add(7)
+        ul.flatv()
+        self.assertEqual(to_py(ul),[7,5,5,7] )
+
+    def test_05_657(self): 
+        ul = LinkedList()
+        ul.add(7)
+        ul.add(5)
+        ul.add(6)
+        ul.flatv()
+        self.assertEqual(to_py(ul),[6,5,5,7] )
+
+    def test_06_9557(self): 
+        ul = LinkedList()
+        ul.add(7)
+        ul.add(5)
+        ul.add(5)
+        ul.add(9)
+        ul.flatv()
+        self.assertEqual(to_py(ul),[9,5,5,7] )
+
+    def test_07_757636(self): 
+        """ Changes only first v
+        """
+        ul = LinkedList()
+        ul.add(6)
+        ul.add(3)
+        ul.add(6)
+        ul.add(7)
+        ul.add(5)
+        ul.add(7)
+        ul.flatv()
+        self.assertEqual(to_py(ul),[7,5,5,7,6,3,6] )
+
+    def test_08_388758639(self): 
+        """ Changes only first v
+        """
+        ul = LinkedList()
+        ul.add(9)
+        ul.add(3)
+        ul.add(6)
+        ul.add(8)
+        ul.add(5)
+        ul.add(7)
+        ul.add(8)
+        ul.add(8)
+        ul.add(3)        
+        ul.flatv()
+        self.assertEqual(to_py(ul),[3,8,8,7,5,5,8,6,3,9] )      
+
+class BubbleSortTest(unittest.TestCase):
+
+    def test_empty(self):
+        ll = to_ll([])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [])
+
+
+    def test_5(self):
+        ll = to_ll([5])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5])
+
+    def test_75(self):
+        ll = to_ll([7,5])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7])
+
+    def test_57(self):
+        ll = to_ll([5,7])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7])
+
+    def test_578(self):
+        ll = to_ll([5,7,8])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7,8])
+
+    def test_587(self):
+        ll = to_ll([5,8,7])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7,8])
+
+    def test_758(self):
+        ll = to_ll([7,5,8])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7,8])
+
+    def test_785(self):
+        ll = to_ll([7,8,5])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7,8])
+
+    def test_857(self):
+        ll = to_ll([8,5,7])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7,8])
+
+    def test_875(self):
+        ll = to_ll([8,7,5])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [5,7,8])
+
+    def test_complex(self):
+        ll = to_ll([23, 34, 55, 32, 7777, 98, 3, 2, 1])
+        ll.bubble_sort()
+        self.assertEqual(to_py(ll), [1, 2,3,23,32,34,55, 98, 7777])
+
+
+class MergeTest(unittest.TestCase):
+
+    def test_empty(self):
+        self.assertEqual(to_py(to_ll([]).merge(to_ll([]))), 
+                         [])
+
+    def test_5_7(self):
+        self.assertEqual(to_py(to_ll([5]).merge(to_ll([7]))), 
+                        [7,5]) 
+
+    def test_7_5(self):
+        self.assertEqual(to_py(to_ll([7]).merge(to_ll([5]))), 
+                        [7,5])                         
+
+    def test_no_overwrite(self):
+        l1 = to_ll([7])
+        l2 = to_ll([5])
+        self.assertEqual(to_py(l1.merge(l2)), 
+                        [7,5])
+        self.assertEqual(to_py(l1), [7])
+        self.assertEqual(to_py(l2), [5])
+
+    def test_567_empty(self):
+        self.assertEqual(to_py(to_ll([5,6,7]).merge(to_ll([]))), 
+                        [7,6,5])
+
+    def test_empty_567(self):
+        self.assertEqual(to_py(to_ll([]).merge(to_ll([5,6,7]))), 
+                        [7,6,5])                        
+
+    def test_57_6(self):
+        self.assertEqual(to_py(to_ll([5,7]).merge(to_ll([6]))), 
+                        [7,6,5])                     
+
+    def test_6_57(self):
+        self.assertEqual(to_py(to_ll([6]).merge(to_ll([5,7]))), 
+                        [7,6,5])                     
+
+
+    def test_complex(self):
+        self.assertEqual(to_py(to_ll([5,7,8,12]).merge(to_ll([6,9,10,12,15,16]))), 
+                        [16,15,12,12,10,9,8,7,6,5])
+      
+       
 #unittest.main()        

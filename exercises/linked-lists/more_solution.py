@@ -46,28 +46,6 @@ class LinkedList:
         new_head.set_next(self._head)
         self._head = new_head
 
-    def remove(self, item):
-        """ Removes first occurrence of item from the list
-        
-            If item is not found, raises an Exception.
-        """
-        current = self._head        
-        prev = None
-        
-        while (current != None):
-            if (current.get_data() == item):
-                if prev == None:  # we need to remove the head 
-                    self._head = current.get_next()
-                else:  
-                    prev.set_next(current.get_next())
-                    current = current.get_next()                    
-                return  # Found, exits the function
-            else:
-                prev = current
-                current = current.get_next() 
-        
-        raise Exception("Tried to remove a non existing item! Item was: " + str(item))
-
                         
     def occurrences(self, item):
         """ 
@@ -238,6 +216,118 @@ class LinkedList:
         nodei.set_data(tmp)
         #/jupman-raise
 
+    def gaps(self):
+        """ Assuming all the data in the linked list is made by numbers,
+            finds the gaps in the LinkedList and return them as a Python list.
+            
+            - we assume empty list and list of one element have zero gaps
+            - MUST perform in O(n) where n is the length of the list
+
+            NOTE: gaps to return are *indeces* , *not* data!!!!
+        """
+        #jupman-raise
+        
+        ret = []
+        
+        i = 1
+        current = self._head
+        while current != None:
+            d = current.get_data()
+            if current.get_next() != None:
+                if d < current.get_next().get_data():
+                    ret.append(i)
+            i += 1                
+            current = current.get_next()
+        
+        return ret   
+        #/jupman-raise
+        
+    def flatv(self):
+        """ See exercise text for explanation
+
+            - MUST run in O(n) where n is the length of the list
+
+        """
+        #jupman-raise
+        current = self._head
+        prev = None
+        while current != None:
+            if prev != None and current.get_next() != None: 
+                a = prev.get_data()
+                b = current.get_data()
+                c = current.get_next().get_data()
+                if a > b and b < c:
+                    new_node = Node(b)
+                    prev.set_next(new_node)
+                    new_node.set_next(current)
+                    return
+            if prev == None:
+                prev = self._head
+            else:
+                prev = prev.get_next()
+            current = current.get_next()
+        #/jupman-raise        
+        
+    def bubble_sort(self):
+        """ Sorts in-place this linked list using the method of bubble sort
+
+            - MUST execute in O(n^2) where n is the length of the linked list
+        """
+        #jupman-raise
+        cur1 = self._head
+        while cur1 != None:
+            cur2 = self._head
+            while cur2 != None and cur2.get_next() != None:
+                d1 = cur2.get_data()
+                d2 = cur2.get_next().get_data()
+                if d1 > d2:                
+                    cur2.set_data(d2)
+                    cur2.get_next().set_data(d1)
+                cur2 = cur2.get_next()  
+            cur1 = cur1.get_next()
+        #/jupman-raise
+
+    def merge(self,l2):
+        """ Assumes this linkedlist and l2 linkedlist contain integer numbers
+            sorted in ASCENDING order, and  RETURN a NEW LinkedList with
+            all the numbers from this and l2 sorted in DESCENDING order
+
+            IMPORTANT 1: *MUST* EXECUTE IN O(n1+n2) TIME where n1 and n2 are
+                         the sizes of this and l2 linked_list, respectively
+
+            IMPORTANT 2: *DO NOT* attempt to convert linked lists to
+                         python lists!
+        """
+        #jupman-raise
+        cur1 = self._head
+        cur2 = l2._head
+
+        ret = LinkedList()
+
+        while cur1 != None and cur2 != None:
+                
+            d1 = cur1.get_data()
+            d2 = cur2.get_data()
+            if d1 < d2:
+                ret.add(d1)
+                cur1 = cur1.get_next()
+            else:
+                ret.add(d2)
+                cur2 = cur2.get_next()
+            
+        # add remaining 
+
+        while cur1 != None:
+            ret.add(cur1.get_data())
+            cur1 = cur1.get_next()
+
+        while cur2 != None:
+            ret.add(cur2.get_data())
+            cur2 = cur2.get_next()
+
+        return ret
+        #/jupman-raise        
+        
 def mirror(lst):
     """ RETURN a NEW LinkedList having double the nodes of provided lst
         First nodes will have same elements of lst, following nodes will 
