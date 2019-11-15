@@ -1382,7 +1382,7 @@ class HasTriangleTest(GenericTreeTest):
     
         self.assertTrue(ta.has_triangle(['a','b','c']))
 
-    def test_05_a_b_c(self):
+    def test_02_a_b_c(self):
         """ 
             a
             └b
@@ -1394,7 +1394,8 @@ class HasTriangleTest(GenericTreeTest):
     
         self.assertFalse(ta.has_triangle(['a','b','c']))
         self.assertTrue(ta.has_triangle(['b','c','d']))
-    def test_05_a_b_c(self):
+
+    def test_03_a_b_c(self):
         """ 
             a
             ├b

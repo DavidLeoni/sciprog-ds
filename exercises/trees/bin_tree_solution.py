@@ -112,10 +112,10 @@ class BinaryTree:
         return max(h_left, h_right)
         #/jupman-raise
 
-    def depth_dfs(self, level):
-        """
-            - MODIFIES the tree by putting in the data field the provided value level (which is an integer),
-              and recursively calls itself on left and right nodes (if present)  passing level + 1
+    def depth_rec(self, level):
+        """ MODIFIES the tree by putting in the data field the provided value level (which is an integer),
+            and recursively calls itself on left and right nodes (if present)  passing level + 1
+            
             - implement it as a recursive Depth First Search (DFS) traversal
               NOTE: with big trees a recursive solution would surely exceed the call stack,
                     but here we don't mind
@@ -125,9 +125,86 @@ class BinaryTree:
         #jupman-raise
         self._data = level
         if self.left() != None:
-            self.left().depth_dfs(level + 1) 
+            self.left().depth_rec(level + 1) 
         if self.right() != None:
-            self.right().depth_dfs(level + 1)         
-        
+            self.right().depth_rec(level + 1)        
         #/jupman-raise        
 
+    def contains_rec(self, item):
+        """ RETURN True if at least one node in the tree has data equal to item, otherwise RETURN False.
+
+            - implement it as a recursive Depth First Search (DFS) traversal
+              NOTE: with big trees a recursive solution would surely exceed the call stack,
+                    but here we don't mind            
+        """        
+        #jupman-raise
+        if self._data == item:
+            return True
+        else:
+            if self.left() != None and self.left().contains_rec(item):
+                return True                
+            if self.right() != None and self.right().contains_rec(item):
+                return True 
+        return False
+        #/jupman-raise
+
+
+    def sum_rec(self):
+        """ Supposing the tree holds integer numbers in all nodes,
+            RETURN the sum of the numbers.
+
+            - implement it as a recursive Depth First Search (DFS) traversal
+              NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """ 
+   
+        #jupman-raise
+        ret = self._data
+        if self.left() != None:
+            ret += self.left().sum_rec()
+        if self.right() != None:
+            ret += self.right().sum_rec()
+        return ret
+        #/jupman-raise        
+
+    def join_rec(self):
+        """ Supposing the tree nodes hold a character each, RETURN a STRING holding 
+            all characters with a IN-ORDER visit
+
+            - implement it as a recursive Depth First Search (DFS) traversal
+              NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """ 
+   
+        #jupman-raise
+        ret = ''
+        if self.left() != None:
+            ret +=  self.left().join_rec()
+        ret += self._data
+        if self.right() != None:
+            ret += self.right().join_rec()
+        return ret
+        #/jupman-raise        
+
+
+    def fun_rec(self):
+        """ Supposing the tree nodes hold expressions which can either be
+            functions or single variables, RETURN a STRING holding 
+            the complete formula with needed parenthesis
+
+            - implement it as a recursive Depth First Search (DFS)
+              PRE-ORDER visit
+            - NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """ 
+   
+        #jupman-raise
+        ret = self._data
+        if self.left() != None:
+            ret += '('
+            ret +=  self.left().fun_rec()
+            if self.right() != None:
+                ret += ',' + self.right().fun_rec() 
+            ret += ')'
+        return ret
+        #/jupman-raise        

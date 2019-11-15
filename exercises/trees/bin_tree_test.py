@@ -20,7 +20,7 @@ def bt(*args):
     if (len(args) == 0):
         raise Exception("You need to provide at least one argument for the data!")
     if (len(args) > 3):
-        raise Exception("You must provide at most two nodes ! Found instead: %s " % len(args) - 1)
+        raise Exception("You must provide at most two nodes ! Found instead: %s " % (len(args) - 1))
         
     data = args[0]
     children = args[1:]
@@ -246,39 +246,475 @@ class HeightRecTest(BinaryTreeTest):
         self.assertEqual(bt('a', bt('b', bt('c', bt('d', bt('e')))), bt('f', bt('g'))).height_rec(), 4)
 
 
-class DepthDfsTest(BinaryTreeTest):
+class DepthRecTest(BinaryTreeTest):
         
     def test_01(self):   
         t = bt('a')     
-        t.depth_dfs(0)
+        t.depth_rec(0)
         self.assertTreeEqual(t, bt(0))
 
     def test_02(self):      
         t = bt('a', bt('b'))
-        t.depth_dfs(0)      
+        t.depth_rec(0)      
         self.assertTreeEqual(t, bt(0, bt(1)))
 
     def test_03(self):  
         t = bt('a', None, bt('b'))
-        t.depth_dfs(0)
+        t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, None, bt(1)))
 
     def test_04(self):   
         t = bt('a', bt('b'), bt('c'))
-        t.depth_dfs(0)
+        t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1), bt(1)))
 
     def test_05(self):    
         t = bt('a', bt('b', bt('c')), bt('d'))    
-        t.depth_dfs(0)
+        t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1, bt(2)), bt(1)))
 
     def test_06(self):   
         t = bt('a', bt('d'), bt('b', bt('c')))     
-        t.depth_dfs(0)
+        t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1), bt(1, bt(2))))
 
     def test_07(self):  
         t = bt('a', bt('b', bt('c', bt('d', bt('e')))), bt('f', bt('g')))      
-        t.depth_dfs(0)
+        t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1, bt(2, bt(3, bt(4)))), bt(1, bt(2))))
+
+class ContainsRecTest(BinaryTreeTest):
+
+    """
+        a
+        ├
+        └
+    """
+    def test_01_a_empty_empty(self):
+        t = bt('a')
+        self.assertTrue(t.contains_rec('a'))
+        self.assertFalse(t.contains_rec('b'))
+
+    """
+        a
+        ├b
+        └
+    """
+    def test_02_a_b_empty(self):
+        t = bt('a', bt('b'))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('b'))
+        self.assertFalse(t.contains_rec('c'))
+
+    """
+        a
+        ├
+        └c
+    """
+    def test_03_a_empty_b(self):
+        t = bt('a', None, bt('b'))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('b'))
+        self.assertFalse(t.contains_rec('c'))
+
+
+    """
+        a
+        ├b
+        └c
+    """
+    def test_04_a_b_c(self):
+        t = bt('a', bt('b'), bt('c'))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('b'))
+        self.assertTrue(t.contains_rec('c'))
+        self.assertFalse(t.contains_rec('d'))
+
+    """
+        a
+        ├b
+        |├c
+        |└
+        └d
+    """
+    def test_05_a_bc_d(self):
+        t = bt('a', bt('b', bt('c')), bt('d'))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('b'))
+        self.assertTrue(t.contains_rec('c'))
+        self.assertTrue(t.contains_rec('d'))
+        self.assertFalse(t.contains_rec('e'))
+
+    """
+        a
+        ├b            
+        └c
+         ├d
+         └
+    """
+    def test_06_a_b_cd(self):
+        t = bt('a', bt('b'), bt('c', bt('d')))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('b'))
+        self.assertTrue(t.contains_rec('c'))
+        self.assertTrue(t.contains_rec('d'))
+        self.assertFalse(t.contains_rec('e'))
+
+    """
+        a
+        ├b            
+        |├c
+        |└
+        └ 
+    """
+    def test_07_abc_left(self):
+        t = bt('a', bt('b', bt('c')))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('b'))
+        self.assertTrue(t.contains_rec('c'))
+        self.assertFalse(t.contains_rec('d'))
+
+    """
+        a
+        ├
+        └b            
+         ├
+         └c
+    """
+    def test_08_abc_right(self):
+        t = bt('a', None, bt('b', None, bt('c')))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertTrue(t.contains_rec('a'))
+        self.assertFalse(t.contains_rec('d'))
+
+    """
+        a
+        ├b
+        │├c
+        │└d
+        │ ├
+        │ └e
+        └f
+         ├g
+         │├h
+         │└
+         └i
+    """
+    def test_09_complex(self):
+        t = bt('a', 
+                    bt('b',
+                            bt('c'), 
+                            bt('d', 
+                                    None,
+                                    bt('e'))),
+                    bt('f', 
+                            bt('g', 
+                                    bt('h')), 
+                            bt('i')))
+        self.assertTrue(t.contains_rec('g'))
+        self.assertTrue(t.contains_rec('d'))
+        self.assertFalse(t.contains_rec('z'))
+
+class JoinRecTest(BinaryTreeTest):
+
+    """
+        a
+        ├
+        └
+    """
+    def test_01_a_empty_empty(self):
+        t = bt('a')
+        self.assertEqual(t.join_rec(), 'a')
+
+    """
+        a
+        ├b
+        └
+    """
+    def test_02_a_b_empty(self):
+        t = bt('a', bt('b'))
+        self.assertEqual(t.join_rec(), 'ba')
+
+    """
+        a
+        ├
+        └c
+    """
+    def test_03_a_empty_b(self):
+        t = bt('a', None, bt('b'))
+        self.assertEqual(t.join_rec(),'ab')
+
+
+    """
+        a
+        ├b
+        └c
+    """
+    def test_04_a_b_c(self):
+        t = bt('a', bt('b'), bt('c'))
+        self.assertEqual(t.join_rec(),'bac')
+
+    """
+        a
+        ├b
+        |├c
+        |└
+        └d
+    """
+    def test_05_a_bc_d(self):
+        t = bt('a', bt('b', bt('c')), bt('d'))
+        self.assertEqual(t.join_rec(),'cbad')
+
+    """
+        a
+        ├b            
+        └c
+         ├d
+         └
+    """
+    def test_06_a_b_cd(self):
+        t = bt('a', bt('b'), bt('c', bt('d')))
+        self.assertEqual(t.join_rec(),'badc')
+
+    """
+        a
+        ├b            
+        |├c
+        |└
+        └ 
+    """
+    def test_07_abc_left(self):
+        t = bt('a', bt('b', bt('c')))
+        self.assertEqual(t.join_rec(),'cba')
+    """
+        a
+        ├
+        └b            
+         ├
+         └c
+    """
+    def test_08_abc_right(self):
+        t = bt('a', None, bt('b', None, bt('c')))
+        self.assertEqual(t.join_rec(),'abc')
+
+    """
+        e
+        ├b
+        │├a
+        │└c
+        │ ├
+        │ └d
+        └h
+        ├g
+        │├f
+        │└
+        └i
+    """
+    def test_09_complex(self):
+        t = bt('e', 
+                    bt('b',
+                            bt('a'), 
+                            bt('c', 
+                                    None,
+                                    bt('d'))),
+                    bt('h', 
+                            bt('g', 
+                                    bt('f')), 
+                            bt('i')))
+        self.assertEqual(t.join_rec(),'abcdefghi')
+
+
+class FunRecTest(BinaryTreeTest):
+
+    """
+        f
+        ├
+        └
+    """
+    def test_01_x(self):
+        t = bt('x')
+        self.assertEqual(t.fun_rec(), 'x')
+
+    """
+        f
+        ├x
+        └
+    """
+    def test_02_fx(self):
+        t = bt('f', bt('x'))
+        self.assertEqual(t.fun_rec(), 'f(x)')
+
+
+    """
+        g
+        ├y
+        └z
+    """
+    def test_03_gyz(self):
+        t = bt('g', bt('y'), bt('z'))
+        self.assertEqual(t.fun_rec(),'g(y,z)')
+
+    """
+        g
+        ├f
+        |├x
+        |└
+        └y
+    """
+    def test_04_a_gfxy(self):
+        t = bt('g', bt('f', bt('x')), bt('y'))
+        self.assertEqual(t.fun_rec(),'g(f(x),y)')
+
+    """
+        g
+        ├y           
+        └f
+         ├x
+         └
+    """
+    def test_05_gyfx(self):
+        t = bt('g', bt('y'), bt('f', bt('x')))
+        self.assertEqual(t.fun_rec(),'g(y,f(x))')
+
+    """
+        h
+        ├g            
+        |├x
+        |└
+        └ 
+    """
+    def test_06_hgx(self):
+        t = bt('h', bt('g', bt('x')))
+        self.assertEqual(t.fun_rec(),'h(g(x))')
+
+    """
+        f
+        ├g
+        │├x
+        │└y
+        └f
+         ├h
+         │├z
+         │└
+         └w
+    """
+    def test_07_complex(self):
+        t = bt('f', 
+                    bt('g',
+                            bt('x'), 
+                            bt('y')),
+                    bt('f', 
+                            bt('h', 
+                                    bt('z')), 
+                            bt('w')))
+        self.assertEqual(t.fun_rec(),'f(g(x,y),f(h(z),w))')
+
+
+class SumRecTest(BinaryTreeTest):
+
+    """
+        5
+        ├
+        └
+    """
+    def test_01_5_empty_empty(self):
+        t = bt(5)
+        self.assertEqual(t.sum_rec(), 5)
+
+    """
+        4
+        ├7
+        └
+    """
+    def test_02_4_7_empty(self):
+        t = bt(4, bt(7))
+        self.assertEqual(t.sum_rec(), 11)
+
+    """
+        6
+        ├
+        └3
+    """
+    def test_03_6_empty_3(self):
+        t = bt(6, None, bt(3))
+        self.assertEqual(t.sum_rec(), 9)
+
+    """
+        4
+        ├8
+        └3
+    """
+    def test_04_4_8_3(self):
+        t = bt(4, bt(8), bt(3))
+        self.assertEqual(t.sum_rec(), 15)
+
+    """
+        7
+        ├2
+        |├6
+        |└
+        └4
+    """
+    def test_05_7_26_4(self):
+        t = bt(7, bt(2, bt(6)), bt(4))
+        self.assertEqual(t.sum_rec(), 19)
+
+    """
+        9
+        ├5            
+        └3
+         ├2
+         └
+    """
+    def test_06_9_5_32(self):
+        t = bt(9, bt(5), bt(3, bt(2)))
+        self.assertEqual(t.sum_rec(), 19)
+
+    """
+        5
+        ├2            
+        |├3
+        |└
+        └ 
+    """
+    def test_07_523_left(self):
+        t = bt(5, bt(2, bt(3)))
+        self.assertEqual(t.sum_rec(), 10)
+
+    """
+        5
+        ├
+        └2            
+         ├
+         └3
+    """
+    def test_08_523_right(self):
+        t = bt(5, None, bt(2, None, bt(3)))
+        self.assertEqual(t.sum_rec(), 10)
+
+    """
+        4
+        ├7            
+        |├2            
+        |└3
+        | ├ 
+        | └6
+        └5
+         ├1
+         |├9
+         |└            
+         └8
+    """
+    def test_09_complex(self):
+        t = bt(4, 
+                    bt(7,
+                            bt(2), 
+                            bt(3, 
+                                    None,
+                                    bt(6))),
+                    bt(5, 
+                            bt(1, 
+                                    bt(9)), 
+                            bt(8)))
+        self.assertEqual(t.sum_rec(), 45)
