@@ -700,6 +700,76 @@ class DistancesTest(DiGraphTest):
                            'c': 1,
                            'd': 2})
 
+class EquiDistancesTest(DiGraphTest):
+    
+    def test_01_empty(self):
+        with self.assertRaises(LookupError):
+            dig({}).equidistances('a','a')
+
+        with self.assertRaises(LookupError):
+            dig({}).equidistances('a','b')
+
+
+    def test_02_not_found(self):
+        with self.assertRaises(Exception):
+            dig({'a'}).equidistances('a','b')
+
+
+    def test_03_root(self):        
+        self.assertEqual(dig({'a': []}).equidistances('a','a'),
+                             {'a':0})
+
+    def test_03_root_self(self):        
+        self.assertEqual(dig({'a': ['a']}).equidistances('a','a'),
+                             {'a': 0})
+
+
+    def test_04_ab_no_selfloops(self):        
+        self.assertEqual(dig({'a': ['b'],
+                              'b': ['a']}).equidistances('a','b'),
+                          {})
+
+    def test_05_ab_unreachable(self):        
+        self.assertEqual(dig({'a': [],
+                              'b': []}).equidistances('a', 'b'),
+                          {})
+
+
+    def test_06_a_b_c(self):        
+        self.assertEqual(dig({'a': ['b'],
+                              'b': [],
+                              'c': ['b']}).equidistances('a','c'),
+                          {'b': 1})
+
+    def test_06_a_b_c_d_e(self):
+        self.assertEqual(dig({'a': ['b'],
+                              'b': ['c'],
+                              'c': [],
+                              'd':['c'],
+                              'e': ['d'],
+                              }).equidistances('a','e'),
+                          {'c': 2})
+
+
+    def test_06_diamond(self):        
+        self.assertEqual(dig({'a': ['b','c'],
+                              'd': ['b','c']}).equidistances('a','d'),
+                          {'b': 1,
+                           'c': 1})
+
+
+    def test_07_complex(self):        
+        self.assertEqual(dig({  'a': ['b','e'],
+                                'b': ['d'],
+                                'c': ['d'],
+                                'd': ['f'],
+                                'e': ['d','b'],
+                                'f': ['g','h'],
+                                'g': ['e']}).equidistances('a','g'),
+                             {'d': 2,
+                              'e': 1,
+                              'f': 3,
+                              'h': 4})
 
 class CpTest(DiGraphTest):
 

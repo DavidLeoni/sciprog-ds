@@ -2,10 +2,12 @@
 #                  Library of utilities for 
 #                   Scientific Programming
 #                 Data Science Master @Unitn
+#                    author:  David Leoni   
 # 
 #                   DO NOT MODIFY THIS FILE !
 #
-#
+#                   
+# 
 
 import unittest
 import sys
@@ -22,22 +24,22 @@ def show_distances():
                      ('f  -1', 'g  -1')])
     return ret
     
-def dig_to_nx(algolab_digraph):
-    """ Convert an Algolab DiGraph into a NetworkX graph and return it. """
+def dig_to_nx(sciprog_digraph):
+    """ Convert a Sciprog DiGraph into a NetworkX graph and return it. """
     import networkx as nx
 
     ret = nx.DiGraph()
     ret.graph['dpi'] = 80
-    ret.add_nodes_from(algolab_digraph.verteces())
-    for sv in algolab_digraph.verteces():
-        for tv in algolab_digraph.adj(sv):            
+    ret.add_nodes_from(sciprog_digraph.verteces())
+    for sv in sciprog_digraph.verteces():
+        for tv in sciprog_digraph.adj(sv):            
             ret.add_edge(sv, tv)
     return ret
 
-def draw_dig(sciprog_digraph,legend_edges=None, label='', save_to=''):
+def draw_dig(sciprog_digraph,legend_edges=None, label='', save_to='', options={}):
     """ Draws a Sciprog DiGraph"""
     
-    draw_nx(dig_to_nx(sciprog_digraph),legend_edges, label=label, save_to=save_to)
+    draw_nx(dig_to_nx(sciprog_digraph),legend_edges, label=label, save_to=save_to, options=options)
 
 
 def get_pydot_mod(obj):
@@ -56,7 +58,7 @@ def get_pydot_mod(obj):
 
 
     
-def draw_nx(G, legend_edges=None, label='', save_to=''):
+def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
     """ Draws a NetworkX graph object. By default, assumes it is a DiGraph.
         
         Optionally, saves it as .png image to filepath  save_to 
@@ -113,11 +115,17 @@ def draw_nx(G, legend_edges=None, label='', save_to=''):
         
 
     # add graphviz layout options (see https://stackoverflow.com/a/39662097)
+    if 'node' in options:
+        merge(G.graph['node'], options['node'])
+    if 'edge' in options:
+        merge(G.graph['edge'], options['edge'])
+    if 'graph' in options:
+        merge(G.graph['graph'], options['graph'])
     
     merge(G.graph['node'], {'color':'blue', 'fontcolor':'blue'})
     merge(G.graph['edge'], {'arrowsize': '0.6', 'splines': 'curved', 'fontcolor':'brown'})
     merge(G.graph['graph'], {'scale': '3'}) # 
-   
+
     # adding attributes to edges in multigraphs is more complicated but see
     # https://stackoverflow.com/a/26694158                    
     #G[0][0]['color']='red'
@@ -168,7 +176,7 @@ def draw_nx(G, legend_edges=None, label='', save_to=''):
             print(e)
     
     
-def draw_mat(mat, legend_edges=None, label='', save_to=''):    
+def draw_mat(mat, legend_edges=None, label='', save_to='', options={}):    
     """ Draws a matrix as a DiGraph 
         
         Optionally, saves it as .png image to filepath  save_to
@@ -198,9 +206,9 @@ def draw_mat(mat, legend_edges=None, label='', save_to=''):
     
 
     
-    draw_nx(G,legend_edges, label=label, save_to=save_to)
+    draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
 
-def draw_adj(d,legend_edges=None, label='', save_to=''):
+def draw_adj(d,legend_edges=None, label='', save_to='', options={}):
     """
         Draws a a graph represented as a dictionary of adjancency lists. 
         Node identifiers can be any immutable data structure, like numbers, strings, tuples ...
@@ -226,7 +234,7 @@ def draw_adj(d,legend_edges=None, label='', save_to=''):
     import networkx as nx
     
     G=nx.DiGraph(d)
-    draw_nx(G,legend_edges, label=label, save_to=save_to)
+    draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
     
 
 def draw_proof(proof, db, step_id=None, only_ids=False):

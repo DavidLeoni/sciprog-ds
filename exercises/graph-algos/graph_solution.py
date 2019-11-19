@@ -317,7 +317,7 @@ class DiGraph:
         Source has distance zero from itself
         Verteces immediately connected to source have distance one.
 
-        if source is not a vertex, raises an Exception
+        - if source is not a vertex, raises an LookupError
         
         HINT: implement this using bfs search.
         """   
@@ -328,7 +328,7 @@ class DiGraph:
         # respect to the source       
        
         if not source in self.verteces():
-            raise Exception("Can't find vertex:" + str(source))
+            raise LookupError("Can't find vertex:" + str(source))
         
         Q = deque()
         # we start from source 
@@ -533,6 +533,24 @@ class DiGraph:
         return S
         #/jupman-raise
 
+    def equidistances(self, va, vb):
+        """ RETURN a dictionary holding the nodes which 
+            are equidistant from input verteces va and vb.
+            The dictionary values will be the distances of the nodes.
+
+            - if va or vb are not present in the graph, raises LookupError
+            - To implement this, you can use the previously defined distances() method
+        """
+        #jupman-raise
+
+        da = self.distances(va)
+        db = self.distances(vb)
+        ret = {}
+        for v in da:
+            if da[v] != -1 and da[v] == db[v]:
+                ret[v] = da[v]
+        return ret
+        #/jupman-raise
 
 def full_graph(verteces):
     """ Returns a DiGraph which is a full graph with provided verteces list.
