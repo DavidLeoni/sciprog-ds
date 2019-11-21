@@ -93,7 +93,7 @@ class LinkedList:
     def remove(self, item):
         """ Removes first occurrence of item from the list
         
-            If item is not found, raises an Exception.
+            If item is not found, raises an LookupError.
         """
         #jupman-raise
         current = self._head        
@@ -111,7 +111,7 @@ class LinkedList:
                 prev = current
                 current = current.get_next() 
         
-        raise Exception("Tried to remove a non existing item! Item was: " + str(item))
+        raise LookupError("Tried to remove a non existing item! Item was: " + str(item))
         #/jupman-raise
 
     def append(self, e):

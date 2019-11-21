@@ -1,6 +1,10 @@
 
 def insertion_sort(A):
-    """ Sorts in-place list A with insertion sort.  """
+    """ Sorts in-place list A with insertion sort  
+
+        Remember insertion sort has complexity O(n^2) where n is the 
+        size of the list.
+    """
     #jupman-raise
     for i in range(1, len(A)):                
         temp = A[i]                       

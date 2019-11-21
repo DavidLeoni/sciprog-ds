@@ -82,14 +82,14 @@ class RemoveTest(LinkedListTest):
     
     def test_01_remove_empty_list(self):
         ul = LinkedList()
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
             ul.remove('a')
 
             
     def test_02_remove_one_element(self):
         ul = LinkedList()
         ul.add('a')
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
             ul.remove('b')
         ul.remove('a')
         self.assertEqual(to_py(ul), [])
@@ -98,7 +98,7 @@ class RemoveTest(LinkedListTest):
         ul = LinkedList()
         ul.add('b')
         ul.add('a')
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
             ul.remove('c')
         ul.remove('b')
         self.assertEqual(to_py(ul), ['a'])        
@@ -110,7 +110,7 @@ class RemoveTest(LinkedListTest):
         ul = LinkedList()
         ul.add('b')
         ul.add('b')
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
             ul.remove('c')
         ul.remove('b')
         self.assertEqual(to_py(ul), ['b'])        
