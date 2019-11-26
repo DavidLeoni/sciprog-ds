@@ -3,7 +3,7 @@ import unittest
 
 def swap(A, x, y):
     """
-        In the array A, swaps the elements at indeces x and y.
+        MODIFIES the array A by swapping the elements at indeces x and y
     """
     tmp = A[x]
     A[x] = A[y]

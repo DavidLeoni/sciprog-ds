@@ -13,7 +13,16 @@ def to_py(linked_list):
     while (current != None):
         python_list.append(current.get_data())
         current = current.get_next()                       
-    return python_list        
+    return python_list    
+
+def to_ll(python_list):
+    """ Creates a LinkedList from a regular Python list - very handy for testing.
+    """
+    ret = LinkedList()
+    
+    for el in reversed(python_list):
+        ret.add(el)
+    return ret
 
 
 class LinkedListTest(unittest.TestCase):
@@ -126,6 +135,48 @@ class AppendTest(LinkedListTest):
         ul.append('b')                
         self.assertEqual(to_py(ul),['a', 'b'])
         
+ 
+class IndexTest(LinkedListTest):                        
+    
+    def test_01_index_empty_list(self):
+        ul = LinkedList()
+        with self.assertRaises(LookupError):
+            ul.index('a')        
+    
+    def test_02_index(self):
+        ul = LinkedList()
+        ul.add('b')        
+        self.assertEqual(ul.index('b'),  0)
+        with self.assertRaises(LookupError):
+            ul.index('a')
+        ul.add('a')        
+        self.assertEqual(ul.index('a'),  0)
+        self.assertEqual(ul.index('b'),  1)
+           
+class PopTest(LinkedListTest):
+    
+    def test_01_pop_empty(self):
+        ul = LinkedList()
+        with self.assertRaises(ValueError):
+            ul.pop()
+
+    def test_02_pop_one(self):
+        ul = LinkedList()
+        ul.add('a')
+        x = ul.pop()
+        self.assertEqual('a', x)
+        
+    def test_03_pop_two(self):
+        ul = LinkedList()
+        ul.add('b')
+        ul.add('a')
+        x = ul.pop()
+        self.assertEqual('b', x)
+        self.assertEqual(to_py(ul), ['a'])
+        y = ul.pop()
+        self.assertEqual('a', y)
+        self.assertEqual(to_py(ul), [])
+            
 
 class InsertTest(LinkedListTest):                
     
@@ -136,9 +187,9 @@ class InsertTest(LinkedListTest):
 
     def test_02_insert_empty_list_out_of_bounds(self):
         ul = LinkedList()        
-        with self.assertRaises(Exception):
+        with self.assertRaises(IndexError):
             ul.insert(1, 'a')
-        with self.assertRaises(Exception):
+        with self.assertRaises(IndexError):
             ul.insert(-1, 'a')
 
     def test_03_insert_one_element_list_before(self):
@@ -173,45 +224,4 @@ class InsertTest(LinkedListTest):
         ul.add('a')
         ul.insert(2, 'c')
         self.assertEqual(to_py(ul), ['a','b', 'c'])
-        
-class IndexTest(LinkedListTest):                        
-    
-    def test_01_index_empty_list(self):
-        ul = LinkedList()
-        with self.assertRaises(Exception):
-            ul.index('a')        
-    
-    def test_02_index(self):
-        ul = LinkedList()
-        ul.add('b')        
-        self.assertEqual(ul.index('b'),  0)
-        with self.assertRaises(Exception):
-            ul.index('a')
-        ul.add('a')        
-        self.assertEqual(ul.index('a'),  0)
-        self.assertEqual(ul.index('b'),  1)
-           
-class PopTest(LinkedListTest):
-    
-    def test_01_pop_empty(self):
-        ul = LinkedList()
-        with self.assertRaises(Exception):
-            ul.pop()
-
-    def test_02_pop_one(self):
-        ul = LinkedList()
-        ul.add('a')
-        x = ul.pop()
-        self.assertEqual('a', x)
-        
-    def test_03_pop_two(self):
-        ul = LinkedList()
-        ul.add('b')
-        ul.add('a')
-        x = ul.pop()
-        self.assertEqual('b', x)
-        self.assertEqual(to_py(ul), ['a'])
-        y = ul.pop()
-        self.assertEqual('a', y)
-        self.assertEqual(to_py(ul), [])
-            
+       

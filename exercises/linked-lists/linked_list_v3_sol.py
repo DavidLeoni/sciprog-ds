@@ -88,7 +88,7 @@ class LinkedList:
     def remove(self, item):
         """ Removes first occurrence of item from the list
         
-            If item is not found, raises an Exception.
+            If item is not found, raises an LookupError.
         """
         current = self._head        
         prev = None
@@ -110,7 +110,7 @@ class LinkedList:
                 prev = current
                 current = current.get_next() 
         
-        raise Exception("Tried to remove a non existing item! Item was: " + str(item))
+        raise LookupError("Tried to remove a non existing item! Item was: " + str(item))
     
     def append(self, e):
         """ Appends element e to the end of the list, in O(1)                        
@@ -124,48 +124,12 @@ class LinkedList:
             self._last = new_node # NEW, need to update _last
             self._size += 1  
     
-    def insert(self, i, e):
-        """ Insert an item at a given position. 
 
-            The first argument is the index of the element before which to insert, so list.insert(0, e)
-            inserts at the front of the list, and list.insert(list.size(), e) is equivalent to list.append(e).
-            When i > list.size(), raises an Exception (default Python list appends instead to the end :-/ )
-            
-        """        
-        if (i < 0):
-            raise Exception("Tried to insert at a negative index! Index was:" + str(i))
-            
-        count = 0
-        current = self._head
-        prev = None
-        
-        while (count < i and current != None):
-            prev = current
-            current = current.get_next()
-            count += 1
-        
-        if (current == None):
-            if (count == i):
-                self.append(e)
-            else:
-                raise Exception("Tried to insert outside the list ! "
-                                + "List size=" + str(count) + "  insert position=" + str(i))
-        else:
-            #0 1
-            #  i
-            if (prev == None):
-                self.add(e)
-            else:
-                new_node = Node(e)
-                prev.set_next(new_node)
-                new_node.set_next(current) 
-                    
-                self._size += 1 
                 
     def index(self, e):
         """ Return the index in the list of the first item whose value is x. 
         
-            If item is not found, raises an Exception.
+            If item is not found, raises a LookupError
         """
         
         current = self._head
@@ -178,15 +142,15 @@ class LinkedList:
                 current = current.get_next()  
                 count += 1
         
-        raise Exception("Couldn't find element " + str(e) )
+        raise LookupError("Couldn't find element " + str(e) )
                 
     def pop(self):
         """ Remove the last item of the list, and return it. 
             
-            If the list is empty, an exception is raised. 
+            - If the list is empty, an ValueError is raised. 
         """
         if (self._head == None):
-            raise Exception("Tried to pop an empty list!")
+            raise ValueError("Tried to pop an empty list!")
         else:               
             
             current = self._head
@@ -212,10 +176,52 @@ class LinkedList:
     def last(self):
         """ Returns the last element in the list, in O(1). 
         
-            If list is empty, raises an Exception. Since v2. 
+            - If list is empty, raises ValueError. Since v2. 
         """
         
         if (self._head == None):
-            raise Exception("Tried to get the last element of an empty list!")
+            raise ValueError("Tried to get the last element of an empty list!")
         else:    
             return self._last.get_data()
+
+
+    def insert(self, i, e):
+        """ Insert an item at a given position. 
+
+            The first argument is the index of the element before which to insert, 
+            so list.insert(0, e) inserts at the front of the list, and 
+            list.insert(list.size(), e) is equivalent to list.append(e).
+            
+            - If i is negative or i > list.size(), raises an IndexError (default Python list
+              appends instead to the end :-/ )
+            
+        """    
+        if (i < 0):
+            raise IndexError("Tried to insert at a negative index! Index was:" + str(i))
+            
+        count = 0
+        current = self._head
+        prev = None
+        
+        while (count < i and current != None):
+            prev = current
+            current = current.get_next()
+            count += 1
+        
+        if (current == None):
+            if (count == i):
+                self.append(e)
+            else:
+                raise IndexError("Tried to insert outside the list ! "
+                                + "List size=" + str(count) + "  insert position=" + str(i))
+        else:
+            #0 1
+            #  i
+            if (prev == None):
+                self.add(e)
+            else:
+                new_node = Node(e)
+                prev.set_next(new_node)
+                new_node.set_next(current) 
+                    
+                self._size += 1 

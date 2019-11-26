@@ -51,7 +51,7 @@ class LinkedList:
     def remove(self, item):
         """ Removes first occurrence of item from the list
         
-            If item is not found, raises an Exception.
+            - If item is not found, raises a LookupError.
         """
         current = self._head        
         prev = None
@@ -68,7 +68,7 @@ class LinkedList:
                 prev = current
                 current = current.get_next() 
         
-        raise Exception("Tried to remove a non existing item! Item was: " + str(item))
+        raise LookupError("Tried to remove a non existing item! Item was: " + str(item))
 
             
     

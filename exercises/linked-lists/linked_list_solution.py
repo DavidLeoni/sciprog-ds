@@ -129,48 +129,10 @@ class LinkedList:
             current.set_next(Node(e))
         #/jupman-raise
 
-    def insert(self, i, e):
-        """ Insert an item at a given position. 
-
-            The first argument is the index of the element before which to insert, so list.insert(0, e)
-            inserts at the front of the list, and list.insert(list.size(), e) is equivalent to list.append(e).
-            When i > list.size(), raises an Exception (default Python list appends instead to the end :-/ )
-            
-        """
-        #jupman-raise        
-        if (i < 0):
-            raise Exception("Tried to insert at a negative index! Index was:" + str(i))
-            
-        count = 0
-        current = self._head
-        prev = None
-        
-        while (count < i and current != None):
-            prev = current
-            current = current.get_next()
-            count += 1
-        
-        if (current == None):
-            if (count == i):
-                self.append(e)
-            else:
-                raise Exception("Tried to insert outside the list ! "
-                                + "List size=" + str(count) + "  insert position=" + str(i))
-        else:
-            #0 1
-            #  i
-            if (prev == None):
-                self.add(e)
-            else:
-                new_node = Node(e)
-                prev.set_next(new_node)
-                new_node.set_next(current)                
-        #/jupman-raise
-
     def index(self, e):
         """ Return the index in the list of the first item whose value is x. 
         
-            If item is not found, raises an Exception.
+            - If item is not found, raises a LookupError.
         """
         #jupman-raise
         current = self._head
@@ -183,18 +145,18 @@ class LinkedList:
                 current = current.get_next()  
                 count += 1
         
-        raise Exception("Couldn't find element " + str(e) )
+        raise LookupError("Couldn't find element " + str(e) )
         #/jupman-raise
 
         
     def pop(self):
         """ Remove the last item of the list, and return it. 
             
-            If the list is empty, an exception is raised. 
+            - If the list is empty, ValueError is raised. 
         """
         #jupman-raise
         if (self._head == None):
-            raise Exception("Tried to pop an empty list!")
+            raise ValueError("Tried to pop an empty list!")
         else:               
             
             current = self._head
@@ -211,4 +173,45 @@ class LinkedList:
                 prev.set_next(None)                              
                 
             return last_item
+        #/jupman-raise
+
+    def insert(self, i, e):
+        """ Insert an item at a given position. 
+
+            The first argument is the index of the element before which to insert, 
+            so list.insert(0, e) inserts at the front of the list, and 
+            list.insert(list.size(), e) is equivalent to list.append(e).
+            
+            - If i is negative or i > list.size(), raises an IndexError (default Python list
+              appends instead to the end :-/ )
+            
+        """    
+        #jupman-raise        
+        if (i < 0):
+            raise IndexError("Tried to insert at a negative index! Index was:" + str(i))
+            
+        count = 0
+        current = self._head
+        prev = None
+        
+        while (count < i and current != None):
+            prev = current
+            current = current.get_next()
+            count += 1
+        
+        if (current == None):
+            if (count == i):
+                self.append(e)
+            else:
+                raise IndexError("Tried to insert outside the list ! "
+                                + "List size=" + str(count) + "  insert position=" + str(i))
+        else:
+            #0 1
+            #  i
+            if (prev == None):
+                self.add(e)
+            else:
+                new_node = Node(e)
+                prev.set_next(new_node)
+                new_node.set_next(current)                
         #/jupman-raise
