@@ -49,7 +49,7 @@ class CappedStack:
     def is_empty(self):
         """ RETURN True if the stack empty, False otherwise
 
-            - Must run in O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         return len(self._elements) == 0
@@ -59,9 +59,9 @@ class CappedStack:
     def push(self, new_item):
         """ Adds item to the top of the stack, if current size is within cap.
             
-            If stack size is already at cap value, new item is silently discarded
+            - If stack size is already at cap value, new item is silently discarded
             
-            - Must run in O(1)
+            - MUST run in O(1)
         """        
         #jupman-raise
         if (len(self._elements) < self._cap):
@@ -109,8 +109,9 @@ class CappedStack:
                 a
                 
             peekn(3) will return the list ['c','d','e']
-            If there aren't enough element to peek, raises IndexError
-            If n is negative, raises an IndexError
+
+            - If there aren't enough element to peek, raises IndexError
+            - If n is negative, raises an IndexError
         """
         #jupman-raise
         if n < 0:
@@ -142,8 +143,8 @@ class CappedStack:
                 b
                 a
             
-            If there aren't enough element to pop, raises an IndexError
-            If n is negative, raises an IndexError
+            - If there aren't enough element to pop, raises an IndexError
+            - If n is negative, raises an IndexError
         """
         #jupman-raise
         if n < 0:
