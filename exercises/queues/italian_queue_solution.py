@@ -34,10 +34,12 @@ class ItalianQueue:
             - tail()
             - tail_group()
                         
-        Each element is assigned a group; during enqueing, queue is scanned from head to tail
-        to find if there is another element with a matching group. 
-            - If there is, element to be enqueued is inserted after the last element in the same
-              group sequence (that is, to the right of the group)
+        Each element is assigned a group; during enqueing, queue is 
+        scanned from head to tail to find if there is another element
+        with a matching group. 
+            - If there is, element to be enqueued is inserted after the 
+              last element in the same group sequence (that is, to the 
+              right of the group)
             - otherwise the element is inserted at the end of the queue
     """
     
@@ -53,8 +55,8 @@ class ItalianQueue:
         #/jupman-raise
                
     def __str__(self):
-        """ For potentially complex data structures like this one, having a __str__ method is essential to 
-            quickly inspect the data by printing it. 
+        """ For potentially complex data structures like this one, having 
+            a __str__ method is essential to quickly inspect the data by printing it. 
         """
         current = self._head
         strings = []
@@ -99,7 +101,8 @@ class ItalianQueue:
         #/jupman-raise
 
     def top_group(self):
-        """ Return the group of the element at the head of the queue, without removing it. 
+        """ Return the group of the element at the head of the queue, 
+            without removing it. 
         
             - If the queue is empty, raises LookupError.
             - Complexity: O(1)
@@ -112,7 +115,7 @@ class ItalianQueue:
         #/jupman-raise
 
     def tail(self):
-        """ Return the element at the tail of the queue (without removing it). 
+        """ Return the element at the tail of the queue (without removing it)
         
             - If the queue is empty, raises LookupError.            
             - Complexity: O(1)
@@ -139,10 +142,13 @@ class ItalianQueue:
         #/jupman-raise
                         
     def enqueue(self, v, g):
-        """ Enqueues provided element v having group g, with the following criteria:
+        """ Enqueues provided element v having group g, with the following 
+            criteria:
         
-            Queue is scanned from head to find if there is another element with a matching group:
-                - if there is, v is inserted after the last element in the same group sequence (so to the right of the group)
+            Queue is scanned from head to find if there is another element 
+            with a matching group:
+                - if there is, v is inserted after the last element in the 
+                  same group sequence (so to the right of the group)
                 - otherwise v is inserted at the end of the queue
 
             - Complexity: O(n)
