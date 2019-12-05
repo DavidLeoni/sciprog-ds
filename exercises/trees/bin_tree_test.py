@@ -222,6 +222,115 @@ class InsertRightTest(BinaryTreeTest):
         self.assertEqual(tc.right(), None)
 
 
+class SumRecTest(BinaryTreeTest):
+
+    """
+        5
+        ├
+        └
+    """
+    def test_01_5_empty_empty(self):
+        t = bt(5)
+        self.assertEqual(t.sum_rec(), 5)
+
+    """
+        4
+        ├7
+        └
+    """
+    def test_02_4_7_empty(self):
+        t = bt(4, bt(7))
+        self.assertEqual(t.sum_rec(), 11)
+
+    """
+        6
+        ├
+        └3
+    """
+    def test_03_6_empty_3(self):
+        t = bt(6, None, bt(3))
+        self.assertEqual(t.sum_rec(), 9)
+
+    """
+        4
+        ├8
+        └3
+    """
+    def test_04_4_8_3(self):
+        t = bt(4, bt(8), bt(3))
+        self.assertEqual(t.sum_rec(), 15)
+
+    """
+        7
+        ├2
+        |├6
+        |└
+        └4
+    """
+    def test_05_7_26_4(self):
+        t = bt(7, bt(2, bt(6)), bt(4))
+        self.assertEqual(t.sum_rec(), 19)
+
+    """
+        9
+        ├5            
+        └3
+         ├2
+         └
+    """
+    def test_06_9_5_32(self):
+        t = bt(9, bt(5), bt(3, bt(2)))
+        self.assertEqual(t.sum_rec(), 19)
+
+    """
+        5
+        ├2            
+        |├3
+        |└
+        └ 
+    """
+    def test_07_523_left(self):
+        t = bt(5, bt(2, bt(3)))
+        self.assertEqual(t.sum_rec(), 10)
+
+    """
+        5
+        ├
+        └2            
+         ├
+         └3
+    """
+    def test_08_523_right(self):
+        t = bt(5, None, bt(2, None, bt(3)))
+        self.assertEqual(t.sum_rec(), 10)
+
+    """
+        4
+        ├7            
+        |├2            
+        |└3
+        | ├ 
+        | └6
+        └5
+         ├1
+         |├9
+         |└            
+         └8
+    """
+    def test_09_complex(self):
+        t = bt(4, 
+                    bt(7,
+                            bt(2), 
+                            bt(3, 
+                                    None,
+                                    bt(6))),
+                    bt(5, 
+                            bt(1, 
+                                    bt(9)), 
+                            bt(8)))
+        self.assertEqual(t.sum_rec(), 45)
+
+
 class HeightRecTest(BinaryTreeTest):
 
     def test_01(self):        
@@ -611,7 +720,8 @@ class FunRecTest(BinaryTreeTest):
         self.assertEqual(t.fun_rec(),'f(g(x,y),f(h(z),w))')
 
 
-class SumRecTest(BinaryTreeTest):
+
+class SumStackTest(BinaryTreeTest):
 
     """
         5
@@ -620,7 +730,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_01_5_empty_empty(self):
         t = bt(5)
-        self.assertEqual(t.sum_rec(), 5)
+        self.assertEqual(t.sum_stack(), 5)
 
     """
         4
@@ -629,7 +739,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_02_4_7_empty(self):
         t = bt(4, bt(7))
-        self.assertEqual(t.sum_rec(), 11)
+        self.assertEqual(t.sum_stack(), 11)
 
     """
         6
@@ -638,7 +748,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_03_6_empty_3(self):
         t = bt(6, None, bt(3))
-        self.assertEqual(t.sum_rec(), 9)
+        self.assertEqual(t.sum_stack(), 9)
 
     """
         4
@@ -647,7 +757,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_04_4_8_3(self):
         t = bt(4, bt(8), bt(3))
-        self.assertEqual(t.sum_rec(), 15)
+        self.assertEqual(t.sum_stack(), 15)
 
     """
         7
@@ -658,7 +768,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_05_7_26_4(self):
         t = bt(7, bt(2, bt(6)), bt(4))
-        self.assertEqual(t.sum_rec(), 19)
+        self.assertEqual(t.sum_stack(), 19)
 
     """
         9
@@ -669,7 +779,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_06_9_5_32(self):
         t = bt(9, bt(5), bt(3, bt(2)))
-        self.assertEqual(t.sum_rec(), 19)
+        self.assertEqual(t.sum_stack(), 19)
 
     """
         5
@@ -680,7 +790,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_07_523_left(self):
         t = bt(5, bt(2, bt(3)))
-        self.assertEqual(t.sum_rec(), 10)
+        self.assertEqual(t.sum_stack(), 10)
 
     """
         5
@@ -691,7 +801,7 @@ class SumRecTest(BinaryTreeTest):
     """
     def test_08_523_right(self):
         t = bt(5, None, bt(2, None, bt(3)))
-        self.assertEqual(t.sum_rec(), 10)
+        self.assertEqual(t.sum_stack(), 10)
 
     """
         4
@@ -717,4 +827,28 @@ class SumRecTest(BinaryTreeTest):
                             bt(1, 
                                     bt(9)), 
                             bt(8)))
-        self.assertEqual(t.sum_rec(), 45)
+        self.assertEqual(t.sum_stack(), 45)
+
+
+class HeightStackTest(BinaryTreeTest):
+
+    def test_01(self):        
+        self.assertEqual(bt('a').height_stack(), 0)
+
+    def test_02(self):        
+        self.assertEqual(bt('a', bt('b')).height_stack(), 1)
+
+    def test_03(self):        
+        self.assertEqual(bt('a', None, bt('b')).height_stack(), 1)
+
+    def test_04(self):        
+        self.assertEqual(bt('a', bt('b'), bt('c')).height_stack(), 1)
+
+    def test_05(self):        
+        self.assertEqual(bt('a', bt('b', bt('c')), bt('d')).height_stack(), 2)
+
+    def test_06(self):        
+        self.assertEqual(bt('a', bt('d'), bt('b', bt('c'))).height_stack(), 2)
+
+    def test_07(self):        
+        self.assertEqual(bt('a', bt('b', bt('c', bt('d', bt('e')))), bt('f', bt('g'))).height_stack(), 4)

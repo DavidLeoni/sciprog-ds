@@ -88,6 +88,24 @@ class BinaryTree:
             self._right = B
         #/jupman-raise
 
+    def sum_rec(self):
+        """ Supposing the tree holds integer numbers in all nodes,
+            RETURN the sum of the numbers.
+
+            - implement it as a recursive Depth First Search (DFS) traversal
+              NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """ 
+   
+        #jupman-raise
+        ret = self._data
+        if self.left() != None:
+            ret += self.left().sum_rec()
+        if self.right() != None:
+            ret += self.right().sum_rec()
+        return ret
+        #/jupman-raise      
+
     def height_rec(self):
         """ RETURN an integer which is the height of the tree
 
@@ -149,23 +167,7 @@ class BinaryTree:
         #/jupman-raise
 
 
-    def sum_rec(self):
-        """ Supposing the tree holds integer numbers in all nodes,
-            RETURN the sum of the numbers.
-
-            - implement it as a recursive Depth First Search (DFS) traversal
-              NOTE: with big trees a recursive solution would surely 
-                    exceed the call stack, but here we don't mind            
-        """ 
-   
-        #jupman-raise
-        ret = self._data
-        if self.left() != None:
-            ret += self.left().sum_rec()
-        if self.right() != None:
-            ret += self.right().sum_rec()
-        return ret
-        #/jupman-raise        
+  
 
     def join_rec(self):
         """ Supposing the tree nodes hold a character each, RETURN a STRING holding 
@@ -208,3 +210,52 @@ class BinaryTree:
             ret += ')'
         return ret
         #/jupman-raise        
+
+
+    def sum_stack(self):
+        """ Supposing the tree holds integer numbers in all nodes,
+            RETURN the sum of the numbers.
+            
+            - DO *NOT* use recursion
+            - implement it with a while and a stack (as a python list)
+            - In the stack place nodes to process
+        """ 
+   
+        #jupman-raise
+        ret = 0
+        stack = [self]
+        while len(stack) > 0:
+            node = stack.pop()
+            ret += node.data()
+            if node.left() != None:
+                stack.append(node.left())
+            if node.right() != None:
+                stack.append(node.right())
+        return ret
+
+        #/jupman-raise      
+
+
+    def height_stack(self):
+        """ RETURN an integer which is the height of the tree
+
+            - A tree with only one node has height zero.
+            - DO *NOT* use recursion
+            - implement it with a while and a stack (as a python list). 
+            - In the stack place *tuples* holding a node *and* its level
+            
+        """
+   
+        #jupman-raise
+        ret = 0
+        stack = [(self, 0)]
+        while len(stack) > 0:
+            node,level = stack.pop()        
+            ret = max(level, ret)
+            if node.left() != None:
+                stack.append( (node.left(), level + 1) )
+            if node.right() != None:
+                stack.append((node.right(), level + 1) )
+        return ret
+
+        #/jupman-raise              
