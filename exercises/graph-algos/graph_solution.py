@@ -241,14 +241,18 @@ class DiGraph:
     def transpose(self):
         """ Reverses the direction of all the edges 
         
+            - MUST perform in O(|V|+|E|)  
+                 Note in adjacency lists model we suppose there are only few edges per node,
+                 so if you end up with an algorithm which is O(|V|^2) you are ending up with a
+                 complexity usually reserved for matrix representations !!
+
             NOTE: this method changes in-place the graph: does **not** create a new instance
-            and does *not* return anything !!
+                  and does *not* return anything !!
             
             NOTE: To implement it *avoid* modifying the existing _edges dictionary (would
-            probably more problems than anything else).
-            Instead, create a new dictionary, fill it with the required 
-            verteces and edges ad then set _edges to point to the new dictionary.
-
+                  probably more problems than anything else).
+                  Instead, create a new dictionary, fill it with the required 
+                  verteces and edges ad then set _edges to point to the new dictionary.
         """
         #jupman-raise
            
