@@ -294,7 +294,8 @@ class DiGraph:
         #/jupman-raise
 
     def undir(self):
-        """ Return a *NEW* undirected version of this graph, that is, if an edge a->b exists in this          graph, the returned graph must also have both edges  a->b and b->a
+        """ Return a *NEW* undirected version of this graph, that is, if an edge a->b exists in this 
+            graph, the returned graph must also have both edges  a->b and b->a
             *DO NOT* modify the current graph, just return an entirely new one.
         """
         #jupman-raise
@@ -373,6 +374,27 @@ class DiGraph:
         return distances  
         #/jupman-raise      
         
+
+    def equidistances(self, va, vb):
+        """ RETURN a dictionary holding the nodes which 
+            are equidistant from input verteces va and vb.
+            The dictionary values will be the distances of the nodes.
+
+            - if va or vb are not present in the graph, raises LookupError
+            - To implement this, you can use the previously defined distances() method
+        """
+        #jupman-raise
+
+        da = self.distances(va)
+        db = self.distances(vb)
+        ret = {}
+        for v in da:
+            if da[v] != -1 and da[v] == db[v]:
+                ret[v] = da[v]
+        return ret
+        #/jupman-raise
+         
+                        
     def cp(self, source):
         """ Performs a BFS search starting from provided node label source and 
             RETURN a dictionary of nodes representing the visit tree in the 
@@ -537,24 +559,7 @@ class DiGraph:
         return S
         #/jupman-raise
 
-    def equidistances(self, va, vb):
-        """ RETURN a dictionary holding the nodes which 
-            are equidistant from input verteces va and vb.
-            The dictionary values will be the distances of the nodes.
 
-            - if va or vb are not present in the graph, raises LookupError
-            - To implement this, you can use the previously defined distances() method
-        """
-        #jupman-raise
-
-        da = self.distances(va)
-        db = self.distances(vb)
-        ret = {}
-        for v in da:
-            if da[v] != -1 and da[v] == db[v]:
-                ret[v] = da[v]
-        return ret
-        #/jupman-raise
 
 def full_graph(verteces):
     """ Returns a DiGraph which is a full graph with provided verteces list.
