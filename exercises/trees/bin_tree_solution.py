@@ -211,6 +211,23 @@ class BinaryTree:
         return ret
         #/jupman-raise        
 
+    def bin_search_rec(self, m):
+        """ Assuming the tree is a binary search tree of integer numbers, 
+            RETURN True if m is present in the tree, False otherwise
+        
+            - MUST EXECUTE IN O(height(t))
+            - NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind
+        """
+        #jupman-raise
+        if m == self.data():
+            return True
+        elif m < self.data():
+            return self.left() != None and self.left().bin_search_rec(m)
+        else:
+            return self.right() != None and self.right().bin_search_rec(m)
+        #/jupman-raise
+
     def bin_insert_rec(self, m):
         """ Assuming the tree is a binary search tree of integer numbers, 
             MODIFIES the tree by inserting a new node with the value m
@@ -231,6 +248,52 @@ class BinaryTree:
                 self.insert_right(m)
             else:                
                 self.right().bin_insert_rec(m)
+        #/jupman-raise
+
+    def univalued_rec(self):
+        """ RETURN True if the tree is univalued, otherwise RETURN False. 
+
+            - a tree is univalued when all nodes have the same value as data
+            - MUST execute in O(n) where n is the number of nodes of the tree
+            - NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind
+        """
+        #jupman-raise
+        if self.left() != None:
+            if self.left().data() != self.data() or not self.left().univalued_rec():
+                return False
+        if self.right() != None:
+            if self.right().data() != self.data() or not self.right().univalued_rec():
+                return False
+
+        return True
+        #/jupman-raise
+
+    def same_rec(self, other):
+        """ RETURN True if this binary tree is equal to other binary tree,
+            otherwise return False.
+            
+            - MUST execute in O(n) where n is the number of nodes of the tree
+            - NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind
+            - HINT: defining a helper function 
+                    
+                    def helper(t1, t2):
+
+                    which recursively calls itself and assumes both of the
+                    inputs can be None may reduce the number of ifs to write.
+        """
+        #jupman-raise
+        def helper(t1, t2):
+            if (t1 == None) != (t2 == None):  # XOR
+                return False
+            if t1 == None and t2 == None:
+                return True
+            if t1.data() != t2.data():
+                return False
+            return helper(t1.left(), t2.left()) and helper(t1.right(), t2.right())
+
+        return helper(self, other)
         #/jupman-raise
 
     def sum_stack(self):

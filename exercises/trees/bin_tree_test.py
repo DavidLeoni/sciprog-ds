@@ -741,6 +741,140 @@ class JoinRecTest(BinaryTreeTest):
                             bt('i')))
         self.assertEqual(t.join_rec(),'abcdefghi')
 
+class BinSearchTest(BinaryTreeTest):
+    def test_complex(self):
+        t = bt(7, 
+             bt(3, 
+                    bt(2), 
+                    bt(6)),
+             bt(12, 
+                    bt(8, 
+                           None,
+                           bt(11,
+                                 bt(9))),
+                    bt(14, 
+                           bt(13))))
+
+
+        self.assertTrue(t.bin_search_rec(8))
+        self.assertTrue(t.bin_search_rec(13))
+        self.assertTrue(t.bin_search_rec(7))
+        self.assertFalse(t.bin_search_rec(1))
+        self.assertFalse(t.bin_search_rec(5))
+        self.assertFalse(t.bin_search_rec(10))
+
+class BinInsertRecTest(BinaryTreeTest):
+    def test_complex(self):
+        
+        t1 = bt(7)
+        t1.bin_insert_rec(3)
+        t1.bin_insert_rec(6)
+        t1.bin_insert_rec(2)
+        t1.bin_insert_rec(12)
+        t1.bin_insert_rec(14)
+        t1.bin_insert_rec(13)
+        t1.bin_insert_rec(8)
+        t1.bin_insert_rec(11)
+        t1.bin_insert_rec(9)
+
+        t2 = bt(7, 
+                    bt(3, 
+                            bt(2), 
+                            bt(6)),
+                    bt(12, 
+                            bt(8, 
+                                None,
+                                bt(11,
+                                        bt(9))),
+                            bt(14, 
+                                bt(13))))
+
+
+        self.assertTreeEqual(t1, t2)
+    
+class UnivaluedRecTest(BinaryTreeTest):
+
+    def test_complex_1(self):
+        t = bt(3, 
+                bt(3, 
+                    bt(7), 
+                    bt(3)),
+                bt(3, 
+                    bt(2, 
+                           None,
+                           bt(3,
+                                 bt(3))),
+                    bt(4, 
+                           bt(3))))
+
+        self.assertFalse(t.univalued_rec())
+
+    def test_complex_2(self):
+        t = bt(3, 
+             bt(3, 
+                    bt(3), 
+                    bt(3)),
+             bt(3, 
+                    bt(3, 
+                           None,
+                           bt(3,
+                                 bt(3))),
+                    bt(3, 
+                           bt(3))))
+
+        self.assertTrue(t.univalued_rec())
+
+
+class SameRecTest(BinaryTreeTest):
+
+    def test_complex_1(self):
+        t1 = bt(3, 
+                bt(3, 
+                    bt(7), 
+                    bt(3)),
+                bt(3, 
+                    bt(2, 
+                           None,
+                           bt(3,
+                                 bt(3))),
+                    bt(4, 
+                           bt(3))))
+        t2 = bt(4, 
+                bt(3, 
+                    bt(8), 
+                    bt(3)),
+                bt(3,                     
+                    bt(4, 
+                           bt(3))))
+
+        self.assertFalse(t1.same_rec(t2))
+
+    def test_complex_2(self):
+        t1 = bt(3, 
+                bt(3, 
+                    bt(7), 
+                    bt(3)),
+                bt(3, 
+                    bt(2, 
+                           None,
+                           bt(3,
+                                 bt(3))),
+                    bt(4, 
+                           bt(3))))
+        t2 = bt(3, 
+                bt(3, 
+                    bt(7), 
+                    bt(3)),
+                bt(3, 
+                    bt(2, 
+                           None,
+                           bt(3,
+                                 bt(3))),
+                    bt(4, 
+                           bt(3))))
+
+        self.assertTrue(t1.same_rec(t2))
+
 
 class FunRecTest(BinaryTreeTest):
 
