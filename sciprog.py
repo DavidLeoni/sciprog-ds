@@ -252,13 +252,13 @@ def draw_proof(proof, db, step_id=None, only_ids=False):
     G=nx.DiGraph()
 
     if step_id == None:
-        step_id = max(proof.keys())
+        step_id = len(proof)
     
     stack = [step_id]
     while len(stack) > 0:
         dep_id = stack.pop()
                 
-        attrs = proof[dep_id]        
+        attrs = proof[dep_id-1]        
         
         if only_ids:
             label = str(dep_id)
@@ -276,6 +276,6 @@ def draw_proof(proof, db, step_id=None, only_ids=False):
         
     for key in G.nodes():
 
-        for target in proof[key]['step_ids']:
+        for target in proof[key-1]['step_ids']:
             G.add_edge(key, target)
     draw_nx(G)
