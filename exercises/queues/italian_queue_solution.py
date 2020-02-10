@@ -24,6 +24,12 @@ class Node:
     def set_next(self,newnext):
         self._next = newnext
 
+    def __repr__(self):
+        return self.__str__()
+    def __str__(self):
+        return 'Node(%s,%s)' % (self._data, self._group)
+
+
 class ItalianQueue:
     """ An Italian queue, v1.  
     
@@ -46,7 +52,7 @@ class ItalianQueue:
     def __init__(self):
         """ Initializes the queue. Note there is no capacity as parameter
                 
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         self._head = None
@@ -59,20 +65,23 @@ class ItalianQueue:
             a __str__ method is essential to quickly inspect the data by printing it. 
         """
         current = self._head
-        strings = []
+        sdata = []
+        sgroups = []
         
         while (current != None):
-            strings.append(str((current.get_data(), current.get_group())))            
+            sdata.append(str((current.get_data())))            
+            sgroups.append(str((current.get_group())))            
             current = current.get_next()            
         
-        return "ItalianQueue: " + ",".join(strings)
-    
+        return "ItalianQueue: " + "->".join(sdata) + "\n              " + "  ".join(sgroups) + \
+             "\n       _head: %s" % self._head + \
+             "\n       _tail: %s" % self._tail 
     
     
     def size(self):
         """ Return the size of the queue.
         
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         return self._size
@@ -81,7 +90,7 @@ class ItalianQueue:
     def is_empty(self):
         """ Return True if the queue is empty, False otherwise.
         
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         return self._head == None
@@ -91,7 +100,7 @@ class ItalianQueue:
         """ Return the element at the head of the queue, without removing it. 
         
             - If the queue is empty, raises LookupError.            
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         if self._head != None:
@@ -105,7 +114,7 @@ class ItalianQueue:
             without removing it. 
         
             - If the queue is empty, raises LookupError.
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         if self._head != None:
@@ -118,7 +127,7 @@ class ItalianQueue:
         """ Return the element at the tail of the queue (without removing it)
         
             - If the queue is empty, raises LookupError.            
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         if self._tail != None:
@@ -132,7 +141,7 @@ class ItalianQueue:
         """ Return the group of the element at the tail of the queue (without removing it). 
         
             - If the queue is empty, raises LookupError.
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         if self._tail != None:
@@ -151,7 +160,7 @@ class ItalianQueue:
                   same group sequence (so to the right of the group)
                 - otherwise v is inserted at the end of the queue
 
-            - Complexity: O(n)
+            - MUST run in O(n)
         """
         #jupman-raise
         new_node = Node(v,g)
@@ -187,7 +196,7 @@ class ItalianQueue:
         """ Removes head element and returns it.
             
             - If the queue is empty, raises a LookupError.
-            - Complexity: O(1)
+            - MUST run in O(1)
         """
         #jupman-raise
         if self._head != None:
@@ -200,3 +209,4 @@ class ItalianQueue:
         else:
             raise LookupError("Queue is empty !")                    
         #/jupman-raise
+

@@ -42,53 +42,55 @@ class InitEmptyTest(unittest.TestCase):
 class EnqueueTest(unittest.TestCase):
 
     
-    def test_01_ag(self):
+    def test_01_ax(self):
         q = ItalianQueue()    
 
-        q.enqueue('a', 'g')                      # [(a,g)]
+        q.enqueue('a', 'x')                      # [(a,x)]
         self.assertFalse(q.is_empty())        
         self.assertEqual(q.size(), 1)
         self.assertEqual(q.top(), 'a')           
-        self.assertEqual(q.top_group(), 'g')
+        self.assertEqual(q.top_group(), 'x')
         self.assertEqual(q.tail(), 'a')
-        self.assertEqual(q.tail_group(), 'g')
+        self.assertEqual(q.tail_group(), 'x')
 
     
-    def test_02_agbh(self):
+    def test_02_axby(self):
         q = ItalianQueue()    
 
-        q.enqueue('a', 'g')                      # [(a,g)]                         
+        q.enqueue('a', 'x')                      # [(a,x)]                         
         
-        q.enqueue('b', 'h')                      # [(a,g), (b,h)]        
+        q.enqueue('b', 'y')                      # [(a,x), (b,y)]        
         self.assertEqual(q.size(), 2)
         self.assertEqual(q.top(), 'a')           
-        self.assertEqual(q.top_group(), 'g')
+        self.assertEqual(q.top_group(), 'x')
         self.assertEqual(q.tail(), 'b')
-        self.assertEqual(q.tail_group(), 'h')
+        self.assertEqual(q.tail_group(), 'y')
     
     
-    def test_03_agbg(self):
+    def test_03_axbx(self):
         q = ItalianQueue()    
 
-        q.enqueue('a', 'g')                      # [(a,g)]                                 
-        q.enqueue('b', 'g')                      # [(a,g), (b,g)]
+        q.enqueue('a', 'x')                      # [(a,x)]                                 
+        q.enqueue('b', 'x')                      # [(a,x), (b,x)]
         self.assertEqual(q.top(), 'a')
-        self.assertEqual(q.top_group(), 'g')
+        self.assertEqual(q.top_group(), 'x')
         self.assertEqual(q.tail(), 'b')
-        self.assertEqual(q.tail_group(), 'g')                    
+        self.assertEqual(q.tail_group(), 'x')                    
 
-    def test_04_agbhcg(self):
+    def test_04_axbycx(self):
         q = ItalianQueue()    
 
-        q.enqueue('a', 'g')                      # [(a,g)]                                 
-        q.enqueue('b', 'h')                      # [(a,g), (b,h)]
-        q.enqueue('c', 'g')                      # [(a,g), (c,g), (b,h)]
+        q.enqueue('a', 'x')                      # [(a,x)]                                 
+        q.enqueue('b', 'y')                      # [(a,x), (b,y)]
+        q.enqueue('c', 'x')                      # [(a,x), (c,x), (b,y)]
         self.assertEqual(q.top(), 'a')
-        self.assertEqual(q.top_group(), 'g')
-        self.assertEqual(q._head.get_next().get_data(), 'c')   # white box testing: using private '_' fields 
-        self.assertEqual(q._head.get_next().get_group(), 'g')  # white box testing: using private '_' fields 
+        self.assertEqual(q.top_group(), 'x')
+        # white box testing: using private '_' fields 
+        self.assertEqual(q._head.get_next().get_data(), 'c')   
+        # white box testing: using private '_' fields
+        self.assertEqual(q._head.get_next().get_group(), 'x')  
         self.assertEqual(q.tail(), 'b')
-        self.assertEqual(q.tail_group(), 'h')                    
+        self.assertEqual(q.tail_group(), 'y')                    
         
         
         
@@ -100,9 +102,9 @@ class DequeueTest(unittest.TestCase):
         with self.assertRaises(LookupError):
             q.dequeue()
     
-    def test_02_ag(self):
+    def test_02_ax(self):
         q = ItalianQueue()      
-        q.enqueue('a', 'g')                      # [(a,g)]        
+        q.enqueue('a', 'x')                      # [(a,x)]
         self.assertEqual(q.dequeue(), 'a')       # []
         self.assertEqual(q.size(), 0)        
         
@@ -122,18 +124,60 @@ class DequeueTest(unittest.TestCase):
             q.dequeue()
     
     
-    def test_03_agbh(self):
+    def test_03_axby(self):
         q = ItalianQueue()        
-        q.enqueue('a','g')                   # [(a,g)]           
-        q.enqueue('b','h')                   # [(a,g), (b,h)]  
+        q.enqueue('a','x')                   # [(a,x)]           
+        q.enqueue('b','y')                   # [(a,x), (b,y)]  
     
-        self.assertEqual(q.dequeue(), 'a')   # [(b,h)] 
+        self.assertEqual(q.dequeue(), 'a')   # [(b,y)] 
         self.assertEqual(q.size(), 1)
         self.assertEqual(q.top(), 'b')      
-        self.assertEqual(q.top_group(), 'h')
+        self.assertEqual(q.top_group(), 'y')
         self.assertEqual(q.tail(), 'b')      
-        self.assertEqual(q.tail_group(), 'h')
+        self.assertEqual(q.tail_group(), 'y')
         
         self.assertEqual(q.dequeue(), 'b')   # []       
         self.assertEqual(q.size(), 0)        
         
+
+    def test_04_axbxcydzez(self):
+        q = ItalianQueue()        
+        q.enqueue('a','x')                   
+        q.enqueue('b','x')                   
+        q.enqueue('c','y')                    
+        q.enqueue('d','z')                   
+        q.enqueue('e','z')                   # [(a,x), (b,x), (c,y), (d,z), (e,z)]  
+    
+        self.assertEqual(q.dequeue(), 'a')   # [(b,x), (c,y), (d,z), (e,z)]  
+        self.assertEqual(q.size(), 4)
+        self.assertEqual(q.top(), 'b')       # 
+        self.assertEqual(q.top_group(), 'x') 
+        self.assertEqual(q.tail(), 'e')       
+        self.assertEqual(q.tail_group(), 'z')
+        
+        self.assertEqual(q.dequeue(), 'b')   # [(c,y), (d,z), (e,z)]  
+        self.assertEqual(q.size(), 3)          
+        self.assertEqual(q.top(), 'c')       
+        self.assertEqual(q.top_group(), 'y') 
+        self.assertEqual(q.tail(), 'e')       
+        self.assertEqual(q.tail_group(), 'z') 
+
+        self.assertEqual(q.dequeue(), 'c')   # [(d,z), (e,z)]  
+        self.assertEqual(q.size(), 2)
+        self.assertEqual(q.top(), 'd')       
+        self.assertEqual(q.top_group(), 'z') 
+        self.assertEqual(q.tail(), 'e')       
+        self.assertEqual(q.tail_group(), 'z') 
+
+        self.assertEqual(q.dequeue(), 'd')   # [(e,z)]  
+        self.assertEqual(q.size(), 1)
+        self.assertEqual(q.top(), 'e')       
+        self.assertEqual(q.top_group(), 'z') 
+        self.assertEqual(q.tail(), 'e')       
+        self.assertEqual(q.tail_group(), 'z') 
+
+        self.assertEqual(q.dequeue(), 'e')   # []  
+        self.assertEqual(q.size(), 0)
+
+
+
