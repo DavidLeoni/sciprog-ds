@@ -1,731 +1,731 @@
-Note,Civico,Indirizzo,Frazione/Località,Comune,Cap,Insegna,Numero,Categorie
-"generi misti, bar - ristorante",30,Via del Lagorai,Piscine di Sover,Sover,38068,BAZZANELLA RENATA,1,"['BAR', 'RISTORANTE']"
-esercizio commerciale,48,Corso Ausugum,,Borgo Valsugana,38051,CONFEZIONI MONTIBELLER S.R.L.,2,[]
-"esercizio commerciale, attività artigianale",8,Largo Dordi,,Borgo Valsugana,38051,FOTOGRAFICA TRINTINAGLIA UMBERTO S.N.C.,3,[]
-esercizio commerciale,24,,Serafini,Grigno,38055,BAR SERAFINI DI MINATI RENZO,4,['BAR']
-,35,Via S. Francesco,,Riva del Garda,38066,SEMBENINI GINO & FIGLI S.R.L.,6,[]
-,29,Via Nazionale,Nave San Felice,Lavis,38015,HOTEL RISTORANTE PIZZERIA “ALLA NAVE”,7,"['RISTORANTE', 'HOTEL', 'PIZZERIA']"
-,33,Via Roma,,Lavis,38015,OBRELLI GIOIELLERIA DAL 1929 S.R.L.,8,[]
-,13,Via Roma,,Lavis,38015,MACELLERIE TROIER S.A.S. DI TROIER DARIO E C.,9,[]
-esercizio commerciale,5,Piazza Manci,,Lavis,38015,NARDELLI TIZIANO,10,[]
-,37,Via Matteotti,,Lavis,38015,PASTICCERIA SILVANO DI ANDREOLLI SILVANO& C.,11,[]
-esercizio commerciale,1,Piazza Manci,,Lavis,38015,LONA S.N.C. DI LONA ROBERTO & C.,13,[]
-,59,Via Matteotti,,Lavis,38015,GADOTTI CALZATURE DI GADOTTI MARCO,14,['CALZATURE']
-,4,Piazza Cesare Battisti,,Lavis,38015,BAR LEON D’ORO DI DELLAI LORENA,15,['BAR']
-,1,Via Filzi,,Lavis,38015,TURCO CALZATURE DI TURCO CORRADO,16,['CALZATURE']
-,1,Via Filzi,,Lavis,38015,FARMACIA ROMANI DOTT. ALBERTO ERRIGO & C. S.N.C.,17,['FARMACIA']
-,,Piazza Giovanni della Croce,Pressano,Lavis,38015,FAMIGLIA COOPERATIVA MEZZOLOMBARDO E PRESSANO SOC. COOP.,18,['BAR']
-,22,Viale San Francesco,,Riva del Garda,38066,CONFEZIONI DANTI DI PELKAN WILMA & C. S.A.S.,19,[]
-attività artigianale,32,Via Pennella,,Pergine Valsugana,38057,DELUGAN GUIDO E GINO S.N.C.,20,[]
-,27,Piazza Prati,,Cavareno,38011,FRUTTA E VERDURA SPRINGHETTI GILBERTO,21,[]
-,2,Via Moscabio,,Cavareno,38011,LARCHER SPORT,22,['SPORT']
-,21,Piazza Prati,,Cavareno,38011,BAR GELATERIA EREDI CAVALLAR DOMENICO,23,['BAR']
-,43,Via Roma,,Cavareno,38011,EDICOLA TABACCHI GENETTI ANNAMARIA,24,['TABACCHI']
-,12,Piazza Prati,,Cavareno,38011,MERCERIE CATTARINI TIZIANA,25,[]
-,49,Via Roma,,Cavareno,38011,ZANI FABIO S.A.S. FERRAMENTA,26,['FERRAMENTA']
-,19,Via Moscabio,,Cavareno,38011,LATTERIA SOCIALE CAVARENO,27,[]
-,10,Piazza Municipio,,Pergine Valsugana,38057,RISTORANTE AL VOLT DI LABRIOLA MICHELANGELO,28,['RISTORANTE']
-,2,Piazza Manci,,Lavis,38015,RISTORANTE PIZZERIA NUOVO CORONA DI PALMIERI TOMMASO,29,"['RISTORANTE', 'PIZZERIA']"
-,6,Piazza Manci,,Lavis,38015,BAR ALBERGO CORONA S.N.C. DI PRONER RICCARDA & C.,30,"['BAR', 'ALBERGO']"
-esercizio commerciale,47,Via Clementi,,Lavis,38015,SARTORI GIUSEPPE & C. S.N.C. ,31,[]
-,10,Vicolo del Messaggero,,Rovereto,38068,TORREFAZIONE CAFFE’ BONTADI,33,[]
-, 50/A,Via Tartarotti,,Rovereto,38068,COLORIFICIO LUCIANO CARESIA DI DANIELA CARESIA,34,[]
-,10,Via Mazzini,,Rovereto,38068,FARMACIA COBELLI,35,['FARMACIA']
-, 5/6,Piazza Manifattura,,Rovereto,38068,BAR MANIFATTURA,36,['BAR']
-,9,Piazza del Podestà,,Rovereto,38068,BAR DUE COLONNE,37,['BAR']
-,5,Largo S. Floriano,,Rovereto,38068,"PANIFICIO COLLER S.N.C. DI COLLER CLAUDIO, ANDREA & C.",39,['PANIFICIO']
-,39,Via Rialto,,Rovereto,38068,CAPPELLERIA BACCA,40,[]
-,17,Via Paganini,,Rovereto,38068,BAR-TRATTORIA BELLAVISTA,41,['BAR']
-, 16/18,Via Mercerie,,Rovereto,38068,DROGHERIA MICHELI,42,[]
-esercizio commerciale,32,Via Rialto,,Rovereto,38068,LAZZERI,43,[]
-,7,Via Valbusa Grande,,Rovereto,38068,LOCOS BAR,44,['BAR']
-,17,Piazza Erbe,,Rovereto,38068,FARMACIA S. MARCO,45,['FARMACIA']
-,32,Piazza C. Battisti,,Rovereto,38068,B. SALVETTI FABBRICA OMBRELLI MERCERIE E MANIFATTURE,46,[]
-,47,Via Roma,,Rovereto,38068,MANIFATTURE ZOCCHE LUIGI,47,[]
-ristorante bar,3,Viale della Serraia,,Baselga di Piné,38042,RISTORANTE BAR ALBERGO SERRAIA,48,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,3,Corso Roma,,Baselga di Piné,38042,BAR TAVOLA CALDA PIZZERIA ALPINO,49,"['BAR', 'PIZZERIA']"
-ristorante bar,21,Via del Fosch,,Baselga di Piné,38042,RISTORANTE BAR ALBERGO VILLA ANITA,50,"['BAR', 'RISTORANTE', 'ALBERGO']"
-ristorante bar,1,Via Domenica Targa,Montagnaga,Baselga di Piné,38042,RISTORANTE BAR CA’ DEI BOCI,51,"['BAR', 'RISTORANTE']"
-ristorante bar,1,Via Domenica Targa,Montagnaga,Baselga di Piné,38042,HOTEL BELVEDERE WELLNESS & FAMILY,52,"['BAR', 'RISTORANTE', 'HOTEL']"
-,61,Corso Roma,,Baselga di Piné,38042,BAR PASTI VELOCI GELATERIA PASTICCERIA PINETANA,53,['BAR']
-,11,Via Marconi,,Baselga di Piné,38042,SEGHERIA E LEGNAMI DI SIGHEL RENZO,54,[]
-,49,Via Cesare Battisti,,Baselga di Piné,38042,MACELLERIA SIGHEL SRL,55,['MACELLERIA']
-,24,Via 4 Novembre,Montagnaga,Baselga di Piné,38042,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",56,[]
-,9,Via Roma,,Baselga di Piné,38042,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",57,[]
-, 6/3,Via della Chiesa,Miola,Baselga di Piné,38042,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",58,[]
-,54,Via dei Piani,Faida,Baselga di Piné,38042,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",59,[]
-,93,Via Cesare Battisti,,Baselga di Piné,38042,FARMACIA MORELLI S.N.C. DI MORELLI DOTT. GIUSEPPE & C.,60,['FARMACIA']
-,86,Via Cesare Battisti,,Baselga di Piné,38042,ORTOFRUTTA - GRAPPOTECA DI ZANEI GIUSEPPE & C. S.N.C.,61,[]
-,14,Via Pergine,Montagnaga,Baselga di Piné,38042,CALZATURE CARLIN,62,['CALZATURE']
-,121,Via Cesare Battisti,,Baselga di Piné,38042,RIVENDITA TABACCHI N. 5 DI BROSEGHINI CATERINA,63,['TABACCHI']
-,84,Corso Roma,,Baselga di Piné,38042,OTTICI DEFLORIAN MARANGONI DI MARANGONI DONATELLA,64,[]
-,2,Corso Roma,,Baselga di Piné,38042,BAZAR IORIATTI LINO & C. S.N.C.,65,['BAZAR']
-,96,,Rizzolaga / Campolongo,Baselga di Piné,38042,MINIMERCATO DALSANT GIUSEPPINA & C. SAS,66,[]
-,77,Corso Roma,,Baselga di Piné,38042,PANIFICIO ANESI DI ANESI ALESSANDRO,67,['PANIFICIO']
-,34,Corso Roma,,Baselga di Piné,38042,MACELLERIA FRANCESCHI ANDREA E C. SNC,68,['MACELLERIA']
-,47,Corso Roma,,Baselga di Piné,38042,ORTOFRUTTA ALIMENTARI RAVANELLI RENZO,69,['ALIMENTARI']
-,1,Piazzetta Agostiniani,,Trento,38122,COLTELLERIA S. MARCO F.LLI VALENTINI SNC,70,[]
-,16,Via Santa Croce,,Trento,38122,ANTICA TRATTORIA AL VOLT DI DANIELA CARESIA,71,[]
-esercizio commerciale,7,Piazza Fiera,,Trento,38122,NATURERBE S.N.C.,72,[]
-,22,Via San Marco,,Trento,38122,LA CANTINOTA RISTORANTE,73,['RISTORANTE']
-,7,Via Caduti Malga Zonta,Passo Coe,Folgaria,38064,OSTERIA COE DI PLOTEGHER CHRITIAN,74,[]
-bar,52,Via E. Colpi,,Folgaria,38064,JOHN CLUB SAS DI SCHÖNSBERG GIOVANNI & C.,75,['BAR']
-,53,Via Martinella,Serrada,Folgaria,38064,RISTORANTE BAR HOTEL MARTINELLA DI PLOTEGHER STEFANO,76,"['BAR', 'RISTORANTE', 'HOTEL']"
-,108,Via E. Colpi,,Folgaria,38064,RISTORANTE BAR ALBERGO TOMASI DI TOMASI MASSIMILIANO,77,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,131,Via E. Colpi,,Folgaria,38064,CASALINGHI MARTINO S.A.S. DI PERGHER GELMI BRUNA E FIGLI,78,[]
-,27,Via L. Cadorna,,Folgaria,38064,RISTORANTE ALBERGO MILANO DI CAPPELLETTI PAOLA,79,"['RISTORANTE', 'ALBERGO']"
-,61,Via E. Colpi,,Folgaria,38064,BAR PASTICCERIA DALSASS DI CUEL SILVANA & C. SNC,80,['BAR']
-,26,Via Pasubio,Serrada,Folgaria,38064,BAR CENTRALE DI CANALIA LUISA,81,['BAR']
-,233,Via E. Colpi,,Folgaria,38064,PIZZERIA SCOIATTOLO CENTER SERVICE DI COROTTI GIANDARLO & C. SAS,82,['PIZZERIA']
-,127,Via E. Colpi,,Folgaria,38064,ORTOFRUTTA GASPEROTTI FULVIO,83,[]
-,85,Via Roma,,Folgaria,38064,ORTOFRUTTA VENERI PAOLO,84,[]
-,9,Via E. Colpi,,Folgaria,38064,MINIMARKET TARGHER S.A.S. DI TARGHER MAURO & C.,85,[]
-,40,Via Nazioni Unite,Costa,Folgaria,38064,PANIFICIO BARBETTI GUIDO DI BARBETTI BRUNO & C. S.N.C.,86,"['BAR', 'PANIFICIO']"
-,170,Via E. Colpi,,Folgaria,38064,RISTORANTE HOTEL ALPINO S.R.L.,87,"['RISTORANTE', 'HOTEL']"
-,343,Via E. Colpi,,Folgaria,38064,RISTORANTE LOCANDA DA UGO DI LEITEMPERGHER ETTORE,88,['RISTORANTE']
-,45,Via G. Carducci,Carbonare,Folgaria,38064,BAZAR TABACCHI PEROTTO LUCIA ASSUNTA,89,"['TABACCHI', 'BAZAR']"
-,143,Via E. Colpi,,Folgaria,38064,FOTO OTTICA PLOTEGHER ALCIDE,90,[]
-,14,Via A. Manzoni,Carbonare,Folgaria,38064,MINIMARKET SCALZERI GIANNA,91,[]
-,1,Via E. Colpi,,Folgaria,38064,ANTICA MACELLERIA E SALUMERIA CAPPELLETTI DI CAPPELLETTI ANDREA,92,['MACELLERIA']
-,21,Via E. Colpi,,Folgaria,38064,NEGOZIO MARIAROSA DI FESTI GIUSTINO,93,[]
-,171,Via E. Colpi,,Folgaria,38064,MACELLERIA CANALIA MAURO,94,['MACELLERIA']
-,160,,Fondo Grande,Folgaria,38064,BAR RISTORANTE CONCA D’ORO DI GEROLA FIORENZO,95,"['BAR', 'RISTORANTE']"
-,49,Via L. Nazionale,San Sebastiano,Folgaria,38064,RISTORANTE BAR ALBERGO AL SOLE DI ALICE E MARIANNA DALPRA’ SNC,96,"['BAR', 'RISTORANTE', 'ALBERGO']"
-, 71/73,Via Roma,,Folgaria,38064,EDICOLA RIVENDITA TABACCHI N° 3 DI WEGHER PAOLO,97,['TABACCHI']
-,135,Via E. Colpi,,Folgaria,38064,MILLE COSE SNC DI PLOTEGHER MAURO E MICHELA & C.,98,[]
-, 7-9,Via Mercerie,,Rovereto,38068,SPECIALITA’ ALIMENTARI DI PAOLO E GIANNI ALIMENTARI FINAROLLI DI GILBERTI PAOLO & C. S.N.C.,99,['ALIMENTARI']
-esercizio commerciale, 18/B,Via Paoli,,Rovereto,38048,LUIGI ALDRIGHETTONI DI ALDRIGHETTONI GIOVANNI BATTISTA,100,[]
-,35,Via Benaco,,Torbole sul Garda,38033,RISTORANTE  BAR BENACO di NODARI GIOVANNI & C. S.A.S.,101,"['BAR', 'RISTORANTE']"
-,4,Piazza Municipio,,Pergine Valsugana,38057,CAFFE’ ALEXANDER BERNARDI GIORGIO & C. SNC,102,[]
-esercizio commerciale,20,Piazza Municipio,,Pergine Valsugana,38057,OCHNER LUIGI,103,[]
-,4,Via Al Ponte,,Pergine Valsugana,38057,BAR AL PONTE di TARGA MATTEO,104,['BAR']
-,105,,Gionghi,Lavarone,38046,PANIFICIO BERTOLDI S.N.C. DI BERTOLDI FABIO & C.,106,['PANIFICIO']
-ristorante bar,2,Piazza Milano,,Lavarone,38046,CERVO S.N.C. DI MARCHESI CARLO & F.LLI,107,"['BAR', 'RISTORANTE']"
-,96,,Gionghi,Lavarone,38046,PICCOLO BAZAR DI GIONGO MARIO,108,['BAZAR']
-esercizio commerciale,18,Via Trieste,,Lavarone,38046,STENGHELE FRATELLI S.N.C. DI STENGHELE FRANCESCO GINO & C.,109,[]
-,32,Via Trieste,,Lavarone,38046,RISTORANTE BAR HOTEL DU LAC DI GABRIELLI ANDREA & C. S.A.S.,110,"['BAR', 'RISTORANTE', 'HOTEL']"
-,5,,Bertoldi,Lavarone,38046,FAMIGLIA COOPERATIVA LAVARONE S.C.A.R.L.,111,[]
-esercizio commerciale,6,Via Piave,,Pergine Valsugana,38057,DALSASSO EUGENIO,113,[]
-,18,Via Chimelli,,Pergine Valsugana,38057,A.B. INTIMO DI BRUNELLI SILVANA E EVANGELISTI LUIGINO S.N.C.,114,[]
-ristorante,37,Viale Venezia,,Pergine Valsugana,38057,LA ROTONDA DI BETTI MARCO & C. S.N.C.,115,['RISTORANTE']
-,72,Corso Roma,,Baselga di Piné,38042,GIOIELLERIA ANDREATTA SAS DI ANDREATTA ALESSANDRO & C.,116,[]
-,20,Piazza Pasi,,Trento,38122,FARMACIA DE BATTAGLIA,117,['FARMACIA']
-,63,Via Calepina,,Trento,38122,MOSER CICLI,119,[]
-,7,Via San Vigilio,,Trento,38122,FOTO CINE LA ROTONDA,120,[]
-,21,Piazza Filzi,,Rovereto,38068,FARMACIA DOTT. SANTONI,121,['FARMACIA']
-,50,Viale Dante,,Tione di Trento,38079,OREFICERIA FRANCO GOTTARDI,122,[]
-,57,,Bertoldi,Lavarone,38046,BAR BELEM DI BERTOLDI FRANCA,123,['BAR']
-bar,6,Piazza Milano, Cappella,Lavarone,38046,BAR ALBERGO NAZIONALE DI PACE ENLI & C. SNC,124,"['BAR', 'ALBERGO']"
-,6,Piazza Milano, Cappella,Lavarone,38046,TABACCHI PACE ENLI,125,['TABACCHI']
-,5,Via Marconi, Cappella,Lavarone,38046,CASEIFICIO DEGLI ALTIPIANI E DEL VEZZENA S.C.A.,126,[]
-,2,Via S. Bernardino,,Arco,38062,FOTO EMANUELLI,127,[]
-,16,Via Vergolano,,Arco,38062,BAZAR DEL POPOLO,128,['BAZAR']
-,78,Via Segantini,,Arco,38062,MANIFATTURE LOMBARDE,130,['BAR']
-,105,Via Segantini,,Arco,38062,CALZATURE GIULIANI,131,['CALZATURE']
-,9,Via S. Bernardino,,Arco,38062,ALIMENTARI TRENTI,132,['ALIMENTARI']
-,6,Piazza 3 Novembre,,Arco,38062,ZAMBONI TESSUTI,133,[]
-,22,Via Ferrera,,Arco,38062,RISTORANTE HOTEL MARCHI,134,"['RISTORANTE', 'HOTEL']"
-,8,Via Vergolano,,Arco,38062,RISTORANTE ALLA LEGA,135,['RISTORANTE']
-,2,Via Serafini,,Arco,38062,RISTORANTE BELVEDERE,136,['RISTORANTE']
-,23,Via Cavour,,Trento,38122,PANIFICIO PULIN SAS,137,['PANIFICIO']
-,14,Via del Foro,,Tione di Trento,38079,ANTICA MACELLERIA BALLARDINI,138,['MACELLERIA']
-,5,Viale Dante,,Tione di Trento,38079,CARTOLIBRERIA B. ANTOLINI,139,[]
-esercizio commerciale,8,Via del Moleta,,Cinte Tesino,38050,DI FLORIO MARIA TERESA,140,[]
-,12,Piazza San Felice, Valle San Felice,Mori,38065,FAMIGLIA COOEPRATIVA VALLE SAN FELICE,141,[]
-,15,Piazza Cal Di Ponte,,Mori,38065,ABBIGLIAMENTO MAGANOTTI MARIA GRAZIA,142,[]
-,1,Via del Garda, Loppio,Mori,38065,TRATTORIA - BAR AL LAGO,143,['BAR']
-,32,Largo Villanuova,,Mori,38065,FABBRICA RETI E MATERIASSI MENEGHELLI,144,[]
-,51,Via Modena,,Mori,38065,LA BOTTEGA DI GARUFFO LIA,145,[]
-,35,Via Modena,,Mori,38065,VINERIA – BAR BAROLDI,146,['BAR']
-,16,Piazza Cal Di Ponte,,Mori,38065,BAR SANI,147,['BAR']
-, 6/A,Via Monte Baldo,,Mori,38065,FORGIATURA MARCHIORI,148,[]
-,4,Piazza Cal Di Ponte,,Mori,38065,FERRAMENTA MALFATTI,149,['FERRAMENTA']
-,96,Via Matteotti,,Mori,38065,OFFICINA BOMBARDELLI,150,['BAR']
-,28,Piazza Cal Di Ponte,,Mori,38065,EDICOLA CARTOLERIA PERINI,151,[]
-,2,Via Modena,,Mori,38065,ALIMENTARI MIORELLI,152,['ALIMENTARI']
-,3,Via Garibaldi,,Mori,38065,CAFFE’ DEL GELSO,153,[]
-,1,Via Modena,,Mori,38065,MACELLERIA TRANQUILLINI,154,['MACELLERIA']
-,6,Via Malfatti,,Mori,38065,FARMACIA S. STEFANO,155,['FARMACIA']
-,6,Via Don  Sturzo,,Mori,38065,SUPERMARKET ZENI,156,[]
-,65,Via Modena,,Mori,38065,LAVANDERIA LA RINNOVA,157,[]
-,32,Piazza Cal Di Ponte,,Mori,38065,PANIFICIO SARTORI,158,['PANIFICIO']
-,3,Piazza Concei, Bezzecca,Ledro,38067,BAR RISTORANTE ALBERGO ALLA COSTA,159,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,63,Via Garibaldi, Tiarno di Sotto,Ledro,38067,BAR RISTORANTE ALBERGO ALLA PERLA,160,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,16,Via Cassoni, Pieve di Ledro,Ledro,38067,BAR RISTORANTE ALBERGO ALPINO,161,"['BAR', 'RISTORANTE', 'ALBERGO']"
-, 11/A,Via G. Marconi, Tiarno di Sopra,Ledro,38067,BAR RISTORANTE ALBERGO CASAVECCHIA,162,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,9,Via XXIV Ottobre, Bezzecca,Ledro,38067,BAR RISTORANTE ALBERGO MAGGIORINA,163,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,1,Piazza Milin, Tiarno di Sopra,Ledro,38067,BAR RISTORANTE ALBERGO VITTORIA,164,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,93,Via G. Marconi, Tiarno di Sopra,Ledro,38067,BAR POSTA,165,['BAR']
-,7,Piazza Garibaldi,Bezzecca,Ledro,38067,CAFFÈ BAR CENTRALE,166,['BAR']
-,7,Via Alzer, Pieve di Ledro,Ledro,38067,BAR RISTORANTE PIZZERIA CAMPEGGIO AL LAGO,167,"['BAR', 'RISTORANTE', 'PIZZERIA']"
-,3,Via Maffei,Molina di Ledro,Ledro,38067,CASARI FERRAMENTA,168,['FERRAMENTA']
-,77,Via Maffei,Molina di Ledro,Ledro,38067,OFFICINA MECCANICA DISTRIBUTORE MAZZOLA,169,[]
-,8,Via Nuova, Pieve di Ledro,Ledro,38067,OFFICINA MECCANICA DISTRIBUTORE PELLEGRINI,170,[]
-,3,Via III Giugno, Lenzumo,Ledro,38067,BAR RISTORANTE ECO AMBIENTI HOTEL ELDA,171,"['BAR', 'RISTORANTE', 'HOTEL']"
-,11,Via Vittoria, Pieve di Ledro,Ledro,38067,FARMACIA FOLETTO,172,['FARMACIA']
-,25,Via Unità d’Italia, Lenzumo,Ledro,38067,BAR RISTORANTE HOTEL CADRIA,173,"['BAR', 'RISTORANTE', 'HOTEL']"
-,1,Via Pribram, Pieve di Ledro,Ledro,38067,BAR RISTORANTE HOTEL LIDO,174,"['BAR', 'RISTORANTE', 'HOTEL']"
-, 4/6,Via Lungolago, Mezzolago,Ledro,38067,BAR RISTORANTE HOTEL MEZZOLAGO,175,"['BAR', 'RISTORANTE', 'HOTEL']"
-,22,Via Vittoria, Pieve di Ledro,Ledro,38067,LA BOTTEGA DELL’ARTIGIANO,176,[]
-,8,Via XXI Luglio,Bezzecca,Ledro,38067,MACELLERIA CIS MASSIMO,177,['MACELLERIA']
-,13,Piazza Obbedisco,Bezzecca,Ledro,38067,MACELLERIA ZECCHINI,178,['MACELLERIA']
-,28,Via Vittoria, Pieve di Ledro,Ledro,38067,OSTERIA LA TORRE,179,[]
-,5,Via C. Battisti,Bezzecca,Ledro,38067,PANIFICIO F.LLI TOMASONI S.A.S.,180,['PANIFICIO']
-rifugio escursionistico,,Località al Faggio, Concei,Ledro,38067,RIFUGIO AL FAGGIO,181,[]
-,65,Via Vittorio Emanuele, Tiarno di Sopra,Ledro,38067,RIBAGA SELF SERVICE,182,[]
-,17,Piaz De Sotegrava,,Moena,38035,BAR RISTORANTE FALORIA,183,"['BAR', 'RISTORANTE']"
-,10,Cort Del Batesta,,Moena,38035,CASABELLA IDEE REGALO,184,[]
-,1,Piaz De Ramon,,Moena,38035,ARTICOLI DA REGALO LIBRERIA CROCE MARIA CRISTINA,185,[]
-esercizio commerciale,4,Strada Cerilo Dellantonio Bora,,Moena,38035,EN SLUCK,186,[]
-,2,Strada Cerilo Dellantonio Bora,,Moena,38035,FARMACIA DOTT. RIGONI,187,['FARMACIA']
-,1,Strada De Fachin,,Moena,38035,BAR HOTEL CAVALLETTO,188,"['BAR', 'HOTEL']"
-,1,Strada De Sen Pelegrin,,Moena,38035,BAR HOTEL MARIA,189,"['BAR', 'HOTEL']"
-,62,Piaz De Ramon,,Moena,38035,IELLICI SPORT CALZATURE,190,"['CALZATURE', 'SPORT']"
-,48,Piaz De Ramon,,Moena,38035,MODE SPORT,191,['SPORT']
-,14,Sen Pelegrin,,Moena,38035,BAR HOTEL MANZONI,192,"['BAR', 'HOTEL']"
-,32,Piaz De Ramon,,Moena,38035,BAR RISTORANTE LO SFIZIO,193,"['BAR', 'RISTORANTE']"
-,23,L Vial,,Moena,38035,BAR SPORTHOTEL SAN VIGILIO,194,"['BAR', 'HOTEL', 'SPORT']"
-,8,Strada Ermanno Zanoner – Canori,,Moena,38035,CALZATURE ZANONER,195,['CALZATURE']
-,51,Via C. A. Martini,,Revò,38028,ALIMENTARI MANINFIOR ANITA,196,['ALIMENTARI']
-,2,Via C. A. Martini,,Revò,38028,ALIMENTARI SANDRI,197,['ALIMENTARI']
-,,Piazza S. Maurizio, Tregiovo,Revò,38028,ALIMENTARI WEGHER GIOVANNA,198,['ALIMENTARI']
-,19,Via C. A. Martini,,Revò,38028,BAR ZILLER,199,['BAR']
-,53,Via C. A. Martini,,Revò,38028,CALZATURIFICIO ROSSI LUIGI DI ROSSI DIEGO,200,[]
-,2,Via Dei Maurini Bassi,,Revò,38028,CASEIFICIO SOCIALE MONTE OZOLO,201,[]
-,7,Via C. A. Martini,,Revò,38028,CONFEZIONI ZILLER,202,[]
-,8,Piazza della Madonna Pellegrina,,Revò,38028,ELETTROMARTINI,203,[]
-,45,Via C. A. Martini,,Revò,38028,FABBRO GENTILINI MAURIZIO,204,[]
-,4,Via J. A. Maffei,,Revò,38028,FARMACIA SILVESTRI LUCIANA,205,['FARMACIA']
-,13,Via C. A. Martini,,Revò,38028,FERRAMENTA FERRARI GIULIANO,206,['FERRAMENTA']
-,9,Via C. A. Martini,,Revò,38028,SALUMIFICIO ARTIGIANALE FLAIM,207,[]
-,13,Via G. Verdi,,Revò,38028,BAR RISTORANTE HOTEL REVÒ,208,"['BAR', 'RISTORANTE', 'HOTEL']"
-,10,Via Prai de Mont, Bellamonte,Predazzo,38037,ARTICOLI SPORTIVI DI VARESCO MARIO & C. SNC,209,['SPORT']
-,27,Via Trento,,Predazzo,38037,FOTO BONINSEGNA,210,[]
-,32,Via Trento,,Predazzo,38037,CASALINGHI MORANDINI,211,[]
-,9,Piazza SS. Filippo e Giacomo,,Predazzo,38037,CEMIN SPORT,212,['SPORT']
-,1,Via Garibaldi,,Predazzo,38037,EL MAMA FERRAMENTA,213,['FERRAMENTA']
-,21,Via C. Battisti,,Predazzo,38037,SUPERMERCATO FAMIGLIA COOPERATIVA,214,[]
-,26,Via Roma,,Predazzo,38037,CALZATURE GARDENER,215,['CALZATURE']
-,2,Via C. Battisti,,Predazzo,38037,MACELLERIA DELLANTONIO,217,['MACELLERIA']
-,15,Via C. Battisti,,Predazzo,38037,OREFICERIA TONINI,218,[]
-,5,Piazza SS. Filippo e Giacomo,,Predazzo,38037,CALZATURE SEBER SANDRA,219,['CALZATURE']
-,19,Via Prai de Mont, Bellamonte,Predazzo,38037,BAR RISTORANTE ALBERGO ANTICO,220,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,110,Via Indipendenza,,Predazzo,38037,BAR RISTORANTE ALBERGO MONTANARA,221,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,30,Via Garibaldi,,Predazzo,38037,BAR RISTORANTE ALBERGO ROSA,222,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,9,Via Prai de Mont, Bellamonte,Predazzo,38037,BAR RISTORANTE ALBERGO STELLA ALPINA,223,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,76,Via Mazzini,,Predazzo,38037,BAR RISTORANTE ALBERGO VINELLA,224,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,1,Via IX Novembre,,Predazzo,38037,BAR RISTORANTE ALBERGO ANCORA,225,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,20,Corso Degasperi,,Predazzo,38037,BAR RISTORANTE ALBERGO BELLARIA,226,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,5,Via Trento,,Predazzo,38037,BAR RISTORANTE ALBERGO TOURING,227,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,11,Vicolo del Caorer,,Predazzo,38037,BAR CAORER,228,['BAR']
-,32,Via Dante,,Predazzo,38037,BAR EL PIRLE,229,['BAR']
-,5,Via Dellagiacoma,,Predazzo,38037,CAFFÈ CROCE,230,[]
-,1,,Miola,Predazzo,38037,BAR RISTORANTE MIOLA,231,"['BAR', 'RISTORANTE']"
-,19,Via San Giuseppe,,Roncegno Terme,38050,RISTORANTE BAR ALBERGO VILLA ROSA,233,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,1,Palace Hotel,,Roncegno Terme,38050,RISTORANTE PALACE HOTEL,234,"['RISTORANTE', 'HOTEL']"
-,20,Via Nazionale, Marter,Roncegno Terme,38050,BAR RISTORANTE ALBERGO ALLA STAZIONE,235,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,2,Via San Giuseppe,,Roncegno Terme,38050,MACELLERIA HOFFER ELISA,236,['MACELLERIA']
-,9,Piazza Montebello,,Roncegno Terme,38050,FAMIGLIA COOPERATIVA LAGORAI,237,[]
-,2,Via Battaglione Basseggio,,Roncegno Terme,38050,MACELLERIA HOFFER FABRIZIO,238,['MACELLERIA']
-,,Piazza Achille De Giovanni,,Roncegno Terme,38050,ALIMENTARI HOFFER NICOLETTA,239,['ALIMENTARI']
-,1,Via San Giuseppe,,Roncegno Terme,38050,RISTORANTE ALBERGO GARNÌ VITTORIA,240,"['RISTORANTE', 'ALBERGO']"
-, 8/9,Piazza Dante,,Cavalese,38033,CASALINGHI BERTAGNOLLI FERRAMENTA,241,['FERRAMENTA']
-,12,Piazza Scopoli,,Cavalese,38033,PASTICCERIA COSE BUONE DA PAOLO,242,[]
-,11,Piazza Verdi,,Cavalese,38033,TABARELLI GIORNALI TABACCHI SOUVENIR,243,"['BAR', 'TABACCHI']"
-esercizio commerciale,7,Piazza Scopoli,,Cavalese,38033,VIDEO UNO,244,[]
-,10,Via IX Novembre,,Cavalese,38033,CORNICI PLASTICOLOR SELLE,245,[]
-,13,Piazza Scopoli,,Cavalese,38033,CARTOLIBRERIA SPAZZALI,246,[]
-,2,Via Baldieroni,,Cavalese,38033,RISTORANTE HOTEL LA STUA,247,"['RISTORANTE', 'HOTEL']"
-,38,Piazza Venezia,,Levico Terme,38056,RISTORANTE VECCHIA FONTANA,248,['RISTORANTE']
-,49,,Vetriolo,Levico Terme,38056,BAR MASO AL VETRIOLO VECCHIO,249,['BAR']
-,3,Via Garibaldi,,Levico Terme,38056,MACELLERIA DEL CENTRO,250,['MACELLERIA']
-,29,Via Dante,,Levico Terme,38056,FARMACIA DE PREZ,251,['FARMACIA']
-,,Via Della Chiesa di Santa Giuliana,,Levico Terme,38056,BAR-ALBERGO NAZIONALE,252,"['BAR', 'ALBERGO']"
-,22,Viale Vittorio Emanuele,,Levico Terme,38056,RISTORANTE-BAR-ALBERGO GARDEN,253,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,4,Via Regia,,Levico Terme,38056,FRIGO PRODOTTI TIPICI,254,[]
-,13,Piazza Venezia,,Levico Terme,38056,ALIMENTARI CONCI SAMUELA,255,['ALIMENTARI']
-,,Viale Vittorio Emanuele,,Levico Terme,38056,RISTORANTE-BAR-ALBERGO G.H. BELLAVISTA,256,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,,Viale Stazione,,Levico Terme,38056,MOBILI ARESE,257,[]
-,69,Via Garibaldi,,Levico Terme,38056,FIORERIA OGNIBENI IVANA,258,[]
-,12,Via Regia,,Levico Terme,38056,ANTICA FARMACIA ROMANESE,259,['FARMACIA']
-,1,Via Regia,,Levico Terme,38056,MERCERIE VERGOT,260,[]
-,66,Via Garibaldi,,Levico Terme,38056,CASALINGHI-ELETTRODOMESTICI TADDEI GIULIANO,261,[]
-,49,Via Cavour,,Levico Terme,38056,ORTOFRUTTA SCAPIN GIANNI,262,[]
-,19,Via Regia,,Levico Terme,38056,LANA MODA,263,[]
-,11,Via Regia,,Levico Terme,38056,VIVISPORT S.N.C.,264,['SPORT']
-,22,C.so Centrale,,Levico Terme,38056,CONCESSIONARIA BASSETTI,265,[]
-,8,Via Regia,,Levico Terme,38056,BAR AL CONTE,266,['BAR']
-,22,Via Dante,,Levico Terme,38056,BAR CAMINETTO,267,['BAR']
-,,Via Garibaldi,,Levico Terme,38056,RISTORANTE-BAR ANTICA ROSA,268,"['BAR', 'RISTORANTE']"
-,,Via Guglielmo Marconi,,Levico Terme,38056,EDICOLA PASSERINI ALBERTO,269,[]
-,8,Via Dante,,Levico Terme,38056,BAR LINO,270,['BAR']
-,21,Via Regia,,Levico Terme,38056,BAR SERENA,271,['BAR']
-,,Via Domenico Mons. Caproni,,Levico Terme,38056,RISTORANTE-BAR SANDRO,272,"['BAR', 'RISTORANTE']"
-,34,Via Dante,,Levico Terme,38056,DALSASSO ABBIGLIAMENTO,273,[]
-esercizio commerciale,,Via C. Battisti n. 19,,Pergine Valsugana,38057,GIOVANNINI LUISA,274,[]
-,169,Via Nazionale,,Imer,38050,BAR - RISTORANTE ALBERGO AL BIVIO,275,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,9,,Pontet,Imer,38050,RISTORANTE ALBERGO AL LAGO,276,"['RISTORANTE', 'ALBERGO']"
-,1,Via Casabianca,,Imer,38050,B. & B. LEGNO DI BETTEGA GRAZIANO & C. S.N.C.,277,[]
-,62,Via Nazionale,,Imer,38050,BAR OBBER,278,['BAR']
-,76,Via Nazionale,,Imer,38050,DARIO SPORT DI BETTEGA ROBERTO & C. S.A.S.,279,['SPORT']
-,11,,Giare,Imer,38050,FALEGNAMERIA FRATELLI BONINSEGNA SNC,280,[]
-,101,Via Nazionale,,Imer,38050,FAMIGLIA COOPERATIVA IMER,281,[]
-bar - esercizio commerciale,,Via Nazionale n. 15,Padergnone,Vallelaghi,38070,CANTINOTA,282,['BAR']
-esercizio commerciale,8,Piazza G. Garibaldi,,Riva del Garda,38066,FERRAGLIA VITTORIO,284,[]
-,23,Via Gazzoletti,,Riva del Garda,38066,OTTICA ARMANI,285,[]
-,57,Via S. Croce ,,Trento,38122,FARMACIA S. CHIARA,286,['FARMACIA']
-,13,Piazza Fiera,,Trento,38122,BIRRERIA PEDAVENA,287,[]
-esercizio commerciale,13,Vicolo del Liceo,,Trento,38122,VIGILIO FRANZINELLI,288,[]
-ristorante,50,Via Torre Verde,,Trento,38122,EL MERICAN,289,['RISTORANTE']
-,28,Via Marchetti,,Trento,38122,FOTO RENSI,290,[]
-,21,Via degli Orbi,,Trento,38122,OROLOGERIA M. GROPPA,291,[]
-,8,Piazza Manci,,Trento,38122,FAMIGLIA COOPERATIVA DI POVO,292,[]
-,5,Scala al Convento,,Borgo Valsugana,38051,CALZATURE E PELLETTERIE CAPPELLO,293,['CALZATURE']
-,43,Corso Ausugum,,Borgo Valsugana,38051,BOTTEGA DEL COLORE,294,[]
-esercizio commerciale,5,Via Spagolla,,Borgo Valsugana,38051,VULCANO STORE,295,[]
-esercizio commerciale,12,Corso Ausugum,,Borgo Valsugana,38051,ARCOBALENO,296,[]
-esercizio commerciale,15,Via Temanza,,Borgo Valsugana,38051,SEGNANA,297,[]
-esercizio commerciale,1,Piazza Martiri Resistenza,,Borgo Valsugana,38051,CAMBO,298,[]
-esercizio commerciale,15,Via B. Venezia,,Borgo Valsugana,38051,GANARIN,299,[]
-esercizio commerciale, 60 - 66,Corso Ausugum,,Borgo Valsugana,38051,BELLUCCO,300,[]
-esercizio commerciale,32,Corso Ausugum,,Borgo Valsugana,38051,AGOSTINI,301,[]
-esercizio commerciale,26,Corso Ausugum,,Borgo Valsugana,38051,PAGNUSAT,302,[]
-,17,Piazza Dante,,Borgo Valsugana,38051,BAR CUSSO,303,['BAR']
-,15,Piazza De Gasperi,,Borgo Valsugana,38051,CAFFÈ PASTICCERIA ZITA,304,[]
-,7,Piazza Romani,,Borgo Valsugana,38051,BAR MILANO,305,['BAR']
-esercizio commerciale,15,Piazza Dante,,Borgo Valsugana,38051,DALSASSO,306,[]
-esercizio commerciale,19,Corso Ausugum,,Borgo Valsugana,38051,COMUNELLO,307,[]
-,4,Via Giuseppe Terrabugio,Fiera di Primiero,Primiero San Martino di Castrozza,38054,MACELLERIA BAGGETTO,308,['MACELLERIA']
-,5,Via Giuseppe Terrabugio,Fiera di Primiero,Primiero San Martino di Castrozza,38054,CALZATURE TAMANINI,309,['CALZATURE']
-,28,Via Guadagnini,Fiera di Primiero,Primiero San Martino di Castrozza,38054,FARMACIA ALLA MADONNA,310,['FARMACIA']
-,,Salita Luigi Negrelli,Fiera di Primiero,Primiero San Martino di Castrozza,38054,BELLOTTO GIOIELLI,311,[]
-,,Via San Francesco,Fiera di Primiero,Primiero San Martino di Castrozza,38054,CANTINA CESARI,312,[]
-,4,Via San Francesco,Fiera di Primiero,Primiero San Martino di Castrozza,38054,ARREDAMENTI GUBERT FRANCO,313,[]
-,5,Piazzetta del Dazio,Fiera di Primiero,Primiero San Martino di Castrozza,38054,PASTICCERIA GIOVANNA SIMION,314,[]
-,40,Via Giuseppe Terrabugio,Fiera di Primiero,Primiero San Martino di Castrozza,38054,SPORTING GAIO,315,['SPORT']
-,33,Via Giuseppe Garibaldi,Fiera di Primiero,Primiero San Martino di Castrozza,38054,FOTO OTTICA GILLI,316,[]
-esercizio commerciale,14,Via San Francesco,Fiera di Primiero,Primiero San Martino di Castrozza,38054,CREPAZ FLORIO,317,[]
-,9,Viale Piave,Fiera di Primiero,Primiero San Martino di Castrozza,38054,RISTORANTE BAR ALBERGO DOLOMITI,318,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,16,Via San Francesco,Fiera di Primiero,Primiero San Martino di Castrozza,38054,ORTOFRUTTA MELCHIORI,319,[]
-,9,Piazza Cesare Battisti,Fiera di Primiero,Primiero San Martino di Castrozza,38054,BAR AQUILA NERA,320,['BAR']
-,1,Piazza Cesare Battisti,Fiera di Primiero,Primiero San Martino di Castrozza,38054,LAVASECCO LA RAPIDA,321,[]
-esercizio commerciale,14,Via Terrabugio,Fiera di Primiero,Primiero San Martino di Castrozza,38054,GAUDENZI FRANCESCO,322,[]
-,6,Via Giuseppe Garibaldi,Fiera di Primiero,Primiero San Martino di Castrozza,38054,TROTTER CALZATURE,323,['CALZATURE']
-,18,Via Fiume,Fiera di Primiero,Primiero San Martino di Castrozza,38054,MACELLERIA GADENZ,324,['MACELLERIA']
-esercizio commerciale,3,Via Fiume,Fiera di Primiero,Primiero San Martino di Castrozza,38054,GADENZ SEBASTIANO,325,[]
-,3,Piazza Luigi Negrelli,Fiera di Primiero,Primiero San Martino di Castrozza,38054,BAR TABACCHI WEISS,326,"['BAR', 'TABACCHI']"
-,11,Via alla Malga,Susà,Pergine Valsugana,38057,BETTY BAR,327,['BAR']
-,11,Via Marconi,Ponte Arche,Comano Terme,38077,ARREDI MORELLI,328,[]
-,26,Piazza Mercato,Ponte Arche,Comano Terme,38077,PANIFICIO ZANONI,329,['PANIFICIO']
-esercizio commerciale,68,Via S. Pietro,,Trento,38122,LEONARDI ANTONIO,330,[]
-,103,Via Malvasia,,Trento,38122,RISTORANTE PIZZERIA VESUVIO,331,"['RISTORANTE', 'PIZZERIA']"
-esercizio commerciale,67,Via Segantini,,Arco,38062,BERLANDA LA NASCENTE,332,[]
-,28,Via Vergolano,,Arco,38062,NEGRI FIORI,333,[]
-esercizio commerciale,24,Via Segantini,,Arco,38062,TORBOLI MARCO,334,[]
-pubblico esercizio esercizio commerciale,21,Via della Predolcia,Viarago,Pergine Valsugana,38057,ALPINA,335,[]
-,41,Via Mendola,,Ronzone,38010,RISTORANTE BAR HOTEL STELLA DELLE ALPI,336,"['BAR', 'RISTORANTE', 'HOTEL']"
-,48,Via Mendola,,Ronzone,38010,RISTORANTE BAR HOTEL REGINA DEL BOSCO,337,"['BAR', 'RISTORANTE', 'HOTEL']"
-esercizio commerciale,27,Via Mendola,,Ronzone,38010,LA BOTTEGA,338,[]
-,2,Via Cesare Battisti,,Sarnonico,38011,SEGHERIA IMBALLAGGI ABRAM SILVIO & C. SNC,339,[]
-,,,Regole,Sarnonico,38011,RISTORANTE HOTEL IL FALCHETTO,340,"['RISTORANTE', 'HOTEL']"
-,,,Regole,Sarnonico,38011,BAR RISTORANTE REGOLE,341,"['BAR', 'RISTORANTE']"
-,8,Via Cesare Battisti,,Sarnonico,38011,DE LUCA FABIO FABBRO,342,[]
-,30,Via Cesare Battisti,,Sarnonico,38011,BAR CENTRALE,343,['BAR']
-,31,Via Cesare Battisti,,Sarnonico,38011,BAR RISTORANTE PIZZERIA LA RUSTICA,344,"['BAR', 'RISTORANTE', 'PIZZERIA']"
-,11,Via Nazionale,Marter,Roncegno,38050,FAMIGLIA COOPERATIVA MARTER,345,[]
-,1,Via A. Pola,,Roncegno,38050,CARTOLERIA DI HOFFER LEOPOLDA,346,[]
-,19,Via 3 Novembre,,Tione di Trento,38079,PANE LATTE DOLCIUMI DI PAROLARI LUCIANA,347,[]
-,6,Piazza Cooperazione,,Romeno,38010,FAMIGLIA COOPERATIVA CONAD,348,[]
-,7,Piazza Romana,,Romeno,38010,MACELLERIA ENDRIZZI SERGIO,349,['MACELLERIA']
-,9,Piazza Graiff,,Romeno,38010,IL FORNO DE BIASI,350,[]
-,59,Via San Bartolomeo,,Romeno,38010,FALEGNAMERIA ROSATI ELIO,351,[]
-,24,Piazza Lampi,,Romeno,38010,BAZAR DI FRANCISCI MARIANGELA,352,['BAZAR']
-,80,Via 4 Novembre,,Romeno,38010,PIZZERIA ANAUNIA,353,['PIZZERIA']
-,5,Piazza Romana,,Romeno,38010,BAR CENTRALE DI CAIO E LORENZA,354,['BAR']
-,62,Via Alla Piena,,Romeno,38010,CASEIFICIO SOCIALE,355,[]
-,14,Via Al Castello, Malgolo,Romeno,38010,ARTICOLI REGALO SARCLETTI,356,[]
-,2,Via SS. Martiri d’Anaunia, Salter,Romeno,38010,LATTONIERE PLAGA MATTEO,357,[]
-,53,Via 4 Novembre,,Romeno,38010,MOBILIFICIO FRANCISCI,358,[]
-,17,Via 4 Novembre,,Romeno,38010,ROEN MODE DI COGOI LUCA,359,[]
-,10,Piazza Centrale,,Nogaredo,38060,OSTARIA DELE STRIE,360,[]
-,15,Via Verdi,,Nogaredo,38060,FAMIGLIA COOPERATIVA NOGAREDO,361,[]
-,1,Via Del Ponte,Brancolino,Nogaredo,38060,PARISI BRUNA ALIMENTARI,362,['ALIMENTARI']
-,12,Via San Biagio,,Nogaredo,38060,MOBILI BETTINI,363,[]
-,7,Via Molini,Molini,Nogaredo,38060,BAR TRATTORIA AI MOLINI,364,['BAR']
-,31,Strada Laghi di Lamar,Terlago,Vallelaghi,38070,BAR PIZZERIA AI TRE FAGGI,365,"['BAR', 'PIZZERIA']"
-,10,Via E. de Varda,,Mezzolombardo,38017,RISTORANTE ALBERGO AL BORGHETTO,366,"['RISTORANTE', 'ALBERGO']"
-,49,Corso Mazzini,,Mezzolombardo,38017,BOTTAMEDI CALZATURE,367,['CALZATURE']
-,53,Corso Mazzini,,Mezzolombardo,38017,FERRAMENTA TOMASI,368,['FERRAMENTA']
-esercizio commerciale,11,Corso Mazzini,,Mezzolombardo,38017,ZENI,369,[]
-esercizio commerciale,21,Corso Mazzini,,Mezzolombardo,38017,TAIT,370,[]
-,30,Via Roma,,Mezzolombardo,38017,BAZAR TAIT MERCERIE,371,['BAZAR']
-,2,Via De Gasperi,,Mezzolombardo,38017,ABBIGLIAMENTO MAURINA,372,[]
-,8,Corso Mazzini,,Mezzolombardo,38017,OREFICERIA G. CASNA,373,[]
-,6,Piazza Cassa di Risparmio,,Mezzolombardo,38017,TESSUTI MANZATTI,374,[]
-,12,Via 4 Novembre,,Mezzolombardo,38017,PESCHERIA ROAT ROMANO,375,[]
-,20,Via A. de Varda,,Mezzolombardo,38017,OTTICA PIZZI,376,[]
- generi di monopolio,15,Corso Libertà,,Mezzolombardo,38017,WEBER LILIANA,377,[]
-esercizio commerciale,40,Via De Gasperi,,Mezzolombardo,38017,TAIT GIUDITTA,378,[]
-esercizio commerciale,12,Corso Mazzini,,Mezzolombardo,38017,BOZ GIUSEPPE,379,[]
-,9/A,Via A. de Varda,,Mezzolombardo,38017,LA CASA DELLA RADIO,380,[]
-esercizio commerciale,5,Corso del Popolo,,Mezzolombardo,38017,FEDRIZZI VIGILIO & C. S.N.C.,381,[]
-esercizio commerciale,5,Corso del Popolo,,Mezzolombardo,38017,FEDRIZZI ROSANNA E C. S.N.C.,382,[]
-,21,Via Roma,,Molveno,38018,PUNTO CASA,383,[]
-,10,Via Nazionale,,Molveno,38018,RISTORANTE ALPOTEL VENEZIA,384,['RISTORANTE']
-, 5/a,P. Marconi,,Molveno,38018,FRUTTA VERDURA DI GIORDANI ADELIO,385,[]
-,1,Via Paganella,,Molveno,38018,CENTRAL MARKET,386,[]
-,9,Via Lungolago,,Molveno,38018,BAR ALBERGO ITALIA,387,"['BAR', 'ALBERGO']"
-,3,Piazza Scuole,,Molveno,38018,RISTORANTE HOTEL MIRALAGO,388,"['RISTORANTE', 'HOTEL']"
-,41,Via Nazionale,,Molveno,38018,RISTORANTE HOTEL EXCELSIOR,389,"['RISTORANTE', 'HOTEL']"
-,2,Piazza Scuole,,Molveno,38018,BAR CRISTALLO,390,['BAR']
-,6,Via Roma,,Molveno,38018,ZENI CALZATURE,391,['CALZATURE']
-,14,Via Roma,,Molveno,38018,MACELLERIA SPRINGHETTI,392,['MACELLERIA']
-,34,Via Nazionale,,Molveno,38018,RISTORANTE HOTEL LONDRA,393,"['RISTORANTE', 'HOTEL']"
-,7,Piazza Scuole,,Molveno,38018,RISTORANTE ALEXANDER HOTEL,394,"['RISTORANTE', 'HOTEL']"
-,9,Via Nazionale,,Molveno,38018,RISTORANTE HOTEL BELVEDERE,395,"['RISTORANTE', 'HOTEL']"
-,13,Via Nazionale,,Molveno,38018,BAR RISTORANTE HOTEL EUROPA,396,"['BAR', 'RISTORANTE', 'HOTEL']"
-,8,Via Belvedere,,Molveno,38018,RISTORANTE HOTEL AURORA,397,"['RISTORANTE', 'HOTEL']"
-,45,Via Nazionale,,Molveno,38018,RISTORANTE HOTEL PANORAMA,398,"['RISTORANTE', 'HOTEL']"
-,18,Via Bettega,,Molveno,38018,RISTORANTE HOTEL MOLVENO,399,"['RISTORANTE', 'HOTEL']"
-,4,Via Lungolago,,Molveno,38018,RISTORANTE PIZZERIA AL CAMINETTO,400,"['RISTORANTE', 'PIZZERIA']"
-,15,Via Lungolago,,Molveno,38018,RISTORANTE HOTEL GLORIA,401,"['RISTORANTE', 'HOTEL']"
-,6,Via Cesare Battisti,,Molveno,38018,RISTORANTE ALBERGO STELLA ALPINA,402,"['RISTORANTE', 'ALBERGO']"
-,3,Piazza S. Carlo,,Molveno,38018,CENTRO FOTO OTTICA,403,[]
-,,,Pradel,Molveno,38018,RISTORANTE ALBERGO DEL BRENTA,404,"['RISTORANTE', 'ALBERGO']"
-,,,Pradel,Molveno,38018,RISTORANTE ALBERGO PRADEL,405,"['RISTORANTE', 'ALBERGO']"
-, 11/A,Piazza San Carlo,,Molveno,38018,ANGOLO MODA,406,[]
-esercizio commerciale,25,Via Galilei,,Trento,38122,CRONST,407,[]
-esercizio commerciale,15,Piazza C. Battisti,,Cavalese,38033,PONTRELLI DI CARLA ZANCANELLA,408,[]
-esercizio commerciale,6,Via IX Novembre,,Cavalese,38033,RAFFAELLA,409,[]
-,6,Piazza Dante,,Cavalese,38033,CAPPELLERIA BETTA,410,[]
-,14,Piazza Libertà,Gardolo,Trento,38121,BAZAR MOSER,411,['BAZAR']
-,7,,Ghiaie,Canal San Bovo,38050,MACELLERIA MINIMARKET HIGHLANDER,412,['MACELLERIA']
-,111,,Sperandi,Canal San Bovo,38050,BAR RISTORANTE ALBERGO AL PIN,413,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,148,Via Fosse,,Canal San Bovo,38050,OSTERIA ALLE FOSSE,414,[]
-,12,,Lausen,Canal San Bovo,38050,RISTORANTE ALBERGO LAGORAI,415,"['RISTORANTE', 'ALBERGO']"
-,56,,Zortea,Canal San Bovo,38050,RISTORANTE ALBERGO SERENELLA,416,"['RISTORANTE', 'ALBERGO']"
-,141,,Fosse,Canal San Bovo,38050,CENTRO SPESA CORONA,417,[]
-, 57/B,Via Zortea,,Canal San Bovo,38050,FAMIGLIA COOPERATIVA ZORTEA,418,[]
-,17,Via Roma,,Canal San Bovo,38050,FAMIGLIA COOPERATIVA CANAL SAN BOVO,419,[]
-,8,,Caseri,Canal San Bovo,38050,FAMIGLIA COOPERATIVA CAORIA,420,[]
-,,Piazza G. Marconi Loc. Prade,,Canal San Bovo,38050,FAMIGLIA COOPERATIVA PRADE,421,[]
-,28,Via Marconi,Ponte Arche,Comano Terme,38077,FERRAMENTA FEDRIZZI,422,['FERRAMENTA']
-,3,Largo Dordi,,Borgo Valsugana,38051,CAFFE’ ROMA,423,[]
-,18,Via IV Novembre,,Tesero,38038,BAR RISTORANTE ALBERGO AL CERVO,424,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,32,Via IV Novembre,,Tesero,38038,BAR ANCORA,425,['BAR']
-,78,Via Roma,,Tesero,38038,CARTOLIBRERIA DEFLORIAN,426,[]
-,1,,Stava,Tesero,38038,RISTORANTE HOTEL ERICA,427,"['RISTORANTE', 'HOTEL']"
-, 21/B,Via IV Novembre,,Tesero,38038,CALZATURE ZENI SPORT,428,"['CALZATURE', 'SPORT']"
-,88,Via Roma,,Tesero,38038,VALENTINO SCARPE,429,[]
-, 5/B,Piazza Nuova,,Tesero,38038,EUFORIA INTIMO,430,[]
-,29,Via Roma,,Tesero,38038,BAR STELLA,431,['BAR']
-,29,Via Roma,,Tesero,38038,CANAL KATIA TABACCHERIA,432,[]
-,2,Via Socce,,Tesero,38038,ELETTROSOC DI GILMOZZI ERNESTO,433,[]
-,24,Via Roma,,Tesero,38038,MOBILIFICIO SILVIO DELLADIO,434,[]
-,6,Via Cavada,,Tesero,38038,FAMIGLIA COOPERATIVA,435,[]
-,28,Piazza General Cantore,,Trento,38121,BAR PASTICCERIA MAZZOLENI,436,['BAR']
-,5,Via F.lli Bronzetti,,Cavalese,38069,PROFUMERIA BOSCHETTO,437,[]
-,1,Piaza del Malgher,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,L. MALGHER,438,[]
-,78,Strada de Meida,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,LINO SPORT,439,['SPORT']
-,6,Piaza de Salin,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,RISTORANTE ALBERGO RIZZI,440,"['RISTORANTE', 'ALBERGO']"
-,121,Strada Dolomites,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,ELETTROGAS PEDERIVA,441,[]
-,4,Piaza Deodat de Dolomieu,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,PANIFICIO EL PEK,442,['PANIFICIO']
-,11,Piaza de Comun,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,FAMIGLIA COOPERATIVA POZZA DI FASSA,443,[]
-,1,Strada de Meida,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,BAR AL PONTE,444,['BAR']
-,5,Troi Giovanni Francesco Bernard,Pozza di Fassa,San Giovanni di Fassa-Sèn Jan,38036,PANIFICIO BERNARD,445,['PANIFICIO']
-,20,Piazza Cioc,,Soraga,38030,PANIFICIO BONINSEGNA,446,['PANIFICIO']
-,35,Strada de Pont,,Soraga,38030,BAR RISTORANTE HOTEL DE FRONZ,447,"['BAR', 'RISTORANTE', 'HOTEL']"
-,6,Stradone de Fascia,,Soraga,38030,BAR RISTORANTE HOTEL AVISIO,448,"['BAR', 'RISTORANTE', 'HOTEL']"
-,16,Stradone de Fascia,,Soraga,38030,FAMIGLIA COOPERATIVA SORAGA,449,[]
-,20,Piazza Cioc,,Soraga,38030,SPORT BRUNEL,450,['SPORT']
-,3,Stradone de Fascia,,Soraga,38030,TABACCHERIA GIULIANI,451,[]
-,2,Strada de Palua,,Soraga,38030,BAR RISTORANTE HOTEL ROSALPINA,452,"['BAR', 'RISTORANTE', 'HOTEL']"
-,5,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR RISTORANTE HOTEL ROSA,453,"['BAR', 'RISTORANTE', 'HOTEL']"
-,3,Strada de la Piazedela,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,TABACCHI E SOUVENIRS GHETTA FABRIZIO,454,['TABACCHI']
-,26,Strada Roma,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,FOTO SPORT LADIN,455,['SPORT']
-,17,Strada Roma,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,OREFICERIA OROLOGERIA POLLAM,456,[]
-,28,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR BIANCO,457,['BAR']
-,9,Strada Daniel Zen,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,MACELLERIA F.LLI PELLEGRIN,458,['MACELLERIA']
-,10,Strada di Molins,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR HOTEL MIRAMONTI,459,"['BAR', 'HOTEL']"
-,4,Strada Dolomites,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR RISTORANTE ACTIVE HOTEL OLYMPIC,460,"['BAR', 'RISTORANTE', 'HOTEL']"
-,9,Strada Dolomites,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR RISTORANTE HOTEL DOLOMITI,461,"['BAR', 'RISTORANTE', 'HOTEL']"
-,11,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,TONY SPORT,462,['SPORT']
-,9,Strada de la Piazedela,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR LADIN,463,['BAR']
-,36,Strada de Valongia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR RISTORANTE HOTEL FONTANA,464,"['BAR', 'RISTORANTE', 'HOTEL']"
-,22,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,DA FLORA,465,[]
-,48,Via Roma,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,LA BOTEIGA,466,[]
-,3,Strada Murada,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR ALBERGO BELVEDERE,467,"['BAR', 'ALBERGO']"
-,27,Strada de Solar,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR RISTORANTE HOTEL RENATO,468,"['BAR', 'RISTORANTE', 'HOTEL']"
-,26,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,PANIFICIO EL PECH,469,['PANIFICIO']
-,30,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,FAMIGLIA COOPERATIVA VIGO DI FASSA,470,[]
-,25,Strada Roma,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,ELECTRO POLLAM,471,[]
-,29,Strada Rezia,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,BAR RISTORANTE HOTEL VAEL,472,"['BAR', 'RISTORANTE', 'HOTEL']"
-,2,Jouf de Ciareja,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,RISTORANTE HOTEL SAVOY,473,"['RISTORANTE', 'HOTEL']"
-,3,,Vigo di Fassa / Passo Costalunga,San Giovanni di Fassa-Sèn Jan,38039,SPORT LUCY,474,['SPORT']
-,9,Strada de Pilat,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,LORENZ EMILIO BIBITE,475,[]
-,3,Strada Murada,Vigo di Fassa,San Giovanni di Fassa-Sèn Jan,38039,RISTORANTE BAR ALPEN HOTEL CORONA,476,"['BAR', 'RISTORANTE', 'HOTEL']"
-,103,Via Costa,,Canazei,38032,BAR RISTORANTE ALBERGO ALPINO AL CAVALLETTO,477,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,99,Via Costa,Alba di Canazei,Canazei,38032,RISTORANTE HOTEL ALBA,478,"['RISTORANTE', 'HOTEL']"
-,25,Via Roma,,Canazei,38032,BAR RISTORANTE HOTEL BERNARD,479,"['BAR', 'RISTORANTE', 'HOTEL']"
-,18,Strada del Faure,,Canazei,38032,BAR RISTORANTE HOTEL ALLA ROSA,480,"['BAR', 'RISTORANTE', 'HOTEL']"
-,25,Via Costa,,Canazei,38032,PANIFICIO BONINSEGNA,481,['PANIFICIO']
-,23,Streda de Sella,,Canazei,38032,RIFUGIO ESCURSIONISTICO VALENTINI,482,[]
-,44,Strada Pian Trevisan,,Canazei,38032,BAR RISTORANTE RIFUGIO VILLETTA MARIA,483,"['BAR', 'RISTORANTE']"
-,18,Via Roma,,Canazei,38032,VALERUZ SPORT,484,['SPORT']
-,81,Via Dolomiti,,Canazei,38032,CALZATURE ROSSI,485,['CALZATURE']
-,132,Strada del Pordoi,,Canazei,38032,BAR RISTORANTE HOTEL COL DI LANA,486,"['BAR', 'RISTORANTE', 'HOTEL']"
-,213,Streda de Costa,,Canazei,38032,BAR RISTORANTE ALBERGO MIRAMONTI,487,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,76,Strada del Pordoi,,Canazei,38032,RISTORANTE HOTEL PORDOI,488,"['RISTORANTE', 'HOTEL']"
-,80,Via Dolomites,,Canazei,38032,RISTORANTE HOTEL DOLOMITI,489,"['RISTORANTE', 'HOTEL']"
-,193,Streda Dolomites,,Canazei,38032,BAR GARNÌ INTERNATIONAL,490,['BAR']
-,21,Piazza G. Marconi,,Canazei,38032,PROFUMERIA COSTA,491,[]
-,6,Streda do Ruf de Antermont,,Canazei,38032,BAR GARNÌ STELLA ALPINA,492,['BAR']
-,3,Via Streda Roma,,Canazei,38032,BAR RISTORANTE HOTEL CROCE BIANCA,493,"['BAR', 'RISTORANTE', 'HOTEL']"
-,87,Streda Dolomites,,Campitello di Fassa,38032,BAR RISTORANTE HOTEL VILLA ROSA,494,"['BAR', 'RISTORANTE', 'HOTEL']"
-,43,Streda de Morandin,,Campitello di Fassa,38032,RISTORANTE SPORT HOTEL ENROSADIRA,495,"['RISTORANTE', 'HOTEL', 'SPORT']"
-,45,Streda Dolomites,,Campitello di Fassa,38032,BAR RISTORANTE HOTEL RODODENDRO,496,"['BAR', 'RISTORANTE', 'HOTEL']"
-,,Piazza Centrale,,Campitello di Fassa,38032,BAR AGNELLO,497,['BAR']
-,87,Streda Dolomites,,Campitello di Fassa,38032,FAMIGLIA COOPERATIVA CAMPITELLO DI FASSA,498,[]
-,97,Via Mazzini Loc. Crosano,,Brentonico,38060,BAR RISTORANTE HOTEL MIRAMONTI,499,"['BAR', 'RISTORANTE', 'HOTEL']"
-,2,Via Garibaldi,,Brentonico,38060,BAR RISTORANTE ALBERGO NENI,500,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,16,Via Roma,,Brentonico,38060,BAR RISTORANTE ALBERGO ZENI,501,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,2,Via Borani Salvotti,San Giacomo,Brentonico,38060,RISTORANTE HOTEL S. GIACOMO,502,"['RISTORANTE', 'HOTEL']"
-,14,Via Roma,,Brentonico,38060,PANIFICIO TOGNI,503,['PANIFICIO']
-,1,,Santa Caterina,Brentonico,38060,PIZZERIA LA PINETA,504,['PIZZERIA']
-,25,Piazza Generale Dalla Chiesa,,Brentonico,38060,SAV FORMAGGI,505,[]
-,22,Via Roma,,Brentonico,38060,TABACCHERIA RIGO,506,[]
-,19/a,Via Fabio Filzi,,Brentonico,38060,PASSERINI CALZATURE,507,['CALZATURE']
-,5,Via Roma,,Brentonico,38060,ALIMENTARI ANDREOLLI,508,['ALIMENTARI']
-,1,Via Clemente,Castione,Brentonico,38060,ALIMENTARI CANALI,509,['ALIMENTARI']
-,49,Via Roma,,Brentonico,38060,BAR COMMERCIO,510,['BAR']
-,3,Via Roberti,,Brentonico,38060,FAMIGLIA COOPERATIVA BRENTONICO,511,[]
-,1,Via Mazzini,Crosano,Brentonico,38060,FAMIGLIA COOPERATIVA CROSANO,512,[]
-,47,Via 3 Novembre,Cornè,Brentonico,38060,FAMIGLIA COOPERATIVA CORNÈ,513,[]
-,,Via Prof. Vanzetta,,Ziano di Fiemme,38030,BAR IL BUNKER,514,['BAR']
-,28,Via Alpini,,Villa Lagarina,38060,RISTORANTE HOTEL AL PONTE,515,"['RISTORANTE', 'HOTEL']"
-,1,,Lago di Cei,Villa Lagarina,38060,BAR RISTORANTE ALBERGO LAGO DI CEI,516,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,10,Via XXV Aprile,,Villa Lagarina,38060,BAR ROMA,517,['BAR']
-,28,Via XXV Aprile,,Villa Lagarina,38060,FARMACIA DE PROBIZER,518,['FARMACIA']
-,64,Via del Torchio,,Villa Lagarina,38060,FAMIGLIA COOPERATIVA DI CASTELLANO,519,[]
-,,Via Sant’Antonio,,Villa Lagarina,38060,FAMIGLIA COOPERATIVA DI PEDERSANO,520,[]
-,50,Via XXV Aprile,,Villa Lagarina,38060,FAMIGLIA COOPERATIVA VILLA LAGARINA,521,[]
-,4,Via Brigata Abruzzi,,Pieve Tesino,38050,TESINO MARKET,522,[]
-,4,Piazza Garibaldi,,Pieve Tesino,38050,BAR CENTRALE,523,['BAR']
-,2,Piazza Garibaldi,,Pieve Tesino,38050,PUNTO ROSSO ALIMENTARI,524,['ALIMENTARI']
-,,,Madonna della Neve / Valdomenegal,Avio,38063,BAR RISTORANTE ALBERGO ALPINO,525,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,13,Viale Alcide De Gasperi,,Avio,38063,BAR NUOVO,526,['BAR']
-,25,Via Vignola,,Avio,38063,CASEIFICIO SOCIALE SABBIONARA,527,[]
-,17,Piazza Conciliazione,,Avio,38063,RIVENDITA FUMANELLI GEDEONE,528,[]
-,18,Via Regina Elena,,Avio,38063,PANIFICIO SEGA DIEGO,529,['PANIFICIO']
-,5,Piazza Roma,,Avio,38063,FAMIGLIA COOPERATIVA AVIO,530,[]
-,75,Via Venezia,,Avio,38063,BAR SPORT,531,"['BAR', 'SPORT']"
-,41,Via General Cantore,,Avio,38063,BAR TRATTORIA ALLA STAZIONE,532,['BAR']
-,12,Via Regina Elena,,Avio,38063,CADEN CARLO ABBIGLIAMENTO,533,[]
-,5,Via Teatro,,Avio,38063,CADEN TENDAGGI,534,[]
-,28,Via S. Antonio,,Avio,38063,CONFEZIONI DA IDA,535,[]
-,,,Borghetto,Avio,38063,BAR RISTORANTE ALBERGO MONTE BALDO,536,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,,,Madonna della Neve / Valdomenegal,Avio,38063,RIFUGIO ESCURSIONISTICO MONTE BALDO,537,[]
-,4,Piazza Roma,,Avio,38063,FARMACIA COOPERATIVA,538,['FARMACIA']
-,82,Viale Alcide De Gasperi,,Avio,38063,FALEGNAMERIA MABBONI,539,[]
-,27,Via F.lli Bronzetti,,Cavalese,38033,DELIZIE WELPONER,540,[]
-,42,Viale Dante,,Tione di Trento,38079,FARMACIA BONI,541,['FARMACIA']
-,10,Via Al Ponte,,Isera,38060,PANIFICIO MODERNO,542,['PANIFICIO']
-,10,Piazza San Vincenzo,,Isera,38060,FAMIGLIA COOPERATIVA DI ISERA,543,[]
-,30,Via Roma,Tonadico,Primiero San Martino di Castrozza,38054,RISTORANTE BAR HOTEL TRESSANE,544,"['BAR', 'RISTORANTE', 'HOTEL']"
-,26,Via Roma,Tonadico,Primiero San Martino di Castrozza,38054,RISTORANTE PARK HOTEL IRIS,545,"['RISTORANTE', 'HOTEL']"
-,8,Via Roma,Tonadico,Primiero San Martino di Castrozza,38054,RISTORANTE HOTEL PRIMIERO,546,"['RISTORANTE', 'HOTEL']"
-,2,Via Roma,Tonadico,Primiero San Martino di Castrozza,38054,IL NEGOZIO DEL PANE,547,[]
-,2,Via Roma,Tonadico,Primiero San Martino di Castrozza,38054,PANIFICIO CENTRALE DI PRIMIERO,548,['PANIFICIO']
-,5,Via Sorelle Lucian,Tonadico,Primiero San Martino di Castrozza,38054,BAR ALBERGO TRE PONTI,549,"['BAR', 'ALBERGO']"
-,8,Via Roma,Tonadico,Primiero San Martino di Castrozza,38054,RISTORANTE BAR LANTERNA VERDE,550,"['BAR', 'RISTORANTE']"
-,43,Via Scopoli,Tonadico,Primiero San Martino di Castrozza,38054,EDICOLA BAZAR TABACCHI,551,"['TABACCHI', 'BAZAR']"
-,37,Via Scopoli,Tonadico,Primiero San Martino di Castrozza,38054,BAR CENTRALE,552,['BAR']
-,2,Via Card. Bernardin,Tonadico,Primiero San Martino di Castrozza,38054,NON SOLO PANE,553,[]
-,40,Via Scopoli,Tonadico,Primiero San Martino di Castrozza,38054,FAMIGLIA COOPERATIVA DI TONADICO,554,[]
-,3,Piazza San Giorgio,,Castello Tesino,38053,OREFICERIA OROLOGERIA MULLER,555,[]
-,12/A,Via Dante,,Castello Tesino,38053,FARMACIA RIGONI,556,['FARMACIA']
-,8,Piazza San Giorgio,,Castello Tesino,38053,BAR PIZZERIA CROSARA,557,"['BAR', 'PIZZERIA']"
-,5,Piazza San Giorgio,,Castello Tesino,38053,BAR ROMA,558,['BAR']
-,13/A,Via Donato Pelloso,,Castello Tesino,38053,FAMIGLIA COOPERATIVA DI CASTELLO TESINO,559,[]
-,18,Via Venezia,,Castello Tesino,38053,BAR ORATORIO,560,['BAR']
-,2,,Passo Brocon,Castello Tesino,38053,RISTORANTE BAR ALBERGO PASSO BROCON “DA S’CIOPO”,561,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,1,Piazza Trento,,Castello Tesino,38053,FIORI E VERDURA,562,[]
-,3,Piazza Trento,,Castello Tesino,38053,EMPORIO DIEGO ZOTTA,563,[]
-,2,,Molini,Castello Tesino,38053,BAR AL PONTE,564,['BAR']
-,4,Via Baili,,Castello Tesino,38053,MACELLERIA BOSO,565,['MACELLERIA']
-,17,Via Roma,,Castello Tesino,38053,BAR RISTORANTE ALBERGO BELLAVISTA,566,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,1,Piazza Marconi,,Castello Tesino,38053,ABBIGLIAMENTO BAILO,567,[]
-,5,Piazza Marconi,,Castello Tesino,38053,ALIMENTARI DA CELESTINO,568,['ALIMENTARI']
-,7,Via Terrasanta,,Castello Tesino,38053,ALIMENTARI MORANDUZZO,569,['ALIMENTARI']
-,4,Piazza Marconi,,Castello Tesino,38053,CAFFÈ MARCONI,570,[]
-,3,Piazza Marconi,,Castello Tesino,38053,TABACCHI ZAMPIERO,571,['TABACCHI']
-,28,Piazza Righi,Madonna di Campiglio,Pinzolo,38086,CHALET FERRARI,572,[]
-,30,Piazza Righi,Madonna di Campiglio,Pinzolo,38086,CHALET FERRARI REGALO,573,[]
-,78,Via Rosmini,,Trento,38122,ZANELLA ARREDAMENTI,574,[]
-,7/B,Via Dante,,Levico Terme,38065,ALIMENTARI RICCIO STEFANIA,575,['ALIMENTARI']
-,38,Corso Centrale,,Levico Terme,38065,ETA BETA DI GRISENTI GIORGIA,576,[]
-,16,Via Dante,,Levico Terme,38065,FERRAMENTA CASALINGHI ROSA,577,['FERRAMENTA']
-,2,Via Marchi,,Ronchi Valsugana,38050,FAMIGLIA COOPERATIVA LAGORAI,578,[]
-,20,Viale Venezia,,Castelnuovo,38050,SIMONETTO CARNI,579,[]
-,37,,Sén Pelegrin,Moena,38035,BAR RISTORANTE HOTEL COSTABELLA,580,"['BAR', 'RISTORANTE', 'HOTEL']"
-,,Strada E. Zanoner Canori,,Moena,38035,MACELLERIA FELICETTI,581,['MACELLERIA']
-,14,Strenta de Ischiacia,,Moena,38035,ELETTRODOMESTICI DE PELLEGRINI,582,[]
-,11,Strada de la Comunità de Fiem,,Moena,38035,SEGHERIA ZANONER,583,[]
-,3,Via 3 Novembre,,Pomarolo,38060,MACELLERIA FASANELLI,584,['MACELLERIA']
-esercizio commerciale,27,Via Vittorio Emanuele,,Grigno,38055,MINATI ROBERTA,585,[]
-,6,Via Nuova,,Ledro,38067,BAR RISTORANTE ALBERGO SILVANA,586,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,9,Piazza Sanzio,,Trento,38122,EDICOLA TABACCHI SANNICOLÒ GABRIELE,587,['TABACCHI']
-,40,Corso Ausugum,,Borgo Valsugana,38051,FARMACIA CENTRALE,588,['FARMACIA']
-,20,Via Padri Morizzo,,Borgo Valsugana,38051,SIMONETTO CARNI,589,[]
-,12,Piazza Battisti,,Cavalese,38033,FAMIGLIA COOPERATIVA DI CAVALESE,590,[]
-,54,Corso Bettini,,Rovereto,38068,DAMIATA MOTO,591,[]
-attività artigianale,39,Via Ragazzi del '99,,Trento,38123,NEON TRENTO SCOTUZZI,592,[]
-,13,Via Maffei,,Riva del Garda,38066,CASA DEL CAFFÈ,593,[]
-,5,Piazza di Sant'A. Abate,Vezzano,Vallelaghi,38070,RISTORANTE PIZZERIA LILLÀ,594,"['RISTORANTE', 'PIZZERIA']"
-,32,,Francolini,Folgaria,38064,BAR HOTEL SEGGIOVIA,595,"['BAR', 'HOTEL']"
-,13,Via Schirni,,Folgaria,38064,PANIFICIO CANALIA,596,['PANIFICIO']
-,191,Via E. Colpi,,Folgaria,38064,FOLGARIA FASHION SPORT,597,['SPORT']
-,134,Via A. Maffei,,Folgaria,38064,BAR RISTORANTE HOTEL BIANCANEVE,598,"['BAR', 'RISTORANTE', 'HOTEL']"
-,69,Via Nazionale,,Folgaria,38064,BAR RISTORANTE HOTEL ERICA,600,"['BAR', 'RISTORANTE', 'HOTEL']"
-,48,Via E. Colpi,,Folgaria,38064,BAR RISTORANTE ANTICO ALBERGO STELLA D'ITALIA,601,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,63,Via Manzoni,,Folgaria,38064,BAR RISTORANTE ALBERGO TRENTINO,602,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,10,Via E. Colpi,,Folgaria,38064,CALZATURE FAIT,603,['CALZATURE']
-,179,Via E. Colpi,,Folgaria,38064,FARMACIA GIRARDI,604,['FARMACIA']
-,12,Via Dante Alighieri,,Folgaria,38064,BAR RISTORANTE PARK HOTEL MIRAMONTI,605,"['BAR', 'RISTORANTE', 'HOTEL']"
-,41,Via Lega Nazionale,,Folgaria,38064,BAR RISTORANTE ALBERGO DUE SPADE,606,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,11,Piazza S. Lorenzo,,Folgaria,38064,MERCERIA RELLA,607,[]
-,1,Piazza Oveno,Sopramonte,Trento,38123,SALUMERIA BELLI,609,[]
-esercizio commerciale,58,,Ponte Arche,Comano Terme,38077,BONANI GIULIANA,610,[]
-,4,Via Calepina,,Trento,38122,BAR FIORENTINA,611,['BAR']
-esercizio commerciale,35,Via Nazionale,,Pellizzano,38020,AMBROSI SILVIO LUIGI,612,[]
-,19,Piazza San Vittore,Taio,Predaia,38012,MACELLERIA MALENCH,613,['MACELLERIA']
-,90,Via S. Martino,,Trento,38122,BAR DEI CAVAI,614,['BAR']
-,14,Piazza C. Battisti,,Riva del Garda,38066,BRESCIANI SOUVENIR,615,[]
-,13,Via Mazzini,,Riva del Garda,38066,PROFUMERIE BRESCIANI,616,[]
-,31,Strada de Moene,,Moena,38035,BAR DELL'HOTEL RANCOLIN,617,"['BAR', 'HOTEL']"
-,34,Strada de la Comunità de Fiem,,Moena,38035,MOBILIFICIO ARTIGIANI ASSOCIATI,618,[]
-,27,Piaz de Ramon,,Moena,38035,BAR GABRY,619,['BAR']
-,41,Piaz de Ramon ,,Moena,38035,BAR RAMON,620,['BAR']
-,1,Strenta de Ischiacia,,Moena,38035,ENOTECA DEL PINTER,621,[]
-,41,Piaz de Ramon,,Moena,38035,GIOIELLERIA CROCE,622,[]
-,67,Strada de Moene ,,Moena,38035,BAR DELL'HOTEL ALLE ALPI,623,"['BAR', 'HOTEL']"
-,45,Piaz de Ramon,,Moena,38035,LA BORA,624,[]
-,3,Strada de Fachin,,Moena,38035,NONSOLOMODA,625,[]
-,29,Via Fiume,,Riva del Garda,38066,PELLETTERIA GRAZIA S.A.S.,626,[]
-,,Viale IV Novembre 35,Cembra,Cembra Lisignago,38034,MACELLERIA ZANOTELLI,627,['MACELLERIA']
-,,Via Damiano Chiesa  6,Cembra,Cembra Lisignago,38034,PANIFICIO GAIGHER,628,['PANIFICIO']
-,82,Viale IV Novembre 35,Cembra,Cembra Lisignago,38034,FERRAMENTA PIU',629,['FERRAMENTA']
-,78,Viale IV Novembre 35,Cembra,Cembra Lisignago,38034,IDEA CASA,630,[]
-,2,Piazza San Rocco,Cembra,Cembra Lisignago,38034,MACELLERIA PAOLAZZI,631,['MACELLERIA']
-,6,Piazza Marconi,Cembra,Cembra Lisignago,38034,BAR VICO,632,['BAR']
-,,Viale IV Novembre 17,Cembra,Cembra Lisignago,38034,BAR ROSALPINA,633,['BAR']
-,2,Piazza Municipio ,,Caldonazzo,38052,ALBERGO RISTORANTE BAR DUE SPADE,634,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,37,Via delle Villa,,Caldonazzo,38052,ALBERGO RISTORANTE BAR ALLA TORRE,635,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,14,Piazza Municipio,,Caldonazzo,38052,CASALINGHI FERRAMENTA MURARA,636,['FERRAMENTA']
-,9,Via Brenta,,Caldonazzo,38052,MOBILI CIOLA,637,[]
-,1,Via G. Marconi,,Luserna,38040,BAR RISTORNATE ROSSI,638,['BAR']
-,26,Via Asilo,Siror,Primiero San Martino di Castrozza,38054,MACELLERIA BONELLI,639,['MACELLERIA']
-,11,Via Larga,Siror,Primiero San Martino di Castrozza,38054,PANIFICIO PASTICCERIA ZANETEL ARRIGO,640,['PANIFICIO']
-,13,Via Larga ,Siror,Primiero San Martino di Castrozza,38054,BAR HOTEL SIROR,641,"['BAR', 'HOTEL']"
-,76,Via Passo Rolle,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,CAFFE' CENTRALE DI GIAN LUIGI SECCO E C.,642,[]
-,74,Via Passo Rolle,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,RISTORANTE ALBERGO CENTRALE,643,"['RISTORANTE', 'ALBERGO']"
-,185,Via Passo Rolle,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,BAZAR DELL'ALPE,644,['BAZAR']
-,4,Via Laghetto,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,BANCHER S.A.S. DI TISOT ADELIA E C.,645,[]
-,8,Via Strada Nuova ,,Folgaria,38064,ALBERGO BAR RISTORANTE ROSALPINA DI CANALIA GABRIELE,646,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,52,Via A. Maffei,Costa,Folgaria,38064,ALBERGO BAR RISTORANTE SAYONARA DI RECH WILLIAM,647,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,33/1,Via Cesare Battisti,Cembra,Cembra Lisignago,38034,NIC S.A.S. DI NICOLODI MARTINO,648,[]
-,3,Piazza Marconi,Cembra,Cembra Lisignago,38034,FAMIGLIA COOPERATIVA DI CEMBRA,649,[]
-,8,Piazza Marconi,Cembra,Cembra Lisignago,38034,TABACCHINO DI FADANELLI MAURA,650,['TABACCHI']
-,51,Viale IV Novembre,Cembra,Cembra Lisignago,38034,BAR PIZZERIA SAINT ROCK,651,"['BAR', 'PIZZERIA']"
-,16,Piazza San Giovanni,,Fondo,38013,BAZAR COVI,652,['BAZAR']
-,1,Via IV Novembre,,Fondo,38013,CALZATURE SCHNEIDER,653,['CALZATURE']
-,25,Via Battisti,,Fondo,38013,EUROPAFERR FERRAMENTA DI ZINI MAURO GIOVANNI,654,['FERRAMENTA']
-,10,Via Battisti,,Fondo,38013,BATTISTI CALZATURE DI BATTISTI ALBERTO,655,['CALZATURE']
-,2,Via Inama,,Fondo,38013,ZANONI PREZIOSI ,656,[]
-,18,Via Lago Smeraldo,,Fondo,38013,PIZZERIA-RISTORANTE AL FOLON,657,"['RISTORANTE', 'PIZZERIA']"
-,10,Via Milano ,,Bieno,38050,BAR RISTORANTE TRENTO,658,"['BAR', 'RISTORANTE']"
-,36,Via Valserena ,Siror,Primiero San Martino di Castrozza,38054,BIRRERIA VALSERENA,659,[]
-,5,Via S. Andrea,Siror,Primiero San Martino di Castrozza,38054,BAR CAFFE' ERO,660,['BAR']
-,183,Via Passo Rolle,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,BAR MARGHERITA,661,['BAR']
-,133,Via Passo Rolle,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,ESTETICA PROFUMERIA TISOT,662,[]
-,23,Via Rivetta,Siror,Primiero San Martino di Castrozza,38054,CALZATURE BANCHER SEVERINO,663,['CALZATURE']
-,2,Via Passo Rolle,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,RISTORANTE ALBERGO FRATAZZA,664,"['RISTORANTE', 'ALBERGO']"
-,4,Via S. Andrea,San Martino di Castrozza,Primiero San Martino di Castrozza,38054,FAMIGLIA COOPERATIVA DI SIROR,665,[]
-,6,Via Avisio,,Castello-Molina di Fiemme,38030,BAR ALLA TORRE,666,['BAR']
-,16,Via Latemar,,Castello-Molina di Fiemme,38030,RISTORANTE ALBERGO LATEMAR S.N.C. DI BETTA MARISA E &.,667,"['RISTORANTE', 'ALBERGO']"
-,22,Via Bolzano,Molina di Fiemme,Castello-Molina di Fiemme,38030,CAVADA DOLORES DI CAVADA UGO & C. S.N.C.,668,[]
-,19,,Stramentizzo Nuovo,Castello-Molina di Fiemme,38030,BAR RISTORANTE PIZZERIA AL LAGO,669,"['BAR', 'RISTORANTE', 'PIZZERIA']"
-,2,Via Cadino,Molina di Fiemme,Castello-Molina di Fiemme,38030,BAR RISTORANTE ALBERGO PINETA,670,"['BAR', 'RISTORANTE', 'ALBERGO']"
-,4,Via Marconi,Molina di Fiemme,Castello-Molina di Fiemme,38030,RISTORANTE ALBERGO ANCORA DI ZANCANELLA PAOLO E LUCIA S.N.C.,671,"['RISTORANTE', 'ALBERGO']"
-,17,Via Marconi,Molina di Fiemme,Castello-Molina di Fiemme,38030,PANIFICIO TARTER DI MARCO TARTER & C. S.N.C.,672,['PANIFICIO']
-,23,Via Marconi,Molina di Fiemme,Castello-Molina di Fiemme,38030,FAMIGLIA COOPERATIVA DI CAVALESE - MOLINA DI FIEMME - PREDAIA,673,[]
-,11,Via Roma,,Castello-Molina di Fiemme,38030,FAMIGLIA COOPERATIVA DI CAVALESE - CASTELLO DI FIEMME,674,[]
-,37,Piazza San Giovanni,,Fondo,38013,CARTOLERIA GIOCATTOLI BERTOLDI,675,[]
-,15,Piazza San giovanni,,Fondo,38013,LA BOTTEGA DI ZAMBIASI,676,[]
-,70,Via IV Novembre,,Fondo,38013,LATTERIA SOCIALE DI FONDO,677,[]
-,20,Via Battisti,,Fondo,38013,FAMIGLIA COOPERATIVA VAL DI NON,678,[]
-,16,Via del Foro,,Tione di Trento,38079,CAFFE' VECCHIA TIONE,679,[]
-,9,Via Roma,Casez,Sanzeno,38010,FAMIGLIA COOPERATIVA VAL DI NON S.C.A.R.L. - CASEZ,680,[]
-,28,Via Nazionale,,Sanzeno,38010,FAMIGLIA COOPERATIVA VAL DI NON S.C.A.R.L. - SANZENO,681,[]
-,2,Via Mazzini,Banco,Sanzeno,38010,FAMIGLIA COOPERATIVA VAL DI NON S.C.A.R.L. - BANCO,682,[]
-,38/A,Piazza Centrale,,Sanzeno,38010,BAR ALLA FONTANA DI BALDO ONESTINGHEL OLGA & C.,683,['BAR']
-,3,Via Mazzini,Banco,Sanzeno,38010,BAR MARINELLI,684,['BAR']
-,48,,Banco,Sanzeno,38010,BAR DALPIAZ,685,['BAR']
-,48,Via Roma,Casez,Sanzeno,38010,HOTEL CASEZ,686,['HOTEL']
-,18,Via S. Romedio ,,Sanzeno,38010,RISTORANTE AL MULINO,687,['RISTORANTE']
-,34,Via Roma,,Castello-Molina di Fiemme,38030,PANIFICIO ZORZI DI ZORZI EZIO & C. S.N.C.,688,['PANIFICIO']
-,10,Via Italia,Molina di Fiemme,Castello-Molina di Fiemme,38030,BAR SPORT,689,"['BAR', 'SPORT']"
-,5,Piazza Dante,,Fondo,38013,QUEN CONFEZIONI,690,[]
-,10,Via Restel de Fer,,Riva del Garda,38066,RESTEL DE FER,691,[]
-,43,Via Giovanelli A.,,Carano,38033,DELVAI MARKET S.N.C. DI DELVAI NICOLETTA E CARESIA DIEGO,692,[]
-,40,Via Calepina,,Trento,38122,TUTTO LUCE SAS,693,[]
-,48,Via S. Croce,,Trento,38122,BAR TRE PORTONI,694,['BAR']
-,22,Via Roma,,Ospedaletto,38050,BAR ROMA,695,['BAR']
-,44,Corso Tre Novembre,,Trento,38122,FIORERIA STELLA,696,[]
-esercizio commerciale,55,Via Fiume,,Riva del Garda,38066,CONTINI,697,[]
-,8,Via Battisti,,Pergine Valsugana,38057,A. CRIVELLARI – COSE DI CASA,698,[]
-esercizio commerciale,33,Piazza Spiaz de le Oche,,Pergine Valsugana,38057,FRISANCO,699,[]
-,1,Via Maturi,,Pinzolo,38086,ALIMENTARI CAOLA,700,['ALIMENTARI']
-esercizio commerciale/attività artigianale,9,Via Lampi ,,Cles,38023,LA BOTTEGA DEL MOLETA,701,[]
- ,7,Piazza Navarrino,,Cles,38023,ALBERGO RISTORANTE CLES – OSTERIA PALAZAN,702,"['RISTORANTE', 'ALBERGO']"
-,5,Piazza Granda,,Cles,38023,CAFF'E EUROPA,703,[]
-,13,Via Pilati,,Cles,38023,FARMACIA DE MAFFEI ,704,['FARMACIA']
-,43,Piazza Granda,,Cles,38023,CAFFÈ BERTOLASI,705,[]
-,3,Piazza Granda,,Cles,38023,VISINTAINER CARTOLIBRERIA,706,[]
-,1,Piazza Pez,,Cles,38023,ROSANI ALIMENTARI,707,['ALIMENTARI']
-,38-44,Via Marconi,,Cles,38023,SEGHERIA LONGO,708,[]
-,6/A,Via Diaz,,Cles,38023,ALIMENTARI PAOLI S.N.C.,709,['ALIMENTARI']
-,26,Via Lampi ,,Cles,38023,MACELLERIA AGOSTINI LUIGI,710,['MACELLERIA']
-esercizio commerciale,9,Via Pilati,,Cles,38023,MENAPACE IVO,711,[]
-esercizio commerciale,40,Piazza Granda,,Cles,38023,VALENTINOTTI FRANCESCO,712,[]
-esercizio commerciale,6,Piazza Municipio ,,Cles,38023,ANGELI FLAVIO,713,[]
-,23,Piazza Granda,,Cles,38023,OREFICERIA A. CORRADINI,714,[]
-esercizio commerciale,4,Piazza Municipio,,Cles,38023,ANGELI NICOLA,715,[]
-,7,Piazza Municipio ,,Cles,38023,PREZIOSI STELLA,716,[]
-,2,Via Lampi ,,Cles,38023,PESCHERIA GOIO,717,[]
-,30,Piazza Granda,,Cles,38023,COLORIFICIO PIZ,718,[]
-esercizio commerciale,51,Via Battisti,,Sarnonico,38011,ABRAM VITTORIO E C. SNC,719,[]
-,2,Via IV Novembre,,Sarnonico,38011,BAZAR GIORNALI DI CATTARINI VINCENZO,720,['BAZAR']
-,14,Via Trento,Stravino,Cavedine,38073,CALZATURE DALLAPÈ,721,['CALZATURE']
-esercizio di somministrazione di alimenti e bevande,36,Via Santa Lucia,Bezzecca,Ledro,38067,BAITA SANTA LUCIA,722,[]
-esercizio di somministrazione di alimenti e bevande,1,Via dei Laghi,,Tenno,38060,ANTICA CROCE,723,[]
-esercizio commerciale,29,Via Postal,Grumo,S. Michele all’Adige,38010,MOBILI ZENI LINO S.R.L.,724,[]
-,23,Via Tonale,Grumo,S. Michele all’Adige,38010,HOTEL CANTALEONE,725,['HOTEL']
-,32,Via Brennero,,S. Michele all’Adige,38010,BAR AL TURISTA,726,['BAR']
-,17,,Penia / Fedaia,Canazei,38032,BAR DIGA,727,['BAR']
-pubblico esercizio – somministrazione di alimenti e bevande – pizzeria,,,Sega,Ala,38061,ALBERGO MONTILESSINI,728,"['ALBERGO', 'PIZZERIA']"
-,1,Piazza G. Cantore,,Ala,38061,BAR EUGENIA,729,['BAR']
-,5,Piazzetta Cantore,,Ala,38061,BAR TABACCHI DI BONGIOVANNI MAURO,730,"['BAR', 'TABACCHI']"
-,,Via 27 Maggio,,Ala,38061,MACELLERIA DEBIASI SERGIO,731,['MACELLERIA']
-pubblico esercizio – somministrazione di alimenti e bevande – bar/trattoria,4,Piazza Buonacquisto,,Ala,38061,VECCHIO CARNERA,732,['BAR']
-,19,Via Cesare Battisti,,Comano Terme,38077,OREFICERIA CATTONI DI CATTONI CLAUDIO,733,[]
-,17,Via Cesare Battisti,,Comano Terme,38077,CATTONI ELETTRONICA DI CATTONO ROBERTO,734,[]
-ristorante – bar,55,,San Bernardo,Rabbi,38020,HOTEL MIRAMONTI,735,"['BAR', 'RISTORANTE', 'HOTEL']"
-esercizio commerciale,4,Piazza SS. Filippo e Giacomo,,Predazzo,38037,LE LUZIE,736,[]
-esercizio commerciale,21,Piazza Catena,,Riva del Garda,38066,MARCHETTI,737,[]
-esercizio commerciale,9,Via 24 Maggio,Trento,Trento,38122,INDAL,738,[]
-esercizio commerciale,17,Via dei Bagni di Fieno,,Garniga Terme,38060,ZANLUCCHI SOFIA & C. S.A.S.,739,[]
-ristorante - bar,2,Stradon de Fascia ,,Soraga di Fassa,38030,RISTORANTE BAR JA VITO DI VENDER KATIA E C. S.N.C.,740,"['BAR', 'RISTORANTE']"
-parrucchiera (impresa artigiana con vendita di prodotti),6/A,Via Cesare Battisti,,Tesero,38038,SALONE FUORI DI TESTA DI POZZA NADIA,741,[]
-"esercizio commerciale/attività artigianale (pasticceria, gelateria)",34,Via Bolghera,,Trento,38122,FILIPPI E GARDUMI S.N.C. DI GARDUMI RENZO & C.,742,[]
-pubblico esercizio – somministrazione di alimenti e bevande – locanda,22,Via Mazzini,Poia,Comano Terme,38077,ALBERGO LOCANDA FIORE DI SALIZZONI SILVIO E RITA S.N.C.,743,['ALBERGO']
+Indirizzo,Civico,Note,Cap,Numero,Frazione/Località,Insegna,Comune,Categorie
+Via del Lagorai,30,"generi misti, bar - ristorante",38068,1,Piscine di Sover,BAZZANELLA RENATA,Sover,"['BAR', 'RISTORANTE']"
+Corso Ausugum,48,esercizio commerciale,38051,2,,CONFEZIONI MONTIBELLER S.R.L.,Borgo Valsugana,[]
+Largo Dordi,8,"esercizio commerciale, attività artigianale",38051,3,,FOTOGRAFICA TRINTINAGLIA UMBERTO S.N.C.,Borgo Valsugana,[]
+,24,esercizio commerciale,38055,4,Serafini,BAR SERAFINI DI MINATI RENZO,Grigno,['BAR']
+Via S. Francesco,35,,38066,6,,SEMBENINI GINO & FIGLI S.R.L.,Riva del Garda,[]
+Via Nazionale,29,,38015,7,Nave San Felice,HOTEL RISTORANTE PIZZERIA “ALLA NAVE”,Lavis,"['RISTORANTE', 'HOTEL', 'PIZZERIA']"
+Via Roma,33,,38015,8,,OBRELLI GIOIELLERIA DAL 1929 S.R.L.,Lavis,[]
+Via Roma,13,,38015,9,,MACELLERIE TROIER S.A.S. DI TROIER DARIO E C.,Lavis,[]
+Piazza Manci,5,esercizio commerciale,38015,10,,NARDELLI TIZIANO,Lavis,[]
+Via Matteotti,37,,38015,11,,PASTICCERIA SILVANO DI ANDREOLLI SILVANO& C.,Lavis,[]
+Piazza Manci,1,esercizio commerciale,38015,13,,LONA S.N.C. DI LONA ROBERTO & C.,Lavis,[]
+Via Matteotti,59,,38015,14,,GADOTTI CALZATURE DI GADOTTI MARCO,Lavis,['CALZATURE']
+Piazza Cesare Battisti,4,,38015,15,,BAR LEON D’ORO DI DELLAI LORENA,Lavis,['BAR']
+Via Filzi,1,,38015,16,,TURCO CALZATURE DI TURCO CORRADO,Lavis,['CALZATURE']
+Via Filzi,1,,38015,17,,FARMACIA ROMANI DOTT. ALBERTO ERRIGO & C. S.N.C.,Lavis,['FARMACIA']
+Piazza Giovanni della Croce,,,38015,18,Pressano,FAMIGLIA COOPERATIVA MEZZOLOMBARDO E PRESSANO SOC. COOP.,Lavis,['BAR']
+Viale San Francesco,22,,38066,19,,CONFEZIONI DANTI DI PELKAN WILMA & C. S.A.S.,Riva del Garda,[]
+Via Pennella,32,attività artigianale,38057,20,,DELUGAN GUIDO E GINO S.N.C.,Pergine Valsugana,[]
+Piazza Prati,27,,38011,21,,FRUTTA E VERDURA SPRINGHETTI GILBERTO,Cavareno,[]
+Via Moscabio,2,,38011,22,,LARCHER SPORT,Cavareno,['SPORT']
+Piazza Prati,21,,38011,23,,BAR GELATERIA EREDI CAVALLAR DOMENICO,Cavareno,['BAR']
+Via Roma,43,,38011,24,,EDICOLA TABACCHI GENETTI ANNAMARIA,Cavareno,['TABACCHI']
+Piazza Prati,12,,38011,25,,MERCERIE CATTARINI TIZIANA,Cavareno,[]
+Via Roma,49,,38011,26,,ZANI FABIO S.A.S. FERRAMENTA,Cavareno,['FERRAMENTA']
+Via Moscabio,19,,38011,27,,LATTERIA SOCIALE CAVARENO,Cavareno,[]
+Piazza Municipio,10,,38057,28,,RISTORANTE AL VOLT DI LABRIOLA MICHELANGELO,Pergine Valsugana,['RISTORANTE']
+Piazza Manci,2,,38015,29,,RISTORANTE PIZZERIA NUOVO CORONA DI PALMIERI TOMMASO,Lavis,"['RISTORANTE', 'PIZZERIA']"
+Piazza Manci,6,,38015,30,,BAR ALBERGO CORONA S.N.C. DI PRONER RICCARDA & C.,Lavis,"['BAR', 'ALBERGO']"
+Via Clementi,47,esercizio commerciale,38015,31,,SARTORI GIUSEPPE & C. S.N.C. ,Lavis,[]
+Vicolo del Messaggero,10,,38068,33,,TORREFAZIONE CAFFE’ BONTADI,Rovereto,[]
+Via Tartarotti, 50/A,,38068,34,,COLORIFICIO LUCIANO CARESIA DI DANIELA CARESIA,Rovereto,[]
+Via Mazzini,10,,38068,35,,FARMACIA COBELLI,Rovereto,['FARMACIA']
+Piazza Manifattura, 5/6,,38068,36,,BAR MANIFATTURA,Rovereto,['BAR']
+Piazza del Podestà,9,,38068,37,,BAR DUE COLONNE,Rovereto,['BAR']
+Largo S. Floriano,5,,38068,39,,"PANIFICIO COLLER S.N.C. DI COLLER CLAUDIO, ANDREA & C.",Rovereto,['PANIFICIO']
+Via Rialto,39,,38068,40,,CAPPELLERIA BACCA,Rovereto,[]
+Via Paganini,17,,38068,41,,BAR-TRATTORIA BELLAVISTA,Rovereto,['BAR']
+Via Mercerie, 16/18,,38068,42,,DROGHERIA MICHELI,Rovereto,[]
+Via Rialto,32,esercizio commerciale,38068,43,,LAZZERI,Rovereto,[]
+Via Valbusa Grande,7,,38068,44,,LOCOS BAR,Rovereto,['BAR']
+Piazza Erbe,17,,38068,45,,FARMACIA S. MARCO,Rovereto,['FARMACIA']
+Piazza C. Battisti,32,,38068,46,,B. SALVETTI FABBRICA OMBRELLI MERCERIE E MANIFATTURE,Rovereto,[]
+Via Roma,47,,38068,47,,MANIFATTURE ZOCCHE LUIGI,Rovereto,[]
+Viale della Serraia,3,ristorante bar,38042,48,,RISTORANTE BAR ALBERGO SERRAIA,Baselga di Piné,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Corso Roma,3,,38042,49,,BAR TAVOLA CALDA PIZZERIA ALPINO,Baselga di Piné,"['BAR', 'PIZZERIA']"
+Via del Fosch,21,ristorante bar,38042,50,,RISTORANTE BAR ALBERGO VILLA ANITA,Baselga di Piné,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Domenica Targa,1,ristorante bar,38042,51,Montagnaga,RISTORANTE BAR CA’ DEI BOCI,Baselga di Piné,"['BAR', 'RISTORANTE']"
+Via Domenica Targa,1,ristorante bar,38042,52,Montagnaga,HOTEL BELVEDERE WELLNESS & FAMILY,Baselga di Piné,"['BAR', 'RISTORANTE', 'HOTEL']"
+Corso Roma,61,,38042,53,,BAR PASTI VELOCI GELATERIA PASTICCERIA PINETANA,Baselga di Piné,['BAR']
+Via Marconi,11,,38042,54,,SEGHERIA E LEGNAMI DI SIGHEL RENZO,Baselga di Piné,[]
+Via Cesare Battisti,49,,38042,55,,MACELLERIA SIGHEL SRL,Baselga di Piné,['MACELLERIA']
+Via 4 Novembre,24,,38042,56,Montagnaga,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",Baselga di Piné,[]
+Via Roma,9,,38042,57,,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",Baselga di Piné,[]
+Via della Chiesa, 6/3,,38042,58,Miola,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",Baselga di Piné,[]
+Via dei Piani,54,,38042,59,Faida,"FAMIGLIA COOPERATIVA ALTOPIANO DI PINE’ SCARL, PUNTO VENDITA",Baselga di Piné,[]
+Via Cesare Battisti,93,,38042,60,,FARMACIA MORELLI S.N.C. DI MORELLI DOTT. GIUSEPPE & C.,Baselga di Piné,['FARMACIA']
+Via Cesare Battisti,86,,38042,61,,ORTOFRUTTA - GRAPPOTECA DI ZANEI GIUSEPPE & C. S.N.C.,Baselga di Piné,[]
+Via Pergine,14,,38042,62,Montagnaga,CALZATURE CARLIN,Baselga di Piné,['CALZATURE']
+Via Cesare Battisti,121,,38042,63,,RIVENDITA TABACCHI N. 5 DI BROSEGHINI CATERINA,Baselga di Piné,['TABACCHI']
+Corso Roma,84,,38042,64,,OTTICI DEFLORIAN MARANGONI DI MARANGONI DONATELLA,Baselga di Piné,[]
+Corso Roma,2,,38042,65,,BAZAR IORIATTI LINO & C. S.N.C.,Baselga di Piné,['BAZAR']
+,96,,38042,66,Rizzolaga / Campolongo,MINIMERCATO DALSANT GIUSEPPINA & C. SAS,Baselga di Piné,[]
+Corso Roma,77,,38042,67,,PANIFICIO ANESI DI ANESI ALESSANDRO,Baselga di Piné,['PANIFICIO']
+Corso Roma,34,,38042,68,,MACELLERIA FRANCESCHI ANDREA E C. SNC,Baselga di Piné,['MACELLERIA']
+Corso Roma,47,,38042,69,,ORTOFRUTTA ALIMENTARI RAVANELLI RENZO,Baselga di Piné,['ALIMENTARI']
+Piazzetta Agostiniani,1,,38122,70,,COLTELLERIA S. MARCO F.LLI VALENTINI SNC,Trento,[]
+Via Santa Croce,16,,38122,71,,ANTICA TRATTORIA AL VOLT DI DANIELA CARESIA,Trento,[]
+Piazza Fiera,7,esercizio commerciale,38122,72,,NATURERBE S.N.C.,Trento,[]
+Via San Marco,22,,38122,73,,LA CANTINOTA RISTORANTE,Trento,['RISTORANTE']
+Via Caduti Malga Zonta,7,,38064,74,Passo Coe,OSTERIA COE DI PLOTEGHER CHRITIAN,Folgaria,[]
+Via E. Colpi,52,bar,38064,75,,JOHN CLUB SAS DI SCHÖNSBERG GIOVANNI & C.,Folgaria,['BAR']
+Via Martinella,53,,38064,76,Serrada,RISTORANTE BAR HOTEL MARTINELLA DI PLOTEGHER STEFANO,Folgaria,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via E. Colpi,108,,38064,77,,RISTORANTE BAR ALBERGO TOMASI DI TOMASI MASSIMILIANO,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via E. Colpi,131,,38064,78,,CASALINGHI MARTINO S.A.S. DI PERGHER GELMI BRUNA E FIGLI,Folgaria,[]
+Via L. Cadorna,27,,38064,79,,RISTORANTE ALBERGO MILANO DI CAPPELLETTI PAOLA,Folgaria,"['RISTORANTE', 'ALBERGO']"
+Via E. Colpi,61,,38064,80,,BAR PASTICCERIA DALSASS DI CUEL SILVANA & C. SNC,Folgaria,['BAR']
+Via Pasubio,26,,38064,81,Serrada,BAR CENTRALE DI CANALIA LUISA,Folgaria,['BAR']
+Via E. Colpi,233,,38064,82,,PIZZERIA SCOIATTOLO CENTER SERVICE DI COROTTI GIANDARLO & C. SAS,Folgaria,['PIZZERIA']
+Via E. Colpi,127,,38064,83,,ORTOFRUTTA GASPEROTTI FULVIO,Folgaria,[]
+Via Roma,85,,38064,84,,ORTOFRUTTA VENERI PAOLO,Folgaria,[]
+Via E. Colpi,9,,38064,85,,MINIMARKET TARGHER S.A.S. DI TARGHER MAURO & C.,Folgaria,[]
+Via Nazioni Unite,40,,38064,86,Costa,PANIFICIO BARBETTI GUIDO DI BARBETTI BRUNO & C. S.N.C.,Folgaria,"['BAR', 'PANIFICIO']"
+Via E. Colpi,170,,38064,87,,RISTORANTE HOTEL ALPINO S.R.L.,Folgaria,"['RISTORANTE', 'HOTEL']"
+Via E. Colpi,343,,38064,88,,RISTORANTE LOCANDA DA UGO DI LEITEMPERGHER ETTORE,Folgaria,['RISTORANTE']
+Via G. Carducci,45,,38064,89,Carbonare,BAZAR TABACCHI PEROTTO LUCIA ASSUNTA,Folgaria,"['TABACCHI', 'BAZAR']"
+Via E. Colpi,143,,38064,90,,FOTO OTTICA PLOTEGHER ALCIDE,Folgaria,[]
+Via A. Manzoni,14,,38064,91,Carbonare,MINIMARKET SCALZERI GIANNA,Folgaria,[]
+Via E. Colpi,1,,38064,92,,ANTICA MACELLERIA E SALUMERIA CAPPELLETTI DI CAPPELLETTI ANDREA,Folgaria,['MACELLERIA']
+Via E. Colpi,21,,38064,93,,NEGOZIO MARIAROSA DI FESTI GIUSTINO,Folgaria,[]
+Via E. Colpi,171,,38064,94,,MACELLERIA CANALIA MAURO,Folgaria,['MACELLERIA']
+,160,,38064,95,Fondo Grande,BAR RISTORANTE CONCA D’ORO DI GEROLA FIORENZO,Folgaria,"['BAR', 'RISTORANTE']"
+Via L. Nazionale,49,,38064,96,San Sebastiano,RISTORANTE BAR ALBERGO AL SOLE DI ALICE E MARIANNA DALPRA’ SNC,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Roma, 71/73,,38064,97,,EDICOLA RIVENDITA TABACCHI N° 3 DI WEGHER PAOLO,Folgaria,['TABACCHI']
+Via E. Colpi,135,,38064,98,,MILLE COSE SNC DI PLOTEGHER MAURO E MICHELA & C.,Folgaria,[]
+Via Mercerie, 7-9,,38068,99,,SPECIALITA’ ALIMENTARI DI PAOLO E GIANNI ALIMENTARI FINAROLLI DI GILBERTI PAOLO & C. S.N.C.,Rovereto,['ALIMENTARI']
+Via Paoli, 18/B,esercizio commerciale,38048,100,,LUIGI ALDRIGHETTONI DI ALDRIGHETTONI GIOVANNI BATTISTA,Rovereto,[]
+Via Benaco,35,,38033,101,,RISTORANTE  BAR BENACO di NODARI GIOVANNI & C. S.A.S.,Torbole sul Garda,"['BAR', 'RISTORANTE']"
+Piazza Municipio,4,,38057,102,,CAFFE’ ALEXANDER BERNARDI GIORGIO & C. SNC,Pergine Valsugana,[]
+Piazza Municipio,20,esercizio commerciale,38057,103,,OCHNER LUIGI,Pergine Valsugana,[]
+Via Al Ponte,4,,38057,104,,BAR AL PONTE di TARGA MATTEO,Pergine Valsugana,['BAR']
+,105,,38046,106,Gionghi,PANIFICIO BERTOLDI S.N.C. DI BERTOLDI FABIO & C.,Lavarone,['PANIFICIO']
+Piazza Milano,2,ristorante bar,38046,107,,CERVO S.N.C. DI MARCHESI CARLO & F.LLI,Lavarone,"['BAR', 'RISTORANTE']"
+,96,,38046,108,Gionghi,PICCOLO BAZAR DI GIONGO MARIO,Lavarone,['BAZAR']
+Via Trieste,18,esercizio commerciale,38046,109,,STENGHELE FRATELLI S.N.C. DI STENGHELE FRANCESCO GINO & C.,Lavarone,[]
+Via Trieste,32,,38046,110,,RISTORANTE BAR HOTEL DU LAC DI GABRIELLI ANDREA & C. S.A.S.,Lavarone,"['BAR', 'RISTORANTE', 'HOTEL']"
+,5,,38046,111,Bertoldi,FAMIGLIA COOPERATIVA LAVARONE S.C.A.R.L.,Lavarone,[]
+Via Piave,6,esercizio commerciale,38057,113,,DALSASSO EUGENIO,Pergine Valsugana,[]
+Via Chimelli,18,,38057,114,,A.B. INTIMO DI BRUNELLI SILVANA E EVANGELISTI LUIGINO S.N.C.,Pergine Valsugana,[]
+Viale Venezia,37,ristorante,38057,115,,LA ROTONDA DI BETTI MARCO & C. S.N.C.,Pergine Valsugana,['RISTORANTE']
+Corso Roma,72,,38042,116,,GIOIELLERIA ANDREATTA SAS DI ANDREATTA ALESSANDRO & C.,Baselga di Piné,[]
+Piazza Pasi,20,,38122,117,,FARMACIA DE BATTAGLIA,Trento,['FARMACIA']
+Via Calepina,63,,38122,119,,MOSER CICLI,Trento,[]
+Via San Vigilio,7,,38122,120,,FOTO CINE LA ROTONDA,Trento,[]
+Piazza Filzi,21,,38068,121,,FARMACIA DOTT. SANTONI,Rovereto,['FARMACIA']
+Viale Dante,50,,38079,122,,OREFICERIA FRANCO GOTTARDI,Tione di Trento,[]
+,57,,38046,123,Bertoldi,BAR BELEM DI BERTOLDI FRANCA,Lavarone,['BAR']
+Piazza Milano,6,bar,38046,124, Cappella,BAR ALBERGO NAZIONALE DI PACE ENLI & C. SNC,Lavarone,"['BAR', 'ALBERGO']"
+Piazza Milano,6,,38046,125, Cappella,TABACCHI PACE ENLI,Lavarone,['TABACCHI']
+Via Marconi,5,,38046,126, Cappella,CASEIFICIO DEGLI ALTIPIANI E DEL VEZZENA S.C.A.,Lavarone,[]
+Via S. Bernardino,2,,38062,127,,FOTO EMANUELLI,Arco,[]
+Via Vergolano,16,,38062,128,,BAZAR DEL POPOLO,Arco,['BAZAR']
+Via Segantini,78,,38062,130,,MANIFATTURE LOMBARDE,Arco,['BAR']
+Via Segantini,105,,38062,131,,CALZATURE GIULIANI,Arco,['CALZATURE']
+Via S. Bernardino,9,,38062,132,,ALIMENTARI TRENTI,Arco,['ALIMENTARI']
+Piazza 3 Novembre,6,,38062,133,,ZAMBONI TESSUTI,Arco,[]
+Via Ferrera,22,,38062,134,,RISTORANTE HOTEL MARCHI,Arco,"['RISTORANTE', 'HOTEL']"
+Via Vergolano,8,,38062,135,,RISTORANTE ALLA LEGA,Arco,['RISTORANTE']
+Via Serafini,2,,38062,136,,RISTORANTE BELVEDERE,Arco,['RISTORANTE']
+Via Cavour,23,,38122,137,,PANIFICIO PULIN SAS,Trento,['PANIFICIO']
+Via del Foro,14,,38079,138,,ANTICA MACELLERIA BALLARDINI,Tione di Trento,['MACELLERIA']
+Viale Dante,5,,38079,139,,CARTOLIBRERIA B. ANTOLINI,Tione di Trento,[]
+Via del Moleta,8,esercizio commerciale,38050,140,,DI FLORIO MARIA TERESA,Cinte Tesino,[]
+Piazza San Felice,12,,38065,141, Valle San Felice,FAMIGLIA COOEPRATIVA VALLE SAN FELICE,Mori,[]
+Piazza Cal Di Ponte,15,,38065,142,,ABBIGLIAMENTO MAGANOTTI MARIA GRAZIA,Mori,[]
+Via del Garda,1,,38065,143, Loppio,TRATTORIA - BAR AL LAGO,Mori,['BAR']
+Largo Villanuova,32,,38065,144,,FABBRICA RETI E MATERIASSI MENEGHELLI,Mori,[]
+Via Modena,51,,38065,145,,LA BOTTEGA DI GARUFFO LIA,Mori,[]
+Via Modena,35,,38065,146,,VINERIA – BAR BAROLDI,Mori,['BAR']
+Piazza Cal Di Ponte,16,,38065,147,,BAR SANI,Mori,['BAR']
+Via Monte Baldo, 6/A,,38065,148,,FORGIATURA MARCHIORI,Mori,[]
+Piazza Cal Di Ponte,4,,38065,149,,FERRAMENTA MALFATTI,Mori,['FERRAMENTA']
+Via Matteotti,96,,38065,150,,OFFICINA BOMBARDELLI,Mori,['BAR']
+Piazza Cal Di Ponte,28,,38065,151,,EDICOLA CARTOLERIA PERINI,Mori,[]
+Via Modena,2,,38065,152,,ALIMENTARI MIORELLI,Mori,['ALIMENTARI']
+Via Garibaldi,3,,38065,153,,CAFFE’ DEL GELSO,Mori,[]
+Via Modena,1,,38065,154,,MACELLERIA TRANQUILLINI,Mori,['MACELLERIA']
+Via Malfatti,6,,38065,155,,FARMACIA S. STEFANO,Mori,['FARMACIA']
+Via Don  Sturzo,6,,38065,156,,SUPERMARKET ZENI,Mori,[]
+Via Modena,65,,38065,157,,LAVANDERIA LA RINNOVA,Mori,[]
+Piazza Cal Di Ponte,32,,38065,158,,PANIFICIO SARTORI,Mori,['PANIFICIO']
+Piazza Concei,3,,38067,159, Bezzecca,BAR RISTORANTE ALBERGO ALLA COSTA,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Garibaldi,63,,38067,160, Tiarno di Sotto,BAR RISTORANTE ALBERGO ALLA PERLA,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Cassoni,16,,38067,161, Pieve di Ledro,BAR RISTORANTE ALBERGO ALPINO,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via G. Marconi, 11/A,,38067,162, Tiarno di Sopra,BAR RISTORANTE ALBERGO CASAVECCHIA,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via XXIV Ottobre,9,,38067,163, Bezzecca,BAR RISTORANTE ALBERGO MAGGIORINA,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Piazza Milin,1,,38067,164, Tiarno di Sopra,BAR RISTORANTE ALBERGO VITTORIA,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via G. Marconi,93,,38067,165, Tiarno di Sopra,BAR POSTA,Ledro,['BAR']
+Piazza Garibaldi,7,,38067,166,Bezzecca,CAFFÈ BAR CENTRALE,Ledro,['BAR']
+Via Alzer,7,,38067,167, Pieve di Ledro,BAR RISTORANTE PIZZERIA CAMPEGGIO AL LAGO,Ledro,"['BAR', 'RISTORANTE', 'PIZZERIA']"
+Via Maffei,3,,38067,168,Molina di Ledro,CASARI FERRAMENTA,Ledro,['FERRAMENTA']
+Via Maffei,77,,38067,169,Molina di Ledro,OFFICINA MECCANICA DISTRIBUTORE MAZZOLA,Ledro,[]
+Via Nuova,8,,38067,170, Pieve di Ledro,OFFICINA MECCANICA DISTRIBUTORE PELLEGRINI,Ledro,[]
+Via III Giugno,3,,38067,171, Lenzumo,BAR RISTORANTE ECO AMBIENTI HOTEL ELDA,Ledro,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Vittoria,11,,38067,172, Pieve di Ledro,FARMACIA FOLETTO,Ledro,['FARMACIA']
+Via Unità d’Italia,25,,38067,173, Lenzumo,BAR RISTORANTE HOTEL CADRIA,Ledro,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Pribram,1,,38067,174, Pieve di Ledro,BAR RISTORANTE HOTEL LIDO,Ledro,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Lungolago, 4/6,,38067,175, Mezzolago,BAR RISTORANTE HOTEL MEZZOLAGO,Ledro,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Vittoria,22,,38067,176, Pieve di Ledro,LA BOTTEGA DELL’ARTIGIANO,Ledro,[]
+Via XXI Luglio,8,,38067,177,Bezzecca,MACELLERIA CIS MASSIMO,Ledro,['MACELLERIA']
+Piazza Obbedisco,13,,38067,178,Bezzecca,MACELLERIA ZECCHINI,Ledro,['MACELLERIA']
+Via Vittoria,28,,38067,179, Pieve di Ledro,OSTERIA LA TORRE,Ledro,[]
+Via C. Battisti,5,,38067,180,Bezzecca,PANIFICIO F.LLI TOMASONI S.A.S.,Ledro,['PANIFICIO']
+Località al Faggio,,rifugio escursionistico,38067,181, Concei,RIFUGIO AL FAGGIO,Ledro,[]
+Via Vittorio Emanuele,65,,38067,182, Tiarno di Sopra,RIBAGA SELF SERVICE,Ledro,[]
+Piaz De Sotegrava,17,,38035,183,,BAR RISTORANTE FALORIA,Moena,"['BAR', 'RISTORANTE']"
+Cort Del Batesta,10,,38035,184,,CASABELLA IDEE REGALO,Moena,[]
+Piaz De Ramon,1,,38035,185,,ARTICOLI DA REGALO LIBRERIA CROCE MARIA CRISTINA,Moena,[]
+Strada Cerilo Dellantonio Bora,4,esercizio commerciale,38035,186,,EN SLUCK,Moena,[]
+Strada Cerilo Dellantonio Bora,2,,38035,187,,FARMACIA DOTT. RIGONI,Moena,['FARMACIA']
+Strada De Fachin,1,,38035,188,,BAR HOTEL CAVALLETTO,Moena,"['BAR', 'HOTEL']"
+Strada De Sen Pelegrin,1,,38035,189,,BAR HOTEL MARIA,Moena,"['BAR', 'HOTEL']"
+Piaz De Ramon,62,,38035,190,,IELLICI SPORT CALZATURE,Moena,"['CALZATURE', 'SPORT']"
+Piaz De Ramon,48,,38035,191,,MODE SPORT,Moena,['SPORT']
+Sen Pelegrin,14,,38035,192,,BAR HOTEL MANZONI,Moena,"['BAR', 'HOTEL']"
+Piaz De Ramon,32,,38035,193,,BAR RISTORANTE LO SFIZIO,Moena,"['BAR', 'RISTORANTE']"
+L Vial,23,,38035,194,,BAR SPORTHOTEL SAN VIGILIO,Moena,"['BAR', 'HOTEL', 'SPORT']"
+Strada Ermanno Zanoner – Canori,8,,38035,195,,CALZATURE ZANONER,Moena,['CALZATURE']
+Via C. A. Martini,51,,38028,196,,ALIMENTARI MANINFIOR ANITA,Revò,['ALIMENTARI']
+Via C. A. Martini,2,,38028,197,,ALIMENTARI SANDRI,Revò,['ALIMENTARI']
+Piazza S. Maurizio,,,38028,198, Tregiovo,ALIMENTARI WEGHER GIOVANNA,Revò,['ALIMENTARI']
+Via C. A. Martini,19,,38028,199,,BAR ZILLER,Revò,['BAR']
+Via C. A. Martini,53,,38028,200,,CALZATURIFICIO ROSSI LUIGI DI ROSSI DIEGO,Revò,[]
+Via Dei Maurini Bassi,2,,38028,201,,CASEIFICIO SOCIALE MONTE OZOLO,Revò,[]
+Via C. A. Martini,7,,38028,202,,CONFEZIONI ZILLER,Revò,[]
+Piazza della Madonna Pellegrina,8,,38028,203,,ELETTROMARTINI,Revò,[]
+Via C. A. Martini,45,,38028,204,,FABBRO GENTILINI MAURIZIO,Revò,[]
+Via J. A. Maffei,4,,38028,205,,FARMACIA SILVESTRI LUCIANA,Revò,['FARMACIA']
+Via C. A. Martini,13,,38028,206,,FERRAMENTA FERRARI GIULIANO,Revò,['FERRAMENTA']
+Via C. A. Martini,9,,38028,207,,SALUMIFICIO ARTIGIANALE FLAIM,Revò,[]
+Via G. Verdi,13,,38028,208,,BAR RISTORANTE HOTEL REVÒ,Revò,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Prai de Mont,10,,38037,209, Bellamonte,ARTICOLI SPORTIVI DI VARESCO MARIO & C. SNC,Predazzo,['SPORT']
+Via Trento,27,,38037,210,,FOTO BONINSEGNA,Predazzo,[]
+Via Trento,32,,38037,211,,CASALINGHI MORANDINI,Predazzo,[]
+Piazza SS. Filippo e Giacomo,9,,38037,212,,CEMIN SPORT,Predazzo,['SPORT']
+Via Garibaldi,1,,38037,213,,EL MAMA FERRAMENTA,Predazzo,['FERRAMENTA']
+Via C. Battisti,21,,38037,214,,SUPERMERCATO FAMIGLIA COOPERATIVA,Predazzo,[]
+Via Roma,26,,38037,215,,CALZATURE GARDENER,Predazzo,['CALZATURE']
+Via C. Battisti,2,,38037,217,,MACELLERIA DELLANTONIO,Predazzo,['MACELLERIA']
+Via C. Battisti,15,,38037,218,,OREFICERIA TONINI,Predazzo,[]
+Piazza SS. Filippo e Giacomo,5,,38037,219,,CALZATURE SEBER SANDRA,Predazzo,['CALZATURE']
+Via Prai de Mont,19,,38037,220, Bellamonte,BAR RISTORANTE ALBERGO ANTICO,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Indipendenza,110,,38037,221,,BAR RISTORANTE ALBERGO MONTANARA,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Garibaldi,30,,38037,222,,BAR RISTORANTE ALBERGO ROSA,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Prai de Mont,9,,38037,223, Bellamonte,BAR RISTORANTE ALBERGO STELLA ALPINA,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Mazzini,76,,38037,224,,BAR RISTORANTE ALBERGO VINELLA,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via IX Novembre,1,,38037,225,,BAR RISTORANTE ALBERGO ANCORA,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Corso Degasperi,20,,38037,226,,BAR RISTORANTE ALBERGO BELLARIA,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Trento,5,,38037,227,,BAR RISTORANTE ALBERGO TOURING,Predazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Vicolo del Caorer,11,,38037,228,,BAR CAORER,Predazzo,['BAR']
+Via Dante,32,,38037,229,,BAR EL PIRLE,Predazzo,['BAR']
+Via Dellagiacoma,5,,38037,230,,CAFFÈ CROCE,Predazzo,[]
+,1,,38037,231,Miola,BAR RISTORANTE MIOLA,Predazzo,"['BAR', 'RISTORANTE']"
+Via San Giuseppe,19,,38050,233,,RISTORANTE BAR ALBERGO VILLA ROSA,Roncegno Terme,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Palace Hotel,1,,38050,234,,RISTORANTE PALACE HOTEL,Roncegno Terme,"['RISTORANTE', 'HOTEL']"
+Via Nazionale,20,,38050,235, Marter,BAR RISTORANTE ALBERGO ALLA STAZIONE,Roncegno Terme,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via San Giuseppe,2,,38050,236,,MACELLERIA HOFFER ELISA,Roncegno Terme,['MACELLERIA']
+Piazza Montebello,9,,38050,237,,FAMIGLIA COOPERATIVA LAGORAI,Roncegno Terme,[]
+Via Battaglione Basseggio,2,,38050,238,,MACELLERIA HOFFER FABRIZIO,Roncegno Terme,['MACELLERIA']
+Piazza Achille De Giovanni,,,38050,239,,ALIMENTARI HOFFER NICOLETTA,Roncegno Terme,['ALIMENTARI']
+Via San Giuseppe,1,,38050,240,,RISTORANTE ALBERGO GARNÌ VITTORIA,Roncegno Terme,"['RISTORANTE', 'ALBERGO']"
+Piazza Dante, 8/9,,38033,241,,CASALINGHI BERTAGNOLLI FERRAMENTA,Cavalese,['FERRAMENTA']
+Piazza Scopoli,12,,38033,242,,PASTICCERIA COSE BUONE DA PAOLO,Cavalese,[]
+Piazza Verdi,11,,38033,243,,TABARELLI GIORNALI TABACCHI SOUVENIR,Cavalese,"['BAR', 'TABACCHI']"
+Piazza Scopoli,7,esercizio commerciale,38033,244,,VIDEO UNO,Cavalese,[]
+Via IX Novembre,10,,38033,245,,CORNICI PLASTICOLOR SELLE,Cavalese,[]
+Piazza Scopoli,13,,38033,246,,CARTOLIBRERIA SPAZZALI,Cavalese,[]
+Via Baldieroni,2,,38033,247,,RISTORANTE HOTEL LA STUA,Cavalese,"['RISTORANTE', 'HOTEL']"
+Piazza Venezia,38,,38056,248,,RISTORANTE VECCHIA FONTANA,Levico Terme,['RISTORANTE']
+,49,,38056,249,Vetriolo,BAR MASO AL VETRIOLO VECCHIO,Levico Terme,['BAR']
+Via Garibaldi,3,,38056,250,,MACELLERIA DEL CENTRO,Levico Terme,['MACELLERIA']
+Via Dante,29,,38056,251,,FARMACIA DE PREZ,Levico Terme,['FARMACIA']
+Via Della Chiesa di Santa Giuliana,,,38056,252,,BAR-ALBERGO NAZIONALE,Levico Terme,"['BAR', 'ALBERGO']"
+Viale Vittorio Emanuele,22,,38056,253,,RISTORANTE-BAR-ALBERGO GARDEN,Levico Terme,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Regia,4,,38056,254,,FRIGO PRODOTTI TIPICI,Levico Terme,[]
+Piazza Venezia,13,,38056,255,,ALIMENTARI CONCI SAMUELA,Levico Terme,['ALIMENTARI']
+Viale Vittorio Emanuele,,,38056,256,,RISTORANTE-BAR-ALBERGO G.H. BELLAVISTA,Levico Terme,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Viale Stazione,,,38056,257,,MOBILI ARESE,Levico Terme,[]
+Via Garibaldi,69,,38056,258,,FIORERIA OGNIBENI IVANA,Levico Terme,[]
+Via Regia,12,,38056,259,,ANTICA FARMACIA ROMANESE,Levico Terme,['FARMACIA']
+Via Regia,1,,38056,260,,MERCERIE VERGOT,Levico Terme,[]
+Via Garibaldi,66,,38056,261,,CASALINGHI-ELETTRODOMESTICI TADDEI GIULIANO,Levico Terme,[]
+Via Cavour,49,,38056,262,,ORTOFRUTTA SCAPIN GIANNI,Levico Terme,[]
+Via Regia,19,,38056,263,,LANA MODA,Levico Terme,[]
+Via Regia,11,,38056,264,,VIVISPORT S.N.C.,Levico Terme,['SPORT']
+C.so Centrale,22,,38056,265,,CONCESSIONARIA BASSETTI,Levico Terme,[]
+Via Regia,8,,38056,266,,BAR AL CONTE,Levico Terme,['BAR']
+Via Dante,22,,38056,267,,BAR CAMINETTO,Levico Terme,['BAR']
+Via Garibaldi,,,38056,268,,RISTORANTE-BAR ANTICA ROSA,Levico Terme,"['BAR', 'RISTORANTE']"
+Via Guglielmo Marconi,,,38056,269,,EDICOLA PASSERINI ALBERTO,Levico Terme,[]
+Via Dante,8,,38056,270,,BAR LINO,Levico Terme,['BAR']
+Via Regia,21,,38056,271,,BAR SERENA,Levico Terme,['BAR']
+Via Domenico Mons. Caproni,,,38056,272,,RISTORANTE-BAR SANDRO,Levico Terme,"['BAR', 'RISTORANTE']"
+Via Dante,34,,38056,273,,DALSASSO ABBIGLIAMENTO,Levico Terme,[]
+Via C. Battisti n. 19,,esercizio commerciale,38057,274,,GIOVANNINI LUISA,Pergine Valsugana,[]
+Via Nazionale,169,,38050,275,,BAR - RISTORANTE ALBERGO AL BIVIO,Imer,"['BAR', 'RISTORANTE', 'ALBERGO']"
+,9,,38050,276,Pontet,RISTORANTE ALBERGO AL LAGO,Imer,"['RISTORANTE', 'ALBERGO']"
+Via Casabianca,1,,38050,277,,B. & B. LEGNO DI BETTEGA GRAZIANO & C. S.N.C.,Imer,[]
+Via Nazionale,62,,38050,278,,BAR OBBER,Imer,['BAR']
+Via Nazionale,76,,38050,279,,DARIO SPORT DI BETTEGA ROBERTO & C. S.A.S.,Imer,['SPORT']
+,11,,38050,280,Giare,FALEGNAMERIA FRATELLI BONINSEGNA SNC,Imer,[]
+Via Nazionale,101,,38050,281,,FAMIGLIA COOPERATIVA IMER,Imer,[]
+Via Nazionale n. 15,,bar - esercizio commerciale,38070,282,Padergnone,CANTINOTA,Vallelaghi,['BAR']
+Piazza G. Garibaldi,8,esercizio commerciale,38066,284,,FERRAGLIA VITTORIO,Riva del Garda,[]
+Via Gazzoletti,23,,38066,285,,OTTICA ARMANI,Riva del Garda,[]
+Via S. Croce ,57,,38122,286,,FARMACIA S. CHIARA,Trento,['FARMACIA']
+Piazza Fiera,13,,38122,287,,BIRRERIA PEDAVENA,Trento,[]
+Vicolo del Liceo,13,esercizio commerciale,38122,288,,VIGILIO FRANZINELLI,Trento,[]
+Via Torre Verde,50,ristorante,38122,289,,EL MERICAN,Trento,['RISTORANTE']
+Via Marchetti,28,,38122,290,,FOTO RENSI,Trento,[]
+Via degli Orbi,21,,38122,291,,OROLOGERIA M. GROPPA,Trento,[]
+Piazza Manci,8,,38122,292,,FAMIGLIA COOPERATIVA DI POVO,Trento,[]
+Scala al Convento,5,,38051,293,,CALZATURE E PELLETTERIE CAPPELLO,Borgo Valsugana,['CALZATURE']
+Corso Ausugum,43,,38051,294,,BOTTEGA DEL COLORE,Borgo Valsugana,[]
+Via Spagolla,5,esercizio commerciale,38051,295,,VULCANO STORE,Borgo Valsugana,[]
+Corso Ausugum,12,esercizio commerciale,38051,296,,ARCOBALENO,Borgo Valsugana,[]
+Via Temanza,15,esercizio commerciale,38051,297,,SEGNANA,Borgo Valsugana,[]
+Piazza Martiri Resistenza,1,esercizio commerciale,38051,298,,CAMBO,Borgo Valsugana,[]
+Via B. Venezia,15,esercizio commerciale,38051,299,,GANARIN,Borgo Valsugana,[]
+Corso Ausugum, 60 - 66,esercizio commerciale,38051,300,,BELLUCCO,Borgo Valsugana,[]
+Corso Ausugum,32,esercizio commerciale,38051,301,,AGOSTINI,Borgo Valsugana,[]
+Corso Ausugum,26,esercizio commerciale,38051,302,,PAGNUSAT,Borgo Valsugana,[]
+Piazza Dante,17,,38051,303,,BAR CUSSO,Borgo Valsugana,['BAR']
+Piazza De Gasperi,15,,38051,304,,CAFFÈ PASTICCERIA ZITA,Borgo Valsugana,[]
+Piazza Romani,7,,38051,305,,BAR MILANO,Borgo Valsugana,['BAR']
+Piazza Dante,15,esercizio commerciale,38051,306,,DALSASSO,Borgo Valsugana,[]
+Corso Ausugum,19,esercizio commerciale,38051,307,,COMUNELLO,Borgo Valsugana,[]
+Via Giuseppe Terrabugio,4,,38054,308,Fiera di Primiero,MACELLERIA BAGGETTO,Primiero San Martino di Castrozza,['MACELLERIA']
+Via Giuseppe Terrabugio,5,,38054,309,Fiera di Primiero,CALZATURE TAMANINI,Primiero San Martino di Castrozza,['CALZATURE']
+Via Guadagnini,28,,38054,310,Fiera di Primiero,FARMACIA ALLA MADONNA,Primiero San Martino di Castrozza,['FARMACIA']
+Salita Luigi Negrelli,,,38054,311,Fiera di Primiero,BELLOTTO GIOIELLI,Primiero San Martino di Castrozza,[]
+Via San Francesco,,,38054,312,Fiera di Primiero,CANTINA CESARI,Primiero San Martino di Castrozza,[]
+Via San Francesco,4,,38054,313,Fiera di Primiero,ARREDAMENTI GUBERT FRANCO,Primiero San Martino di Castrozza,[]
+Piazzetta del Dazio,5,,38054,314,Fiera di Primiero,PASTICCERIA GIOVANNA SIMION,Primiero San Martino di Castrozza,[]
+Via Giuseppe Terrabugio,40,,38054,315,Fiera di Primiero,SPORTING GAIO,Primiero San Martino di Castrozza,['SPORT']
+Via Giuseppe Garibaldi,33,,38054,316,Fiera di Primiero,FOTO OTTICA GILLI,Primiero San Martino di Castrozza,[]
+Via San Francesco,14,esercizio commerciale,38054,317,Fiera di Primiero,CREPAZ FLORIO,Primiero San Martino di Castrozza,[]
+Viale Piave,9,,38054,318,Fiera di Primiero,RISTORANTE BAR ALBERGO DOLOMITI,Primiero San Martino di Castrozza,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via San Francesco,16,,38054,319,Fiera di Primiero,ORTOFRUTTA MELCHIORI,Primiero San Martino di Castrozza,[]
+Piazza Cesare Battisti,9,,38054,320,Fiera di Primiero,BAR AQUILA NERA,Primiero San Martino di Castrozza,['BAR']
+Piazza Cesare Battisti,1,,38054,321,Fiera di Primiero,LAVASECCO LA RAPIDA,Primiero San Martino di Castrozza,[]
+Via Terrabugio,14,esercizio commerciale,38054,322,Fiera di Primiero,GAUDENZI FRANCESCO,Primiero San Martino di Castrozza,[]
+Via Giuseppe Garibaldi,6,,38054,323,Fiera di Primiero,TROTTER CALZATURE,Primiero San Martino di Castrozza,['CALZATURE']
+Via Fiume,18,,38054,324,Fiera di Primiero,MACELLERIA GADENZ,Primiero San Martino di Castrozza,['MACELLERIA']
+Via Fiume,3,esercizio commerciale,38054,325,Fiera di Primiero,GADENZ SEBASTIANO,Primiero San Martino di Castrozza,[]
+Piazza Luigi Negrelli,3,,38054,326,Fiera di Primiero,BAR TABACCHI WEISS,Primiero San Martino di Castrozza,"['BAR', 'TABACCHI']"
+Via alla Malga,11,,38057,327,Susà,BETTY BAR,Pergine Valsugana,['BAR']
+Via Marconi,11,,38077,328,Ponte Arche,ARREDI MORELLI,Comano Terme,[]
+Piazza Mercato,26,,38077,329,Ponte Arche,PANIFICIO ZANONI,Comano Terme,['PANIFICIO']
+Via S. Pietro,68,esercizio commerciale,38122,330,,LEONARDI ANTONIO,Trento,[]
+Via Malvasia,103,,38122,331,,RISTORANTE PIZZERIA VESUVIO,Trento,"['RISTORANTE', 'PIZZERIA']"
+Via Segantini,67,esercizio commerciale,38062,332,,BERLANDA LA NASCENTE,Arco,[]
+Via Vergolano,28,,38062,333,,NEGRI FIORI,Arco,[]
+Via Segantini,24,esercizio commerciale,38062,334,,TORBOLI MARCO,Arco,[]
+Via della Predolcia,21,pubblico esercizio esercizio commerciale,38057,335,Viarago,ALPINA,Pergine Valsugana,[]
+Via Mendola,41,,38010,336,,RISTORANTE BAR HOTEL STELLA DELLE ALPI,Ronzone,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Mendola,48,,38010,337,,RISTORANTE BAR HOTEL REGINA DEL BOSCO,Ronzone,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Mendola,27,esercizio commerciale,38010,338,,LA BOTTEGA,Ronzone,[]
+Via Cesare Battisti,2,,38011,339,,SEGHERIA IMBALLAGGI ABRAM SILVIO & C. SNC,Sarnonico,[]
+,,,38011,340,Regole,RISTORANTE HOTEL IL FALCHETTO,Sarnonico,"['RISTORANTE', 'HOTEL']"
+,,,38011,341,Regole,BAR RISTORANTE REGOLE,Sarnonico,"['BAR', 'RISTORANTE']"
+Via Cesare Battisti,8,,38011,342,,DE LUCA FABIO FABBRO,Sarnonico,[]
+Via Cesare Battisti,30,,38011,343,,BAR CENTRALE,Sarnonico,['BAR']
+Via Cesare Battisti,31,,38011,344,,BAR RISTORANTE PIZZERIA LA RUSTICA,Sarnonico,"['BAR', 'RISTORANTE', 'PIZZERIA']"
+Via Nazionale,11,,38050,345,Marter,FAMIGLIA COOPERATIVA MARTER,Roncegno,[]
+Via A. Pola,1,,38050,346,,CARTOLERIA DI HOFFER LEOPOLDA,Roncegno,[]
+Via 3 Novembre,19,,38079,347,,PANE LATTE DOLCIUMI DI PAROLARI LUCIANA,Tione di Trento,[]
+Piazza Cooperazione,6,,38010,348,,FAMIGLIA COOPERATIVA CONAD,Romeno,[]
+Piazza Romana,7,,38010,349,,MACELLERIA ENDRIZZI SERGIO,Romeno,['MACELLERIA']
+Piazza Graiff,9,,38010,350,,IL FORNO DE BIASI,Romeno,[]
+Via San Bartolomeo,59,,38010,351,,FALEGNAMERIA ROSATI ELIO,Romeno,[]
+Piazza Lampi,24,,38010,352,,BAZAR DI FRANCISCI MARIANGELA,Romeno,['BAZAR']
+Via 4 Novembre,80,,38010,353,,PIZZERIA ANAUNIA,Romeno,['PIZZERIA']
+Piazza Romana,5,,38010,354,,BAR CENTRALE DI CAIO E LORENZA,Romeno,['BAR']
+Via Alla Piena,62,,38010,355,,CASEIFICIO SOCIALE,Romeno,[]
+Via Al Castello,14,,38010,356, Malgolo,ARTICOLI REGALO SARCLETTI,Romeno,[]
+Via SS. Martiri d’Anaunia,2,,38010,357, Salter,LATTONIERE PLAGA MATTEO,Romeno,[]
+Via 4 Novembre,53,,38010,358,,MOBILIFICIO FRANCISCI,Romeno,[]
+Via 4 Novembre,17,,38010,359,,ROEN MODE DI COGOI LUCA,Romeno,[]
+Piazza Centrale,10,,38060,360,,OSTARIA DELE STRIE,Nogaredo,[]
+Via Verdi,15,,38060,361,,FAMIGLIA COOPERATIVA NOGAREDO,Nogaredo,[]
+Via Del Ponte,1,,38060,362,Brancolino,PARISI BRUNA ALIMENTARI,Nogaredo,['ALIMENTARI']
+Via San Biagio,12,,38060,363,,MOBILI BETTINI,Nogaredo,[]
+Via Molini,7,,38060,364,Molini,BAR TRATTORIA AI MOLINI,Nogaredo,['BAR']
+Strada Laghi di Lamar,31,,38070,365,Terlago,BAR PIZZERIA AI TRE FAGGI,Vallelaghi,"['BAR', 'PIZZERIA']"
+Via E. de Varda,10,,38017,366,,RISTORANTE ALBERGO AL BORGHETTO,Mezzolombardo,"['RISTORANTE', 'ALBERGO']"
+Corso Mazzini,49,,38017,367,,BOTTAMEDI CALZATURE,Mezzolombardo,['CALZATURE']
+Corso Mazzini,53,,38017,368,,FERRAMENTA TOMASI,Mezzolombardo,['FERRAMENTA']
+Corso Mazzini,11,esercizio commerciale,38017,369,,ZENI,Mezzolombardo,[]
+Corso Mazzini,21,esercizio commerciale,38017,370,,TAIT,Mezzolombardo,[]
+Via Roma,30,,38017,371,,BAZAR TAIT MERCERIE,Mezzolombardo,['BAZAR']
+Via De Gasperi,2,,38017,372,,ABBIGLIAMENTO MAURINA,Mezzolombardo,[]
+Corso Mazzini,8,,38017,373,,OREFICERIA G. CASNA,Mezzolombardo,[]
+Piazza Cassa di Risparmio,6,,38017,374,,TESSUTI MANZATTI,Mezzolombardo,[]
+Via 4 Novembre,12,,38017,375,,PESCHERIA ROAT ROMANO,Mezzolombardo,[]
+Via A. de Varda,20,,38017,376,,OTTICA PIZZI,Mezzolombardo,[]
+Corso Libertà,15, generi di monopolio,38017,377,,WEBER LILIANA,Mezzolombardo,[]
+Via De Gasperi,40,esercizio commerciale,38017,378,,TAIT GIUDITTA,Mezzolombardo,[]
+Corso Mazzini,12,esercizio commerciale,38017,379,,BOZ GIUSEPPE,Mezzolombardo,[]
+Via A. de Varda,9/A,,38017,380,,LA CASA DELLA RADIO,Mezzolombardo,[]
+Corso del Popolo,5,esercizio commerciale,38017,381,,FEDRIZZI VIGILIO & C. S.N.C.,Mezzolombardo,[]
+Corso del Popolo,5,esercizio commerciale,38017,382,,FEDRIZZI ROSANNA E C. S.N.C.,Mezzolombardo,[]
+Via Roma,21,,38018,383,,PUNTO CASA,Molveno,[]
+Via Nazionale,10,,38018,384,,RISTORANTE ALPOTEL VENEZIA,Molveno,['RISTORANTE']
+P. Marconi, 5/a,,38018,385,,FRUTTA VERDURA DI GIORDANI ADELIO,Molveno,[]
+Via Paganella,1,,38018,386,,CENTRAL MARKET,Molveno,[]
+Via Lungolago,9,,38018,387,,BAR ALBERGO ITALIA,Molveno,"['BAR', 'ALBERGO']"
+Piazza Scuole,3,,38018,388,,RISTORANTE HOTEL MIRALAGO,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Nazionale,41,,38018,389,,RISTORANTE HOTEL EXCELSIOR,Molveno,"['RISTORANTE', 'HOTEL']"
+Piazza Scuole,2,,38018,390,,BAR CRISTALLO,Molveno,['BAR']
+Via Roma,6,,38018,391,,ZENI CALZATURE,Molveno,['CALZATURE']
+Via Roma,14,,38018,392,,MACELLERIA SPRINGHETTI,Molveno,['MACELLERIA']
+Via Nazionale,34,,38018,393,,RISTORANTE HOTEL LONDRA,Molveno,"['RISTORANTE', 'HOTEL']"
+Piazza Scuole,7,,38018,394,,RISTORANTE ALEXANDER HOTEL,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Nazionale,9,,38018,395,,RISTORANTE HOTEL BELVEDERE,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Nazionale,13,,38018,396,,BAR RISTORANTE HOTEL EUROPA,Molveno,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Belvedere,8,,38018,397,,RISTORANTE HOTEL AURORA,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Nazionale,45,,38018,398,,RISTORANTE HOTEL PANORAMA,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Bettega,18,,38018,399,,RISTORANTE HOTEL MOLVENO,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Lungolago,4,,38018,400,,RISTORANTE PIZZERIA AL CAMINETTO,Molveno,"['RISTORANTE', 'PIZZERIA']"
+Via Lungolago,15,,38018,401,,RISTORANTE HOTEL GLORIA,Molveno,"['RISTORANTE', 'HOTEL']"
+Via Cesare Battisti,6,,38018,402,,RISTORANTE ALBERGO STELLA ALPINA,Molveno,"['RISTORANTE', 'ALBERGO']"
+Piazza S. Carlo,3,,38018,403,,CENTRO FOTO OTTICA,Molveno,[]
+,,,38018,404,Pradel,RISTORANTE ALBERGO DEL BRENTA,Molveno,"['RISTORANTE', 'ALBERGO']"
+,,,38018,405,Pradel,RISTORANTE ALBERGO PRADEL,Molveno,"['RISTORANTE', 'ALBERGO']"
+Piazza San Carlo, 11/A,,38018,406,,ANGOLO MODA,Molveno,[]
+Via Galilei,25,esercizio commerciale,38122,407,,CRONST,Trento,[]
+Piazza C. Battisti,15,esercizio commerciale,38033,408,,PONTRELLI DI CARLA ZANCANELLA,Cavalese,[]
+Via IX Novembre,6,esercizio commerciale,38033,409,,RAFFAELLA,Cavalese,[]
+Piazza Dante,6,,38033,410,,CAPPELLERIA BETTA,Cavalese,[]
+Piazza Libertà,14,,38121,411,Gardolo,BAZAR MOSER,Trento,['BAZAR']
+,7,,38050,412,Ghiaie,MACELLERIA MINIMARKET HIGHLANDER,Canal San Bovo,['MACELLERIA']
+,111,,38050,413,Sperandi,BAR RISTORANTE ALBERGO AL PIN,Canal San Bovo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Fosse,148,,38050,414,,OSTERIA ALLE FOSSE,Canal San Bovo,[]
+,12,,38050,415,Lausen,RISTORANTE ALBERGO LAGORAI,Canal San Bovo,"['RISTORANTE', 'ALBERGO']"
+,56,,38050,416,Zortea,RISTORANTE ALBERGO SERENELLA,Canal San Bovo,"['RISTORANTE', 'ALBERGO']"
+,141,,38050,417,Fosse,CENTRO SPESA CORONA,Canal San Bovo,[]
+Via Zortea, 57/B,,38050,418,,FAMIGLIA COOPERATIVA ZORTEA,Canal San Bovo,[]
+Via Roma,17,,38050,419,,FAMIGLIA COOPERATIVA CANAL SAN BOVO,Canal San Bovo,[]
+,8,,38050,420,Caseri,FAMIGLIA COOPERATIVA CAORIA,Canal San Bovo,[]
+Piazza G. Marconi Loc. Prade,,,38050,421,,FAMIGLIA COOPERATIVA PRADE,Canal San Bovo,[]
+Via Marconi,28,,38077,422,Ponte Arche,FERRAMENTA FEDRIZZI,Comano Terme,['FERRAMENTA']
+Largo Dordi,3,,38051,423,,CAFFE’ ROMA,Borgo Valsugana,[]
+Via IV Novembre,18,,38038,424,,BAR RISTORANTE ALBERGO AL CERVO,Tesero,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via IV Novembre,32,,38038,425,,BAR ANCORA,Tesero,['BAR']
+Via Roma,78,,38038,426,,CARTOLIBRERIA DEFLORIAN,Tesero,[]
+,1,,38038,427,Stava,RISTORANTE HOTEL ERICA,Tesero,"['RISTORANTE', 'HOTEL']"
+Via IV Novembre, 21/B,,38038,428,,CALZATURE ZENI SPORT,Tesero,"['CALZATURE', 'SPORT']"
+Via Roma,88,,38038,429,,VALENTINO SCARPE,Tesero,[]
+Piazza Nuova, 5/B,,38038,430,,EUFORIA INTIMO,Tesero,[]
+Via Roma,29,,38038,431,,BAR STELLA,Tesero,['BAR']
+Via Roma,29,,38038,432,,CANAL KATIA TABACCHERIA,Tesero,[]
+Via Socce,2,,38038,433,,ELETTROSOC DI GILMOZZI ERNESTO,Tesero,[]
+Via Roma,24,,38038,434,,MOBILIFICIO SILVIO DELLADIO,Tesero,[]
+Via Cavada,6,,38038,435,,FAMIGLIA COOPERATIVA,Tesero,[]
+Piazza General Cantore,28,,38121,436,,BAR PASTICCERIA MAZZOLENI,Trento,['BAR']
+Via F.lli Bronzetti,5,,38069,437,,PROFUMERIA BOSCHETTO,Cavalese,[]
+Piaza del Malgher,1,,38036,438,Pozza di Fassa,L. MALGHER,San Giovanni di Fassa-Sèn Jan,[]
+Strada de Meida,78,,38036,439,Pozza di Fassa,LINO SPORT,San Giovanni di Fassa-Sèn Jan,['SPORT']
+Piaza de Salin,6,,38036,440,Pozza di Fassa,RISTORANTE ALBERGO RIZZI,San Giovanni di Fassa-Sèn Jan,"['RISTORANTE', 'ALBERGO']"
+Strada Dolomites,121,,38036,441,Pozza di Fassa,ELETTROGAS PEDERIVA,San Giovanni di Fassa-Sèn Jan,[]
+Piaza Deodat de Dolomieu,4,,38036,442,Pozza di Fassa,PANIFICIO EL PEK,San Giovanni di Fassa-Sèn Jan,['PANIFICIO']
+Piaza de Comun,11,,38036,443,Pozza di Fassa,FAMIGLIA COOPERATIVA POZZA DI FASSA,San Giovanni di Fassa-Sèn Jan,[]
+Strada de Meida,1,,38036,444,Pozza di Fassa,BAR AL PONTE,San Giovanni di Fassa-Sèn Jan,['BAR']
+Troi Giovanni Francesco Bernard,5,,38036,445,Pozza di Fassa,PANIFICIO BERNARD,San Giovanni di Fassa-Sèn Jan,['PANIFICIO']
+Piazza Cioc,20,,38030,446,,PANIFICIO BONINSEGNA,Soraga,['PANIFICIO']
+Strada de Pont,35,,38030,447,,BAR RISTORANTE HOTEL DE FRONZ,Soraga,"['BAR', 'RISTORANTE', 'HOTEL']"
+Stradone de Fascia,6,,38030,448,,BAR RISTORANTE HOTEL AVISIO,Soraga,"['BAR', 'RISTORANTE', 'HOTEL']"
+Stradone de Fascia,16,,38030,449,,FAMIGLIA COOPERATIVA SORAGA,Soraga,[]
+Piazza Cioc,20,,38030,450,,SPORT BRUNEL,Soraga,['SPORT']
+Stradone de Fascia,3,,38030,451,,TABACCHERIA GIULIANI,Soraga,[]
+Strada de Palua,2,,38030,452,,BAR RISTORANTE HOTEL ROSALPINA,Soraga,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada Rezia,5,,38039,453,Vigo di Fassa,BAR RISTORANTE HOTEL ROSA,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada de la Piazedela,3,,38039,454,Vigo di Fassa,TABACCHI E SOUVENIRS GHETTA FABRIZIO,San Giovanni di Fassa-Sèn Jan,['TABACCHI']
+Strada Roma,26,,38039,455,Vigo di Fassa,FOTO SPORT LADIN,San Giovanni di Fassa-Sèn Jan,['SPORT']
+Strada Roma,17,,38039,456,Vigo di Fassa,OREFICERIA OROLOGERIA POLLAM,San Giovanni di Fassa-Sèn Jan,[]
+Strada Rezia,28,,38039,457,Vigo di Fassa,BAR BIANCO,San Giovanni di Fassa-Sèn Jan,['BAR']
+Strada Daniel Zen,9,,38039,458,Vigo di Fassa,MACELLERIA F.LLI PELLEGRIN,San Giovanni di Fassa-Sèn Jan,['MACELLERIA']
+Strada di Molins,10,,38039,459,Vigo di Fassa,BAR HOTEL MIRAMONTI,San Giovanni di Fassa-Sèn Jan,"['BAR', 'HOTEL']"
+Strada Dolomites,4,,38039,460,Vigo di Fassa,BAR RISTORANTE ACTIVE HOTEL OLYMPIC,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada Dolomites,9,,38039,461,Vigo di Fassa,BAR RISTORANTE HOTEL DOLOMITI,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada Rezia,11,,38039,462,Vigo di Fassa,TONY SPORT,San Giovanni di Fassa-Sèn Jan,['SPORT']
+Strada de la Piazedela,9,,38039,463,Vigo di Fassa,BAR LADIN,San Giovanni di Fassa-Sèn Jan,['BAR']
+Strada de Valongia,36,,38039,464,Vigo di Fassa,BAR RISTORANTE HOTEL FONTANA,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada Rezia,22,,38039,465,Vigo di Fassa,DA FLORA,San Giovanni di Fassa-Sèn Jan,[]
+Via Roma,48,,38039,466,Vigo di Fassa,LA BOTEIGA,San Giovanni di Fassa-Sèn Jan,[]
+Strada Murada,3,,38039,467,Vigo di Fassa,BAR ALBERGO BELVEDERE,San Giovanni di Fassa-Sèn Jan,"['BAR', 'ALBERGO']"
+Strada de Solar,27,,38039,468,Vigo di Fassa,BAR RISTORANTE HOTEL RENATO,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada Rezia,26,,38039,469,Vigo di Fassa,PANIFICIO EL PECH,San Giovanni di Fassa-Sèn Jan,['PANIFICIO']
+Strada Rezia,30,,38039,470,Vigo di Fassa,FAMIGLIA COOPERATIVA VIGO DI FASSA,San Giovanni di Fassa-Sèn Jan,[]
+Strada Roma,25,,38039,471,Vigo di Fassa,ELECTRO POLLAM,San Giovanni di Fassa-Sèn Jan,[]
+Strada Rezia,29,,38039,472,Vigo di Fassa,BAR RISTORANTE HOTEL VAEL,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Jouf de Ciareja,2,,38039,473,Vigo di Fassa,RISTORANTE HOTEL SAVOY,San Giovanni di Fassa-Sèn Jan,"['RISTORANTE', 'HOTEL']"
+,3,,38039,474,Vigo di Fassa / Passo Costalunga,SPORT LUCY,San Giovanni di Fassa-Sèn Jan,['SPORT']
+Strada de Pilat,9,,38039,475,Vigo di Fassa,LORENZ EMILIO BIBITE,San Giovanni di Fassa-Sèn Jan,[]
+Strada Murada,3,,38039,476,Vigo di Fassa,RISTORANTE BAR ALPEN HOTEL CORONA,San Giovanni di Fassa-Sèn Jan,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Costa,103,,38032,477,,BAR RISTORANTE ALBERGO ALPINO AL CAVALLETTO,Canazei,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Costa,99,,38032,478,Alba di Canazei,RISTORANTE HOTEL ALBA,Canazei,"['RISTORANTE', 'HOTEL']"
+Via Roma,25,,38032,479,,BAR RISTORANTE HOTEL BERNARD,Canazei,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada del Faure,18,,38032,480,,BAR RISTORANTE HOTEL ALLA ROSA,Canazei,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Costa,25,,38032,481,,PANIFICIO BONINSEGNA,Canazei,['PANIFICIO']
+Streda de Sella,23,,38032,482,,RIFUGIO ESCURSIONISTICO VALENTINI,Canazei,[]
+Strada Pian Trevisan,44,,38032,483,,BAR RISTORANTE RIFUGIO VILLETTA MARIA,Canazei,"['BAR', 'RISTORANTE']"
+Via Roma,18,,38032,484,,VALERUZ SPORT,Canazei,['SPORT']
+Via Dolomiti,81,,38032,485,,CALZATURE ROSSI,Canazei,['CALZATURE']
+Strada del Pordoi,132,,38032,486,,BAR RISTORANTE HOTEL COL DI LANA,Canazei,"['BAR', 'RISTORANTE', 'HOTEL']"
+Streda de Costa,213,,38032,487,,BAR RISTORANTE ALBERGO MIRAMONTI,Canazei,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Strada del Pordoi,76,,38032,488,,RISTORANTE HOTEL PORDOI,Canazei,"['RISTORANTE', 'HOTEL']"
+Via Dolomites,80,,38032,489,,RISTORANTE HOTEL DOLOMITI,Canazei,"['RISTORANTE', 'HOTEL']"
+Streda Dolomites,193,,38032,490,,BAR GARNÌ INTERNATIONAL,Canazei,['BAR']
+Piazza G. Marconi,21,,38032,491,,PROFUMERIA COSTA,Canazei,[]
+Streda do Ruf de Antermont,6,,38032,492,,BAR GARNÌ STELLA ALPINA,Canazei,['BAR']
+Via Streda Roma,3,,38032,493,,BAR RISTORANTE HOTEL CROCE BIANCA,Canazei,"['BAR', 'RISTORANTE', 'HOTEL']"
+Streda Dolomites,87,,38032,494,,BAR RISTORANTE HOTEL VILLA ROSA,Campitello di Fassa,"['BAR', 'RISTORANTE', 'HOTEL']"
+Streda de Morandin,43,,38032,495,,RISTORANTE SPORT HOTEL ENROSADIRA,Campitello di Fassa,"['RISTORANTE', 'HOTEL', 'SPORT']"
+Streda Dolomites,45,,38032,496,,BAR RISTORANTE HOTEL RODODENDRO,Campitello di Fassa,"['BAR', 'RISTORANTE', 'HOTEL']"
+Piazza Centrale,,,38032,497,,BAR AGNELLO,Campitello di Fassa,['BAR']
+Streda Dolomites,87,,38032,498,,FAMIGLIA COOPERATIVA CAMPITELLO DI FASSA,Campitello di Fassa,[]
+Via Mazzini Loc. Crosano,97,,38060,499,,BAR RISTORANTE HOTEL MIRAMONTI,Brentonico,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Garibaldi,2,,38060,500,,BAR RISTORANTE ALBERGO NENI,Brentonico,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Roma,16,,38060,501,,BAR RISTORANTE ALBERGO ZENI,Brentonico,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Borani Salvotti,2,,38060,502,San Giacomo,RISTORANTE HOTEL S. GIACOMO,Brentonico,"['RISTORANTE', 'HOTEL']"
+Via Roma,14,,38060,503,,PANIFICIO TOGNI,Brentonico,['PANIFICIO']
+,1,,38060,504,Santa Caterina,PIZZERIA LA PINETA,Brentonico,['PIZZERIA']
+Piazza Generale Dalla Chiesa,25,,38060,505,,SAV FORMAGGI,Brentonico,[]
+Via Roma,22,,38060,506,,TABACCHERIA RIGO,Brentonico,[]
+Via Fabio Filzi,19/a,,38060,507,,PASSERINI CALZATURE,Brentonico,['CALZATURE']
+Via Roma,5,,38060,508,,ALIMENTARI ANDREOLLI,Brentonico,['ALIMENTARI']
+Via Clemente,1,,38060,509,Castione,ALIMENTARI CANALI,Brentonico,['ALIMENTARI']
+Via Roma,49,,38060,510,,BAR COMMERCIO,Brentonico,['BAR']
+Via Roberti,3,,38060,511,,FAMIGLIA COOPERATIVA BRENTONICO,Brentonico,[]
+Via Mazzini,1,,38060,512,Crosano,FAMIGLIA COOPERATIVA CROSANO,Brentonico,[]
+Via 3 Novembre,47,,38060,513,Cornè,FAMIGLIA COOPERATIVA CORNÈ,Brentonico,[]
+Via Prof. Vanzetta,,,38030,514,,BAR IL BUNKER,Ziano di Fiemme,['BAR']
+Via Alpini,28,,38060,515,,RISTORANTE HOTEL AL PONTE,Villa Lagarina,"['RISTORANTE', 'HOTEL']"
+,1,,38060,516,Lago di Cei,BAR RISTORANTE ALBERGO LAGO DI CEI,Villa Lagarina,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via XXV Aprile,10,,38060,517,,BAR ROMA,Villa Lagarina,['BAR']
+Via XXV Aprile,28,,38060,518,,FARMACIA DE PROBIZER,Villa Lagarina,['FARMACIA']
+Via del Torchio,64,,38060,519,,FAMIGLIA COOPERATIVA DI CASTELLANO,Villa Lagarina,[]
+Via Sant’Antonio,,,38060,520,,FAMIGLIA COOPERATIVA DI PEDERSANO,Villa Lagarina,[]
+Via XXV Aprile,50,,38060,521,,FAMIGLIA COOPERATIVA VILLA LAGARINA,Villa Lagarina,[]
+Via Brigata Abruzzi,4,,38050,522,,TESINO MARKET,Pieve Tesino,[]
+Piazza Garibaldi,4,,38050,523,,BAR CENTRALE,Pieve Tesino,['BAR']
+Piazza Garibaldi,2,,38050,524,,PUNTO ROSSO ALIMENTARI,Pieve Tesino,['ALIMENTARI']
+,,,38063,525,Madonna della Neve / Valdomenegal,BAR RISTORANTE ALBERGO ALPINO,Avio,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Viale Alcide De Gasperi,13,,38063,526,,BAR NUOVO,Avio,['BAR']
+Via Vignola,25,,38063,527,,CASEIFICIO SOCIALE SABBIONARA,Avio,[]
+Piazza Conciliazione,17,,38063,528,,RIVENDITA FUMANELLI GEDEONE,Avio,[]
+Via Regina Elena,18,,38063,529,,PANIFICIO SEGA DIEGO,Avio,['PANIFICIO']
+Piazza Roma,5,,38063,530,,FAMIGLIA COOPERATIVA AVIO,Avio,[]
+Via Venezia,75,,38063,531,,BAR SPORT,Avio,"['BAR', 'SPORT']"
+Via General Cantore,41,,38063,532,,BAR TRATTORIA ALLA STAZIONE,Avio,['BAR']
+Via Regina Elena,12,,38063,533,,CADEN CARLO ABBIGLIAMENTO,Avio,[]
+Via Teatro,5,,38063,534,,CADEN TENDAGGI,Avio,[]
+Via S. Antonio,28,,38063,535,,CONFEZIONI DA IDA,Avio,[]
+,,,38063,536,Borghetto,BAR RISTORANTE ALBERGO MONTE BALDO,Avio,"['BAR', 'RISTORANTE', 'ALBERGO']"
+,,,38063,537,Madonna della Neve / Valdomenegal,RIFUGIO ESCURSIONISTICO MONTE BALDO,Avio,[]
+Piazza Roma,4,,38063,538,,FARMACIA COOPERATIVA,Avio,['FARMACIA']
+Viale Alcide De Gasperi,82,,38063,539,,FALEGNAMERIA MABBONI,Avio,[]
+Via F.lli Bronzetti,27,,38033,540,,DELIZIE WELPONER,Cavalese,[]
+Viale Dante,42,,38079,541,,FARMACIA BONI,Tione di Trento,['FARMACIA']
+Via Al Ponte,10,,38060,542,,PANIFICIO MODERNO,Isera,['PANIFICIO']
+Piazza San Vincenzo,10,,38060,543,,FAMIGLIA COOPERATIVA DI ISERA,Isera,[]
+Via Roma,30,,38054,544,Tonadico,RISTORANTE BAR HOTEL TRESSANE,Primiero San Martino di Castrozza,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Roma,26,,38054,545,Tonadico,RISTORANTE PARK HOTEL IRIS,Primiero San Martino di Castrozza,"['RISTORANTE', 'HOTEL']"
+Via Roma,8,,38054,546,Tonadico,RISTORANTE HOTEL PRIMIERO,Primiero San Martino di Castrozza,"['RISTORANTE', 'HOTEL']"
+Via Roma,2,,38054,547,Tonadico,IL NEGOZIO DEL PANE,Primiero San Martino di Castrozza,[]
+Via Roma,2,,38054,548,Tonadico,PANIFICIO CENTRALE DI PRIMIERO,Primiero San Martino di Castrozza,['PANIFICIO']
+Via Sorelle Lucian,5,,38054,549,Tonadico,BAR ALBERGO TRE PONTI,Primiero San Martino di Castrozza,"['BAR', 'ALBERGO']"
+Via Roma,8,,38054,550,Tonadico,RISTORANTE BAR LANTERNA VERDE,Primiero San Martino di Castrozza,"['BAR', 'RISTORANTE']"
+Via Scopoli,43,,38054,551,Tonadico,EDICOLA BAZAR TABACCHI,Primiero San Martino di Castrozza,"['TABACCHI', 'BAZAR']"
+Via Scopoli,37,,38054,552,Tonadico,BAR CENTRALE,Primiero San Martino di Castrozza,['BAR']
+Via Card. Bernardin,2,,38054,553,Tonadico,NON SOLO PANE,Primiero San Martino di Castrozza,[]
+Via Scopoli,40,,38054,554,Tonadico,FAMIGLIA COOPERATIVA DI TONADICO,Primiero San Martino di Castrozza,[]
+Piazza San Giorgio,3,,38053,555,,OREFICERIA OROLOGERIA MULLER,Castello Tesino,[]
+Via Dante,12/A,,38053,556,,FARMACIA RIGONI,Castello Tesino,['FARMACIA']
+Piazza San Giorgio,8,,38053,557,,BAR PIZZERIA CROSARA,Castello Tesino,"['BAR', 'PIZZERIA']"
+Piazza San Giorgio,5,,38053,558,,BAR ROMA,Castello Tesino,['BAR']
+Via Donato Pelloso,13/A,,38053,559,,FAMIGLIA COOPERATIVA DI CASTELLO TESINO,Castello Tesino,[]
+Via Venezia,18,,38053,560,,BAR ORATORIO,Castello Tesino,['BAR']
+,2,,38053,561,Passo Brocon,RISTORANTE BAR ALBERGO PASSO BROCON “DA S’CIOPO”,Castello Tesino,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Piazza Trento,1,,38053,562,,FIORI E VERDURA,Castello Tesino,[]
+Piazza Trento,3,,38053,563,,EMPORIO DIEGO ZOTTA,Castello Tesino,[]
+,2,,38053,564,Molini,BAR AL PONTE,Castello Tesino,['BAR']
+Via Baili,4,,38053,565,,MACELLERIA BOSO,Castello Tesino,['MACELLERIA']
+Via Roma,17,,38053,566,,BAR RISTORANTE ALBERGO BELLAVISTA,Castello Tesino,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Piazza Marconi,1,,38053,567,,ABBIGLIAMENTO BAILO,Castello Tesino,[]
+Piazza Marconi,5,,38053,568,,ALIMENTARI DA CELESTINO,Castello Tesino,['ALIMENTARI']
+Via Terrasanta,7,,38053,569,,ALIMENTARI MORANDUZZO,Castello Tesino,['ALIMENTARI']
+Piazza Marconi,4,,38053,570,,CAFFÈ MARCONI,Castello Tesino,[]
+Piazza Marconi,3,,38053,571,,TABACCHI ZAMPIERO,Castello Tesino,['TABACCHI']
+Piazza Righi,28,,38086,572,Madonna di Campiglio,CHALET FERRARI,Pinzolo,[]
+Piazza Righi,30,,38086,573,Madonna di Campiglio,CHALET FERRARI REGALO,Pinzolo,[]
+Via Rosmini,78,,38122,574,,ZANELLA ARREDAMENTI,Trento,[]
+Via Dante,7/B,,38065,575,,ALIMENTARI RICCIO STEFANIA,Levico Terme,['ALIMENTARI']
+Corso Centrale,38,,38065,576,,ETA BETA DI GRISENTI GIORGIA,Levico Terme,[]
+Via Dante,16,,38065,577,,FERRAMENTA CASALINGHI ROSA,Levico Terme,['FERRAMENTA']
+Via Marchi,2,,38050,578,,FAMIGLIA COOPERATIVA LAGORAI,Ronchi Valsugana,[]
+Viale Venezia,20,,38050,579,,SIMONETTO CARNI,Castelnuovo,[]
+,37,,38035,580,Sén Pelegrin,BAR RISTORANTE HOTEL COSTABELLA,Moena,"['BAR', 'RISTORANTE', 'HOTEL']"
+Strada E. Zanoner Canori,,,38035,581,,MACELLERIA FELICETTI,Moena,['MACELLERIA']
+Strenta de Ischiacia,14,,38035,582,,ELETTRODOMESTICI DE PELLEGRINI,Moena,[]
+Strada de la Comunità de Fiem,11,,38035,583,,SEGHERIA ZANONER,Moena,[]
+Via 3 Novembre,3,,38060,584,,MACELLERIA FASANELLI,Pomarolo,['MACELLERIA']
+Via Vittorio Emanuele,27,esercizio commerciale,38055,585,,MINATI ROBERTA,Grigno,[]
+Via Nuova,6,,38067,586,,BAR RISTORANTE ALBERGO SILVANA,Ledro,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Piazza Sanzio,9,,38122,587,,EDICOLA TABACCHI SANNICOLÒ GABRIELE,Trento,['TABACCHI']
+Corso Ausugum,40,,38051,588,,FARMACIA CENTRALE,Borgo Valsugana,['FARMACIA']
+Via Padri Morizzo,20,,38051,589,,SIMONETTO CARNI,Borgo Valsugana,[]
+Piazza Battisti,12,,38033,590,,FAMIGLIA COOPERATIVA DI CAVALESE,Cavalese,[]
+Corso Bettini,54,,38068,591,,DAMIATA MOTO,Rovereto,[]
+Via Ragazzi del '99,39,attività artigianale,38123,592,,NEON TRENTO SCOTUZZI,Trento,[]
+Via Maffei,13,,38066,593,,CASA DEL CAFFÈ,Riva del Garda,[]
+Piazza di Sant'A. Abate,5,,38070,594,Vezzano,RISTORANTE PIZZERIA LILLÀ,Vallelaghi,"['RISTORANTE', 'PIZZERIA']"
+,32,,38064,595,Francolini,BAR HOTEL SEGGIOVIA,Folgaria,"['BAR', 'HOTEL']"
+Via Schirni,13,,38064,596,,PANIFICIO CANALIA,Folgaria,['PANIFICIO']
+Via E. Colpi,191,,38064,597,,FOLGARIA FASHION SPORT,Folgaria,['SPORT']
+Via A. Maffei,134,,38064,598,,BAR RISTORANTE HOTEL BIANCANEVE,Folgaria,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Nazionale,69,,38064,600,,BAR RISTORANTE HOTEL ERICA,Folgaria,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via E. Colpi,48,,38064,601,,BAR RISTORANTE ANTICO ALBERGO STELLA D'ITALIA,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Manzoni,63,,38064,602,,BAR RISTORANTE ALBERGO TRENTINO,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via E. Colpi,10,,38064,603,,CALZATURE FAIT,Folgaria,['CALZATURE']
+Via E. Colpi,179,,38064,604,,FARMACIA GIRARDI,Folgaria,['FARMACIA']
+Via Dante Alighieri,12,,38064,605,,BAR RISTORANTE PARK HOTEL MIRAMONTI,Folgaria,"['BAR', 'RISTORANTE', 'HOTEL']"
+Via Lega Nazionale,41,,38064,606,,BAR RISTORANTE ALBERGO DUE SPADE,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Piazza S. Lorenzo,11,,38064,607,,MERCERIA RELLA,Folgaria,[]
+Piazza Oveno,1,,38123,609,Sopramonte,SALUMERIA BELLI,Trento,[]
+,58,esercizio commerciale,38077,610,Ponte Arche,BONANI GIULIANA,Comano Terme,[]
+Via Calepina,4,,38122,611,,BAR FIORENTINA,Trento,['BAR']
+Via Nazionale,35,esercizio commerciale,38020,612,,AMBROSI SILVIO LUIGI,Pellizzano,[]
+Piazza San Vittore,19,,38012,613,Taio,MACELLERIA MALENCH,Predaia,['MACELLERIA']
+Via S. Martino,90,,38122,614,,BAR DEI CAVAI,Trento,['BAR']
+Piazza C. Battisti,14,,38066,615,,BRESCIANI SOUVENIR,Riva del Garda,[]
+Via Mazzini,13,,38066,616,,PROFUMERIE BRESCIANI,Riva del Garda,[]
+Strada de Moene,31,,38035,617,,BAR DELL'HOTEL RANCOLIN,Moena,"['BAR', 'HOTEL']"
+Strada de la Comunità de Fiem,34,,38035,618,,MOBILIFICIO ARTIGIANI ASSOCIATI,Moena,[]
+Piaz de Ramon,27,,38035,619,,BAR GABRY,Moena,['BAR']
+Piaz de Ramon ,41,,38035,620,,BAR RAMON,Moena,['BAR']
+Strenta de Ischiacia,1,,38035,621,,ENOTECA DEL PINTER,Moena,[]
+Piaz de Ramon,41,,38035,622,,GIOIELLERIA CROCE,Moena,[]
+Strada de Moene ,67,,38035,623,,BAR DELL'HOTEL ALLE ALPI,Moena,"['BAR', 'HOTEL']"
+Piaz de Ramon,45,,38035,624,,LA BORA,Moena,[]
+Strada de Fachin,3,,38035,625,,NONSOLOMODA,Moena,[]
+Via Fiume,29,,38066,626,,PELLETTERIA GRAZIA S.A.S.,Riva del Garda,[]
+Viale IV Novembre 35,,,38034,627,Cembra,MACELLERIA ZANOTELLI,Cembra Lisignago,['MACELLERIA']
+Via Damiano Chiesa  6,,,38034,628,Cembra,PANIFICIO GAIGHER,Cembra Lisignago,['PANIFICIO']
+Viale IV Novembre 35,82,,38034,629,Cembra,FERRAMENTA PIU',Cembra Lisignago,['FERRAMENTA']
+Viale IV Novembre 35,78,,38034,630,Cembra,IDEA CASA,Cembra Lisignago,[]
+Piazza San Rocco,2,,38034,631,Cembra,MACELLERIA PAOLAZZI,Cembra Lisignago,['MACELLERIA']
+Piazza Marconi,6,,38034,632,Cembra,BAR VICO,Cembra Lisignago,['BAR']
+Viale IV Novembre 17,,,38034,633,Cembra,BAR ROSALPINA,Cembra Lisignago,['BAR']
+Piazza Municipio ,2,,38052,634,,ALBERGO RISTORANTE BAR DUE SPADE,Caldonazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via delle Villa,37,,38052,635,,ALBERGO RISTORANTE BAR ALLA TORRE,Caldonazzo,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Piazza Municipio,14,,38052,636,,CASALINGHI FERRAMENTA MURARA,Caldonazzo,['FERRAMENTA']
+Via Brenta,9,,38052,637,,MOBILI CIOLA,Caldonazzo,[]
+Via G. Marconi,1,,38040,638,,BAR RISTORNATE ROSSI,Luserna,['BAR']
+Via Asilo,26,,38054,639,Siror,MACELLERIA BONELLI,Primiero San Martino di Castrozza,['MACELLERIA']
+Via Larga,11,,38054,640,Siror,PANIFICIO PASTICCERIA ZANETEL ARRIGO,Primiero San Martino di Castrozza,['PANIFICIO']
+Via Larga ,13,,38054,641,Siror,BAR HOTEL SIROR,Primiero San Martino di Castrozza,"['BAR', 'HOTEL']"
+Via Passo Rolle,76,,38054,642,San Martino di Castrozza,CAFFE' CENTRALE DI GIAN LUIGI SECCO E C.,Primiero San Martino di Castrozza,[]
+Via Passo Rolle,74,,38054,643,San Martino di Castrozza,RISTORANTE ALBERGO CENTRALE,Primiero San Martino di Castrozza,"['RISTORANTE', 'ALBERGO']"
+Via Passo Rolle,185,,38054,644,San Martino di Castrozza,BAZAR DELL'ALPE,Primiero San Martino di Castrozza,['BAZAR']
+Via Laghetto,4,,38054,645,San Martino di Castrozza,BANCHER S.A.S. DI TISOT ADELIA E C.,Primiero San Martino di Castrozza,[]
+Via Strada Nuova ,8,,38064,646,,ALBERGO BAR RISTORANTE ROSALPINA DI CANALIA GABRIELE,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via A. Maffei,52,,38064,647,Costa,ALBERGO BAR RISTORANTE SAYONARA DI RECH WILLIAM,Folgaria,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Cesare Battisti,33/1,,38034,648,Cembra,NIC S.A.S. DI NICOLODI MARTINO,Cembra Lisignago,[]
+Piazza Marconi,3,,38034,649,Cembra,FAMIGLIA COOPERATIVA DI CEMBRA,Cembra Lisignago,[]
+Piazza Marconi,8,,38034,650,Cembra,TABACCHINO DI FADANELLI MAURA,Cembra Lisignago,['TABACCHI']
+Viale IV Novembre,51,,38034,651,Cembra,BAR PIZZERIA SAINT ROCK,Cembra Lisignago,"['BAR', 'PIZZERIA']"
+Piazza San Giovanni,16,,38013,652,,BAZAR COVI,Fondo,['BAZAR']
+Via IV Novembre,1,,38013,653,,CALZATURE SCHNEIDER,Fondo,['CALZATURE']
+Via Battisti,25,,38013,654,,EUROPAFERR FERRAMENTA DI ZINI MAURO GIOVANNI,Fondo,['FERRAMENTA']
+Via Battisti,10,,38013,655,,BATTISTI CALZATURE DI BATTISTI ALBERTO,Fondo,['CALZATURE']
+Via Inama,2,,38013,656,,ZANONI PREZIOSI ,Fondo,[]
+Via Lago Smeraldo,18,,38013,657,,PIZZERIA-RISTORANTE AL FOLON,Fondo,"['RISTORANTE', 'PIZZERIA']"
+Via Milano ,10,,38050,658,,BAR RISTORANTE TRENTO,Bieno,"['BAR', 'RISTORANTE']"
+Via Valserena ,36,,38054,659,Siror,BIRRERIA VALSERENA,Primiero San Martino di Castrozza,[]
+Via S. Andrea,5,,38054,660,Siror,BAR CAFFE' ERO,Primiero San Martino di Castrozza,['BAR']
+Via Passo Rolle,183,,38054,661,San Martino di Castrozza,BAR MARGHERITA,Primiero San Martino di Castrozza,['BAR']
+Via Passo Rolle,133,,38054,662,San Martino di Castrozza,ESTETICA PROFUMERIA TISOT,Primiero San Martino di Castrozza,[]
+Via Rivetta,23,,38054,663,Siror,CALZATURE BANCHER SEVERINO,Primiero San Martino di Castrozza,['CALZATURE']
+Via Passo Rolle,2,,38054,664,San Martino di Castrozza,RISTORANTE ALBERGO FRATAZZA,Primiero San Martino di Castrozza,"['RISTORANTE', 'ALBERGO']"
+Via S. Andrea,4,,38054,665,San Martino di Castrozza,FAMIGLIA COOPERATIVA DI SIROR,Primiero San Martino di Castrozza,[]
+Via Avisio,6,,38030,666,,BAR ALLA TORRE,Castello-Molina di Fiemme,['BAR']
+Via Latemar,16,,38030,667,,RISTORANTE ALBERGO LATEMAR S.N.C. DI BETTA MARISA E &.,Castello-Molina di Fiemme,"['RISTORANTE', 'ALBERGO']"
+Via Bolzano,22,,38030,668,Molina di Fiemme,CAVADA DOLORES DI CAVADA UGO & C. S.N.C.,Castello-Molina di Fiemme,[]
+,19,,38030,669,Stramentizzo Nuovo,BAR RISTORANTE PIZZERIA AL LAGO,Castello-Molina di Fiemme,"['BAR', 'RISTORANTE', 'PIZZERIA']"
+Via Cadino,2,,38030,670,Molina di Fiemme,BAR RISTORANTE ALBERGO PINETA,Castello-Molina di Fiemme,"['BAR', 'RISTORANTE', 'ALBERGO']"
+Via Marconi,4,,38030,671,Molina di Fiemme,RISTORANTE ALBERGO ANCORA DI ZANCANELLA PAOLO E LUCIA S.N.C.,Castello-Molina di Fiemme,"['RISTORANTE', 'ALBERGO']"
+Via Marconi,17,,38030,672,Molina di Fiemme,PANIFICIO TARTER DI MARCO TARTER & C. S.N.C.,Castello-Molina di Fiemme,['PANIFICIO']
+Via Marconi,23,,38030,673,Molina di Fiemme,FAMIGLIA COOPERATIVA DI CAVALESE - MOLINA DI FIEMME - PREDAIA,Castello-Molina di Fiemme,[]
+Via Roma,11,,38030,674,,FAMIGLIA COOPERATIVA DI CAVALESE - CASTELLO DI FIEMME,Castello-Molina di Fiemme,[]
+Piazza San Giovanni,37,,38013,675,,CARTOLERIA GIOCATTOLI BERTOLDI,Fondo,[]
+Piazza San giovanni,15,,38013,676,,LA BOTTEGA DI ZAMBIASI,Fondo,[]
+Via IV Novembre,70,,38013,677,,LATTERIA SOCIALE DI FONDO,Fondo,[]
+Via Battisti,20,,38013,678,,FAMIGLIA COOPERATIVA VAL DI NON,Fondo,[]
+Via del Foro,16,,38079,679,,CAFFE' VECCHIA TIONE,Tione di Trento,[]
+Via Roma,9,,38010,680,Casez,FAMIGLIA COOPERATIVA VAL DI NON S.C.A.R.L. - CASEZ,Sanzeno,[]
+Via Nazionale,28,,38010,681,,FAMIGLIA COOPERATIVA VAL DI NON S.C.A.R.L. - SANZENO,Sanzeno,[]
+Via Mazzini,2,,38010,682,Banco,FAMIGLIA COOPERATIVA VAL DI NON S.C.A.R.L. - BANCO,Sanzeno,[]
+Piazza Centrale,38/A,,38010,683,,BAR ALLA FONTANA DI BALDO ONESTINGHEL OLGA & C.,Sanzeno,['BAR']
+Via Mazzini,3,,38010,684,Banco,BAR MARINELLI,Sanzeno,['BAR']
+,48,,38010,685,Banco,BAR DALPIAZ,Sanzeno,['BAR']
+Via Roma,48,,38010,686,Casez,HOTEL CASEZ,Sanzeno,['HOTEL']
+Via S. Romedio ,18,,38010,687,,RISTORANTE AL MULINO,Sanzeno,['RISTORANTE']
+Via Roma,34,,38030,688,,PANIFICIO ZORZI DI ZORZI EZIO & C. S.N.C.,Castello-Molina di Fiemme,['PANIFICIO']
+Via Italia,10,,38030,689,Molina di Fiemme,BAR SPORT,Castello-Molina di Fiemme,"['BAR', 'SPORT']"
+Piazza Dante,5,,38013,690,,QUEN CONFEZIONI,Fondo,[]
+Via Restel de Fer,10,,38066,691,,RESTEL DE FER,Riva del Garda,[]
+Via Giovanelli A.,43,,38033,692,,DELVAI MARKET S.N.C. DI DELVAI NICOLETTA E CARESIA DIEGO,Carano,[]
+Via Calepina,40,,38122,693,,TUTTO LUCE SAS,Trento,[]
+Via S. Croce,48,,38122,694,,BAR TRE PORTONI,Trento,['BAR']
+Via Roma,22,,38050,695,,BAR ROMA,Ospedaletto,['BAR']
+Corso Tre Novembre,44,,38122,696,,FIORERIA STELLA,Trento,[]
+Via Fiume,55,esercizio commerciale,38066,697,,CONTINI,Riva del Garda,[]
+Via Battisti,8,,38057,698,,A. CRIVELLARI – COSE DI CASA,Pergine Valsugana,[]
+Piazza Spiaz de le Oche,33,esercizio commerciale,38057,699,,FRISANCO,Pergine Valsugana,[]
+Via Maturi,1,,38086,700,,ALIMENTARI CAOLA,Pinzolo,['ALIMENTARI']
+Via Lampi ,9,esercizio commerciale/attività artigianale,38023,701,,LA BOTTEGA DEL MOLETA,Cles,[]
+Piazza Navarrino,7, ,38023,702,,ALBERGO RISTORANTE CLES – OSTERIA PALAZAN,Cles,"['RISTORANTE', 'ALBERGO']"
+Piazza Granda,5,,38023,703,,CAFF'E EUROPA,Cles,[]
+Via Pilati,13,,38023,704,,FARMACIA DE MAFFEI ,Cles,['FARMACIA']
+Piazza Granda,43,,38023,705,,CAFFÈ BERTOLASI,Cles,[]
+Piazza Granda,3,,38023,706,,VISINTAINER CARTOLIBRERIA,Cles,[]
+Piazza Pez,1,,38023,707,,ROSANI ALIMENTARI,Cles,['ALIMENTARI']
+Via Marconi,38-44,,38023,708,,SEGHERIA LONGO,Cles,[]
+Via Diaz,6/A,,38023,709,,ALIMENTARI PAOLI S.N.C.,Cles,['ALIMENTARI']
+Via Lampi ,26,,38023,710,,MACELLERIA AGOSTINI LUIGI,Cles,['MACELLERIA']
+Via Pilati,9,esercizio commerciale,38023,711,,MENAPACE IVO,Cles,[]
+Piazza Granda,40,esercizio commerciale,38023,712,,VALENTINOTTI FRANCESCO,Cles,[]
+Piazza Municipio ,6,esercizio commerciale,38023,713,,ANGELI FLAVIO,Cles,[]
+Piazza Granda,23,,38023,714,,OREFICERIA A. CORRADINI,Cles,[]
+Piazza Municipio,4,esercizio commerciale,38023,715,,ANGELI NICOLA,Cles,[]
+Piazza Municipio ,7,,38023,716,,PREZIOSI STELLA,Cles,[]
+Via Lampi ,2,,38023,717,,PESCHERIA GOIO,Cles,[]
+Piazza Granda,30,,38023,718,,COLORIFICIO PIZ,Cles,[]
+Via Battisti,51,esercizio commerciale,38011,719,,ABRAM VITTORIO E C. SNC,Sarnonico,[]
+Via IV Novembre,2,,38011,720,,BAZAR GIORNALI DI CATTARINI VINCENZO,Sarnonico,['BAZAR']
+Via Trento,14,,38073,721,Stravino,CALZATURE DALLAPÈ,Cavedine,['CALZATURE']
+Via Santa Lucia,36,esercizio di somministrazione di alimenti e bevande,38067,722,Bezzecca,BAITA SANTA LUCIA,Ledro,[]
+Via dei Laghi,1,esercizio di somministrazione di alimenti e bevande,38060,723,,ANTICA CROCE,Tenno,[]
+Via Postal,29,esercizio commerciale,38010,724,Grumo,MOBILI ZENI LINO S.R.L.,S. Michele all’Adige,[]
+Via Tonale,23,,38010,725,Grumo,HOTEL CANTALEONE,S. Michele all’Adige,['HOTEL']
+Via Brennero,32,,38010,726,,BAR AL TURISTA,S. Michele all’Adige,['BAR']
+,17,,38032,727,Penia / Fedaia,BAR DIGA,Canazei,['BAR']
+,,pubblico esercizio – somministrazione di alimenti e bevande – pizzeria,38061,728,Sega,ALBERGO MONTILESSINI,Ala,"['ALBERGO', 'PIZZERIA']"
+Piazza G. Cantore,1,,38061,729,,BAR EUGENIA,Ala,['BAR']
+Piazzetta Cantore,5,,38061,730,,BAR TABACCHI DI BONGIOVANNI MAURO,Ala,"['BAR', 'TABACCHI']"
+Via 27 Maggio,,,38061,731,,MACELLERIA DEBIASI SERGIO,Ala,['MACELLERIA']
+Piazza Buonacquisto,4,pubblico esercizio – somministrazione di alimenti e bevande – bar/trattoria,38061,732,,VECCHIO CARNERA,Ala,['BAR']
+Via Cesare Battisti,19,,38077,733,,OREFICERIA CATTONI DI CATTONI CLAUDIO,Comano Terme,[]
+Via Cesare Battisti,17,,38077,734,,CATTONI ELETTRONICA DI CATTONO ROBERTO,Comano Terme,[]
+,55,ristorante – bar,38020,735,San Bernardo,HOTEL MIRAMONTI,Rabbi,"['BAR', 'RISTORANTE', 'HOTEL']"
+Piazza SS. Filippo e Giacomo,4,esercizio commerciale,38037,736,,LE LUZIE,Predazzo,[]
+Piazza Catena,21,esercizio commerciale,38066,737,,MARCHETTI,Riva del Garda,[]
+Via 24 Maggio,9,esercizio commerciale,38122,738,Trento,INDAL,Trento,[]
+Via dei Bagni di Fieno,17,esercizio commerciale,38060,739,,ZANLUCCHI SOFIA & C. S.A.S.,Garniga Terme,[]
+Stradon de Fascia ,2,ristorante - bar,38030,740,,RISTORANTE BAR JA VITO DI VENDER KATIA E C. S.N.C.,Soraga di Fassa,"['BAR', 'RISTORANTE']"
+Via Cesare Battisti,6/A,parrucchiera (impresa artigiana con vendita di prodotti),38038,741,,SALONE FUORI DI TESTA DI POZZA NADIA,Tesero,[]
+Via Bolghera,34,"esercizio commerciale/attività artigianale (pasticceria, gelateria)",38122,742,,FILIPPI E GARDUMI S.N.C. DI GARDUMI RENZO & C.,Trento,[]
+Via Mazzini,22,pubblico esercizio – somministrazione di alimenti e bevande – locanda,38077,743,Poia,ALBERGO LOCANDA FIORE DI SALIZZONI SILVIO E RITA S.N.C.,Comano Terme,['ALBERGO']
