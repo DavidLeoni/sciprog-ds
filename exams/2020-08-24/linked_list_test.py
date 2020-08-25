@@ -71,39 +71,41 @@ class CoupleSortTest(LinkedListTest):
         ll.couple_sort()
         self.assertEqual(to_py(ll), [])
 
-    def test_01_4(self):
+
+    def test_02_4(self):
         ll = to_ll([4])
-        ll.couple_sort()
+        res = ll.couple_sort()
         self.assertEqual(to_py(ll), [4])
+        self.assertEqual(res, None)  # must not return anything
 
 
-    def test_01_35(self):
+    def test_03_35(self):
         ll = to_ll([3,5])
         ll.couple_sort()
         self.assertEqual(to_py(ll), [3,5])
 
-    def test_01_62(self):
+    def test_04_62(self):
         ll = to_ll([6,2])
         ll.couple_sort()
         self.assertEqual(to_py(ll), [2,6])
 
-    def test_01_621(self):
+    def test_05_621(self):
         ll = to_ll([6,2,1])
         ll.couple_sort()
         self.assertEqual(to_py(ll), [2,6,1])
 
 
-    def test_01_6241(self):
+    def test_06_6241(self):
         ll = to_ll([6,2,4,1])
         ll.couple_sort()
         self.assertEqual(to_py(ll), [2,6,1,4])
 
-    def test_01_512763(self):
+    def test_07_512763(self):
         ll = to_ll([5,1,2,7,6,3])
         ll.couple_sort()
         self.assertEqual(to_py(ll), [1,5,2,7,3,6])
 
-    def test_01_complex(self):
+    def test_08_complex(self):
         ll = to_ll([4,3,5,2,6,7,6,3,2,4,5,3,2])
         ll.couple_sort()
         self.assertEqual(to_py(ll), [3,4,2,5,6,7,3,6,2,4,3,5,2])
