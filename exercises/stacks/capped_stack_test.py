@@ -1,5 +1,5 @@
 import unittest
-from capped_stack_solution import *
+from capped_stack_sol import *
 
 class CappedStackTest(unittest.TestCase):    
     """ Test cases for CappedStackTest

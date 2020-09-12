@@ -1,6 +1,6 @@
 
 import unittest
-from mall_solution import *
+from mall_sol import *
 
 def to_list(ordered_dict):
     """

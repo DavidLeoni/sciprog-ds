@@ -1,5 +1,5 @@
 import unittest
-from supermarket_solution import *
+from supermarket_sol import *
 
 
 def to_list(supermarket):

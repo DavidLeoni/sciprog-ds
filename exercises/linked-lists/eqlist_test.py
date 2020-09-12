@@ -1,4 +1,4 @@
-from eqlist_solution import *
+from eqlist_sol import *
 import unittest
 
 def to_py(eq_list):

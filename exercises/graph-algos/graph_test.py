@@ -1,4 +1,4 @@
-from graph_solution import *
+from graph_sol import *
 import unittest
 
 def str_compare_digraphs(actual, expected):

@@ -7,7 +7,7 @@ David Leoni - December 2018
 
 
 import sys
-sys.path.append('../exercises/trees/')
+sys.path.append('../trees/')
 
 import unittest
 

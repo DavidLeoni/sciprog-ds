@@ -1,5 +1,5 @@
 import unittest
-from linked_sort_solution import *
+from linked_sort_sol import *
 
 def to_py(linked_list):
     """ Return linked_list as a regular Python list - very handy for testing.

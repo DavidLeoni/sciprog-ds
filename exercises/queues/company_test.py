@@ -1,6 +1,6 @@
 import unittest
 from collections import deque
-from company_solution import *
+from company_sol import *
 
 
 class CompanyTest(unittest.TestCase):

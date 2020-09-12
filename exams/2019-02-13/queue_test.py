@@ -1,6 +1,6 @@
 import unittest
 from collections import deque
-from queue_solution import *
+from queue_sol import *
 
 
 class CompanyTest(unittest.TestCase):

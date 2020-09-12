@@ -1,4 +1,4 @@
-from selection_sort_solution import *
+from selection_sort_sol import *
 import unittest
 
 class SwapTest(unittest.TestCase):

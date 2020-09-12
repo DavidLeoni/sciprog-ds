@@ -16,16 +16,14 @@ import jupman_tools as jmt
 
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
-###################   TODO EDIT AS NEEDED !!  ####################
 
 jm = jmt.Jupman()
 
-# TODO CHANGE
 jm.subtitle = "A template manager for online books made with Jupyter notebooks and NBSphinx doc generator""" 
-jm.course = "Data Science Scientific Programming Lab" # TODO CHANGE
-jm.degree = "Data Science @ University of Trento" # TODO CHANGE
-author = 'David Leoni' # TODO CHANGE
-# TODO FIRST YEAR
+jm.course = "Data Science Scientific Programming Lab" 
+jm.degree = "Data Science @ University of Trento" 
+author = 'David Leoni' 
+
 copyright = '# 2020 - %s, %s' % (datetime.datetime.now().year, author)
 
 #####    'jm.filename' IS *VERY* IMPORTANT !!!!
@@ -33,7 +31,7 @@ copyright = '# 2020 - %s, %s' % (datetime.datetime.now().year, author)
 #####     AND IT SHOULD ALSO BE THE SAME NAME ON READTHEDOCS 
 #####     (like i.e. jupman.readthedocs.org)
 
-jm.filename = 'sciprog'   # The filename without the extension
+jm.filename = 'sciprog-ds'   # The filename without the extension
 
 # common files for exercise and exams as paths. Paths are intended relative to the project root. Globs like /**/* are allowed.
 
@@ -78,7 +76,7 @@ jm.build = "_build"
 
 jm.manuals = {
     "student": {
-        "name" : "DS Sciprog Lab",  # TODO put manual name, like "Scientific Programming"
+        "name" : "DS Sciprog Lab", 
         "audience" : "students",
         "args" : "",
         "output" : ""

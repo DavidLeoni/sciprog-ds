@@ -1,5 +1,5 @@
 
-from circular_queue_solution import *
+from circular_queue_sol import *
 import unittest
 
 

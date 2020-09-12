@@ -1,5 +1,5 @@
 import unittest
-from swap_array_solution import *
+from swap_array_sol import *
 
 class SwapTest(unittest.TestCase):
 

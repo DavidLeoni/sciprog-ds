@@ -1,4 +1,4 @@
-from merge_sort_solution import *
+from merge_sort_sol import *
 import unittest
 
 

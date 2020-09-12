@@ -1,4 +1,4 @@
-from exits_solution import *
+from exits_sol import *
 import unittest
 
 def str_compare_digraphs(actual, expected):

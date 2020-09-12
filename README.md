@@ -7,7 +7,7 @@ Source code as Jupyter Python worksheets for algorithms lab of Scientific Progra
 
 For Students: 
 
-* Officiale course website is here  [datasciprolab.readthedocs.org](http://datasciprolab.readthedocs.org) 
+* Officiale course website is here  [sciprog.davidleoni.it](https://sciprog.davidleoni.it) 
 * In this repository you will find the pages for building the website, the only thing interesting to you
 should be the [exercises folder](exercises)
 

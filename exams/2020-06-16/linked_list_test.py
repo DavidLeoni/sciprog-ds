@@ -1,5 +1,5 @@
 import unittest
-from linked_list_solution import *
+from linked_list_sol import *
 
 def to_py(linked_list):
     """ Creates a regular Python list from a LinkedList - very handy for testing

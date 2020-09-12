@@ -1,5 +1,5 @@
 
-from italian_queue_solution import *
+from italian_queue_sol import *
 import unittest
 
 

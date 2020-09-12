@@ -1,5 +1,5 @@
 import unittest
-from office_queue_solution import *
+from office_queue_sol import *
 
 SERVICES = { 'x':5,   # minutes
              'y':20,

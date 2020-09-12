@@ -1,5 +1,5 @@
 import unittest
-from stack_solution import *
+from stack_sol import *
 
 class WStackTest(unittest.TestCase):    
 

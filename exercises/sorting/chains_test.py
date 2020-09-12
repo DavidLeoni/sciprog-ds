@@ -1,5 +1,5 @@
 import unittest
-from chains_solution import *
+from chains_sol import *
 
 
 class TestHasDuplicates(unittest.TestCase):

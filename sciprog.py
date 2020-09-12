@@ -64,7 +64,7 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
         Optionally, saves it as .png image to filepath  save_to 
     
         For required libraries, see 
-        https://datasciprolab.readthedocs.io/en/latest/exercises/graph-formats/graph-formats-solution.html#Required-libraries
+        https://sciprog.davidleoni.it/graph-formats/graph-formats-sol.html#Required-libraries
     
         legend_edges example:
         
@@ -182,7 +182,7 @@ def draw_mat(mat, legend_edges=None, label='', save_to='', options={}):
         Optionally, saves it as .png image to filepath  save_to
         
         For required libraries, see 
-        https://datasciprolab.readthedocs.io/en/latest/exercises/graph-formats/graph-formats-solution.html#Required-libraries
+        https://sciprog.davidleoni.it/graph-formats/graph-formats-sol.html#Required-libraries
         
         For other options, see draw_nx
         
@@ -221,7 +221,7 @@ def draw_adj(d,legend_edges=None, label='', save_to='', options={}):
         Optionally, saves it as .png image to filepath  save_to
         
         For required libraries, see 
-        https://datasciprolab.readthedocs.io/en/latest/exercises/graph-formats/graph-formats-solution.html#Required-libraries
+        https://sciprog.davidleoni.it/graph-formats/graph-formats-sol.html#Required-libraries
         
         For other options, see draw_nx
 

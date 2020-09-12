@@ -1,4 +1,4 @@
-from digi_list_solution import *
+from digi_list_sol import *
 import unittest
 
 def to_py(linked_list):

@@ -1,6 +1,6 @@
 
 import unittest
-from linked_queue_solution import *
+from linked_queue_sol import *
 
 
 class InitEmptyTest(unittest.TestCase):

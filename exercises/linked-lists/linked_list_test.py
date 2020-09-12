@@ -1,4 +1,4 @@
-from linked_list_solution import *
+from linked_list_sol import *
 import unittest
 
 

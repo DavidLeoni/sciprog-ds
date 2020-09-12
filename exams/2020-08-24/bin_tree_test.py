@@ -1,5 +1,5 @@
                             
-from bin_tree_solution import *
+from bin_tree_sol import *
 import unittest
 
 
