@@ -1,0 +1,9 @@
+name: Leonardo
+surname: da Vinci
+birthdate: 1452-04-15
+name: Sandro
+surname: Botticelli
+birthdate: 1445-03-01
+name: Niccolò 
+surname: Macchiavelli
+birthdate: 1469-05-03
