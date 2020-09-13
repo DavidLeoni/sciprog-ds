@@ -22,7 +22,7 @@ jobs:
     - name: Run Sphinx in RTD docker      
       uses: DavidLeoni/readthedocs-to-actions@v1.0
       with:
-        RTD_PRJ_NAME: jupman        
+        RTD_PRJ_NAME: sciprog-ds        
         GIT_URL: https://github.com/${{ github.repository }}.git
         GIT_TAG: ${{ env.GIT_TAG }}
         VERSION: ${{ env.VERSION }}
