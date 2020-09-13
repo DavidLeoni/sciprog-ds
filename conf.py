@@ -128,7 +128,7 @@ exclude_patterns = [jm.build,
                      'README.md', 
                      'readme.md',
                      'pandas/prepare',
-                     '.pytest_cache']
+                     '**/.pytest_cache']
 
 exclude_patterns.extend(jm.zip_ignored)
 
