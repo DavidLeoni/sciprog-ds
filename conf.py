@@ -19,8 +19,8 @@ on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 jm = jmt.Jupman()
 
-jm.subtitle = "A template manager for online books made with Jupyter notebooks and NBSphinx doc generator""" 
-jm.course = "Data Science Scientific Programming Lab" 
+jm.subtitle = """Enter the Matrix""" 
+jm.course = "Scientific Programming Lab" 
 jm.degree = "Data Science @ University of Trento" 
 author = 'David Leoni' 
 
@@ -76,7 +76,7 @@ jm.build = "_build"
 
 jm.manuals = {
     "student": {
-        "name" : "DS Sciprog Lab", 
+        "name" : "Sciprog DS Lab", 
         "audience" : "students",
         "args" : "",
         "output" : ""
@@ -126,7 +126,9 @@ exclude_patterns = [jm.build,
                      "_private",
                      "_test",                     
                      'README.md', 
-                     'readme.md']
+                     'readme.md',
+                     'pandas/prepare',
+                     '.pytest_cache']
 
 exclude_patterns.extend(jm.zip_ignored)
 

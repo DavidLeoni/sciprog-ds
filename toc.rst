@@ -24,24 +24,24 @@ Part A
     :maxdepth: 2
     :glob:
 
-    Introduction <introduction/introduction-solution.ipynb>
-    Python basics <basics/basics-solution.ipynb>
-    Strings <strings/strings-solution.ipynb>
-    Lists <lists/lists-solution.ipynb> 
-    Tuples <tuples/tuples-solution.ipynb>     
-    Sets <sets/sets-solution.ipynb>
-    Dictionaries <dictionaries/dictionaries-solution.ipynb>
-    Control flow <control-flow/control-flow-solution.ipynb>    
-    Functions <functions/functions-solution.ipynb>    
-    Errors and testing <errors-and-testing/errors-and-testing-solution.ipynb>
+    Introduction <introduction/introduction-sol.ipynb>
+    Python basics <basics/basics-sol.ipynb>
+    Strings <strings/strings-sol.ipynb>
+    Lists <lists/lists-sol.ipynb> 
+    Tuples <tuples/tuples-sol.ipynb>     
+    Sets <sets/sets-sol.ipynb>
+    Dictionaries <dictionaries/dictionaries-sol.ipynb>
+    Control flow <control-flow/control-flow-sol.ipynb>    
+    Functions <functions/functions-sol.ipynb>    
+    Errors and testing <errors-and-testing/errors-and-testing-sol.ipynb>
     
-    Matrices: lists <matrices-lists/matrices-lists-solution.ipynb>
-    Matrices: numpy <matrices-numpy/matrices-numpy-solution.ipynb>
-    Data formats <formats/formats-solution.ipynb>
-    Graph formats <graph-formats/graph-formats-solution.ipynb>
-    Visualization <visualization/visualization-solution.ipynb>
-    Pandas <pandas/pandas-solution.ipynb>
-    Binary relations <binary-relations/binary-relations-solution.ipynb>  
+    Matrices: lists <matrices-lists/matrices-lists-sol.ipynb>
+    Matrices: numpy <matrices-numpy/matrices-numpy-sol.ipynb>
+    Data formats <formats/formats-sol.ipynb>
+    Graph formats <graph-formats/graph-formats-sol.ipynb>
+    Visualization <visualization/visualization-sol.ipynb>
+    Pandas <pandas/pandas-sol.ipynb>
+    Binary relations <binary-relations/binary-relations-sol.ipynb>  
 
 Part B
 ==========
