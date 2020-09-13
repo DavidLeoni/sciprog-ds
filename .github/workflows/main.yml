@@ -36,7 +36,7 @@ jobs:
         tree -aC $GITHUB_WORKSPACE
     - name: Commit documentation changes
       run: |
-        git clone https://github.com/${{ github.repository }}.git --branch sciprog.davidleoni.it --single-branch sciprog.davidleoni.it
+        git clone --depth 1 --branch sciprog.davidleoni.it https://github.com/${{ github.repository }}.git sciprog.davidleoni.it        
         
         mkdir -p sciprog.davidleoni.it/${{ env.WEB_PATH }}
         cp -r $GITHUB_WORKSPACE/html/* sciprog.davidleoni.it/${{ env.WEB_PATH }}
