@@ -24,7 +24,7 @@ Part A
     :maxdepth: 2
     :glob:
 
-    Introduction <introduction/introduction-sol.ipynb>
+    Installation <installation.ipynb>
     Python basics <basics/basics-sol.ipynb>
     Strings <strings/strings-sol.ipynb>
     Lists <lists/lists-sol.ipynb> 
