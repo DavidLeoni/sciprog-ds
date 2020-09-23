@@ -20,7 +20,7 @@ jobs:
     - name: sets WEB_PATH
       run: echo "::set-env name=WEB_PATH::"
     - name: Run Sphinx in RTD docker      
-      uses: DavidLeoni/readthedocs-to-actions@v1.0
+      uses: DavidLeoni/readthedocs-to-actions@master
       with:
         RTD_PRJ_NAME: sciprog-ds        
         GIT_URL: https://github.com/${{ github.repository }}.git
@@ -40,8 +40,8 @@ jobs:
         
         mkdir -p sciprog.davidleoni.it/${{ env.WEB_PATH }}
         cp -r $GITHUB_WORKSPACE/html/* sciprog.davidleoni.it/${{ env.WEB_PATH }}
-        cp -r $GITHUB_WORKSPACE/epub/*.epub sciprog.davidleoni.it/${{ env.WEB_PATH }}
-        cp -r $GITHUB_WORKSPACE/latex/*.pdf sciprog.davidleoni.it/${{ env.WEB_PATH }}
+        #cp -r $GITHUB_WORKSPACE/epub/*.epub sciprog.davidleoni.it/${{ env.WEB_PATH }}
+        #cp -r $GITHUB_WORKSPACE/latex/*.pdf sciprog.davidleoni.it/${{ env.WEB_PATH }}
         # note: html zip is already provided by Github
         cd sciprog.davidleoni.it        
         git config --local user.email "action@github.com"
