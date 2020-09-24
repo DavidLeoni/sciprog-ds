@@ -332,7 +332,6 @@
 <li class="toctree-l1"><a class="reference internal" href="toc.html"> </a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="toc.html#part-a">Part A</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Windows/Mac-installation">Windows/Mac installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Visual-Studio-Code">Visual Studio Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#The-debugger">The debugger</a></li>
 </ul>
@@ -1615,23 +1614,30 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Installation">
 <h1>Installation<a class="headerlink" href="#Installation" title="Permalink to this headline">¶</a></h1>
-<p>You will need to install several pieces of software to get a working programming environment. In this section we will install everything that we are going to need in the next few weeks.</p>
-<p>Python3 is available for Windows, Mac and Linux. Python3 alone is often not enough, and you will need to install extra system-specific libraries + editors like Jupyter and Visual Studio Code.</p>
-<div class="section" id="Windows/Mac-installation">
-<h2>Windows/Mac installation<a class="headerlink" href="#Windows/Mac-installation" title="Permalink to this headline">¶</a></h2>
-<p>To avoid hassles, especially on Win / Mac you should install some so called <em>package manager</em> (Linux distributions already come with a package manager). Among the many options for this course we use the package manager Anaconda for Python 3.8.</p>
+<p>You will need to install several pieces of software to get a working Python 3 programming environment. In this section we will install everything that we are going to need in the next few weeks.</p>
+<p>There are many ways to write and execute Python code:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/">Python interpreter</a> (command line)</p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (editor, good debugger)</p></li>
+<li><p><a class="reference external" href="https://jupyter.org/">Jupyter</a> (notebook, good for writing reports)</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> (online, collaborative)</p></li>
+<li><p><a class="reference external" href="https://repl.it/languages/python3">repl.it</a> (online, collaborative)</p></li>
+<li><p><a class="reference external" href="http://www.pythontutor.com/visualize.html#mode=edit">Python Tutor</a> (online, visual debugger)</p></li>
+</ul>
+<p>Python 3 is available for Windows, Mac and Linux. Python3 alone is often not enough, and you will need to install extra system-specific libraries + editors like Jupyter for Part A of the course and Visual Studio Code for Part B.</p>
+<p>To avoid hassles, especially on Win / Mac you should install some so called <em>package manager</em> (Linux distributions already come with a package manager). Among the many options for this course we use the package manager Anaconda for Python 3.8</p>
 <ol class="arabic simple">
 <li><p>Install <a class="reference external" href="https://www.anaconda.com/download/">Anaconda for Python 3.8</a> (anaconda installer will ask you to install also visual studio code, so accept the kind offer)</p></li>
 <li><p>If you didn’t in the previous point, install now Visual Studio Code, which is available for all platforms. You can read about it <a class="reference external" href="https://code.visualstudio.com/">here</a>. Downloads for all platforms can be found <a class="reference external" href="https://code.visualstudio.com/Download">here</a></p></li>
-</ol>
-<p>Now you can read all of <a class="reference external" href="https://en.softpython.org/installation.html">Installation on SoftPython</a> <strong>EXCEPT</strong>:</p>
+<li><p>Now you can read all of <a class="reference external" href="https://en.softpython.org/installation.html">Installation on SoftPython</a> <strong>EXCEPT</strong>:</p>
 <ul class="simple">
-<li><p>For Mac users: you <strong>don’t</strong> need to install homebrew, just install Anaconda</p></li>
-<li><p>For everybody: You <strong>don’t</strong> need to read ‘Projects with virtual environments’ paragraph (although it’s certainly useful when you have many Python projects on your pc!)</p></li>
+<li><p>For Mac users: for this course you <strong>don’t</strong> need to install homebrew, just install Anaconda</p></li>
+<li><p>For everybody: You don’t need to read <em>Projects with virtual environments</em> paragraph (although it’s certainly useful when you have many Python projects on your pc!)</p></li>
 </ul>
-<p>In this course we will be using Jupyter in Part A and Visual Studio Code in Part B</p>
-<p><strong>Jupyter and other things</strong> are described more in detail in <a class="reference external" href="https://en.softpython.org/tools/tools-sol.html">Tools and Scripts on SoftPython</a> (read it), while for Visual Studio Code you can read what follows.</p>
-</div>
+</li>
+<li><p><strong>Jupyter and course material format</strong> is described in detail in <a class="reference external" href="https://en.softpython.org/tools/tools-sol.html">Tools and Scripts on SoftPython</a>, read it!</p></li>
+<li><p>Finally, you can get familiar with Visual Studio Code by reading what follows. Even if we will use it only in Part B, read it anyway as it’s useful for many development tasks and supports a lot languages.</p></li>
+</ol>
 <div class="section" id="Visual-Studio-Code">
 <h2>Visual Studio Code<a class="headerlink" href="#Visual-Studio-Code" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> is an Integrated Development Editor (IDE) for text files. It can handle many languages, Python included (python programs are text files ending in <code class="docutils literal notranslate"><span class="pre">.py</span></code>).</p>
