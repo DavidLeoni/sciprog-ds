@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build_docs_job:
     if: (github.repository == 'DavidLeoni/sciprog-ds') && ((github.ref == 'refs/heads/master') || (github.ref == 'refs/heads/dev'))
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     name: Build docs    
     steps:   
     - name: Install deps
@@ -20,7 +20,7 @@ jobs:
     - name: sets WEB_PATH
       run: echo "::set-env name=WEB_PATH::"
     - name: Run Sphinx in RTD docker      
-      uses: DavidLeoni/readthedocs-to-actions@v1.1
+      uses: DavidLeoni/readthedocs-to-actions@v1.2
       with:
         RTD_PRJ_NAME: sciprog-ds        
         GIT_URL: https://github.com/${{ github.repository }}.git
@@ -61,7 +61,7 @@ jobs:
         # The above command will fail if no changes were present, so we ignore
         # the return code.
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@v0.6.0
       with:
         branch: sciprog.davidleoni.it
         directory: sciprog.davidleoni.it
