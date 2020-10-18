@@ -130,6 +130,10 @@ h4 {
     
 }
 
+.rst-content blockquote {
+    font-size: 1.25rem;
+}
+
 .wy-nav-content p, .wy-nav-content li, .wy-nav-content div.admonition {
     font-size: 1.25rem;
     line-height: 1.7;
@@ -153,3 +157,8 @@ div.nbinput.container div.prompt, div.nboutput.container div.prompt{
     width:5px !important;
 }
 
+
+.jupman-sol {    
+    background-color:#ebf3ed !important;  
+    border-color: #d3dfd6 !important;            
+}

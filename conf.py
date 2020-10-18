@@ -46,24 +46,32 @@ jm.chapter_files = ['jupman.py', 'sciprog.py', '_static/img/cc-by.png',
 jm.chapter_patterns =  ['*/']
 jm.chapter_exclude_patterns =  ['[^_]*/','exams/', 'project/']
 
-# words used in ipynb files - you might want to translate these in your language. Use plural.
+
+
+# words used in ipynb files - you might want to translate these in your language. 
+# Use singular
+jm.ipynb_show_solution = "Show solution"
+jm.ipynb_hide_solution = "Hide"
+jm.ipynb_show_answer = "Show answer"
+jm.ipynb_hide_answer = "Hide"
+# Use plural
 jm.ipynb_solutions = "SOLUTIONS"
 jm.ipynb_exercises = "EXERCISES"
 
 #NOTE: this string is not just a translation, it's also a command that when building the exercises
 #      removes the content after it in the Python cell it is contained in
 #      If the user inserts extra spaces the phrase will be recognized anyway
-jm.write_solution_here = jmt.ignore_spaces("# write here", must_begin=False)
+jm.write_solution_here = jmt.tag_regex("# write here", must_begin=False, preserve_line=True)
 
 #NOTE: this string is not just a translation, it's also a command that when building the exercises  
 # completely removes the content of the python cell it is contained in (solution comment included). 
 # If the user inserts extra spaces the phrase will be recognized anyway
-jm.solution = jmt.ignore_spaces("# SOLUTION")
+jm.solution = jmt.tag_regex("# SOLUTION")
 
 #NOTE: this string is not just a translation, it's also a command that 
 #   when building the exercises removes the content after it in the markdown cell
 #   it is contained in
-jm.markdown_answer = jmt.ignore_spaces('**ANSWER**:')
+jm.markdown_answer = jmt.tag_regex('**ANSWER**:')
 #################################################################
 
 jm.zip_ignored = ['__pycache__', '**.ipynb_checkpoints', '.pyc', '.cache', '.pytest_cache', '.vscode']
@@ -425,6 +433,7 @@ pdf_use_numbered_links = False
 pdf_fit_background_mode = 'scale'
 
 def setup(app):
+    jmt.init(jm)
     
     app.add_config_value(   'recommonmark_config', {
                                 'auto_toc_tree_section': 'Contents',
