@@ -514,12 +514,13 @@ class Jupman:
 
         self.raise_exc = "jupman-raise"
         self.strip = "jupman-strip"
+        self.purge = "jupman-purge"
 
         self.raise_exc_code = "raise Exception('TODO IMPLEMENT ME !')"
         """ WARNING: this string can end end up in a .ipynb json, so it must be a valid JSON string  ! Be careful with the double quotes and \n  !!
         """
 
-        self.tags = [self.raise_exc, self.strip]
+        self.tags = [self.raise_exc, self.strip, self.purge]
         """ Jupman tags
         """
 
@@ -545,6 +546,9 @@ class Jupman:
 
     def strip_pattern(self):
         return re.compile(tag_start(self.strip) + '.*?' + tag_end(self.strip), flags=re.DOTALL)
+
+    def purge_pattern(self):
+        return re.compile(tag_start(self.purge) + '.*?' + tag_end(self.purge), flags=re.DOTALL)
 
     def get_exercise_folders(self):
         ret = []
@@ -575,6 +579,7 @@ class Jupman:
                         self.raise_exc_code, 
                         solution_text)                    
         ret = re.sub(self.strip_pattern(), '', ret)
+        ret = re.sub(self.purge_pattern(), '', ret)
         ret = re.sub(self.write_solution_here, r'\1\2\n\n', ret)
         if filepath:
             ret = replace_py_rel(ret, filepath)
@@ -671,7 +676,8 @@ class Jupman:
             
             with open(source_abs_fn) as sol_source_f:
                 text = sol_source_f.read()
-                text = replace_py_rel(text, source_abs_fn)
+                text = re.sub(self.purge_pattern(), '', text)
+                text = replace_py_rel(text, source_abs_fn)                
                 text = _cancel_tags(text, self.tags)
                 with open(dest_fn, 'w') as solution_dest_f:
                     info("  Writing (patched) %s " % dest_fn)
@@ -684,6 +690,7 @@ class Jupman:
             replace_ipynb_rel(nb_node, source_abs_fn)
             for cell in nb_node.cells:            
                 if cell.cell_type == "code":    
+                    cell.source = re.sub(self.purge_pattern(), '', cell.source)
                     cell.source = _cancel_tags(cell.source, self.tags)
 
             nbformat.write(nb_node, dest_fn)
@@ -694,18 +701,14 @@ class Jupman:
             
     
     def _sol_nb_to_ex(self, nb, source_abs_fn, website=False ):
-        """ Takes a solution notebook object and modifies it to strip solutions
-
-            strip_all: if True completely removes the solutions
+        """ Takes a solution notebook object and modifies it to strip solutions            
 
             @since 3.2
         """    
         from nbformat.v4 import new_raw_cell
 
-        def before_cell(n, cell_type):
+        def before_cell(n, cell_type):            
             
-            
-
             if cell_type == 'code': 
                 show = self.ipynb_show_solution
                 hide = self.ipynb_hide_solution
@@ -760,6 +763,7 @@ class Jupman:
                     stripped_cell.source = self.sol_to_ex_code(cell.source,source_abs_fn)
                     if website:
                         nb.cells.append(before_cell(cell_counter, cell.cell_type))
+                        cell.source = re.sub(self.purge_pattern(), '', cell.source)
                         cell.source = _cancel_tags(cell.source, self.tags)
                         nb.cells.append(cell)
                         nb.cells.append(after_cell())
