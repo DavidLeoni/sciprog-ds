@@ -19,7 +19,7 @@ trap '[[ $BASH_COMMAND != echo* ]] && echo $BASH_COMMAND' DEBUG
 
 
 python3 exam.py init 2000-12-31
-python3 exam.py package 2000-12-31
+python3 exam.py package --site --server 2000-12-31
 
 echo
 echo "------- Simulating some shipped exams..."

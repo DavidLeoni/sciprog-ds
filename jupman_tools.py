@@ -291,7 +291,7 @@ def tag_regex(string, must_begin=True, preserve_line=False):
         must_begin : if True, provided string must be at the beginning of code / cell
         preserve_line : if True, characters following the tag until the end of the line are ignored
 
-        @since 3.2
+        @since 3.3
     """
     if len(string) == 0:
             raise ValueError("Expect a non-empty string !")
@@ -875,6 +875,19 @@ class Jupman:
                                              dest_fn)
 
 
+    def _common_files_maps(self, zip_name):
+        """        
+           @since 3.2 Created in order to make exam.py work
+        """
+        deglobbed_common_files = []
+        deglobbed_common_files_patterns = []
+        for common_path in self.chapter_files:                
+            cur_deglobbed = glob.glob(common_path, recursive=True)       
+            deglobbed_common_files.extend(cur_deglobbed)
+            deglobbed_common_files_patterns.extend(
+                [("^(%s)$" % x, "%s/%s" % (zip_name, x)) for x in cur_deglobbed])
+        return (deglobbed_common_files, deglobbed_common_files_patterns)
+
     def zip_folder(self, source_folder, renamer=None):
         """ Takes source folder and creates a zip with processed files
 
@@ -901,19 +914,13 @@ class Jupman:
 
         self.copy_code(source_folder, build_folder, copy_solutions=True)
 
-        deglobbed_common_files = []
-        deglobbed_common_files_patterns = []
-        for common_path in self.chapter_files:                
-            cur_deglobbed = glob.glob(common_path, recursive=True)       
-            deglobbed_common_files.extend(cur_deglobbed)
-            deglobbed_common_files_patterns.extend(
-                [("^(%s)$" % x, "%s/%s" % (zip_name, x)) for x in cur_deglobbed])
-
+        deglobbed_common_files, deglobbed_common_files_patterns = self._common_files_maps(zip_name)
+        
         info("zip_name = %s" % zip_name)            
         zip_path = os.path.join(self.generated, zip_name)
         self.zip_paths( deglobbed_common_files + [build_folder], 
                         zip_path,
-                        patterns= deglobbed_common_files_patterns + [("^(%s)" % build_jupman,"")])
+                        patterns = deglobbed_common_files_patterns + [("^(%s)" % build_jupman,"")])
         info("Done zipping %s" % source_folder ) 
 
     def zip_folders(self, selector, renamer=None):
@@ -990,16 +997,15 @@ class Jupman:
                 \noindent \url{%s}''' % html_baseurl)
 
 
-    def zip_paths(self, rel_paths, zip_path, patterns=[]):
+    def zip_paths(self, rel_paths, zip_path, patterns=[], remap=None):
         """ zips provided rel_folder to file zip_path (WITHOUT .zip) !
             rel_paths MUST be relative to project root
             
             This function was needed as default python zipping machinery created weird zips 
             people couldn't open in Windows
             
-            patterns can be:
-            - a list of tuples source regexes to dest 
-            - a function that takes a string and returns a string
+            - patterns is a list of tuples source regexes to dest               
+            - remap is a function that takes a string and returns a string, and is applied after patterns
             
         """
         
@@ -1021,21 +1027,27 @@ class Jupman:
                 #info('Zipping: %s' % fname)            
                 
                 
-                if isinstance(patterns, (list,)):
-                    if len(patterns) > 0:
+                if isinstance(patterns, types.FunctionType):
+                    warn("zip_paths: using patterns as a function is deprecated, please use remap attribute instead")                    
+                    the_remap = patterns
+                    the_patterns = []
+                else:
+                    the_patterns = patterns
+                    the_remap = remap
+                    
+                if len(the_patterns) == 0 and the_remap == None:
+                    to_name = '/%s' % fname
+                else:
+                    if len(the_patterns) > 0:
                         to_name = fname
-                        for pattern, to in patterns:    
+                        for pattern, to in the_patterns:
                             try:
                                 to_name = re.sub(pattern, to, to_name)
                             except Exception as ex:
                                 error("Couldn't substitute pattern \n  %s\nto\n  %s\nin string\n  %s\n\n" % (pattern, to, to_name) , ex)
-                    else:
-                        to_name = '/%s' % fname
-                        
-                elif isinstance(patterns, types.FunctionType):
-                    to_name = patterns(fname)
-                else:
-                    error('Unknown patterns type %s' % type(patterns))
+                                                                
+                    if the_remap != None:
+                        to_name = the_remap(fname)
 
                 #info('to_name = %s' % to_name)                    
                     
@@ -1059,5 +1071,5 @@ class Jupman:
                 raise ValueError("Don't know how to handle %s" % rel_path)
         archive.close()
             
-        info("Wrote %s" % zip_path)
+        info("Wrote %s.zip" % zip_path)
 

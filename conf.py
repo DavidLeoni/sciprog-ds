@@ -445,7 +445,7 @@ def setup(app):
     jm.zip_folders('exams/*/solutions', 
                     lambda x:  '%s-%s-exam' % (jm.filename, x.split('/')[-2]))
     # Build Project
-    def sub(x):
+    def remap(x):
         if x == 'requirements.txt':
             return 'NAME-SURNAME-ID/requirements.txt'
         elif x.startswith('project/'):
@@ -455,7 +455,7 @@ def setup(app):
 
     jm.zip_paths(['project', 'requirements.txt'], 
                     '_static/generated/project-template',
-                    patterns = sub)
+                    remap=remap)
     
 
 source_suffix = {

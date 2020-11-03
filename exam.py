@@ -82,27 +82,31 @@ def init(parser, context,args):
                         
 """
 jupman-2000-12-31-FIRSTNAME-LASTNAME-ID
-    exams
-       2000-12-31            
-          exercise1.py
-          exercise2.py
-          exercise3.py  
+    exercise1.py
+    exercise2.py
+    exercise3.py  
 """
 @subcmd(help='Zips a builded exam, making it ready for deploy on the exam server')
 def package(parser,context,args):
-    ld = arg_date(parser, args)
+    
+    parser.add_argument('date', help="date in format 'yyyy-mm-dd'" )
+    parser.add_argument('-t','--site',  action='store_true', help="zips the site" )
+    parser.add_argument('-r','--server', action='store_true',  help="zips the server" )
+    
+    vs = vars(parser.parse_args(args))
+    ld = jmt.parse_date_str(vs['date'])
+    
+    zip_site = vs['site']
+    zip_server = vs['server']
+        
     eld_admin = '_private/' + ld 
     eld_solutions = '_private/%s/solutions' % ld
-    eld_notebook = '%s/exam-%s.ipynb' % (eld_solutions, ld)
+    eld_notebook = '%s/exam-%s.ipynb' % (eld_solutions, ld)    
     target_student = get_target_student(ld)
-    target_student_pdf = '%s/%s' % (get_target_student(ld), get_exam_text_filename(ld, 'pdf'))
-    # no pdf as hiding cells is too boring, have still 
-    # to properly review cells filtering https://github.com/DavidLeoni/jupman/issues/4
-    # target_student_pdf = target_student + '/' + 'exam-' + ld + '.pdf'
+    target_student_pdf = '%s/%s' % (get_target_student(ld), get_exam_text_filename(ld, 'pdf'))    
     target_student_zip = "%s/server/%s-%s-exam" % (eld_admin,jm.filename,ld) # without '.zip'
     target_server_zip = "%s/%s-%s-server" % (eld_admin, jm.filename,ld) # without '.zip'
 
-    
 
     if not os.path.exists(jm.build):
         fatal("%s WAS NOT BUILT !" % jm.build)
@@ -127,67 +131,68 @@ def package(parser,context,args):
     if os.path.exists(server_jupman):
         jmt.delete_tree(server_jupman, "_private/%s/server" % ld)
 
-    info("Copying built website ...")        
-    shutil.copytree(jm.build, server_jupman)
+    if zip_site:
+        info("Copying built website ...")        
+        shutil.copytree(jm.build, server_jupman)
+
+    if not os.path.exists(target_student):
+        os.makedirs(target_student)
+
+
+    info("Copying exercises to " + str(target_student))
+    jm.copy_code(eld_solutions, target_student, copy_solutions=False)
+
     
     info("Building pdf ..")
     import nbformat
     import nbconvert
-    from nbconvert import PDFExporter
-    
+    from nbconvert import PDFExporter    
     pdf_exporter = PDFExporter()    
     
     #Dav dic 2019:  couldn't make it work, keeps complaining about missing files
     #pdf_exporter.template_file = '_templates/classic.tplx
     # as a result we have stupid extra date and worse extra numbering in headers
 
-
-    from nbconvert.preprocessors import ExecutePreprocessor
-    with open(eld_notebook) as f:
-        nb = nbformat.read(f, as_version=4)
-        old_title = jmt._replace_title(nb, 
+    with open('%s/exam-%s.ipynb' % (target_student, ld)) as f:
+        ex_nb = nbformat.read(f, as_version=4)
+        old_title = jmt._replace_title(ex_nb, 
                                        eld_notebook, 
-                                       "").strip('#')
-        
-        nb.cells = [cell for cell in nb.cells \
+                                       "").strip('#').strip(jm.ipynb_exercises)
+
+        ex_nb.cells = [cell for cell in ex_nb.cells \
                              if not ('nbsphinx' in cell.metadata \
                                      and cell.metadata['nbsphinx'] == 'hidden')]
-
-        (body, resources) = pdf_exporter.from_notebook_node(nb,
-                                            resources={'metadata': {'name': old_title}})
-
+                         
+        (body, resources) = pdf_exporter.from_notebook_node(ex_nb,
+                                                            resources={'metadata': {'name': old_title}})
         
-        if not os.path.exists(target_student):
-            os.makedirs(target_student)
-        #ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
-        #ep.preprocess(nb, {'metadata': {'path': './'}})
-        with open(target_student_pdf, 'wb') as pdf_f:
-            #print("resources = %s" % resources)
-            pdf_f.write(body)
-            
-            
-    info("Copying exercises to " + str(target_student))
-    jm.copy_code(eld_solutions, target_student, copy_solutions=False)
-
+        with open(target_student_pdf, 'wb') as pdf_f:        
+            pdf_f.write(body)    
     
     info("Creating student exercises zip:  %s.zip" % target_student_zip)
     
-    def mysub(fname):
+    def remap(fname):
         if fname.startswith('_private/'):
             return fname[len('_private/YYYY-MM-DD/student-zip/'):]
         else:
             return '/%s/%s' % (jm.get_exam_student_folder(ld), fname)
             
+    deglobbed_common_files, deglobbed_common_files_patterns = jm._common_files_maps(target_student_zip)
     
-    jm.zip_paths([target_student] + jm.chapter_files,
+    jm.zip_paths([target_student] + deglobbed_common_files,
                   target_student_zip,  
-                  mysub)
-    #shutil.make_archive(target_student_zip, 'zip', target_student_zip)
-    info("Creating server zip: %s.zip" % target_server_zip )
-    shutil.make_archive(target_server_zip, 'zip', eld_admin + "/server")
-    print("")    
-    info("You can now browse the website at:  %s" % (os.path.abspath(eld_admin + "/server/" + jm.filename + "/html/index.html")))
-    print("")
+                  patterns=deglobbed_common_files_patterns,
+                  remap=remap)
+    
+    if zip_server:
+        info("Creating server zip: %s.zip" % target_server_zip )
+        shutil.make_archive(target_server_zip, 'zip', eld_admin + "/server")
+        
+    if zip_server and zip_site:
+        print("")    
+        info("You can now browse the website at:  %s" % (os.path.abspath(eld_admin + "/server/" + jm.filename + "/html/index.html")))
+        print("")        
+        
 
 @subcmd(help='Set up grading for the provided exam')
 def grade(parser,context,args):
@@ -268,8 +273,9 @@ def publish(parser,context,args):
     info("Copying solutions to %s" % dest)
     shutil.copytree(source_solutions, dest)
 
-    info("Copying exam PDF text")
-    shutil.copyfile(student_pdf, '%s/%s' % (dest, get_exam_text_filename(ld, 'pdf')))
+    # better avoiding this, I often fix exams post-publication
+    #info("Copying exam PDF text")
+    #shutil.copyfile(student_pdf, '%s/%s' % (dest, get_exam_text_filename(ld, 'pdf')))
     
     info()
     info("Exam Python files copied.")
