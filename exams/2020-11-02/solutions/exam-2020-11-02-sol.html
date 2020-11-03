@@ -129,10 +129,17 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../past-exams.html">Past Exams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../../past-exams.html#Data-science">Data science</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Midterm Sim - Mon 02, Nov 2020</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#What-to-do">What to do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Part-A---Galactic-Love">Part A - Galactic Love</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Part-A---Galactic-Love">Part A - Galactic Love</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parse_stars">parse_stars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot_stars-1">plot_stars 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot_stars-2---new_center">plot_stars 2 - new_center</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parse_zodiac">parse_zodiac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot_love">plot_love</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../2020-08-24/solutions/exam-2020-08-24-sol.html">Exam - Mon 24, Aug 2020</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-08-24/solutions/exam-2020-08-24-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-08-24/solutions/exam-2020-08-24-sol.html#Introduction">Introduction</a></li>
@@ -1206,9 +1213,11 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Midterm-Sim---Mon-02,-Nov-2020">
 <h1>Midterm Sim - Mon 02, Nov 2020<a class="headerlink" href="#Midterm-Sim---Mon-02,-Nov-2020" title="Permalink to this headline">¶</a></h1>
 <p><strong>Scientific Programming - Data Science &#64; University of Trento</strong></p>
+<div class="section" id="Download-exercises-and-solutions">
+<h2><a class="reference external" href="../../../_static/generated/sciprog-ds-2020-11-02-exam.zip">Download exercises and solutions</a><a class="headerlink" href="#Download-exercises-and-solutions" title="Permalink to this headline">¶</a></h2>
 <p><strong>This simulation gives you NO credit whatsoever</strong>: If you do everything wrong, you lose nothing. If you do everything correct, you gain nothing</p>
 <div class="section" id="What-to-do">
-<h2>What to do<a class="headerlink" href="#What-to-do" title="Permalink to this headline">¶</a></h2>
+<h3>What to do<a class="headerlink" href="#What-to-do" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">sciprog-ds-2020-11-02-exam.zip</span></code> and extract it on your desktop.</p></li>
 <li><p>Rename <code class="docutils literal notranslate"><span class="pre">sciprog-ds-2020-11-02-FIRSTNAME-LASTNAME-ID</span></code> folder: put your name, lastname an id number, like <code class="docutils literal notranslate"><span class="pre">sciprog-ds-2020-11-02-john-doe-432432</span></code></p></li>
@@ -1224,12 +1233,15 @@ div.rendered_html tbody tr:hover {
 </ul>
 </div>
 </div>
+</div>
 <div class="section" id="Part-A---Galactic-Love">
 <h1>Part A - Galactic Love<a class="headerlink" href="#Part-A---Galactic-Love" title="Permalink to this headline">¶</a></h1>
 <p>Open Jupyter and start editing this notebook <code class="docutils literal notranslate"><span class="pre">exam-2020-11-02.ipynb</span></code></p>
 <p>Since today is a pseudo-exam, you are going to do pseudo-science!</p>
 <p>The company Astro Logic provides horoscopes to thousands of loyal customers, who each day require a number of divinitions. The most requested is whether or not they should engage in love affairs with a potential partner, who is chosen according to rigourous criteria like his/her astrological sign. You are then hired to devise a fancy visualization which given two astrological signs and their love compatibility, displays the constellations of their signs close when the the compatibility is high
 and far away when compatibility is low.</p>
+<div class="section" id="parse_stars">
+<h2>parse_stars<a class="headerlink" href="#parse_stars" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start with real astronomical data. You are given a database of constellations called <code class="docutils literal notranslate"><span class="pre">stars.csv</span></code> (we slightly tweaked it for this occasion - original data source: <a class="reference external" href="https://github.com/mperrin/misc_astro">Space Telescope Science Institute</a>)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1592,7 +1604,45 @@ and far away when compatibility is low.</p>
 <p><strong>You can find the complete output in</strong> <code class="docutils literal notranslate"><span class="pre">expected_stars_db.py</span></code></p>
 </div>
 <p>Excerpt:</p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">{'Andromeda':</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">30.974999999999998,</span> <span class="pre">42.31666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">17.425,</span> <span class="pre">35.61666666666667],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">9.825000000000001,</span> <span class="pre">30.849999999999998],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">2.091666666666667,</span> <span class="pre">29.083333333333332],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">14.3,</span> <span class="pre">23.416666666666668],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">11.833333333333332,</span> <span class="pre">24.266666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">9.633333333333333,</span> <span class="pre">29.3],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">9.825000000000001,</span> <span class="pre">30.849999999999998],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">9.216666666666667,</span> <span class="pre">33.71666666666667],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">4.266666666666667,</span> <span class="pre">38.666666666666664],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">354.5333333333333,</span> <span class="pre">43.266666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">355.09999999999997,</span> <span class="pre">44.333333333333336],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">354.3833333333333,</span> <span class="pre">46.45],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">354.5333333333333,</span> <span class="pre">43.266666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">345.475,</span> <span class="pre">42.31666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">9.216666666666667,</span> <span class="pre">33.71666666666667],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">17.425,</span> <span class="pre">35.61666666666667],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">14.183333333333334,</span> <span class="pre">38.483333333333334],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">12.45,</span> <span class="pre">41.06666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">17.375,</span> <span class="pre">47.233333333333334],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">24.491666666666667,</span> <span class="pre">48.61666666666667],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[-1,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">],</span>&#160; <span class="pre">'Antlia':</span>&#160;&#160; <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">142.30833333333334,</span> <span class="pre">-35.95],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[2,</span> <span class="pre">156.78333333333333,</span> <span class="pre">-31.066666666666666],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[2,</span> <span class="pre">164.175,</span> <span class="pre">-37.13333333333333],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[-1,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">],</span>&#160;&#160; <span class="pre">.</span>&#160;&#160; <span class="pre">.</span>&#160;&#160; <span class="pre">.</span> <span class="pre">}</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Andromeda&#39;</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">30.974999999999998</span><span class="p">,</span> <span class="mf">42.31666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">17.425</span><span class="p">,</span> <span class="mf">35.61666666666667</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">9.825000000000001</span><span class="p">,</span> <span class="mf">30.849999999999998</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.091666666666667</span><span class="p">,</span> <span class="mf">29.083333333333332</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">14.3</span><span class="p">,</span> <span class="mf">23.416666666666668</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">11.833333333333332</span><span class="p">,</span> <span class="mf">24.266666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">9.633333333333333</span><span class="p">,</span> <span class="mf">29.3</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">9.825000000000001</span><span class="p">,</span> <span class="mf">30.849999999999998</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">9.216666666666667</span><span class="p">,</span> <span class="mf">33.71666666666667</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.266666666666667</span><span class="p">,</span> <span class="mf">38.666666666666664</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">354.5333333333333</span><span class="p">,</span> <span class="mf">43.266666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">355.09999999999997</span><span class="p">,</span> <span class="mf">44.333333333333336</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">354.3833333333333</span><span class="p">,</span> <span class="mf">46.45</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">354.5333333333333</span><span class="p">,</span> <span class="mf">43.266666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">345.475</span><span class="p">,</span> <span class="mf">42.31666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">9.216666666666667</span><span class="p">,</span> <span class="mf">33.71666666666667</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">17.425</span><span class="p">,</span> <span class="mf">35.61666666666667</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">14.183333333333334</span><span class="p">,</span> <span class="mf">38.483333333333334</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">12.45</span><span class="p">,</span> <span class="mf">41.06666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">17.375</span><span class="p">,</span> <span class="mf">47.233333333333334</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">24.491666666666667</span><span class="p">,</span> <span class="mf">48.61666666666667</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+               <span class="p">],</span>
+ <span class="s1">&#39;Antlia&#39;</span><span class="p">:</span>   <span class="p">[</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">142.30833333333334</span><span class="p">,</span> <span class="o">-</span><span class="mf">35.95</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">156.78333333333333</span><span class="p">,</span> <span class="o">-</span><span class="mf">31.066666666666666</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">164.175</span><span class="p">,</span> <span class="o">-</span><span class="mf">37.13333333333333</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+             <span class="p">],</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot_stars-1">
+<h2>plot_stars 1<a class="headerlink" href="#plot_stars-1" title="Permalink to this headline">¶</a></h2>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">plot_stars</span></code> to plot constellations</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>WARNING: DO NOT use GraphViz!</strong></p>
@@ -1691,7 +1741,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_13_1.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_13_1.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_14_1.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_14_1.png" />
 </div>
 </div>
 </div><div class="nbinput docutils container">
@@ -1739,7 +1789,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_15_1.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_15_1.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_16_1.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_16_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1779,7 +1829,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_17_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_17_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_18_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_18_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1795,9 +1845,12 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_18_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_18_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_19_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_19_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="plot_stars-2---new_center">
+<h2>plot_stars 2 - new_center<a class="headerlink" href="#plot_stars-2---new_center" title="Permalink to this headline">¶</a></h2>
 <p>Change the previous function <code class="docutils literal notranslate"><span class="pre">plot_stars</span></code> so it accepts a new argument <code class="docutils literal notranslate"><span class="pre">new_center</span></code>, which is either <code class="docutils literal notranslate"><span class="pre">None</span></code> or a tuple of coordinates where the constellation should be centered:</p>
 <ul class="simple">
 <li><p>be precise in determining the boundaries of the constellation</p></li>
@@ -1819,7 +1872,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_20_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_20_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_21_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_21_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1838,9 +1891,12 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_21_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_21_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_22_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_22_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="parse_zodiac">
+<h2>parse_zodiac<a class="headerlink" href="#parse_zodiac" title="Permalink to this headline">¶</a></h2>
 <p>You are given a file <code class="docutils literal notranslate"><span class="pre">zodiac.csv</span></code>. For each sign, the table contains astrological information and affinity with other signs, expressed as a relation matrix:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -2108,6 +2164,9 @@ and far away when compatibility is low.</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="plot_love">
+<h2>plot_love<a class="headerlink" href="#plot_love" title="Permalink to this headline">¶</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">stars.csv</span></code> we inserted the special (fake!) constellation of <code class="docutils literal notranslate"><span class="pre">'Love'</span></code>: given the importance, we placed it at the center of the galaxy, positioned at <code class="docutils literal notranslate"><span class="pre">x=180</span></code> degrees and <code class="docutils literal notranslate"><span class="pre">y=0</span></code>. If you try to plot it now, you should get something like this:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -2129,7 +2188,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_30_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_30_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_31_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_31_0.png" />
 </div>
 </div>
 <p>Given two astrological signs, place them on the same y=0 axis as the heart and make them symmetrically closer or farther from it according to their astrological affinity, also displaying their name and astrological glyph:</p>
@@ -2189,7 +2248,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_33_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_33_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_34_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_34_0.png" />
 </div>
 </div>
 </div><div class="nbinput docutils container">
@@ -2212,7 +2271,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_35_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_35_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_36_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_36_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2229,7 +2288,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_36_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_36_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_37_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_37_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2245,7 +2304,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_37_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_37_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_38_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_38_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2261,7 +2320,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_38_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_38_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_39_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_39_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2277,7 +2336,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_39_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_39_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_40_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_40_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2293,7 +2352,7 @@ and far away when compatibility is low.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_40_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_40_0.png" />
+<img alt="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_41_0.png" src="../../../_images/exams_2020-11-02_solutions_exam-2020-11-02-sol_41_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2303,6 +2362,7 @@ and far away when compatibility is low.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
