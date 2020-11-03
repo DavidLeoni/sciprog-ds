@@ -1,0 +1,1035 @@
+constellation,type,ra,dec,description
+Andromeda,0,3717,2539,move gamma 1
+Andromeda,1,2091,2137,draw beta
+Andromeda,1,1179,1851,draw delta
+Andromeda,1,251,1745,draw alpha
+Andromeda,0,1716,1405,move eta
+Andromeda,1,1420,1456,draw zeta
+Andromeda,1,1156,1758,draw epsilon
+Andromeda,1,1179,1851,draw delta
+Andromeda,1,1106,2023,draw pi
+Andromeda,1,512,2320,draw theta
+Andromeda,1,42544,2596,draw iota
+Andromeda,1,42612,2660,draw kappa
+Andromeda,1,42526,2787,draw lambda
+Andromeda,0,42544,2596,move iota
+Andromeda,1,41457,2539,draw omicron
+Andromeda,0,1106,2023,move pi
+Andromeda,1,2091,2137,draw beta
+Andromeda,1,1702,2309,draw mu
+Andromeda,1,1494,2464,draw nu
+Andromeda,1,2085,2834,draw phi
+Andromeda,1,2939,2917,draw 51
+Andromeda,-1,0,0,
+Antlia,0,17077,-2157,move epsilon
+Antlia,2,18814,-1864,dotted alpha
+Antlia,2,19701,-2228,dotted iota
+Antlia,-1,0,0,
+Apus,0,26635,-4742,move alpha
+Apus,2,29803,-4733,dotted gamma
+Apus,2,30092,-4651,dotted beta
+Apus,2,29410,-4721,dotted delta 1
+Apus,2,29803,-4733,dotted gamma
+Apus,-1,0,0,
+Aquarius,0,37430,-569,move epsilon
+Aquarius,1,38746,-334,draw beta
+Aquarius,1,39773,-19,draw alpha
+Aquarius,1,40249,-83,draw gamma
+Aquarius,1,40464,-1,draw zeta 1
+Aquarius,1,40358,82,draw pi
+Aquarius,1,39773,-19,draw alpha
+Aquarius,0,40464,-1,move zeta 1
+Aquarius,1,40660,-7,draw eta
+Aquarius,0,38746,-334,move beta
+Aquarius,1,39793,-832,draw iota
+Aquarius,0,39773,-19,move alpha
+Aquarius,1,40105,-467,draw theta
+Aquarius,1,41178,-454,draw lambda
+Aquarius,1,41829,-362,draw phi
+Aquarius,1,41937,-550,draw psi 2
+Aquarius,1,41239,-949,draw delta
+Aquarius,1,41087,-815,draw tau 2
+Aquarius,1,41178,-454,draw lambda
+Aquarius,0,42089,-1206,move 98
+Aquarius,1,41937,-550,draw psi 2
+Aquarius,1,41683,-1270,draw 88
+Aquarius,-1,0,0,
+Aquila,0,35859,384,move beta
+Aquila,1,35723,532,draw alpha
+Aquila,1,35587,636,draw gamma
+Aquila,1,34964,186,draw delta
+Aquila,1,34387,-292,draw lambda
+Aquila,1,34362,831,draw zeta
+Aquila,1,34964,186,draw delta
+Aquila,1,35774,60,draw eta
+Aquila,1,36339,-49,draw theta
+Aquila,1,35301,-77,draw iota
+Aquila,1,34387,-292,draw lambda
+Aquila,-1,0,0,
+Ara,0,31811,-2964,move lambda
+Ara,1,31555,-2992,draw alpha
+Ara,1,31359,-3331,draw beta
+Ara,1,31361,-3382,draw gamma
+Ara,1,31532,-3641,draw delta
+Ara,1,30293,-3542,draw eta
+Ara,1,30558,-3359,draw zeta
+Ara,1,30587,-3189,draw epsilon 1
+Ara,1,31555,-2992,draw alpha
+Ara,-1,0,0,
+Aries,0,3405,1157,move gamma
+Aries,1,3439,1248,draw beta
+Aries,1,3815,1407,draw alpha
+Aries,1,5099,1635,draw 41
+Aries,-1,0,0,
+Auriga,0,9500,2759,move capella
+Auriga,1,10785,2696,draw beta
+Auriga,1,10791,2232,draw theta
+Auriga,1,9788,1716,draw beta tau
+Auriga,1,8909,1989,draw iota
+Auriga,1,9500,2759,draw capella
+Auriga,1,10785,3257,draw delta
+Auriga,1,10785,2696,draw beta
+Auriga,0,9500,2759,move capella
+Auriga,1,9059,2629,draw epsilon
+Auriga,1,9074,2464,draw zeta
+Auriga,-1,0,0,
+Bootes,0,26434,823,move zeta
+Bootes,1,25669,1150,draw arcturus
+Bootes,1,26549,1624,draw epsilon
+Bootes,1,27465,1998,draw delta
+Bootes,1,27058,2423,draw beta
+Bootes,1,26162,2298,draw gamma
+Bootes,1,26154,1822,draw rho
+Bootes,1,25669,1150,draw arcturus
+Bootes,1,25040,1103,draw eta
+Bootes,1,24817,1047,draw tau
+Bootes,0,26162,2298,move gamma
+Bootes,1,25691,2765,draw lambda
+Bootes,1,25604,3107,draw kappa 2
+Bootes,1,25955,3111,draw theta
+Bootes,1,25691,2765,draw lambda
+Bootes,-1,0,0,
+Caelum,0,9132,-2129,move gamma
+Caelum,2,8461,-2228,dotted beta
+Caelum,2,8416,-2511,dotted alpha
+Caelum,2,8125,-2697,dotted delta
+Caelum,-1,0,0,
+Camelopardalis,0,8918,3225,move 7
+Camelopardalis,2,9102,3626,dotted beta
+Camelopardalis,2,8821,3980,dotted alpha
+Camelopardalis,2,6910,4279,dotted gamma
+Camelopardalis,2,6885,3931,dotted 3:49:31 65:31:34
+Camelopardalis,2,6272,3596,dotted 6272 3596
+Camelopardalis,0,8821,3980,move alpha
+Camelopardalis,2,11365,4159,dotted 6:18:51 69:19:11
+Camelopardalis,2,12602,4618,dotted 7:00:04 76:58:39
+Camelopardalis,-1,0,0,
+Cancer,0,15800,1725,move iota1
+Cancer,2,15698,1288,dotted gamma
+Cancer,2,15740,1089,dotted delta
+Cancer,2,16154,711,dotted alpha
+Cancer,0,15740,1089,move delta
+Cancer,2,14895,551,dotted beta
+Cancer,-1,0,0,
+Canes_Venatici,0,23280,2299,move alpha2
+Canes_Venatici,2,22612,2481,dotted beta
+Canes_Venatici,-1,0,0,
+Canis_Major,0,13322,-1758,move eta
+Canis_Major,1,12851,-1583,draw delta
+Canis_Major,1,12690,-1430,draw omicron2
+Canis_Major,1,12154,-1002,draw alpha
+Canis_Major,1,11481,-1077,draw beta
+Canis_Major,1,11900,-1155,draw nu2
+Canis_Major,1,12423,-1451,draw omicron1
+Canis_Major,1,12558,-1738,draw epsilon
+Canis_Major,1,12651,-1676,draw sigma
+Canis_Major,1,12851,-1583,draw delta
+Canis_Major,0,12154,-1002,move alpha
+Canis_Major,2,12484,-1023,dotted iota
+Canis_Major,2,12712,-938,dotted gamma
+Canis_Major,2,12483,-842,dotted mu
+Canis_Major,2,12484,-1023,dotted iota
+Canis_Major,-1,0,0,
+Canis_Minor,0,13779,313,move alpha
+Canis_Minor,1,13414,497,draw beta
+Canis_Minor,-1,0,0,
+Capricornus,0,36529,-750,move alpha1
+Capricornus,1,36630,-886,draw beta
+Capricornus,1,37382,-1516,draw psi
+Capricornus,1,37554,-1615,draw omega
+Capricornus,1,38013,-1500,draw 24
+Capricornus,1,38600,-1344,draw zeta
+Capricornus,1,38912,-1167,draw epsilon
+Capricornus,1,39211,-967,draw delta
+Capricornus,1,39002,-999,draw gamma
+Capricornus,1,38467,-1010,draw iota
+Capricornus,1,37978,-1033,draw theta
+Capricornus,1,36529,-750,draw alpha1
+Capricornus,-1,0,0,
+Carina,0,11518,-3161,move canopus
+Carina,1,16596,-4183,draw beta
+Carina,1,18412,-4202,draw omega
+Carina,1,19288,-3863,draw theta
+Carina,1,19996,-3745,draw 11:06:32 -62:25:27
+Carina,1,20178,-3619,draw 11:12:36 -60:19:03
+Carina,1,20057,-3538,draw 11:08:35 -58:58:30
+Carina,1,19605,-3531,draw 10:53:30 -58:51:12
+Carina,1,19351,-3581,draw eta
+Carina,1,18960,-3701,draw 10:32:01 -61:41:07
+Carina,1,19288,-3863,draw theta
+Carina,0,18960,-3701,move 10:32:01 -61:41:07
+Carina,1,18512,-3679,draw 10:17:05 -61:19:56
+Carina,1,16712,-3556,draw iota
+Carina,1,15741,-3282,draw delta vel
+Carina,0,16712,-3556,move iota
+Carina,1,15075,-3570,draw epsilon
+Carina,1,14303,-3178,draw chi
+Carina,1,14686,-2840,draw gamma2 vel
+Carina,-1,0,0,
+Cassiopeia,0,275,3548,move beta
+Cassiopeia,1,1215,3392,draw alpha
+Cassiopeia,1,1701,3643,draw gamma
+Cassiopeia,1,2574,3614,draw delta
+Cassiopeia,1,3431,3820,draw epsilon
+Cassiopeia,-1,0,0,
+Centaurus,0,26387,-3650,move alpha1
+Centaurus,1,25314,-3622,draw hadar (agena)
+Centaurus,1,24596,-3207,draw epsilon
+Centaurus,1,25066,-2837,draw zeta
+Centaurus,1,25251,-2736,draw upsilon2
+Centaurus,1,25160,-2688,draw upsilon1
+Centaurus,1,25148,-2526,draw phi
+Centaurus,1,26265,-2529,draw eta
+Centaurus,1,26974,-2526,draw kappa
+Centaurus,0,25148,-2526,move phi
+Centaurus,1,25381,-2470,draw chi
+Centaurus,1,25816,-2273,draw psi
+Centaurus,1,25400,-2182,draw theta
+Centaurus,1,24885,-2501,draw nu
+Centaurus,1,24331,-2364,draw 24331 -2364
+Centaurus,1,24017,-2202,draw iota
+Centaurus,1,23203,-2410,draw 23203 -2410
+Centaurus,0,24885,-2501,move nu
+Centaurus,1,24888,-2548,draw mu
+Centaurus,1,25066,-2837,draw zeta
+Centaurus,1,22845,-2937,draw gamma
+Centaurus,1,24596,-3207,draw epsilon
+Centaurus,0,22845,-2937,move gamma
+Centaurus,1,22441,-3013,draw sigma
+Centaurus,1,21949,-3142,draw rho
+Centaurus,1,21195,-3670,draw 21195 -3670
+Centaurus,1,20873,-3781,draw lambda
+Centaurus,0,22441,-3013,move sigma
+Centaurus,1,21850,-3043,draw delta
+Centaurus,1,20430,-3269,draw pi
+Centaurus,-1,0,0,
+Cepheus,0,38357,3755,move alpha
+Cepheus,1,38659,4233,draw beta
+Cepheus,1,42580,4657,draw gamma
+Cepheus,1,41090,3972,draw iota
+Cepheus,1,42580,4657,draw gamma
+Cepheus,0,41090,3972,move iota
+Cepheus,1,39925,3492,draw zeta
+Cepheus,1,39163,3667,draw nu
+Cepheus,1,39105,3526,draw mu
+Cepheus,1,38357,3755,draw alpha
+Cepheus,1,37358,3710,draw eta
+Cepheus,1,36887,3779,draw theta
+Cepheus,-1,0,0,
+Cetus,0,4899,194,move gamma
+Cetus,1,5468,245,draw alpha
+Cetus,1,5391,534,draw lambda
+Cetus,1,4948,606,draw mu
+Cetus,1,4444,507,draw xi2
+Cetus,1,4676,335,draw nu
+Cetus,1,4899,194,draw gamma
+Cetus,1,4784,19,draw delta
+Cetus,1,4180,-178,draw mira
+Cetus,1,3343,-620,draw zeta
+Cetus,1,2520,-491,draw theta
+Cetus,1,2057,-610,draw eta
+Cetus,1,582,-529,draw iota
+Cetus,1,1307,-1079,draw beta
+Cetus,1,3122,-956,draw tau
+Cetus,1,3343,-620,draw zeta
+Cetus,-1,0,0,
+Chamaeleon,0,14955,-4615,move alpha
+Chamaeleon,1,15019,-4649,draw theta
+Chamaeleon,1,19064,-4716,draw gamma
+Chamaeleon,1,21588,-4693,draw epsilon
+Chamaeleon,1,22150,-4758,draw beta
+Chamaeleon,1,19357,-4828,draw delta1
+Chamaeleon,1,19064,-4716,draw gamma
+Chamaeleon,-1,0,0,
+Circinus,0,27525,-3528,move beta
+Circinus,1,26475,-3898,draw alpha
+Circinus,1,27701,-3559,draw gamma
+Circinus,-1,0,0,
+Columba,0,9936,-2128,move epsilon
+Columba,1,10189,-2044,draw alpha
+Columba,1,10528,-2146,draw beta
+Columba,1,10726,-2117,draw gamma
+Columba,1,11463,-2006,draw delta
+Columba,0,10528,-2146,move beta
+Columba,1,10774,-2568,draw eta
+Columba,-1,0,0,
+Coma_Berenices,0,23699,1051,move alpha
+Coma_Berenices,2,23756,1672,dotted beta
+Coma_Berenices,2,22408,1696,dotted gamma
+Coma_Berenices,-1,0,0,
+Corona_Australis,0,34392,-2223,move gamma
+Corona_Australis,1,34484,-2274,draw alpha
+Corona_Australis,1,34500,-2360,draw beta
+Corona_Australis,1,34450,-2429,draw delta
+Corona_Australis,1,33405,-2538,draw theta
+Corona_Australis,-1,0,0,
+Corona_Borealis,0,27987,1881,move theta
+Corona_Borealis,1,27834,1746,draw beta
+Corona_Borealis,1,28040,1602,draw alpha
+Corona_Borealis,1,28282,1577,draw gamma
+Corona_Borealis,1,28487,1564,draw delta
+Corona_Borealis,1,28727,1612,draw epsilon
+Corona_Borealis,1,28843,1791,draw iota
+Corona_Borealis,-1,0,0,
+Corvus,0,21852,-1483,move alpha
+Corvus,1,21903,-1357,draw epsilon
+Corvus,1,22631,-1403,draw beta
+Corvus,1,22495,-990,draw delta
+Corvus,1,22074,-1052,draw gamma
+Corvus,1,21903,-1357,draw epsilon
+Corvus,-1,0,0,
+Crater,0,21480,-1029,move eta
+Crater,1,21142,-1101,draw zeta
+Crater,1,20546,-1061,draw gamma
+Crater,1,20500,-1126,draw lambda
+Crater,1,20149,-1369,draw beta
+Crater,1,19793,-1097,draw alpha
+Crater,1,20380,-886,draw delta
+Crater,1,20546,-1061,draw gamma
+Crater,0,20380,-886,move delta
+Crater,1,20538,-651,draw epsilon
+Crater,1,20900,-588,draw theta
+Crater,-1,0,0,
+Crux,0,22397,-3785,move alpha1
+Crux,1,22534,-3426,draw gamma
+Crux,0,23031,-3581,move beta
+Crux,1,22054,-3524,draw delta
+Crux,-1,0,0,
+Cygnus,0,35121,1677,move beta1
+Cygnus,1,35716,1974,draw chi
+Cygnus,1,35889,2105,draw eta
+Cygnus,1,36666,2415,draw gamma
+Cygnus,1,37386,2038,draw epsilon
+Cygnus,2,38188,1813,dotted zeta
+Cygnus,2,37715,2470,dotted nu
+Cygnus,2,37242,2716,dotted deneb
+Cygnus,1,36666,2415,draw gamma
+Cygnus,1,35549,2707,draw delta
+Cygnus,2,35091,3103,dotted iota
+Cygnus,2,34713,3202,dotted kappa
+Cygnus,0,35091,3103,move iota
+Cygnus,2,36464,2862,dotted 32
+Cygnus,2,37242,2716,dotted deneb
+Cygnus,-1,0,0,
+Delphinus,0,36996,678,move epsilon
+Delphinus,1,37018,781,draw eta
+Delphinus,1,37126,875,draw beta
+Delphinus,1,37303,904,draw delta
+Delphinus,1,37399,967,draw gamma1
+Delphinus,1,37189,954,draw alpha
+Delphinus,1,37126,875,draw beta
+Delphinus,-1,0,0,
+Dorado,0,7680,-3089,move gamma
+Dorado,1,8219,-3302,draw alpha
+Dorado,1,10008,-3749,draw beta
+Dorado,1,10343,-3944,draw delta
+Dorado,1,10623,-3785,draw 5:54:06 -63:05:23
+Dorado,1,10008,-3749,draw beta
+Dorado,1,9165,-3448,draw zeta
+Dorado,1,8219,-3302,draw alpha
+Dorado,-1,0,0,
+Draco,0,20742,4159,move lambda
+Draco,1,22604,4187,draw kappa
+Draco,1,25331,3862,draw alpha
+Draco,1,27747,3537,draw iota
+Draco,1,28856,3513,draw theta
+Draco,1,29519,3690,draw eta
+Draco,1,30863,3942,draw zeta
+Draco,1,33022,4280,draw phi
+Draco,1,33031,4363,draw chi
+Draco,0,33022,4280,move phi
+Draco,1,34576,4059,draw delta
+Draco,1,35645,4216,draw epsilon
+Draco,0,34576,4059,move delta
+Draco,1,32205,3412,draw xi
+Draco,1,31565,3311,draw nu1
+Draco,1,31513,3138,draw beta
+Draco,1,32298,3089,draw gamma
+Draco,1,32205,3412,draw xi
+Draco,-1,0,0,
+Equuleus,0,38110,607,move gamma
+Equuleus,2,38234,600,dotted delta
+Equuleus,2,38274,314,dotted alpha
+Equuleus,-1,0,0,
+Eridanus,0,9235,-305,move beta
+Eridanus,1,8786,-327,draw omega
+Eridanus,1,8565,-195,draw mu
+Eridanus,1,8289,-201,draw nu
+Eridanus,1,7555,-410,draw omicron1
+Eridanus,1,7140,-810,draw gamma
+Eridanus,1,6784,-726,draw pi
+Eridanus,1,6697,-585,draw delta
+Eridanus,1,6387,-567,draw epsilon
+Eridanus,1,5292,-533,draw eta
+Eridanus,1,4923,-831,draw cet pi
+Eridanus,1,4953,-1114,draw tau1
+Eridanus,1,5471,-1417,draw tau3
+Eridanus,1,5985,-1305,draw tau4
+Eridanus,1,6413,-1297,draw tau5
+Eridanus,1,6805,-1394,draw tau6
+Eridanus,1,7011,-1476,draw tau8
+Eridanus,1,7197,-1440,draw tau9
+Eridanus,1,8205,-1786,draw upsilon1
+Eridanus,1,8266,-1833,draw upsilon2
+Eridanus,1,7921,-2041,draw 43
+Eridanus,1,7736,-2027,draw upsilon4
+Eridanus,1,6883,-2172,draw 3:49:27 -36:12:01
+Eridanus,1,6685,-2238,draw 3:42:50 -37:18:49
+Eridanus,1,6513,-2416,draw 3:37:06 -40:16:29
+Eridanus,1,5998,-2584,draw 3:19:56 -43:04:11
+Eridanus,1,5348,-2418,draw theta2
+Eridanus,1,4820,-2391,draw iota
+Eridanus,1,4794,-2573,draw 4794 -2573
+Eridanus,1,4409,-2862,draw kappa
+Eridanus,1,4095,-3090,draw phi
+Eridanus,1,3478,-3096,draw chi
+Eridanus,1,2931,-3434,draw achernar
+Eridanus,-1,0,0,
+Fornax,0,5762,-1739,move alpha
+Fornax,1,5072,-1944,draw beta
+Fornax,1,3734,-1757,draw nu
+Fornax,-1,0,0,
+Gemini,0,10923,1395,move gem 1
+Gemini,1,11246,1350,draw gem eta
+Gemini,1,11488,1350,draw gem mu
+Gemini,1,12117,1507,draw gem epsilon
+Gemini,1,12934,1814,draw gem tau
+Gemini,1,13473,1907,draw gem rho
+Gemini,1,13638,1913,draw castor
+Gemini,0,13959,1681,move pollux
+Gemini,1,13677,1613,draw gem upsilon
+Gemini,1,13203,1318,draw gem delta
+Gemini,1,12723,1234,draw gem zeta
+Gemini,1,11931,983,draw gem gamma
+Gemini,0,12383,2037,move gem theta
+Gemini,1,12934,1814,draw gem tau
+Gemini,1,13336,1658,draw gem 59
+Gemini,1,13677,1613,draw gem upsilon
+Gemini,1,13933,1463,draw gem kappa
+Gemini,0,13203,1318,move gem delta
+Gemini,1,13142,992,draw gem lambda
+Gemini,1,13001,969,draw gem 51
+Gemini,1,13001,969,draw gem 51
+Gemini,1,12158,773,draw gem xi
+Gemini,0,12117,1507,move gem epsilon
+Gemini,1,11668,1212,draw gem nu
+Gemini,-1,0,0,
+Grus,0,39417,-2241,move gamma
+Grus,1,39783,-2372,draw lambda
+Grus,1,40478,-2609,draw delta1
+Grus,1,40880,-2813,draw beta
+Grus,1,41056,-3079,draw epsilon
+Grus,1,41426,-3165,draw zeta
+Grus,0,40880,-2813,move beta
+Grus,1,39847,-2817,draw alpha
+Grus,1,40478,-2609,draw delta1
+Grus,-1,0,0,
+Hercules,0,28580,2547,move chi
+Hercules,1,29063,2696,draw phi
+Hercules,1,29392,2778,draw tau
+Hercules,1,29823,2546,draw sigma
+Hercules,1,30086,2335,draw eta
+Hercules,1,30038,1896,draw zeta
+Hercules,1,29706,1289,draw beta
+Hercules,1,29457,1149,draw gamma
+Hercules,1,29562,842,draw omega
+Hercules,1,29778,689,draw 29
+Hercules,0,29706,1289,move beta
+Hercules,1,31039,863,draw alpha
+Hercules,1,31050,1490,draw delta
+Hercules,1,30608,1855,draw epsilon
+Hercules,1,30038,1896,draw zeta
+Hercules,0,31050,1490,move delta
+Hercules,1,31522,1566,draw lambda
+Hercules,1,31993,1663,draw mu
+Hercules,1,32332,1754,draw xi
+Hercules,1,32626,1725,draw omicron
+Hercules,0,30608,1855,move epsilon
+Hercules,1,31051,2208,draw pi
+Hercules,1,30086,2335,draw eta
+Hercules,0,31051,2208,move pi
+Hercules,1,32287,2235,draw theta
+Hercules,1,31783,2760,draw iota
+Hercules,-1,0,0,
+Horologium,0,7620,-2537,move alpha
+Horologium,1,4876,-3048,draw iota
+Horologium,1,4722,-3152,draw eta
+Horologium,1,4819,-3273,draw zeta
+Horologium,1,5508,-3584,draw mu
+Horologium,1,5363,-3844,draw beta
+Horologium,-1,0,0,
+Hydra,0,26708,-1677,move 58
+Hydra,1,25391,-1600,draw pi
+Hydra,1,23967,-1390,draw gamma
+Hydra,1,21387,-2034,draw beta
+Hydra,1,20790,-1911,draw xi
+Hydra,1,20149,-1369,draw crt beta
+Hydra,1,19793,-1097,draw crt alpha
+Hydra,1,19488,-971,draw nu
+Hydra,1,18782,-1010,draw mu
+Hydra,1,18317,-741,draw lambda
+Hydra,1,18153,-783,draw upsilon2
+Hydra,1,17744,-890,draw upsilon1
+Hydra,1,17027,-519,draw alpha
+Hydra,1,17395,-68,draw iota
+Hydra,1,16630,138,draw theta
+Hydra,1,16061,356,draw zeta
+Hydra,1,15803,385,draw epsilon
+Hydra,1,15529,342,draw delta
+Hydra,1,15562,200,draw sigma
+Hydra,1,15696,203,draw eta
+Hydra,1,15853,350,draw rho
+Hydra,1,15803,385,draw epsilon
+Hydra,-1,0,0,
+Hydrus,0,6817,-4454,move gamma
+Hydrus,1,772,-4635,draw beta
+Hydrus,1,3563,-3694,draw alpha
+Hydrus,1,6817,-4454,draw gamma
+Hydrus,-1,0,0,
+Indus,0,37644,-3507,move beta
+Indus,2,37321,-3115,dotted eta
+Indus,2,37127,-2837,dotted alpha
+Indus,2,38396,-3206,dotted theta
+Indus,2,39537,-3299,dotted delta
+Indus,-1,0,0,
+Lacerta,0,40079,2264,move 1
+Lacerta,2,40016,2382,dotted 22:13:53 39:42:53
+Lacerta,2,40514,2587,dotted 6
+Lacerta,2,40815,2656,dotted 11
+Lacerta,2,40485,2862,dotted 5
+Lacerta,2,40538,3016,dotted alpha
+Lacerta,2,40306,3133,dotted beta
+Lacerta,2,40335,2968,dotted 4
+Lacerta,2,40485,2862,dotted 5
+Lacerta,2,40230,2792,dotted 2
+Lacerta,2,40514,2587,dotted 6
+Lacerta,-1,0,0,
+Leo,0,18251,718,move regulus
+Leo,1,18220,1005,draw eta
+Leo,1,18599,1190,draw gamma1
+Leo,1,18500,1405,draw zeta
+Leo,1,17782,1560,draw mu
+Leo,1,16939,1570,draw kappa
+Leo,1,17151,1378,draw lambda
+Leo,1,17575,1426,draw epsilon
+Leo,1,17782,1560,draw mu
+Leo,0,17575,1426,move epsilon
+Leo,1,18220,1005,draw eta
+Leo,1,20227,925,draw theta
+Leo,1,20517,631,draw iota
+Leo,1,20434,361,draw sigma
+Leo,0,20227,925,move theta
+Leo,1,21271,874,draw beta
+Leo,1,20223,1231,draw delta
+Leo,1,20227,925,draw theta
+Leo,0,20223,1231,move delta
+Leo,1,18599,1190,draw gamma1
+Leo,-1,0,0,
+Leo_Minor,0,17226,2183,move 10
+Leo_Minor,2,18222,2114,dotted 21
+Leo_Minor,2,18777,2027,dotted 30
+Leo_Minor,2,19599,2052,dotted 46
+Leo_Minor,2,18836,2202,dotted beta
+Leo_Minor,2,18222,2114,dotted 21
+Leo_Minor,-1,0,0,
+Lepus,0,9396,-776,move kappa
+Lepus,1,9387,-972,draw mu
+Lepus,1,9587,-790,draw lambda
+Lepus,0,9981,-1069,move alpha
+Lepus,1,9847,-1245,draw beta
+Lepus,1,10333,-1346,draw gamma
+Lepus,1,10539,-1252,draw delta
+Lepus,1,10984,-896,draw theta
+Lepus,1,10692,-850,draw eta
+Lepus,1,10408,-889,draw zeta
+Lepus,1,9981,-1069,draw alpha
+Lepus,1,9387,-972,draw mu
+Lepus,1,9163,-1342,draw epsilon
+Lepus,1,9847,-1245,draw beta
+Lepus,-1,0,0,
+Libra,0,27122,-1516,move sigma
+Libra,1,26726,-962,draw alpha2
+Libra,1,27510,-562,draw beta
+Libra,1,28065,-887,draw gamma
+Libra,1,26726,-962,draw alpha2
+Libra,0,28065,-887,move gamma
+Libra,1,28110,-1688,draw upsilon
+Libra,1,28159,-1786,draw tau
+Libra,-1,0,0,
+Lupus,0,26955,-2588,move beta
+Lupus,1,27641,-2438,draw delta
+Lupus,1,28054,-2470,draw gamma
+Lupus,1,28803,-2303,draw eta
+Lupus,1,28528,-2017,draw chi
+Lupus,1,27654,-2175,draw phi1
+Lupus,1,28803,-2303,draw eta
+Lupus,1,27368,-3125,draw zeta
+Lupus,1,26457,-2843,draw alpha
+Lupus,0,27368,-3125,move zeta
+Lupus,1,27556,-2872,draw mu
+Lupus,1,27680,-2681,draw epsilon
+Lupus,1,28054,-2470,draw gamma
+Lupus,-1,0,0,
+Lynx,0,16831,2063,move alpha
+Lynx,2,16765,2208,dotted 38
+Lynx,2,16396,2307,dotted 9:06:32 38:27:08
+Lynx,2,16219,2506,dotted 9:00:38 41:46:58
+Lynx,2,15085,2591,dotted 31
+Lynx,2,13401,2952,dotted 21
+Lynx,2,12518,3505,dotted 15
+Lynx,2,11388,3540,dotted 2
+Lynx,-1,0,0,
+Lyra,0,33743,2256,move zeta1
+Lyra,1,33730,2380,draw epsilon1
+Lyra,1,33508,2327,draw vega
+Lyra,1,33743,2256,draw zeta1
+Lyra,1,33902,2001,draw beta
+Lyra,1,34168,1961,draw gamma
+Lyra,1,34035,2213,draw delta2
+Lyra,1,33743,2256,draw zeta1
+Lyra,-1,0,0,
+Mensa,0,11107,-4485,move alpha
+Mensa,2,9956,-4580,dotted gamma
+Mensa,2,8855,-4496,dotted eta
+Mensa,2,9081,-4278,dotted beta
+Mensa,-1,0,0,
+Microscopium,0,38422,-2448,move theta1
+Microscopium,2,38338,-1930,dotted epsilon
+Microscopium,2,37838,-1935,dotted gamma
+Microscopium,2,37499,-2026,dotted alpha
+Microscopium,-1,0,0,
+Monoceros,0,12029,593,move 15
+Monoceros,2,11787,439,dotted 13
+Monoceros,2,11513,275,dotted epsilon
+Monoceros,2,12235,144,dotted 18
+Monoceros,2,11787,439,dotted 13
+Monoceros,0,12235,144,move 18
+Monoceros,2,12955,-29,dotted delta
+Monoceros,2,11664,-422,dotted beta
+Monoceros,1,11245,-376,draw gamma
+Monoceros,0,12955,-29,move delta
+Monoceros,2,13837,-573,dotted alpha
+Monoceros,2,14657,-179,dotted zeta
+Monoceros,-1,0,0,
+Musca,0,21168,-4003,move lambda
+Musca,1,22127,-4077,draw epsilon
+Musca,1,22715,-4148,draw alpha
+Musca,1,22574,-4327,draw gamma
+Musca,1,23468,-4292,draw delta
+Musca,1,22988,-4086,draw beta
+Musca,-1,0,0,
+Norma,0,29615,-2853,move epsilon
+Norma,1,29310,-3004,draw gamma1
+Norma,1,29395,-3009,draw gamma2
+Norma,1,28896,-2953,draw eta
+Norma,1,28994,-2710,draw delta
+Norma,1,29615,-2853,draw epsilon
+Norma,-1,0,0,
+Octans,0,26007,-5020,move delta
+Octans,1,39044,-4643,draw nu
+Octans,1,40200,-4826,draw epsilon
+Octans,1,40981,-4882,draw beta
+Octans,1,26007,-5020,draw delta
+Octans,-1,0,0,
+Ophiuchus,0,31420,-1792,move 45
+Ophiuchus,1,31260,-1499,draw theta
+Ophiuchus,1,30911,-943,draw eta
+Ophiuchus,1,29914,-634,draw zeta
+Ophiuchus,1,29734,-996,draw phi
+Ophiuchus,1,29610,-1107,draw chi
+Ophiuchus,1,29523,-1202,draw psi
+Ophiuchus,1,29567,-1406,draw rho
+Ophiuchus,0,29914,-634,move zeta
+Ophiuchus,1,29634,-502,draw upsilon
+Ophiuchus,1,29349,-281,draw epsilon
+Ophiuchus,1,29230,-221,draw delta
+Ophiuchus,1,29727,119,draw lambda
+Ophiuchus,1,30530,562,draw kappa
+Ophiuchus,1,29914,-634,draw zeta
+Ophiuchus,0,30530,562,move kappa
+Ophiuchus,1,31648,753,draw alpha
+Ophiuchus,1,31904,274,draw beta
+Ophiuchus,1,30911,-943,draw eta
+Ophiuchus,0,31904,274,move beta
+Ophiuchus,1,32036,162,draw gamma
+Ophiuchus,1,32370,-586,draw nu
+Ophiuchus,-1,0,0,
+Orion,0,11158,852,move xi
+Orion,1,11027,886,draw nu
+Orion,1,10631,1216,draw chi1
+Orion,1,10917,1208,draw chi2
+Orion,1,11158,852,draw xi
+Orion,1,10871,578,draw mu
+Orion,1,10655,444,draw betelgeuse
+Orion,1,9753,380,draw gamma
+Orion,1,10054,596,draw lambda
+Orion,1,10655,444,draw betelgeuse
+Orion,1,10222,-116,draw zeta
+Orion,1,10432,-580,draw kappa
+Orion,0,10222,-116,move zeta
+Orion,1,10086,-72,draw epsilon
+Orion,1,9960,-17,draw delta
+Orion,1,9734,-143,draw eta
+Orion,1,9436,-492,draw rigel
+Orion,0,9960,-17,move delta
+Orion,1,9753,380,draw gamma
+Orion,1,8695,417,draw pi3
+Orion,1,8736,336,draw pi4
+Orion,1,8827,146,draw pi5
+Orion,1,8956,102,draw pi6
+Orion,0,8695,417,move pi3
+Orion,1,8718,534,draw pi2
+Orion,1,8846,609,draw pi1
+Orion,1,8891,810,draw omicron2
+Orion,1,9137,924,draw 11
+Orion,-1,0,0,
+Pavo,0,36017,-4374,move epsilon
+Pavo,1,36261,-3970,draw delta
+Pavo,1,33691,-4285,draw zeta
+Pavo,0,31971,-3883,move eta
+Pavo,1,32657,-3820,draw pi
+Pavo,1,33096,-3689,draw xi
+Pavo,1,33966,-3731,draw lambda
+Pavo,1,36261,-3970,draw delta
+Pavo,1,36769,-3404,draw alpha
+Pavo,1,38593,-3921,draw gamma
+Pavo,1,37348,-3972,draw beta
+Pavo,1,36261,-3970,draw delta
+Pavo,1,34108,-4034,draw kappa
+Pavo,1,32657,-3820,draw pi
+Pavo,-1,0,0,
+Pegasus,0,39125,592,move epsilon
+Pegasus,1,39906,371,draw theta
+Pegasus,1,40843,649,draw zeta
+Pegasus,1,41542,912,draw alpha
+Pegasus,1,397,911,draw gamma
+Pegasus,1,251,1745,draw and alpha
+Pegasus,1,41513,1684,draw beta
+Pegasus,1,41542,912,draw alpha
+Pegasus,0,39899,1990,move pi2
+Pegasus,1,40890,1813,draw eta
+Pegasus,1,41513,1684,draw beta
+Pegasus,1,41100,1476,draw mu
+Pegasus,1,40995,1413,draw lambda
+Pegasus,1,39810,1520,draw iota
+Pegasus,1,39139,1538,draw kappa
+Pegasus,-1,0,0,
+Perseus,0,3109,3041,move phi
+Perseus,1,4926,2953,draw theta
+Perseus,1,5672,2976,draw iota
+Perseus,1,5684,2691,draw kappa
+Perseus,1,5645,2457,draw algol
+Perseus,1,5555,2330,draw rho
+Perseus,0,5645,2457,move algol
+Perseus,1,7135,2400,draw epsilon
+Perseus,1,7168,2147,draw xi
+Perseus,1,7023,1913,draw zeta
+Perseus,1,6729,1937,draw omicron
+Perseus,0,7135,2400,move epsilon
+Perseus,1,6687,2867,draw delta
+Perseus,1,7459,2862,draw 48
+Perseus,1,7646,2904,draw mu
+Perseus,1,7747,3017,draw 4:18:15 50:17:44
+Perseus,1,7397,3021,draw lambda
+Perseus,0,6687,2867,move delta
+Perseus,1,6129,2991,draw alpha
+Perseus,1,5543,3210,draw gamma
+Perseus,1,5120,3353,draw eta
+Perseus,1,5227,3165,draw tau
+Perseus,1,5672,2976,draw iota
+Perseus,1,6129,2991,draw alpha
+Perseus,-1,0,0,
+Phoenix,0,1982,-2803,move beta
+Phoenix,1,282,-2744,draw epsilon
+Phoenix,1,788,-2538,draw alpha
+Phoenix,1,1982,-2803,draw beta
+Phoenix,1,2650,-2599,draw gamma
+Phoenix,1,2737,-2944,draw delta
+Phoenix,1,2051,-3314,draw zeta
+Phoenix,1,1982,-2803,draw beta
+Phoenix,-1,0,0,
+Pictor,0,12245,-3716,move alpha
+Pictor,2,10494,-3370,dotted gamma
+Pictor,2,10418,-3063,dotted beta
+Pictor,-1,0,0,
+Pisces,0,1970,1288,move psi1
+Pisces,1,2384,1635,draw upsilon
+Pisces,1,2149,1805,draw tau
+Pisces,1,1970,1288,draw psi1
+Pisces,1,2143,1262,draw chi
+Pisces,1,2744,920,draw eta
+Pisces,1,3161,549,draw omicron
+Pisces,1,3661,165,draw alpha
+Pisces,1,3406,191,draw xi
+Pisces,1,3042,329,draw nu
+Pisces,1,2705,368,draw mu
+Pisces,1,1888,473,draw epsilon
+Pisces,1,1460,455,draw delta
+Pisces,1,43179,411,draw omega
+Pisces,1,42598,337,draw iota
+Pisces,1,42239,382,draw theta
+Pisces,1,41914,196,draw gamma
+Pisces,1,42208,75,draw kappa
+Pisces,1,42661,106,draw lambda
+Pisces,1,42598,337,draw iota
+Pisces,-1,0,0,
+Piscis_Austrinus,0,41329,-1777,move fomalhaut
+Piscis_Austrinus,1,40819,-1622,draw epsilon
+Piscis_Austrinus,1,39851,-1979,draw mu
+Piscis_Austrinus,1,39232,-1853,draw theta
+Piscis_Austrinus,1,39148,-1981,draw iota
+Piscis_Austrinus,1,39851,-1979,draw mu
+Piscis_Austrinus,1,40545,-1940,draw beta
+Piscis_Austrinus,1,41175,-1972,draw gamma
+Piscis_Austrinus,1,41278,-1952,draw delta
+Piscis_Austrinus,1,41329,-1777,draw fomalhaut
+Piscis_Austrinus,-1,0,0,
+Puppis,0,11518,-3161,move canopus
+Puppis,1,11932,-2591,draw nu
+Puppis,1,13114,-2225,draw pi
+Puppis,1,13906,-1704,draw 1
+Puppis,1,13914,-1737,draw 3
+Puppis,1,14078,-1491,draw xi
+Puppis,1,13764,-1608,draw 7:38:49 -26:48:06
+Puppis,1,13906,-1704,draw 1
+Puppis,0,14078,-1491,move xi
+Puppis,1,14626,-1458,draw rho
+Puppis,1,14507,-2400,draw zeta
+Puppis,1,14686,-2840,draw vel gamma2
+Puppis,-1,0,0,
+Pyxis,0,15915,-1662,move gamma
+Pyxis,1,15707,-1991,draw alpha
+Pyxis,1,15603,-2118,draw beta
+Pyxis,1,14507,-2400,draw pup zeta
+Pyxis,-1,0,0,
+Reticulum,0,7632,-3748,move alpha
+Reticulum,1,6726,-3888,draw beta
+Reticulum,1,7162,-3684,draw delta
+Reticulum,1,7694,-3558,draw epsilon
+Reticulum,1,7632,-3748,draw alpha
+Reticulum,-1,0,0,
+Sagitta,0,35402,1080,move alpha
+Sagitta,1,35621,1112,draw delta
+Sagitta,1,35962,1169,draw gamma
+Sagitta,0,35621,1112,move delta
+Sagitta,1,35431,1048,draw beta
+Sagitta,-1,0,0,
+Sagittarius,0,32928,-2205,move eta
+Sagittarius,2,33125,-2063,dotted epsilon
+Sagittarius,1,32574,-1825,draw gamma
+Sagittarius,1,33029,-1789,draw delta
+Sagittarius,1,33125,-2063,draw epsilon
+Sagittarius,1,34278,-1792,draw zeta
+Sagittarius,1,34408,-1660,draw tau
+Sagittarius,1,34057,-1577,draw sigma
+Sagittarius,1,33769,-1619,draw phi
+Sagittarius,1,34278,-1792,draw zeta
+Sagittarius,0,33239,-1525,move lambda
+Sagittarius,1,33769,-1619,draw phi
+Sagittarius,1,33029,-1789,draw delta
+Sagittarius,1,33239,-1525,draw lambda
+Sagittarius,2,32812,-1263,dotted mu
+Sagittarius,0,34850,-1070,move rho1
+Sagittarius,2,34492,-1261,dotted pi
+Sagittarius,2,34340,-1304,dotted omicron
+Sagittarius,2,34131,-1266,dotted xi2
+Sagittarius,2,34492,-1261,dotted pi
+Sagittarius,-1,0,0,
+Scorpius,0,32095,-2222,move 17:49:52 -37:02:36
+Scorpius,1,31608,-2226,draw lambda
+Scorpius,1,31522,-2237,draw upsilon
+Scorpius,1,31874,-2341,draw kappa
+Scorpius,1,32027,-2407,draw iota1
+Scorpius,1,31719,-2579,draw theta
+Scorpius,1,30964,-2594,draw eta
+Scorpius,1,30437,-2541,draw zeta 2
+Scorpius,1,30356,-2282,draw mu 1
+Scorpius,1,30304,-2057,draw epsilon
+Scorpius,1,29876,-1692,draw tau
+Scorpius,1,29682,-1585,draw antares
+Scorpius,1,29435,-1535,draw sigma
+Scorpius,1,28810,-1357,draw delta
+Scorpius,1,28765,-1566,draw pi
+Scorpius,1,28706,-1752,draw rho
+Scorpius,0,28810,-1357,move delta
+Scorpius,1,28963,-1188,draw beta1
+Scorpius,1,29159,-1166,draw nu
+Scorpius,-1,0,0,
+Sculptor,0,1758,-1761,move alpha
+Sculptor,1,42867,-1687,draw delta
+Sculptor,1,41964,-1951,draw gamma
+Sculptor,1,42389,-2269,draw beta
+Sculptor,-1,0,0,
+Scutum,0,33456,-494,move alpha
+Scutum,1,33815,-284,draw beta
+Scutum,1,33668,-543,draw delta
+Scutum,1,33275,-873,draw gamma
+Scutum,1,33456,-494,draw alpha
+Scutum,-1,0,0,
+Serpens_Caput,0,28385,925,move ser beta
+Serpens_Caput,1,28693,939,draw ser gamma
+Serpens_Caput,1,28462,1088,draw ser kappa
+Serpens_Caput,1,28246,1180,draw ser iota
+Serpens_Caput,1,28385,925,draw ser beta
+Serpens_Caput,1,28044,632,draw ser delta
+Serpens_Caput,1,28328,385,draw ser alpha
+Serpens_Caput,1,28524,268,draw ser epsilon
+Serpens_Caput,1,28488,-205,draw ser mu
+Serpens_Caput,1,29230,-221,draw oph delta
+Serpens_Caput,-1,0,0,
+Serpens_Cauda,0,34086,252,move ser theta1
+Serpens_Cauda,1,33039,-173,draw ser eta
+Serpens_Cauda,1,32370,-586,draw oph nu
+Serpens_Cauda,1,31727,-923,draw ser xi
+Serpens_Cauda,1,30911,-943,draw oph eta
+Serpens_Cauda,-1,0,0,
+Sextans,0,18884,-164,move delta
+Sextans,2,18908,-38,dotted beta
+Sextans,2,18238,-22,dotted alpha
+Sextans,2,17775,-486,dotted gamma
+Sextans,-1,0,0,
+Taurus,0,6506,24,move 10
+Taurus,1,6144,541,draw omicron
+Taurus,1,6215,583,draw xi
+Taurus,1,7294,359,draw nu
+Taurus,0,6215,583,move xi
+Taurus,1,7220,749,draw lambda
+Taurus,1,7793,937,draw gamma
+Taurus,1,8057,957,draw theta1
+Taurus,1,8277,990,draw aldebaran
+Taurus,1,10129,1268,draw zeta
+Taurus,0,7793,937,move gamma
+Taurus,1,7888,1052,draw delta1
+Taurus,1,7964,1075,draw delta3
+Taurus,1,8058,1150,draw epsilon
+Taurus,1,9788,1716,draw beta
+Taurus,-1,0,0,
+Telescopium,0,32736,-2757,move epsilon
+Telescopium,1,33209,-2758,draw alpha
+Telescopium,1,33264,-2944,draw zeta
+Telescopium,-1,0,0,
+Triangulum,0,3392,1774,move alpha
+Triangulum,1,3886,2099,draw beta
+Triangulum,1,4119,2030,draw gamma
+Triangulum,1,3392,1774,draw alpha
+Triangulum,-1,0,0,
+Triangulum_Australe,0,30259,-4141,move alpha
+Triangulum_Australe,1,28654,-3805,draw beta
+Triangulum_Australe,1,28101,-3979,draw epsilon
+Triangulum_Australe,1,27567,-4120,draw gamma
+Triangulum_Australe,1,30259,-4141,draw alpha
+Triangulum_Australe,-1,0,0,
+Tucana,0,40420,-3897,move delta
+Tucana,1,40155,-3615,draw alpha
+Tucana,1,41922,-3494,draw gamma
+Tucana,1,946,-3777,draw beta1
+Tucana,1,602,-3892,draw zeta
+Tucana,1,43197,-3934,draw epsilon
+Tucana,1,40420,-3897,draw delta
+Tucana,-1,0,0,
+Ursa_Major,0,24826,2958,move eta
+Ursa_Major,1,24117,3295,draw mizar a
+Ursa_Major,1,23220,3357,draw epsilon
+Ursa_Major,1,22062,3421,draw delta
+Ursa_Major,1,21414,3221,draw gamma
+Ursa_Major,1,19855,3382,draw beta
+Ursa_Major,1,19911,3705,draw alpha
+Ursa_Major,1,22062,3421,draw delta
+Ursa_Major,0,21414,3221,move gamma
+Ursa_Major,2,21181,2866,dotted chi
+Ursa_Major,2,20354,1985,dotted nu
+Ursa_Major,2,20345,1891,dotted xi
+Ursa_Major,0,21181,2866,move chi
+Ursa_Major,2,20089,2669,dotted psi
+Ursa_Major,2,18669,2489,dotted mu
+Ursa_Major,2,18512,2574,dotted lambda
+Ursa_Major,0,19855,3382,move beta
+Ursa_Major,2,17729,3542,dotted upsilon
+Ursa_Major,2,15307,3643,dotted omicron
+Ursa_Major,2,17145,3783,dotted 23
+Ursa_Major,2,19911,3705,dotted alpha
+Ursa_Major,0,17145,3783,move 23
+Ursa_Major,2,17729,3542,dotted upsilon
+Ursa_Major,2,17185,3100,dotted theta
+Ursa_Major,2,16308,2829,dotted kappa
+Ursa_Major,2,16176,2882,dotted iota
+Ursa_Major,-1,0,0,
+Ursa_Minor,0,4554,5355,move polaris
+Ursa_Minor,1,31566,5195,draw umi delta
+Ursa_Minor,1,30179,4922,draw umi epsilon
+Ursa_Minor,1,28321,4667,draw umi zeta
+Ursa_Minor,1,26721,4449,draw umi beta
+Ursa_Minor,1,27621,4310,draw umi gamma
+Ursa_Minor,1,29325,4545,draw umi eta
+Ursa_Minor,1,28321,4667,draw umi zeta
+Ursa_Minor,-1,0,0,
+Vela,0,15741,-3282,move delta
+Vela,1,16863,-3300,draw kappa
+Vela,1,17905,-3274,draw phi
+Vela,1,19403,-2965,draw mu
+Vela,1,18442,-2527,draw 10:14:44 -42:07:20
+Vela,1,17121,-2428,draw psi
+Vela,1,16439,-2605,draw lambda
+Vela,1,14684,-2840,draw gamma1
+Vela,1,15741,-3282,draw delta
+Vela,-1,0,0,
+Virgo,0,26491,-339,move mu
+Virgo,1,25680,-360,draw iota
+Virgo,1,24155,-669,draw spica
+Virgo,1,22849,-86,draw gamma
+Virgo,1,22197,-40,draw eta
+Virgo,1,21320,105,draw beta
+Virgo,1,21175,391,draw nu
+Virgo,1,21756,523,draw omicron
+Virgo,1,22849,-86,draw gamma
+Virgo,1,23268,203,draw delta
+Virgo,1,23465,657,draw epsilon
+Virgo,0,23268,203,move delta
+Virgo,1,24440,-35,draw zeta
+Virgo,1,24155,-669,draw spica
+Virgo,0,24440,-35,move zeta
+Virgo,1,25249,92,draw tau
+Virgo,1,25680,-360,draw iota
+Virgo,0,25249,92,move tau
+Virgo,1,26587,113,draw 109
+Virgo,-1,0,0,
+Volans,0,16273,-3983,move alpha
+Volans,1,14994,-4290,draw kappa1
+Volans,1,13854,-4356,draw zeta
+Volans,1,12861,-4229,draw gamma1
+Volans,1,13104,-4077,draw delta
+Volans,1,14637,-4117,draw epsilon
+Volans,1,15172,-3968,draw beta
+Volans,1,16273,-3983,draw alpha
+Volans,-1,0,0,
+Vulpecula,0,35803,1444,move 13
+Vulpecula,2,35061,1479,dotted alpha
+Vulpecula,-1,0,0,
+Love,0,21600,-480,NOTE: Fake constellation! Added for Galactic Love exercise
+Love,1,24600,300,  
+Love,1,23040,540,
+Love,1,21600,300,
+Love,1,20160,540,
+Love,1,18600,300,
+Love,1,21600,-480,
+Love,-1,0,0,

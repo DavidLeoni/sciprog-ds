@@ -1,0 +1,40 @@
+Constellation,House,Glyph,Symbol,Dates,Element,Quality,Ruling Planet,Day/Night,Aries,Taurus,Gemini,Cancer,Leo,Virgo,Libra,Scorpius,Sagittarius,Capricornus,Aquarius,Pisces
+Aries,1,♈︎,Ram,"21 March
+-
+20 April",Fire,Cardinal,Mars,Day,,,4,,5,,,,5,,4,
+Taurus,2,♉︎,Bull,"21 April
+-
+21 May",Earth,Fixed,Venus,Night,,,,4,,5,,,,5,,4
+Gemini,3,♊︎,Twins,"22 May
+-
+21 June",Air,Mutable,Mercury,Day,4,,,,4,,5,,,,5,
+Cancer,4,♋︎,Crab,"22 June
+-
+21 July",Water, Cardinal ,Moon,Night,,4,,,,4,,5,,,,5
+Leo,5,♌︎,Lion,"23 July
+-
+23 August",Fire,Fixed,Sun,Day,5,,4,,,,4,,5,,,
+Virgo,6,♍︎,Virgin,"24 August
+-
+22 September",Earth,Mutable,Mercury,Night,,5,,4,,,,4,,5,,
+Libra,7,♎︎,Scales,"23 September
+-
+23 October",Air,Cardinal,Venus,Day,,,5,,4,,,,4,,5,
+Scorpius,8, ♏,Scorpion,"24 October
+-
+22 November",Water,Fixed,"Mars
+(Pluto)",Night,,,,5,,4,,,,4,,5
+Sagittarius,9,♐︎,Archer,"23 November
+-
+21 December",Fire,Mutable,Jupiter,Day,5,,,,5,,4,,,,4,
+Capricornus,10,♑︎,Sea Goat,"22 December
+-
+20 January",Earth,Cardinal,Saturn,Night,,5,,,,5,,4,,,,4
+Aquarius,11,♒︎,Water Bearer,"21 January
+-
+18 February",Air,Fixed,"Saturn
+(Uranus)",Day,4,,5,,,,5,,4,,,
+Pisces,12,♓︎,Fishes,"19 February
+-
+20 March",Water,Mutable,"Jupiter
+(Neptune)",Night,,4,,5,,,,5,,4,,
