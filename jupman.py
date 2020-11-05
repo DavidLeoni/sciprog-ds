@@ -128,7 +128,24 @@ def show_run(classOrMethod):
     """    
     run(classOrMethod)
 
-
+def save_py(filename, data):
+    """ Creates a .py file holding pydata assigned to a variable 
+        
+        Example: save_py('my_data.py', ['a','b','c'])
+        
+                will create a file containing the line:
+                
+                my_data = ['a','b','c']   
+                
+        @since 3.3
+    """
+    with open(filename, "w+", encoding='utf-8') as expo:        
+        from pprint import pformat
+        s = pformat(data)        
+        expo.write(filename[:-3])
+        expo.write(' = ')
+        expo.write(s)        
+    
 def pytut_json(jm_code):
     """ Runs jm_code and return a JSON execution trace
 
