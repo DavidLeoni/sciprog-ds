@@ -56,7 +56,8 @@ Part B
     linked-lists/linked-lists.ipynb    
     stacks/stacks.ipynb
     queues/queues.ipynb    
-    trees/trees.ipynb
+    trees/bin-trees.ipynb
+    trees/gen-trees.ipynb
     graph-algos/graph-algos.ipynb
     
 .. toctree::

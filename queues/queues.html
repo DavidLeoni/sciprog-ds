@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Trees" href="../trees/trees.html" />
+    <link rel="next" title="Graph algorithms" href="../graph-algos/graph-algos.html" />
     <link rel="prev" title="Stacks" href="../stacks/stacks.html" /> 
 </head>
 
@@ -356,7 +356,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.12">Lab A.12</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commandments.html#MOVED-TO-https://en.softpython.org/commandments.html">MOVED TO https://en.softpython.org/commandments.html</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../toc.html"> </a></li>
 <li class="toctree-l1"><a class="reference internal" href="../toc.html#part-a">Part A</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html">Installation</a><ul>
@@ -602,6 +605,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../linked-lists/linked-lists.html#6-Cloning">6 Cloning</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#6.1-rev">6.1 rev</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#6.2-clone">6.2 clone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#6.3-Slice">6.3 Slice</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../linked-lists/linked-lists.html#7-More-exercises">7 More exercises</a><ul>
@@ -617,6 +621,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#7.11-flatv">7.11 flatv</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#7.12-bubble_sort">7.12 bubble_sort</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#7.13-merge">7.13 merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#7.14-couple_sort">7.14 couple_sort</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../linked-lists/linked-lists.html#8-Last-exercises">8 Last exercises</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#8.1-rotate">8.1 rotate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#8.2-rotaten">8.2 rotaten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../linked-lists/linked-lists.html#8.3-plus_one">8.3 plus_one</a></li>
 </ul>
 </li>
 </ul>
@@ -694,7 +705,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#3.1.2-dequeue">3.1.2 dequeue</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.2-Fast-v2">3.2 Fast v2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.2.1-Save-a-copy">3.2.1 Save a copy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.2.2-Improve-enqueue">3.2.2 Improve enqueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.2.2-make-it-fast">3.2.2 make it fast</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#4.-Supermarket-queues">4. Supermarket queues</a><ul>
@@ -727,85 +738,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#7.1-dequeue">7.1 dequeue</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../trees/trees.html">Trees</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#0.-Introduction">0. Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#What-to-do">What to do</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#BT-0.-Binary-Tree-Introduction">BT 0. Binary Tree Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.1-References">BT 0.1 References</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.2-Terminology---relations">BT 0.2 Terminology - relations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.3-Terminology---levels">BT 0.3 Terminology - levels</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.4-Terminology---shapes">BT 0.4 Terminology - shapes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.2-Code-skeleton">BT 0.2 Code skeleton</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.3-Building-trees">BT 0.3 Building trees</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.3.1-Pointers">BT 0.3.1 Pointers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.3.2-Building-with-insert_left">BT 0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_left</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-0.3.3-Building-with-bt">BT 0.3.3 Building with <code class="docutils literal notranslate"><span class="pre">bt</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#BT-1.-Insertions">BT 1. Insertions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-1.1-insert_left">BT 1.1 insert_left</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-1.2-insert_right">BT 1.2 insert_right</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#BT-2.-Recursive-visit">BT 2. Recursive visit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.1-sum_rec">BT 2.1 sum_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.2-height_rec">BT 2.2 height_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.3-depth_rec">BT 2.3 depth_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.4-contains_rec">BT 2.4 contains_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.5-join_rec">BT 2.5 join_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.6-fun_rec">BT 2.6 fun_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.7-bin_search_rec">BT 2.7 bin_search_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.8-bin_insert_rec">BT 2.8 bin_insert_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.9-univalued_rec">BT 2.9 univalued_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-2.10-same_rec">BT 2.10 same_rec</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#BT-3.-Stack-visit">BT 3. Stack visit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-3.1-sum_stack">BT 3.1 sum_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-3.3-height_stack">BT 3.3 height_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#BT-3.3-others">BT 3.3 others</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#BT-Further-resources">BT Further resources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#GT-0.-Generic-Tree-Introduction">GT 0. Generic Tree Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.2-Code-skeleton">GT 0.2 Code skeleton</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.3-Building-trees">GT 0.3 Building trees</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.3.1-Pointers">GT 0.3.1 Pointers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.3.2-Building-with-insert_child">GT 0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_child</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.3.3-Building-with-gt">GT 0.3.3 Building with <code class="docutils literal notranslate"><span class="pre">gt</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.4-Displaying-trees-side-by-side-with-str_trees">GT 0.4 Displaying trees side by side with <code class="docutils literal notranslate"><span class="pre">str_trees</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.5-Look-at-the-tests">GT 0.5 Look at the tests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-0.6-Look-at-gen_tree_test.GenericTreeTest">GT 0.6 Look at gen_tree_test.GenericTreeTest</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#GT-1-Implement-basic-methods">GT 1 Implement basic methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.1-insert_child">GT 1.1 insert_child</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.2-insert_children">GT 1.2 insert_children</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.3-insert_sibling">GT 1.3 insert_sibling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.4-insert_siblings">GT 1.4 <code class="docutils literal notranslate"><span class="pre">insert_siblings</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.5-detach_child">GT 1.5 <code class="docutils literal notranslate"><span class="pre">detach_child</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.6-detach_sibling">GT 1.6 <code class="docutils literal notranslate"><span class="pre">detach_sibling</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.7-detach">GT 1.7 <code class="docutils literal notranslate"><span class="pre">detach</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-1.8-ancestors">GT 1.8 <code class="docutils literal notranslate"><span class="pre">ancestors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/trees.html#GT-2-Implement-more-complex-functions">GT 2 Implement more complex functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.1-grandchildren">GT 2.1 <code class="docutils literal notranslate"><span class="pre">grandchildren</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.2-Zig-Zag">GT 2.2 Zig Zag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.3-uncles">GT 2.3 uncles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.4-common_ancestor">GT 2.4 common_ancestor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.5-mirror">GT 2.5 mirror</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.6-clone">GT 2.6 clone</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.7-rightmost">GT 2.7 rightmost</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.8-fill_left">GT 2.8 fill_left</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.9-follow">GT 2.9 follow</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.10-is_triangle">GT 2.10 is_triangle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trees/trees.html#GT-2.11-has_triangle">GT 2.11 has_triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#8.-OfficeQueue">8. OfficeQueue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#8.1---time_to_service">8.1 - time_to_service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#8.2-split">8.2 split</a></li>
 </ul>
 </li>
 </ul>
@@ -1944,14 +1879,15 @@ ItalianQueue: d-&gt;e-&gt;f-&gt;g-&gt;h
 <p>If you still don’t understand why you should spend time with this copy bureaucracy, to help you enter the right mood imagine tomorrow is demo day with your best client and you screw up the only working version: your boss will <em>skin you alive</em>.</p>
 </div>
 </div>
-<div class="section" id="3.2.2-Improve-enqueue">
-<h3>3.2.2 Improve enqueue<a class="headerlink" href="#3.2.2-Improve-enqueue" title="Permalink to this headline">¶</a></h3>
-<p>Improve <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> so it works in <span class="math notranslate nohighlight">\(O(1)\)</span></p>
+<div class="section" id="3.2.2-make-it-fast">
+<h3>3.2.2 make it fast<a class="headerlink" href="#3.2.2-make-it-fast" title="Permalink to this headline">¶</a></h3>
+<p>Improve <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> adn <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> so they work both in <span class="math notranslate nohighlight">\(O(1)\)</span></p>
 <p><strong>HINT</strong>:</p>
 <ul class="simple">
 <li><p>You will need an extra data structure that keeps track of the starting points of each group and how they are ordered</p></li>
 <li><p>You will also need to update this data structure as <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> and <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> calls are made</p></li>
 </ul>
+<p><strong>SOLUTION</strong>: This exercise was proposed during <a class="reference external" href="https://sciprog.davidleoni.it/exams/2020-02-10/solutions/exam-2020-02-10-sol.html#B2-ItalianQueue-v2">this exam</a></p>
 </div>
 </div>
 <div class="section" id="4.-Supermarket-queues">
@@ -3755,6 +3691,401 @@ Concert:
 []
 </pre></div></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="8.-OfficeQueue">
+<h2>8. OfficeQueue<a class="headerlink" href="#8.-OfficeQueue" title="Permalink to this headline">¶</a></h2>
+<p>An office offers services <code class="docutils literal notranslate"><span class="pre">'x'</span></code>, <code class="docutils literal notranslate"><span class="pre">'y'</span></code> and <code class="docutils literal notranslate"><span class="pre">'z'</span></code>. When people arrive at the office, they state which service they need, get a ticket and enqueue. Suppose at the beginning of the day we are considering there is only one queue.</p>
+<p>The office knows on average how much time each service requires:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">SERVICES</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>   <span class="c1"># minutes</span>
+             <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
+             <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">30</span>
+           <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>With this information it is able to inform new clients approximately how long they will need to wait.</p>
+<p><code class="docutils literal notranslate"><span class="pre">OfficeQueue</span></code> is implemented as a linked list, where people enter the queue from the tail and leave from the head. We can represent it like this (<strong>NOTE</strong>: ‘cumulative wait’ is not actually stored in the queue):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wait time: 155 minutes
+
+cumulative wait:  5    10   15   45   50   55   85   105  110  130  150  155
+wait times:       5    5    5    30   5    5    30   20   5    20   20   5
+                  x    x    x    z    x    x    z    y    x    y    y    x
+                  a -&gt; b -&gt; c -&gt; d -&gt; e -&gt; f -&gt; g -&gt; h -&gt; i -&gt; l -&gt; m -&gt; n
+                  ^                                                      ^
+                  |                                                      |
+                 head                                                   tail
+</pre></div>
+</div>
+<p>Each node holds the client identifier <code class="docutils literal notranslate"><span class="pre">'a'</span></code>, <code class="docutils literal notranslate"><span class="pre">'b'</span></code>, <code class="docutils literal notranslate"><span class="pre">'c'</span></code>, and the service label (like <code class="docutils literal notranslate"><span class="pre">'x'</span></code>) requested by the client:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initdata</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">initdata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_service</span> <span class="o">=</span> <span class="n">service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">OfficeQueue</span></code> keeps fields <code class="docutils literal notranslate"><span class="pre">_services</span></code>, <code class="docutils literal notranslate"><span class="pre">_size</span></code> and a field <code class="docutils literal notranslate"><span class="pre">_wait_time</span></code> which holds the total wait time of the queue:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">OfficeQueue</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">services</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">services</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">office_queue_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">SERVICES</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>   <span class="c1"># minutes</span>
+             <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
+             <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">30</span>
+           <span class="p">}</span>
+
+
+<span class="n">oq</span> <span class="o">=</span> <span class="n">OfficeQueue</span><span class="p">(</span><span class="n">SERVICES</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OfficeQueue:
+
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OfficeQueue:
+  x    x    x    z    x    x    z    y    x    y    y    x
+  a -&gt; b -&gt; c -&gt; d -&gt; e -&gt; f -&gt; g -&gt; h -&gt; i -&gt; l -&gt; m -&gt; n
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+12
+</pre></div></div>
+</div>
+<p>Total wait time can be accessed from outside with the method <code class="docutils literal notranslate"><span class="pre">wait_time()</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span><span class="o">.</span><span class="n">wait_time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+155
+</pre></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>ATTENTION</strong>: you only need to implement the methods <code class="docutils literal notranslate"><span class="pre">time_to_service</span></code> and <code class="docutils literal notranslate"><span class="pre">split</span></code></p>
+<p><strong>DO NOT</strong> touch other methods.</p>
+</div>
+<div class="section" id="8.1---time_to_service">
+<h3>8.1 - time_to_service<a class="headerlink" href="#8.1---time_to_service" title="Permalink to this headline">¶</a></h3>
+<p>Open file <code class="docutils literal notranslate"><span class="pre">office_queue_exercise.py</span></code> with and start editing.</p>
+<p>In order to schedule work and pauses, for each service office employees want to know after how long they will have to process the first client requiring that particular service.</p>
+<p>First service encountered will always have a zero time interval (in this example it’s <code class="docutils literal notranslate"><span class="pre">x</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wait time: 155
+
+cumulative wait:  5    10   15   45   50   55   85   105  110  130  150  155
+wait times:       5    5    5    30   5    5    30   20   5    20   20   5
+                  x    x    x    z    x    x    z    y    x    y    y    x
+                  a -&gt; b -&gt; c -&gt; d -&gt; e -&gt; f -&gt; g -&gt; h -&gt; i -&gt; l -&gt; m -&gt; n
+                 ||              |                   |
+                 x : 0           |                   |
+                 |               |                   |
+                 |---------------|                   |
+                 |     z : 15                        |
+                 |                                   |
+                 |-----------------------------------|
+                                  y : 85
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">SERVICES</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>   <span class="c1"># minutes</span>
+             <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
+             <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">30</span>
+           <span class="p">}</span>
+
+<span class="n">oq</span> <span class="o">=</span> <span class="n">OfficeQueue</span><span class="p">(</span><span class="n">SERVICES</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OfficeQueue:
+
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OfficeQueue:
+  x    x    x    z    x    x    z    y    x    y    y    x
+  a -&gt; b -&gt; c -&gt; d -&gt; e -&gt; f -&gt; g -&gt; h -&gt; i -&gt; l -&gt; m -&gt; n
+</pre></div></div>
+</div>
+<p>Method to implement will return a dictionary mapping each service to the time interval after which the service is first required:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span><span class="o">.</span><span class="n">time_to_service</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;x&#39;: 0, &#39;y&#39;: 85, &#39;z&#39;: 15}
+</pre></div></div>
+</div>
+<div class="section" id="Services-not-required-by-any-client">
+<h4>Services not required by any client<a class="headerlink" href="#Services-not-required-by-any-client" title="Permalink to this headline">¶</a></h4>
+<p>As a special case, if a service is not required by any client, its time interval is set to the queue total wait time (because a client requiring that service might still show up in the future and get enqueued)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span> <span class="o">=</span> <span class="n">OfficeQueue</span><span class="p">(</span><span class="n">SERVICES</span><span class="p">)</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>   <span class="c1"># completed after 5 mins</span>
+<span class="n">oq</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>   <span class="c1"># completed after 5 + 20 mins</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OfficeQueue:
+  x    y
+  a -&gt; b
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="o">.</span><span class="n">wait_time</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+25
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oq</span><span class="o">.</span><span class="n">time_to_service</span><span class="p">()</span>   <span class="c1"># note z is set to total wait time</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;x&#39;: 0, &#39;y&#39;: 5, &#39;z&#39;: 25}
+</pre></div></div>
+</div>
+<p>Now implement this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">time_to_service</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; RETURN a dictionary mapping each service to the time interval after which</span>
+<span class="sd">        the service is first required.</span>
+
+<span class="sd">        - the first service encountered will always have a zero time interval</span>
+<span class="sd">        - If a service is not required by any client, time interval is set to</span>
+<span class="sd">          the queue total wait time</span>
+<span class="sd">        - MUST run in O(n) where n is the size of the queue.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">office_queue_test.TestTimeToService</span></code></p>
+</div>
+</div>
+<div class="section" id="8.2-split">
+<h3>8.2 split<a class="headerlink" href="#8.2-split" title="Permalink to this headline">¶</a></h3>
+<p>Suppose a new desk is opened: to reduce waiting times the office will comunicate on a screen to some people in the current queue to move to the new desk, thereby creating a new queue. The current queue will be split in two according to this criteria: after the cut, the total waiting time of the current queue should be the same or slightly bigger than the waiting time in the new queue:</p>
+<div class="admonition warning">
+<p><strong>ATTENTION</strong>: This example is <strong>different</strong> from previous one (total wait time is 150 instead of 155)</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ORIGINAL QUEUE:
+
+wait time = 150 minutes
+wait time / 2 = 75 minutes
+
+
+cumulative wait:  30   50   80   110  115  120  140  145  150
+wait times:       30   20   30   30   5    5    20   5    5
+                  z    y    z    z    x    x    y    x    x
+                  a -&gt; b -&gt; c -&gt; d -&gt; e -&gt; f -&gt; g -&gt; h -&gt; i
+                  ^            ^                          ^
+                  |            |                          |
+                 head       cut here                     tail
+
+
+MODIFIED QUEUE:
+
+wait time: 80 minutes
+
+wait times:       30   20   30
+cumulative wait:  30   50   80
+                  z    y    z
+                  a -&gt; b -&gt; c
+                  ^         ^
+                  |         |
+                 head      tail
+
+
+NEW QUEUE:
+
+wait time: 75 minutes
+
+wait times:       30   5    5    20   5    5
+cumulative wait:  30   35   40   60   65   70
+                  z    x    x    y    x    x
+                  d -&gt; e -&gt; f -&gt; g -&gt; h -&gt; i
+                  ^                        ^
+                  |                        |
+                 head                     tail
+</pre></div>
+</div>
+<p>Implement this method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Perform two operations:</span>
+<span class="sd">        - MODIFY the queue by cutting it so that the wait time of this cut</span>
+<span class="sd">          will be half (or slightly more) of wait time for the whole original queue</span>
+<span class="sd">        - RETURN a NEW queue holding remaining nodes after the cut - the wait time of</span>
+<span class="sd">          new queue will be half (or slightly less) than original wait time</span>
+
+<span class="sd">        - If queue to split is empty or has only one element, modify nothing</span>
+<span class="sd">          and RETURN a NEW empty queue</span>
+<span class="sd">        - After the call, present queue wait time should be equal or slightly bigger</span>
+<span class="sd">          than returned queue.</span>
+<span class="sd">        - DO *NOT* create new nodes, just reuse existing ones</span>
+<span class="sd">        - REMEMBER to set _size, _wait_time, _tail in both original and new queue</span>
+<span class="sd">        - MUST execute in O(n) where n is the size of the queue</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">office_queue_test.SplitTest</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -3762,7 +4093,6 @@ Concert:
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -3777,7 +4107,7 @@ Concert:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../trees/trees.html" class="btn btn-neutral float-right" title="Trees" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../graph-algos/graph-algos.html" class="btn btn-neutral float-right" title="Graph algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../stacks/stacks.html" class="btn btn-neutral float-left" title="Stacks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
