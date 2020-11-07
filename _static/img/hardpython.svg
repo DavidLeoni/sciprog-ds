@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="169.61768mm"
+   height="152.40984mm"
+   viewBox="0 0 601.00751 540.03485"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="hardpython.svg"
+   inkscape:export-filename="/PRJ/sciprog/prj/_static/img/hard-python.png"
+   inkscape:export-xdpi="59.829472"
+   inkscape:export-ydpi="59.829472">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4237">
+      <stop
+         style="stop-color:#030303;stop-opacity:1"
+         offset="0"
+         id="stop4239" />
+      <stop
+         style="stop-color:#340098;stop-opacity:1"
+         offset="1"
+         id="stop4241" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4205"
+       inkscape:collect="always">
+      <stop
+         id="stop4231"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1" />
+      <stop
+         id="stop4233"
+         offset="1"
+         style="stop-color:#2251ff;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4213">
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="0"
+         id="stop4215" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0"
+         offset="1"
+         id="stop4217" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4205"
+       id="linearGradient4211"
+       x1="329.39798"
+       y1="251.32018"
+       x2="331.15848"
+       y2="419.42865"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.84549754,0,0,0.84549754,149.75539,92.864176)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4213"
+       id="linearGradient4219"
+       x1="318.80154"
+       y1="410.87085"
+       x2="319.50873"
+       y2="585.74628"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.97497018,0,0,0.97497017,144.82762,42.971594)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4237"
+       id="radialGradient4227"
+       cx="259.45895"
+       cy="235.28104"
+       fx="259.45895"
+       fy="235.28104"
+       r="267.97269"
+       gradientTransform="matrix(0.78662043,0,0,0.09074156,89.938908,224.24665)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="18.662337"
+     inkscape:cy="161.85475"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1868"
+     inkscape:window-height="1051"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-70.928119,-121.33056)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:190.31193542px;line-height:123.00000191%;font-family:AmazDooMLeft;-inkscape-font-specification:AmazDooMLeft;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4211);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="285.32019"
+       y="474.85431"
+       id="text4155"
+       sodipodi:linespacing="123%"
+       transform="scale(1.0578757,0.94529064)"
+       inkscape:export-xdpi="88.141914"
+       inkscape:export-ydpi="88.141914"><tspan
+         sodipodi:role="line"
+         id="tspan4157"
+         x="285.32019"
+         y="474.85431"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:AmazDooMLeft;-inkscape-font-specification:AmazDooMLeft;fill:url(#linearGradient4211);fill-opacity:1">Har<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:AmazDooMRight;-inkscape-font-specification:AmazDooMRight;fill:url(#linearGradient4211);fill-opacity:1"
+   id="tspan4159">D</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:201.50367737px;line-height:123.00000191%;font-family:AmazDooMLeft;-inkscape-font-specification:AmazDooMLeft;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4219);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="239.78932"
+       y="631.94086"
+       id="text4155-5"
+       sodipodi:linespacing="123%"
+       transform="scale(0.98665947,1.0135209)"
+       inkscape:export-xdpi="88.141914"
+       inkscape:export-ydpi="88.141914"><tspan
+         sodipodi:role="line"
+         id="tspan4157-7"
+         x="239.78932"
+         y="631.94086"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:AmazDooMLeft;-inkscape-font-specification:AmazDooMLeft;fill:url(#linearGradient4219);fill-opacity:1">Pytho<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:AmazDooMRight;-inkscape-font-specification:AmazDooMRight;fill:url(#linearGradient4219);fill-opacity:1"
+   id="tspan4159-1">N</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:68.06510925px;line-height:123.00000191%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#radialGradient4227);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="70.993378"
+       y="268.48367"
+       id="text4182"
+       sodipodi:linespacing="123%"
+       transform="matrix(0.99058739,-0.1368818,0.1368818,0.99058739,0,0)"
+       inkscape:export-xdpi="88.141914"
+       inkscape:export-ydpi="88.141914"><tspan
+         sodipodi:role="line"
+         id="tspan4184"
+         x="70.993378"
+         y="268.48367"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Latin Modern Roman Unslanted';-inkscape-font-specification:'Latin Modern Roman Unslanted';fill:url(#radialGradient4227);fill-opacity:1">Welcome to...</tspan></text>
+  </g>
+</svg>
