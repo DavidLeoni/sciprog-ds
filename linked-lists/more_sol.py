@@ -328,6 +328,37 @@ class LinkedList:
         return ret
         #/jupman-raise        
         
+    def couple_sort(self):
+        """MODIFIES the linked list by considering couples of nodes at even indexes
+           and their successors: if a node data is lower than its successor data, swaps the nodes *data*.
+           
+           - ONLY swap *data*, DO NOT change node links.
+           - if linked list has odd size, simply ignore the exceeding node.
+           - MUST execute in O(n), where n is the size of the list
+        """
+        #jupman-raise
+
+        if self._head == None:
+            return
+
+        prev = self._head
+        current = self._head.get_next()
+            
+        while current != None:
+            tmp = current.get_data()
+            if prev.get_data() > current.get_data():
+                current.set_data(prev.get_data())
+                prev.set_data(tmp)
+
+            if current.get_next() == None:
+                current = None
+            else:
+                prev = current.get_next()
+                current = current.get_next().get_next()
+        
+        #/jupman-raise
+        
+        
 def mirror(lst):
     """ RETURN a NEW LinkedList having double the nodes of provided lst
         First nodes will have same elements of lst, following nodes will 

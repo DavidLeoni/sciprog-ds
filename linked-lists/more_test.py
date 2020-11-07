@@ -649,6 +649,52 @@ class MergeTest(unittest.TestCase):
     def test_complex(self):
         self.assertEqual(to_py(to_ll([5,7,8,12]).merge(to_ll([6,9,10,12,15,16]))), 
                         [16,15,12,12,10,9,8,7,6,5])
-      
-       
+
+        
+class CoupleSortTest(LinkedListTest):
+
+    def test_01_empty(self):
+        ll = LinkedList()        
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [])
+
+
+    def test_02_4(self):
+        ll = to_ll([4])
+        res = ll.couple_sort()
+        self.assertEqual(to_py(ll), [4])
+        self.assertEqual(res, None)  # must not return anything
+
+
+    def test_03_35(self):
+        ll = to_ll([3,5])
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [3,5])
+
+    def test_04_62(self):
+        ll = to_ll([6,2])
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [2,6])
+
+    def test_05_621(self):
+        ll = to_ll([6,2,1])
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [2,6,1])
+
+
+    def test_06_6241(self):
+        ll = to_ll([6,2,4,1])
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [2,6,1,4])
+
+    def test_07_512763(self):
+        ll = to_ll([5,1,2,7,6,3])
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [1,5,2,7,3,6])
+
+    def test_08_complex(self):
+        ll = to_ll([4,3,5,2,6,7,6,3,2,4,5,3,2])
+        ll.couple_sort()
+        self.assertEqual(to_py(ll), [3,4,2,5,6,7,3,6,2,4,3,5,2])
+        
 #unittest.main()        

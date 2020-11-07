@@ -215,3 +215,6 @@ class LinkedList:
                 prev.set_next(new_node)
                 new_node.set_next(current)                
         #/jupman-raise
+        
+        
+                

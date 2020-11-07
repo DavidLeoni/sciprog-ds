@@ -295,6 +295,53 @@ class BinaryTree:
 
         return helper(self, other)
         #/jupman-raise
+        
+    def sum_leaves_rec(self):
+        """ Supposing the tree holds integer numbers in all nodes,
+            RETURN the sum of ONLY the numbers in the leaves.
+
+            - a root with no children is considered a leaf
+            - implement it as a recursive Depth First Search (DFS) traversal
+              NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """ 
+   
+        #jupman-raise
+        
+        if self.left() == None and self.right() == None:
+            ret = self.data()
+        else:
+            ret = 0
+        if self.left() != None:
+            ret += self.left().sum_leaves_rec()
+        if self.right() != None:
+            ret += self.right().sum_leaves_rec()
+        return ret
+        #/jupman-raise                  
+        
+         
+
+    def schedule_rec(self):
+        """ RETURN a list of task labels in the order they will be completed.
+
+            - Implement it with recursive calls.
+            - MUST run in O(n) where n is the size of the tree
+            
+            NOTE: with big trees a recursive solution would surely
+                  exceed the call stack, but here we don't mind
+        """
+        #jupman-raise
+        ret = []
+        if self._left != None:
+            ret.extend(self._left.schedule_rec())
+        if self._right != None:
+            ret.extend(self._right.schedule_rec())
+        ret.append(self._data)
+        return ret
+        #/jupman-raise
+           
+    
+        
 
     def sum_stack(self):
         """ Supposing the tree holds integer numbers in all nodes,
@@ -342,4 +389,97 @@ class BinaryTree:
                 stack.append((node.right(), level + 1) )
         return ret
 
-        #/jupman-raise              
+        #/jupman-raise      
+        
+    def leaves_stack(self):
+        """ RETURN a list holding the *data* of all the leaves  of the tree,
+            in left to right order.
+            - a root with no children is considered a leaf
+
+            - DO *NOT* use recursion
+            - implement it with a while and a stack (as a python list)            
+        """        
+        #jupman-raise
+        ret = []
+        stack = [self]
+        while len(stack) > 0:
+            node = stack.pop()
+            if node.left() == None and node.right() == None:
+                ret.append(node.data())
+            # first right then left so we don't need to reverse later
+            if node.right() != None:
+                stack.append( node.right() )
+            if node.left() != None:
+                stack.append( node.left() )
+        
+        return ret
+        #/jupman-raise      
+        
+    def add_row(self, elems):
+        """ Takes as input a list of data and MODIFIES the tree by adding
+            a row of new leaves, each having as data one element of elems,
+            in order.
+            
+            - elems size can be less than 2*|leaves|
+            - if elems size is more than 2*|leaves|, raises ValueError
+            - for simplicity, you can assume assume self is a perfect 
+              binary tree, that is a binary tree in which all interior nodes 
+              have two children and all leaves have the same depth
+            - MUST execute in O(n+|elems|)  where n is the size of the tree
+            - DO *NOT* use recursion
+            - implement it with a while and a stack (as a Python list)
+        """         #jupman-raise
+        leaves = []
+        stack = [self]
+        while len(stack) > 0:
+            node = stack.pop()
+            if node.left() == None and node.right() == None:
+                leaves.append(node)
+            # first right then left so we don't need to reverse later
+            if node.right() != None:
+                stack.append( node.right() )
+            if node.left() != None:
+                stack.append( node.left() )
+
+        if len(elems) > 2*len(leaves):
+            raise ValueError("Not enough nodes ! Tried to append row of %s elements to %s leaves !" % (len(elems), len(leaves)))
+
+        j = 0
+        for i in range(len(elems)):            
+            if i % 2 == 0:
+                leaves[j].insert_left(elems[i])
+            else:
+                leaves[j].insert_right(elems[i])
+                j += 1
+            
+        #/jupman-raise   
+        
+    def prune_rec(self, el):
+        """ MODIFIES the tree by cutting all the subtrees that have their 
+            root node data equal to el. By 'cutting' we mean they are no longer linked 
+            by the tree on which prune is called.
+
+            - if prune is called on a node having data equal to el, raises ValueError
+            
+            - MUST execute in O(n) where n is the number of nodes of the tree
+            - NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """
+        #jupman-raise
+
+        if self._data == el:
+            raise ValueError('Tried to prune the tree root!')
+                
+        if self._left != None:
+            if self._left._data == el:
+                self._left = None
+            else:
+                self._left.prune_rec(el)
+
+        if self._right != None:
+            if self._right._data == el:
+                self._right = None
+            else:
+                self._right.prune_rec(el)
+
+        #/jupman-raise
