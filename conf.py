@@ -216,11 +216,6 @@ html_theme_options = {
     'collapse_navigation': False    
 }
 
-if os.environ.get('GOOGLE_ANALYTICS'):
-    print("Found GOOGLE_ANALYTICS environment variable")
-    html_theme_options['analytics_id'] = os.environ.get('GOOGLE_ANALYTICS')        
-else:
-    print('No GOOGLE_ANALYTICS environment variable was found, skipping it')
     
 
 # NOTE: in order to have complete collapsible menu, 
@@ -433,7 +428,7 @@ pdf_use_numbered_links = False
 pdf_fit_background_mode = 'scale'
 
 def setup(app):
-    jmt.init(jm)
+    jmt.init(jm, globals())
     
     app.add_config_value(   'recommonmark_config', {
                                 'auto_toc_tree_section': 'Contents',

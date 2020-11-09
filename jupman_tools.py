@@ -9,6 +9,13 @@ import types
 import glob
 import datetime 
 from nbconvert.preprocessors import Preprocessor  
+import logging
+
+logger = logging.getLogger('jupman')
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+logger.addHandler(console_handler)
+
 
 def fatal(msg, ex=None):
     """ Prints error and exits (halts program execution immediatly)
@@ -17,7 +24,7 @@ def fatal(msg, ex=None):
         exMsg = ""
     else:
         exMsg = " \n  %s" % repr(ex)
-    info("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
+    logger.critical("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
     exit(1)
 
 def error(msg, ex=None):
@@ -29,17 +36,17 @@ def error(msg, ex=None):
     else:
         exMsg = " \n  %s" % repr(ex)
         the_ex = ex 
-    info("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
+    logger.error("\n\n    FATAL ERROR! %s%s\n\n" % (msg,exMsg))
     raise the_ex
     
 def info(msg=""):
-    print("  %s" % msg)
+    logger.info("  %s" % msg)    
 
 def warn(msg):
-    print("\n\n   WARNING: %s" % msg)
+    logger.warning("\n\n   WARNING: %s" % msg)    
 
 def debug(msg=""):
-    print("  DEBUG=%s" % msg) 
+    logger.debug("  DEBUG=%s" % msg)        
     
 def parse_date(ld):
     try:
@@ -68,8 +75,7 @@ def detect_release():
         release = check_output(['git', 'describe', '--tags', '--always'])
         release = release.decode().strip()        
         if not '.' in release:
-            raise Exception            
-        info("Detected release from git: %s" % release)
+            raise Exception                    
     except Exception:
         release = 'dev'
 
@@ -118,13 +124,14 @@ def _cancel_tags(text, tags):
               .replace(tag_end(tag), '')    
     return ret
 
-def _replace_title( nb_node, source_abs_fn, replacement) -> str:
+def _replace_title( nb_node, source_abs_fn, replacement, title_pat=r'(.*)') -> str:
         """ Finds the title of a notebook and replaces it with replacement
             Returns the old title.
         """
         
         # look for title
-        pat = re.compile(r'^(\s*#\s+)(.*)')
+
+        pat = re.compile(r'^(\s*#\s+)'+ title_pat)
         for cell in nb_node.cells:
             if cell.cell_type == "markdown":
                 ma = pat.search(cell.source)
@@ -136,7 +143,7 @@ def _replace_title( nb_node, source_abs_fn, replacement) -> str:
                                          cell.source) 
                     break
         
-        if not ma:
+        if not ma:            
             error("Couldn't find title in file: \n   %s\nThere should be a markdown cell beginning with text # bla bla" % source_abs_fn)    
         return found_title
 
@@ -145,6 +152,7 @@ class FileKinds(Enum):
     EXERCISE = 2
     TEST = 3
     OTHER = 4
+    CHALLENGE_SOLUTION = 5
 
     @staticmethod
     def sep(ext):
@@ -169,7 +177,10 @@ class FileKinds(Enum):
             ext = l[-1]
         else:
             ext = ''
-        if fname.endswith('%ssol.%s' % (FileKinds.sep(ext), ext)):
+        sp = FileKinds.sep(ext)
+        if fname.endswith('%schal%ssol.%s' % (sp, sp, ext)):
+            return FileKinds.CHALLENGE_SOLUTION
+        elif fname.endswith('%ssol.%s' % (FileKinds.sep(ext), ext)):
             return FileKinds.SOLUTION            
         elif fname.endswith("_test.py") :
             return FileKinds.TEST        
@@ -326,13 +337,25 @@ def multi_replace(text, d):
     return s
 
 
-def init(jupman):
+def init(jupman, conf={}):    
     """Initializes the system, does patching, etc
 
         Should be called in conf.py at the beginning of setup() 
     
         @since 3.2
     """
+    logging.getLogger().setLevel(logging.INFO)
+    if not conf:
+        warn("globals() not passed to jmt.init call, please add it!")
+    else:
+        info("release: %s" % conf['release'])
+
+        if os.environ.get('GOOGLE_ANALYTICS'):
+            info("Found GOOGLE_ANALYTICS environment variable")
+            conf['html_theme_options']['analytics_id'] = os.environ.get('GOOGLE_ANALYTICS')        
+        else:
+            info('No GOOGLE_ANALYTICS environment variable was found, skipping it')
+    
     # hooks into ExecutePreprocessor.preprocess to execute our own filters.
     # Method as in https://github.com/spatialaudio/nbsphinx/issues/305#issuecomment-506748814
 
@@ -743,11 +766,20 @@ class Jupman:
 
 
         import copy
+        
         replace_ipynb_rel(nb, source_abs_fn, website)                                                
-        if not website:
-            _replace_title(nb, 
-                           source_abs_fn, 
-                           r"# \2 %s" % self.ipynb_exercises)
+        
+        
+        if not website:            
+            if FileKinds.detect(source_abs_fn) == FileKinds.CHALLENGE_SOLUTION:
+                _replace_title(nb, 
+                                source_abs_fn, 
+                                r"# \2", 
+                                title_pat=r'(.*?)\s+(%s)' % self.ipynb_solutions)
+            else:
+                _replace_title(nb, 
+                            source_abs_fn, 
+                            r"# \2 %s" % self.ipynb_exercises)
         
         # look for tags
         sh_cells = nb.cells[:]
@@ -791,26 +823,31 @@ class Jupman:
             cell_counter += 1
         return nb                    
 
-    def generate_exercise(self, source_fn, source_abs_fn, dirpath, structure):
+    def generate_exercise(self, source_rel_fn, dest_dir='./'):
+        """ Given a relative filename, generates the corresponding exercise file in dest_dir
+        """
+        if not FileKinds.is_supported_ext(source_rel_fn, self.distrib_ext):
+            raise ValueError("Exercise generation from solution not supported for file type %s" % source_rel_fn)
 
-        if not FileKinds.is_supported_ext(source_fn, self.distrib_ext):
-            raise ValueError("Exercise generation from solution not supported for file type %s" % source_fn)
+        kind = FileKinds.detect(source_rel_fn)
 
-        exercise_fname = FileKinds.exercise_from_solution(source_fn, self.distrib_ext)
-        exercise_abs_filename = os.path.join(dirpath, exercise_fname)
-        exercise_dest_fn = os.path.join(structure , exercise_fname)
+        source_abs_fn = os.path.abspath(source_rel_fn)
+        source_dir = os.path.dirname(source_abs_fn)
+        exercise_fn = FileKinds.exercise_from_solution(os.path.basename(source_rel_fn), self.distrib_ext)
+        
+        exercise_abs_fn = os.path.join(source_dir, exercise_fn)
+        exercise_dest_fn = os.path.join(dest_dir , exercise_fn)
 
         info("  Generating %s" % exercise_dest_fn)
 
-        with open(source_abs_fn) as sol_source_f:
-            
+        with open(source_abs_fn) as sol_source_f:            
 
             found_tag = self.validate_tags(source_abs_fn)                      
-            if not found_tag and not os.path.isfile(exercise_abs_filename) :
+            if not found_tag and not os.path.isfile(exercise_abs_fn) :
                 error("There is no exercise file and couldn't find any jupman tag in solution file for generating exercise !" +\
-                    "\n  solution: %s\n  exercise: %s" % (source_abs_fn, exercise_abs_filename))                                                                      
-            if found_tag and os.path.isfile(exercise_abs_filename) :
-                error("Found jupman tags in solution file but an exercise file exists already !\n  solution: %s\n  exercise: %s" % (source_abs_fn, exercise_abs_filename))
+                    "\n  solution: %s\n  exercise: %s" % (source_abs_fn, exercise_abs_fn))                                                                      
+            if not kind == FileKinds.CHALLENGE_SOLUTION and found_tag and os.path.isfile(exercise_abs_fn) :
+                error("Found jupman tags in solution file but an exercise file exists already !\n  solution: %s\n  exercise: %s" % (source_abs_fn, exercise_abs_fn))
                                 
             with open(exercise_dest_fn, 'w') as exercise_dest_f:
                 
@@ -833,40 +870,42 @@ class Jupman:
                     raise ValueError("Don't know how to translate solution to exercise for source file %s" % source_abs_fn)
    
     def copy_code(self, source_dir, dest_dir, copy_solutions=False):
-        
-        
+                
         info("Copying code %s \n    from  %s \n    to    %s" % ('and solutions' if copy_solutions else '', source_dir, dest_dir))
 
         # creating folders
         for dirpath, dirnames, filenames in os.walk(source_dir):
             compath = os.path.commonpath([dirpath, source_dir])
-            structure = os.path.join(dest_dir, dirpath[len(compath)+1:])
-            
-            if not self.is_zip_ignored(structure):
-                if not os.path.isdir(structure) :
-                    info("Creating dir %s" % structure)
-                    os.makedirs(structure)
+            dest_dir = os.path.join(dest_dir, dirpath[len(compath)+1:])            
+            if not self.is_zip_ignored(dest_dir):
+                if not os.path.isdir(dest_dir) :
+                    info("Creating dir %s" % dest_dir)
+                    os.makedirs(dest_dir)
 
-                for source_fn in filenames:
-                                    
+                
+                
+                for source_fn in filenames:                    
                     if not self.is_zip_ignored(source_fn):
                         
                         source_abs_fn = os.path.join(dirpath,source_fn)
-                        dest_fn = os.path.join(structure , source_fn)                           
+                        dest_fn = os.path.join(dest_dir , source_fn)                           
                         fileKind = FileKinds.detect(source_fn)
                         
-                        if fileKind == FileKinds.SOLUTION:                  
+                        if fileKind == FileKinds.CHALLENGE_SOLUTION:
+                            # challenge solutions are supposed to be generated 
+                            # manually inside the jupyter notebook
+
+                            pass
+                        elif fileKind == FileKinds.SOLUTION:
                             if copy_solutions:                                           
                                 self._copy_sols(source_fn, 
                                                 source_abs_fn,
                                                 dest_fn)
                             
-                            if FileKinds.is_supported_ext(  source_fn,      
+                            if FileKinds.is_supported_ext(  source_fn,
                                                             self.distrib_ext):
-                                self.generate_exercise( source_fn, 
-                                                        source_abs_fn,
-                                                        dirpath,
-                                                        structure)    
+                                self.generate_exercise( os.path.join(dirpath,source_fn),
+                                                        dest_dir=dest_dir)
                                             
                                 
                         elif fileKind == FileKinds.TEST:                            
