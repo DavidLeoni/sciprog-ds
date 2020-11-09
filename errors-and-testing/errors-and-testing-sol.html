@@ -354,6 +354,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.10">Lab A.10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.11">Lab A.11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.12">Lab A.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Part-B">Part B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.1">Lab B.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -365,6 +367,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#Visual-Studio-Code">Visual Studio Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#The-debugger">The debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#VS-Code---collaborative-coding">VS Code - collaborative coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#VS-Code---Sharing-test-runs">VS Code - Sharing test runs</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../basics/basics-sol.html">Python basics</a><ul>
@@ -444,6 +448,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Exercise:-expecting-assertions">Exercise: expecting assertions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise:-good-tests">Exercise: good tests</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Running-unittests-in-Visual-Studio-Code">Running unittests in Visual Studio Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#TROUBLESHOOTING">TROUBLESHOOTING</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Functional-programming">Functional programming</a></li>
@@ -1221,10 +1226,10 @@ div.rendered_html tbody tr:hover {
 <p><strong>NOTE</strong>: Testing with Unittest is only done in PART B of this course</p>
 </div>
 <p>Is there anything better than <code class="docutils literal notranslate"><span class="pre">assert</span></code>for testing? <code class="docutils literal notranslate"><span class="pre">assert</span></code> can be a quick way to check but doesn’t tell us exactly which is the wrong number in the list returned by <code class="docutils literal notranslate"><span class="pre">even_number(5)</span></code>. Luckily, Python offers us a better option, which is a complete testing framework called <a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest</a>. We will use unittest because it is the standard one, but if you’re doing other projects you might consider using better ones like
-<a class="reference external" href="https://docs.pytest.org/">pytest</a></p>
+<a class="reference external" href="https://docs.pytest.org/">pytest</a> (note it can also execute tests made with unittest, so if your visualstudio code for some reason doesn’t work with unittest, you can try setting pytest as test framework)</p>
 <p>So let’s give unittest a try. Suppose you have a file called <code class="docutils literal notranslate"><span class="pre">file_test.py</span></code> like this:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1252,7 +1257,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>We won’t explain what <code class="docutils literal notranslate"><span class="pre">class</span></code> mean (<a class="reference external" href="http://interactivepython.org/runestone/static/pythonds/Introduction/ObjectOrientedProgramminginPythonDefiningClasses.html">for classes see the book chpater</a>), the important thing to notice is the method definition:</p>
+<p>We won’t explain what <code class="docutils literal notranslate"><span class="pre">class</span></code> mean (<a class="reference external" href="http://interactivepython.org/runestone/static/pythonds/Introduction/ObjectOrientedProgramminginPythonDefiningClasses.html">for classes see the book chapter</a>), the important thing to notice is the method definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_long_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">),[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 </pre></div>
@@ -1270,11 +1275,12 @@ div.rendered_html tbody tr:hover {
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m unittest file_test
 </pre></div>
 </div>
-<div class="alert -alert-warning"><p><strong>!!!!! WARNING</strong>: In the call above, DON’T append the extension <code class="docutils literal notranslate"><span class="pre">.py</span></code> to <code class="docutils literal notranslate"><span class="pre">file_test</span></code> !!!!!! <strong>!!!!! WARNING</strong>: Still, on the hard-disk the file MUST be named with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> at the end, like <code class="docutils literal notranslate"><span class="pre">file_test.py</span></code>!!!!!!</p>
+<div class="alert -alert-warning"><p><strong>!!!!! WARNING</strong>: In the call above, DON’T append the extension <code class="docutils literal notranslate"><span class="pre">.py</span></code> to <code class="docutils literal notranslate"><span class="pre">file_test</span></code> !!!!!!</p>
+<p><strong>!!!!! WARNING</strong>: Still, on the hard-disk the file MUST be named with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> at the end, like <code class="docutils literal notranslate"><span class="pre">file_test.py</span></code>!!!!!!</p>
 </div>
 <p>You should see an output like the following:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1292,7 +1298,7 @@ F
 FAIL: test_long_list (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;&lt;ipython-input-22-397caec8a66f&gt;&#34;, line 19, in test_long_list
+  File &#34;&lt;ipython-input-2-ec89a972a892&gt;&#34;, line 19, in test_long_list
     self.assertEqual(even_numbers(5),[0,2,4,6,8])
 AssertionError: Lists differ: [0, 2, 3, 6, 8] != [0, 2, 4, 6, 8]
 
@@ -1317,21 +1323,21 @@ FAILED (failures=1)
 </div>
 <div class="section" id="When-tests-don't-run">
 <h3>When tests don’t run<a class="headerlink" href="#When-tests-don't-run" title="Permalink to this headline">¶</a></h3>
-<p>When <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">unittest</span></code> does not work and you keep seeing absurd errors like Python not finding a module and you are getting desperate (especially because Python has <code class="docutils literal notranslate"><span class="pre">unittest</span></code> included <em>by default</em>, there is no need to install it! ), try to put the following code at the very end of the file you are editing:</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">unittest</span></code> does not work and you keep seeing absurd errors like Python not finding a module and you are getting desperate (especially because Python has <code class="docutils literal notranslate"><span class="pre">unittest</span></code> included <em>by default</em>, there is no need to install it! ), try putting the following code at the very end of the file you are editing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Then run your file with just</p>
+<p>Then simply run your file with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python file_test.py
 </pre></div>
 </div>
-<p>In this case it should REALLY work. If it still doesn’t, call the Ghostbusters. Or, better, the IndentationBusters, you’re likely having tabs mixed with spaces mixed with bad bad luck.</p>
+<p>In this case it should REALLY work. If it still doesn’t, call the Ghostbusters. Or, better, the IndentationBusters, you’re likely having tabs mixed with spaces mixed with very bad luck.</p>
 </div>
 <div class="section" id="Adding-tests">
 <h3>Adding tests<a class="headerlink" href="#Adding-tests" title="Permalink to this headline">¶</a></h3>
 <p>How can we add (good) tests? Since best ones are usually short, it would be better starting small boundary cases. For example like <code class="docutils literal notranslate"><span class="pre">n=1</span></code> , which according to function documentation should produce a list containing zero:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1350,7 +1356,7 @@ FAILED (failures=1)
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1368,7 +1374,7 @@ FF
 FAIL: test_long_list (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;&lt;ipython-input-24-306d9f1c7777&gt;&#34;, line 7, in test_long_list
+  File &#34;&lt;ipython-input-4-306d9f1c7777&gt;&#34;, line 7, in test_long_list
     self.assertEqual(even_numbers(5),[0,2,4,6,8])
 AssertionError: Lists differ: [0, 2, 3, 6, 8] != [0, 2, 4, 6, 8]
 
@@ -1387,7 +1393,7 @@ First differing element 2:
 FAIL: test_one_element (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;&lt;ipython-input-24-306d9f1c7777&gt;&#34;, line 4, in test_one_element
+  File &#34;&lt;ipython-input-4-306d9f1c7777&gt;&#34;, line 4, in test_one_element
     self.assertEqual(even_numbers(1),[0])
 AssertionError: Lists differ: [3] != [0]
 
@@ -1399,14 +1405,14 @@ First differing element 0:
 + [0]
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0.002s
+Ran 2 tests in 0.003s
 
 FAILED (failures=2)
 </pre></div></div>
 </div>
 <p>From the tests we can now see there is clearly something wrong with the number 3 that keeps popping up, making both tests fail. You can see immediately which tests have failed by looking at the first two <code class="docutils literal notranslate"><span class="pre">FF</span></code> at the top of the output. Let’s fix the code by removing the buggy line:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1422,7 +1428,6 @@ FAILED (failures=2)
     <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
     <span class="c1"># NOW WE COMMENTED THE BUGGY LINE  r[n // 2] = 3   # &lt;-- evil bug, puts number &#39;3&#39; in the middle</span>
     <span class="k">return</span> <span class="n">r</span>
-
 </pre></div>
 </div>
 </div>
@@ -1431,7 +1436,7 @@ FAILED (failures=2)
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1446,7 +1451,7 @@ FAILED (failures=2)
 <div class="highlight"><pre>
 ..
 ----------------------------------------------------------------------
-Ran 2 tests in 0.001s
+Ran 2 tests in 0.002s
 
 OK
 </pre></div></div>
@@ -1520,17 +1525,17 @@ OK
 </ol>
 <p><img alt="vscode 3 3142434" src="../_images/vscode-3.png" /></p>
 <ol class="arabic simple" start="4">
-<li><p>Select <code class="docutils literal notranslate"><span class="pre">*Python</span> <span class="pre">files</span> <span class="pre">containing</span> <span class="pre">the</span> <span class="pre">word</span> <span class="pre">'test'</span></code>:</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">*test*.py</span> <span class="pre">Python</span> <span class="pre">files</span> <span class="pre">containing</span> <span class="pre">the</span> <span class="pre">word</span> <span class="pre">'test'</span></code>:</p></li>
 </ol>
 <p><img alt="vscode 4 92383283" src="../_images/vscode-4.png" /></p>
 <p>Hopefully, on the currently opened test file new labels should appear above class and test methods, like in the following example. Try to click on them:</p>
 <p><img alt="vscode 5 8232114" src="../_images/vscode-5.png" /></p>
-<p>In the bottom bar, you should see a recap of run tests (right side of the picture):</p>
+<p>In the bottom bar, you should see a recap of tests run (right side of the picture):</p>
 <p><img alt="vscode 6 2348324332" src="../_images/vscode-6.png" /></p>
-<div class="admonition warning">
-<p><strong>TROUBLESHOOTING</strong></p>
 </div>
-<p>If you encounter problems running tests and have Anaconda, sometimes an easy solution can be just closing Visual Studio Code and running it from the Anaconda Navigator. You can also try to update it.</p>
+<div class="section" id="TROUBLESHOOTING">
+<h3>TROUBLESHOOTING<a class="headerlink" href="#TROUBLESHOOTING" title="Permalink to this headline">¶</a></h3>
+<p>If you encounter problems running tests and have Anaconda, sometimes an easy solution can be just closing Visual Studio Code and running it from the Anaconda Navigator. You can also try updating it.</p>
 <p><strong>Running tests by console does not work:</strong></p>
 <ul class="simple">
 <li><p>remember to SAVE the files before executing tests: in Windows, a file appears as not saved when its filename in the tab is written in italics; on Linux, you might see a dot to the right of the filename</p></li>
@@ -1543,8 +1548,8 @@ OK
 <li><p>if you are really out of luck with the editor, there is always the option of running tests from the console.</p></li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING: spend time also with the console !!!!</strong></p>
-<p>During the exam testing in VSCode might not work, so please be prepared to use the console</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Spend time using the console !!!!</strong></p>
+<p>During exams VSCode testing might not work, so please be prepared to use the console</p>
 </div>
 </div>
 </div>
@@ -1552,7 +1557,7 @@ OK
 <h2>Functional programming<a class="headerlink" href="#Functional-programming" title="Permalink to this headline">¶</a></h2>
 <p>In functional programming, functions behave as mathematical ones so they always take some parameter and return new data without ever changing the input. They say functional programming is easier to test. Why?</p>
 <p><strong>Immutable data structures</strong>: all data structures are (or are meant to be) immutable -&gt; no code can ever tweak your data, so other developers just cannot (should not) be able to inadvertently change your data.</p>
-<p><strong>Simpler parallel computing</strong>: point above is particularly inmportant in parallel computation, wheb the system can schedule thread executions differently <em>each</em> time you run the program: this implies that when you have multiple threads it can be very very hard to reproduce a bug where a thread wrongly changes a data which is supposed to be exclusively managed by another one, as it might fail in one run and succeed in another just because the system scheduled differently the code execution !
+<p><strong>Simpler parallel computing</strong>: point above is particularly inmportant in parallel computation, when the system can schedule thread executions differently <em>each</em> time you run the program: this implies that when you have multiple threads it can be very very hard to reproduce a bug where a thread wrongly changes a data which is supposed to be exclusively managed by another one: it might fail in one run and succeed in another just because the system scheduled differently the code execution!
 Functional programming frameworks like <a class="reference external" href="https://spark.apache.org">Spark</a> solve these problems very nicely.</p>
 <p><strong>Easier to reason about code</strong>: it is much easier to reason about functions, as we can use standard equational reasoning on input/outputs as traditionally done in algebra. To understand what we’re talking about, you can see these slides: <a class="reference external" href="https://docs.google.com/presentation/d/1hTHty5aML9WDDTvkflvvdGDh0AfZwV_8ZEr10-rUPVA">Visual functional programming</a> (will talk more about it in class)</p>
 <a  class="jupman-sol jupman-sol-toggler"

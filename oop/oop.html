@@ -354,6 +354,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.10">Lab A.10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.11">Lab A.11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-A.12">Lab A.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Part-B">Part B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.1">Lab B.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -365,6 +367,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#Visual-Studio-Code">Visual Studio Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation.html#The-debugger">The debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#VS-Code---collaborative-coding">VS Code - collaborative coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#VS-Code---Sharing-test-runs">VS Code - Sharing test runs</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../basics/basics-sol.html">Python basics</a><ul>
@@ -444,6 +448,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../errors-and-testing/errors-and-testing-sol.html#Exercise:-expecting-assertions">Exercise: expecting assertions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../errors-and-testing/errors-and-testing-sol.html#Exercise:-good-tests">Exercise: good tests</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../errors-and-testing/errors-and-testing-sol.html#Running-unittests-in-Visual-Studio-Code">Running unittests in Visual Studio Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../errors-and-testing/errors-and-testing-sol.html#TROUBLESHOOTING">TROUBLESHOOTING</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../errors-and-testing/errors-and-testing-sol.html#Functional-programming">Functional programming</a></li>
@@ -1224,7 +1229,7 @@ div.rendered_html tbody tr:hover {
     sciprog.py
 </pre></div>
 </div>
-<p>This time you will not write in the notebook, instead you will edit .py files in Visual Studio Code.</p>
+<p>This time you will not write in the notebook, instead you will edit <code class="docutils literal notranslate"><span class="pre">.py</span></code> files in Visual Studio Code.</p>
 <p>Now proceed reading.</p>
 </div>
 <div class="section" id="1.-Abstract-Data-Types-(ADT)-Theory">
@@ -1249,7 +1254,7 @@ div.rendered_html tbody tr:hover {
 <p>From the definition we see that to identify a complex number <strong>we need two float values</strong> . One number is for the <strong>*real* part</strong>, and another number is for the <strong>*imaginary* part</strong>.</p>
 <p>How can we represent this in Python? So far, you saw there are many ways to put two numbers together. One way could be to put the numbers in a list of two elements, and implicitly assume the first one is the <em>real</em> and the second the <em>imaginary</em> part:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1259,7 +1264,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Or we could use a tuple:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1269,7 +1274,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>A problem with the previous representations is that a casual observer might not know exactly the meaning of the two numbers. We could be more explicit and store the values into a dictionary, using keys to identify the two parts:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1278,7 +1283,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1291,11 +1296,11 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;real&#39;: 3.0, &#39;imaginary&#39;: 5.0}
+{&#39;imaginary&#39;: 5.0, &#39;real&#39;: 3.0}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1312,7 +1317,7 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1330,7 +1335,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Now, writing the whole record <code class="docutils literal notranslate"><span class="pre">{'real':</span> <span class="pre">3.0,</span> <span class="pre">'imaginary':</span> <span class="pre">5.0}</span></code> each time we want to create a complex number might be annoying and error prone. To help us, we can create a little shortcut function named <code class="docutils literal notranslate"><span class="pre">complex_number</span></code> that creates and returns the dictionary:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1343,7 +1348,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1352,7 +1357,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1365,12 +1370,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;real&#39;: 3.0, &#39;imaginary&#39;: 5.0}
+{&#39;imaginary&#39;: 5.0, &#39;real&#39;: 3.0}
 </pre></div></div>
 </div>
 <p>To do something with our dictionary, we would then define functions, like for example <code class="docutils literal notranslate"><span class="pre">complex_str</span></code> to show them nicely:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1380,7 +1385,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1402,7 +1407,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>IMPORTANT</strong>: In these exercises, we care about programming, not complex numbers theory. There’s no need to break your head over formulas!</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1418,7 +1423,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1437,7 +1442,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>We could even define functions that that take the complex number and some other parameter, for example we could define the <code class="docutils literal notranslate"><span class="pre">log</span></code> of complex numbers, which return another complex number (mathematically it would be infinitely many, but we just pick the first one in the series):</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1454,7 +1459,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1467,12 +1472,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;real&#39;: 1.5849625007211563, &#39;imaginary&#39;: 1.4865195378735334}
+{&#39;imaginary&#39;: 1.4865195378735334, &#39;real&#39;: 1.5849625007211563}
 </pre></div></div>
 </div>
 <p>You see we got our dictionary representing a complex number. If we want a nicer display we can call on it the <code class="docutils literal notranslate"><span class="pre">complex_str</span></code> we defined:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1534,7 +1539,7 @@ that probably the function behaves in a way similar to the Python function <code
 <h3>2.1. Class declaration<a class="headerlink" href="#2.1.-Class-declaration" title="Permalink to this headline">¶</a></h3>
 <p>A minimal class declaration will at least declare the class name and the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1563,7 +1568,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>With classes, to create objects we have instead to define a so-called <em>constructor method</em> called <code class="docutils literal notranslate"><span class="pre">__init__</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1596,7 +1601,7 @@ that probably the function behaves in a way similar to the Python function <code
 <p><strong>IMPORTANT</strong>: In general, any of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> parameters can have completely arbitrary names, so for example the following code snippet would work exactly the same as the initial definition:</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1610,7 +1615,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>Once the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is defined, we can create a specific <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> <em>instance</em> with a call like this:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1624,7 +1629,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f0c4c380f60&gt;
+&lt;__main__.ComplexNumber object at 0x7f54942ae2b0&gt;
 </pre></div></div>
 </div>
 <p>What happend here?</p>
@@ -1642,9 +1647,9 @@ that probably the function behaves in a way similar to the Python function <code
 <span class="bp">self</span><span class="o">.</span><span class="n">imaginary</span> <span class="o">=</span> <span class="n">imaginary</span>
 </pre></div>
 </div>
-<p>first create a key in the dictionary called <code class="docutils literal notranslate"><span class="pre">real</span></code> associating to the key the value of the parameter <code class="docutils literal notranslate"><span class="pre">real</span></code> (in the call is <em>3.0</em>). Then the value <em>5.0</em> is bound to the key <code class="docutils literal notranslate"><span class="pre">imaginary</span></code>.</p>
+<p>first create a key in the dictionary called <code class="docutils literal notranslate"><span class="pre">real</span></code> associating to the key the value of the parameter <code class="docutils literal notranslate"><span class="pre">real</span></code> (in the call is <em>3.0).</em> Then the value <em>5.0</em> is bound to the key <code class="docutils literal notranslate"><span class="pre">imaginary</span></code>.</p>
 <div class="admonition note">
-<p><strong>IMPORTANT:</strong> we said Python provides <strong>init</strong> with a special kind of dictionary as first parameter. One of the reason it is special is that you can access keys using the dot like self.my_key. With ordinary dictionaries you would have to write the brackets like self[“my_key”]</p>
+<p><strong>IMPORTANT:</strong> we said Python provides <code class="docutils literal notranslate"><span class="pre">__init__</span></code> with a special kind of dictionary as first parameter. One of the reason it is special is that you can access keys using the dot like <code class="docutils literal notranslate"><span class="pre">self.my_key</span></code>. With ordinary dictionaries you would have to write the brackets like <code class="docutils literal notranslate"><span class="pre">self[&quot;my_key&quot;]</span></code></p>
 </div>
 <div class="admonition note">
 <p><strong>IMPORTANT:</strong> like with dictionaries, we can arbitrarily choose the name of the keys, and which values to associate to them.</p>
@@ -1658,7 +1663,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>Since self is a kind of dictionary, you might be tempted to do like this:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1671,7 +1676,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>but to the outside world this will bring no effect. For example, let’s say somebody from outside makes a call like this:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1687,7 +1692,7 @@ that probably the function behaves in a way similar to the Python function <code
 <p>AttributeError: EvilComplexNumber instance has no attribute ‘real’</p>
 <p>In general, you <em>DO NOT</em> reassign <code class="docutils literal notranslate"><span class="pre">self</span></code> to anything. Here are other example <em>DON’Ts</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;666&#39;</span><span class="p">]</span>  <span class="c1"># self is only supposed to be a sort of dictionary which is passed by Python</span>
-<span class="bp">self</span> <span class="o">=</span> <span class="mi">6</span>        <span class="c1"># self is only supposed to be a sort of dictionary which is passed by Python&lt;/p&gt;</span>
+<span class="bp">self</span> <span class="o">=</span> <span class="mi">6</span>        <span class="c1"># self is only supposed to be a sort of dictionary which is passed by Python</span>
 </pre></div>
 </div>
 <p><strong>init 2.2.5)</strong> Python automatically returns from <code class="docutils literal notranslate"><span class="pre">__init__</span></code> the special dictionary <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
@@ -1700,7 +1705,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p><strong>init 2.2.7)</strong> You can then start using <code class="docutils literal notranslate"><span class="pre">c</span></code> as any variable</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1713,12 +1718,12 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f0c4c380f60&gt;
+&lt;__main__.ComplexNumber object at 0x7f54942ae2b0&gt;
 </pre></div></div>
 </div>
 <p>From the output, you see we have indeed an <em>instance</em> of the <em>class</em> <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>. To see the difference between <em>instance</em> and <em>class</em>, you can try printing the <em>class</em> instead:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1740,7 +1745,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>We can now access the fields of the special dictionary by using the dot notation as we were doing with the ‘self`:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1757,7 +1762,7 @@ that probably the function behaves in a way similar to the Python function <code
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1775,7 +1780,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>If we want, we can also change them:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1799,7 +1804,7 @@ that probably the function behaves in a way similar to the Python function <code
 <h4>2.3.1 phase<a class="headerlink" href="#2.3.1-phase" title="Permalink to this headline">¶</a></h4>
 <p>Let’s make our class more interesting by adding the method <code class="docutils literal notranslate"><span class="pre">phase(self)</span></code> to operate on the complex number:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1828,7 +1833,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>How can we call the method on instances of complex numbers? We can access the method name from an instance using the dot notation as we did with other keys:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1860,7 +1865,7 @@ that probably the function behaves in a way similar to the Python function <code
 <h4>2.3.2 log<a class="headerlink" href="#2.3.2-log" title="Permalink to this headline">¶</a></h4>
 <p>We can also define methods that take more than one parameter, and also that create and return <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> instances, like for example the method <code class="docutils literal notranslate"><span class="pre">log(self,</span> <span class="pre">base)</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1896,7 +1901,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>To call <code class="docutils literal notranslate"><span class="pre">log</span></code>, you can do as with <code class="docutils literal notranslate"><span class="pre">phase</span></code> but this time you will need also to pass one parameter for the <code class="docutils literal notranslate"><span class="pre">base</span></code> parameter, in this case we use the exponential <code class="docutils literal notranslate"><span class="pre">math.e</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1909,7 +1914,7 @@ that probably the function behaves in a way similar to the Python function <code
 <p><strong>WARNING</strong>: As before for <code class="docutils literal notranslate"><span class="pre">phase</span></code>, notice we didn’t pass any dictionary as first parameter! Python will implicitly pass as first argument the instance <code class="docutils literal notranslate"><span class="pre">c</span></code> as <code class="docutils literal notranslate"><span class="pre">self</span></code>, and <code class="docutils literal notranslate"><span class="pre">math.e</span></code> as <code class="docutils literal notranslate"><span class="pre">base</span></code></p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1922,12 +1927,12 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f0c4c39e470&gt;
+&lt;__main__.ComplexNumber object at 0x7f54942aed30&gt;
 </pre></div></div>
 </div>
 <p>To see if the method worked and we got back we got back a different complex number, we can print the single fields:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1944,7 +1949,7 @@ that probably the function behaves in a way similar to the Python function <code
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1965,7 +1970,7 @@ that probably the function behaves in a way similar to the Python function <code
 <h4>2.3.3 <code class="docutils literal notranslate"><span class="pre">__str__</span></code> for printing<a class="headerlink" href="#2.3.3-__str__-for-printing" title="Permalink to this headline">¶</a></h4>
 <p>As we said, printing is not so informative:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1978,7 +1983,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f0c4c3f53c8&gt;
+&lt;__main__.ComplexNumber object at 0x7f54942aefd0&gt;
 </pre></div></div>
 </div>
 <p>It would be nice to instruct Python to express the number like <em>“3.0 + 5.0i”</em> whenever we want to see the <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> represented as a string. How can we do it? Luckily for us, defining the <code class="docutils literal notranslate"><span class="pre">__str__(self)</span> <span class="pre">method</span></code> (see bottom of class definition)</p>
@@ -1986,7 +1991,7 @@ that probably the function behaves in a way similar to the Python function <code
 <p><strong>WARNING</strong>: There are <strong>two</strong> underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> before and <strong>two</strong> underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> after in <code class="docutils literal notranslate"><span class="pre">__str__</span></code> !</p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2028,7 +2033,7 @@ that probably the function behaves in a way similar to the Python function <code
 <p>Since we are overriding Python default behaviour, it is very important that we follow the specs of the method we are overriding <em>to the letter</em>. In our case, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__">the specs for __str__</a> obviously state you MUST return a string. <strong>Do read them!</strong></p>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2038,7 +2043,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>We can also pretty print the whole complex number. Internally, <code class="docutils literal notranslate"><span class="pre">print</span></code> function will look if the class <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> has defined a method named <code class="docutils literal notranslate"><span class="pre">__str__</span></code>. If so, it will pass to the method the instance <code class="docutils literal notranslate"><span class="pre">c</span></code> as the first argument, which in our methods will end up in the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2055,7 +2060,7 @@ that probably the function behaves in a way similar to the Python function <code
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2073,7 +2078,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>Special Python methods are like any other method, so if we wish, we can also call them directly:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2082,7 +2087,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2103,7 +2108,7 @@ print(str(c))
 <h3>2.4. ComplexNumber code skeleton<a class="headerlink" href="#2.4.-ComplexNumber-code-skeleton" title="Permalink to this headline">¶</a></h3>
 <p>We are now ready to write methods on our own. Open Visual Studio Code (no jupyter in part B !) and proceed editing file <code class="docutils literal notranslate"><span class="pre">ComplexNumber.py</span></code></p>
 <p>To see how to test, try running this in the console, tests should pass (if system doesn’t find <code class="docutils literal notranslate"><span class="pre">python3</span></code> write <code class="docutils literal notranslate"><span class="pre">python</span></code>):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 -m unittest ComplexNumber_test.ComplexNumberTest
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m unittest ComplexNumber_test.ComplexNumberTest
 </pre></div>
 </div>
 </div>
@@ -2135,7 +2140,7 @@ print(str(c))
 <p>Here we will try to give you a glimpse of some aspects related to Python equality, and trying to respect interfaces when overriding methods. Equality can be a nasty subject, here we will treat it in a simplified form.</p>
 <p>First of all, try to execute this command, you should get back <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2144,7 +2149,7 @@ print(str(c))
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2278,7 +2283,7 @@ testing is used by checking memory addresses, which are different - so we get <c
 </div>
 <p>Try to add the following method to your class, and check if it does work with the scalar:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2368,7 +2373,7 @@ by looking for the method <code class="docutils literal notranslate"><span class
 </ul>
 <p>NOTE: order of insertion does not matter, so <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">a,</span> <span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">a</span></code> are the same multiset, where <code class="docutils literal notranslate"><span class="pre">a</span></code> has multiplicity 2 and <code class="docutils literal notranslate"><span class="pre">b</span></code> has multiplicity 1.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2423,6 +2428,15 @@ by looking for the method <code class="docutils literal notranslate"><span class
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">multiset_test.RemovenTest</span></code></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

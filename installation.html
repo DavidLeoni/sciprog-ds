@@ -354,6 +354,8 @@
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-A.10">Lab A.10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-A.11">Lab A.11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-A.12">Lab A.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slides.html#Part-B">Part B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.1">Lab B.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -365,6 +367,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Visual-Studio-Code">Visual Studio Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#The-debugger">The debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#VS-Code---collaborative-coding">VS Code - collaborative coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#VS-Code---Sharing-test-runs">VS Code - Sharing test runs</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="basics/basics-sol.html">Python basics</a><ul>
@@ -444,6 +448,7 @@
 <li class="toctree-l4"><a class="reference internal" href="errors-and-testing/errors-and-testing-sol.html#Exercise:-expecting-assertions">Exercise: expecting assertions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="errors-and-testing/errors-and-testing-sol.html#Exercise:-good-tests">Exercise: good tests</a></li>
 <li class="toctree-l4"><a class="reference internal" href="errors-and-testing/errors-and-testing-sol.html#Running-unittests-in-Visual-Studio-Code">Running unittests in Visual Studio Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="errors-and-testing/errors-and-testing-sol.html#TROUBLESHOOTING">TROUBLESHOOTING</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="errors-and-testing/errors-and-testing-sol.html#Functional-programming">Functional programming</a></li>
@@ -1378,6 +1383,31 @@ to add new expressions). The watch panel should look like this:</p>
 <p>Now <code class="docutils literal notranslate"><span class="pre">i</span></code> has been increased to 1, <code class="docutils literal notranslate"><span class="pre">S</span></code> is still <code class="docutils literal notranslate"><span class="pre">0</span></code> (remember that the execution stopped <strong>before</strong> executing the code at the breakpoint) and therefore <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">+</span> <span class="pre">i</span></code> is now <code class="docutils literal notranslate"><span class="pre">1</span></code>. Click one more time on the green arrow and values should update accordingly (i.e. <code class="docutils literal notranslate"><span class="pre">S</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">+</span> <span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">3</span></code>), another round of execution should update <code class="docutils literal notranslate"><span class="pre">S</span></code> to <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">+</span> <span class="pre">i</span></code> to 6. Got how this works? Variable i is increased by one each time, while <code class="docutils literal notranslate"><span class="pre">S</span></code> increases by
 <code class="docutils literal notranslate"><span class="pre">i</span></code>. You can go on for a few more iterations and see if this makes any sense to you, once you are done with debugging you can stop the execution by pressing the red square on the small debug panel.</p>
 <p><em>Please take some more time to familiarize with Visual Studio Code (creating files, saving files, interacting with the debugger etc.) as in the next practicals we will take this ability for granted. Once you are done you can move on and do the following exercises.</em></p>
+</div>
+<div class="section" id="VS-Code---collaborative-coding">
+<h2>VS Code - collaborative coding<a class="headerlink" href="#VS-Code---collaborative-coding" title="Permalink to this headline">¶</a></h2>
+<p>Visual Studio Code offers a cool way to collaborate in realtime on a project you are working on. Let’s see how to set it up.</p>
+<p><strong>1. Install</strong>: First make sure you have <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack">Live Share Extension Pack</a> installed. It should already be included in VS Code 2019, if not got to extensions and install it:</p>
+<p><img alt="vsc-folder1" src="_images/vsc-folder-1.png" /></p>
+<p>Let’s share some code - as example, we will use a project taken from <a class="reference internal" href="oop/oop.html"><span class="doc">Object Oriented Programming</span></a> chapter.</p>
+<p><strong>2. open a folder</strong>: Once you downloaded the code, open the folder where you put it with <code class="docutils literal notranslate"><span class="pre">File-&gt;Open</span> <span class="pre">Folder</span></code> (avoid <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Workspace</span></code> for simplicity reasons). You should end up with something like this:</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>CAREFUL ABOUT WHAT YOU SHARE !!!</strong></p>
+<p>Once you start sharing, anything in that folder will be accessible and writable by others, we do not want to see your embarassing desktop/home folder !</p>
+</div>
+<p><img alt="vsc-folder2" src="_images/vsc-folder-2.png" /></p>
+<p><strong>3. Sign in</strong> Now you need to sign in, for this we refer to the <a class="reference external" href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#sign-in">the official How To</a></p>
+<p><strong>NOTE</strong>: in order to share your folder, you will need a <a class="reference external" href="https://github.com">Github account</a>, so please if you don’t have it already create one now</p>
+<p><strong>4. Share the folder</strong>: See <a class="reference external" href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#share-a-project">the official How To</a></p>
+</div>
+<div class="section" id="VS-Code---Sharing-test-runs">
+<h2>VS Code - Sharing test runs<a class="headerlink" href="#VS-Code---Sharing-test-runs" title="Permalink to this headline">¶</a></h2>
+<p>In Part B we will also heavily use unit tests (see <a class="reference external" href="https://sciprog.davidleoni.it/errors-and-testing/errors-and-testing-sol.html#Testing-with-Unittest">Unittest tutorial</a>), so it’s a good idea to enabling sharing of test runs by installing <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer-liveshare">Test Explorer Live Share</a> extension:</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>IT MAY NOT WORK!</strong></p>
+<p>It’s often troublesome enough having working tests on your own system, so I expect sharing to be even more problematic. As of Nov 2020, I’ve never tried this thing before, so let’s make a try and if if doesn’t work let’s just use good old screen sharing.</p>
+</div>
+<p><img alt="vsc-folder3" src="_images/vsc-folder-3.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
