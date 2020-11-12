@@ -52,6 +52,7 @@ Part B
 
 
     oop/oop.ipynb
+    oop/oop-matrix-chal.ipynb
     sorting/sorting.ipynb
     linked-lists/linked-lists.ipynb    
     stacks/stacks.ipynb
