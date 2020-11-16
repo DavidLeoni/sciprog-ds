@@ -1275,35 +1275,45 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Crime-parade">
 <h2>Crime parade<a class="headerlink" href="#Crime-parade" title="Permalink to this headline">¶</a></h2>
-<p>A bank robbery has been committed by a gangster, and witnesses gave police the description of him as a seriers of <span class="math notranslate nohighlight">\(m\)</span> features. For us all features are just numbers, you do not need to care about their range:</p>
+<p>A bank robbery has been committed, and witnesses gave police the description of a gangster as a series of <span class="math notranslate nohighlight">\(m\)</span> features. For us all features are just numbers, you do not need to care about their range:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># height weight beard moustache eye color (RGB)</span>
 <span class="p">[</span> <span class="mf">1.70</span><span class="p">,</span>  <span class="mi">80</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>        <span class="mi">190</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">230</span> <span class="p">]</span>
 </pre></div>
 </div>
 <p>The police then caught a bunch of <span class="math notranslate nohighlight">\(n\)</span> usual suspects and gathered them in the waiting room of the police station. Witnesses will be asked to recognize the actual gangster among a lineup of criminals who are deemed most similar in features to the description. To fill the lineup, the policeman will:</p>
 <ul class="simple">
-<li><p>go to the waiting room and select the criminal most similar to the description</p></li>
+<li><p>go to the waiting room and select the criminal most distant from the description</p></li>
 <li><p>bring the criminal at the right of the lineup</p></li>
 <li><p>repeat until there are no more criminals in the waiting room</p></li>
 </ul>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">lineup</span></code> which takes a dictionary of gangster nicknames mapped to their features and a suspect description as a list of features. To implement it, create two lists <code class="docutils literal notranslate"><span class="pre">lineup_names</span></code> and <code class="docutils literal notranslate"><span class="pre">lineup_sims</span></code> of <strong>fixed length set equal to the number of criminals.</strong> Fill the lists with empty strings. Then implement the algorithm as a kind of selection sort, where you keep filling the lists cells always writing into the first available cell found from the left, printing at each step
 what happens as in the example. Note our version would not be an in-place algorithm, as we are creating new lists to host the data.</p>
 <ul class="simple">
-<li><p>to calculate similarity, use usual vector distance (square root of sum of squared differences)</p></li>
 <li><p>you can assume max name length is <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
 </ul>
+<p>To calculate distance among two criminals, implement this support function which calculates usual vector distance (square root of sum of squared differences):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">features1</span><span class="p">,</span> <span class="n">features2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Takes two lists, each having m features as floats</span>
+<span class="sd">        and RETURN  a float which is the vector distance among</span>
+<span class="sd">        the two features</span>
+
+<span class="sd">        - MUST RUN IN O(m) WHERE m IS THE NUMBER OF FEATURES</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Then implement main <code class="docutils literal notranslate"><span class="pre">lineup</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lineup</span><span class="p">(</span><span class="n">waiting_room</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; RETURN a NEW list of the criminals names sorted by similarity with description,</span>
-<span class="sd">               from most similar to least similar</span>
+    <span class="sd">&quot;&quot;&quot; RETURN a NEW list of the criminals names sorted by similarity distance with description,</span>
+<span class="sd">               from most distant to least distant</span>
 <span class="sd">        PRINT all the passages</span>
 <span class="sd">        MODIFY waiting_room so it&#39;s empty at the end</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p><strong>DO NOT</strong> recalculate similarity each time you have to compare similarity between a suspect and the description, that would be an unacceptable <span class="math notranslate nohighlight">\(O(n m)\)</span> cost. Instead, save somewhere the similarity of each suspect so you can get it fast later</p>
+<p><strong>DO NOT</strong> recalculate distance each time you have to compare distance between a suspect and the description, that would be an unacceptable <span class="math notranslate nohighlight">\(O(n m)\)</span> cost. Instead, save somewhere the distance of each suspect so you can get it fast later</p>
 <p><strong>DO NOT change length of lists</strong> (so no <code class="docutils literal notranslate"><span class="pre">.insert</span></code>, <code class="docutils literal notranslate"><span class="pre">.remove()</span></code>, <code class="docutils literal notranslate"><span class="pre">.pop()</span></code>, <code class="docutils literal notranslate"><span class="pre">.append</span></code>,<code class="docutils literal notranslate"><span class="pre">.extend</span></code>, …), you can only set cell values of <code class="docutils literal notranslate"><span class="pre">lineup_names</span></code> and <code class="docutils literal notranslate"><span class="pre">lineup_sims</span></code>!</p>
 <p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code></p>
-<p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">sort()</span></code> - seems obvious, but during exams there were people who called it in exercises about sorting (they didn’t get a good grade)</p>
+<p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">sort()</span></code> nor <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> - seems obvious, but during exams there were people who called it in exercises about sorting (they didn’t get a good grade)</p>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">sorting_chal_test.TestLineup</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1325,7 +1335,7 @@ what happens as in the example. Note our version would not be an in-place algori
      <span class="s1">&#39;The Ghost&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mf">1.60</span><span class="p">,</span>    <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>        <span class="mi">150</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">lineup</span><span class="p">(</span><span class="n">waiting_room</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>        <span class="mi">190</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">230</span> <span class="p">])</span>
+<span class="n">lineup</span><span class="p">(</span><span class="n">waiting_room</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.70</span><span class="p">,</span>   <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>        <span class="mi">190</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">230</span> <span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1334,62 +1344,62 @@ what happens as in the example. Note our version would not be an in-place algori
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Waiting room: Rifleman,The Ghost,Moneybags,Goliath,Bomber,Revolvers,Razor,Mammoth,Shadow,The Saint
-Most similar is Revolvers with similarity 251.99 , moving him into the lineup
+Waiting room: Moneybags,The Ghost,Rifleman,Revolvers,Bomber,Goliath,Shadow,The Saint,Mammoth,Razor
+Most distant is Revolvers with distance 251.99 , moving him into the lineup
 
 |   251.99|         |         |         |         |         |         |         |         |         |
 |Revolvers|         |         |         |         |         |         |         |         |         |
 
-Waiting room: Rifleman,The Ghost,Moneybags,Goliath,Bomber,Razor,Mammoth,Shadow,The Saint
-Most similar is Rifleman with similarity 243.93 , moving him into the lineup
+Waiting room: Moneybags,The Ghost,Rifleman,Bomber,Goliath,Shadow,The Saint,Mammoth,Razor
+Most distant is Rifleman with distance 243.93 , moving him into the lineup
 
 |   251.99|   243.93|         |         |         |         |         |         |         |         |
 |Revolvers| Rifleman|         |         |         |         |         |         |         |         |
 
-Waiting room: The Ghost,Moneybags,Goliath,Bomber,Razor,Mammoth,Shadow,The Saint
-Most similar is Razor with similarity 234.53 , moving him into the lineup
+Waiting room: Moneybags,The Ghost,Bomber,Goliath,Shadow,The Saint,Mammoth,Razor
+Most distant is Razor with distance 234.53 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|         |         |         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|         |         |         |         |         |         |         |
 
-Waiting room: The Ghost,Moneybags,Goliath,Bomber,Mammoth,Shadow,The Saint
-Most similar is Mammoth with similarity 230.66 , moving him into the lineup
+Waiting room: Moneybags,The Ghost,Bomber,Goliath,Shadow,The Saint,Mammoth
+Most distant is Mammoth with distance 230.66 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|         |         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|         |         |         |         |         |         |
 
-Waiting room: The Ghost,Moneybags,Goliath,Bomber,Shadow,The Saint
-Most similar is Goliath with similarity 220.00 , moving him into the lineup
+Waiting room: Moneybags,The Ghost,Bomber,Goliath,Shadow,The Saint
+Most distant is Goliath with distance 220.00 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|         |         |         |         |         |
 
-Waiting room: The Ghost,Moneybags,Bomber,Shadow,The Saint
-Most similar is The Ghost with similarity 168.82 , moving him into the lineup
+Waiting room: Moneybags,The Ghost,Bomber,Shadow,The Saint
+Most distant is The Ghost with distance 168.82 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|         |         |         |         |
 
 Waiting room: Moneybags,Bomber,Shadow,The Saint
-Most similar is Shadow with similarity 120.84 , moving him into the lineup
+Most distant is Shadow with distance 120.84 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|         |         |         |
 
 Waiting room: Moneybags,Bomber,The Saint
-Most similar is Bomber with similarity 90.01 , moving him into the lineup
+Most distant is Bomber with distance 90.01 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|    90.01|         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|   Bomber|         |         |
 
 Waiting room: Moneybags,The Saint
-Most similar is The Saint with similarity 88.33 , moving him into the lineup
+Most distant is The Saint with distance 88.33 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|    90.01|    88.33|         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|   Bomber|The Saint|         |
 
 Waiting room: Moneybags
-Most similar is Moneybags with similarity 83.08 , moving him into the lineup
+Most distant is Moneybags with distance 83.08 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|    90.01|    88.33|    83.08|
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|   Bomber|The Saint|Moneybags|
@@ -1417,8 +1427,8 @@ Most similar is Moneybags with similarity 83.08 , moving him into the lineup
 </div>
 <div class="section" id="McFat's">
 <h2>McFat’s<a class="headerlink" href="#McFat's" title="Permalink to this headline">¶</a></h2>
-<p>The fastfood chain MacFat’s recently opened new stores around main attractions of each major Italian city: even if not economically profitable (obviously, you can’t compete with Italian food), the flashy store signs will get shot in the thousands pictures turists take each day, and will appear in the many reports tv networks give daily from main squares.</p>
-<p>Each store can hold up to <code class="docutils literal notranslate"><span class="pre">n</span></code> people in a queue. McFat’s awards obese clients by assigning them a priority according to their weight, so overweights clients can go past thinner ones. If a client has the same weight as another one, he/she will queue just behind the client who arrived first.</p>
+<p>The fastfood chain MacFat’s recently opened new stores around main attractions of each major Italian city: even if not economically profitable (obviously, you can’t compete with Italian food), the flashy store signs will get featured in the thousands pictures turists take each day, and will appear in the many reports tv networks give daily from main squares.</p>
+<p>Each store can hold up to <code class="docutils literal notranslate"><span class="pre">n</span></code> people in a queue. McFat’s rewards obese clients by assigning them a priority according to their weight, so overweights clients can go past thinner ones. If a client has the same weight as another one, he/she will queue just behind the client who arrived first.</p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">mcfats</span></code> which shows a queue of a list of clients, where each client is represented as an integer indicating his/her weight. In the function, create two zero-filled lists <code class="docutils literal notranslate"><span class="pre">arrival_times</span></code> and <code class="docutils literal notranslate"><span class="pre">weigths</span></code> of <strong>fixed length set equal to the number of clients.</strong> Then implement the algorithm as a kind of insertion sort, where you keep filling the lists cells from the left, printing at each step what happens as in the example. Note our version would not be an in-place algorithm,
 as we are creating new lists to host the data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mcfats</span><span class="p">(</span><span class="n">clients</span><span class="p">):</span>
@@ -1434,7 +1444,7 @@ as we are creating new lists to host the data.</p>
 </ul>
 <p><strong>DO NOT change length of lists</strong> (so no <code class="docutils literal notranslate"><span class="pre">.insert</span></code>, <code class="docutils literal notranslate"><span class="pre">.remove()</span></code>, <code class="docutils literal notranslate"><span class="pre">.pop()</span></code>, <code class="docutils literal notranslate"><span class="pre">.append</span></code>,<code class="docutils literal notranslate"><span class="pre">.extend</span></code>, …), you can only set cell values of <code class="docutils literal notranslate"><span class="pre">arrival_times</span></code> and <code class="docutils literal notranslate"><span class="pre">weigths</span></code>!</p>
 <p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code></p>
-<p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">sort()</span></code> - seems obvious, but during exams there were people who called it in exercises about sorting (they didn’t get a good grade)</p>
+<p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">sort()</span></code> nor <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> - seems obvious, but during exams there were people who called it in exercises about sorting (they didn’t get a good grade)</p>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">sorting_chal_test.TestMcFats</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
