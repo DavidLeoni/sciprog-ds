@@ -42,8 +42,8 @@
   <link rel="stylesheet" href="../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Linked lists" href="../linked-lists/linked-lists.html" />
-    <link rel="prev" title="OOP Matrix Challenge" href="../oop/oop-matrix-chal.html" /> 
+    <link rel="next" title="Sorting Challenge" href="sorting-chal.html" />
+    <link rel="prev" title="Complexity" href="../complexity/complexity-sol.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -357,6 +357,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Part-B">Part B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.1">Lab B.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.2">Lab B.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.3">Lab B.3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -555,15 +556,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../complexity/complexity-sol.html">Complexity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../complexity/complexity-sol.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../complexity/complexity-sol.html#References">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../complexity/complexity-sol.html#List-performance">List performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../complexity/complexity-sol.html#Fast-or-not?">Fast or not?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../complexity/complexity-sol.html#TODO-WILL-PUT-EXERCISES-HERE">TODO WILL PUT EXERCISES HERE</a></li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Sorting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Download-exercises-zip">Download exercises zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Introduction">Introduction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#What-to-do">What to do</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#List-performance">List performance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Fast-or-not?">Fast or not?</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Exercises">Exercises</a></li>
@@ -587,7 +596,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#4.2-quicksort-and-qs">4.2 quicksort and qs</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#5.-chaining">5. chaining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#5-chaining">5 chaining</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#5.1-has_duplicates">5.1 has_duplicates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#B.2.2-chain">B.2.2 chain</a></li>
 </ul>
@@ -598,6 +607,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#6.6-swapsort">6.6 swapsort</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Challenges">Challenges</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sorting-chal.html">Sorting Challenge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sorting-chal.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sorting-chal.html#Crime-parade">Crime parade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sorting-chal.html#McFat's">McFat’s</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../linked-lists/linked-lists.html">Linked lists</a><ul>
@@ -1259,10 +1275,16 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Introduction">
 <h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h2>
+<p>We will see several algorithms for sorting and discuss their time and space complexity along the way.</p>
+<div class="admonition warning">
+<p><strong>BEFORE CONTINUING, READ FIRST THE</strong> <a class="reference external" href="https://sciprog.davidleoni.it/complexity-sol.html">WORKSHEET ON COMPLEXITY</a></p>
+</div>
 <div class="section" id="References">
 <h3>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="http://disi.unitn.it/~montreso/sp/handouts/B01-analisi.pdf">Alberto Montresor Algorithm analysis slides</a></p></li>
+<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture1.pdf">Luca Bianco’s Introduction to algorithms slides</a></p></li>
+<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture2.pdf">Luca Bianco’s Algorithms and complexity slides</a></p></li>
+<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture3.pdf">Luca Bianco’s Complexity and sorting</a></p></li>
 <li><p><a class="reference external" href="https://runestone.academy/runestone/books/published/pythonds/AlgorithmAnalysis/toctree.html">Python DS Chapter 2.6: Algorithm analysis</a></p></li>
 </ul>
 </div>
@@ -1286,82 +1308,6 @@ div.rendered_html tbody tr:hover {
 </ul>
 </div>
 </div>
-<div class="section" id="List-performance">
-<h2>List performance<a class="headerlink" href="#List-performance" title="Permalink to this headline">¶</a></h2>
-<p>Python lists are generic containers, they are useful in a variety of scenarios but sometimes their perfomance can be disappointing, so it’s best to know and avoid potentially expensive operations. Table from <a class="reference external" href="http://interactivepython.org/runestone/static/pythonds/AlgorithmAnalysis/Lists.html">the book Chapter 2.6: Lists</a></p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 48%" />
-<col style="width: 52%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><img alt="list complexity 1 4jj34" src="../_images/list-complexity-1.png" />&gt;</p></th>
-<th class="head"><p><img alt="list complexity 2 fjgjugr" src="../_images/list-complexity-2.png" />&gt;</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="Fast-or-not?">
-<h3>Fast or not?<a class="headerlink" href="#Fast-or-not?" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
-
-<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;d&quot;</span>
-<span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
-<span class="n">x</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>What about <code class="docutils literal notranslate"><span class="pre">len(x)</span></code> ? If you don’t know the answer, try googling it!</p>
-<p>Sublist iteration performance</p>
-<p><code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">slice</span></code> time complexity is <code class="docutils literal notranslate"><span class="pre">O(k)</span></code>, but what about memory? It’s the same!</p>
-<p>So if you want to iterate a part of a list, beware of slicing! For example, slicing a list like this can occupy much more memory than necessary:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">200</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 222, 224, 226, 228, 230, 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 252, 254, 256, 258, 260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294, 296, 298, 300, 302, 304, 306, 308, 310, 312, 314, 316, 318, 320, 322, 324, 326, 328, 330, 332, 334, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 358, 360, 362, 364, 366, 368, 370, 372, 374, 376, 378, 380, 382, 384, 386, 388, 390, 392, 394, 396, 398]
-</pre></div></div>
-</div>
-<p>The reason is that, depending on the Python interpreter you have, slicing like <code class="docutils literal notranslate"><span class="pre">x[100:200]</span></code>at loop start can create a <em>new</em> list. If we want to explicitly tell Python we just want to iterate through the list, we can use the so called itertools. In particular, the islice method is handy, with it we can rewrite the list comprehension above like this:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">itertools</span>
-
-<span class="nb">print</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 222, 224, 226, 228, 230, 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 252, 254, 256, 258, 260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294, 296, 298, 300, 302, 304, 306, 308, 310, 312, 314, 316, 318, 320, 322, 324, 326, 328, 330, 332, 334, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 358, 360, 362, 364, 366, 368, 370, 372, 374, 376, 378, 380, 382, 384, 386, 388, 390, 392, 394, 396, 398]
-</pre></div></div>
-</div>
-</div>
-</div>
 <div class="section" id="Exercises">
 <h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -1374,7 +1320,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="1.1-Implement-swap">
 <h3>1.1 Implement <code class="docutils literal notranslate"><span class="pre">swap</span></code><a class="headerlink" href="#1.1-Implement-swap" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1410,18 +1356,6 @@ div.rendered_html tbody tr:hover {
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><a class="reference external" href="https://en.softpython.org/commandments.html#VI-COMMANDMENT">VI COMMANDMENT</a> <strong>You shall use</strong> <code class="docutils literal notranslate"><span class="pre">return</span></code> <strong>command only if you see written RETURN in the function description!</strong></p>
 <p>If there is no <code class="docutils literal notranslate"><span class="pre">return</span></code> in function description, the function is intended to return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-</div>
-<p><strong>QUESTION 1.1.3</strong>: Try to answer this question before proceeding:</p>
-<ul class="simple">
-<li><p>What is the result of the first and second print down here?</p></li>
-<li><p>What is the result of the final print if we have arbitrary indeces <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> with <span class="math notranslate nohighlight">\(0 \leq i,j \leq 2\)</span> ?</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
-<span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
 </div>
 <p><strong>QUESTION 1.1.3</strong>: Try to answer this question before proceeding:</p>
 <ul class="simple">
@@ -1469,7 +1403,7 @@ div.rendered_html tbody tr:hover {
 <h3>1.2 Implement <code class="docutils literal notranslate"><span class="pre">argmin</span></code><a class="headerlink" href="#1.2-Implement-argmin" title="Permalink to this headline">¶</a></h3>
 <p>Try to code and test the partial <code class="docutils literal notranslate"><span class="pre">argmin</span></code> pos function:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1531,7 +1465,7 @@ div.rendered_html tbody tr:hover {
 <p><img alt="selection sort matrix g9gf" src="../_images/selection-sort-matrix.png" /></p>
 <p>Let’s talks about implementing <code class="docutils literal notranslate"><span class="pre">selection_sort</span></code> function in <code class="docutils literal notranslate"><span class="pre">selection_sort.py</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1574,7 +1508,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="2-Insertion-sort">
 <h2>2 Insertion sort<a class="headerlink" href="#2-Insertion-sort" title="Permalink to this headline">¶</a></h2>
 <p>Insertion sort is a basic sorting algorithm. <a class="reference external" href="https://github.com/DavidLeoni/sciprog-ds/blob/master/sorting/img/insertion-sort-example.gif">This animation</a> gives you an idea of how it works</p>
-<img src="img/insertion-sort-example.gif"><p>From the animation, you can see these things are going on:</p>
+<img src="https://raw.githubusercontent.com/DavidLeoni/sciprog-ds/master/sorting/img/insertion-sort-example.gif"><p>From the animation, you can see these things are going on:</p>
 <ol class="arabic simple">
 <li><p>The red square selects one number starting from the leftomost (question: does it actually need to be the leftmost ? Can we save one iteration?). Let’s say it starts at position <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
 <li><p><em>While</em> the number in the red square is lesser then the previous one, it is shifted back one position at a time</p></li>
@@ -1629,7 +1563,7 @@ A = [3,8,9,7,6,2]
 <h3>Taking last element<a class="headerlink" href="#Taking-last-element" title="Permalink to this headline">¶</a></h3>
 <p>To take last element from a list you may use <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1638,7 +1572,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1650,7 +1584,7 @@ A = [3,8,9,7,6,2]
 <h4>Reversing a list<a class="headerlink" href="#Reversing-a-list" title="Permalink to this headline">¶</a></h4>
 <p>REMEMBER: <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> method MODIFIES the list it is called on and returns <code class="docutils literal notranslate"><span class="pre">None</span></code> !</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1661,7 +1595,7 @@ A = [3,8,9,7,6,2]
 </div>
 <p>Notice how above Jupyter did not show anything, because implicitly the result of the call was <code class="docutils literal notranslate"><span class="pre">None</span></code>. Still, we have an effect, <code class="docutils literal notranslate"><span class="pre">lst</span></code> is now reversed:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1670,7 +1604,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1680,7 +1614,7 @@ A = [3,8,9,7,6,2]
 </div>
 <p>If you want to reversed version of a list without actually changing it, you can use <code class="docutils literal notranslate"><span class="pre">reversed</span></code> function:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1690,17 +1624,17 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;list_reverseiterator at 0x7f08d439a860&gt;
+&lt;list_reverseiterator at 0x7f2aec1b97f0&gt;
 </pre></div></div>
 </div>
 <p>The returned value is an iterator, so something which is able to produce a reversed version of the list but it is still not a list. If you actually want to get back a list, you need to explicitly cast it to <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1710,7 +1644,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1720,7 +1654,7 @@ A = [3,8,9,7,6,2]
 </div>
 <p>Notice <code class="docutils literal notranslate"><span class="pre">lst</span></code> itself was not changed:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1729,7 +1663,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1746,7 +1680,7 @@ A = [3,8,9,7,6,2]
 <li><p>returns it to the caller of the method, so for example we can conveniently store it in a variable</p></li>
 </ol>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1757,7 +1691,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1774,7 +1708,7 @@ A = [3,8,9,7,6,2]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1801,7 +1735,7 @@ A = [3,8,9,7,6,2]
 <p>You can remove an internal element with <code class="docutils literal notranslate"><span class="pre">del</span></code></p>
 <p><strong>NOTE</strong>: <code class="docutils literal notranslate"><span class="pre">del</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1811,7 +1745,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1820,7 +1754,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1833,7 +1767,7 @@ A = [3,8,9,7,6,2]
 <h3>Costly internal pop<a class="headerlink" href="#Costly-internal-pop" title="Permalink to this headline">¶</a></h3>
 <p>You can remove an internal element with <code class="docutils literal notranslate"><span class="pre">pop(i)</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1844,7 +1778,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1853,7 +1787,7 @@ A = [3,8,9,7,6,2]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1862,7 +1796,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1876,7 +1810,7 @@ A = [3,8,9,7,6,2]
 <p>Start editing <code class="docutils literal notranslate"><span class="pre">merge_sort.py</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">merge1</span></code> takes two <em>already ordered</em> lists of size <code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> and return a new one made with the elements of both in <span class="math notranslate nohighlight">\(O(n+m)\)</span> time. For example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1888,7 +1822,7 @@ A = [3,8,9,7,6,2]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1938,7 +1872,7 @@ RESULT=[2,4,4,6,8,9,10,13,15]
 <h3>3.2 merge2<a class="headerlink" href="#3.2-merge2" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">merge2</span></code> takes A and B as two ordered lists (from smallest to greatest) of (possibly negative) integers. Lists are of size n and m respectively, and RETURN a NEW list composed of the items in A and B ordered from smallest to greatest</p>
 <ul class="simple">
-<li><p>MUST RUN IN O(m+n)</p></li>
+<li><p>MUST RUN IN <span class="math notranslate nohighlight">\(O(m+n)\)</span></p></li>
 <li><p>in this version, do <strong>NOT</strong> use <code class="docutils literal notranslate"><span class="pre">.pop()</span></code> on input lists to reduce their size. Instead, <strong>use indeces to track at which point you are</strong>, starting at zero and putting <strong>minimal</strong> elements in result list, so this time you don’t even need a temporary list.</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  8                           15
@@ -1974,10 +1908,10 @@ index     A       B           RESULT
 <h2>4 quick sort<a class="headerlink" href="#4-quick-sort" title="Permalink to this headline">¶</a></h2>
 <p>Quick sort is a widely used sorting algorithm and in this exercise you will implement it following the pseudo code.</p>
 <div class="admonition note">
-<p><strong>IMPORTANT</strong>: Array <code class="docutils literal notranslate"><span class="pre">A</span></code> in the pseudo code has indexes starting from zero <em>included</em></p>
+<p><strong>IMPORTANT</strong>: Array <code class="docutils literal notranslate"><span class="pre">A</span></code> in the pseudo code has indexes starting from zero <strong>included</strong></p>
 </div>
 <div class="admonition note">
-<p><strong>IMPORTANT</strong>: The functions pivot and quicksort operate an a subarray that goes from indeces first included and last <strong>included</strong> !!!</p>
+<p><strong>IMPORTANT</strong>: The functions <code class="docutils literal notranslate"><span class="pre">pivot</span></code> and <code class="docutils literal notranslate"><span class="pre">quicksort</span></code> operate an a subarray that goes from indeces <code class="docutils literal notranslate"><span class="pre">first</span></code> <strong>included</strong> and <code class="docutils literal notranslate"><span class="pre">last</span></code> <strong>included</strong> !!!</p>
 </div>
 <p>Start editing the file <code class="docutils literal notranslate"><span class="pre">quick_sort.py</span></code>:</p>
 <div class="section" id="4.1-pivot">
@@ -2025,8 +1959,8 @@ index     A       B           RESULT
 </div>
 </div>
 </div>
-<div class="section" id="5.-chaining">
-<h2>5. chaining<a class="headerlink" href="#5.-chaining" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="5-chaining">
+<h2>5 chaining<a class="headerlink" href="#5-chaining" title="Permalink to this headline">¶</a></h2>
 <p>You will be doing exercises about chainable lists, using plain old Python lists. This time we don’t actually care about sorting, we just want to detect duplicates and chain sequences fast.</p>
 <p>Start editing the file <code class="docutils literal notranslate"><span class="pre">exerciseB2.py</span></code> and read the following.</p>
 <div class="section" id="5.1-has_duplicates">
@@ -2107,7 +2041,7 @@ index     A       B           RESULT
 </div>
 <p>You are given a class <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code> that models an array where the only modification you can do is to swap an element with the successive one.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2117,7 +2051,7 @@ index     A       B           RESULT
 </div>
 <p>To create a <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>, just call it passing a python list:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2136,7 +2070,7 @@ SwapArray: [7, 8, 6]
 </div>
 <p>Then you can query in <span class="math notranslate nohighlight">\(O(1)\)</span> it by calling <code class="docutils literal notranslate"><span class="pre">get()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_last()</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2145,7 +2079,7 @@ SwapArray: [7, 8, 6]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2154,7 +2088,7 @@ SwapArray: [7, 8, 6]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2163,7 +2097,7 @@ SwapArray: [7, 8, 6]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2172,7 +2106,7 @@ SwapArray: [7, 8, 6]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2181,7 +2115,7 @@ SwapArray: [7, 8, 6]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2191,7 +2125,7 @@ SwapArray: [7, 8, 6]
 </div>
 <p>You can know the size in <span class="math notranslate nohighlight">\(O(1)\)</span> with <code class="docutils literal notranslate"><span class="pre">size()</span></code> method:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2200,7 +2134,7 @@ SwapArray: [7, 8, 6]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2220,7 +2154,7 @@ SwapArray: [7, 8, 6]
 </div>
 <p>For example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2238,7 +2172,7 @@ SwapArray: [7, 8, 6, 3]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2256,7 +2190,7 @@ SwapArray: [7, 8, 3, 6]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2293,7 +2227,7 @@ SwapArray: [8, 7, 3, 6]
 </div>
 <p><strong>Example usage:</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2302,7 +2236,7 @@ SwapArray: [8, 7, 3, 6]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2311,7 +2245,7 @@ False
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2320,7 +2254,7 @@ False
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2331,7 +2265,7 @@ True
 </div>
 <div class="section" id="6.2-max_to_right">
 <h3>6.2 max_to_right<a class="headerlink" href="#6.2-max_to_right" title="Permalink to this headline">¶</a></h3>
-<p>Implement <code class="docutils literal notranslate"><span class="pre">max_to_right</span></code> function, which is a function <em>external</em> to the class <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>. There are two ways to implement it, try to minimize the reads from the SwapArray.</p>
+<p>Implement <code class="docutils literal notranslate"><span class="pre">max_to_right</span></code> function, which is a function <em>external</em> to the class <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>. There are two ways to implement it, try to minimize the reads from the <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Modifies the provided SwapArray sarr so that its biggest element</span>
 <span class="sd">        in the subarray from 0 to i is moved at index i.</span>
@@ -2349,8 +2283,44 @@ True
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>** Testing **: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">swap_array_test.MaxToRightTest</span></code></p>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">swap_array_test.MaxToRightTest</span></code></p>
 <p><strong>Example usage:</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sarr</span> <span class="o">=</span> <span class="n">SwapArray</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sarr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+SwapArray: [7, 9, 6, 5, 8]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># 4 is an *index*</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sarr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+SwapArray: [7, 6, 5, 8, 9]
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -2374,7 +2344,7 @@ SwapArray: [7, 9, 6, 5, 8]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># 4 is an *index*</span>
+<span></span><span class="n">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sarr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2384,7 +2354,7 @@ SwapArray: [7, 9, 6, 5, 8]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SwapArray: [7, 6, 5, 8, 9]
+SwapArray: [7, 6, 5, 9, 8]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -2410,7 +2380,7 @@ SwapArray: [7, 9, 6, 5, 8]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span></span><span class="n">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sarr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2420,7 +2390,7 @@ SwapArray: [7, 9, 6, 5, 8]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SwapArray: [7, 6, 5, 9, 8]
+SwapArray: [7, 9, 6, 5, 8]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -2443,42 +2413,6 @@ SwapArray: [7, 9, 6, 5, 8]
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sarr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-SwapArray: [7, 9, 6, 5, 8]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sarr</span> <span class="o">=</span> <span class="n">SwapArray</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sarr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-SwapArray: [7, 9, 6, 5, 8]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2518,7 +2452,7 @@ SwapArray: [7, 9, 6, 5, 8]
 </div>
 <p><strong>Example usage:</strong></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2527,7 +2461,7 @@ SwapArray: [7, 9, 6, 5, 8]
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2552,6 +2486,11 @@ SwapArray: [7, 9, 6, 5, 8]
 SwapArray: [2, 2, 3, 4, 4, 7, 8]
 </pre></div></div>
 </div>
+</div>
+</div>
+<div class="section" id="Challenges">
+<h2>Challenges<a class="headerlink" href="#Challenges" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://sciprog.davidleoni.it/sorting/sorting-chal.html">Sorting challenges</a> worksheet</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -2559,7 +2498,6 @@ SwapArray: [2, 2, 3, 4, 4, 7, 8]
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -2573,10 +2511,10 @@ SwapArray: [2, 2, 3, 4, 4, 7, 8]
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../linked-lists/linked-lists.html" class="btn btn-neutral float-right" title="Linked lists" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sorting-chal.html" class="btn btn-neutral float-right" title="Sorting Challenge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../oop/oop-matrix-chal.html" class="btn btn-neutral float-left" title="OOP Matrix Challenge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../complexity/complexity-sol.html" class="btn btn-neutral float-left" title="Complexity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

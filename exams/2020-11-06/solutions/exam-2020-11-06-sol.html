@@ -357,6 +357,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../slides.html#Part-B">Part B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../slides.html#Lab-B.1">Lab B.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../slides.html#Lab-B.2">Lab B.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../slides.html#Lab-B.3">Lab B.3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../commandments.html">Commandments</a><ul>
@@ -555,15 +556,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../complexity/complexity-sol.html">Complexity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../complexity/complexity-sol.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../complexity/complexity-sol.html#References">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../complexity/complexity-sol.html#List-performance">List performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../complexity/complexity-sol.html#Fast-or-not?">Fast or not?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../complexity/complexity-sol.html#TODO-WILL-PUT-EXERCISES-HERE">TODO WILL PUT EXERCISES HERE</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../sorting/sorting.html">Sorting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#Download-exercises-zip">Download exercises zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#Introduction">Introduction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#References">References</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#What-to-do">What to do</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#List-performance">List performance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#Fast-or-not?">Fast or not?</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#Exercises">Exercises</a></li>
@@ -587,7 +596,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#4.2-quicksort-and-qs">4.2 quicksort and qs</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#5.-chaining">5. chaining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#5-chaining">5 chaining</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#5.1-has_duplicates">5.1 has_duplicates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#B.2.2-chain">B.2.2 chain</a></li>
 </ul>
@@ -598,6 +607,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting.html#6.6-swapsort">6.6 swapsort</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting.html#Challenges">Challenges</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sorting/sorting-chal.html">Sorting Challenge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting-chal.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting-chal.html#Crime-parade">Crime parade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting-chal.html#McFat's">McFat’s</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../linked-lists/linked-lists.html">Linked lists</a><ul>
@@ -1322,6 +1338,7 @@ div.rendered_html tbody tr:hover {
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot; | G    F  |   &quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|D|B|&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|D3 E4|&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|F|A2 B|&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|A4      C2  E2 |C4      E D C2 |C3    B3    G2 |&quot;</span><span class="p">)</span> <span class="o">==</span> \
        <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
 </pre></div>
@@ -1356,6 +1373,7 @@ div.rendered_html tbody tr:hover {
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot; | G    F  |   &quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|D|B|&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|D3 E4|&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|F|A2 B|&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
 <span class="k">assert</span> <span class="n">parse_melody</span><span class="p">(</span><span class="s2">&quot;|A4      C2  E2 |C4      E D C2 |C3    B3    G2 |&quot;</span><span class="p">)</span> <span class="o">==</span> \
        <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
 </pre></div>
@@ -1389,15 +1407,15 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 %abc-2.1
-H:Tune made in a dark algorithmic night    % history, in header so replicated in all tunes!
-O:Trento                                   % origin, in header so replicated in all tunes!
+H:Tune made in a dark algorithmic night    % history and origin in header, so replicated in all tunes!
+O:Trento
 
 X:1                      % index
 T:Algorave               % title
 C:The Lord of the Loop   % composer
 M:4/4                    % meter
 K:C                      % key
-|A4      C2  E2 |C4      E D C2 |C3    B3    G2 |
+|A4      C2  E2 |C4      E D C2 |C3    B3    G2 |   % melodies can also have a comment
 
 X:2
 T:Transpose Your Head
@@ -1422,6 +1440,14 @@ K:G
 </ul>
 <p>Following tunes are separated by blank lines</p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">parse_tunes</span></code> which parses the file and outputs a list of dictionaries, one per tune. Use provided <code class="docutils literal notranslate"><span class="pre">field_names</span></code> to obtain dictionary keys. Full expected db is in <code class="docutils literal notranslate"><span class="pre">expected_db.py</span></code> file.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>DO NOT write hundreds of</strong> <code class="docutils literal notranslate"><span class="pre">ifs</span></code></p>
+<p>Special keys are listed above, all others should be treated in a generic way</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>DO NOT assume header always contains</strong> <code class="docutils literal notranslate"><span class="pre">'origin'</span></code> <strong>and</strong> <code class="docutils literal notranslate"><span class="pre">'history'</span></code></p>
+<p>It can contain <em>any</em> field, which has to be then copied in all the tunes.</p>
+</div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput docutils container">
@@ -1447,14 +1473,15 @@ K:G
         <span class="n">common</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
             <span class="c1">#pprint(line)</span>
-            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">clean_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">clean_line</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
                 <span class="n">tune</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
                 <span class="n">tunes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tune</span><span class="p">)</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">tunes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">if</span> <span class="s1">&#39;key&#39;</span> <span class="ow">in</span> <span class="n">tune</span><span class="p">:</span>
-                    <span class="n">tune</span><span class="p">[</span><span class="s1">&#39;melody&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_melody</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                    <span class="n">tune</span><span class="p">[</span><span class="s1">&#39;melody&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_melody</span><span class="p">(</span><span class="n">clean_line</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+                    <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">clean_line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span>    <span class="c1"># index</span>
                         <span class="n">vp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
                     <span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">:</span>  <span class="c1"># meter</span>
@@ -1464,7 +1491,7 @@ K:G
                         <span class="n">vp</span> <span class="o">=</span> <span class="n">v</span>
                     <span class="n">tune</span><span class="p">[</span><span class="n">field_names</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">=</span> <span class="n">vp</span>
             <span class="k">else</span><span class="p">:</span> <span class="c1"># header</span>
-                <span class="n">couple</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+                <span class="n">couple</span> <span class="o">=</span> <span class="n">clean_line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
                 <span class="n">common</span><span class="p">[</span><span class="n">field_names</span><span class="p">[</span><span class="n">couple</span><span class="p">[</span><span class="mi">0</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">couple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="k">return</span> <span class="n">tunes</span>
