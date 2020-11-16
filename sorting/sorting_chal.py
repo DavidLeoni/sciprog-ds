@@ -7,8 +7,12 @@ def debug(*args):
     if DEBUG:
         print(*args)
         
-def similarity(features1, features2):
-    """MUST RUN IN O(m) WHERE m IS THE NUMBER OF FEATURES       
+def distance(features1, features2):
+    """ Takes two lists, each having m features as floats
+        and RETURN  a float which is the vector distance among 
+        the two features
+        
+        - MUST RUN IN O(m) WHERE m IS THE NUMBER OF FEATURES       
     """
     raise Exception('TODO IMPLEMENT ME !')    
     
