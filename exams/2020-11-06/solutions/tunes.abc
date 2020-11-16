@@ -1,23 +1,23 @@
 %abc-2.1
-H:Tune made in a dark algorithmic night    % history, in header so replicated in all tunes!
-O:Trento                                   % origin, in header so replicated in all tunes!
+H:Tune made in a dark algorithmic night    % history and origin in header, so replicated in all tunes!
+O:Trento                                   
 
 X:1                      % index
 T:Algorave               % title
 C:The Lord of the Loop   % composer
 M:4/4                    % meter
 K:C                      % key
-|A4      C2  E2 |C4      E D C2 |C3    B3    G2 |
+|A4      C2  E2 |C4      E D C2 |C3    B3    G2 |   % melodies can also have a comment
 
 X:2                      
-T:Transpose Your Head    
-C:Matrix Queen           
-M:3/4                    
-K:G                      
-|F2  G4     |E4      E F|A2  B2  D2 |D3    E3   |C3    C3   |
+T:Transpose Your Head
+C:Matrix Queen  
+M:3/4    
+K:G
+|F2  G4     |E4      E F|A2  B2  D2 |D3    E3   |C3    C3   |   
 
 X:3                      
-T:Pedal to the Metal     
+T:Pedal to the Metal    
 C:anonymous truck driver 
 M:4/4                    
 K:E                      
