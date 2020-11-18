@@ -614,6 +614,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Download-exercises-zip">Download exercises zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Crime-parade">Crime parade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#McFat's">McFat’s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Partitocracy">Partitocracy</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../linked-lists/linked-lists.html">Linked lists</a><ul>
@@ -1291,7 +1292,9 @@ what happens as in the example. Note our version would not be an in-place algori
 <ul class="simple">
 <li><p>you can assume max name length is <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
 </ul>
-<p>To calculate distance among two criminals, implement this support function which calculates usual vector distance (square root of sum of squared differences):</p>
+<ol class="loweralpha simple">
+<li><p>Implement this support function to calculate distance among two criminals (it’s the square root of sum of squared differences):</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">features1</span><span class="p">,</span> <span class="n">features2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Takes two lists, each having m features as floats</span>
 <span class="sd">        and RETURN  a float which is the vector distance among</span>
@@ -1301,7 +1304,9 @@ what happens as in the example. Note our version would not be an in-place algori
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>Then implement main <code class="docutils literal notranslate"><span class="pre">lineup</span></code> function:</p>
+<ol class="loweralpha simple" start="2">
+<li><p>implement main <code class="docutils literal notranslate"><span class="pre">lineup</span></code> function:</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lineup</span><span class="p">(</span><span class="n">waiting_room</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; RETURN a NEW list of the criminals names sorted by similarity distance with description,</span>
 <span class="sd">               from most distant to least distant</span>
@@ -1310,7 +1315,7 @@ what happens as in the example. Note our version would not be an in-place algori
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p><strong>DO NOT</strong> recalculate distance each time you have to compare distance between a suspect and the description, that would be an unacceptable <span class="math notranslate nohighlight">\(O(n m)\)</span> cost. Instead, save somewhere the distance of each suspect so you can get it fast later</p>
+<p><strong>DO NOT</strong> recalculate distance each time you have to compare suspects with the description, that would be an unacceptable extra <span class="math notranslate nohighlight">\(O(n m)\)</span> cost. Instead, save somewhere the distance of each suspect so you can get it fast later</p>
 <p><strong>DO NOT change length of lists</strong> (so no <code class="docutils literal notranslate"><span class="pre">.insert</span></code>, <code class="docutils literal notranslate"><span class="pre">.remove()</span></code>, <code class="docutils literal notranslate"><span class="pre">.pop()</span></code>, <code class="docutils literal notranslate"><span class="pre">.append</span></code>,<code class="docutils literal notranslate"><span class="pre">.extend</span></code>, …), you can only set cell values of <code class="docutils literal notranslate"><span class="pre">lineup_names</span></code> and <code class="docutils literal notranslate"><span class="pre">lineup_sims</span></code>!</p>
 <p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code></p>
 <p><strong>DO NOT call</strong> <code class="docutils literal notranslate"><span class="pre">sort()</span></code> nor <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> - seems obvious, but during exams there were people who called it in exercises about sorting (they didn’t get a good grade)</p>
@@ -1344,49 +1349,49 @@ what happens as in the example. Note our version would not be an in-place algori
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Waiting room: Moneybags,The Ghost,Rifleman,Revolvers,Bomber,Goliath,Shadow,The Saint,Mammoth,Razor
+Waiting room: Mammoth,Razor,Revolvers,Goliath,The Ghost,Rifleman,Bomber,Shadow,Moneybags,The Saint
 Most distant is Revolvers with distance 251.99 , moving him into the lineup
 
 |   251.99|         |         |         |         |         |         |         |         |         |
 |Revolvers|         |         |         |         |         |         |         |         |         |
 
-Waiting room: Moneybags,The Ghost,Rifleman,Bomber,Goliath,Shadow,The Saint,Mammoth,Razor
+Waiting room: Mammoth,Razor,Goliath,The Ghost,Rifleman,Bomber,Shadow,Moneybags,The Saint
 Most distant is Rifleman with distance 243.93 , moving him into the lineup
 
 |   251.99|   243.93|         |         |         |         |         |         |         |         |
 |Revolvers| Rifleman|         |         |         |         |         |         |         |         |
 
-Waiting room: Moneybags,The Ghost,Bomber,Goliath,Shadow,The Saint,Mammoth,Razor
+Waiting room: Mammoth,Razor,Goliath,The Ghost,Bomber,Shadow,Moneybags,The Saint
 Most distant is Razor with distance 234.53 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|         |         |         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|         |         |         |         |         |         |         |
 
-Waiting room: Moneybags,The Ghost,Bomber,Goliath,Shadow,The Saint,Mammoth
+Waiting room: Mammoth,Goliath,The Ghost,Bomber,Shadow,Moneybags,The Saint
 Most distant is Mammoth with distance 230.66 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|         |         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|         |         |         |         |         |         |
 
-Waiting room: Moneybags,The Ghost,Bomber,Goliath,Shadow,The Saint
+Waiting room: Goliath,The Ghost,Bomber,Shadow,Moneybags,The Saint
 Most distant is Goliath with distance 220.00 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|         |         |         |         |         |
 
-Waiting room: Moneybags,The Ghost,Bomber,Shadow,The Saint
+Waiting room: The Ghost,Bomber,Shadow,Moneybags,The Saint
 Most distant is The Ghost with distance 168.82 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|         |         |         |         |
 
-Waiting room: Moneybags,Bomber,Shadow,The Saint
+Waiting room: Bomber,Shadow,Moneybags,The Saint
 Most distant is Shadow with distance 120.84 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|         |         |         |
 
-Waiting room: Moneybags,Bomber,The Saint
+Waiting room: Bomber,Moneybags,The Saint
 Most distant is Bomber with distance 90.01 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|    90.01|         |         |
@@ -1548,6 +1553,160 @@ arrival_times:| 7| 2| 6| 4| 1| 9| 5| 3| 8|
 weights:      |50|50|60|60|70|80|80|80|90|
 
 [50, 50, 60, 60, 70, 80, 80, 80, 90]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Partitocracy">
+<h2>Partitocracy<a class="headerlink" href="#Partitocracy" title="Permalink to this headline">¶</a></h2>
+<p>A democracy degenerates into a partitocracy when political parties keep splitting the power among themselves without actually allowing citizens to have their say. Parties pretend there is a lively democracy by being very litigious, and keep creating factions this way:</p>
+<p>1 - at the beginning there are all the people, each with a number indicating his/her political inclination:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We, the people: [6, 3, 5, 7, 5, 7, 2, 9, 1, 4, 8]
+</pre></div>
+</div>
+<p>2 - the people elect a leader - as thoughtful criteria they of course choose the first guy who passes by:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- elect our new leader: 6
+</pre></div>
+</div>
+<p>3 - heated arguments around the leader begin: people leaning left of him/her decide to create their own party:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- create a new left party: [3, 5, 5, 2, 1, 4]
+</pre></div>
+</div>
+<p>while right-leaning people (or with equal orientation) create their own party:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- create a new right party: [7, 7, 9, 8]
+</pre></div>
+</div>
+<p>Naturally, both parties recursively degenerate into their own partitocracies.</p>
+<p>4 - the leader feels ignored by the original voters, so in protest creates his/her own party of one person</p>
+<p>5 - a new partitocracy is produced, by joining left partitocracy with the one-person party of the leader and the right partitocracy:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- join them in a new partitocracy: [[[[[1]], [2]], [3], [[[4]], [5], [[5]]]], [6], [[7], [[7], [[[8]], [9]]]]]
+</pre></div>
+</div>
+<p>The result is of course a mess of burocratic structures. If we <code class="docutils literal notranslate"><span class="pre">pprint</span></code> with <code class="docutils literal notranslate"><span class="pre">width=10</span></code> the result, the subdivision is slighlty clearer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[[[[[1]],     &lt;---- left partitocracy
+   [2]],
+  [3],
+  [[[4]],
+   [5],
+   [[5]]]],
+ [6],         &lt;---- leader
+ [[7],        &lt;---- right partitocracy
+  [[7],
+   [[[8]],
+    [9]]]]]
+</pre></div>
+</div>
+<p>Implement the following function, which is a kind of quick sort, although this version does not modify input data so it is not <em>in-place:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">partitocracy</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes a list of integers and:</span>
+
+<span class="sd">       PRINT the process, starting each line  with a number</span>
+<span class="sd">             of spaces proportional to recursion level parameter</span>
+<span class="sd">       RETURN a partitocracy as a NEW list of nested lists</span>
+
+<span class="sd">       - a recursive implementation is acceptable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>MUST</strong> execute in <span class="math notranslate nohighlight">\(O(n \log{n})\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the size of the input list</p>
+<p><strong>DO NOT</strong> modify the input list</p>
+<p><strong>ONLY USE</strong> <code class="docutils literal notranslate"><span class="pre">.append</span></code> method to change lists size</p>
+<p><strong>DO NOT</strong> append empty lists to a partitocracy</p>
+<p><strong>DO NOT</strong> call <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code></p>
+<p><strong>DO NOT</strong> call <code class="docutils literal notranslate"><span class="pre">sort()</span></code> nor <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> - seems obvious, but during exams there were people who called it in exercises about sorting (they didn’t get a good grade)</p>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">sorting_chal_test.TestPartitocracy</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sorting_chal_sol</span> <span class="kn">import</span> <span class="n">partitocracy</span>
+
+<span class="n">italy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">partitocracy</span><span class="p">(</span><span class="n">italy</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Result pprint is:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+We, the people: [6, 3, 5, 7, 5, 7, 2, 9, 1, 4, 8]
+- elect our new leader: 6
+- create a new left party: [3, 5, 5, 2, 1, 4]
+    We, the people: [3, 5, 5, 2, 1, 4]
+    - elect our new leader: 3
+    - create a new left party: [2, 1]
+        We, the people: [2, 1]
+        - elect our new leader: 2
+        - create a new left party: [1]
+            We, the people: [1]
+            - elect our new leader: 1
+            - can&#39;t create a left party
+            - can&#39;t create a right party
+            - join them in a new partitocracy: [[1]]
+        - can&#39;t create a right party
+        - join them in a new partitocracy: [[[1]], [2]]
+    - create a new right party: [5, 5, 4]
+        We, the people: [5, 5, 4]
+        - elect our new leader: 5
+        - create a new left party: [4]
+            We, the people: [4]
+            - elect our new leader: 4
+            - can&#39;t create a left party
+            - can&#39;t create a right party
+            - join them in a new partitocracy: [[4]]
+        - create a new right party: [5]
+            We, the people: [5]
+            - elect our new leader: 5
+            - can&#39;t create a left party
+            - can&#39;t create a right party
+            - join them in a new partitocracy: [[5]]
+        - join them in a new partitocracy: [[[4]], [5], [[5]]]
+    - join them in a new partitocracy: [[[[1]], [2]], [3], [[[4]], [5], [[5]]]]
+- create a new right party: [7, 7, 9, 8]
+    We, the people: [7, 7, 9, 8]
+    - elect our new leader: 7
+    - can&#39;t create a left party
+    - create a new right party: [7, 9, 8]
+        We, the people: [7, 9, 8]
+        - elect our new leader: 7
+        - can&#39;t create a left party
+        - create a new right party: [9, 8]
+            We, the people: [9, 8]
+            - elect our new leader: 9
+            - create a new left party: [8]
+                We, the people: [8]
+                - elect our new leader: 8
+                - can&#39;t create a left party
+                - can&#39;t create a right party
+                - join them in a new partitocracy: [[8]]
+            - can&#39;t create a right party
+            - join them in a new partitocracy: [[[8]], [9]]
+        - join them in a new partitocracy: [[7], [[[8]], [9]]]
+    - join them in a new partitocracy: [[7], [[7], [[[8]], [9]]]]
+- join them in a new partitocracy: [[[[[1]], [2]], [3], [[[4]], [5], [[5]]]], [6], [[7], [[7], [[[8]], [9]]]]]
+
+
+Result pprint is:
+
+[[[[[1]],
+   [2]],
+  [3],
+  [[[4]],
+   [5],
+   [[5]]]],
+ [6],
+ [[7],
+  [[7],
+   [[[8]],
+    [9]]]]]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
