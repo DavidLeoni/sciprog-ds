@@ -64,4 +64,10 @@ class TestMcFats(unittest.TestCase):
         self.assertEqual(mcfats(cs), [50,50,60,60,70,80,80,80,90])  # return a new sorted version
         self.assertEqual(cs, [80,90,50,60,80,60,80,50,70])  # don't sort original
         
+class TestPartitocracy(unittest.TestCase):
+    def test_complex(self):
+
+        italy = [6,3,5,7,5,7,2,9,1,4,8]  
+        self.assertEqual(partitocracy(italy), [[[[[1]], [2]], [3], [[[4]], [5], [[5]]]], [6], [[7], [[7], [[[8]], [9]]]]])
+        self.assertEqual(italy, [6,3,5,7,5,7,2,9,1,4,8])
         

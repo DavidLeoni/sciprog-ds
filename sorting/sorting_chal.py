@@ -17,8 +17,8 @@ def distance(features1, features2):
     raise Exception('TODO IMPLEMENT ME !')    
     
 def lineup(waiting_room, description):
-    """ RETURN a NEW list of the criminals names sorted by similarity with description, 
-               from most similar to least similar
+    """ RETURN a NEW list of the criminals names sorted by similarity distance with description, 
+               from most distant to least distant
         PRINT all the passages 
         MODIFY waiting_room so it's empty at the end        
     """
@@ -32,3 +32,18 @@ def mcfats(clients):
     """
     
     raise Exception('TODO IMPLEMENT ME !')
+    
+
+def partitocracy(people, level=0):
+    """Takes a list of integers and:
+    
+       RETURN a partitocracy as a NEW list of nested lists    
+       PRINT the process, starting each line  with a number 
+             of spaces proportional to recursion level parameter       
+    
+       - DO NOT modify the input list.
+       - a recursive implementation is acceptable
+    """
+    raise Exception('TODO IMPLEMENT ME !')
+
+
