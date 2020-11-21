@@ -1350,55 +1350,55 @@ what happens as in the example. Note our version would not be an in-place algori
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Waiting room: Mammoth,Razor,Revolvers,Goliath,The Ghost,Rifleman,Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,Revolvers,The Saint,Razor,The Ghost,Moneybags,Mammoth,Rifleman,Goliath,Shadow
 Most distant is Revolvers with distance 251.99 , moving him into the lineup
 
 |   251.99|         |         |         |         |         |         |         |         |         |
 |Revolvers|         |         |         |         |         |         |         |         |         |
 
-Waiting room: Mammoth,Razor,Goliath,The Ghost,Rifleman,Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,The Saint,Razor,The Ghost,Moneybags,Mammoth,Rifleman,Goliath,Shadow
 Most distant is Rifleman with distance 243.93 , moving him into the lineup
 
 |   251.99|   243.93|         |         |         |         |         |         |         |         |
 |Revolvers| Rifleman|         |         |         |         |         |         |         |         |
 
-Waiting room: Mammoth,Razor,Goliath,The Ghost,Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,The Saint,Razor,The Ghost,Moneybags,Mammoth,Goliath,Shadow
 Most distant is Razor with distance 234.53 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|         |         |         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|         |         |         |         |         |         |         |
 
-Waiting room: Mammoth,Goliath,The Ghost,Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,The Saint,The Ghost,Moneybags,Mammoth,Goliath,Shadow
 Most distant is Mammoth with distance 230.66 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|         |         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|         |         |         |         |         |         |
 
-Waiting room: Goliath,The Ghost,Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,The Saint,The Ghost,Moneybags,Goliath,Shadow
 Most distant is Goliath with distance 220.00 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|         |         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|         |         |         |         |         |
 
-Waiting room: The Ghost,Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,The Saint,The Ghost,Moneybags,Shadow
 Most distant is The Ghost with distance 168.82 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|         |         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|         |         |         |         |
 
-Waiting room: Bomber,Shadow,Moneybags,The Saint
+Waiting room: Bomber,The Saint,Moneybags,Shadow
 Most distant is Shadow with distance 120.84 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|         |         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|         |         |         |
 
-Waiting room: Bomber,Moneybags,The Saint
+Waiting room: Bomber,The Saint,Moneybags
 Most distant is Bomber with distance 90.01 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|    90.01|         |         |
 |Revolvers| Rifleman|    Razor|  Mammoth|  Goliath|The Ghost|   Shadow|   Bomber|         |         |
 
-Waiting room: Moneybags,The Saint
+Waiting room: The Saint,Moneybags
 Most distant is The Saint with distance 88.33 , moving him into the lineup
 
 |   251.99|   243.93|   234.53|   230.66|   220.00|   168.82|   120.84|    90.01|    88.33|         |
@@ -1608,7 +1608,7 @@ weights:      |50|50|60|60|70|80|80|80|90|
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p><strong>MUST</strong> execute in <span class="math notranslate nohighlight">\(O(n \log{n})\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the size of the input list</p>
+<p><strong>MUST</strong> execute in <span class="math notranslate nohighlight">\(O(n \log{n})\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the size of the input list. Note that since this is a kind of quick sort, the actual worst time (when the list is already sorted) would be <span class="math notranslate nohighlight">\(O(n^2)\)</span>, but in most cases it performs in <span class="math notranslate nohighlight">\(O(n \log{n})\)</span></p>
 <p><strong>DO NOT</strong> modify the input list</p>
 <p><strong>ONLY USE</strong> <code class="docutils literal notranslate"><span class="pre">.append</span></code> method to change lists size</p>
 <p><strong>DO NOT</strong> append empty lists to a partitocracy</p>
@@ -1710,6 +1710,8 @@ Result pprint is:
     [9]]]]]
 </pre></div></div>
 </div>
+<p><strong>HINT</strong>: To solve it, first consider base cases, then how to compose them, and finally generalize:</p>
+<p><img alt="partitocracy1" src="../_images/partitocracy1.png" /> <img alt="partitocracy2" src="../_images/partitocracy2.png" /> <img alt="partitocracy3" src="../_images/partitocracy3.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
