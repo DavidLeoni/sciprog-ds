@@ -65,7 +65,43 @@ class TestMcFats(unittest.TestCase):
         self.assertEqual(cs, [80,90,50,60,80,60,80,50,70])  # don't sort original
         
 class TestPartitocracy(unittest.TestCase):
-    def test_complex(self):
+
+    def test_01_empty(self):        
+        self.assertEqual(partitocracy([]), [])        
+    
+    def test_02_5(self):
+
+        people = [5]
+        self.assertEqual(partitocracy(people), [[5]])
+        self.assertEqual(people, [5])
+
+    def test_03_57(self):
+
+        people = [5,7]
+        self.assertEqual(partitocracy(people), [[5], [[7]]])
+        self.assertEqual(people, [5,7])
+
+    def test_04_75(self):
+
+        people = [7,5]
+        self.assertEqual(partitocracy(people), [[[5]], [7]])
+        self.assertEqual(people, [7,5])
+        
+    
+    def test_05_749(self):
+
+        people = [7,4,9]
+        self.assertEqual(partitocracy(people), [[[4]], [7], [[9]]])
+        self.assertEqual(people, [7,4,9])
+
+    def test_06_947(self):
+
+        people = [9,4,7]
+        self.assertEqual(partitocracy(people), [[[4],[[7]]], [9]])
+        self.assertEqual(people, [9,4,7])
+        
+        
+    def test_07_complex(self):
 
         italy = [6,3,5,7,5,7,2,9,1,4,8]  
         self.assertEqual(partitocracy(italy), [[[[[1]], [2]], [3], [[[4]], [5], [[5]]]], [6], [[7], [[7], [[[8]], [9]]]]])
