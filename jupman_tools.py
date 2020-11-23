@@ -591,9 +591,19 @@ class Jupman:
 
 
     def is_code_sol(self, solution_text):
-        return self.sol_to_ex_code(solution_text) != solution_text    
+        """ Returns True if a cell contains any elements to be stripped in a solution           
+        """
+        return self.sol_to_ex_code(solution_text, parse_purge=False).strip() != solution_text.strip()
 
-    def sol_to_ex_code(self, solution_text, filepath=None):
+
+    def is_to_strip(self, solution_text):
+        """ Returns True if a cell contains any elements to strip
+
+           @since 3.3
+        """
+        return self.sol_to_ex_code(solution_text, parse_purge=True).strip() != solution_text.strip()
+
+    def sol_to_ex_code(self, solution_text, filepath=None, parse_purge=True):
         
         if re.match(self.solution, solution_text.strip()):
             return ""
@@ -602,7 +612,8 @@ class Jupman:
                         self.raise_exc_code, 
                         solution_text)                    
         ret = re.sub(self.strip_pattern(), '', ret)
-        ret = re.sub(self.purge_pattern(), '', ret)
+        if parse_purge:
+            ret = re.sub(self.purge_pattern(), '', ret)
         ret = re.sub(self.write_solution_here, r'\1\2\n\n', ret)
         if filepath:
             ret = replace_py_rel(ret, filepath)
@@ -639,7 +650,7 @@ class Jupman:
         tag_ends = {}
 
         for tag in self.tags:
-            tag_starts[tag] = text.count(tag_start(tag))                                           
+            tag_starts[tag] = text.count(tag_start(tag))
             tag_ends[tag] = text.count(tag_end(tag))
 
         for tag in tag_starts:
@@ -743,7 +754,7 @@ class Jupman:
             else:
                 warn("NO LABEL FOUND FOR cell_type %s, using default ones!" % cell_type)
                 show = self.ipynb_show_solution
-                show = self.ipynb_show_hide
+                hide = self.ipynb_hide_solution
                 sol_class = 'jupman-sol-code'
 
             
@@ -790,15 +801,16 @@ class Jupman:
         for cell in sh_cells:
             stripped_cell = copy.deepcopy(cell)
             if cell.cell_type == "code":
-                if self.is_code_sol(cell.source):                            
-                    
+                if self.is_to_strip(cell.source):                            
+                                        
                     stripped_cell.source = self.sol_to_ex_code(cell.source,source_abs_fn)
                     if website:
-                        nb.cells.append(before_cell(cell_counter, cell.cell_type))
-                        cell.source = re.sub(self.purge_pattern(), '', cell.source)
-                        cell.source = _cancel_tags(cell.source, self.tags)
-                        nb.cells.append(cell)
-                        nb.cells.append(after_cell())
+                        if self.is_code_sol(cell.source):
+                            nb.cells.append(before_cell(cell_counter, cell.cell_type))
+                            cell.source = re.sub(self.purge_pattern(), '', cell.source)
+                            cell.source = _cancel_tags(cell.source, self.tags)
+                            nb.cells.append(cell)
+                            nb.cells.append(after_cell())
                     nb.cells.append(stripped_cell)
                 else:
                     nb.cells.append(cell)
@@ -857,7 +869,7 @@ class Jupman:
                     
                     # note: for weird reasons nbformat does not like the sol_source_f 
                     nb_node = nbformat.read(source_abs_fn, nbformat.NO_CONVERT)
-                    self._sol_nb_to_ex(nb_node, source_abs_fn, False)
+                    self._sol_nb_to_ex(nb_node, source_abs_fn, website=False)
                             
                     nbformat.write(nb_node, exercise_dest_f)
                 
