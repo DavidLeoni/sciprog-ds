@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Stacks" href="../stacks/stacks.html" />
+    <link rel="next" title="Linked lists Challenge" href="linked-lists-chal.html" />
     <link rel="prev" title="Sorting Challenge" href="../sorting/sorting-chal.html" /> 
 </head>
 
@@ -359,6 +359,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.2">Lab B.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.3">Lab B.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.4">Lab B.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.5">Lab B.5</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -696,6 +697,14 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="linked-lists-chal.html">Linked lists Challenge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linked-lists-chal.html#Download-exercises-zip">Download exercises zip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linked-lists-chal.html#rshift">rshift</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linked-lists-chal.html#lshift">lshift</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stacks/stacks.html">Stacks</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../stacks/stacks.html#Download-exercises-zip">Download exercises zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../stacks/stacks.html#0.-Introduction">0. Introduction</a><ul>
@@ -1281,7 +1290,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="References">
 <h3>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sciproalgo2019.readthedocs.io/slides/Lecture4.pdf">theory slides</a>(Monodirectional list)</p></li>
+<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture4.pdf">Luca Bianco’s theory slides</a> (Monodirectional list)</p></li>
 <li><p><a class="reference external" href="http://interactivepython.org/runestone/static/pythonds/BasicDS/TheUnorderedListAbstractDataType.html">LinkedList Abstract Data Type</a> on the book</p></li>
 <li><p><a class="reference external" href="http://interactivepython.org/runestone/static/pythonds/BasicDS/ImplementinganUnorderedListLinkedLists.html">Implementing LinkedListLinkedLists</a> on the book</p></li>
 </ul>
@@ -1366,7 +1375,7 @@ LinkedList:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;linked_list_sol.LinkedList at 0x7f89885b3438&gt;
+&lt;linked_list_sol.LinkedList at 0x7f7bd49df4a8&gt;
 </pre></div></div>
 </div>
 </div>
@@ -1531,10 +1540,12 @@ LinkedList: c,b,a
 <div class="section" id="1.c)-Please-remember...">
 <h3>1.c) Please remember…<a class="headerlink" href="#1.c)-Please-remember..." title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
-<p><strong>WARNING:</strong> Methods of the class <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> are <em>never</em> supposed to return instances of <code class="docutils literal notranslate"><span class="pre">Node</span></code>. If you see them returned in the tests, then you are making some mistake. Users of <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> are should only be able to get access to items inside the Node <code class="docutils literal notranslate"><span class="pre">data</span></code> fields.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING:</strong> Methods of the class <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> are <em>never</em> supposed to return instances of <code class="docutils literal notranslate"><span class="pre">Node</span></code>.</p>
+<p>If you see them returned in the tests, then you are making some mistake. Users of <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> are should only be able to get access to items inside the Node <code class="docutils literal notranslate"><span class="pre">data</span></code> fields.</p>
 </div>
 <div class="admonition warning">
-<p><strong>WARNING</strong>: Do <em>not</em> use a Python list to hold data inside the data structure. Differently from the <code class="docutils literal notranslate"><span class="pre">CappedStack</span></code> exercise, here you can only use <code class="docutils literal notranslate"><span class="pre">Node</span></code> class. Each <code class="docutils literal notranslate"><span class="pre">Node</span></code> in the <code class="docutils literal notranslate"><span class="pre">_data</span></code> field can hold only one element which is provided by the user of the class, and we don’t care about the type of the value the user gives us (so it can be an <code class="docutils literal notranslate"><span class="pre">int</span></code>, a <code class="docutils literal notranslate"><span class="pre">float</span></code>, a <code class="docutils literal notranslate"><span class="pre">string</span></code>, or even a Python list !)</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>: Do <em>not</em> use a Python list to hold data inside the data structure</p>
+<p>Differently from the <code class="docutils literal notranslate"><span class="pre">CappedStack</span></code> exercise, here you can only use <code class="docutils literal notranslate"><span class="pre">Node</span></code> class. Each <code class="docutils literal notranslate"><span class="pre">Node</span></code> in the <code class="docutils literal notranslate"><span class="pre">_data</span></code> field can hold only one element which is provided by the user of the class, and we don’t care about the type of the value the user gives us (so it can be an <code class="docutils literal notranslate"><span class="pre">int</span></code>, a <code class="docutils literal notranslate"><span class="pre">float</span></code>, a <code class="docutils literal notranslate"><span class="pre">string</span></code>, or even a Python list !)</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><a class="reference external" href="https://en.softpython.org/commandments.html#VII-COMMANDMENT">VII COMMANDMENT</a>: <strong>You shall also draw lists on paper</strong></p>
@@ -2845,7 +2856,7 @@ LinkedList: 2,9,3,8,0,0
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../stacks/stacks.html" class="btn btn-neutral float-right" title="Stacks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="linked-lists-chal.html" class="btn btn-neutral float-right" title="Linked lists Challenge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../sorting/sorting-chal.html" class="btn btn-neutral float-left" title="Sorting Challenge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

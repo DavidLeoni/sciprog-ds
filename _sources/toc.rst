@@ -57,6 +57,7 @@ Part B
     sorting/sorting.ipynb
     sorting/sorting-chal.ipynb
     linked-lists/linked-lists.ipynb    
+    linked-lists/linked-lists-chal.ipynb
     stacks/stacks.ipynb
     queues/queues.ipynb    
     trees/bin-trees.ipynb
