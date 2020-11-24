@@ -84,7 +84,7 @@ class LinkedList:
             - ONLY write node *data*            
             - MUST execute in O(n) where n is the list size            
         """
-        raise Exception("TODO IMPLEMENT ME!")
+        raise Exception('TODO IMPLEMENT ME !')
         
         
                 

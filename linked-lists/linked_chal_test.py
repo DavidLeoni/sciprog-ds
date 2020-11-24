@@ -68,4 +68,50 @@ class RShiftTest(unittest.TestCase):
         self.assertEqual('b', ll.rshift('t'))
         self.assertEqual('d', ll.rshift('u'))
         self.assertEqual('e', ll.rshift('v'))
-        self.assertEqual('p', ll.rshift('z'))         
+        self.assertEqual('p', ll.rshift('z'))       
+        
+        
+class LShiftTest(unittest.TestCase):
+    
+    def test_01_empty(self):
+        ll = LinkedList()
+        with self.assertRaises(ValueError):
+            ll.lshift('z')
+            
+    def test_02_a_b(self):
+        ll = LinkedList()
+        ll.add('a')
+        self.assertEqual('a', ll.lshift('b'))
+        self.assertEqual(to_py(ll), ['b'])
+        self.assertEqual('b', ll.lshift('c'))
+        self.assertEqual(to_py(ll), ['c'])
+
+    def test_03_ab_cd(self):
+        ll = LinkedList()
+        ll.add('a')
+        ll.add('b')
+        self.assertEqual('b', ll.lshift('c'))
+        self.assertEqual(to_py(ll), ['a','c'])
+        self.assertEqual('a', ll.lshift('d'))
+        self.assertEqual(to_py(ll), ['c','d'])
+        
+
+    def test_04_complex(self):
+        ll = LinkedList()
+        ll.add('a')
+        ll.add('d')
+        ll.add('a')
+        ll.add('c')
+        ll.add('b')
+        ll.add('d')        
+        ll.add('e')
+        self.assertEqual('e', ll.lshift('p'))
+        self.assertEqual(to_py(ll), ['d','b','c','a','d','a','p'])
+        self.assertEqual('d', ll.lshift('q'))
+        self.assertEqual(to_py(ll), ['b','c','a','d','a','p','q'])
+        self.assertEqual('b', ll.lshift('r'))
+        self.assertEqual('c', ll.lshift('s'))
+        self.assertEqual('a', ll.lshift('t'))
+        self.assertEqual('d', ll.lshift('u'))
+        self.assertEqual('a', ll.lshift('v'))
+        self.assertEqual('p', ll.lshift('z'))               

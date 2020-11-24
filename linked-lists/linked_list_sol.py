@@ -47,6 +47,8 @@ class LinkedList:
         
     def is_empty(self):
         """ Return True if the list is empty, False otherwise
+        
+            - MUST execute in O(1)
         """
         #jupman-raise
         return self._head == None
@@ -54,6 +56,8 @@ class LinkedList:
 
     def add(self,item):            
         """ Adds item at the beginning of the list 
+        
+            - MUST execute in O(1)
         """
         #jupman-raise
         new_head = Node(item)
@@ -62,7 +66,7 @@ class LinkedList:
         #/jupman-raise
 
     def size(self):
-        """ Returns the size of the list 
+        """ Returns the size of the list         
         """
         #jupman-raise
         current = self._head
@@ -76,7 +80,7 @@ class LinkedList:
         #/jupman-raise
 
     def search(self,item):
-        """ Returns True if item is present in list, False otherwise        
+        """ Returns True if item is present in list, False otherwise              
         """
         #jupman-raise
         current = self._head
@@ -90,34 +94,9 @@ class LinkedList:
         return False
         #/jupman-raise
 
-    def remove(self, item):
-        """ Removes first occurrence of item from the list
-        
-            If item is not found, raises an LookupError.
-        """
-        #jupman-raise
-        current = self._head        
-        prev = None
-        
-        while (current != None):
-            if (current.get_data() == item):
-                if prev == None:  # we need to remove the head 
-                    self._head = current.get_next()
-                else:  
-                    prev.set_next(current.get_next())
-                    current = current.get_next()                    
-                return  # Found, exits the function
-            else:
-                prev = current
-                current = current.get_next() 
-        
-        raise LookupError("Tried to remove a non existing item! Item was: " + str(item))
-        #/jupman-raise
 
     def append(self, e):
-        """ Appends element e to the end of the list.
-            
-            For this exercise you can write the O(n) version
+        """ Appends element e to the end of the list.           
         """                
         #jupman-raise
         if self._head == None:
@@ -147,7 +126,7 @@ class LinkedList:
         
         raise LookupError("Couldn't find element " + str(e) )
         #/jupman-raise
-
+        
         
     def pop(self):
         """ Remove the last item of the list, and return it. 
@@ -175,6 +154,31 @@ class LinkedList:
             return last_item
         #/jupman-raise
 
+        
+    def remove(self, item):
+        """ Removes first occurrence of item from the list
+        
+            If item is not found, raises an LookupError.                        
+        """
+        #jupman-raise
+        current = self._head        
+        prev = None
+        
+        while (current != None):
+            if (current.get_data() == item):
+                if prev == None:  # we need to remove the head 
+                    self._head = current.get_next()
+                else:  
+                    prev.set_next(current.get_next())
+                    current = current.get_next()                    
+                return  # Found, exits the function
+            else:
+                prev = current
+                current = current.get_next() 
+        
+        raise LookupError("Tried to remove a non existing item! Item was: " + str(item))
+        #/jupman-raise
+        
     def insert(self, i, e):
         """ Insert an item at a given position. 
 
@@ -183,8 +187,7 @@ class LinkedList:
             list.insert(list.size(), e) is equivalent to list.append(e).
             
             - If i is negative or i > list.size(), raises an IndexError (default Python list
-              appends instead to the end :-/ )
-            
+              appends instead to the end :-/ )           
         """    
         #jupman-raise        
         if (i < 0):
