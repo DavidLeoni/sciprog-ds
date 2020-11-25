@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Algorithm analysis and recursive functions &mdash; Sciprog DS Lab</title>
+  <title>Algorithm analysis and recursion &mdash; Sciprog DS Lab</title>
   
 
   
@@ -360,6 +360,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.3">Lab B.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.4">Lab B.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.5">Lab B.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.6">Lab B.6</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -558,7 +559,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Algorithm analysis and recursive functions</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Algorithm analysis and recursion</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#List-performance">List performance</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Fast-or-not?">Fast or not?</a></li>
@@ -588,7 +589,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---saab">Exercise - saab</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Sets">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Sets-performance">Sets performance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Sets---exercises">Sets - exercises</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---land_rover">Exercise - land_rover</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---volkswagen">Exercise - volkswagen</a></li>
@@ -597,7 +598,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---chrysler">Exercise - chrysler</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Dictionaries">Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Dictionaries-performance">Dictionaries performance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Dictionaries---exercises">Dictionaries - exercises</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---tesla">Exercise - tesla</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---bmw">Exercise - bmw</a></li>
@@ -609,8 +610,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---mustang">Exercise - mustang</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Recursive-functions">Recursive functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Recursive-functions---exercises">Recursive functions - exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Recursion">Recursion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Recursion---exercises">Recursion - exercises</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---gap_rec">Exercise - gap_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---yamaha">Exercise - yamaha</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---mul2">Exercise - mul2</a></li>
@@ -1072,7 +1073,7 @@
     
         <li><a href="../toc.html"> </a> &raquo;</li>
     
-    <li>Algorithm analysis and recursive functions</li>
+    <li>Algorithm analysis and recursion</li>
     -->
 
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -1333,8 +1334,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Algorithm-analysis-and-recursive-functions">
-<h1>Algorithm analysis and recursive functions<a class="headerlink" href="#Algorithm-analysis-and-recursive-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Algorithm-analysis-and-recursion">
+<h1>Algorithm analysis and recursion<a class="headerlink" href="#Algorithm-analysis-and-recursion" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="../_static/generated/algo-analysis.zip">Download exercises zip</a></p>
 <p><a class="reference external" href="https://github.com/DavidLeoni/sciprog-ds/tree/master/algo-analysis">Browse files online</a></p>
 <div class="section" id="Introduction">
@@ -2239,8 +2240,8 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 <p>which takes <span class="math notranslate nohighlight">\(O(n\log{n})\)</span></p>
 </div></div>
 </div>
-<div class="section" id="Sets">
-<h2>Sets<a class="headerlink" href="#Sets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Sets-performance">
+<h2>Sets performance<a class="headerlink" href="#Sets-performance" title="Permalink to this headline">¶</a></h2>
 <p>Let’s review set <em>average</em> operations costs from <a class="reference external" href="https://wiki.python.org/moin/TimeComplexity#set">Python official wiki</a>:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -2504,8 +2505,8 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 \[O(2+n(n + n + n + n) + g(n) + 1)= O(n^2 + n^3) = O(n^3)\]</div>
 </div></div>
 </div>
-<div class="section" id="Dictionaries">
-<h2>Dictionaries<a class="headerlink" href="#Dictionaries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Dictionaries-performance">
+<h2>Dictionaries performance<a class="headerlink" href="#Dictionaries-performance" title="Permalink to this headline">¶</a></h2>
 <p>Let’s review dictionary operations costs from <a class="reference external" href="https://runestone.academy/runestone/books/published/pythonds/AlgorithmAnalysis/Dictionaries.html">the Python DS book Chapter 3.7: Dictionaries</a>:</p>
 <p>Dictionaries are pretty fast but notice in degenerate cases instead of <span class="math notranslate nohighlight">\(O(1)\)</span> we might get <span class="math notranslate nohighlight">\(O(n)\)</span> complexity (like when there too many keys collisions or with ill-devised hashing functions). For the purposes of this course but won’t consider those occurrences.</p>
 <table class="docutils align-default">
@@ -2783,8 +2784,8 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <p><span class="math notranslate nohighlight">\(O(1 + m(1 + max(3n + 1, 1)) + 1) = O(m + m(3n+1)) = O(m n + m) = O(mn)\)</span></p>
 </div></div>
 </div>
-<div class="section" id="Recursive-functions">
-<h2>Recursive functions<a class="headerlink" href="#Recursive-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Recursion">
+<h2>Recursion<a class="headerlink" href="#Recursion" title="Permalink to this headline">¶</a></h2>
 <p><strong>References</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2020-2021/sci-pro/slides/A06-recursion.pdf">Andrea Passerini slides on recursion theory</a></p></li>
@@ -2806,8 +2807,8 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <li><p>always provide a <em>combination</em> of existing solutions, according to some combination method? Then we combine the found solutions and give them back</p></li>
 </ul>
 </div>
-<div class="section" id="Recursive-functions---exercises">
-<h2>Recursive functions - exercises<a class="headerlink" href="#Recursive-functions---exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Recursion---exercises">
+<h2>Recursion - exercises<a class="headerlink" href="#Recursion---exercises" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Exercise---gap_rec">
 <h3>Exercise - gap_rec<a class="headerlink" href="#Exercise---gap_rec" title="Permalink to this headline">¶</a></h3>
 <p>✪✪ In a list <span class="math notranslate nohighlight">\(L\)</span> containing <span class="math notranslate nohighlight">\(n≥2\)</span> integers, a gap is an index <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(0&lt; i &lt; n\)</span>, such that <span class="math notranslate nohighlight">\(L[i−1]&lt; L[i]\)</span></p>
