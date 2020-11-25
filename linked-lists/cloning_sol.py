@@ -76,20 +76,7 @@ class LinkedList:
         """ Returns a *new* LinkedList, which is the reversed version of this one.
 
             Function must run in O(n), and try to make this function as fast as possible,
-            without using python lists or extra fields.
-        
-            Usage example:
-        
-            >>> lst = LinkedList()
-            >>> lst.add('c')
-            >>> lst.add('b')
-            >>> lst.add('a')            
-            >>> print lst
-                LinkedList: 'a','b','c'
-            >>> print lst.rev()
-                LinkedList: 'c','b','a'
-            >>> print lst
-                LinkedList: 'a','b','c'
+            without using python lists or extra fields.                    
         """
         #jupman-raise
         ret = LinkedList()
@@ -99,37 +86,47 @@ class LinkedList:
         while current != None:            
             ret.add(current.get_data())
             current = current.get_next()            
-            
+                
         return ret
         #/jupman-raise
         
     def clone(self):
-        """ Return a *copy* of this LinkedList in O(n)
+        """ Return a *copy* of this LinkedList
+        
             NOTE: since we are making a copy, the output of this function 
             won't contain any Node instance from the original list. Still, new Node 
-            instances will point to the same data items of the original list
-        
-            Example (for more examples look at the tests):        
-        
-            >>> orig = new LinkedList()
-            >>> orig.add('c')
-            >>> orig.add('a')            
-            >>> print orig
-                LinkedList: 'a','c'
-            >>> cp = orig.copy()
-            >>> print cp
-                LinkedList: 'a','c'
-            >>> cp.remove('c')            
-            >>> print cp
-                LinkedList: 'a'
-            >>> print orig
-                LinkedList: 'a','c'
+            instances will point to the same data items of the original list        
+            
+             in O(n)
         """
         #jupman-raise
-        # this could be faster and occupy less memory, but it's still O(n)  ;-) 
-        return self.rev().rev()
+        # BEST SOLUTION
+        current = self._head
+        
+        ret = LinkedList()
+        last = None
+        
+        while current != None:
+            node = Node(current.get_data())
+            if last == None:
+                ret._head = node
+                last = ret._head
+            else:
+                last._next = node
+                last = node         
+                
+            current = current.get_next()
+        return ret
         #/jupman-raise
-
+        
+        
+    #jupman-strip
+    def clone2(self):
+        """ SECOND SOLUTION
+            this could be faster and occupy less memory, but it's still O(n)  ;-) 
+        """
+        return self.rev().rev()        
+    #/jupman-strip
 
     def slice(self, start, end):
         """ RETURN a NEW LinkedList created by copying nodes of this list
