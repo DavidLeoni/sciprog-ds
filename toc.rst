@@ -63,7 +63,7 @@ Part B
     trees/bin-trees.ipynb
     trees/gen-trees.ipynb
     graph-algos/graph-algos.ipynb
-    
+    references/references.ipynb
 .. toctree::
     :hidden:
 
