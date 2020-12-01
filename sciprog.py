@@ -12,7 +12,10 @@
 import unittest
 import sys
 
-   
+import random
+# some attempt for avoiding random graphviz layout https://github.com/DavidLeoni/softpython-en/issues/2
+random.seed(0)
+
 
 def show_distances():
     import networkx as nx
@@ -61,10 +64,12 @@ def get_pydot_mod(obj):
 def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
     """ Draws a NetworkX graph object. By default, assumes it is a DiGraph.
         
-        Optionally, saves it as .png image to filepath  save_to 
+        - save_to: optional filepath where to save a .png image or .dot file        
+        - to show clusters, set the cluster attribute in nodes
+        - options: Dictionary of GraphViz options
     
         For required libraries, see 
-        https://sciprog.davidleoni.it/graph-formats/graph-formats-sol.html#Required-libraries
+        https://en.softpython.org/graph-formats/graph-formats-sol.html#Required-libraries
     
         legend_edges example:
         
@@ -74,20 +79,13 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
                 {'label':'mondo',
                  'color':'blue'}
 
-            ]
-    
+            ]    
     """
     
     if G == None:
-        raise ValueError('Provided Graph is None !')
+        raise ValueError('Provided Graph is None !')        
+                
     
-    if save_to:
-        if not save_to.lower().endswith('.png'):
-            raise ValueError("Provided filename should end with .png  found instead save_to=%s" % save_to)
-            
-    import matplotlib
-    import matplotlib.pyplot as plt
-    import matplotlib.image as mpimg
     import networkx as nx
        
     # fix graphviz path for anaconda in windows ...
@@ -96,7 +94,7 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
         if os.name == 'nt':
             from os.path import expanduser
             home = expanduser("~")   # because in windows actual path can differ from user login !!!
-            graphviz_path = 'C:\\Users\\' + home + '\\Anaconda3\\Library\\bin\\graphviz'
+            graphviz_path = '"C:\\Users\\' + home + '\\Anaconda3\\Library\\bin\\graphviz"'
             if os.path.exists(graphviz_path) and "PATH" in os.environ and (graphviz_path not in os.environ["PATH"]) :
                 os.environ["PATH"] += ';' + graphviz_path
     except Exception as e:
@@ -124,7 +122,8 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
     
     merge(G.graph['node'], {'color':'blue', 'fontcolor':'blue'})
     merge(G.graph['edge'], {'arrowsize': '0.6', 'splines': 'curved', 'fontcolor':'brown'})
-    merge(G.graph['graph'], {'scale': '3'}) # 
+        
+    merge(G.graph['graph'], {'scale': '3', 'style':'dotted, rounded',}) 
 
     # adding attributes to edges in multigraphs is more complicated but see
     # https://stackoverflow.com/a/26694158                    
@@ -158,31 +157,80 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
 
             pdot.add_subgraph(glegend)
 
-    make_legend()
     
-    # if we are in jupyter ...
-    import importlib
-    ipython_spec = importlib.util.find_spec("IPython")
-    if ipython_spec:
-        from IPython.display import Image, display
-        plt = Image(pdot.create_png())
-        display(plt)
-    if save_to:
+
+    def make_clusters():
+
+        allowed_types = (int,float,str,tuple)
+
+        clus = {}
+        nodes = G.nodes(data=True)
+        if len(nodes) > 0:
+            for node_id, data in nodes:                
+                if 'cluster' in data:
+                    c = data['cluster']
+                    
+                    if not type(c) in allowed_types:
+                        raise ValueError('Cluster type must be one of %s, found insted: %s' \
+                                          % (type(c),allowed_types))
+                    if c in clus:
+                        clus[c].append(node_id)
+                    else:
+                        clus[c] = [node_id]
+                    
+            for c in clus:        
+                if len(clus[c]) > 0:
+                    pydot_mod = get_pydot_mod(pdot)
+                    pydot_nodes = []                
+                    pydot_cluster = pydot_mod.Cluster(graph_name=str(c))
+                    for node_id in clus[c]:
+                        pydot_node = pydot_mod.Node(name=node_id)
+                        pydot_cluster.add_node(pydot_node)                        
+                    pdot.add_subgraph(pydot_cluster)
+
+    make_clusters()
+    make_legend()
+    fix_save_to = save_to.strip().lower()
+
+    if fix_save_to:
         try:
-            pdot.write_png(save_to)
-            print("Image saved to file: ", save_to)
+            # note for saving dot we don't require graph_viz installed
+            if fix_save_to.endswith('.dot'):
+                pdot.write_raw(save_to.strip())
+                print("Dot saved to file: ", save_to)
+            else:               
+                if not fix_save_to.endswith('.png'):
+                    raise ValueError("Provided filename should end with .png  found instead save_to=%s" % save_to) 
+                pdot.write_png(save_to)
+                print("Image saved to file: ", save_to)
+
         except Exception as e:
             print("ERROR: Could not save file to ", save_to)
             print(e)
-    
+
+    # if we are in jupyter ...
+    if not fix_save_to.endswith('.dot'):
+        # if we save the dot file it's probably because 
+        # we don't have graphviz on our system
+        import importlib
+        ipython_spec = importlib.util.find_spec("IPython")
+        if ipython_spec:
+            import matplotlib
+            import matplotlib.pyplot as plt
+            import matplotlib.image as mpimg
+            from IPython.display import Image, display
+            plt = Image(pdot.create_png())
+            display(plt)    
     
 def draw_mat(mat, legend_edges=None, label='', save_to='', options={}):    
     """ Draws a matrix as a DiGraph 
         
-        Optionally, saves it as .png image to filepath  save_to
-        
+        - save_to: optional filepath where to save a .png image or .dot file        
+        - to show clusters, set the cluster attribute in nodes
+        - options: Dictionary of GraphViz options
+    
         For required libraries, see 
-        https://sciprog.davidleoni.it/graph-formats/graph-formats-sol.html#Required-libraries
+        https://en.softpython.org/graph-formats/graph-formats-sol.html#Required-libraries        
         
         For other options, see draw_nx
         
@@ -218,10 +266,13 @@ def draw_adj(d,legend_edges=None, label='', save_to='', options={}):
               'f': ['c']       # node 'f' links to node 'c'
             }
 
-        Optionally, saves it as .png image to filepath  save_to
-        
+        - save_to: optional filepath where to save a .png image or .dot file        
+        - to show clusters, set the cluster attribute in nodes
+        - options: Dictionary of GraphViz options
+    
         For required libraries, see 
-        https://sciprog.davidleoni.it/graph-formats/graph-formats-sol.html#Required-libraries
+        https://en.softpython.org/graph-formats/graph-formats-sol.html#Required-libraries
+            
         
         For other options, see draw_nx
 
@@ -279,3 +330,94 @@ def draw_proof(proof, db, step_id=None, only_ids=False):
         for target in proof[key-1]['step_ids']:
             G.add_edge(key, target)
     draw_nx(G)
+
+
+def viz_server(default_module='example.py'):
+    """
+      Creates a Flask server to serve GraphViz by connecting to Gravizo online service
+            
+      default_module: a module name to execute, 
+              (can be either with or without the '.py')
+
+      WARNING: this is a prototype to use only when GraphViz is not installable, like in repl.it
+      See also https://github.com/DavidLeoni/softpython-en/issues/3              
+    """
+    from flask import Flask, render_template_string, request, redirect
+
+    web_site = Flask(__name__, static_url_path='/')
+
+    index_html = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width">
+            <title>softpython viz tool</title>    
+        </head>
+        <body>
+        
+            <form style="display:block; margin-bottom:15px;" 
+                  action="/" 
+                  method="post">
+                <input type="text" 
+                       name="module" 
+                       value="{{module}}"/>
+                <input type="submit" 
+                       value="Reload"/>
+            </form>                                    
+            <img src='https://g.gravizo.com/svg?{{dot}}'/>
+            <pre> {{error}} </pre>            
+        </body>
+        </html>    
+    """
+
+    def load_index(module):
+        default_data = "digraph G {}"
+        data = default_data
+        err = ''
+        try:
+            print("The module is '" + module + "'")
+            import importlib
+            smod = module.strip()
+            if smod.endswith('.py'):
+                smod = smod[:-3]
+            mod = importlib.import_module(smod)
+            importlib.reload(mod)                                            
+            with open('output.dot', 'r') as file:
+                data = file.read()	
+                i = data.index('{')
+                
+                if i != -1:
+                    # gravizo really wants a named graph
+                    # [ strict ] (graph | digraph) [ ID ] '{' stmt_list '}'
+                    j = data.index('graph')
+                    sp = data[j:i].strip().split()    
+                    if len(sp) == 1:
+                        data = data[:j] + 'graph G ' + data[i:]
+                    # gravizo really does not want "" quotes
+                    data = data[:i].replace('"','') + data[i:]
+                
+        except Exception as e:
+            print('****** ERROR')
+            import traceback 
+            traceback.print_exc() 
+            data = default_data
+            err = e.__class__.__name__ + ': '+ str(e)
+        import urllib
+        from urllib.parse import quote
+        data=quote(data)
+        return render_template_string(index_html, 
+                                module=module,
+                                dot=data,
+                                error=err)
+
+    @web_site.route('/')
+    def index():
+        return load_index(default_module)
+
+    @web_site.route('/', methods = ['POST'])
+    def reload():                
+        module = request.form['module']            
+        return load_index(module)
+
+    web_site.run(host='0.0.0.0', port=8080)
