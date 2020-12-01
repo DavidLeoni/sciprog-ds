@@ -217,29 +217,35 @@ class DiGraphTest(unittest.TestCase):
         
 
         if expected == None:
-            raise Exception("Expected graph is None !")       
+            the_msg = "Expected graph is None !"
+            raise AssertionError(the_msg)       
         
         if actual == None:
-            raise Exception("Actual graph is None !")                            
+            the_msg = "Actual graph is None !"
+            raise AssertionError(the_msg)
 
         if not isinstance(expected, DiGraph):
-            raise Exception(("Bad test code! Expected value is an instance of %s , which is not a DiGraph !\n\n EXPECTED value was:\n\n %s" % (type(expected).__name__ , expected)))
+            the_msg = "Bad test code! Expected value is an instance of %s , which is not a DiGraph !\n\n EXPECTED value was:\n\n %s" % (type(expected).__name__ , expected)
+            raise AssertionError(the_msg)
                         
         if not isinstance(actual, DiGraph):
-            raise Exception(("Actual value is an instance of %s , which is not a DiGraph!\n\n ACTUAL was:\n\n %s "  % (type(actual).__name__, actual)))
+            the_msg = "Actual value is an instance of %s , which is not a DiGraph!\n\n ACTUAL was:\n\n %s "  % (type(actual).__name__, actual)
+            raise AssertionError(the_msg)
         
         if not expected == actual:            
             if msg == None:
                 the_msg = "Graphs are different:"
             else:
                 the_msg = msg
-            raise AssertionError(the_msg + " \n\n" + str_compare_digraphs(actual, expected) )
+            the_msg = the_msg + " \n\n" + str_compare_digraphs(actual, expected) 
+            raise AssertionError(the_msg)
     
     def assertSubset(self, set1, set2):
         """ Asserts set1 is a subset of set2 """
         
         if not set1.issubset(set2):
-            raise AssertionError(str(set1) + " is not a subset of " + str(set2))
+            the_msg = str(set1) + " is not a subset of " + str(set2)
+            raise AssertionError(the_msg)
 
 
 class DiGraphTestTest(DiGraphTest):

@@ -129,6 +129,9 @@ class BinaryTree:
         
         return max(h_left, h_right)
         #/jupman-raise
+    
+    
+    
 
     def depth_rec(self, level):
         """ MODIFIES the tree by putting in the data field the provided value level (which is an integer),
@@ -341,6 +344,65 @@ class BinaryTree:
         #/jupman-raise
            
     
+    def paths_slow_rec(self):
+        """ RETURN a list of all paths from this node to the each leaf.
+            A path is a list which holds the nodes data found while traversing the tree.
+                                    
+            - for this slow version, you can only use + operator or .extend() method
+              which will bring an O(n^2) complexity
+            - implement it as recursive call 
+              NOTE: with big trees a recursive solution would surely exceed the call stack,
+                    but here we don't mind                          
+        """        
+        #jupman-raise        
+        if self._left == None and self._right == None:
+            return [[self._data]]
+        
+        left_paths = self._left.paths_slow_rec() if self._left != None else []
+        right_paths = self._right.paths_slow_rec() if self._right != None else []                    
+                
+        return [[self._data] + p for p in left_paths] + [[self._data] + p for p in right_paths]
+        #/jupman-raise    
+    
+    def _paths_fast_helper(self):
+        """ DO NOT use + operator nor .extend() method         
+        """
+        #jupman-raise                                
+        if self._left == None and self._right == None:
+            return [[self._data]]
+        
+        ret = []
+        if self._left != None:            
+            left_paths = self._left._paths_fast_helper()
+            for p in left_paths:
+                p.append(self._data)
+                ret.append(p)
+            
+        if self._right != None:
+            right_paths = self._right._paths_fast_helper()
+            for p in right_paths:
+                p.append(self._data)
+                ret.append(p)
+                
+        return ret
+        #/jupman-raise
+                        
+    def paths_fast_rec(self):
+        """ RETURN a list of all paths from this node to the each leaf.
+            A path is a list which holds the nodes data found while traversing the tree.
+            
+            
+            - MUST work in O(n) where n is the number of nodes in the tree
+            - implement it as recursive call 
+              NOTE: with big trees a recursive solution would surely exceed the call stack,
+                    but here we don't mind                          
+        """        
+        #jupman-raise        
+        ret = self._paths_fast_helper()
+        for r in ret:
+            r.reverse()
+        return ret
+        #/jupman-raise
         
 
     def sum_stack(self):

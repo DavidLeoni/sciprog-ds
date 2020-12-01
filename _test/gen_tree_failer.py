@@ -7,13 +7,13 @@ David Leoni - December 2018
 
 
 import sys
-sys.path.append('../trees/')
+sys.path.append('trees/')
 
 import unittest
 
 from gen_tree_test import gt
 from gen_tree_test import GenericTreeTest
-from gen_tree_solution import GenericTree
+from gen_tree_sol import GenericTree
 
 class TreeFailTest(GenericTreeTest):
 

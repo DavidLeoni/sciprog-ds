@@ -287,6 +287,46 @@ def draw_adj(d,legend_edges=None, label='', save_to='', options={}):
     G=nx.DiGraph(d)
     draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
     
+def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
+    """
+        Draws a binary tree        
+
+        - save_to: optional filepath where to save a .png image or .dot file        
+        - to show clusters, set the cluster attribute in nodes
+        - options: Dictionary of GraphViz options
+    
+        For required libraries, see 
+        https://en.softpython.org/graph-formats/graph-formats-sol.html#Required-libraries            
+        
+        For other options, see draw_nx
+
+    """
+    
+    if bin_tree == None:
+        raise ValueError('Provided bin_tree is None !')  
+    
+    import networkx as nx
+    
+        
+    G=nx.DiGraph()
+    
+    stack = [(None, bin_tree)]
+    while len(stack) > 0:
+        parent, t = stack.pop()
+        
+        G.add_node(id(t), label = t._data)
+        
+        if parent != None:
+            G.add_edge(id(parent),id(t))
+        if t._left != None:            
+            stack.append((t, t._left))
+        if t._right != None:
+            stack.append((t, t._right))
+            
+    
+    draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
+    
+    
 
 def draw_proof(proof, db, step_id=None, only_ids=False):
     """ Draw all statements reachable from given row_id

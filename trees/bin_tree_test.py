@@ -138,10 +138,12 @@ class BinaryTreeTest(unittest.TestCase):
             while (i < len(cs1) ):
                 rec_assert(cs1[i], cs2[i], row + 1)   
                 i += 1 
-        
-        rec_assert(actual, expected, 0)
-
-        
+                
+        try:
+            rec_assert(actual, expected, 0)
+        except Exception as e:
+            # not all exceptions have 'message' 
+            raise AssertionError(getattr(e, 'message', e.args[0])) from None
         
         
 class BinaryTreeTestTest(BinaryTreeTest):    

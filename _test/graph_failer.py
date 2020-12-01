@@ -7,7 +7,7 @@ David Leoni - December 2018
 
 
 import sys
-sys.path.append('../graph-algos/')
+sys.path.append('graph-algos/')
 
 import unittest
 

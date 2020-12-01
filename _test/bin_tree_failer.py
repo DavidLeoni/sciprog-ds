@@ -5,9 +5,8 @@ Test suite to fail all tree tests, so we see what happens when students make som
 David Leoni - December 2018
 """
 
-
 import sys
-sys.path.append('../trees/')
+sys.path.append('trees')
 
 import unittest
 
