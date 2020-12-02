@@ -41,7 +41,9 @@
   <link rel="stylesheet" href="_static/css/jupman.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="Graph algorithms" href="graph-algos/graph-algos.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +91,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="index.html#Moodle">Moodle</a></li>
@@ -360,6 +362,7 @@
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.5">Lab B.5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.6">Lab B.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.7">Lab B.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.8">Lab B.8</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -488,7 +491,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="toc.html#part-b">Part B</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="toc.html#part-b">Part B</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="oop/oop.html">OOP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="oop/oop.html#Download-exercises-zip">Download exercises zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="oop/oop.html#What-to-do">What to do</a></li>
@@ -908,6 +911,9 @@
 <li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#2.9-same_rec">2.9 same_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#2.10-sum_leaves_rec">2.10 sum_leaves_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#2.11-schedule_rec">2.11 schedule_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#2.12-paths">2.12 paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#2.12.1-paths_slow_rec">2.12.1 paths_slow_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#2.12.2-paths_fast_rec">2.12.2 paths_fast_rec</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trees/bin-trees.html#3.-Stack-visit">3. Stack visit</a><ul>
@@ -923,7 +929,6 @@
 <li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#4.3-prune_rec">4.3 prune_rec</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bin-trees.html#Further-resources">Further resources</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="trees/gen-trees.html">Generic Trees</a><ul>
@@ -1027,6 +1032,19 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Part B References</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#LeetCode-for-Part-B">LeetCode for Part B</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#LeetCode-LinkedLists">LeetCode LinkedLists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#LeetCode-Queues">LeetCode Queues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#LeetCode-Trees">LeetCode Trees</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Geeks-for-geeks">Geeks for geeks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Queues">Queues</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="changelog.html#september-2020">1.0 September 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="changelog.html#september-2018">0.1, September 2018</a></li>
@@ -1069,6 +1087,8 @@
     <!-- Commented because doesn't work with sections,
          see https://github.com/DavidLeoni/jupman/issues/39
     <li><a href="toc-page.html">Docs</a> &raquo;</li>
+    
+        <li><a href="toc.html"> </a> &raquo;</li>
     
     <li>Part B References</li>
     -->
@@ -1365,13 +1385,19 @@ div.rendered_html tbody tr:hover {
 <li><p><a class="reference external" href="https://leetcode.com/problems/design-front-middle-back-queue/">Design Front Middle Back Queue</a></p></li>
 </ul>
 </div>
+<div class="section" id="LeetCode-Trees">
+<h3>LeetCode Trees<a class="headerlink" href="#LeetCode-Trees" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://leetcode.com/tag/tree/">Trees exercises</a> on LeetCode (sort by easy difficulty), for example:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://leetcode.com/problems/range-sum-of-bst/">Sum range of BST</a></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="Geeks-for-geeks">
 <h2>Geeks for geeks<a class="headerlink" href="#Geeks-for-geeks" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Queues">
 <h3>Queues<a class="headerlink" href="#Queues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.geeksforgeeks.org/program-page-replacement-algorithms-set-2-fifo/">Program for Page Replacement Algorithms | Set 2 (FIFO)</a> to implement it, use <code class="docutils literal notranslate"><span class="pre">Queue</span></code> object from python module <a class="reference external" href="https://docs.python.org/3/library/queue.html">queue</a></p></li>
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/interleave-first-half-queue-second-half/">Interleave the first half of the queue with second half</a> to implement it, use <code class="docutils literal notranslate"><span class="pre">Queue</span></code> object from python module <a class="reference external" href="https://docs.python.org/3/library/queue.html">queue</a></p></li>
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/sorting-queue-without-extra-space/">Sorting a Queue without extra space</a> remember to use only the allowed operations !</p></li>
 </ul>
@@ -1393,6 +1419,15 @@ div.rendered_html tbody tr:hover {
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="graph-algos/graph-algos.html" class="btn btn-neutral float-left" title="Graph algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
