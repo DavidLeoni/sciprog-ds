@@ -318,15 +318,69 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
         
         if parent != None:
             G.add_edge(id(parent),id(t))
-        if t._left != None:            
-            stack.append((t, t._left))
-        if t._right != None:
-            stack.append((t, t._right))
+        if t.right() != None:
+            stack.append((t, t.right()))
+        if t.left() != None:            
+            stack.append((t, t.left()))
+        
             
     
     draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
     
+def draw_experimental_gt(gen_tree,legend_edges=None, label='', save_to='', options={}):
+    """
+        Draws a generic tree        
+
+        - save_to: optional filepath where to save a .png image or .dot file        
+        - to show clusters, set the cluster attribute in nodes
+        - options: Dictionary of GraphViz options
     
+        For required libraries, see 
+        https://en.softpython.org/graph-formats/graph-formats-sol.html#Required-libraries            
+        
+        For other options, see draw_nx
+
+    """
+    
+    if gen_tree == None:
+        raise ValueError('Provided gen_tree is None !')  
+    
+    import networkx as nx
+    
+        
+    G=nx.DiGraph()
+    
+    stack = [(gen_tree, 0)]
+    visited = set()
+    while len(stack) > 0:
+        t, level = stack.pop()
+        
+        visited.add(id(t))
+        
+        G.add_node(id(t), label = t._data, color='black', fontcolor='black', cluster=level)
+        
+        if t.parent() != None:
+            G.add_node(id(t.parent()), label = t.parent().data(), cluster=level-1)
+            G.add_edge(id(t), id(t.parent()), color='blue', weight=1.0)
+            if not id(t.parent()) in visited:
+                
+                stack.append((t.parent(), level - 1))
+        
+        if t.sibling() != None:
+            G.add_node(id(t.sibling()), label = t.sibling().data(),  cluster=level)
+            G.add_edge(id(t), id(t.sibling()), color='black', weight=0.2)
+            if not id(t.sibling()) in visited:
+                stack.append((t.sibling(), level))
+
+        if t.child() != None:
+            G.add_node(id(t.child()), label = t.child().data(), cluster=level+1)
+            G.add_edge(id(t),id(t.child()), color='red', weight=1.0)
+            if not id(t.child()) in visited:
+                stack.append((t.child(), level+1))
+    
+    draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
+    
+        
 
 def draw_proof(proof, db, step_id=None, only_ids=False):
     """ Draw all statements reachable from given row_id
