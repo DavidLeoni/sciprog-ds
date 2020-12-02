@@ -1363,11 +1363,11 @@ div.rendered_html tbody tr:hover {
 <li><p>unzip exercises in a folder, you should get something like this:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>graph-algos
-    graph-algos.ipynb
     graph.py
     graph_sol.py
     jupman.py
     sciprog.py
+    graph-algos.ipynb
 </pre></div>
 </div>
 <ul class="simple">
@@ -1383,15 +1383,16 @@ div.rendered_html tbody tr:hover {
 <p>In short, a graph is a set of vertices linked by edges.</p>
 <p>Longer version:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sciproalgo2019.readthedocs.io/slides/Lecture7.pdf">Luca Bianco theory</a></p></li>
-<li><p><a class="reference external" href="https://interactivepython.org/runestone/static/pythonds/Graphs/toctree.html">Graphs on the book</a></p>
+<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture7.pdf">Luca Bianco’s theory</a></p></li>
+<li><p><a class="reference external" href="https://runestone.academy/runestone/books/published/pythonds/Graphs/toctree.html">Python DS book - Graphs chapter</a></p>
 <ul>
-<li><p>In particular, see <a class="reference external" href="https://interactivepython.org/runestone/static/pythonds/Graphs/VocabularyandDefinitions.html">Vocabulary and definitions</a></p></li>
+<li><p>In particular, see <a class="reference external" href="https://runestone.academy/runestone/books/published/pythonds/Graphs/VocabularyandDefinitions.html">Vocabulary and definitions</a></p></li>
 </ul>
 </li>
 </ul>
 <p><img alt="graph dir undir 12312j123" src="../_images/graph-dir-undir.png" /></p>
 <p><img alt="graph adjacent 334234j" src="../_images/graph-adjacent.png" /></p>
+<p>Credits: Slides by Alberto Montresor</p>
 </div>
 <div class="section" id="0.2-Directed-graphs">
 <h3>0.2 Directed graphs<a class="headerlink" href="#0.2-Directed-graphs" title="Permalink to this headline">¶</a></h3>
@@ -1498,7 +1499,7 @@ DiGraph()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_15_0.png" src="../_images/graph-algos_graph-algos_15_0.png" />
+<img alt="../_images/graph-algos_graph-algos_16_0.png" src="../_images/graph-algos_graph-algos_16_0.png" />
 </div>
 </div>
 <p>You can add then vertices to the graph like so:</p>
@@ -1549,7 +1550,7 @@ c: []
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_20_0.png" src="../_images/graph-algos_graph-algos_20_0.png" />
+<img alt="../_images/graph-algos_graph-algos_21_0.png" src="../_images/graph-algos_graph-algos_21_0.png" />
 </div>
 </div>
 <p>Adding a vertex twice does nothing:</p>
@@ -1579,15 +1580,15 @@ c: []
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Adds an edge to the graph, from vertex1 to vertex2</span>
 
-<span class="sd">        If verteces don&#39;t exist, raises an Exception.</span>
+<span class="sd">        If verteces don&#39;t exist, raises a ValueError.</span>
 <span class="sd">        If there is already such an edge, exits silently.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">vertex1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find source vertex:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vertex1</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find source vertex:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vertex1</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">vertex2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find target vertex:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vertex2</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find target vertex:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vertex2</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">vertex2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="p">[</span><span class="n">vertex1</span><span class="p">]:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="p">[</span><span class="n">vertex1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vertex2</span><span class="p">)</span>
@@ -1628,7 +1629,7 @@ c: []
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_25_0.png" src="../_images/graph-algos_graph-algos_25_0.png" />
+<img alt="../_images/graph-algos_graph-algos_26_0.png" src="../_images/graph-algos_graph-algos_26_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1666,7 +1667,7 @@ c: []
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_27_0.png" src="../_images/graph-algos_graph-algos_27_0.png" />
+<img alt="../_images/graph-algos_graph-algos_28_0.png" src="../_images/graph-algos_graph-algos_28_0.png" />
 </div>
 </div>
 <p>Adding an edge twice makes no difference:</p>
@@ -1728,7 +1729,7 @@ c: []
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_32_0.png" src="../_images/graph-algos_graph-algos_32_0.png" />
+<img alt="../_images/graph-algos_graph-algos_33_0.png" src="../_images/graph-algos_graph-algos_33_0.png" />
 </div>
 </div>
 </div>
@@ -1847,7 +1848,7 @@ True
 <span class="sd">        Modifying the list will have NO effect on the graph!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find a vertex &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find a vertex &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="p">[</span><span class="n">vertex</span><span class="p">][:]</span>
 </pre></div>
@@ -2098,7 +2099,7 @@ c: []
     <span class="sd">&quot;&quot;&quot;  Returns True if there is an edge between source vertex and target vertex.</span>
 <span class="sd">         Otherwise returns False.</span>
 
-<span class="sd">        If either source, target or both verteces don&#39;t exist raises an Exception.</span>
+<span class="sd">        If either source, target or both verteces don&#39;t exist raises a ValueError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
@@ -2145,7 +2146,7 @@ c: []
 <span class="sd">        Each vertex is a number i, 1 &lt;= i &lt;= n  and has only one edge connecting it</span>
 <span class="sd">        to the following one in the sequence</span>
 <span class="sd">        If n = 0, return the empty graph.</span>
-<span class="sd">        if n &lt; 0, raises an Exception.</span>
+<span class="sd">        if n &lt; 0, raises a ValueError.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
@@ -2168,7 +2169,7 @@ c: []
 <span class="sd">           2 &lt;- 1 -&gt; 4</span>
 
 <span class="sd">        If n = 0, the empty graph is returned</span>
-<span class="sd">        If n &lt; 0, raises an Exception</span>
+<span class="sd">        If n &lt; 0, raises a ValueError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
@@ -2748,7 +2749,7 @@ DiGraph()
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Removes the provided vertex  and returns it</span>
 
-<span class="sd">        If the vertex is not found, raises an Exception.</span>
+<span class="sd">        If the vertex is not found, raises a LookupError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
@@ -2830,7 +2831,7 @@ DiGraph()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_94_0.png" src="../_images/graph-algos_graph-algos_94_0.png" />
+<img alt="../_images/graph-algos_graph-algos_95_0.png" src="../_images/graph-algos_graph-algos_95_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2881,7 +2882,7 @@ DEBUG:    already visited!
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_97_0.png" src="../_images/graph-algos_graph-algos_97_0.png" />
+<img alt="../_images/graph-algos_graph-algos_98_0.png" src="../_images/graph-algos_graph-algos_98_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2948,7 +2949,7 @@ DEBUG:    Queue is: []
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_101_0.png" src="../_images/graph-algos_graph-algos_101_0.png" />
+<img alt="../_images/graph-algos_graph-algos_102_0.png" src="../_images/graph-algos_graph-algos_102_0.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">distances('a')</span></code> called on this graph would return a map like this:</p>
@@ -2981,7 +2982,7 @@ DEBUG:    Queue is: []
 </div>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2992,7 +2993,7 @@ DEBUG:    Queue is: []
          <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
          <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">],</span>
          <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]})</span>
-<span class="n">draw_dig</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;graph&#39;</span><span class="p">:{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="s1">&#39;15,3!&#39;</span><span class="p">,</span> <span class="s1">&#39;rankdir&#39;</span><span class="p">:</span><span class="s1">&#39;LR&#39;</span><span class="p">}})</span>
+<span class="n">draw_dig</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;graph&#39;</span><span class="p">:{</span><span class="s1">&#39;layout&#39;</span><span class="p">:</span><span class="s1">&#39;fdp&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">:</span><span class="s1">&#39;random10&#39;</span><span class="p">}})</span>
 </pre></div>
 </div>
 </div>
@@ -3000,7 +3001,7 @@ DEBUG:    Queue is: []
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_104_0.png" src="../_images/graph-algos_graph-algos_104_0.png" />
+<img alt="../_images/graph-algos_graph-algos_105_0.png" src="../_images/graph-algos_graph-algos_105_0.png" />
 </div>
 </div>
 <p>Consider <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code>, they both:</p>
@@ -3079,7 +3080,7 @@ door to leave the building, its label starts with letter <code class="docutils l
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_110_0.png" src="../_images/graph-algos_graph-algos_110_0.png" />
+<img alt="../_images/graph-algos_graph-algos_111_0.png" src="../_images/graph-algos_graph-algos_111_0.png" />
 </div>
 </div>
 <p>You will solve the exercise in steps, so open <code class="docutils literal notranslate"><span class="pre">exits_sol.py</span></code> and proceed reading the following points.</p>
@@ -3100,6 +3101,7 @@ door to leave the building, its label starts with letter <code class="docutils l
 <span class="sd">        The source node will have None as parent, so if source is &quot;n1&quot; in the</span>
 <span class="sd">        output dictionary there will be the pair  &quot;n1&quot;: None</span>
 
+<span class="sd">        - if source is not found, raises LookupError</span>
 <span class="sd">        - MUST execute in O(|V| + |E|)</span>
 <span class="sd">        - NOTE: This method must *NOT* distinguish between exits</span>
 <span class="sd">                and normal nodes, in the tests we label them n1, e1 etc just</span>
@@ -3315,7 +3317,7 @@ d: [&#39;c&#39;]
 </div>
 <div class="section" id="3.7-top_sort">
 <h3>3.7 top_sort<a class="headerlink" href="#3.7-top_sort" title="Permalink to this headline">¶</a></h3>
-<p>Look at <a class="reference external" href="http://disi.unitn.it/~montreso/sp/slides/B04-grafi.pdf">Montresor slides on topological sort</a></p>
+<p>Look at <a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture7.pdf">Luca Bianco’s slides on topological sort</a></p>
 <p>Keep in mind two things:</p>
 <ul class="simple">
 <li><p>topological sort works on DAGs, that is, Directed <em>Acyclic</em> Graphs</p></li>
@@ -3338,7 +3340,7 @@ d: [&#39;c&#39;]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_121_0.png" src="../_images/graph-algos_graph-algos_121_0.png" />
+<img alt="../_images/graph-algos_graph-algos_122_0.png" src="../_images/graph-algos_graph-algos_122_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3355,7 +3357,7 @@ d: [&#39;c&#39;]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_122_0.png" src="../_images/graph-algos_graph-algos_122_0.png" />
+<img alt="../_images/graph-algos_graph-algos_123_0.png" src="../_images/graph-algos_graph-algos_123_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3372,7 +3374,7 @@ d: [&#39;c&#39;]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_123_0.png" src="../_images/graph-algos_graph-algos_123_0.png" />
+<img alt="../_images/graph-algos_graph-algos_124_0.png" src="../_images/graph-algos_graph-algos_124_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3389,7 +3391,7 @@ d: [&#39;c&#39;]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_124_0.png" src="../_images/graph-algos_graph-algos_124_0.png" />
+<img alt="../_images/graph-algos_graph-algos_125_0.png" src="../_images/graph-algos_graph-algos_125_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3406,7 +3408,7 @@ d: [&#39;c&#39;]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_125_0.png" src="../_images/graph-algos_graph-algos_125_0.png" />
+<img alt="../_images/graph-algos_graph-algos_126_0.png" src="../_images/graph-algos_graph-algos_126_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3423,7 +3425,7 @@ d: [&#39;c&#39;]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/graph-algos_graph-algos_126_0.png" src="../_images/graph-algos_graph-algos_126_0.png" />
+<img alt="../_images/graph-algos_graph-algos_127_0.png" src="../_images/graph-algos_graph-algos_127_0.png" />
 </div>
 </div>
 <p>Now implement this method:</p>
