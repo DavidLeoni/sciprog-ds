@@ -1119,8 +1119,118 @@ class ScheduleRecTest(BinaryTreeTest):
 
         self.assertEqual(t.schedule_rec(), ['a','b','c','d','e','f','g','h','i'])
 
+class PathsSlowRecTest(BinaryTreeTest):
 
+    def test_01_empty(self):
+        t = bt(5)
+        self.assertEqual(t.paths_slow_rec(), [[5]])
 
+    def test_02_4_7_N(self):
+        t = bt(4, 
+                    bt(7))
+        self.assertEqual(t.paths_slow_rec(), [[4,7]])
+    
+    def test_03_3_8(self):
+        t = bt(3,   
+                   None,
+                   bt(8))
+        self.assertEqual(t.paths_slow_rec(), [[3,8]])
+
+    def test_04_2_5__2_9(self):
+        t = bt(2,   
+                   bt(5),
+                   bt(9))
+        self.assertEqual(t.paths_slow_rec(), [[2,5],[2,9]])
+
+    def test_05_2_5_3__2_9(self):
+        t = bt(2,   
+                   bt(5, 
+                         bt(3)),
+                   bt(9))
+        self.assertEqual(t.paths_slow_rec(), [[2,5,3],[2,9]])
+        
+    def test_05_2_5__2_10_6(self):
+        t = bt(2,   
+                   bt(5),
+                   bt(10,
+                          bt(6)))
+        self.assertEqual(t.paths_slow_rec(), [[2,5],[2,10,6]])
+        
+    def test_complex(self):        
+        t = bt('a',
+                bt('b', 
+                        bt('d',
+                                bt('h')),
+                        bt('e')),
+                bt('c',
+                        bt('f',
+                                None,
+                                bt('i', 
+                                         bt('l'),
+                                         bt('m'))),
+                        bt('g')))
+        self.assertEqual(t.paths_slow_rec(), [['a', 'b', 'd', 'h'],
+                                              ['a', 'b', 'e'],
+                                              ['a', 'c', 'f', 'i', 'l'],
+                                              ['a', 'c', 'f', 'i', 'm'],
+                                              ['a', 'c', 'g']])
+        
+class PathsFastRecTest(BinaryTreeTest):
+
+    def test_01_empty(self):
+        t = bt(5)
+        self.assertEqual(t.paths_fast_rec(), [[5]])
+
+    def test_02_4_7_N(self):
+        t = bt(4, 
+                    bt(7))
+        self.assertEqual(t.paths_fast_rec(), [[4,7]])
+    
+    def test_03_3_8(self):
+        t = bt(3,   
+                   None,
+                   bt(8))
+        self.assertEqual(t.paths_fast_rec(), [[3,8]])
+
+    def test_04_2_5__2_9(self):
+        t = bt(2,   
+                   bt(5),
+                   bt(9))
+        self.assertEqual(t.paths_fast_rec(), [[2,5],[2,9]])
+
+    def test_05_2_5_3__2_9(self):
+        t = bt(2,   
+                   bt(5, 
+                         bt(3)),
+                   bt(9))
+        self.assertEqual(t.paths_fast_rec(), [[2,5,3],[2,9]])
+        
+    def test_05_2_5__2_10_6(self):
+        t = bt(2,   
+                   bt(5),
+                   bt(10,
+                          bt(6)))
+        self.assertEqual(t.paths_fast_rec(), [[2,5],[2,10,6]])
+        
+    def test_complex(self):        
+        t = bt('a',
+                bt('b', 
+                        bt('d',
+                                bt('h')),
+                        bt('e')),
+                bt('c',
+                        bt('f',
+                                None,
+                                bt('i', 
+                                         bt('l'),
+                                         bt('m'))),
+                        bt('g')))
+        self.assertEqual(t.paths_fast_rec(), [['a', 'b', 'd', 'h'],
+                                              ['a', 'b', 'e'],
+                                              ['a', 'c', 'f', 'i', 'l'],
+                                              ['a', 'c', 'f', 'i', 'm'],
+                                              ['a', 'c', 'g']])        
+        
 class SumStackTest(BinaryTreeTest):
 
     """

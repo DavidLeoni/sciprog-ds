@@ -349,7 +349,7 @@ class BinaryTree:
             A path is a list which holds the nodes data found while traversing the tree.
                                     
             - for this slow version, you can only use + operator or .extend() method
-              which will bring an O(n^2) complexity
+              which will bring an O(n^3) complexity
             - implement it as recursive call 
               NOTE: with big trees a recursive solution would surely exceed the call stack,
                     but here we don't mind                          
@@ -361,7 +361,8 @@ class BinaryTree:
         left_paths = self._left.paths_slow_rec() if self._left != None else []
         right_paths = self._right.paths_slow_rec() if self._right != None else []                    
                 
-        return [[self._data] + p for p in left_paths] + [[self._data] + p for p in right_paths]
+        return [[self._data] + path for path in left_paths] \
+               + [[self._data] + path for path in right_paths]
         #/jupman-raise    
     
     def _paths_fast_helper(self):
@@ -374,15 +375,15 @@ class BinaryTree:
         ret = []
         if self._left != None:            
             left_paths = self._left._paths_fast_helper()
-            for p in left_paths:
-                p.append(self._data)
-                ret.append(p)
+            for path in left_paths:
+                path.append(self._data)
+                ret.append(path)
             
         if self._right != None:
             right_paths = self._right._paths_fast_helper()
-            for p in right_paths:
-                p.append(self._data)
-                ret.append(p)
+            for path in right_paths:
+                path.append(self._data)
+                ret.append(path)
                 
         return ret
         #/jupman-raise
@@ -390,9 +391,9 @@ class BinaryTree:
     def paths_fast_rec(self):
         """ RETURN a list of all paths from this node to the each leaf.
             A path is a list which holds the nodes data found while traversing the tree.
-            
-            
-            - MUST work in O(n) where n is the number of nodes in the tree
+                        
+            - DO NOT use + operator nor .extend() method 
+            - MUST work in O(n^2) where n is the number of nodes in the tree
             - implement it as recursive call 
               NOTE: with big trees a recursive solution would surely exceed the call stack,
                     but here we don't mind                          
