@@ -296,13 +296,13 @@ class DiGraphTestTest(DiGraphTest):
         
         self.assertDiGraphEqual(dig({}), dig({}))
         
-        with self.assertRaises(Exception):
+        with self.assertRaises(AssertionError):
             self.assertDiGraphEqual(dig({}), dig({'a':[]}))        
 
     def test_dfs(self):
 
         # just running as it does nothing ..
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             dig({}).dfs('a')
                         
         dig({'a':[]}).dfs('a')
@@ -311,11 +311,11 @@ class DiGraphTestTest(DiGraphTest):
             g.dfs(1)    
                 
     def test_bfs_empty(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             dig({}).bfs('a')
         
     def test_bfs_not_found(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             dig({'a':[]}).bfs('b')
 
     def test_bfs_root_parent(self):
@@ -341,7 +341,7 @@ class HasEdgeTest(DiGraphTest):
         self.assertTrue(dig({'a':['b'],
                             'a':['c']}).has_edge('a','c'))
                             
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             self.assertTrue(dig({'a':['b']}).has_edge('a','c'))
 
             
@@ -370,7 +370,7 @@ class DagTest(DiGraphTest):
 class ListGraphTest(DiGraphTest):        
     
     def test_01_list_graph(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             list_graph(-4)
                     
         self.assertEqual(dig({}), list_graph(0))
@@ -380,7 +380,7 @@ class ListGraphTest(DiGraphTest):
 class StarGraphTest(DiGraphTest):        
 
     def test_01_star_graph(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             star_graph(-4)
         self.assertDiGraphEqual(star_graph(0),
                                 dig({}))
@@ -537,7 +537,7 @@ class FluxTest(DiGraphTest):
 class TestRemoveVertex(DiGraphTest):
     
     def test_01_empty(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
             dig({}).remove_vertex('a')
         
     def test_02_two(self):        
@@ -663,12 +663,12 @@ class UndirTest(DiGraphTest):
 class DistancesTest(DiGraphTest):
     
     def test_01_empty(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
             dig({}).distances('a')
 
     def test_02_not_found(self):
-        with self.assertRaises(Exception):
-            dig({'a'}).distances('b')
+        with self.assertRaises(LookupError):
+            dig({'a': []}).distances('b')
 
 
     def test_03_root(self):        
@@ -686,7 +686,7 @@ class DistancesTest(DiGraphTest):
     def test_05_unreachable(self):        
         self.assertEqual(dig({'a': [],
                               'b': []}).distances('a'),
-                          {'a': 0, 
+                         {'a': 0, 
                           'b': -1})
 
     def test_06_triangle(self):        
@@ -717,8 +717,8 @@ class EquiDistancesTest(DiGraphTest):
 
 
     def test_02_not_found(self):
-        with self.assertRaises(Exception):
-            dig({'a'}).equidistances('a','b')
+        with self.assertRaises(LookupError):
+            dig({'a':[]}).equidistances('a','b')
 
 
     def test_03_root(self):        
@@ -780,7 +780,7 @@ class EquiDistancesTest(DiGraphTest):
 class CpTest(DiGraphTest):
 
     def test_01_wrong_source(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(LookupError):
              dig({}).cp('n666')
 
     def test_02_one(self):

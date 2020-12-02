@@ -48,15 +48,15 @@ class DiGraph:
     def add_edge(self, vertex1, vertex2):
         """ Adds an edge to the graph, from vertex1 to vertex2
         
-            If verteces don't exist, raises an Exception.
+            If verteces don't exist, raises a ValueError
             If there is already such an edge, exits silently.            
         """
         
         if not vertex1 in self._edges:
-            raise Exception("Couldn't find source vertex: " + str(vertex1))
+            raise ValueError("Couldn't find source vertex: " + str(vertex1))
 
         if not vertex2 in self._edges:
-            raise Exception("Couldn't find target vertex: " + str(vertex2))        
+            raise ValueError("Couldn't find target vertex: " + str(vertex2))        
             
         if not vertex2 in self._edges[vertex1]:
             self._edges[vertex1].append(vertex2)
@@ -103,11 +103,13 @@ class DiGraph:
     def adj(self, vertex):
         """ Returns the verteces adjacent to vertex. 
             
-            NOTE: verteces are returned in a NEW list.
-            Modifying the list will have NO effect on the graph!
+            - If vertex is not in edges, raises a ValueError
+            
+            - NOTE: verteces are returned in a NEW list.
+              Modifying the list will have NO effect on the graph!            
         """
         if not vertex in self._edges:
-            raise Exception("Couldn't find a vertex " + str(vertex))
+            raise ValueError("Couldn't find a vertex " + str(vertex))
         
         return self._edges[vertex][:]
       
@@ -139,22 +141,20 @@ class DiGraph:
             in the graph and prints visited nodes.
             Starts from provided source vertex id.
 
-            If source is not in the graph, raises an Exception                         
+            If source is not in the graph, raises a ValueError                         
         """
    
        
         if not source in self.verteces():
-            raise Exception("Can't find vertex:" + str(source))
+            raise ValueError("Can't find vertex:" + str(source))
         
 
         Q = deque()
         # we start from source 
 
         Q.append(source)
-        visited = {}
-        for v in self._edges:
-            visited[v] = False
-        visited[source] = True
+        visited = set()        
+        visited.add(source)
 
         while len(Q)>0:
             u = Q.popleft()
@@ -163,9 +163,9 @@ class DiGraph:
             for v in self._edges[u]:         
                 debug("  Found neighbor: %s" % v)   
                 # Visit edge (u,v)
-                if not visited[v]:
+                if v not in visited:
                     debug("    not yet visited, enqueueing ..")
-                    visited[v] = True
+                    visited.add(v)
                     Q.append(v)                                        
                 else:
                     debug("    already visited")
@@ -176,26 +176,24 @@ class DiGraph:
             Starts from source vertex id and prints steps.
             Already visited nodes are set in provided boolean list  mark
             
-            - If the graph is empty, raises an Exception.
+            - If the graph is empty, raises a ValueError
         """
         
         if self.is_empty():
-            raise Exception("Cannot perform DFS on an empty graph!")                
+            raise ValueError("Cannot perform DFS on an empty graph!")                
 
         S = []
         S.append(source)
-        visited = {}
-        for v in self.verteces():
-            visited[v] = False
+        visited = set()        
 
         debug("Stack is: %s " % S)
         while not len(S) == 0:
             u = S.pop()
             debug("popping from stack: %s" % u)
-            if not visited[u]:
+            if u not in visited:
                 debug("  not yet visited")
                 # visit node u (pre-order)
-                visited[u] = True
+                visited.add(u)
                 for v in self.adj(u):
                     debug("  Scheduling for visit: %s" % v)
                     # visit edge (u,v)
@@ -209,33 +207,33 @@ class DiGraph:
         """  Returns True if there is an edge between source vertex and target vertex. 
              Otherwise returns False.
 
-            If either source, target or both verteces don't exist raises an Exception.
+            If either source, target or both verteces don't exist raises a ValueError
         """
-        
+        #jupman-raise
         if (not self.has_vertex(source)):
-            raise Exception("There is no source vertex " + str(source))
+            raise ValueError("There is no source vertex " + str(source))
             
         if (not self.has_vertex(target)):
-            raise Exception("There is no source vertex " + str(target))
+            raise ValueError("There is no source vertex " + str(target))
                 
         return target in self._edges[source]                                
-        
+        #/jupman-raise
 
     def remove_vertex(self, vertex):
         """ Removes the provided vertex  and returns it
             
-            If the vertex is not found, raises an Exception.
+            If the vertex is not found, raises a LookupError
         """
-                
+        #jupman-raise        
         if not vertex in self._edges:
-            raise Exception("Couldn't find vertex:" +str(vertex))
+            raise LookupError("Couldn't find vertex:" +str(vertex))
         
         for source in self.verteces():
             if vertex in self._edges[source]:
                 self._edges[source].remove(vertex)
         
         return self._edges.pop(vertex)
-        
+        #/jupman-raise
 
 
     def transpose(self):
@@ -250,7 +248,7 @@ class DiGraph:
             verteces and edges ad then set _edges to point to the new dictionary.
 
         """
-        
+        #jupman-raise
            
         # let's save the old edges   
         old_edges = self._edges   
@@ -264,36 +262,36 @@ class DiGraph:
         for source in old_edges:
             for target in old_edges[source]:
                 self.add_edge(target, source)  # using add_edge we avoid duplicates !
-        
+        #/jupman-raise
 
     def has_self_loops(self):
         """ Returns True if the graph has any self loop (a.k.a. cap), False otherwise """
         
-
+        #jupman-raise
         for source in self._edges:
             if source in self._edges[source]:
                 return True
         
         return False
-        
+        #/jupman-raise
         
     def remove_self_loops(self):
         """ Removes all of the self-loops edges (a.k.a. caps) 
             
             NOTE: Removes just the edges, not the verteces!
         """
-        
+        #jupman-raise
         for source in self._edges:
             if source in self._edges[source]:
                 self._edges[source].remove(source)
-                
+        #/jupman-raise        
         
 
     def undir(self):
         """ Return a *NEW* undirected version of this graph, that is, if an edge a->b exists in this          graph, the returned graph must also have both edges  a->b and b->a
             *DO NOT* modify the current graph, just return an entirely new one.
         """
-        
+        #jupman-raise
         ret = DiGraph()
                 
         for v in self._edges:
@@ -305,7 +303,7 @@ class DiGraph:
                 ret.add_edge(target, source)
                 
         return ret
-        
+        #/jupman-raise
 
 
     def distances(self, source):
@@ -317,11 +315,11 @@ class DiGraph:
         Source has distance zero from itself
         Verteces immediately connected to source have distance one.
 
-        - if source is not a vertex, raises an LookupError
+        - if source is not a vertex, raises a LookupError
         - MUST execute in O(|V| + |E|)
         - HINT: implement this using bfs search.
         """   
-             
+        #jupman-raise     
        
         # First off, we use a BFS, because it explores nodes layer by layer,
         # so in the resulting tree each node distance is always minimal with 
@@ -334,10 +332,8 @@ class DiGraph:
         # we start from source 
 
         Q.append(source)
-        visited = {}
-        for v in self._edges:
-            visited[v] = False
-        visited[source] = True
+        visited = set()        
+        visited.add(source)
 
         # As result we just want a dictionary with verteces and distances, so we 
         # create it here.                   
@@ -357,9 +353,9 @@ class DiGraph:
             # Visit node u
             for v in self._edges[u]:
                 # Visit edge (u,v)
-                if not visited[v]:
+                if v not in visited:
                     #debug("  not yet visited")
-                    visited[v] = True
+                    visited.add(v)
                     distances[v] = distances[u] + 1
                     Q.append(v)
                 #else:
@@ -367,7 +363,8 @@ class DiGraph:
 
 
         return distances  
-
+        #/jupman-raise
+        
     def equidistances(self, va, vb):
         """ RETURN a dictionary holding the nodes which 
             are equidistant from input verteces va and vb.
@@ -402,6 +399,7 @@ class DiGraph:
             The source node will have None as parent, so if source is "n1" in the 
             output dictionary there will be the pair  "n1": None
 
+            - if source is not found, raise LookupError
             - MUST execute in O(|V| + |E|)
             - NOTE: This method must *NOT* distinguish between exits 
                     and normal nodes, in the tests we label them n1, e1 etc just
@@ -411,9 +409,9 @@ class DiGraph:
                     dictionary
 
         """
-        
+        #jupman-raise
         if not source in self.verteces():
-            raise Exception("Can't find vertex:" + str(source))
+            raise LookupError("Can't find vertex:" + str(source))
         
         ret = {}
 
@@ -421,10 +419,9 @@ class DiGraph:
         # we start from source 
 
         Q.append(source)
-        visited = {}
-        for v in self._edges:
-            visited[v] = False
-        visited[source] = True
+        visited = set()
+        
+        visited.add(source)
         ret[source] = None
 
         while len(Q)>0:
@@ -434,9 +431,9 @@ class DiGraph:
             for v in self._edges[u]:         
                 debug("  Found neighbor: %s" % v)   
                 # Visit edge (u,v)
-                if not visited[v]:
+                if v not in visited:
                     debug("    not yet visited, enqueueing ..")
-                    visited[v] = True
+                    visited.add(v)
                     ret[v] = u
                     Q.append(v)                                         
                     
@@ -445,7 +442,7 @@ class DiGraph:
             debug("  Queue is: %s " % list(Q))
 
         return ret
-        
+        #/jupman-raise
         
     def cc(self):
         """ Finds the connected components of the graph, returning a dict object
@@ -458,7 +455,7 @@ class DiGraph:
             To develop this function, implement also ccdfs function inside this method.
             
         """
-        
+        #jupman-raise
 
         def ccdfs(counter, source, ids):
             """
@@ -484,7 +481,7 @@ class DiGraph:
                 ccdfs(counter, u, ids)                                
             
         return ids
-
+        #/jupman-raise
         
         
     def has_cycle(self):
@@ -496,7 +493,7 @@ class DiGraph:
                  nonlocal clock, dt, ft
             - MUST be able to also detect self-loops
         """
-        
+        #jupman-raise
 
         def has_cycle_rec(u):
         
@@ -526,7 +523,7 @@ class DiGraph:
                 if has_cycle_rec(u):
                     return True
         return False
-        
+        #/jupman-raise
 
     def top_sort(self):
         """ RETURN a topological sort of the graph. To implement this code, 
@@ -537,7 +534,7 @@ class DiGraph:
             - NOTE: differently from Montresor code, for tests to pass 
                     you will need to return a reversed list. Why ?
         """
-        
+        #jupman-raise
         def topSortRec(u, visited, S):
             visited.add(u)
             for v in self.adj(u):
@@ -552,7 +549,7 @@ class DiGraph:
                 topSortRec(u, visited, S)
         S.reverse()
         return S
-        
+        #/jupman-raise
 
         
 
@@ -561,7 +558,7 @@ def full_graph(verteces):
     
         In a full graph all verteces link to all other verteces (including themselves!).
     """
-    
+    #jupman-raise
 
     g = DiGraph()    
     for v in verteces:
@@ -572,7 +569,7 @@ def full_graph(verteces):
             g.add_edge(v, w)
     
     return g
-    
+    #/jupman-raise
 
 def dag(verteces):
     """ Returns a DiGraph which is DAG (Directed Acyclic Graph) made out of provided verteces list
@@ -580,7 +577,7 @@ def dag(verteces):
         Provided list is intended to be in topological order.
         NOTE: a DAG is ACYCLIC, so caps (self-loops) are not allowed !!
     """
-    
+    #jupman-raise
     g = DiGraph()    
     for v in verteces:
         g.add_vertex(v)
@@ -592,7 +589,7 @@ def dag(verteces):
                 g.add_edge(v,w)
             i += 1
     return g
-    
+    #/jupman-raise
 
 def list_graph(n):
     """ Return a graph of n verteces displaced like a 
@@ -601,14 +598,14 @@ def list_graph(n):
         Each vertex is a number i, 1 <= i <= n  and has only one edge connecting it
         to the following one in the sequence        
         If n = 0, return the empty graph.
-        if n < 0, raises an Exception.
+        if n < 0, raises a ValueError.
     """    
-       
+    #jupman-raise   
     if n == 0:
         return DiGraph()
         
     if n < 0:
-        raise Exception("Found negative n: " + str(n))
+        raise ValueError("Found negative n: " + str(n))
         
     
     g = DiGraph()
@@ -619,7 +616,7 @@ def list_graph(n):
             g.add_edge(k, k+1)
       
     return g    
-    
+    #/jupman-raise
 
 def star_graph(n):
     """ Returns graph which is a star with n nodes 
@@ -633,14 +630,14 @@ def star_graph(n):
            2 <- 1 -> 4           
            
         If n = 0, the empty graph is returned
-        If n < 0, raises an Exception           
+        If n < 0, raises a ValueError        
     """    
-    
+    #jupman-raise
     if n == 0:
         return DiGraph()
         
     if n < 0:
-        raise Exception("Found negative n: " + str(n))
+        raise ValueError("Found negative n: " + str(n))
     
     g = DiGraph()
     
@@ -651,7 +648,7 @@ def star_graph(n):
         g.add_edge(1, i)
     
     return g
-       
+    #/jupman-raise
     
 def odd_line(n):
     """ Returns a DiGraph with n verteces, displaced like a line of odd numbers
@@ -664,7 +661,7 @@ def odd_line(n):
         For n = 0, return the empty graph
             
     """
-    
+    #jupman-raise
         
     g = DiGraph()
     
@@ -675,7 +672,7 @@ def odd_line(n):
         g.add_edge(2*i - 1, 2*i + 1)
         
     return g
-    
+    #/jupman-raise
 
 def even_line(n):
     """ Returns a DiGraph with n verteces, displaced like a line of even numbers
@@ -688,7 +685,7 @@ def even_line(n):
         For n = 0, return the empty graph
             
     """
-     
+    #jupman-raise
        
     g = DiGraph()
     
@@ -699,7 +696,7 @@ def even_line(n):
         g.add_edge(2 * (i + 1), 2 * i)
 
     return g
-    
+    #/jupman-raise
 
 def quads(n):
     """ Returns a DiGraph with 2n verteces, displaced like a strip of quads.
@@ -718,7 +715,7 @@ def quads(n):
           |  represents an upward arrow,   while    ;  represents a downward arrow        
     
     """
-    
+    #jupman-raise
 
     g = DiGraph()
     
@@ -736,7 +733,7 @@ def quads(n):
             g.add_edge(2*i, 2*i - 1)
                         
     return g
-    
+    #/jupman-raise
 
 def pie(n):
     """ Returns a DiGraph with n+1 verteces, displaced like a polygon with a perimeter 
@@ -747,7 +744,7 @@ def pie(n):
         For n = 1, return vertex zero connected to node 1, and node 1 has a self-loop.
         
     """
-    
+    #jupman-raise
         
     g = DiGraph()
     
@@ -767,7 +764,7 @@ def pie(n):
         g.add_edge(n, 1)
         
     return g
-    
+    #/jupman-raise
         
 def flux(depth):
     """ Returns a DiGraph with 1 + (d * 3) verteces displaced like a Y:
@@ -789,7 +786,7 @@ def flux(depth):
                   6
         
     """
-     
+    #jupman-raise 
     if depth < 0:
         raise ValueError("Expected zero or positive depth, found instead %s " % depth)
     
@@ -811,7 +808,7 @@ def flux(depth):
         j += 1
 
     return g 
-    
+    #/jupman-raise
 
 def exits(cp):
     """
@@ -826,7 +823,7 @@ def exits(cp):
 
         - MUST execute in O(|V| + |E|)
     """
-    
+    #jupman-raise
     ret = {}
     for v in cp:
         if v.startswith('e'):
@@ -844,5 +841,5 @@ def exits(cp):
         ret[v].reverse()
 
     return ret
-    
+    #/jupman-raise
     
