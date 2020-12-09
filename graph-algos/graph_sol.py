@@ -3,9 +3,10 @@ from queue import Queue
 from collections import deque
 
 DEBUG = True
-def debug(msg):
+def debug(*args):
     if DEBUG:
-        print("DEBUG: ", msg.replace('\n', '\n' + (' '*8)))
+        rep = [str(arg).replace('\n', '\n' + (' '*8)) for arg in args]
+        print("DEBUG: ", *rep)
 
 #PrettyPrint(indent=4)
 pp = pprint.PrettyPrinter(indent=4).pprint
@@ -33,13 +34,16 @@ class DiGraph:
         """
         if vertex not in self._edges:            
             self._edges[vertex] = []
-    
-    def verteces(self):
-        """ Returns a set of the graph verteces. Verteces can be any object. """
+
+    def is_empty(self):
+        """  A DiGraph for us is empty if it has no verteces and no edges """
         
-        # Note dict keys() return a list, not a set. Bleah.  
-        # See http://stackoverflow.com/questions/13886129/why-does-pythons-dict-keys-return-a-list-and-not-a-set
-        return set(self._edges.keys()) 
+        return len(self._edges) == 0
+
+    def verteces(self):
+        """ Returns a view of the graph verteces. Verteces can be any immutable object. """
+                
+        return self._edges.keys() 
         
     def has_vertex(self, vertex):
         """ Returns true if graph contains given vertex. A vertex can be any object. """
@@ -114,8 +118,8 @@ class DiGraph:
         return self._edges[vertex][:]
       
     def __eq__(self, other):
-        """ !!!   NOTE: although we represent the set with adjanceny lists, for __eq__
-            graph dig('a', ['b','c']) is considered equals to a graph dig('a', ['c', 'b']) !!! 
+        """ !!!   NOTE: although we use adjanceny lists,  __eq__
+            graph dig('a', ['b','c']) is considered equal to a graph dig('a', ['c', 'b']) !!! 
         """
             
         if not isinstance(other, DiGraph):
@@ -131,10 +135,6 @@ class DiGraph:
         
         return True              
         
-    def is_empty(self):
-        """  A DiGraph for us is empty if it has no verteces and no edges """
-        
-        return len(self._edges) == 0
 
     def bfs(self, source):
         """ Example bfs that performs a simple breadth first search 
@@ -461,8 +461,7 @@ class DiGraph:
             """
                 Performs a DFS from source vertex
                 
-                HINT: Copy in here the method from DFS and adapt it as needed       
-                HINT: store the connected component id in VertexLog objects
+                HINT: Copy in here the method from DFS and adapt it as needed                
             """
             ids[source] = counter
             for v in self._edges[source]:
@@ -531,7 +530,7 @@ class DiGraph:
 
             - implement  Stack S  as a list
             - implement  visited  as a set
-            - NOTE: differently from Montresor code, for tests to pass 
+            - NOTE: differently from theory code, for tests to pass 
                     you will need to return a reversed list. Why ?
         """
         #jupman-raise
@@ -842,4 +841,6 @@ def exits(cp):
 
     return ret
     #/jupman-raise
+    
+
     

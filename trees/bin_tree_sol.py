@@ -491,7 +491,8 @@ class BinaryTree:
             - MUST execute in O(n+|elems|)  where n is the size of the tree
             - DO *NOT* use recursion
             - implement it with a while and a stack (as a Python list)
-        """         #jupman-raise
+        """        
+        #jupman-raise
         leaves = []
         stack = [self]
         while len(stack) > 0:

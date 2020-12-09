@@ -61,12 +61,15 @@ def get_pydot_mod(obj):
 
 
     
-def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
+def draw_nx(G, legend_edges=None, label='', save_to='', options={}, clusters={}, clusters_common={}):
     """ Draws a NetworkX graph object. By default, assumes it is a DiGraph.
         
         - save_to: optional filepath where to save a .png image or .dot file        
         - to show clusters, set the cluster attribute in nodes
         - options: Dictionary of GraphViz options
+        - clusters_common: options for all clusters
+                           If 'dot_cluster':False is defined, creates a subgraph instead of a cluster.
+        - clusters: map cluster ids to their options.                             
     
         For required libraries, see 
         https://en.softpython.org/graph-formats/graph-formats-sol.html#Required-libraries
@@ -87,6 +90,7 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
                 
     
     import networkx as nx
+    import copy
        
     # fix graphviz path for anaconda in windows ...
     try:
@@ -120,6 +124,7 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
     if 'graph' in options:
         merge(G.graph['graph'], options['graph'])
     
+        
     merge(G.graph['node'], {'color':'blue', 'fontcolor':'blue'})
     merge(G.graph['edge'], {'arrowsize': '0.6', 'splines': 'curved', 'fontcolor':'brown'})
         
@@ -168,8 +173,12 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
         if len(nodes) > 0:
             for node_id, data in nodes:                
                 if 'cluster' in data:
-                    c = data['cluster']
                     
+                    c = data['cluster']                   
+                    
+                    if c == None:  # for algos with forced cluster= in params
+                        continue
+                        
                     if not type(c) in allowed_types:
                         raise ValueError('Cluster type must be one of %s, found insted: %s' \
                                           % (type(c),allowed_types))
@@ -182,10 +191,27 @@ def draw_nx(G, legend_edges=None, label='', save_to='', options={}):
                 if len(clus[c]) > 0:
                     pydot_mod = get_pydot_mod(pdot)
                     pydot_nodes = []                
-                    pydot_cluster = pydot_mod.Cluster(graph_name=str(c))
+                    
+                    copts = {}                    
+                    
+                    copts = copy.deepcopy(clusters_common)                        
+                    if c in clusters:                        
+                        merge(copts, clusters[c])                    
+                    
+                    # we assume user wants physically close grouping
+                    # NOTE: we invented dot_cluster property!
+                    if not 'dot_cluster' in copts or copts['dot_cluster']: 
+                        pydot_cluster = pydot_mod.Cluster(graph_name=str(c)) 
+                    else:
+                        pydot_cluster = pydot_mod.Subgraph(graph_name=str(c))  
+                                             
+                    for attr in copts:
+                        if 'dot_cluster' != attr:
+                            pydot_cluster.obj_dict['attributes'][attr] = copts[attr]
+                        
                     for node_id in clus[c]:
                         pydot_node = pydot_mod.Node(name=node_id)
-                        pydot_cluster.add_node(pydot_node)                        
+                        pydot_cluster.add_node(pydot_node)
                     pdot.add_subgraph(pydot_cluster)
 
     make_clusters()
@@ -226,7 +252,6 @@ def draw_mat(mat, legend_edges=None, label='', save_to='', options={}):
     """ Draws a matrix as a DiGraph 
         
         - save_to: optional filepath where to save a .png image or .dot file        
-        - to show clusters, set the cluster attribute in nodes
         - options: Dictionary of GraphViz options
     
         For required libraries, see 
@@ -267,7 +292,6 @@ def draw_adj(d,legend_edges=None, label='', save_to='', options={}):
             }
 
         - save_to: optional filepath where to save a .png image or .dot file        
-        - to show clusters, set the cluster attribute in nodes
         - options: Dictionary of GraphViz options
     
         For required libraries, see 
@@ -292,7 +316,6 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
         Draws a binary tree        
 
         - save_to: optional filepath where to save a .png image or .dot file        
-        - to show clusters, set the cluster attribute in nodes
         - options: Dictionary of GraphViz options
     
         For required libraries, see 
@@ -301,6 +324,12 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
         For other options, see draw_nx
 
     """
+    from bin_tree_test import bt
+    from queue import deque
+    
+    def di(node):
+        return str(id(node))
+        
     
     if bin_tree == None:
         raise ValueError('Provided bin_tree is None !')  
@@ -309,23 +338,69 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
     
         
     G=nx.DiGraph()
+        
+    q = deque()    
+    q.append((None, bin_tree, True,None, 'n', 0))
     
-    stack = [(None, bin_tree)]
-    while len(stack) > 0:
-        parent, t = stack.pop()
+    i = 0
+    
+    while len(q) > 0:
         
-        G.add_node(id(t), label = t._data)
+        parent, t, color, prev_sibling, headport, level = q.popleft()
         
-        if parent != None:
-            G.add_edge(id(parent),id(t))
-        if t.right() != None:
-            stack.append((t, t.right()))
-        if t.left() != None:            
-            stack.append((t, t.left()))
+        if color:
+            G.add_node(di(t), label = t._data, cluster=di(parent))
+        else:
+            G.add_node(di(t), label = t._data, width='0.1', cluster=di(parent), style='invis')
+                
         
+        if prev_sibling:
+            G.add_edge(di(prev_sibling),di(t), style='invis')
+        
+        if parent != None:            
+            if headport == 'ne':
+                tailport = 'sw'
+            elif headport == 'n':
+                tailport = 's'
+            elif headport == 'nw':
+                tailport = 'se'
+            headport = 'n'
+            if color:
+                G.add_edge(di(parent),di(t), headport=headport, tailport=tailport)
+            else:
+                G.add_edge(di(parent),di(t), headport=headport, tailport=tailport, style='invis')
+
+                
+        if color and (t.left() or t.right()):
+            if t.left():
+                ln = t.left()
+                new_color = True
+            else:
+                ln = bt(i)
+                i+=1
+                new_color = False
+
+            q.append((t, ln, new_color, None, 'ne', level+1))
+
+            mn = bt(i)
+            i+=1
+            q.append((t, mn, False, ln, 'n', level+1))  
             
+
+            if t.right():
+                rn = t.right()
+                new_color = True
+            else:
+                rn = bt(i)
+                i+=1
+                new_color = False
+            
+            q.append((t, rn, new_color, mn, 'nw', level+1))
+            
+    options = {'graph':{'splines':'false', 'nodesep':'0.4', 'ranksep':'0.4'}}
     
-    draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
+    draw_nx(G,legend_edges, label=label, save_to=save_to, options=options, 
+            clusters_common={'dot_cluster':False,'rank':'same'})
     
 def draw_experimental_gt(gen_tree,legend_edges=None, label='', save_to='', options={}):
     """
@@ -342,6 +417,9 @@ def draw_experimental_gt(gen_tree,legend_edges=None, label='', save_to='', optio
 
     """
     
+    def di(node):
+        return str(id(node))
+    
     if gen_tree == None:
         raise ValueError('Provided gen_tree is None !')  
     
@@ -355,27 +433,27 @@ def draw_experimental_gt(gen_tree,legend_edges=None, label='', save_to='', optio
     while len(stack) > 0:
         t, level = stack.pop()
         
-        visited.add(id(t))
+        visited.add(di(t))
         
-        G.add_node(id(t), label = t._data, color='black', fontcolor='black', cluster=level)
+        G.add_node(di(t), label = t._data, color='black', fontcolor='black', cluster=level)
         
         if t.parent() != None:
-            G.add_node(id(t.parent()), label = t.parent().data(), cluster=level-1)
-            G.add_edge(id(t), id(t.parent()), color='blue', weight=1.0)
-            if not id(t.parent()) in visited:
+            G.add_node(di(t.parent()), label = t.parent().data(), cluster=level-1)
+            G.add_edge(di(t), di(t.parent()), color='blue', weight=1.0)
+            if not di(t.parent()) in visited:
                 
                 stack.append((t.parent(), level - 1))
         
         if t.sibling() != None:
-            G.add_node(id(t.sibling()), label = t.sibling().data(),  cluster=level)
-            G.add_edge(id(t), id(t.sibling()), color='black', weight=0.2)
-            if not id(t.sibling()) in visited:
+            G.add_node(di(t.sibling()), label = t.sibling().data(),  cluster=level)
+            G.add_edge(di(t), di(t.sibling()), color='black', weight=0.2)
+            if not di(t.sibling()) in visited:
                 stack.append((t.sibling(), level))
 
         if t.child() != None:
-            G.add_node(id(t.child()), label = t.child().data(), cluster=level+1)
-            G.add_edge(id(t),id(t.child()), color='red', weight=1.0)
-            if not id(t.child()) in visited:
+            G.add_node(di(t.child()), label = t.child().data(), cluster=level+1)
+            G.add_edge(di(t),di(t.child()), color='red', weight=1.0)
+            if not di(t.child()) in visited:
                 stack.append((t.child(), level+1))
     
     draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
