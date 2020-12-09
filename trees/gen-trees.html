@@ -363,6 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.6">Lab B.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.7">Lab B.7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.8">Lab B.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.9">Lab B.9</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -923,10 +924,11 @@
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.4-others">3.4 others</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="bin-trees.html#4.-Modifying-the-tree">4. Modifying the tree</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#4.1-bin_insert_rec">4.1 bin_insert_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#4.2-add_row">4.2 add_row</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#4.3-prune_rec">4.3 prune_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bin-trees.html#4.-Queue-visit">4. Queue visit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bin-trees.html#5.-Modifying-the-tree">5. Modifying the tree</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.1-bin_insert_rec">5.1 bin_insert_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.2-add_row">5.2 add_row</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.3-prune_rec">5.3 prune_rec</a></li>
 </ul>
 </li>
 </ul>
@@ -1037,10 +1039,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../references.html#LeetCode-LinkedLists">LeetCode LinkedLists</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../references.html#LeetCode-Queues">LeetCode Queues</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../references.html#LeetCode-Trees">LeetCode Trees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../references.html#LeetCode-Graphs">LeetCode Graphs</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../references.html#Geeks-for-geeks">Geeks for geeks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../references.html#Queues">Queues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../references.html#Geeks-for-geeks-Queues">Geeks for geeks Queues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../references.html#Geeks-for-geeks-Graphs">Geeks for geeks Graphs</a></li>
 </ul>
 </li>
 </ul>
@@ -1367,15 +1371,15 @@ div.rendered_html tbody tr:hover {
 <li><p>unzip exercises in a folder, you should get something like this:</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>trees
-   trees.ipynb
+   gen_tree.py
+   gen_tree_sol.py
+   gen_tree_test.py
    bin_tree_test.py
    bin_tree.py
    bin_tree_sol.py
-   gen_tree_test.py
-   gen_tree.py
-   gen_tree_sol.py
    jupman.py
    sciprog.py
+   trees.ipynb
 </pre></div>
 </div>
 <ul class="simple">
@@ -1867,8 +1871,6 @@ Exception: Can&#39;t add siblings to a root node !!
 
 <span class="sd">            NOTE: this function return the *nodes*, not the data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME !&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">gen_tree_test.AncestorsTest</span></code></p>
@@ -2177,8 +2179,6 @@ a
 <span class="sd">              to make it that fast, try to make it at worst O(h^2)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME !&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">gen_tree_test.CommonAncestorTest</span></code></p>
@@ -2230,8 +2230,6 @@ a
 <span class="sd">        - MUST run in O(n) where n is the number of nodes</span>
 <span class="sd">        - a recursive method is acceptable.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME !&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">gen_tree_test.CloneTest</span></code></p>

@@ -363,6 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.6">Lab B.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.7">Lab B.7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.8">Lab B.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.9">Lab B.9</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -923,10 +924,11 @@
 <li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#3.4-others">3.4 others</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bin-trees.html#4.-Modifying-the-tree">4. Modifying the tree</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#4.1-bin_insert_rec">4.1 bin_insert_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#4.2-add_row">4.2 add_row</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#4.3-prune_rec">4.3 prune_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bin-trees.html#4.-Queue-visit">4. Queue visit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bin-trees.html#5.-Modifying-the-tree">5. Modifying the tree</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#5.1-bin_insert_rec">5.1 bin_insert_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#5.2-add_row">5.2 add_row</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bin-trees.html#5.3-prune_rec">5.3 prune_rec</a></li>
 </ul>
 </li>
 </ul>
@@ -1037,10 +1039,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#LeetCode-LinkedLists">LeetCode LinkedLists</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#LeetCode-Queues">LeetCode Queues</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#LeetCode-Trees">LeetCode Trees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#LeetCode-Graphs">LeetCode Graphs</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Geeks-for-geeks">Geeks for geeks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Queues">Queues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Geeks-for-geeks-Queues">Geeks for geeks Queues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Geeks-for-geeks-Graphs">Geeks for geeks Graphs</a></li>
 </ul>
 </li>
 </ul>
@@ -1387,19 +1391,100 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="LeetCode-Trees">
 <h3>LeetCode Trees<a class="headerlink" href="#LeetCode-Trees" title="Permalink to this headline">¶</a></h3>
+<p><strong>NOTE 1</strong>: on LeetCode <code class="docutils literal notranslate"><span class="pre">root</span></code> usually can also be <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p><strong>NOTE 2</strong>: on LeetCode <code class="docutils literal notranslate"><span class="pre">self</span></code> is reserved for the test runner, ignore it</p>
+<p><strong>NOTE 3</strong>: if you try the algorithms on your computer, you will want to add these <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> methods to <code class="docutils literal notranslate"><span class="pre">TreeNode</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot; Returns a pretty string of the tree &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">str_branches</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">branches</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot; Returns a string with the tree pretty printed.</span>
+
+<span class="sd">                branches: a list of characters representing the parent branches. Characters can be either ` ` or &#39;│&#39;</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">)]</span>
+
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">current</span> <span class="ow">in</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">joint</span> <span class="o">=</span> <span class="s1">&#39;├&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">joint</span> <span class="o">=</span> <span class="s1">&#39;└&#39;</span>
+
+                    <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">:</span>
+                        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+                    <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">joint</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">branches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;│&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">branches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">str_branches</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">branches</span><span class="p">))</span>
+                    <span class="n">branches</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">str_branches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>NOTE 4</strong>: testcases are expressed as a list, which doesn’t tell much how the tree is structured. To see a visualization of the tree, when you get an error you can copy paste the ‘Input’ testcase into this tab and turn on the <em>Tree Visualizer</em> selector:</p>
+<p><img alt="image0" src="_images/leetcode-tree.png" /></p>
 <p><a class="reference external" href="https://leetcode.com/tag/tree/">Trees exercises</a> on LeetCode (sort by easy difficulty), for example:</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://leetcode.com/problems/merge-two-binary-trees">Merge Two Binary Trees</a></p></li>
 <li><p><a class="reference external" href="https://leetcode.com/problems/range-sum-of-bst/">Sum range of BST</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/invert-binary-tree/">Invert Binary Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/minimum-depth-of-binary-tree/">Minimum Depth of Binary Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/symmetric-tree/">Symmetric Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/minimum-depth-of-binary-tree/">Minimum Depth of Binary Tree</a> HINT: when you need to calculate a <code class="docutils literal notranslate"><span class="pre">min</span></code> of two numbers but one of them may be undefined, you can initialize them to <code class="docutils literal notranslate"><span class="pre">math.inf</span></code></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/increasing-order-search-tree/">Increasing Order Search Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/binary-tree-level-order-traversal">Binary Tree Level Order Traversal</a> HINT: use a queue, for more info <a class="reference external" href="https://sciprog.davidleoni.it/trees/bin-trees.html#4.-Queue-visit">see here</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/average-of-levels-in-binary-tree/">Average of Levels in Binary Tree</a> HINT: use a queue, for more info <a class="reference external" href="https://sciprog.davidleoni.it/trees/bin-trees.html#4.-Queue-visit">see here</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/cousins-in-binary-tree/">Cousins in Binary Tree</a> NOTE: nodes have all <strong>distinct</strong> values, a queue visit might help</p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/find-mode-in-binary-search-tree/">Find Mode in Binary Search Tree</a> - you don’t need to bother about the follow up question</p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/path-sum/">Path Sum</a> <strong>DO NOT</strong> store in memory all possible paths to then calculate the sum of each, that would be a waste of space.</p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/second-minimum-node-in-a-binary-tree">Second Minimum Node In a Binary Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/">Lowest Common Ancestor of a Binary Search Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/balanced-binary-tree/">Balanced Binary Tree</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/binary-tree-tilt">Binary Tree Tilt</a></p></li>
+</ul>
+</div>
+<div class="section" id="LeetCode-Graphs">
+<h3>LeetCode Graphs<a class="headerlink" href="#LeetCode-Graphs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://leetcode.com/problems/keys-and-rooms">Keys and rooms</a></p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="Geeks-for-geeks">
 <h2>Geeks for geeks<a class="headerlink" href="#Geeks-for-geeks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Queues">
-<h3>Queues<a class="headerlink" href="#Queues" title="Permalink to this headline">¶</a></h3>
+<p><strong>NOTE: required outputs are a bit strange, often times they ask you to print stuff while in fact you just need to return some data.</strong></p>
+<div class="section" id="Geeks-for-geeks-Queues">
+<h3>Geeks for geeks Queues<a class="headerlink" href="#Geeks-for-geeks-Queues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/interleave-first-half-queue-second-half/">Interleave the first half of the queue with second half</a> to implement it, use <code class="docutils literal notranslate"><span class="pre">Queue</span></code> object from python module <a class="reference external" href="https://docs.python.org/3/library/queue.html">queue</a></p></li>
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/sorting-queue-without-extra-space/">Sorting a Queue without extra space</a> remember to use only the allowed operations !</p></li>
+</ul>
+</div>
+<div class="section" id="Geeks-for-geeks-Graphs">
+<h3>Geeks for geeks Graphs<a class="headerlink" href="#Geeks-for-geeks-Graphs" title="Permalink to this headline">¶</a></h3>
+<p><strong>NOTE: if they require you to produce stuff like matrices they are shown as a line of numbers but you have to return the actual Python matrix</strong></p>
+<p><strong>DO NOT print anything</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1">Distance of nearest cell having 1 in a binary matrix</a> - HINT: basically it’s a BFS on a matrix</p></li>
+<li><p><a class="reference external" href="https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1#">Rotten Oranges</a> - HINT: basically it’s a BFS on a matrix</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
