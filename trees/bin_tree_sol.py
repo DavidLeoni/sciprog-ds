@@ -43,14 +43,16 @@ class BinaryTree:
                     else:
                         branches.append(' ')
 
-                    if current != None:                
-                        strings.append(str_branches(current, branches))
+                    if current != None:
+                        if isinstance(current, BinaryTree):
+                            strings.append(str_branches(current, branches))
+                        else:
+                            strings.append('ERROR: FOUND CHILD OF TYPE %s' % type(current))
                     branches.pop()                
                     i += 1
             return "".join(strings)
         
         return str_branches(self, [])
-
 
     def insert_left(self, data):
         """ Takes as input DATA (*NOT* a node !!) and MODIFIES current node this way:

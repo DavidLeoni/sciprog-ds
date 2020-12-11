@@ -30,13 +30,42 @@ class BinaryTreeFailTest(BinaryTreeTest):
     
     def test_05_data(self):
         self.assertTreeEqual(bt('a',None,None), bt('b',None,None))
+        
+    def test_06_different_length_left(self):
+        self.assertTreeEqual(bt('a',bt('b'),bt('c')), bt('a',bt('b')))
 
-    def test_06_big_tree(self):
+
+    def test_07_different_length_right(self):
+        self.assertTreeEqual(bt('a',bt('b')), bt('a',bt('b'), bt('c')))
+
+
+    def test_08_big_tree(self):
         self.assertTreeEqual(bt('b', bt('hellooooooooooo', bt('d'), bt('e')),None), bt('b', bt('e'),None))
 
-    def test_07_number_tree(self):
+    def test_09_number_tree(self):
         self.assertTreeEqual(bt(2, bt(3232323123123123, bt(3), bt(1)),None), bt(2, bt(1),None))
 
-    def test_08_mixed_tree(self):
+    def test_10_mixed_tree(self):
         self.assertTreeEqual(bt(2, bt('hellllloooooooooooooo', bt(1234,None,None), bt(None,None,None))), bt('a', bt(1,None,None),None))
+        
+    def test_11_wrong_datatype_left(self):
+        ta = bt('a')
+        ta._left = 666
+                        
+        self.assertTreeEqual(ta, bt('a', bt('b')))
+        
+        
+    def test_12_wrong_datatype_right(self):
+        ta = bt('a')
+        ta._right = 666
+                        
+        self.assertTreeEqual(ta, bt('a', None, bt('b')))
+
+
+    def test_13_wrong_datatype_both(self):
+        ta = bt('a')
+        ta._left = 666
+        ta._right = 666
+                        
+        self.assertTreeEqual(ta, bt('a', bt('b'), bt('c')))
         

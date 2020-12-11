@@ -28,8 +28,12 @@ def bt(*args):
     ret = BinaryTree(data)    
     
     if len(children) > 0:
+        if children[0] != None and not isinstance(children[0], BinaryTree):
+            raise Exception('Wrong type %s for left child!' % type(children[0]))
         ret._left = children[0]
     if len(children) == 2:
+        if children[1] != None and not isinstance(children[1], BinaryTree):
+            raise Exception('Wrong type %s for right child!' % type(children[1]))
         ret._right = children[1]
     return ret
 
@@ -125,7 +129,7 @@ class BinaryTreeTest(unittest.TestCase):
                                 % (type(c1).__name__, str_btrees(actual, expected, row )))
                             
             if c1.data() != c2.data():
-                raise Exception("Actual data is different from expected!\n\n" 
+                raise Exception("ACTUAL data is different from expected!\n\n" 
                                 + str_btrees(actual,expected,row))
             
             i = 0            
@@ -133,7 +137,7 @@ class BinaryTreeTest(unittest.TestCase):
             cs1 = get_children(c1)
             cs2 = get_children(c2)
             if (len(cs1) != len(cs2)):
-                raise Exception("Children sizes are different !\n\n"
+                raise Exception("Number of children is different !\n\n"
                                 + str_btrees(actual, expected, row + min(len(cs1), len(cs2))) )
             while (i < len(cs1) ):
                 rec_assert(cs1[i], cs2[i], row + 1)   
@@ -175,7 +179,27 @@ class BinaryTreeTestTest(BinaryTreeTest):
     def test_print(self):
         # self.assertTreeEqual(bt('a', bt('b', bt('v')), bt('b', bt('v'))), bt('a', bt('b', bt('v'), bt('b', bt('v'))), bt('b')))
         return None 
+    
+    def test_bt(self):
+        
+        with self.assertRaises(Exception):
+            bt(0,bt(1), bt(2), bt(3))
+        
+        with self.assertRaises(Exception):
+            bt(2,666)
+        
+        with self.assertRaises(Exception):
+            bt(2,None, 666)
             
+        with self.assertRaises(Exception):
+            bt(2,666, 666)
+        
+        with self.assertRaises(Exception):
+            bt(1,bt(2), 666)
+
+        with self.assertRaises(Exception):
+            bt(1, 666, bt(2))
+
                             
 class InsertLeftTest(BinaryTreeTest):
 

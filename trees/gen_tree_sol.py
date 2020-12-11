@@ -49,7 +49,15 @@ class GenericTree:
             """
             strings = [str(node._data)]
             current = node._child
+            i = 0
             while (current != None):
+                
+                if not isinstance(current, GenericTree):                    
+                    strings.append('\n')
+                    strings.append('└')
+                    strings.append('ERROR: FOUND CHILD OF TYPE %s AT INDEX %s' % (type(current), i))
+                    break
+                    
                 if current._sibling == None:            
                     joint = '└'  
                 else:
@@ -63,10 +71,14 @@ class GenericTree:
                 if current._sibling == None:            
                     branches.append(' ')
                 else:
-                    branches.append('│')                        
+                    branches.append('│')
+                    
+                
                 strings.append(str_branches(current, branches))
+                                    
                 branches.pop()
                 current = current._sibling
+                i += 1
 
             return "".join(strings)
         
