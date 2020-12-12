@@ -326,16 +326,26 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
     """
     from bin_tree_test import bt
     from queue import deque
-    
-    def di(node):
-        return str(id(node))
         
+    
+    def di(node):        
+        if node is None:
+            return id(None)
+        return getattr(node, 'sciprog_fake_id', id(node))        
+            
+    def new_fake_node():
+        nonlocal i
+        ret = bt(i)
+        ret.sciprog_fake_id = i
+        i+=1
+        return ret
     
     if bin_tree == None:
         raise ValueError('Provided bin_tree is None !')  
     
     import networkx as nx
     
+    invstyle = 'invis' #'dashed'
         
     G=nx.DiGraph()
         
@@ -351,11 +361,11 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
         if color:
             G.add_node(di(t), label = t._data, cluster=di(parent))
         else:
-            G.add_node(di(t), label = t._data, width='0.1', cluster=di(parent), style='invis')
+            G.add_node(di(t), label = t._data, width='0.1', cluster=di(parent), style=invstyle)
                 
         
         if prev_sibling:
-            G.add_edge(di(prev_sibling),di(t), style='invis')
+            G.add_edge(di(prev_sibling),di(t), style=invstyle)
         
         if parent != None:            
             if headport == 'ne':
@@ -368,7 +378,7 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
             if color:
                 G.add_edge(di(parent),di(t), headport=headport, tailport=tailport)
             else:
-                G.add_edge(di(parent),di(t), headport=headport, tailport=tailport, style='invis')
+                G.add_edge(di(parent),di(t), headport=headport, tailport=tailport, style=invstyle)
 
                 
         if color and (t.left() or t.right()):
@@ -376,14 +386,12 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
                 ln = t.left()
                 new_color = True
             else:
-                ln = bt(i)
-                i+=1
+                ln = new_fake_node()
                 new_color = False
 
             q.append((t, ln, new_color, None, 'ne', level+1))
 
-            mn = bt(i)
-            i+=1
+            mn = new_fake_node()
             q.append((t, mn, False, ln, 'n', level+1))  
             
 
@@ -391,8 +399,7 @@ def draw_bt(bin_tree,legend_edges=None, label='', save_to='', options={}):
                 rn = t.right()
                 new_color = True
             else:
-                rn = bt(i)
-                i+=1
+                rn = new_fake_node()
                 new_color = False
             
             q.append((t, rn, new_color, mn, 'nw', level+1))
