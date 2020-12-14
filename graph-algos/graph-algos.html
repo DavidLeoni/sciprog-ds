@@ -363,7 +363,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.6">Lab B.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.7">Lab B.7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.8">Lab B.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.9">Lab B.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.9">Lab B.9</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../slides.html#Lab-B.10">Lab B.10</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -937,9 +940,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../trees/gen-trees.html#Download-exercises-zip">Download exercises zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../trees/gen-trees.html#0.-Introduction">0. Introduction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../trees/gen-trees.html#What-to-do">What to do</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/gen-trees.html#id1">0. Introduction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../trees/gen-trees.html#0.1-References">0.1 References</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trees/gen-trees.html#0.2-Code-skeleton">0.2 Code skeleton</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trees/gen-trees.html#0.3-Building-trees">0.3 Building trees</a></li>
@@ -1962,10 +1962,8 @@ False
 <h3>0.7.3 verteces()<a class="headerlink" href="#0.7.3-verteces()" title="Permalink to this headline">¶</a></h3>
 <p>To obtain the verteces, you can use the function <code class="docutils literal notranslate"><span class="pre">verteces</span></code>. (NOTE for Italians: method is called vert<strong>e</strong>c<strong>e</strong>s, with two <strong>e</strong>s !!!). It is already provided and you don’t need to implement it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verteces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Returns a set of the graph verteces. Verteces can be any object. &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; Returns a view of the graph verteces. Verteces can be any immutable object. &quot;&quot;&quot;</span>
 
-    <span class="c1"># Note dict keys() return a list, not a set. Bleah.</span>
-    <span class="c1"># See http://stackoverflow.com/questions/13886129/why-does-pythons-dict-keys-return-a-list-and-not-a-set</span>
     <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_edges</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1985,7 +1983,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}
+dict_keys([&#39;a&#39;, &#39;c&#39;, &#39;b&#39;])
 </pre></div></div>
 </div>
 <p>Notice it returns a <em>set</em>, as verteces are stored as keys in a dictionary, so they are not supposed to be in any particular order. When you print the whole graph you see them vertically ordered though, for clarity purposes:</p>
@@ -2105,8 +2103,6 @@ c: []
 
 <span class="sd">        If either source, target or both verteces don&#39;t exist raises a ValueError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">graph_test.HasEdgeTest</span></code></p>
@@ -2119,8 +2115,6 @@ c: []
 
 <span class="sd">        In a full graph all verteces link to all other verteces (including themselves!).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">graph_test.FullGraphTest</span></code></p>
@@ -2134,8 +2128,6 @@ c: []
 <span class="sd">        Provided list is intended to be in topological order.</span>
 <span class="sd">        NOTE: a DAG is ACYCLIC, so caps (self-loops) are not allowed !!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">graph_test.DagTest</span></code></p>
@@ -2152,8 +2144,6 @@ c: []
 <span class="sd">        If n = 0, return the empty graph.</span>
 <span class="sd">        if n &lt; 0, raises a ValueError.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">graph_test.ListGraphTest</span></code></p>
@@ -2175,8 +2165,6 @@ c: []
 <span class="sd">        If n = 0, the empty graph is returned</span>
 <span class="sd">        If n &lt; 0, raises a ValueError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">graph_test.StarGraphTest</span></code></p>
@@ -2986,7 +2974,7 @@ DEBUG:    Queue is: []
 </div>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3264,7 +3252,6 @@ n2     e2
 <span class="sd">        Performs a DFS from source vertex</span>
 
 <span class="sd">        HINT: Copy in here the method from DFS and adapt it as needed</span>
-<span class="sd">        HINT: store the connected component id in VertexLog objects</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
@@ -3300,16 +3287,15 @@ d: [&#39;c&#39;]
 <div class="section" id="3.6-has_cycle">
 <h3>3.6 has_cycle<a class="headerlink" href="#3.6-has_cycle" title="Permalink to this headline">¶</a></h3>
 <p>Implement <code class="docutils literal notranslate"><span class="pre">has_cycle</span></code> method for directed graphs:</p>
-<p>```python</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def has_cycle(self):
-    &quot;&quot;&quot; Return True if this directed graph has a cycle, return False otherwise.
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return True if this directed graph has a cycle, return False otherwise.</span>
 
-        - To develop this function, implement also has_cycle_rec(u) inside this method
-        - Inside has_cycle_rec, to reference variables of has_cycle you need to
-          declare them as nonlocal like
-             nonlocal clock, dt, ft
-        - MUST be able to also detect self-loops
-    &quot;&quot;&quot;```
+<span class="sd">        - To develop this function, implement also has_cycle_rec(u) inside this method</span>
+<span class="sd">        - Inside has_cycle_rec, to reference variables of has_cycle you need to</span>
+<span class="sd">          declare them as nonlocal like</span>
+<span class="sd">             nonlocal clock, dt, ft</span>
+<span class="sd">        - MUST be able to also detect self-loops</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>and also <code class="docutils literal notranslate"><span class="pre">has_cycle_rec</span></code> inside <code class="docutils literal notranslate"><span class="pre">has_cycle</span></code>:</p>
@@ -3435,7 +3421,7 @@ d: [&#39;c&#39;]
 <p>Now implement this method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">top_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; RETURN a topological sort of the graph. To implement this code,</span>
-<span class="sd">        feel free to adapt Montresor algorithm</span>
+<span class="sd">        feel free to adapt algorithm from theory</span>
 
 <span class="sd">        - implement  Stack S  as a list</span>
 <span class="sd">        - implement  visited  as a set</span>
