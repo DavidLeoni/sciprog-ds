@@ -25,6 +25,9 @@ from jupman_tools import warn
 
 jm = conf.jm
 
+import logging
+logging.getLogger().setLevel(logging.INFO)
+
 def get_target_student(ld):
     return '_private/%s/student-zip/%s/'  % (ld, jm.get_exam_student_folder(ld))
 
@@ -36,7 +39,8 @@ cur_dir_names = os.listdir('.')
 if 'exam.py' not in cur_dir_names:
     fatal('You must execute exam.py from within the directory it is contained!')
 
-@subcmd(help='Set up shipped exams')
+# mmm should have tried th inlude !!
+@subcmd(help='Set up shipped exams. Usage example:  ./spex.py fixship 2020-12-16  --dry-run --exclude ".pdf,.js,.png,.css,.pyc,.json,_test.py,.ipynb,sciprog.py,jupman.py"')
 def fixship(parser,context,args):
     
     parser.add_argument('date', help="date in format 'yyyy-mm-dd'" )
