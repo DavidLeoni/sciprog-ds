@@ -28,7 +28,7 @@ class DiGraph:
         self._edges = {}
         
     def add_vertex(self, vertex):
-        """ Adds vertex to the DiGraph. A vertex can be any object.
+        """ Adds vertex to the DiGraph. A vertex can be any immutable object.
             
             If the vertex already exist, does nothing.
         """
