@@ -146,6 +146,23 @@ def save_py(filename, data):
         expo.write(' = ')
         expo.write(s)        
     
+    
+def draw_img(path, figsize=None):
+    """ Display images of given size
+        Workaround for https://github.com/DavidLeoni/jupman/issues/61
+    """
+    import matplotlib.pyplot as plt;
+    import matplotlib.image as mpimg
+    img = mpimg.imread(path)
+    if figsize:        
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+    else:
+        fig,ax = plt.subplots(1, 1)    
+    ax.axis('off')
+    
+    plt.imshow(img)    
+
+    
 def pytut_json(jm_code):
     """ Runs jm_code and return a JSON execution trace
 
