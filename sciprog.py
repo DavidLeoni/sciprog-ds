@@ -465,7 +465,132 @@ def draw_experimental_gt(gen_tree,legend_edges=None, label='', save_to='', optio
     
     draw_nx(G,legend_edges, label=label, save_to=save_to, options=options)
     
+
         
+def draw_circular_queue(q):
+    """ Draws circular queue q. Requires GraphViz and pydot.
+        NOTE: assumes the queue has fields _A and _head
+    """
+    
+    def make_rows():
+        ret = '<tr>'
+        
+        h = q._head
+        t = (q._head + q.size()) % q.capacity()
+        
+        """
+          h   t
+        01234567
+        abcdefgh
+        
+         t  h   
+        01234567
+        abcdefgh
+
+
+        t
+        h   
+        01234567
+        abcdefgh
+
+
+            t
+            h   
+        01234567
+        abcdefgh
+
+        """
+        
+        
+        
+        in_span = lambda i: (i >= h and i < h + q.size()) or (h > t and i < t) or (h == t and q.size() == q.capacity())
+        
+        bgcolor = lambda i: '#fed8b1' if in_span(i) else 'white'
+        
+        
+        ret += '\n'.join(['<td bgcolor="%s" port="%s">%s</td>' % (bgcolor(i), i,i) for i in range(q.capacity())])
+        ret += '\n</tr>\n'
+        ret += '<tr>\n'
+        ret += '\n'.join(['<td bgcolor="%s">%s</td>' % (bgcolor(i), q._A[i]) for i in range(q.capacity())])
+        ret += '\n</tr>\n'
+        return ret
+ 
+    
+    def make_recap():
+        r = q._head+q._size
+        items = q._A[q._head:r] 
+        if r >= len(q._A):
+            items += q._A[0: r % q.capacity()]        
+        ret = """
+            B [ style=solid,
+                label=<
+                <table border="0" cellborder="0"  cellspacing="0">
+
+                  <tr>
+                      <td >capacity:</td>
+                      <td >%s</td>
+                  </tr>
+                  <tr>
+                      <td >size:</td>
+                      <td >%s</td>
+                  </tr>
+                  <tr>
+                      <td >enqueued:</td>
+                      <td >%s</td>
+                  </tr>
+
+                </table>>];
+        """ % (q.capacity(), q.size(), ','.join(items))
+        return ret
+
+    
+    dots = """
+          digraph {
+            graph [pad="0.5", nodesep="0.5", ranksep="0.6"];
+            node [shape=plain, style=rounded]
+            rankdir=TB;
+
+
+                A [penwidth=0,
+                   label=<<table border="0" cellborder="1" cellspacing="0">
+                           %s
+                           </table>>];
+
+                %s
+                
+                head
+
+                tail[label=<<table border="0" cellborder="0">
+                               <tr><td colspan="7">calculated tail</td></tr>\n
+                               <tr> <td>(</td><td>head</td><td>+</td><td>size</td><td>)</td><td>%%</td><td>capacity</td></tr>\n
+                               <tr> <td>(</td><td>%s</td><td>+</td><td>%s</td><td>)</td><td>%%</td><td>%s</td></tr>
+                              </table>>]
+
+
+                head -> A:%s:n
+                tail -> A:%s:n
+
+                }""" % (make_rows(),
+                        make_recap(), 
+                        q._head, 
+                        q.size(), 
+                        q.capacity(),
+                        q._head,                         
+                       (q._head + q.size()) % q.capacity())
+            
+    import pydot
+    pdot = pydot.graph_from_dot_data(dots)[0]
+        
+    import importlib
+    
+    ipython_spec = importlib.util.find_spec("IPython")
+    if ipython_spec:
+        import matplotlib
+        import matplotlib.pyplot as plt
+        import matplotlib.image as mpimg
+        from IPython.display import Image, display
+        plt = Image(pdot.create_png())
+        display(plt)
 
 def draw_proof(proof, db, step_id=None, only_ids=False):
     """ Draw all statements reachable from given row_id
