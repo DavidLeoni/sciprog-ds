@@ -221,12 +221,25 @@ class RotatenTest(LinkedListTest):
         ll.rotaten(4)
         self.myAssert(ll, ['a','b'])
 
-    def test_09_abc_0(self):
+    def test_09_ab_forever(self):
+        """ Is this taking forever? If you wrote something like this:            
+        
+            for i in range(k):
+                self.rotate()   
+                
+            think instead how to cut the linked list to avoid the for !
+        """
+        ll = to_ll(['a','b'])
+        ll.rotaten(11**18)
+        self.myAssert(ll, ['b','a'])
+        
+        
+    def test_10_abc_0(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(0)
         self.myAssert(ll, ['a','b','c'])
 
-    def test_10_abc_1(self):
+    def test_11_abc_1(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(1)
         self.myAssert(ll, ['c','a','b'])
@@ -235,7 +248,7 @@ class RotatenTest(LinkedListTest):
         ll.rotaten(1)
         self.myAssert(ll, ['a','b','c'])
 
-    def test_11_abc_2(self):
+    def test_12_abc_2(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(2)
         self.myAssert(ll, ['b','c','a'])
@@ -245,27 +258,40 @@ class RotatenTest(LinkedListTest):
         self.myAssert(ll, ['a','b','c'])
 
 
-    def test_12_abc_3(self):
+    def test_13_abc_3(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(3)
         self.myAssert(ll, ['a','b','c'])
 
-    def test_13_abc_4(self):
+    def test_14_abc_4(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(4)
         self.myAssert(ll, ['c','a','b'])
 
-    def test_14_abc_5(self):
+    def test_15_abc_5(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(5)
         self.myAssert(ll, ['b','c','a'])
 
-    def test_15_abc_6(self):
+    def test_16_abc_6(self):
         ll = to_ll(['a','b','c'])
         ll.rotaten(6)
         self.myAssert(ll, ['a','b','c'])
 
-    def test_16_abb_2(self):
+    def test_17_abc_forever(self):
+        """ Is this taking forever? If you wrote something like this:            
+        
+            for i in range(k):
+                self.rotate()   
+                
+            think instead how to cut the linked list to avoid the for !
+        """
+        ll = to_ll(['a','b','c'])
+        ll.rotaten(11**18)
+        self.myAssert(ll, ['c','a','b'])
+        
+                
+    def test_18_abb_2(self):
         ll = to_ll(['a','b','b'])
         ll.rotaten(2)
         self.myAssert(ll, ['b','b','a'])
@@ -274,12 +300,12 @@ class RotatenTest(LinkedListTest):
         ll.rotaten(2)
         self.myAssert(ll, ['a','b','b'])
 
-    def test_17_abb_3(self):
+    def test_19_abb_3(self):
         ll = to_ll(['a','b','b'])
         ll.rotaten(3)        
         self.myAssert(ll, ['a','b','b'])
 
-    def test_18_abcd(self):
+    def test_20_abcd(self):
         ll = to_ll(['a','b','c','d'])
         ll.rotaten(2)
         self.myAssert(ll, ['c','d','a','b'])
