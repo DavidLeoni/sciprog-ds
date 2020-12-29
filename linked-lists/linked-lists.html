@@ -838,10 +838,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#1.2-deqn">1.2 deqn</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../queues/queues.html#2.-CircularQueue">2. CircularQueue</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#2.1-Implementation">2.1 Implementation</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../queues/queues.html#2.-CircularQueue">2. CircularQueue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queues/queues.html#3.-ItalianQueue">3. ItalianQueue</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#3.1-Slow-v1">3.1 Slow v1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#3.1.1-init">3.1.1 init</a></li>
@@ -867,7 +864,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#Shop">Shop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#Mall">Mall</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#Mall-as-a-queue">Mall as a queue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#id2">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#id1">Implementation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#6.1-Mall-enqueue">6.1 Mall enqueue</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#6.2-Mall-dequeue">6.2 Mall dequeue</a></li>
 </ul>
@@ -887,6 +884,14 @@
 <li class="toctree-l4"><a class="reference internal" href="../queues/queues.html#8.2-split">8.2 split</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queues/circular-queues.html">CircularQueue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queues/circular-queues.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queues/circular-queues.html#1.-Introduction">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queues/circular-queues.html#2.-Example">2. Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queues/circular-queues.html#3.-Circular-span">3. Circular span</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queues/circular-queues.html#4.-Implementat-CircularQueue">4. Implementat CircularQueue</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../trees/bin-trees.html">Binary Trees</a><ul>
@@ -1461,7 +1466,7 @@ LinkedList:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;linked_list_sol.LinkedList at 0x7f7d46f69588&gt;
+&lt;linked_list_sol.LinkedList at 0x7f01b0105fd0&gt;
 </pre></div></div>
 </div>
 </div>
@@ -2991,6 +2996,28 @@ LinkedList: a,b,c,d,e,f,g,h
 LinkedList: f,g,h,a,b,c,d,e
 </pre></div></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT: MUST WORK WITH HUGE</strong> <code class="docutils literal notranslate"><span class="pre">k</span></code></p>
+<p>It should terminate real fast even with a humongous <code class="docutils literal notranslate"><span class="pre">k</span></code>, if you don’t implement it with the required complexity rest assured this will never print <code class="docutils literal notranslate"><span class="pre">'Finished!'</span></code></p>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ll</span><span class="o">.</span><span class="n">rotaten</span><span class="p">(</span><span class="mi">11</span><span class="o">**</span><span class="mi">18</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Finished! Result is&#39;</span><span class="p">,</span> <span class="n">ll</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Finished! Result is LinkedList: e,f,g,h,a,b,c,d
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="8.3-plus_one">
 <h3>8.3 plus_one<a class="headerlink" href="#8.3-plus_one" title="Permalink to this headline">¶</a></h3>
@@ -3013,7 +3040,7 @@ LinkedList: f,g,h,a,b,c,d,e
 <p><strong>Test</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">last_test.PlusOneTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3041,7 +3068,7 @@ LinkedList: 2,9,3,7,9,9
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3050,7 +3077,7 @@ LinkedList: 2,9,3,7,9,9
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -3059,7 +3086,7 @@ LinkedList: 2,9,3,7,9,9
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3068,7 +3095,7 @@ LinkedList: 2,9,3,7,9,9
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

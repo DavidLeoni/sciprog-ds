@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binary Trees" href="../trees/bin-trees.html" />
+    <link rel="next" title="CircularQueue" href="circular-queues.html" />
     <link rel="prev" title="Stacks" href="../stacks/stacks.html" /> 
 </head>
 
@@ -838,10 +838,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#1.2-deqn">1.2 deqn</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-CircularQueue">2. CircularQueue</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#2.1-Implementation">2.1 Implementation</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-CircularQueue">2. CircularQueue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#3.-ItalianQueue">3. ItalianQueue</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#3.1-Slow-v1">3.1 Slow v1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.1.1-init">3.1.1 init</a></li>
@@ -867,7 +864,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Shop">Shop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Mall">Mall</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Mall-as-a-queue">Mall as a queue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Implementation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#6.1-Mall-enqueue">6.1 Mall enqueue</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#6.2-Mall-dequeue">6.2 Mall dequeue</a></li>
 </ul>
@@ -887,6 +884,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#8.2-split">8.2 split</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="circular-queues.html">CircularQueue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="circular-queues.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="circular-queues.html#1.-Introduction">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="circular-queues.html#2.-Example">2. Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="circular-queues.html#3.-Circular-span">3. Circular span</a></li>
+<li class="toctree-l3"><a class="reference internal" href="circular-queues.html#4.-Implementat-CircularQueue">4. Implementat CircularQueue</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../trees/bin-trees.html">Binary Trees</a><ul>
@@ -1401,7 +1406,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="1.-LinkedQueue">
 <h2>1. LinkedQueue<a class="headerlink" href="#1.-LinkedQueue" title="Permalink to this headline">¶</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">linked_queue.py</span></code>.</p>
-<p>You are given a queue implemented as a LinkedList, with usual <code class="docutils literal notranslate"><span class="pre">_head</span></code> pointer plus additional <code class="docutils literal notranslate"><span class="pre">_tail</span></code> pointer and <code class="docutils literal notranslate"><span class="pre">_size</span></code> counter</p>
+<p>You are given a queue implemented as a linked list, with usual <code class="docutils literal notranslate"><span class="pre">_head</span></code> pointer plus additional <code class="docutils literal notranslate"><span class="pre">_tail</span></code> pointer and <code class="docutils literal notranslate"><span class="pre">_size</span></code> counter</p>
 <ul class="simple">
 <li><p>Data in enqueued at the right, in the tail</p></li>
 <li><p>Data is dequeued at the left, removing it from the head</p></li>
@@ -1458,7 +1463,7 @@ LinkedQueue:
 </pre></div>
 </div>
 </div>
-<p>Return nothing, queue becomes:</p>
+<p>Returns nothing, queue becomes:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_head         _tail
      a -&gt; b -&gt; c
 </pre></div>
@@ -1472,7 +1477,7 @@ LinkedQueue:
 </pre></div>
 </div>
 </div>
-<p>Return nothing, queue becomes:</p>
+<p>Returns nothing, queue becomes:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_head              _tail
     a -&gt; b -&gt; c -&gt; d
 </pre></div>
@@ -1488,7 +1493,7 @@ LinkedQueue:
 </pre></div>
 </div>
 </div>
-<p>Return nothing, queue becomes:</p>
+<p>Returns nothing, queue becomes:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_head                        _tail
     a -&gt; b -&gt; c -&gt; d -&gt; e -&gt; f
 </pre></div>
@@ -1534,7 +1539,7 @@ LinkedQueue:
 [&#39;d&#39;]
 </pre></div></div>
 </div>
-<p>Returns [‘c’] and queue becomes:</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">['c']</span></code> and queue becomes:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_head    _tail
     a -&gt; b
 </pre></div>
@@ -1623,33 +1628,7 @@ LookupError: Asked to dequeue 5 elements, but only 2 are available!
 </div>
 <div class="section" id="2.-CircularQueue">
 <h2>2. CircularQueue<a class="headerlink" href="#2.-CircularQueue" title="Permalink to this headline">¶</a></h2>
-<p>A circular queue is a data structure which when initialized occupies a <strong>fixed</strong> amount of memory called <em>capacity</em>. Typically, fixed size data structures are found in systems programming (i.e. programming drivers), when space is constrained and you want predictable results as much as possible. For us, it will be an example of modular arithmetic usage. In our implementation, to store data we will use a Python list, which we initialize with a number of empty cells equal to <em>capacity</em>. During
-initialization, it does’t matter what we actually put inside cells, in this case we will use <code class="docutils literal notranslate"><span class="pre">None</span></code>. Note that <strong>capacity never changes</strong>, and <strong>cells are never added nor removed</strong> from the list. What varies during execution is the actual content of the cells, the index pointing to the head of the queue (from which elements are dequeued) and another number we call <em>size</em> which is a number telling us how many elements are present in the queue. Summing <em>head</em> and <em>size</em> numbers will allow us to
-determine where to enqueue elements at the tail of the queue - to avoid overflow, we will have to take modulus of the sum. Keep reading for details.</p>
-<p>To implement the circular queue you can use this pseudo code:</p>
-<p><img alt="circular queue pseudocode 34u3y" src="../_images/circular-queue-pseudocode.png" /></p>
-<p><strong>QUESTION 2.1</strong>: Pseudo code is meant to give a general overview of the algorithms, and can often leave out implementation details, such as defining what to do when things don’t work as expected. If you were to implement this in a real life scenario, do you see any particular problem?</p>
-<p>In our implementation, we will:</p>
-<ul class="simple">
-<li><p>use more pythonic names, with underscores instead of camelcase.</p></li>
-<li><p>explicitly handle exceptions and corner cases</p></li>
-<li><p>be able to insert any kind of object in the queue</p></li>
-<li><p>Initial queue will be populated with <code class="docutils literal notranslate"><span class="pre">None</span></code> objects, and will have length set to provided capacity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">_size</span></code> is the current dimension of the queue, which is different from the initial provided <code class="docutils literal notranslate"><span class="pre">capacity</span></code>.</p></li>
-<li><p>we consider <code class="docutils literal notranslate"><span class="pre">capacity</span></code> as fixed: it will never change during execution. For this reason, since we use a Python list to represent the data, we don’t need an extra variable to hold it, just getting the list length will suffice.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">_head</span></code> is an <em>index</em> pointing to the <em>next</em> element to be dequeued</p></li>
-<li><p>elements are inserted at the position pointed to by <code class="docutils literal notranslate"><span class="pre">(_head</span> <span class="pre">+</span> <span class="pre">_size)</span> <span class="pre">%</span> <span class="pre">capacity()</span></code>, and dequeued from position pointed by <code class="docutils literal notranslate"><span class="pre">_head</span></code>. The module <code class="docutils literal notranslate"><span class="pre">%</span></code> operator allows using a list as it were circular, that is, if an index apparently falls outside the list, with the modulus it gets transformed to a small index. Since <code class="docutils literal notranslate"><span class="pre">_size</span></code> can never exceed <code class="docutils literal notranslate"><span class="pre">capacity()</span></code>, the formula <code class="docutils literal notranslate"><span class="pre">(_head</span> <span class="pre">+</span> <span class="pre">_size)</span> <span class="pre">%</span> <span class="pre">capacity()</span></code> never points to a place which could overwrite elements not yet dequeued, except cases when
-the queue has <code class="docutils literal notranslate"><span class="pre">_size==0</span></code> or <code class="docutils literal notranslate"><span class="pre">_size==capacity()</span></code> which are to be treated as special.</p></li>
-<li><p>enqueuing and dequeing operations <strong>don’t</strong> modify list length !</p></li>
-</ul>
-<p><strong>QUESTION 2.2</strong>: If we can insert any kind of object in the queue including <code class="docutils literal notranslate"><span class="pre">None</span></code>, are we going to have troubles with definitions like <code class="docutils literal notranslate"><span class="pre">top()</span></code> above?</p>
-<div class="section" id="2.1-Implementation">
-<h3>2.1 Implementation<a class="headerlink" href="#2.1-Implementation" title="Permalink to this headline">¶</a></h3>
-<p>Implement methods in file <code class="docutils literal notranslate"><span class="pre">circular_queue.py</span></code> in the order they are presented, and test them with <code class="docutils literal notranslate"><span class="pre">circular_queue_test.py</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m unittest circular_queue_test
-</pre></div>
-</div>
-</div>
+<p>We moved this section to <a class="reference external" href="https://sciprog.davidleoni.it/queues/circular-queues.html">a separate worksheet</a></p>
 </div>
 <div class="section" id="3.-ItalianQueue">
 <h2>3. ItalianQueue<a class="headerlink" href="#3.-ItalianQueue" title="Permalink to this headline">¶</a></h2>
@@ -2442,8 +2421,8 @@ ItalianQueue: d-&gt;e-&gt;f-&gt;g-&gt;h
 </li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>Implementation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Implementation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Now start editing <code class="docutils literal notranslate"><span class="pre">mall.py</span></code> implementing methods in the following points.</p>
 </div>
 <div class="section" id="6.1-Mall-enqueue">
@@ -3467,8 +3446,8 @@ Company:
 <div class="section" id="7.-Concert">
 <h2>7. Concert<a class="headerlink" href="#7.-Concert" title="Permalink to this headline">¶</a></h2>
 <p>Start editing file <code class="docutils literal notranslate"><span class="pre">concert.py</span></code>.</p>
-<p>When there are events with lots of potential visitors such as concerts, to speed up check-in there are at least two queues: one for cash where tickets are sold, and one for the actual entrance at the event.</p>
-<p>Each visitor may or may not have a ticket. Also, since people usually attend in groups (coupls, families, and so on), in the queue lines each group tends to move as a whole.</p>
+<p>During events with lots of potential visitors such as concerts, for speeding up check-in there are at least two queues: cash queue where tickets are sold, and entrance queue for actually entering the event.</p>
+<p>Each visitor may or may not have a ticket. Also, since people usually attend in groups (couples, families, and so on), in the queue lines each group tends to move as a whole.</p>
 <p>In Python, we will model a <code class="docutils literal notranslate"><span class="pre">Person</span></code> as a class you can create like this:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
@@ -3497,7 +3476,7 @@ Company:
 Person(a,x,False)
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">a</span></code> is the name, <code class="docutils literal notranslate"><span class="pre">'x'</span></code> is the group, and <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates the person doesn’t have ticket</p>
+<p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> is the name, <code class="docutils literal notranslate"><span class="pre">'x'</span></code> is the group, and <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates the person doesn’t have ticket</p>
 <p>To model the two queues, in <code class="docutils literal notranslate"><span class="pre">Concert</span></code> class we have these fields and methods:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Concert</span><span class="p">:</span>
 
@@ -3520,7 +3499,7 @@ Person(a,x,False)
 <div class="section" id="7.1-dequeue">
 <h3>7.1 dequeue<a class="headerlink" href="#7.1-dequeue" title="Permalink to this headline">¶</a></h3>
 <p>✪✪✪ Implement <code class="docutils literal notranslate"><span class="pre">dequeue</span></code>. If you want, you can add debug prints by calling the <code class="docutils literal notranslate"><span class="pre">debug</span></code> function.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; RETURN the names of people admitted to concert</span>
 
 <span class="sd">        Dequeuing for the whole queue system is done in groups, that is,</span>
@@ -4361,7 +4340,7 @@ cumulative wait:  30   35   40   60   65   70
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../trees/bin-trees.html" class="btn btn-neutral float-right" title="Binary Trees" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="circular-queues.html" class="btn btn-neutral float-right" title="CircularQueue" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../stacks/stacks.html" class="btn btn-neutral float-left" title="Stacks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

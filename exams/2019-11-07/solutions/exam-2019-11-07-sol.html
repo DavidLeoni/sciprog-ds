@@ -838,10 +838,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#1.2-deqn">1.2 deqn</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues.html#2.-CircularQueue">2. CircularQueue</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#2.1-Implementation">2.1 Implementation</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues.html#2.-CircularQueue">2. CircularQueue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../queues/queues.html#3.-ItalianQueue">3. ItalianQueue</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#3.1-Slow-v1">3.1 Slow v1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#3.1.1-init">3.1.1 init</a></li>
@@ -867,7 +864,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#Shop">Shop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#Mall">Mall</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#Mall-as-a-queue">Mall as a queue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#id2">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#id1">Implementation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#6.1-Mall-enqueue">6.1 Mall enqueue</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#6.2-Mall-dequeue">6.2 Mall dequeue</a></li>
 </ul>
@@ -887,6 +884,14 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../queues/queues.html#8.2-split">8.2 split</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../queues/circular-queues.html">CircularQueue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/circular-queues.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/circular-queues.html#1.-Introduction">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/circular-queues.html#2.-Example">2. Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/circular-queues.html#3.-Circular-span">3. Circular span</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/circular-queues.html#4.-Implementat-CircularQueue">4. Implementat CircularQueue</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html">Binary Trees</a><ul>
@@ -1630,8 +1635,7 @@ Name: Quando, Length: 253, dtype: object
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">is_leap</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1755,8 +1759,7 @@ Name: Quando, Length: 253, dtype: object
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">full_date</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-
-    <span class="n">ntext</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">ntext</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">ntext</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">day_phase</span><span class="p">:</span>
@@ -1844,8 +1847,7 @@ Name: Quando, Length: 253, dtype: object
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">partial_date</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;yyyy-mm-dd&#39;</span>
 
     <span class="n">year</span> <span class="o">=</span> <span class="s1">&#39;yyyy&#39;</span>
@@ -1965,8 +1967,7 @@ Name: Quando, Length: 253, dtype: object
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
 <span></span><span class="k">def</span> <span class="nf">parse_dates_and</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-
-    <span class="n">ntext</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">ntext</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
     <span class="n">strings</span> <span class="o">=</span> <span class="n">ntext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">connective_and</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
     <span class="n">date_left</span> <span class="o">=</span> <span class="n">partial_date</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -2083,8 +2084,7 @@ Name: Quando, Length: 253, dtype: object
 
 
 <span class="k">def</span> <span class="nf">fake_news</span><span class="p">(</span><span class="n">subjects</span><span class="p">,</span> <span class="n">antecedents</span><span class="p">,</span><span class="n">consequences</span><span class="p">):</span>
-
-    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">ant</span> <span class="ow">in</span> <span class="n">antecedents</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">con</span> <span class="ow">in</span> <span class="n">consequences</span><span class="p">:</span>
