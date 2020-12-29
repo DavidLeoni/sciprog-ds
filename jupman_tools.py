@@ -7,14 +7,32 @@ import shutil
 import inspect
 import types
 import glob
+import stat
 import datetime 
 from nbconvert.preprocessors import Preprocessor  
 import logging
 
+
+class JupmanFormatter(logging.Formatter):
+
+    def format(self, record):
+        if record.levelno == logging.INFO:
+            self._style._fmt = "  %(message)s"
+        else:
+            self._style._fmt = "\n\n  %(levelname)s: %(message)s"
+        return super().format(record)
+
+
 logger = logging.getLogger('jupman')
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.DEBUG)
+console_handler.setFormatter(JupmanFormatter())
 logger.addHandler(console_handler)
+
+# this way we don't get warning of other libs in pytest, see https://stackoverflow.com/a/63946841
+logging.captureWarnings(True)  
+
+
 
 
 def fatal(msg, ex=None):
@@ -42,7 +60,7 @@ def error(msg, ex=None):
 def info(msg=""):
     logger.info("  %s" % msg)    
 
-def warn(msg):
+def warn(msg, ex=None):
     logger.warning("\n\n   WARNING: %s" % msg)    
 
 def debug(msg=""):
@@ -111,18 +129,8 @@ def expand_JM(source, target, exam_date, conf):
     destf = open(target, 'w')    
     destf.write(s)
 
-def _cancel_tags(text, tags):
-    """ Removes Jupman tags from solution WITHOUT stripping content within tags!!
-        
-        WARNING: in other words, this function IS *NOT* SUFFICIENT 
-                 to clean exercises from solutions !!!
-    """
-    ret = text
-    for tag in tags:
-        ret = ret \
-              .replace(tag_start(tag), '') \
-              .replace(tag_end(tag), '')    
-    return ret
+
+
 
 def _replace_title( nb_node, source_abs_fn, replacement, title_pat=r'(.*)') -> str:
         """ Finds the title of a notebook and replaces it with replacement
@@ -336,6 +344,37 @@ def multi_replace(text, d):
         s = re.sub(key, d[key], s) 
     return s
 
+def span_pattern(tag):
+    """
+        @since 3.3
+    """
+    s = r"%s(.*?)%s" % (start_tag_pattern(tag).pattern, end_tag_pattern(tag).pattern)
+    
+    return re.compile(s, flags=re.DOTALL)
+
+def start_tag_pattern(tag):
+    """
+        @since 3.3
+    """    
+    return re.compile(r"#%s\s" % tag, flags=re.DOTALL)
+
+def end_tag_pattern(tag):
+    """
+        @since 3.3
+    """
+    ec = tag_end(tag)[-1]
+    s = r"%s((%s$)|(%s(?=\s)))" % (tag_end(tag)[:-1], ec, ec)
+    return re.compile(s, flags=re.DOTALL)
+
+def single_tag_pattern(tag):
+    """
+        @since 3.3
+    """
+    
+    ec = tag_start(tag)[-1]
+    s = r"%s((%s$)|(%s(?=\s)))" % (tag_start(tag)[:-1], ec, ec)
+    return re.compile(s, flags=re.DOTALL)
+
 
 def init(jupman, conf={}):    
     """Initializes the system, does patching, etc
@@ -360,7 +399,7 @@ def init(jupman, conf={}):
     # Method as in https://github.com/spatialaudio/nbsphinx/issues/305#issuecomment-506748814
 
     def _from_notebook_node(self, nb, resources, **kwargs):
-        info('patched nbsphinx from_notebook_node')
+        debug('patched nbsphinx from_notebook_node')
                                 
         for f in jupman.preprocessors:
             nb, resources = f.preprocess(nb, resources=resources)
@@ -370,6 +409,7 @@ def init(jupman, conf={}):
     import nbsphinx
     nbsphinx_from_notebook_node = nbsphinx.Exporter.from_notebook_node                
 
+    
     nbsphinx.Exporter.from_notebook_node = _from_notebook_node
 
 
@@ -384,20 +424,34 @@ class JupmanPreprocessor(Preprocessor):
     def preprocess(self, nb, resources):
         """ @since 3.2 """
 
-        info("JupmanPreprocesser running...")
+        
         
         """Careful path *includes* part of docname:
-        {
-            'metadata': {'path': '/home/da/Da/prj/jupman/prj/jupyter-example'},
-                'nbsphinx_docname': 'jupyter-example/jupyter-example-sol',
-                'nbsphinx_save_notebook': '/home/da/Da/prj/jupman/prj/_build/html/.doctrees/nbsphinx/jupyter-example/jupyter-example-sol.ipynb',
-                'output_files_dir': '../_build/html/.doctrees/nbsphinx',
-                'unique_key': 'jupyter-example_jupyter-example-sol'
+        resources:
+        {   
+            'metadata': {
+                            'path': '/home/da/Da/prj/jupman/prj/jupyter-example'
+                        },
+            'nbsphinx_docname': 'jupyter-example/jupyter-example-sol',
+            'nbsphinx_save_notebook': '/home/da/Da/prj/jupman/prj/_build/html/.doctrees/nbsphinx/jupyter-example/jupyter-example-sol.ipynb',
+            'output_files_dir': '../_build/html/.doctrees/nbsphinx',
+            'unique_key': 'jupyter-example_jupyter-example-sol'
         }
         """
         rel_dir, partial_fn = os.path.split(resources['nbsphinx_docname'])                
-        source_abs_fn = os.path.join(resources['metadata']['path'], partial_fn + '.ipynb')                
-        return self.jupman._sol_nb_to_ex(nb, source_abs_fn,website=True), resources
+        source_abs_fn = os.path.join(resources['metadata']['path'], partial_fn + '.ipynb')     
+
+        if self.jupman._is_to_preprocess(nb, source_abs_fn):
+            relpath = os.path.relpath(source_abs_fn, os.path.abspath(os.getcwd()))
+            info("JupmanPreprocessor: webifying %s" % relpath )
+            try:
+                self.jupman.validate_tags(source_abs_fn)
+            except Exception as ex:
+                logger.warning("Failed Jupman tags validation! %s", ex)
+                
+            return self.jupman._sol_nb_to_ex(nb, source_abs_fn,website=True), resources
+        else:
+            return nb, resources
 
 
 def replace_py_rel(code, filepath):
@@ -537,14 +591,33 @@ class Jupman:
 
         self.raise_exc = "jupman-raise"
         self.strip = "jupman-strip"
+        self.preprocess = "jupman-preprocess"
         self.purge = "jupman-purge"
+        self.purge_io = "jupman-purge-io"
+        self.purge_input = "jupman-purge-input"
+        self.purge_output = "jupman-purge-output"
+        
+
 
         self.raise_exc_code = "raise Exception('TODO IMPLEMENT ME !')"
         """ WARNING: this string can end end up in a .ipynb json, so it must be a valid JSON string  ! Be careful with the double quotes and \n  !!
         """
 
-        self.tags = [self.raise_exc, self.strip, self.purge]
-        """ Jupman tags
+
+        self.solution_tags = [self.raise_exc, self.strip]
+        """ Code cells containing these tags are considered solutions        
+            @since 3.3
+        """
+
+
+        self.span_tags = [self.raise_exc, self.strip, self.purge]
+        """ Tags which enclose a span of text
+            @since 3.3
+        """
+
+        self.directive_tags = [self.preprocess, self.purge, self.purge_input, self.purge_output, self.purge_io]
+        """ Code cells containing these tags are not considered a solution.
+            @since 3.3
         """
 
         self.distrib_ext = ['py', 'ipynb']
@@ -558,20 +631,47 @@ class Jupman:
             @since 3.2
         """
 
+    def _purge_tags(self, text):
+        """ Purges text according to directives, and removes Jupman solution_tags stripping the content within tags!
+            
+            WARNING: in other words, this function IS *NOT* SUFFICIENT 
+                    to completely clean exercises from solutions !!!
+            
+            @since 3.3
+        """
+        ret = text
+        if self.purge_input in text or self.purge_io in text:
+            ret = ''
+        ret = re.sub(span_pattern(self.purge), '', ret)
+                    
+        # so longer come first
+        all_tags = sorted(set(self.solution_tags + self.directive_tags), reverse=True)
+            
+        
+        for tag in all_tags:
+            if tag in self.span_tags:
+                ret = re.sub(start_tag_pattern(tag), '', ret)
+                ret = re.sub(end_tag_pattern(tag), '', ret)
+            else:
+                ret = re.sub(single_tag_pattern(tag), '', ret)            
+        
+        """    
+        for tag in all_tags:
+            if tag in self.span_tags:
+                ret = ret \
+                    .replace(tag_start(tag), '') \
+                    .replace(tag_end(tag), '')                        
+            else:
+                ret = ret.replace('#' + tag, '')            
+        """
+        return ret
+
 
     def is_zip_ignored(self, fname):
         import pathspec
         spec = pathspec.PathSpec.from_lines('gitwildmatch', self.zip_ignored)
         return spec.match_file(fname)
-
-    def raise_exc_pattern(self):
-        return re.compile(tag_start(self.raise_exc) + '.*?' + tag_end(self.raise_exc), flags=re.DOTALL)
-
-    def strip_pattern(self):
-        return re.compile(tag_start(self.strip) + '.*?' + tag_end(self.strip), flags=re.DOTALL)
-
-    def purge_pattern(self):
-        return re.compile(tag_start(self.purge) + '.*?' + tag_end(self.purge), flags=re.DOTALL)
+                
 
     def get_exercise_folders(self):
         ret = []
@@ -593,7 +693,7 @@ class Jupman:
     def is_code_sol(self, solution_text):
         """ Returns True if a cell contains any elements to be stripped in a solution           
         """
-        return self.sol_to_ex_code(solution_text, parse_purge=False).strip() != solution_text.strip()
+        return self.sol_to_ex_code(solution_text, parse_directives=False).strip() != solution_text.strip()
 
 
     def is_to_strip(self, solution_text):
@@ -601,26 +701,37 @@ class Jupman:
 
            @since 3.3
         """
-        return self.sol_to_ex_code(solution_text, parse_purge=True).strip() != solution_text.strip()
+        return self.sol_to_ex_code(solution_text, parse_directives=True).strip() != solution_text.strip()
 
-    def sol_to_ex_code(self, solution_text, filepath=None, parse_purge=True):
+    def sol_to_ex_code(self, solution_text, filepath=None, parse_directives=True):
         
-        if re.match(self.solution, solution_text.strip()):
-            return ""
+        ret = solution_text
+        
+        if parse_directives:
+            if self.purge_input in solution_text or self.purge_io in solution_text:
+                return ''
+            ret = re.sub(span_pattern(self.purge), '', ret)
+            for tag in sorted(self.directive_tags, reverse=True):
+                ret = re.sub(single_tag_pattern(tag), '', ret)
 
-        ret = re.sub(   self.raise_exc_pattern(), 
-                        self.raise_exc_code, 
-                        solution_text)                    
-        ret = re.sub(self.strip_pattern(), '', ret)
-        if parse_purge:
-            ret = re.sub(self.purge_pattern(), '', ret)
+        if re.match(self.solution, ret.strip()):
+            return ''
+
+        ret = re.sub(span_pattern(self.raise_exc), 
+                     self.raise_exc_code, 
+                     ret)
+        
+        ret = re.sub(span_pattern(self.strip), '', ret)
+                    
         ret = re.sub(self.write_solution_here, r'\1\2\n\n', ret)
+        
         if filepath:
             ret = replace_py_rel(ret, filepath)
+            
         return ret            
 
     def validate_tags(self, fname):
-        """ Validates jupman tags in file fname
+        """ Validates jupman tags in file fname and return the number of solution tags found.
         """
         ret = 0
         if fname.endswith('.ipynb'):
@@ -643,15 +754,19 @@ class Jupman:
         """ Validates text which was read from file fname:
 
             - raises ValueError on mismatched tags
-            - returns the number of jupman tags found
+            - returns the number of solution tags found
         """
                 
         tag_starts = {}
         tag_ends = {}
+        ret = 0
 
-        for tag in self.tags:
-            tag_starts[tag] = text.count(tag_start(tag))
-            tag_ends[tag] = text.count(tag_end(tag))
+        for tag in self.span_tags:
+            tag_starts[tag] = len(re.compile(tag_start(tag) + r'\s').findall(text))
+            tag_ends[tag] = len(re.compile(end_tag_pattern(tag)).findall(text))
+            
+            if tag in self.solution_tags:
+                ret += tag_starts[tag]
 
         for tag in tag_starts:
             if tag not in tag_ends or tag_starts[tag] != tag_ends[tag] :
@@ -661,10 +776,10 @@ class Jupman:
             if tag not in tag_starts or tag_starts[tag] != tag_ends[tag] :
                 raise ValueError("Missing initial tag %s in %s" % (tag_start(tag), fname) )
         
-        write_solution_here_count = len(re.compile(self.write_solution_here).findall(text))
-        solution_count = len(re.compile(self.solution).findall(text))
+        ret += len(re.compile(self.write_solution_here).findall(text))
+        ret += len(re.compile(self.solution).findall(text))
         
-        return sum(tag_starts.values()) + write_solution_here_count + solution_count
+        return ret
 
     def validate_markdown_tags(self, text, fname):
         return len(re.compile(self.markdown_answer).findall(text))
@@ -710,9 +825,12 @@ class Jupman:
             
             with open(source_abs_fn) as sol_source_f:
                 text = sol_source_f.read()
-                text = re.sub(self.purge_pattern(), '', text)
+                found_total_purge = self.purge_input in text or self.purge_output in text or self.purge_io in text or ''
+                if found_total_purge:
+                    raise ValueError("Found %s in python file %s, but it is only allowed in notebooks!" % (found_total_purge, source_fn))
+                
                 text = replace_py_rel(text, source_abs_fn)                
-                text = _cancel_tags(text, self.tags)
+                text = self._purge_tags(text)
                 with open(dest_fn, 'w') as solution_dest_f:
                     info("  Writing (patched) %s " % dest_fn)
                     solution_dest_f.write(text)
@@ -723,9 +841,14 @@ class Jupman:
             nb_node = nbformat.read(source_abs_fn, nbformat.NO_CONVERT)
             replace_ipynb_rel(nb_node, source_abs_fn)
             for cell in nb_node.cells:            
-                if cell.cell_type == "code":    
-                    cell.source = re.sub(self.purge_pattern(), '', cell.source)
-                    cell.source = _cancel_tags(cell.source, self.tags)
+                if cell.cell_type == "code":                                            
+                    if self.purge_output in cell.source or self.purge_io in cell.source:
+                        cell.outputs = []                        
+                    if (self.purge_input in cell.source and self.purge_output in cell.source) \
+                        or self.purge_io in cell.source:
+                        cell.metadata['nbsphinx'] = 'hidden'
+                        
+                    cell.source = self._purge_tags(cell.source)
 
             nbformat.write(nb_node, dest_fn)
             
@@ -802,13 +925,35 @@ class Jupman:
             stripped_cell = copy.deepcopy(cell)
             if cell.cell_type == "code":
                 if self.is_to_strip(cell.source):                            
-                                        
+                                                            
+                    if self.purge_output in cell.source or self.purge_io in cell.source:
+                        stripped_cell.outputs = []
+                        
+                    if (self.purge_input in cell.source and self.purge_output in cell.source) \
+                        or self.purge_io in cell.source:
+                        stripped_cell.metadata['nbsphinx'] = 'hidden'
+                        
+                    
+                    
                     stripped_cell.source = self.sol_to_ex_code(cell.source,source_abs_fn)
                     if website:
-                        if self.is_code_sol(cell.source):
+                        
+                        
+                        if self.purge_input in cell.source or self.purge_io in cell.source:
+                            #weird stuff: https://github.com/jupyter/nbconvert/blob/42cfece9ed07232c3c440ad0768b6a76f667fe47/nbconvert/preprocessors/tagremove.py#L98
+                            #NOTE: this MUST be ONLY for website as transient is not even an nbformat valid field !
+                            if getattr(stripped_cell, 'transient', None):
+                                stripped_cell.transient['remove_source'] = True
+                            else:
+                                stripped_cell.transient = {
+                                    'remove_source': True
+                                }
+                        
+                        if self.is_code_sol(cell.source) \
+                           and not (self.purge_input in cell.source or self.purge_io in cell.source):
                             nb.cells.append(before_cell(cell_counter, cell.cell_type))
-                            cell.source = re.sub(self.purge_pattern(), '', cell.source)
-                            cell.source = _cancel_tags(cell.source, self.tags)
+                                                        
+                            cell.source = self._purge_tags(cell.source)
                             nb.cells.append(cell)
                             nb.cells.append(after_cell())
                     nb.cells.append(stripped_cell)
@@ -835,6 +980,31 @@ class Jupman:
             cell_counter += 1
         return nb                    
 
+
+    def _is_to_preprocess(self, nb, source_abs_fn):
+        """
+            @since 3.3
+        """
+                                    
+        if source_abs_fn.endswith('.ipynb'):
+            
+            fileKind = FileKinds.detect(source_abs_fn)
+                                                    
+            if fileKind == FileKinds.SOLUTION:
+                return True
+            
+            if fileKind == FileKinds.CHALLENGE_SOLUTION:  # weird case, only really for jupman documentation itself
+                return True
+            
+            if len(nb.cells) > 0:
+                cell = nb.cells[0]
+                if cell.cell_type == 'code' and ('#' + self.preprocess) in cell.source :
+                    return True
+            
+        return False
+    
+        
+
     def generate_exercise(self, source_rel_fn, dest_dir='./'):
         """ Given a relative filename, generates the corresponding exercise file in dest_dir
         """
@@ -856,7 +1026,7 @@ class Jupman:
 
             found_tag = self.validate_tags(source_abs_fn)                      
             if not found_tag and not os.path.isfile(exercise_abs_fn) :
-                error("There is no exercise file and couldn't find any jupman tag in solution file for generating exercise !" +\
+                error("There is no exercise file and couldn't find any jupman solution tag in solution file for generating exercise !" +\
                     "\n  solution: %s\n  exercise: %s" % (source_abs_fn, exercise_abs_fn))                                                                      
             if not kind == FileKinds.CHALLENGE_SOLUTION and found_tag and os.path.isfile(exercise_abs_fn) :
                 error("Found jupman tags in solution file but an exercise file exists already !\n  solution: %s\n  exercise: %s" % (source_abs_fn, exercise_abs_fn))
@@ -1057,7 +1227,7 @@ class Jupman:
             rel_paths MUST be relative to project root
             
             This function was needed as default python zipping machinery created weird zips 
-            people couldn't open in Windows
+            people couldn't open in Windows AND it is not deterministic https://github.com/DavidLeoni/jupman/issues/60
             
             - patterns is a list of tuples source regexes to dest               
             - remap is a function that takes a string and returns a string, and is applied after patterns
@@ -1105,18 +1275,31 @@ class Jupman:
                         to_name = the_remap(fname)
 
                 #info('to_name = %s' % to_name)                    
-                    
-                archive.write(fname, to_name, zipfile.ZIP_DEFLATED)
+                
+                permission = 0o755 if os.access(fname, os.X_OK) else 0o644
+                zip_info = zipfile.ZipInfo.from_file(fname, to_name)
+                zip_info.date_time = (2020, 1, 1, 0, 0, 0)
+                zip_info.external_attr = (stat.S_IFREG | permission) << 16
+                with open(fname, "rb") as fp:
+                    archive.writestr(
+                        zip_info,
+                        fp.read(),
+                        compress_type=zipfile.ZIP_DEFLATED,
+                        #compresslevel=9, # python 3.7+
+                    )                
+                
 
         archive = zipfile.ZipFile(zip_path + '.zip', "w")
+                
         
-        for rel_path in rel_paths:
+        
+        for rel_path in sorted(rel_paths):
 
             if os.path.isdir(rel_path):            
-                for dirname, dirs, files in os.walk(rel_path):                    
+                for dirname, dirs, files in sorted(os.walk(rel_path), key=lambda t: t[0]):
                     dirNamePrefix = dirname + "/*"                
                     filenames = glob.glob(dirNamePrefix)                    
-                    for fname in filenames:
+                    for fname in sorted(filenames):
                         if os.path.isfile(fname):
                             write_file(fname)
             elif os.path.isfile(rel_path):
