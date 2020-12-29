@@ -146,6 +146,43 @@ def save_py(filename, data):
         expo.write(' = ')
         expo.write(s)        
     
+
+def mem_limit(MB=None):
+    """Limits the memory this Python process can use. By default uses half free memory.
+       
+       @since 3.3
+       
+    """
+    # from https://stackoverflow.com/questions/41105733/limit-ram-usage-to-python-program    
+    
+    # TODO CHECK WINDOWS: 
+    # https://stackoverflow.com/questions/54949110/limit-python-script-ram-usage-in-windows
+    # https://stackoverflow.com/questions/10892258/resource-limits-on-windows
+
+    import os
+    if os.name == 'nt':
+        print('WARNING: limiting memory on Windows is not supported')
+        return
+    
+    import resource
+    with open('/proc/meminfo', 'r') as mem:
+        free_memory = 0
+        for i in mem:
+            sline = i.split()            
+            if str(sline[0]) == 'MemAvailable:':
+                free_memory = int(sline[1])               
+                break     
+        if sline[2] != 'kB':
+            raise Exception('Unrecognized memory unit:', sline[2])
+        soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+        if not MB:                    
+            MB = (free_memory // 1024) // 2  
+        print('Free mem:', free_memory//1024, 'MB', 
+              ' Limiting to:', MB, 'MB')
+        resource.setrlimit(resource.RLIMIT_AS, (MB *1024 * 1024, hard))
+
+
+
     
 def draw_img(path, figsize=None):
     """ Display images of given size
