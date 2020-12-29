@@ -60,6 +60,7 @@ Part B
     linked-lists/linked-lists-chal.ipynb
     stacks/stacks.ipynb
     queues/queues.ipynb    
+    queues/circular-queues.ipynb    
     trees/bin-trees.ipynb
     trees/gen-trees.ipynb
     graph-algos/graph-algos.ipynb
