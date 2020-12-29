@@ -1527,9 +1527,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Sublist-iteration-performance">
 <h3>Sublist iteration performance<a class="headerlink" href="#Sublist-iteration-performance" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">slice</span></code> time complexity is <code class="docutils literal notranslate"><span class="pre">O(k)</span></code>, but what about memory? It’s the same!</p>
+<p><code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">slice</span></code> time complexity is <span class="math notranslate nohighlight">\(O(k)\)</span>, but what about memory? It’s the same!</p>
 <p>So if you want to iterate a part of a list, beware of slicing! For example, depending pn Python version you have, slicing a list like this can occupy much more memory than necessary:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -1544,16 +1544,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 222, 224, 226, 228, 230, 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 252, 254, 256, 258, 260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294, 296, 298, 300, 302, 304, 306, 308, 310, 312, 314, 316, 318, 320, 322, 324, 326, 328, 330, 332, 334, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 358, 360, 362, 364, 366, 368, 370, 372, 374, 376, 378, 380, 382, 384, 386, 388, 390, 392, 394, 396, 398]
-</pre></div></div>
-</div>
-<p>The reason is that, depending on the Python interpreter you have, slicing like <code class="docutils literal notranslate"><span class="pre">r[100:200]</span></code>at loop start can create a <em>new</em> list. If we want to explicitly tell Python we just want to iterate through a sequence, we can use the so called itertools. In particular, the islice method is handy, with it we can rewrite the list comprehension above like this:</p>
-<div class="nbinput docutils container">
+<p>The reason is that, according to your Python interpreter, slicing like <code class="docutils literal notranslate"><span class="pre">r[100:200]</span></code>at loop start can create a <em>new</em> list. If we want to explicitly tell Python we just want to iterate through a sequence, we can use the so-called itertools. In particular, the islice method is handy, we can rewrite the list comprehension above with it like this:</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -1565,14 +1557,6 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)])</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 222, 224, 226, 228, 230, 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 252, 254, 256, 258, 260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294, 296, 298, 300, 302, 304, 306, 308, 310, 312, 314, 316, 318, 320, 322, 324, 326, 328, 330, 332, 334, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 358, 360, 362, 364, 366, 368, 370, 372, 374, 376, 378, 380, 382, 384, 386, 388, 390, 392, 394, 396, 398]
-</pre></div></div>
 </div>
 </div>
 </div>
@@ -1607,7 +1591,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n)\)</span> if we assume integer comparison is <span class="math notranslate nohighlight">\(O(1)\)</span>, which typically is the case in most programs we write - so you can safely assume this for the rest of the course.</p>
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n)\)</span> if we assume integer comparison is <span class="math notranslate nohighlight">\(O(1)\)</span>, which typically is the case in most programs we write. Note that differently from most programming languages, Python actually allows <em>unbounded</em> integers, but for the purposes of this course you can safely consider occupied memory for integers as constant.</p>
 </div></div>
 <div class="section" id="Exercise---honda">
 <h3>Exercise - honda<a class="headerlink" href="#Exercise---honda" title="Permalink to this headline">¶</a></h3>
@@ -1632,16 +1616,16 @@ div.rendered_html tbody tr:hover {
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      0,1,2,3,4 ... m
    x=[3,4,2,6,7,2,6,8]
 
-lst=[[ , , , , , , , ],  # 0
-     [ , , , , , , , ],  # 1
-     [ , , , , , , , ],  # 3
-     [ , , , , , , , ],  # 4
-     [ , , , , , , , ],  # 5
-     [ , , , , , , , ],  # 6
-     [ , , , , , , , ],  # 7
-     [3,4,2,6,7,2,6,8],  # n    &lt;--- worst case scenario: matching list at the end
-    ]                                (or not present at all),
-                                     need to compare all elements in all rows
+lst=[[0,0,0,0,0,0,0,0],  # 0
+     [1,1,1,1,1,1,1,1],  # 1
+     [2,2,2,2,2,2,2,2],  # 2
+     [3,3,3,3,3,3,3,3],  # 3
+     [4,4,4,4,4,4,4,4],  # 4
+     [5,5,5,5,5,5,5,5],  # 5
+     [6,6,6,6,6,6,6,6],  # 6
+     [3,4,2,6,7,2,6,8],  # n  &lt;--- worst case scenario: matching list at the end
+    ]                              (or not present at all),
+                                   need to compare all elements in all rows
 </pre></div>
 </div>
 </div></div>
@@ -1692,8 +1676,8 @@ lst=[[ , , , , , , , ],  # 0
  data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n)\)</span></p>
 <p>List comprehension:</p>
 <ul class="simple">
-<li><p>visits <code class="docutils literal notranslate"><span class="pre">lst</span></code>, so cost is <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
-<li><p>generates a new list, in this case placing constants in each cell: so cost is <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
+<li><p>visit <code class="docutils literal notranslate"><span class="pre">lst</span></code>: cost is <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
+<li><p>generate a new list: in this case places constants in each cell, so cost is <span class="math notranslate nohighlight">\(O(n)\)</span></p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(O(n + n)=O(2n)=O(n)\)</span></p>
 </div></div>
@@ -1872,7 +1856,7 @@ abcdefg      n
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
-<p>Calling <code class="docutils literal notranslate"><span class="pre">insert</span></code> inside the list at the beginning takes <span class="math notranslate nohighlight">\(O(n)\)</span> Python has to shift all the following elements of one position. In this case at each call the list grows and we have a situation like this</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">insert</span></code> inside the list at the beginning takes <span class="math notranslate nohighlight">\(O(n)\)</span> since Python has to shift all the following elements of one position. In this case at each call the list grows, so we have a situation like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; chevrolet([&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;])
 
 # abcde
@@ -1884,7 +1868,7 @@ abcdefg      n
 # |-n-||-n-|
 </pre></div>
 </div>
-<p>It looks like a sort of <span class="math notranslate nohighlight">\(n*n\)</span> block with a triangle attached to it, so:</p>
+<p>It looks like a kind of <span class="math notranslate nohighlight">\(n*n\)</span> block with a triangle attached to it, thus:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
@@ -1918,8 +1902,11 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><p>worst case: if list has at least <span class="math notranslate nohighlight">\(n/2\)</span> <code class="docutils literal notranslate"><span class="pre">'c'</span></code>, <span class="math notranslate nohighlight">\(O(1 + n/2 * n) = O(n^2/2) = O(n^2)\)</span> Note <code class="docutils literal notranslate"><span class="pre">remove</span></code> only removes the first element found, and if not found raises Exception. So to actually have <code class="docutils literal notranslate"><span class="pre">O(n^2)</span></code> complexity without the function terminating early, we would need to be in worst case scenario where we have <code class="docutils literal notranslate"><span class="pre">n//2</span></code> <code class="docutils literal notranslate"><span class="pre">'c'</span></code> characters in our list</p></li>
-<li><p>best case: no <code class="docutils literal notranslate"><span class="pre">'c'</span></code> are present, so <code class="docutils literal notranslate"><span class="pre">remove</span></code> searches all list in <span class="math notranslate nohighlight">\(O(n)\)</span> and terminates immediately by raising an Exception</p></li>
+<li><p>worst case: if list has at least <span class="math notranslate nohighlight">\(n/2\)</span> <code class="docutils literal notranslate"><span class="pre">'c'</span></code>, we have <span class="math notranslate nohighlight">\(O(1 + n/2 * n) = O(n^2/2) = O(n^2)\)</span></p></li>
+</ol>
+<p>Note <code class="docutils literal notranslate"><span class="pre">remove</span></code> only removes the first element found, and raises an exception if not found. So to actually have <code class="docutils literal notranslate"><span class="pre">O(n^2)</span></code> complexity without the function terminating early, we would need to be in worst case scenario where we have <code class="docutils literal notranslate"><span class="pre">n//2</span></code> characters <code class="docutils literal notranslate"><span class="pre">'c'</span></code> in our list</p>
+<ol class="arabic simple" start="2">
+<li><p>best case: no <code class="docutils literal notranslate"><span class="pre">'c'</span></code> charactersare present, so <code class="docutils literal notranslate"><span class="pre">remove</span></code> searches all list in <span class="math notranslate nohighlight">\(O(n)\)</span> and terminates immediately by raising an exception</p></li>
 </ol>
 </div></div>
 <div class="section" id="Exercise---aston_martin">
@@ -1966,15 +1953,11 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 <h3>Exercise - subaru<a class="headerlink" href="#Exercise---subaru" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mat</span></code> : list of <span class="math notranslate nohighlight">\(n\)</span> lists of <span class="math notranslate nohighlight">\(n\)</span> elements each</p></li>
-<li><ol class="loweralpha simple">
+</ul>
+<ol class="arabic simple">
 <li><p>What’s the complexity?</p></li>
-</ol>
-</li>
-<li><ol class="loweralpha simple" start="2">
 <li><p>Follow up: Can you write a more perfomant version?</p></li>
 </ol>
-</li>
-</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1993,7 +1976,10 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 </div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: a) <span class="math notranslate nohighlight">\(O(n^2)\)</span> it calculates the anti-diagonal</p>
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>:</p>
+<ol class="arabic simple">
+<li><p>it calculates the anti-diagonal in <span class="math notranslate nohighlight">\(O(n^2)\)</span></p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subaru</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                        <span class="c1"># 1</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>                            <span class="c1"># 1</span>
@@ -2012,8 +1998,8 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="loweralpha simple" start="2">
-<li><p>Since it is the anti-diagonal, we are basically extracting a line out of the matrix so we should try devising a linear time <span class="math notranslate nohighlight">\(O(n)\)</span> algorithm, like this one:</p></li>
+<ol class="arabic simple" start="2">
+<li><p>Since it’s the anti-diagonal, we are basically extracting a line out of the matrix so we should try devising a linear time <span class="math notranslate nohighlight">\(O(n)\)</span> algorithm, like this one:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subaru2</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                          <span class="c1"># 1</span>
@@ -2129,7 +2115,8 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                                <span class="c1"># 1</span>
     <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>                             <span class="c1"># access: 1 , len: 2</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>                       <span class="c1"># n - 1 iterations</span>
-        <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>               <span class="c1">#    in: m   if: 1 (in worst case always true)</span>
+        <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>               <span class="c1">#    if: 1 (in worst case always true)</span>
+                                                <span class="c1">#    in: m</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>           <span class="c1">#    n - 1 iterations</span>
                 <span class="n">mat</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>  <span class="c1">#        m iterations</span>
                                                 <span class="c1">#             2*x:    1</span>
@@ -2137,7 +2124,10 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
     <span class="k">return</span> <span class="n">mat</span>                                  <span class="c1"># 1</span>
 </pre></div>
 </div>
-<p><span class="math notranslate nohighlight">\(O(4 + (n-1)(m+1 + (n-1)(m*1 + 1)) + 1)= O(4+ n(m + nm)) = O(nm + n^2m) = O(n^2m)\)</span></p>
+<p><span class="math notranslate nohighlight">\(O(4 + (n-1)(m+1 + (n-1)(m*1 + 1)) + 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(= O(4+ n(m + nm))\)</span></p>
+<p><span class="math notranslate nohighlight">\(= O(nm + n^2m)\)</span></p>
+<p><span class="math notranslate nohighlight">\(= O(n^2m)\)</span></p>
 </div></div>
 <div class="section" id="Exercise---hyundai">
 <h3>Exercise - hyundai<a class="headerlink" href="#Exercise---hyundai" title="Permalink to this headline">¶</a></h3>
@@ -2176,7 +2166,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 </pre></div>
 </div>
 <p><span class="math notranslate nohighlight">\(O(m + n + m(m+n)) = O(m+n+m^2n + mn) = O(m^2n)\)</span></p>
-<p>Note <code class="docutils literal notranslate"><span class="pre">remove</span></code> removes the first element it finds, and if no element is found it throws an exception. In order for the function to terminate properly, it would need to find <code class="docutils literal notranslate"><span class="pre">'a'</span></code> char for <code class="docutils literal notranslate"><span class="pre">m</span></code> times, and each call will always take <span class="math notranslate nohighlight">\(O(m + n)\)</span> even if searched chars are at the beginning, as element remotion requires Python to shifting in memory most elements of the list anyway.</p>
+<p>Note <code class="docutils literal notranslate"><span class="pre">remove</span></code> removes the first element it finds, and upon unsuccessful search throws an exception. In order for the function to terminate properly, it would need to find <code class="docutils literal notranslate"><span class="pre">'a'</span></code> character for <code class="docutils literal notranslate"><span class="pre">m</span></code> times, and each call will always take <span class="math notranslate nohighlight">\(O(m + n)\)</span> even if searched chars are at the beginning, as element removal requires Python to shift most elements of the list in memory anyway.</p>
 </div></div>
 <div class="section" id="Exercise---buick">
 <h3>Exercise - buick<a class="headerlink" href="#Exercise---buick" title="Permalink to this headline">¶</a></h3>
@@ -2207,7 +2197,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
 <p><span class="math notranslate nohighlight">\(O(2 + n(2 + n + n + 1) + n^2 + 1) = O(n^2)\)</span></p>
-<p><strong>NOTE:</strong> last <span class="math notranslate nohighlight">\(n^2\)</span> is for the expensive double <code class="docutils literal notranslate"><span class="pre">for</span></code> and we put it <em>outside</em> the while cycle computation because from function text we know it is already unlikely <code class="docutils literal notranslate"><span class="pre">la</span></code> sum is <code class="docutils literal notranslate"><span class="pre">10</span></code>, and as soon as it is we will be adding stuff to it (we assume all input numbers are positive), so the <code class="docutils literal notranslate"><span class="pre">if</span></code> will be entered <em>at most once per function call</em></p>
+<p><strong>NOTE:</strong> last <span class="math notranslate nohighlight">\(n^2\)</span> is for the expensive double <code class="docutils literal notranslate"><span class="pre">for</span></code> and was put <em>outside</em> the while cycle computation for the following reason: from function text we know it’s already unlikely <code class="docutils literal notranslate"><span class="pre">la</span></code> sum is <code class="docutils literal notranslate"><span class="pre">10</span></code>. As soon as it becomes <code class="docutils literal notranslate"><span class="pre">10</span></code>, we are going to add stuff to it (we assume all input numbers are positive). Thus, the <code class="docutils literal notranslate"><span class="pre">if</span></code> will be entered <em>at most once per function call</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buick</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">buick</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># triggers the double for</span>
 </pre></div>
@@ -2221,7 +2211,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 </ol>
 <ol class="arabic simple">
 <li><p>for determining worst case, try proving the sum is less than another sum</p></li>
-<li><p>to see if the bound is tight, try determining the best case complexity <span class="math notranslate nohighlight">\(\Omega\)</span> by proving that the sum made by half of the terms (which half?) is greater than another sum, you should get the same result as worst case so proving you’ve got the <span class="math notranslate nohighlight">\(\Theta\)</span> complexity.</p></li>
+<li><p>to see if the bound is tight, try determining the best case complexity <span class="math notranslate nohighlight">\(\Omega\)</span> by proving that the sum made by half of the terms (which half?) is greater than another sum: you should get the same result as worst case thus demonstrating you’ve got the <span class="math notranslate nohighlight">\(\Theta\)</span> complexity.</p></li>
 </ol>
 <ol class="loweralpha simple" start="2">
 <li><p>Can we write a much faster function?</p></li>
@@ -2265,7 +2255,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 \end{align*}\end{split}\]</div>
 <p>We see that even if we limit ourselves to sum half of the interval, the summation always exceeds the <span class="math notranslate nohighlight">\(\Omega(n^2\log{n})\)</span> factor, hence a tight bound for complexity is <span class="math notranslate nohighlight">\(\Theta\left({n^2\log{n}}\right)\)</span></p>
 <ol class="loweralpha simple" start="2">
-<li><p>of course, all this repeated sorting is useless, it’s sufficient to just call <code class="docutils literal notranslate"><span class="pre">sort</span></code> once:</p></li>
+<li><p>all this repeated sorting is of course useless, it’s sufficient to just call <code class="docutils literal notranslate"><span class="pre">sort</span></code> once:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">saab_fast</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
 
@@ -2320,7 +2310,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 </tr>
 </tbody>
 </table>
-<p>Sets are pretty fast but notice in degenerate cases instead of <span class="math notranslate nohighlight">\(O(1)\)</span> we might still get <span class="math notranslate nohighlight">\(O(n)\)</span> complexities (like when there too many keys collisions or with ill-devised hashing functions). For the purposes of this course but won’t consider those occurrences.</p>
+<p>Sets are pretty fast but notice in degenerate cases we might still get <span class="math notranslate nohighlight">\(O(n)\)</span> complexities instead of <span class="math notranslate nohighlight">\(O(1)\)</span> (like when there too many keys collisions or with ill-devised hashing functions). For the purposes of this course but won’t consider those occurrences.</p>
 </div>
 <div class="section" id="Sets---exercises">
 <h2>Sets - exercises<a class="headerlink" href="#Sets---exercises" title="Permalink to this headline">¶</a></h2>
@@ -2383,7 +2373,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
     <span class="k">return</span> <span class="p">(</span><span class="n">sa</span> <span class="o">|</span> <span class="n">sc</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">sa</span> <span class="o">&amp;</span> <span class="n">sc</span><span class="p">)</span>     <span class="c1"># union |       : n+m</span>
                                      <span class="c1"># intersection &amp;: min(n,m)</span>
                                      <span class="c1"># difference -  : left term costs n+m</span>
-                                     <span class="c1">#                 (NOTE: sc can have at most m elements)</span>
+                                     <span class="c1">#                 NOTE: sc can have at most m elements</span>
 </pre></div>
 </div>
 <p><span class="math notranslate nohighlight">\(O(n+1+m(1+1) + (n+m)+min(n,m)+n+m)=O(n+m)\)</span></p>
@@ -2412,7 +2402,7 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
  data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(mn + n^2)\)</span></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pontiac</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>                                 <span class="c1"># 1</span>
-    <span class="n">sets</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">]</span>         <span class="c1"># m * n   (creating a set of m elements n times)</span>
+    <span class="n">sets</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">]</span>         <span class="c1"># m * n (creating a set of m elements n times)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)):</span>                <span class="c1"># n iterations</span>
         <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sets</span><span class="p">:</span>                       <span class="c1">#    n  iterations</span>
             <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>             <span class="c1">#        set in:  1  , mat access: 1 , mul: 1</span>
@@ -2470,7 +2460,10 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 <span class="n">volvo</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 </pre></div>
 </div>
-<p><span class="math notranslate nohighlight">\(O(m+n(n+n+2+n(1+2))+1) = O(m+n(2n+3n+2)) = O(m+n^2+n)=O(n^2 + m)\)</span></p>
+<p><span class="math notranslate nohighlight">\(O(m+n(n+n+2+n(1+2))+1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(= O(m+n(2n+3n+2))\)</span></p>
+<p><span class="math notranslate nohighlight">\(= O(m+n^2+n)\)</span></p>
+<p><span class="math notranslate nohighlight">\(=O(n^2 + m)\)</span></p>
 </div></div>
 <div class="section" id="Exercise---chrysler">
 <h3>Exercise - chrysler<a class="headerlink" href="#Exercise---chrysler" title="Permalink to this headline">¶</a></h3>
@@ -2503,8 +2496,8 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
     <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">}</span>                            <span class="c1">#   1</span>
     <span class="n">lb</span> <span class="o">=</span> <span class="p">[]</span>                            <span class="c1">#   1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">la</span><span class="p">)):</span>           <span class="c1">#   n iterations</span>
-        <span class="n">lb</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">la</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>         <span class="c1">#       list replication: 1 , 2 , 3 , .... , n   ~ n</span>
-                                       <span class="c1">#       extend:           1 , 2 , 3 , .... , n   ~ n</span>
+        <span class="n">lb</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">la</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>         <span class="c1">#       list replication: 1 , 2 , 3 , .... , n  ~ n</span>
+                                       <span class="c1">#       extend:           1 , 2 , 3 , .... , n  ~ n</span>
         <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>                <span class="c1">#       min: 1 , 2 , 3 , .... , n   ~ n</span>
             <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">la</span><span class="p">}</span>        <span class="c1">#       n</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span>                <span class="c1">#       f(i)  &lt;--- to be determined later ...</span>
@@ -2513,24 +2506,24 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 </div>
 <p>Let <span class="math notranslate nohighlight">\(k\)</span> be the number of distinct elements of <code class="docutils literal notranslate"><span class="pre">la</span></code>: given how the algorithm is structured, in worst case <code class="docutils literal notranslate"><span class="pre">s</span></code> ends up containing <span class="math notranslate nohighlight">\(k\)</span> elements.</p>
 <p>Let’s try calculating <span class="math notranslate nohighlight">\(f(i)\)</span>: even we already know <code class="docutils literal notranslate"><span class="pre">s</span></code> in the end will always contain <code class="docutils literal notranslate"><span class="pre">k</span></code> elements, Python will still need to convert <code class="docutils literal notranslate"><span class="pre">lb</span></code> to a set, and then do the union with <code class="docutils literal notranslate"><span class="pre">s</span></code>. At each iteration, the number of items to scan in <code class="docutils literal notranslate"><span class="pre">lb</span></code> will grow non-linearly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                 <span class="c1">#                                    sum of first i   iteration</span>
-                 <span class="c1">#  union          set conversion     natural numbers      i</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span>  <span class="c1">#  k +1             +1              = k + 2* (1^2+1)/2    1</span>
-                 <span class="c1">#  k +1+2           +1+2            = k + 2* (2^2+2)/2    2</span>
-                 <span class="c1">#  k +1+2+3         +1+2+3          = k + 2* (3^2+3)/2    3</span>
-                 <span class="c1">#      .              .                                   .</span>
-                 <span class="c1">#      .              .                                   .</span>
-                 <span class="c1">#  k +1+2+3+ .. +n  +1+2+3+ .. +n  = k + 2* (n^2+n)/2     n</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                 <span class="c1">#                                sum of first i      iteration</span>
+                 <span class="c1">#  union      set conversion     natural numbers         i</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span>  <span class="c1">#  k + 1      +1                 = k + 1 + (1^2+1)/2     1</span>
+                 <span class="c1">#  k + 2      +1+2               = k + 2 + (2^2+2)/2     2</span>
+                 <span class="c1">#  k + 3      +1+2+3             = k + 3 + (3^2+3)/2     3</span>
+                 <span class="c1">#      .            .                                    .</span>
+                 <span class="c1">#  k + k            .                                    .</span>
+                 <span class="c1">#  k + k      +1+2+3+ .. +n      = k + k + (n^2+n)/2     n</span>
 </pre></div>
 </div>
-<p>Considering the whole <span class="math notranslate nohighlight">\(n\)</span> iterations, we will get a sum of increasing squares, so that row alone will cost <span class="math notranslate nohighlight">\(g(n)\)</span> like so:</p>
-<div class="math notranslate nohighlight">
+<p>Considering the whole <span class="math notranslate nohighlight">\(n\)</span> iterations, we will get a sum of increasing squares, so that row alone will cost <span class="math notranslate nohighlight">\(g(n)\)</span> like this:</p>
+</div><div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
 g(n) &amp;= \sum_{i=1}^n{f(i)} \\
-  &amp;= \sum_{i=1}^n{\left(k + 2\frac{i^2+i}{2}\right) }  \\
-  &amp;= \sum_{i=1}^n{k} +  \sum_{i=1}^n{i^2} + \sum_{i=1}^n{i} \\
-  &amp;= n k + \frac{n(n+1)(2n+1)}{6} + \frac{n^2 + n}{2}  \\
-  &amp;= nk + \frac{2n^3 + n^2 + 2n^2 + n}{6} + \frac{n^2+n}{2}
+  &amp;= \sum_{i=1}^n{\left(k + \min (i,k) + \frac{i^2+i}{2}\right) }  \\
+  &amp;= \sum_{i=1}^n{k} + \sum_{i=1}^n {\min (i,k)} + \frac{1}{2} \sum_{i=1}^n{i^2} + \frac{1}{2} \sum_{i=1}^n{i} \\
+  &amp;\leq n k + n k + \frac{1}{2} \frac{n(n+1)(2n+1)}{6} + \frac{1}{2} \frac{n^2 + n}{2}  \\
+  &amp;\leq nk + n k + \frac{2n^3 + n^2 + 2n^2 + n}{12} + \frac{n^2+n}{4}
 \end{align*}\end{split}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(k \leq n\)</span> , the heavier term is <span class="math notranslate nohighlight">\(n^3\)</span> thus we conclude:</p>
 <div class="math notranslate nohighlight">
@@ -2538,12 +2531,12 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <p>Plugging <span class="math notranslate nohighlight">\(g(n)\)</span> in the whole algorithm context, we get:</p>
 <div class="math notranslate nohighlight">
 \[O(2+n(n + n + n + n) + g(n) + 1)= O(n^2 + n^3) = O(n^3)\]</div>
-</div></div>
+</div>
 </div>
 <div class="section" id="Dictionaries-performance">
 <h2>Dictionaries performance<a class="headerlink" href="#Dictionaries-performance" title="Permalink to this headline">¶</a></h2>
 <p>Let’s review dictionary operations costs from <a class="reference external" href="https://runestone.academy/runestone/books/published/pythonds/AlgorithmAnalysis/Dictionaries.html">the Python DS book Chapter 3.7: Dictionaries</a>:</p>
-<p>Dictionaries are pretty fast but notice in degenerate cases instead of <span class="math notranslate nohighlight">\(O(1)\)</span> we might get <span class="math notranslate nohighlight">\(O(n)\)</span> complexity (like when there too many keys collisions or with ill-devised hashing functions). For the purposes of this course but won’t consider those occurrences.</p>
+<p>Dictionaries are pretty fast but notice in degenerate cases we might still get <span class="math notranslate nohighlight">\(O(n)\)</span> complexity instead of <span class="math notranslate nohighlight">\(O(1)\)</span> (like when there too many keys collisions or with ill-devised hashing functions). For the purposes of this course but won’t consider those occurrences.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20%" />
@@ -2564,7 +2557,7 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <td><p><code class="docutils literal notranslate"><span class="pre">in</span></code> operator</p></td>
 <td><p><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>!get item</p></td>
+<tr class="row-odd"><td><p>get item</p></td>
 <td><p><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
 <td><p>set item</p></td>
 <td><p><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
@@ -2639,7 +2632,7 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <li><p><code class="docutils literal notranslate"><span class="pre">d</span></code> : dictionary of <span class="math notranslate nohighlight">\(n\)</span> key/value mappings</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">el</span></code> : int</p></li>
 </ul>
-<p>Does this code behaves differently from code before? Compare the complixities.</p>
+<p>Does this code behaves differently from code before? Compare complexity.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
@@ -2658,7 +2651,7 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n)\)</span></p>
-<p>If we’re lucky, we will find the object very soon, but if we are not we will scan all of the dictionary, so worst case complexity is <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
+<p>If we’re lucky, we will find the object very soon, but if we aren’t we will have to scan all of the dictionary, so worst case complexity is <span class="math notranslate nohighlight">\(O(n)\)</span></p>
 </div></div>
 <div class="section" id="Exercise---ferrari">
 <h3>Exercise - ferrari<a class="headerlink" href="#Exercise---ferrari" title="Permalink to this headline">¶</a></h3>
@@ -2744,7 +2737,7 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <li><p><code class="docutils literal notranslate"><span class="pre">d</span></code> : dictionary of <span class="math notranslate nohighlight">\(n\)</span> key/value mappings</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">k</span></code> : int</p></li>
 </ul>
-<p>Compare this function to the previous one. Is there any difference?</p>
+<p>Compare this function to previous one. Is there any difference?</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
@@ -2772,7 +2765,7 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
     <span class="k">return</span> <span class="n">ret</span>                    <span class="c1">#  1</span>
 </pre></div>
 </div>
-<p>This function does the same same as the previous one, but performance is different (if <span class="math notranslate nohighlight">\(k &lt; n\)</span>). Converting all items to <code class="docutils literal notranslate"><span class="pre">list</span></code> always takes an amount of time proportinal to <em>all</em> key/mappings in the dictionary, so if we later search in the list we are defeating the purpose of dictionaries, which is fast searching !</p>
+<p>This function does the same same as the previous one, but performance is different (if <span class="math notranslate nohighlight">\(k &lt; n\)</span>). Converting all items to <code class="docutils literal notranslate"><span class="pre">list</span></code> always takes an amount of time proportinal to <em>all</em> key/mappings in the dictionary, so if we later search in the list we are defeating the purpose of dictionaries, which should be fast searching !</p>
 <p><span class="math notranslate nohighlight">\(O(2n + 1 + n(3 + 2)) + 1) = O(n)\)</span></p>
 </div></div>
 <div class="section" id="Exercise---mustang">
@@ -2849,9 +2842,9 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <p>✪✪ In a list <span class="math notranslate nohighlight">\(L\)</span> containing <span class="math notranslate nohighlight">\(n≥2\)</span> integers, a gap is an index <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(0&lt; i &lt; n\)</span>, such that <span class="math notranslate nohighlight">\(L[i−1]&lt; L[i]\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(n≥2\)</span> and <span class="math notranslate nohighlight">\(L[0]&lt; L[n−1]\)</span>, <span class="math notranslate nohighlight">\(L\)</span> contains at least one gap</p>
 <p>Design an algorithm that, given a list <span class="math notranslate nohighlight">\(L\)</span> containing <span class="math notranslate nohighlight">\(n≥2\)</span> integers such that <span class="math notranslate nohighlight">\(L[0]&lt; L[n−1]\)</span>, finds a gap in the list.</p>
-<p>Try to code and test the <code class="docutils literal notranslate"><span class="pre">gap</span></code> function. To avoid displaying directly Python, here we wrote it as pseudocode:</p>
+<p>We wrote here the <code class="docutils literal notranslate"><span class="pre">gap</span></code> function as pseudocode, try coding it in Python:</p>
 <p><img alt="recursive gap jiuiu9" src="../_images/recursive-gap.png" /></p>
-<p>Use the following skeleton to code it and add some test. To understand what’s going on, try copy pasting in <a class="reference external" href="http://pythontutor.com/visualize.html#mode=edit">Python tutor</a></p>
+<p>Use the following skeleton and add some test. To understand what’s going on, try copy-pasting in <a class="reference external" href="http://pythontutor.com/visualize.html#mode=edit">Python tutor</a></p>
 <p>Notice that</p>
 <ul class="simple">
 <li><p>We created a function <code class="docutils literal notranslate"><span class="pre">gap_rec</span></code> to differentiate it from the iterative one</p></li>
@@ -2876,7 +2869,7 @@ does. Adding a helper function is a frequent pattern you can find when programmi
 <li><p>asserts might be better here than <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">Exception</span></code> constructs because asserts can be disabled with a flag passed to the interpreter. So, when you debug you can take advantage of them, and when the code is production quality and supposed to be bug free you can disable all assertions at once to gain in execution speed.</p></li>
 </ul>
 <div class="admonition note">
-<p><strong>GOOD PRACTICE</strong>: Notice I wrote what the helper function is expected to receive as a comment. Writing down specs often helps understanding what the function is supposed to do, and helps users of your code as well!</p>
+<p><strong>GOOD PRACTICE</strong>: Notice we wrote what the helper function is expected to receive as a comment. Writing down specs often helps understanding what the function is supposed to do, and helps users of your code as well!</p>
 </div>
 <div class="admonition note">
 <p><a class="reference external" href="https://en.softpython.org/commandments.html#VII-COMMANDMENT">VII COMMANDMENT</a>: You shall also write on paper!</p>
@@ -2935,7 +2928,7 @@ does. Adding a helper function is a frequent pattern you can find when programmi
 <li><p><code class="docutils literal notranslate"><span class="pre">lst</span></code>: a list of <span class="math notranslate nohighlight">\(n\)</span> numbers</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: an index from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <span class="math notranslate nohighlight">\(n\)</span> <strong>included</strong></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">level</span></code> is recursion level, we can use it to help ourselves while debugging</p>
+<p><code class="docutils literal notranslate"><span class="pre">level</span></code> is the recursion level, we can use it to help ourselves while debugging</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
@@ -2987,7 +2980,7 @@ does. Adding a helper function is a frequent pattern you can find when programmi
 <div class="section" id="Exercise---mul2">
 <h3>Exercise - mul2<a class="headerlink" href="#Exercise---mul2" title="Permalink to this headline">¶</a></h3>
 <p>Write a recursive function <code class="docutils literal notranslate"><span class="pre">mul_rec</span></code> which given a list RETURN a NEW list with all elements multiplied by two.</p>
-<p><strong>ONLY USE</strong> <code class="docutils literal notranslate"><span class="pre">.append()</span></code> to build return list. In order to use it, you need the parameter <code class="docutils literal notranslate"><span class="pre">acc</span></code>, which is a list into which you will accumulate the elements found during the recursion. At the end of recursion you will return <code class="docutils literal notranslate"><span class="pre">acc</span></code></p>
+<p><strong>ONLY USE</strong> <code class="docutils literal notranslate"><span class="pre">.append()</span></code> to build output list: in order to use it, you will need the parameter <code class="docutils literal notranslate"><span class="pre">acc</span></code>, which is a list into which you will accumulate the elements found during the recursion. At the end of recursion you will return <code class="docutils literal notranslate"><span class="pre">acc</span></code></p>
 <p><strong>MUST</strong> execute in <span class="math notranslate nohighlight">\(O(n)\)</span></p>
 <p><strong>DO NOT</strong> use <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code> cycles nor list comprehensions</p>
 <p><strong>DO NOT</strong> use slices</p>
