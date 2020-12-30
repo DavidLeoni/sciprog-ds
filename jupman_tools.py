@@ -1,3 +1,7 @@
+import logging
+# this way we don't get warning of other libs in pytest, see https://stackoverflow.com/a/63946841
+logging.captureWarnings(True)  
+
 import zipfile
 from pylatexenc.latexencode import unicode_to_latex
 from enum import Enum
@@ -10,7 +14,6 @@ import glob
 import stat
 import datetime 
 from nbconvert.preprocessors import Preprocessor  
-import logging
 
 
 class JupmanFormatter(logging.Formatter):
@@ -29,8 +32,6 @@ console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(JupmanFormatter())
 logger.addHandler(console_handler)
 
-# this way we don't get warning of other libs in pytest, see https://stackoverflow.com/a/63946841
-logging.captureWarnings(True)  
 
 
 
@@ -345,7 +346,8 @@ def multi_replace(text, d):
     return s
 
 def span_pattern(tag):
-    """
+    """ NOTE: Doesn't eat the blank afterwards, has lookahead
+    
         @since 3.3
     """
     s = r"%s(.*?)%s" % (start_tag_pattern(tag).pattern, end_tag_pattern(tag).pattern)
@@ -353,13 +355,15 @@ def span_pattern(tag):
     return re.compile(s, flags=re.DOTALL)
 
 def start_tag_pattern(tag):
-    """
+    """ NOTE: start tag always eats the blank afterwards, end tag doesn't (has lookahead)
+    
         @since 3.3
     """    
     return re.compile(r"#%s\s" % tag, flags=re.DOTALL)
 
 def end_tag_pattern(tag):
-    """
+    """ NOTE: start tag always eats the blank afterwards, end tag doesn't (has lookahead)
+    
         @since 3.3
     """
     ec = tag_end(tag)[-1]
@@ -367,7 +371,7 @@ def end_tag_pattern(tag):
     return re.compile(s, flags=re.DOTALL)
 
 def single_tag_pattern(tag):
-    """
+    """ NOTE: Doesn't eat the blank afterwards, has lookahead
         @since 3.3
     """
     
@@ -632,7 +636,7 @@ class Jupman:
         """
 
     def _purge_tags(self, text):
-        """ Purges text according to directives, and removes Jupman solution_tags stripping the content within tags!
+        """ Purges text according to directives, and removes all other Jupman tags. Only the tags, not their content!
             
             WARNING: in other words, this function IS *NOT* SUFFICIENT 
                     to completely clean exercises from solutions !!!
@@ -641,7 +645,8 @@ class Jupman:
         """
         ret = text
         if self.purge_input in text or self.purge_io in text:
-            ret = ''
+            return ''
+        #NOTE: span_pattern doesn't eat the blank afterwards (has lookahead)
         ret = re.sub(span_pattern(self.purge), '', ret)
                     
         # so longer come first
@@ -650,20 +655,14 @@ class Jupman:
         
         for tag in all_tags:
             if tag in self.span_tags:
-                ret = re.sub(start_tag_pattern(tag), '', ret)
+                #NOTE: start tag always eats the blank afterwards, end tag doesn't (has lookahead)
+                ret = re.sub(start_tag_pattern(tag), '\n', ret)                
                 ret = re.sub(end_tag_pattern(tag), '', ret)
+                
             else:
+                #NOTE: single_tag_pattern doesn't eat the blank afterwards (has lookahead)
                 ret = re.sub(single_tag_pattern(tag), '', ret)            
         
-        """    
-        for tag in all_tags:
-            if tag in self.span_tags:
-                ret = ret \
-                    .replace(tag_start(tag), '') \
-                    .replace(tag_end(tag), '')                        
-            else:
-                ret = ret.replace('#' + tag, '')            
-        """
         return ret
 
 
