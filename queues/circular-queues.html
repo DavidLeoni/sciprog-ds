@@ -1953,7 +1953,8 @@ Queue is empty !
 <span class="sd">        between head (INCLUDED) index and calculated tail index (EXCLUDED)</span>
 <span class="sd">        Otherwise, return False.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">head</span>
+
+    <span class="n">h</span> <span class="o">=</span> <span class="n">head</span>
     <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="n">size</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacity</span>
 
     <span class="k">return</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">h</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span> <span class="o">+</span> <span class="n">size</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">h</span> <span class="o">&gt;</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">size</span> <span class="o">==</span> <span class="n">q</span><span class="o">.</span><span class="n">capacity</span><span class="p">)</span>

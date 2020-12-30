@@ -1864,7 +1864,8 @@ The division excludes field construction (e.g. agricultural land terracing, drai
 
 <span></span><span class="k">def</span> <span class="nf">is_nace</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Given a word, RETURN True if the word is a NACE code, else otherwise&quot;&quot;&quot;</span>
-        <span class="c1"># we could implement it also with regexes, here we use explicit methods:</span>
+
+    <span class="c1"># we could implement it also with regexes, here we use explicit methods:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">word</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -1933,7 +1934,8 @@ The division excludes field construction (e.g. agricultural land terracing, drai
 <span class="sd">       - also extracts section letters</span>
 <span class="sd">       - list must have *no* duplicates</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;;,.:()&quot;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
@@ -2088,7 +2090,8 @@ The division excludes field construction (e.g. agricultural land terracing, drai
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">build_db</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="kn">import</span> <span class="nn">csv</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">my_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -2140,6 +2143,7 @@ The division excludes field construction (e.g. agricultural land terracing, drai
 <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
 
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
 
     <span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="n">code</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="n">code</span><span class="p">][</span><span class="s1">&#39;exclusions&#39;</span><span class="p">]))</span> <span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">db</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="n">level</span><span class="p">]</span>
     <span class="n">coords</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

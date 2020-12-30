@@ -1767,6 +1767,7 @@ description specifies a range of values for that product: <em>fino a</em> means 
 <span class="k">def</span> <span class="nf">extract_bounds</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 
 
+
     <span class="n">fixed_text</span> <span class="o">=</span> <span class="n">text</span>
     <span class="k">for</span> <span class="n">pun</span> <span class="ow">in</span> <span class="n">PUNCTUATION</span><span class="p">:</span>
         <span class="n">fixed_text</span> <span class="o">=</span> <span class="n">fixed_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pun</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
@@ -1985,6 +1986,7 @@ description specifies a range of values for that product: <em>fino a</em> means 
 
 <span class="k">def</span> <span class="nf">extract_product</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">measure_unit</span><span class="p">):</span>
 
+
     <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">my_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>   <span class="c1"># Notice we now used DictReader</span>
@@ -2109,6 +2111,7 @@ description specifies a range of values for that product: <em>fino a</em> means 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">plot_product</span><span class="p">(</span><span class="n">product</span><span class="p">):</span>
+
 
     <span class="n">models</span> <span class="o">=</span> <span class="n">product</span><span class="p">[</span><span class="s1">&#39;models&#39;</span><span class="p">]</span>
     <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">))</span>

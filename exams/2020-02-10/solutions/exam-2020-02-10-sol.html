@@ -1553,6 +1553,7 @@ the genus Canis (probably descended from the common wolf) that has been domestic
 <span class="sd">        holding the fields of the correspoing synset. See next printout for an example.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">line</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
@@ -2062,7 +2063,8 @@ the genus Canis (probably descended from the common wolf) that has been domestic
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">to_adj</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
         <span class="n">targets</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2194,7 +2196,8 @@ the genus Canis (probably descended from the common wolf) that has been domestic
 <span class="p">}</span>
 
 <span class="k">def</span> <span class="nf">draw_hist</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-        <span class="n">hist</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">hist</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">ptr</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;ptrs&#39;</span><span class="p">]:</span>
             <span class="n">ps</span> <span class="o">=</span> <span class="n">ptr</span><span class="p">[</span><span class="s1">&#39;pointer_symbol&#39;</span><span class="p">]</span>

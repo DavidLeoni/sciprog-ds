@@ -1511,6 +1511,7 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        if mata row number is different from matb, raises ValueError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mata</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matb</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mata and matb have different row number a:</span><span class="si">%s</span><span class="s2"> b:</span><span class="si">%s</span><span class="s2">!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mata</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">matb</span><span class="p">)))</span>
 
@@ -1855,7 +1856,8 @@ div.rendered_html tbody tr:hover {
     <span class="sd">&quot;&quot;&quot; RETURN True if provided graph mat as list of boolean lists is an</span>
 <span class="sd">        nxn surjective binary relation, otherwise return False</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
     <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># number of incoming edges found</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)):</span>      <span class="c1"># go column by column</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)):</span>  <span class="c1"># go row by row</span>
@@ -2184,6 +2186,7 @@ div.rendered_html tbody tr:hover {
 <span class="sd">                                     }</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
 
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">da</span><span class="p">:</span>

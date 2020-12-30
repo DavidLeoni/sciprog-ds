@@ -1638,7 +1638,8 @@ else:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">rank_categories</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">diz</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
         <span class="n">parole</span> <span class="o">=</span> <span class="n">diz</span><span class="p">[</span><span class="s1">&#39;Insegna&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">diz</span><span class="p">[</span><span class="s1">&#39;Note&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">parola</span> <span class="ow">in</span> <span class="n">parole</span><span class="p">:</span>
@@ -1809,7 +1810,8 @@ else:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">enrich</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">diz</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
         <span class="n">new_diz</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">val</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">diz</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
@@ -1998,7 +2000,8 @@ else:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
-        <span class="n">rem</span> <span class="o">=</span> <span class="n">q</span>
+
+    <span class="n">rem</span> <span class="o">=</span> <span class="n">q</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">riga</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">:</span>

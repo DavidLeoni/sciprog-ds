@@ -1647,7 +1647,8 @@ else:
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">calc_uid_to_abbr</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;positions&#39;</span><span class="p">]:</span>
             <span class="n">uid</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;unitIdentifier&#39;</span><span class="p">]</span>
@@ -1709,7 +1710,8 @@ Institutional Relations and Strategic Documents
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">calc_prof_roles</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-        <span class="n">hist</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">hist</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">uid_to_abbr</span> <span class="o">=</span> <span class="n">calc_uid_to_abbr</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
@@ -1790,6 +1792,7 @@ Institutional Relations and Strategic Documents
 <span class="k">def</span> <span class="nf">plot_profs</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
 
 
+
     <span class="n">prof_roles</span> <span class="o">=</span> <span class="n">calc_prof_roles</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
 
     <span class="n">xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prof_roles</span><span class="p">)))</span>
@@ -1868,7 +1871,8 @@ Institutional Relations and Strategic Documents
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
 <span></span><span class="k">def</span> <span class="nf">calc_roles</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;positions&#39;</span><span class="p">]:</span>
             <span class="n">uid</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="s1">&#39;unitIdentifier&#39;</span><span class="p">]</span>
@@ -1955,6 +1959,7 @@ Institutional Relations and Strategic Documents
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">plot_roles</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">abbrs</span><span class="p">):</span>
+
 
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
     <span class="n">uid_to_abbr</span> <span class="o">=</span> <span class="n">calc_uid_to_abbr</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
@@ -2058,7 +2063,8 @@ Institutional Relations and Strategic Documents
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
 <span></span><span class="k">def</span> <span class="nf">calc_shared</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">uid_to_people</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">uid_to_abbr</span> <span class="o">=</span> <span class="n">calc_uid_to_abbr</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
@@ -2154,6 +2160,7 @@ Institutional Relations and Strategic Documents
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="k">def</span> <span class="nf">plot_shared</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+
 
     <span class="n">uid_to_abbr</span> <span class="o">=</span> <span class="n">calc_uid_to_abbr</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
 

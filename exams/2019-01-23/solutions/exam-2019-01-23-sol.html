@@ -1454,7 +1454,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">table_to_adj</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">headers</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
@@ -1766,7 +1767,8 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        Takes a time string in the format like 08:27:42</span>
 <span class="sd">        and RETURN the time since midnight in hours as a float (es 8.461666666666666)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">hours</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">hours</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
     <span class="n">mins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
     <span class="n">secs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time_string</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">hours</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">mins</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">secs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
@@ -1787,7 +1789,8 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        - remember to set the figure width and heigth</span>
 <span class="sd">        - remember to set axis labels and title</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">stops</span> <span class="o">=</span> <span class="n">load_stops</span><span class="p">()</span>
+
+    <span class="n">stops</span> <span class="o">=</span> <span class="n">load_stops</span><span class="p">()</span>
 
     <span class="o">%</span><span class="k">matplotlib</span> inline
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>

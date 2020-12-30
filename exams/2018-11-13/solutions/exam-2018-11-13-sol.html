@@ -1427,7 +1427,8 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        If n &gt; m, raises a ValueError</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst2</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst2</span><span class="p">):</span>
         <span class="k">raise</span>  <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;List 1 is bigger than list 2 ! lst_a = </span><span class="si">%s</span><span class="s2">, lst_b = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst2</span><span class="p">)))</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst1</span><span class="p">:</span>
@@ -1641,6 +1642,7 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        For more examples, see tests</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
 
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chairs</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chairs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1986,7 +1988,8 @@ find a canonical representation.</p>
 <span></span><span class="k">def</span> <span class="nf">canonical</span><span class="p">(</span><span class="n">phone</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; RETURN the canonical version of phone as a string. See above for an explanation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">phone</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">phone</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;0039&#39;</span><span class="p">):</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
     <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;+39&#39;</span><span class="p">):</span>
@@ -2052,7 +2055,8 @@ find a canonical representation.</p>
 
 <span class="sd">        DO USE THE ALREADY DEFINED FUCTION canonical(phone)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">canonical</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="n">canonical</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mobile_prefixes</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
             <span class="k">return</span> <span class="s1">&#39;mobile&#39;</span>
@@ -2131,7 +2135,8 @@ find a canonical representation.</p>
 
 <span class="sd">        DO USE THE ALREADY DEFINED FUCTIONS canonical(phone) AND prefix(phone)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">phone</span> <span class="ow">in</span> <span class="n">phones</span><span class="p">:</span>

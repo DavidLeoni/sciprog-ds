@@ -1414,7 +1414,8 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
 <span></span><span class="k">def</span> <span class="nf">parse_melody</span><span class="p">(</span><span class="n">melody</span><span class="p">):</span>
-        <span class="n">notes</span> <span class="o">=</span> <span class="n">melody</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="n">notes</span> <span class="o">=</span> <span class="n">melody</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
@@ -1568,6 +1569,7 @@ K:G
 
 <span class="k">def</span> <span class="nf">parse_tunes</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 
+
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tunes.abc&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># skips %abc-2.1</span>
         <span class="n">tunes</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1719,7 +1721,8 @@ K:G
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">sequencer</span><span class="p">(</span><span class="n">melody</span><span class="p">):</span>
-        <span class="n">notes</span> <span class="o">=</span> <span class="n">parse_melody</span><span class="p">(</span><span class="n">melody</span><span class="p">)</span>
+
+    <span class="n">notes</span> <span class="o">=</span> <span class="n">parse_melody</span><span class="p">(</span><span class="n">melody</span><span class="p">)</span>
     <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
         <span class="n">length</span> <span class="o">+=</span> <span class="n">note</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1876,6 +1879,7 @@ K:G
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">plot_tune</span><span class="p">(</span><span class="n">tune</span><span class="p">):</span>
+
 
 
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>

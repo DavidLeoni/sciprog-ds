@@ -1505,6 +1505,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">calc_types_hist</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
 
+
     <span class="n">tipologie</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">diz</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">diz</span><span class="p">[</span><span class="s1">&#39;Tipologia&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;ALLOGGIO&#39;</span><span class="p">):</span>
@@ -1613,7 +1614,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">calc_types_series</span><span class="p">(</span><span class="n">hist</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">hist</span><span class="p">:</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">hist</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
@@ -1854,7 +1856,8 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        _and_ pollutant over all days.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">diz</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">diz</span><span class="p">[</span><span class="s1">&#39;Stazione&#39;</span><span class="p">],</span> <span class="n">diz</span><span class="p">[</span><span class="s1">&#39;Inquinante&#39;</span><span class="p">])</span>
