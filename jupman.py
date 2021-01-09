@@ -187,6 +187,8 @@ def mem_limit(MB=None):
 def draw_img(path, figsize=None):
     """ Display images of given size
         Workaround for https://github.com/DavidLeoni/jupman/issues/61
+        
+        @since 3.3
     """
     import matplotlib.pyplot as plt;
     import matplotlib.image as mpimg
@@ -199,6 +201,26 @@ def draw_img(path, figsize=None):
     
     plt.imshow(img)    
 
+    
+def draw_text(text, fontsize=None):    
+    """ Display text as image
+        Workaround for https://github.com/DavidLeoni/jupman/issues/66        
+        
+        @since 3.3
+    """
+    import matplotlib.pyplot as plt
+    
+    fig, ax = plt.subplots(1, 1, figsize=(1,1))    
+    
+    # Note: figsize doesn't appear to work to reduce size, only to increase and doesn't scale text anyway
+    #       if figsize is not set, text appears too low
+    
+    if fontsize:
+        plt.text(0, 0, str(text),fontsize=fontsize)
+    else:
+        plt.text(0, 0, str(text),fontsize=9) # note: this default looks good in PDF, but is small for jupyter
+    ax.axis('off')        
+    plt.show()    
     
 def pytut_json(jm_code):
     """ Runs jm_code and return a JSON execution trace
