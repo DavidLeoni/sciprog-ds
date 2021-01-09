@@ -672,7 +672,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../sorting/sorting.html#5-chaining">5 chaining</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../sorting/sorting.html#5.1-has_duplicates">5.1 has_duplicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sorting/sorting.html#B.2.2-chain">B.2.2 chain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sorting/sorting.html#5.2-chain">5.2 chain</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../sorting/sorting.html#6-SwapArray">6 SwapArray</a><ul>
@@ -2189,11 +2189,30 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
 <p><code class="docutils literal notranslate"><span class="pre">lb</span></code> : list of <span class="math notranslate nohighlight">\(n\)</span> <strong>positive</strong> integers</p>
 <p><strong>HINT</strong>: Try giving a tight complexity bound for the function, considering we assume <code class="docutils literal notranslate"><span class="pre">lb</span></code> is only made of <strong>positive</strong> integers</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">buick</span><span class="p">(</span><span class="n">lb</span><span class="p">):</span>
+    <span class="n">la</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="n">lb</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">la</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">el</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">la</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                    <span class="n">la</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+    <span class="k">return</span> <span class="n">la</span>
+</pre></div>
+</div>
+</div>
+<a  class="jupman-sol jupman-sol-toggler"
+ onclick="jupman.toggleSolution(this);"
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buick</span><span class="p">(</span><span class="n">lb</span><span class="p">):</span>
     <span class="n">la</span> <span class="o">=</span> <span class="p">[]</span>                                        <span class="c1"># 1</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span>                                    <span class="c1"># 1</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>                             <span class="c1"># n iterations (lb will be popped until empty)</span>
@@ -2208,10 +2227,6 @@ O(n^2 + \frac{n^2 + n}{2}) = O(n^2)
     <span class="k">return</span> <span class="n">la</span>                                      <span class="c1"># 1</span>
 </pre></div>
 </div>
-</div>
-<a  class="jupman-sol jupman-sol-toggler"
- onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
 <p><span class="math notranslate nohighlight">\(O(2 + n(2 + n + n + 1) + n^2 + 1) = O(n^2)\)</span></p>
 <p><strong>NOTE:</strong> last <span class="math notranslate nohighlight">\(n^2\)</span> is for the expensive double <code class="docutils literal notranslate"><span class="pre">for</span></code> and was put <em>outside</em> the while cycle computation for the following reason: from function text we know it’s already unlikely <code class="docutils literal notranslate"><span class="pre">la</span></code> sum is <code class="docutils literal notranslate"><span class="pre">10</span></code>. As soon as it becomes <code class="docutils literal notranslate"><span class="pre">10</span></code>, we are going to add stuff to it (we assume all input numbers are positive). Thus, the <code class="docutils literal notranslate"><span class="pre">if</span></code> will be entered <em>at most once per function call</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buick</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
@@ -3717,7 +3732,7 @@ True
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright # 2020 - 2020, David Leoni
+        &copy; Copyright # 2020 - 2021, David Leoni
 
     </p>
   </div>

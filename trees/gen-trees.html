@@ -672,7 +672,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../sorting/sorting.html#5-chaining">5 chaining</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../sorting/sorting.html#5.1-has_duplicates">5.1 has_duplicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sorting/sorting.html#B.2.2-chain">B.2.2 chain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sorting/sorting.html#5.2-chain">5.2 chain</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../sorting/sorting.html#6-SwapArray">6 SwapArray</a><ul>
@@ -2469,9 +2469,9 @@ d-e-f   g
 <p>The tree above can also be represented like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a
 ├b
-|├d
-|├e
-|└f
+│├d
+│├e
+│└f
 └c
  └g
   ├h
@@ -2519,7 +2519,7 @@ d-e-f   g
 
 <span></span><span class="c1"># this is the tree from the example above</span>
 
-<span class="n">tb</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)))</span>
+<span class="n">tb</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">))</span>
 <span class="n">tg</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">)))</span>
 <span class="n">ta</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">tg</span><span class="p">))</span>
 
@@ -2630,11 +2630,10 @@ False
 
 <span></span><span class="c1"># example tree seen at the beginning</span>
 
-<span class="n">tb</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)))</span>
+<span class="n">tb</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">))</span>
 <span class="n">tg</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">)))</span>
 <span class="n">tc</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">tg</span><span class="p">)</span>
 <span class="n">ta</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">)</span>
-
 
 <span class="n">ta</span><span class="o">.</span><span class="n">has_triangle</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
 
@@ -2796,7 +2795,7 @@ True
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright # 2020 - 2020, David Leoni
+        &copy; Copyright # 2020 - 2021, David Leoni
 
     </p>
   </div>
