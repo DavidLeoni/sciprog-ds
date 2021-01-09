@@ -274,7 +274,9 @@ class SumRecTest(BinaryTreeTest):
         └3
     """
     def test_03_6_empty_3(self):
-        t = bt(6, None, bt(3))
+        t = bt(6, 
+                 None, 
+                 bt(3))
         self.assertEqual(t.sum_rec(), 9)
 
     """
@@ -283,18 +285,23 @@ class SumRecTest(BinaryTreeTest):
         └3
     """
     def test_04_4_8_3(self):
-        t = bt(4, bt(8), bt(3))
+        t = bt(4, 
+                    bt(8), 
+                    bt(3))
         self.assertEqual(t.sum_rec(), 15)
 
     """
         7
         ├2
-        |├6
-        |└
+        │├6
+        │└
         └4
     """
     def test_05_7_26_4(self):
-        t = bt(7, bt(2, bt(6)), bt(4))
+        t = bt(7, 
+                bt(2, 
+                     bt(6)),
+                bt(4))
         self.assertEqual(t.sum_rec(), 19)
 
     """
@@ -305,18 +312,23 @@ class SumRecTest(BinaryTreeTest):
          └
     """
     def test_06_9_5_32(self):
-        t = bt(9, bt(5), bt(3, bt(2)))
+        t = bt(9, 
+                  bt(5), 
+                  bt(3, 
+                        bt(2)))
         self.assertEqual(t.sum_rec(), 19)
 
     """
         5
         ├2            
-        |├3
-        |└
+        │├3
+        │└
         └ 
     """
     def test_07_523_left(self):
-        t = bt(5, bt(2, bt(3)))
+        t = bt(5, 
+                  bt(2, 
+                       bt(3)))
         self.assertEqual(t.sum_rec(), 10)
 
     """
@@ -327,7 +339,10 @@ class SumRecTest(BinaryTreeTest):
          └3
     """
     def test_08_523_right(self):
-        t = bt(5, None, bt(2, None, bt(3)))
+        t = bt(5, None, 
+                  bt(2, 
+                        None, 
+                        bt(3)))
         self.assertEqual(t.sum_rec(), 10)
 
     """
@@ -396,8 +411,8 @@ class HeightRecTest(BinaryTreeTest):
     """
         a
         ├b
-        |├c
-        |└
+        │├c
+        │└
         └d
     """        
     def test_05(self):        
@@ -416,12 +431,12 @@ class HeightRecTest(BinaryTreeTest):
     """
         a
         ├b
-        |├c
-        ||├d
-        |||├e
-        |||└
-        ||└
-        |└
+        │├c
+        ││├d
+        │││├e
+        │││└
+        ││└ 
+        │└
         └f
          ├g
          └         
@@ -454,7 +469,8 @@ class DepthRecTest(BinaryTreeTest):
         └
     """        
     def test_02(self):      
-        t = bt('a', bt('b'))
+        t = bt('a', 
+                    bt('b'))
         t.depth_rec(0)      
         self.assertTreeEqual(t, bt(0, bt(1)))
 
@@ -464,7 +480,9 @@ class DepthRecTest(BinaryTreeTest):
         └c
     """           
     def test_03(self):  
-        t = bt('a', None, bt('c'))
+        t = bt('a', 
+                    None, 
+                    bt('c'))
         t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, None, bt(1)))
 
@@ -474,19 +492,24 @@ class DepthRecTest(BinaryTreeTest):
         └c
     """           
     def test_04(self):   
-        t = bt('a', bt('b'), bt('c'))
+        t = bt('a', 
+                    bt('b'), 
+                    bt('c'))
         t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1), bt(1)))
 
     """
         a
         ├b
-        |├d
-        |└
+        │├d
+        │└
         └c
     """           
     def test_05(self):    
-        t = bt('a', bt('b', bt('c')), bt('d'))    
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')), 
+                    bt('d'))    
         t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1, bt(2)), bt(1)))
 
@@ -498,19 +521,22 @@ class DepthRecTest(BinaryTreeTest):
          └
     """                   
     def test_06(self):   
-        t = bt('a', bt('d'), bt('b', bt('c')))     
+        t = bt('a', 
+                    bt('d'), 
+                    bt('b', 
+                            bt('c')))     
         t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1), bt(1, bt(2))))
 
     """
         a
         ├b
-        |├c
-        ||├d
-        |||├e
-        |||└
-        ||└
-        |└
+        │├c
+        ││├d
+        │││├e
+        │││└
+        ││└
+        │└
         └f
          ├g
          └         
@@ -544,7 +570,8 @@ class ContainsRecTest(BinaryTreeTest):
         └
     """
     def test_02_a_b_empty(self):
-        t = bt('a', bt('b'))
+        t = bt('a', 
+                    bt('b'))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('b'))
         self.assertFalse(t.contains_rec('c'))
@@ -555,7 +582,9 @@ class ContainsRecTest(BinaryTreeTest):
         └c
     """
     def test_03_a_empty_b(self):
-        t = bt('a', None, bt('c'))
+        t = bt('a', 
+                    None, 
+                    bt('c'))
         self.assertTrue(t.contains_rec('a'))
         self.assertFalse(t.contains_rec('b'))
         self.assertTrue(t.contains_rec('c'))
@@ -567,7 +596,9 @@ class ContainsRecTest(BinaryTreeTest):
         └c
     """
     def test_04_a_b_c(self):
-        t = bt('a', bt('b'), bt('c'))
+        t = bt('a', 
+                    bt('b'), 
+                    bt('c'))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('b'))
         self.assertTrue(t.contains_rec('c'))
@@ -576,12 +607,15 @@ class ContainsRecTest(BinaryTreeTest):
     """
         a
         ├b
-        |├c
-        |└
+        │├c
+        │└
         └d
     """
     def test_05_a_bc_d(self):
-        t = bt('a', bt('b', bt('c')), bt('d'))
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')),
+                    bt('d'))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('b'))
         self.assertTrue(t.contains_rec('c'))
@@ -596,7 +630,10 @@ class ContainsRecTest(BinaryTreeTest):
          └
     """
     def test_06_a_b_cd(self):
-        t = bt('a', bt('b'), bt('c', bt('d')))
+        t = bt('a', 
+                    bt('b'), 
+                    bt('c', 
+                            bt('d')))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('b'))
         self.assertTrue(t.contains_rec('c'))
@@ -606,12 +643,14 @@ class ContainsRecTest(BinaryTreeTest):
     """
         a
         ├b            
-        |├c
-        |└
+        │├c
+        │└
         └ 
     """
     def test_07_abc_left(self):
-        t = bt('a', bt('b', bt('c')))
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('b'))
         self.assertTrue(t.contains_rec('c'))
@@ -625,7 +664,11 @@ class ContainsRecTest(BinaryTreeTest):
          └c
     """
     def test_08_abc_right(self):
-        t = bt('a', None, bt('b', None, bt('c')))
+        t = bt('a', 
+                    None, 
+                    bt('b',
+                            None, 
+                            bt('c')))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('a'))
         self.assertTrue(t.contains_rec('a'))
@@ -676,7 +719,8 @@ class JoinRecTest(BinaryTreeTest):
         └
     """
     def test_02_a_b_empty(self):
-        t = bt('a', bt('b'))
+        t = bt('a', 
+                    bt('b'))
         self.assertEqual(t.join_rec(), 'ba')
 
     """
@@ -685,7 +729,9 @@ class JoinRecTest(BinaryTreeTest):
         └c
     """
     def test_03_a_empty_b(self):
-        t = bt('a', None, bt('b'))
+        t = bt('a', 
+                    None, 
+                    bt('b'))
         self.assertEqual(t.join_rec(),'ab')
 
 
@@ -695,18 +741,23 @@ class JoinRecTest(BinaryTreeTest):
         └c
     """
     def test_04_a_b_c(self):
-        t = bt('a', bt('b'), bt('c'))
+        t = bt('a', 
+                    bt('b'), 
+                    bt('c'))
         self.assertEqual(t.join_rec(),'bac')
 
     """
         a
         ├b
-        |├c
-        |└
+        │├c
+        │└
         └d
     """
     def test_05_a_bc_d(self):
-        t = bt('a', bt('b', bt('c')), bt('d'))
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')), 
+                    bt('d'))
         self.assertEqual(t.join_rec(),'cbad')
 
     """
@@ -717,18 +768,23 @@ class JoinRecTest(BinaryTreeTest):
          └
     """
     def test_06_a_b_cd(self):
-        t = bt('a', bt('b'), bt('c', bt('d')))
+        t = bt('a', 
+                    bt('b'), 
+                    bt('c', 
+                            bt('d')))
         self.assertEqual(t.join_rec(),'badc')
 
     """
         a
         ├b            
-        |├c
-        |└
+        │├c
+        │└
         └ 
     """
     def test_07_abc_left(self):
-        t = bt('a', bt('b', bt('c')))
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')))
         self.assertEqual(t.join_rec(),'cba')
     """
         a
@@ -738,7 +794,11 @@ class JoinRecTest(BinaryTreeTest):
          └c
     """
     def test_08_abc_right(self):
-        t = bt('a', None, bt('b', None, bt('c')))
+        t = bt('a', 
+                    None, 
+                          bt('b',
+                                 None, 
+                                 bt('c')))
         self.assertEqual(t.join_rec(),'abc')
 
     """
@@ -892,7 +952,8 @@ class FunRecTest(BinaryTreeTest):
         └
     """
     def test_02_fx(self):
-        t = bt('f', bt('x'))
+        t = bt('f', 
+                    bt('x'))
         self.assertEqual(t.fun_rec(), 'f(x)')
 
 
@@ -902,18 +963,23 @@ class FunRecTest(BinaryTreeTest):
         └z
     """
     def test_03_gyz(self):
-        t = bt('g', bt('y'), bt('z'))
+        t = bt('g', 
+                    bt('y'), 
+                    bt('z'))
         self.assertEqual(t.fun_rec(),'g(y,z)')
 
     """
         g
         ├f
-        |├x
-        |└
+        │├x
+        │└
         └y
     """
     def test_04_a_gfxy(self):
-        t = bt('g', bt('f', bt('x')), bt('y'))
+        t = bt('g', 
+                    bt('f', 
+                            bt('x')), 
+                    bt('y'))
         self.assertEqual(t.fun_rec(),'g(f(x),y)')
 
     """
@@ -924,18 +990,23 @@ class FunRecTest(BinaryTreeTest):
          └
     """
     def test_05_gyfx(self):
-        t = bt('g', bt('y'), bt('f', bt('x')))
+        t = bt('g', 
+                    bt('y'), 
+                    bt('f', 
+                            bt('x')))
         self.assertEqual(t.fun_rec(),'g(y,f(x))')
 
     """
         h
         ├g            
-        |├x
-        |└
+        │├x
+        │└
         └ 
     """
     def test_06_hgx(self):
-        t = bt('h', bt('g', bt('x')))
+        t = bt('h', 
+                    bt('g', 
+                            bt('x')))
         self.assertEqual(t.fun_rec(),'h(g(x))')
 
     """
@@ -978,7 +1049,7 @@ class SumLeavesRecTest(BinaryTreeTest):
     """
     def test_02_4_7_empty(self):
         t = bt(4, 
-                    bt(7))
+                 bt(7))
         self.assertEqual(t.sum_leaves_rec(), 7)
 
     """
@@ -988,8 +1059,8 @@ class SumLeavesRecTest(BinaryTreeTest):
     """
     def test_03_6_empty_3(self):
         t = bt(6, 
-                    None, 
-                    bt(3))
+                  None, 
+                  bt(3))
         self.assertEqual(t.sum_leaves_rec(), 3)
 
     """
@@ -999,22 +1070,22 @@ class SumLeavesRecTest(BinaryTreeTest):
     """
     def test_04_4_8_3(self):
         t = bt(4, 
-                    bt(8), 
-                    bt(3))
+                  bt(8), 
+                  bt(3))
         self.assertEqual(t.sum_leaves_rec(), 8+3)
 
     """
         7
         ├2
-        |├6
-        |└
+        │├6
+        │└
         └4
     """
     def test_05_7_26_4(self):
         t = bt(7, 
-                    bt(2, 
-                            bt(6)), 
-                    bt(4))
+                  bt(2, 
+                       bt(6)), 
+                  bt(4))
         self.assertEqual(t.sum_leaves_rec(), 6+4)
 
     """
@@ -1026,16 +1097,16 @@ class SumLeavesRecTest(BinaryTreeTest):
     """
     def test_06_9_5_32(self):
         t = bt(9, 
-                    bt(5), 
-                    bt(3, 
-                            bt(2)))
+                 bt(5), 
+                 bt(3, 
+                      bt(2)))
         self.assertEqual(t.sum_leaves_rec(), 5+2)
 
     """
         5
         ├2            
-        |├3
-        |└
+        │├3
+        │└
         └ 
     """
     def test_07_523_left(self):
@@ -1272,7 +1343,8 @@ class SumStackTest(BinaryTreeTest):
         └
     """
     def test_02_4_7_empty(self):
-        t = bt(4, bt(7))
+        t = bt(4, 
+                 bt(7))
         self.assertEqual(t.sum_stack(), 11)
 
     """
@@ -1281,7 +1353,9 @@ class SumStackTest(BinaryTreeTest):
         └3
     """
     def test_03_6_empty_3(self):
-        t = bt(6, None, bt(3))
+        t = bt(6,
+                 None, 
+                 bt(3))
         self.assertEqual(t.sum_stack(), 9)
 
     """
@@ -1290,18 +1364,23 @@ class SumStackTest(BinaryTreeTest):
         └3
     """
     def test_04_4_8_3(self):
-        t = bt(4, bt(8), bt(3))
+        t = bt(4,
+                 bt(8), 
+                 bt(3))
         self.assertEqual(t.sum_stack(), 15)
 
     """
         7
         ├2
-        |├6
-        |└
+        │├6
+        │└
         └4
     """
     def test_05_7_26_4(self):
-        t = bt(7, bt(2, bt(6)), bt(4))
+        t = bt(7, 
+                  bt(2, 
+                        bt(6)), 
+                  bt(4))
         self.assertEqual(t.sum_stack(), 19)
 
     """
@@ -1312,18 +1391,23 @@ class SumStackTest(BinaryTreeTest):
          └
     """
     def test_06_9_5_32(self):
-        t = bt(9, bt(5), bt(3, bt(2)))
+        t = bt(9, 
+                 bt(5), 
+                 bt(3, 
+                       bt(2)))
         self.assertEqual(t.sum_stack(), 19)
 
     """
         5
         ├2            
-        |├3
-        |└
+        │├3
+        │└
         └ 
     """
     def test_07_523_left(self):
-        t = bt(5, bt(2, bt(3)))
+        t = bt(5, 
+                  bt(2, 
+                        bt(3)))
         self.assertEqual(t.sum_stack(), 10)
 
     """
@@ -1334,7 +1418,11 @@ class SumStackTest(BinaryTreeTest):
          └3
     """
     def test_08_523_right(self):
-        t = bt(5, None, bt(2, None, bt(3)))
+        t = bt(5, 
+                  None, 
+                  bt(2, 
+                        None, 
+                        bt(3)))
         self.assertEqual(t.sum_stack(), 10)
 
     """
@@ -1374,22 +1462,39 @@ class HeightStackTest(BinaryTreeTest):
         self.assertEqual(bt('a').height_stack(), 0)
 
     def test_02(self):        
-        self.assertEqual(bt('a', bt('b')).height_stack(), 1)
+        self.assertEqual(bt('a', 
+                                bt('b')).height_stack(), 1)
 
     def test_03(self):        
-        self.assertEqual(bt('a', None, bt('b')).height_stack(), 1)
+        self.assertEqual(bt('a', 
+                                None, 
+                                bt('b')).height_stack(), 1)
 
     def test_04(self):        
-        self.assertEqual(bt('a', bt('b'), bt('c')).height_stack(), 1)
+        self.assertEqual(bt('a', 
+                                 bt('b'), 
+                                 bt('c')).height_stack(), 1)
 
     def test_05(self):        
-        self.assertEqual(bt('a', bt('b', bt('c')), bt('d')).height_stack(), 2)
+        self.assertEqual(bt('a', 
+                                bt('b', 
+                                        bt('c')), 
+                                bt('d')).height_stack(), 2)
 
     def test_06(self):        
-        self.assertEqual(bt('a', bt('d'), bt('b', bt('c'))).height_stack(), 2)
+        self.assertEqual(bt('a', 
+                                 bt('d'), 
+                                 bt('b', 
+                                        bt('c'))).height_stack(), 2)
 
     def test_07(self):        
-        self.assertEqual(bt('a', bt('b', bt('c', bt('d', bt('e')))), bt('f', bt('g'))).height_stack(), 4)
+        self.assertEqual(bt('a', 
+                                bt('b', 
+                                        bt('c', 
+                                                bt('d', 
+                                                        bt('e')))), 
+                                bt('f', 
+                                        bt('g'))).height_stack(), 4)
         
 
 class BinInsertRecTest(BinaryTreeTest):
@@ -1547,7 +1652,8 @@ class PruneRecTest(BinaryTreeTest):
             ta.prune_rec('a')        
 
     def test_a_a_pa(self):
-        ta = bt('a', bt('a'))
+        ta = bt('a', 
+                    bt('a'))
         with self.assertRaises(ValueError):
             ta.prune_rec('a')    
 
@@ -1558,34 +1664,47 @@ class PruneRecTest(BinaryTreeTest):
         self.assertTreeEqual(ta, bt('a'))
 
     def test_a_a_pb(self):
-        ta = bt('a', bt('a'))
+        ta = bt('a', 
+                    bt('a'))
         ta.prune_rec('b')        
-        self.assertTreeEqual(ta, bt('a',bt('a')))
+        self.assertTreeEqual(ta, bt('a',
+                                        bt('a')))
 
     def test_a_b_pa(self):
-        ta = bt('a', bt('b'))
+        ta = bt('a', 
+                     bt('b'))
         with self.assertRaises(ValueError):
             ta.prune_rec('a')        
 
     def test_a_b_pb(self):
-        ta = bt('a', bt('b'))
+        ta = bt('a', 
+                     bt('b'))
         ta.prune_rec('b')
         self.assertTreeEqual(ta, bt('a'))
 
     def test_a_b_b_pb(self):
-        ta = bt('a', bt('b'),bt('b'))
+        ta = bt('a', 
+                     bt('b'),
+                     bt('b'))
         ta.prune_rec('b')
         self.assertTreeEqual(ta, bt('a'))
 
     def test_a_a_b_pb(self):
-        ta = bt('a', bt('a'),bt('b'))
+        ta = bt('a', 
+                     bt('a'),
+                     bt('b'))
         ta.prune_rec('b')
-        self.assertTreeEqual(ta, bt('a', bt('a')))
+        self.assertTreeEqual(ta, bt('a', 
+                                         bt('a')))
 
     def test_a_b_a_pb(self):
-        ta = bt('a', bt('b'),bt('a'))
+        ta = bt('a', 
+                     bt('b'),
+                     bt('a'))
         ta.prune_rec('b')
-        self.assertTreeEqual(ta, bt('a',None, bt('a')))
+        self.assertTreeEqual(ta, bt('a',
+                                         None, 
+                                         bt('a')))
 
     def test_a_n_b_c_pc(self):
         ta = bt('a', 

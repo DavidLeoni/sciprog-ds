@@ -466,8 +466,8 @@ class AncestorsTest(GenericTreeTest):
     """
         a
         ├b
-        |├d
-        |└e
+        │├d
+        │└e
         └c
          └f
     """   
@@ -516,7 +516,7 @@ class GrandChildrenTest(GenericTreeTest):
     """
         a
         ├b
-        |└c
+        │└c
         └d
           └e
     """            
@@ -526,11 +526,11 @@ class GrandChildrenTest(GenericTreeTest):
     """
             a
             ├b
-            |├c
-            |└d
-            | └g
+            │├c
+            │└d
+            │ └g
             ├e
-            |└h  
+            │└h  
             └f    
     """
     def test_05_complex_grandgrandchildren(self):
@@ -564,8 +564,8 @@ class ZigTest(GenericTreeTest):
         """ 
             a
             ├b
-            |├c
-            |└d
+            │├c
+            │└d
             └e 
         """    
         self.assertEqual(gt('a', gt('b', gt('c'), gt('d')), gt('e')).zig(), ['a','b', 'c'])        
@@ -597,8 +597,8 @@ class ZagTest(GenericTreeTest):
         """ 
             a
             ├b   <-- start from
-            |├c
-            |└d
+            │├c
+            │└d
             └e   
         """    
         t = gt('a', gt('b', gt('c'), gt('d')), gt('e'))
@@ -636,7 +636,7 @@ class ZigZagTest(GenericTreeTest):
             a
             ├b  
             ├c
-            |└e
+            │└e
             └d 
             
             Notice the siblings chain must arrive to the end up to 'd' !
@@ -650,7 +650,7 @@ class ZigZagTest(GenericTreeTest):
             a
             ├b
             ├c
-            |└e
+            │└e
             └d
              ├f
              └g
@@ -692,7 +692,7 @@ class UnclesTest(GenericTreeTest):
     """
         a
         ├b
-        |└c <-         
+        │└c <-         
         └d  
     """            
     def test_03_one_uncle_after(self):
@@ -723,7 +723,7 @@ class UnclesTest(GenericTreeTest):
         a
         ├b
         ├c
-        |└d <-
+        │└d <-
         └e
           
     """            
@@ -737,11 +737,11 @@ class UnclesTest(GenericTreeTest):
     """
             a
             ├b
-            |├c
-            |└d
-            | └g
+            │├c
+            │└d
+            │ └g
             ├e
-            |└h  <- 
+            │└h  <- 
             └f    
     """
     def test_06_complex_1(self):
@@ -755,11 +755,11 @@ class UnclesTest(GenericTreeTest):
     """
             a
             ├b
-            |├c
-            |└d
-            | └g <-            
+            │├c
+            │└d
+            │ └g <-            
             ├e
-            |└h   
+            │└h   
             └f    
     """
     def test_07_complex_2(self):
@@ -799,8 +799,8 @@ class CommonAncestorTest(GenericTreeTest):
     """
         a
         ├b
-        |├d
-        |└e
+        │├d
+        │└e
         └c
          └f
     """   
@@ -822,8 +822,8 @@ class CommonAncestorTest(GenericTreeTest):
         a
         └b
          ├c
-         |├d
-         |└e
+         │├d
+         │└e
          └f
         
     """   
@@ -850,7 +850,7 @@ class MirrorTest(GenericTreeTest):
 
     """
     a   <-   Becomes  a
-    └b               └b
+    └b                └b
     """       
     def test_02_ab(self):
         t = gt('a',gt('b'))
@@ -873,9 +873,9 @@ class MirrorTest(GenericTreeTest):
     """
     a   <-     Becomes:   a
     ├b                    ├f
-    |├c                   └b
-    |├d                    ├e
-    |└e                    ├d
+    │├c                   └b
+    │├d                    ├e
+    │└e                    ├d
     └f                     └c 
                           
     """    
@@ -888,8 +888,8 @@ class MirrorTest(GenericTreeTest):
     """
     a                       a 
     ├b   <-     Becomes:    ├b
-    |├c                     |├d
-    |└d                     |└c
+    │├c                     │├d
+    │└d                     │└c
     └e                      └e
     """
     def test_05_non_root(self):
@@ -1002,7 +1002,7 @@ class RightmostTest(GenericTreeTest):
             a
             ├b
             ├c
-            |└e
+            │└e
             └d
              ├f
              └g
@@ -1098,13 +1098,13 @@ class FillLeftTest(GenericTreeTest):
         """ 
             a
             ├b
-            |└e
-            | ├f
-            | ├g
-            | |└i
-            | └h
+            │└e
+            │ ├f
+            │ ├g
+            │ │└i
+            │ └h
             ├c
-            |
+            │
             └d
         """    
         
@@ -1225,11 +1225,11 @@ class FollowTest(GenericTreeTest):
             a
             ├b
             ├c
-            |└e
-            | ├f
-            | ├g
-            | |└i
-            | └hparent is an instance of %s , which is not a GenericTree!" % type(c1.parent()))
+            │└e
+            │ ├f
+            │ ├g
+            │ │└i
+            │ └h
             └d
         """    
         
@@ -1347,7 +1347,7 @@ class IsTriangleTest(GenericTreeTest):
         """ 
             a
             ├b
-            |└d
+            │└d
             └c             
         """    
 
@@ -1359,8 +1359,8 @@ class IsTriangleTest(GenericTreeTest):
         """ 
             a
             ├b
-            |├d
-            |└e
+            │├d
+            │└e
             └c             
         """           
         ta = gt('a', gt('b',gt('d'),gt('e')), gt('c'))    
@@ -1382,9 +1382,9 @@ class IsTriangleTest(GenericTreeTest):
         """ 
             a
             ├b
-            |├d
-            |├e
-            |└f
+            │├d
+            │├e
+            │└f
             └c
              └g
               ├h
@@ -1449,9 +1449,9 @@ class HasTriangleTest(GenericTreeTest):
         """ 
             a
             ├b
-            |├d
-            |├e
-            |└f
+            │├d
+            │├e
+            │└f
             └c
              └g
               ├h
@@ -1459,7 +1459,7 @@ class HasTriangleTest(GenericTreeTest):
                └l
         """    
 
-        tb = gt('b', gt('d', gt('e'), gt('f')))
+        tb = gt('b', gt('d'), gt('e'), gt('f'))
         tg = gt('g', gt('h'), gt('i', gt('l')))
         tc = gt('c', tg)
         ta = gt('a', tb, tc)

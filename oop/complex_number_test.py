@@ -1,5 +1,5 @@
 import unittest
-from ComplexNumber_sol import *
+from complex_number_sol import *
 
 class ComplexNumberTest(unittest.TestCase):
 

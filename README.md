@@ -9,4 +9,4 @@ Source code as Jupyter Python worksheets for algorithms lab of Scientific Progra
 
 For Students: please see official course website is here:  [sciprog.davidleoni.it](https://sciprog.davidleoni.it) 
 
-For instructors: for info on how to build the website see [Jupman](http://jupman.readthedocs.io)
+For instructors: for info on how to build the website see [Jupman](https://jupman.softpython.org)
