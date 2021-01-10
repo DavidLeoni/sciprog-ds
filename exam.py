@@ -5,6 +5,9 @@
 __author__ = "David Leoni"
 __status__ = "Development"
 
+#keep it first so we don't get deprecation warnings
+import jupman_tools as jmt
+
 import conf
 import sys
 import os
@@ -16,7 +19,6 @@ import arghandler
 from arghandler import ArgumentHandler
 from arghandler import subcmd
 
-import jupman_tools as jmt
 
 from jupman_tools import info
 from jupman_tools import fatal
