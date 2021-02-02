@@ -127,7 +127,12 @@ class BinaryTreeTest(unittest.TestCase):
             if not isinstance(c1, BinaryTree):
                 raise Exception("ACTUAL node is an instance of  %s  , which is not a  BinaryTree  !\n\n%s"
                                 % (type(c1).__name__, str_btrees(actual, expected, row )))
-                            
+                         
+            if type(c1.data()) != type(c2.data()):
+                errMsg = "ACTUAL data type: %s is different from EXPECTED data type: %s!\n\n" \
+                         % (type(c1.data()), type(c2.data()))
+                raise Exception(errMsg + str_btrees(actual,expected,row))
+                
             if c1.data() != c2.data():
                 raise Exception("ACTUAL data is different from expected!\n\n" 
                                 + str_btrees(actual,expected,row))

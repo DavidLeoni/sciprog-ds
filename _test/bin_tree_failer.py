@@ -69,3 +69,37 @@ class BinaryTreeFailTest(BinaryTreeTest):
                         
         self.assertTreeEqual(ta, bt('a', bt('b'), bt('c')))
         
+    def test_14_data_datatype_root(self):
+        ta = bt('666')
+                                
+        self.assertTreeEqual(ta, bt(666))
+        
+    def test_15_data_datatype_root_None(self):
+        ta = bt(None)
+                                
+        self.assertTreeEqual(ta, bt('None'))            
+        
+    def test_16_data_datatype_left(self):
+        ta = bt('a',
+                     bt('666'))
+                                
+        self.assertTreeEqual(ta, bt('a', 
+                                        bt(666)))
+        
+    def test_17_data_datatype_right(self):
+        ta = bt('a',
+                     None,
+                     bt('666'))
+                                
+        self.assertTreeEqual(ta, bt('a', 
+                                        None,
+                                        bt(666)))
+        
+    def test_18_data_datatype_both(self):
+        ta = bt('a',
+                     bt('666'),
+                     bt('666'))
+                                
+        self.assertTreeEqual(ta, bt('a', 
+                                        bt(666),
+                                        bt(666)))        
