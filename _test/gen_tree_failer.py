@@ -24,7 +24,7 @@ class TreeFailTest(GenericTreeTest):
         self.assertTreeEqual(None, gt('b'))
 
     def test_03_none_right(self):
-        self.assertTreeEqual(gt('b'), None)
+        self.assertTreeEqual(gt('b'), None)            
     
     def test_04_wrongClass(self):
         self.assertTreeEqual('hello', gt('a'))
@@ -74,4 +74,74 @@ class TreeFailTest(GenericTreeTest):
         tb._parent = 666
                         
         self.assertTreeEqual(ta, gt('a', gt('b')))
+        
+    def test_15_data_datatype_root(self):
+        ta = gt('666')
+                                
+        self.assertTreeEqual(ta, gt(666))
+        
+    def test_16_data_datatype_root_None(self):
+        ta = gt(None)
+                                
+        self.assertTreeEqual(ta, gt('None'))            
+        
+    def test_17_data_datatype_left(self):
+        ta = gt('a',
+                     gt('666'))
+                                
+        self.assertTreeEqual(ta, gt('a', 
+                                        gt(666)))
+        
+    def test_18_data_datatype_right(self):
+        ta = gt('a',
+                     gt('b'),
+                     gt('666'))
+                                
+        self.assertTreeEqual(ta, gt('a', 
+                                        gt('b'),
+                                        gt(666)))
+        
+    def test_19_data_datatype_both(self):
+        ta = gt('a',
+                     gt('666'),
+                     gt('666'))
+                                
+        self.assertTreeEqual(ta, gt('a', 
+                                        gt(666),
+                                        gt(666)))                
                              
+    def test_20_check_arrow_abc(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(gt('a',
+                                    gt('b'),
+                                    gt('c'),
+                                    gt('d')), 
+                             gt('a', 
+                                    gt('b'),
+                                    gt('c'),
+                                    gt('e')))
+        
+    def test_21_check_arrow_complex(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(gt('a',
+                                    gt('b', 
+                                            gt('e'),
+                                            gt('f')),                                           
+                                    gt('c',
+                                            gt('h'),
+                                            gt('i'),
+                                            gt('l'),
+                                            gt('m')),
+                                    gt('d')), 
+                             gt('a',
+                                    gt('b', 
+                                            gt('e'),
+                                            gt('f')),                                            
+                                    gt('c',
+                                            gt('h'),
+                                            gt('i'),
+                                            gt('z'),
+                                            gt('m')),
+                                    gt('d')))        

@@ -127,8 +127,12 @@ class GenericTreeTest(unittest.TestCase):
     def assertTreeEqual(self, actual, expected):
         """ Asserts the trees actual and expected are equal """
         
-        def rec_assert(c1, c2, row):                    
-            
+        
+        
+        def rec_assert(c1, c2):                    
+        
+            nonlocal row
+        
             if c2 == None:
                 raise Exception("Found a None node in EXPECTED tree!\n\n" 
                                 + str_trees(actual,expected,row))
@@ -143,7 +147,12 @@ class GenericTreeTest(unittest.TestCase):
             if not isinstance(c1, GenericTree):
                 raise Exception("ACTUAL node is an instance of  %s  , which is not a  GenericTree  !\n\n%s"
                                 % (type(c1).__name__, str_trees(actual, expected, row )))
-                            
+                       
+            if type(c1.data()) != type(c2.data()):
+                errMsg = "ACTUAL data type:  %s  is different from EXPECTED data type:  %s  !\n\n" \
+                         % (type(c1.data()).__name__, type(c2.data()).__name__)
+                raise Exception(errMsg + str_trees(actual,expected,row))
+                
             if c1.data() != c2.data():
                 raise Exception("ACTUAL data is different from expected!\n\n"
                                 + str_trees(actual,expected,row))
@@ -185,19 +194,21 @@ class GenericTreeTest(unittest.TestCase):
             
             current1 = c1.child()
             current2 = c2.child()
-                        
-            while ( current1 != None and current2 != None):                
-                rec_assert(current1, current2, row + 1)   
+                            
+            while ( current1 != None and current2 != None):
+                row += 1
+                rec_assert(current1, current2)
                 current1 = current1.sibling()
                 current2 = current2.sibling()
                 i += 1 
 
             if (current1 == None and current2 != None) or (current1 != None and current2 == None):                                            
                 raise Exception("Children sizes are different !\n\n"
-                                + str_trees(actual, expected, row + i))                
+                                + str_trees(actual, expected, row))                
         
+        row = 0    
         try:
-            rec_assert(actual, expected, 0)
+            rec_assert(actual, expected)
         except Exception as e:
             # not all exceptions have 'message' 
             raise AssertionError(getattr(e, 'message', e.args[0])) from None                

@@ -103,15 +103,17 @@ class BinaryTreeTest(unittest.TestCase):
     def assertTreeEqual(self, actual, expected):
         """ Asserts the trees actual and expected are equal """
         
-        def get_children(bt):
+        def get_children(t):
             ret = []
-            if bt._left:
-                ret.append(bt._left)
-            if bt._right:
-                ret.append(bt._right)
+            if t._left:
+                ret.append(t._left)
+            if t._right:
+                ret.append(t._right)
             return ret
 
-        def rec_assert(c1, c2, row):                    
+        def rec_assert(c1, c2):
+            
+            nonlocal row
             
             if c2 == None:
                 raise Exception("Found a None node in EXPECTED tree!\n\n" 
@@ -129,27 +131,35 @@ class BinaryTreeTest(unittest.TestCase):
                                 % (type(c1).__name__, str_btrees(actual, expected, row )))
                          
             if type(c1.data()) != type(c2.data()):
-                errMsg = "ACTUAL data type: %s is different from EXPECTED data type: %s!\n\n" \
-                         % (type(c1.data()), type(c2.data()))
+                errMsg = "ACTUAL data type:  %s  is different from EXPECTED data type:  %s\n\n" \
+                         % (type(c1.data()).__name__, type(c2.data()).__name__)
                 raise Exception(errMsg + str_btrees(actual,expected,row))
                 
             if c1.data() != c2.data():
                 raise Exception("ACTUAL data is different from expected!\n\n" 
                                 + str_btrees(actual,expected,row))
             
-            i = 0            
             
             cs1 = get_children(c1)
             cs2 = get_children(c2)
             if (len(cs1) != len(cs2)):
                 raise Exception("Number of children is different !\n\n"
-                                + str_btrees(actual, expected, row + min(len(cs1), len(cs2))) )
-            while (i < len(cs1) ):
-                rec_assert(cs1[i], cs2[i], row + 1)   
-                i += 1 
+                                + str_btrees(actual, expected, row) )
+            
+            
+            if c1._left:
+                row += 1
+                rec_assert(c1._left, c2._left)            
+            if c1._right:
+                if c1._left:                        
+                    row += 1
+                else:
+                    row += 2
+                rec_assert(c1._right, c2._right)
                 
+        row = 0
         try:
-            rec_assert(actual, expected, 0)
+            rec_assert(actual, expected)
         except Exception as e:
             # not all exceptions have 'message' 
             raise AssertionError(getattr(e, 'message', e.args[0])) from None

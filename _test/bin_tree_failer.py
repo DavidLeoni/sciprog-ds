@@ -103,3 +103,74 @@ class BinaryTreeFailTest(BinaryTreeTest):
         self.assertTreeEqual(ta, bt('a', 
                                         bt(666),
                                         bt(666)))        
+
+    def test_19_check_arrow_abc(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(bt('a',
+                                    bt('b'),
+                                    bt('c')), 
+                             bt('a', 
+                                    bt('b'),
+                                    bt('z')))
+    
+
+    def test_20_check_arrow_a_none_c(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(bt('a',
+                                    None,
+                                    bt('c')), 
+                             bt('a', 
+                                    bt('b'),
+                                    bt('c')))
+    
+    def test_21_check_arrow_ab_length(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(bt('a',                                    
+                                    bt('b')), 
+                             bt('a', 
+                                    bt('b'),
+                                    bt('c')))    
+        
+    def test_22_check_arrow_a_none_b(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(bt('a',                                    
+                                    None,
+                                    bt('b')), 
+                             bt('a', 
+                                    None,
+                                    bt('c')))            
+    
+    
+    def test_23_check_arrow_a_b_none(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(bt('a',                                    
+                                    bt('b')), 
+                             bt('a', 
+                                    bt('c')))                
+    
+    def test_24_check_arrow_complex(self):
+        """Checks arrow is show at correct height"""
+        
+        self.assertTreeEqual(bt('a',
+                                    bt('b', 
+                                            None,
+                                            bt('f')),                                           
+                                    bt('c',                                            
+                                            bt('g',
+                                                   bt('h')),
+                                            bt('d'))), 
+                             bt('a',
+                                    bt('b', 
+                                            None,
+                                            bt('f')),                                           
+                                    bt('c',                                            
+                                            bt('g',
+                                                   bt('z')),
+                                            bt('d'))),)
+        
+       
