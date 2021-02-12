@@ -272,6 +272,10 @@ class SwapStackTest(BinaryTreeTest):
         t.swap_stack('a', 'a')
 
         self.assertTreeEqual(t, bt('a'))
+        
+        t2 = bt('a')
+        with self.assertRaises(LookupError):
+            t2.swap_stack('b', 'b')
 
     def test_03_ab(self):
         tb = bt('b')
