@@ -21,7 +21,7 @@ jm = jmt.Jupman()
 
 jm.subtitle = """Enter the Matrix""" 
 jm.course = "Scientific Programming Lab" 
-jm.degree = "Data Science @ University of Trento" 
+jm.degree = "Data Science Master @ University of Trento" 
 author = 'David Leoni' 
 
 copyright = '# 2020 - %s, %s' % (datetime.datetime.now().year, author)
@@ -129,7 +129,8 @@ extensions = [
 
 # Exclude build directory and Jupyter backup files:
 exclude_patterns = [jm.build,
-                    jm.generated, 
+                    jm.generated,
+                    "**-chal-sol.*",
                     "_templates/exam-server",
                      "_private",
                      "_test",                     
