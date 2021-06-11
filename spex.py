@@ -2,6 +2,8 @@
 
 # This script allows initialization and management of exams.
 
+print("CIAO")
+
 __author__ = "David Leoni"
 __status__ = "Development"
 
@@ -22,6 +24,7 @@ import jupman_tools as jmt
 from jupman_tools import info
 from jupman_tools import fatal
 from jupman_tools import warn
+import jupman
 
 jm = conf.jm
 
@@ -40,7 +43,7 @@ if 'exam.py' not in cur_dir_names:
     fatal('You must execute exam.py from within the directory it is contained!')
 
 # mmm should have tried th inlude !!
-@subcmd(help='Set up shipped exams. Usage example:  ./spex.py fixship 2020-12-16  --dry-run --exclude ".pdf,.js,.png,.css,.pyc,.json,_test.py,.ipynb,sciprog.py,jupman.py"')
+@subcmd(help='Set up shipped exams. Usage example:  ./spex.py fixship 2021-01-14     --exclude ".pdf,.js,.png,.css,.pyc,.json,_test.py,sciprog.py,jupman.py,-checkpoint.ipynb,ipynb_checkpoints/,__pycache__/,_static/,_static/img/,_static/js/,_static/css/"')
 def fixship(parser,context,args):
     
     parser.add_argument('date', help="date in format 'yyyy-mm-dd'" )
@@ -109,7 +112,7 @@ def fixship(parser,context,args):
                 if 'FIRSTNAME' in fn or 'LASTNAME' in fn:
                     fatal("FOUND NON-RENAMED DIRECTORY: %s" % fn)
 
-                if fn.startswith('sciprog-ds-') or fn.startswith('sciprog-qcb-'):
+                if fn.startswith(f'{conf.jm.filename}-') or fn.startswith('sciprog-qcb-'):
                     if not created_dir:                          
                         folder = os.path.normpath(fn).split(os.sep)[0]
                         target_dir = "%s/%s" % (shipped, folder)
@@ -130,7 +133,7 @@ def fixship(parser,context,args):
                     else:
                         info('  skipped %s' % fn)
                 else:
-                    fatal("FOUND FILE NOT IN sciprog-* DIRECTORY !: %s\n\n" % fn)
+                    fatal(f"FOUND FILE NOT IN {conf.jm.filename}-* DIRECTORY !: %s\n\n" % fn)
             # Extract all the contents of zip file in different directory
             
             #zipObj.extractall('target')
