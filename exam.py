@@ -11,6 +11,8 @@ import jupman_tools as jmt
 import conf
 import sys
 import os
+from contextlib import contextmanager
+
 import shutil
 import datetime
 import glob
@@ -24,7 +26,20 @@ from jupman_tools import info
 from jupman_tools import fatal
 from jupman_tools import warn
 
+import logging
+
 jm = conf.jm
+
+@contextmanager
+def CD(new_dir):
+    prevdir = os.getcwd()
+    info(f"Setting working dir to {new_dir}")
+    os.chdir(os.path.expanduser(new_dir))
+    try:
+        yield
+    finally:        
+        os.chdir(prevdir)
+        info(f"Restored working dir.")
 
 def get_target_student(ld):
     return '_private/%s/student-zip/%s/'  % (ld, jm.get_exam_student_folder(ld))
@@ -164,9 +179,12 @@ def package(parser,context,args):
         ex_nb.cells = [cell for cell in ex_nb.cells \
                              if not ('nbsphinx' in cell.metadata \
                                      and cell.metadata['nbsphinx'] == 'hidden')]
-                         
-        (body, resources) = pdf_exporter.from_notebook_node(ex_nb,
-                                                            resources={'metadata': {'name': old_title}})
+
+        
+        with CD(target_student): # needed otherwise doesn't find images
+            info(f"  Exporting to {target_student_pdf}")    
+            (body, resources) = pdf_exporter.from_notebook_node(ex_nb,
+                                                                resources={'metadata': {'name': old_title}})    
         
         with open(target_student_pdf, 'wb') as pdf_f:        
             pdf_f.write(body)    
@@ -334,12 +352,16 @@ def delete_exam(parser,context,args):
     if len(deleted) == 0:
         fatal("COULDN'T FIND ANY EXAM FILE TO DELETE FOR DATE: " + ld)
 
-handler = ArgumentHandler(description='Manages ' + jm.filename + ' exams.',
-                         use_subcommand_help=True)
-handler.run()
 
-print("")
-info("DONE.\n")
+if __name__ == "__main__":
+    logging.getLogger().setLevel(logging.INFO)
+
+    handler = ArgumentHandler(description='Manages ' + jm.filename + ' exams.',
+                         use_subcommand_help=True)
+    handler.run()
+
+    print("")
+    info("DONE.\n")
 
 
 
