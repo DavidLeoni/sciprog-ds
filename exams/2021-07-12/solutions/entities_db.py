@@ -1,0 +1,20 @@
+entities_db = {
+       1: {"class" : "SpaceMarine",      "type":    1,  "name": "Space Marine",},
+       7: {"class" : "SpiderMastermind", "type":    7,  "name": "Spider Mastermind"},
+       9: {"class" : "ShotgunGuy",       "type":    9,  "name": "Former human sergeant"},
+      16: {"class" : "Cyberdemon",       "type":   16,  "name": "Cyberdemon"},
+      58: {"class" : "Spectre",          "type":   58,  "name": "Partially invisible demon"},
+      64: {"class" : "Archvile",         "type":   64,  "name": "Arch-vile"},
+      65: {"class" : "ChaingunGuy",      "type":   65,  "name": "Former human commando"},
+      66: {"class" : "Revenant",         "type":   66,  "name": "Revenant"},
+      67: {"class" : "Fatso",            "type":   67,  "name": "Mancubus"},
+      68: {"class" : "Arachnotron",      "type":   68,  "name": "Arachnotron"},
+      69: {"class" : "HellKnight",       "type":   69,  "name": "Hell Knight"},
+      71: {"class" : "PainElemental",    "type":   71,  "name": "Pain Elemental"},
+    3001: {"class" : "DoomImp",          "type": 3001,  "name": "Imp"},
+    3002: {"class" : "Demon",            "type": 3002,  "name": "Demon"},
+    3003: {"class" : "BaronOfHell",      "type": 3003,  "name": "Baron of Hell"},
+    3004: {"class" : "ZombieMan",        "type": 3004,  "name": "Former human trooper"},
+    3005: {"class" : "Cacodemon",        "type": 3005,  "name": "Cacodemon"},
+    3006: {"class" : "LostSoul",         "type": 3006,  "name": "Lost Soul"}
+}
