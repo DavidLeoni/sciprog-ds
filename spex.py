@@ -13,6 +13,7 @@ import os
 import shutil
 import datetime
 import glob
+import fnmatch
 import re
 from zipfile import ZipFile
 import arghandler
@@ -43,7 +44,7 @@ if 'exam.py' not in cur_dir_names:
     fatal('You must execute exam.py from within the directory it is contained!')
 
 # mmm should have tried th inlude !!
-@subcmd(help='Set up shipped exams. Usage example:  ./spex.py fixship 2021-01-14     --exclude ".pdf,.js,.png,.css,.pyc,.json,_test.py,sciprog.py,jupman.py,-checkpoint.ipynb,ipynb_checkpoints/,__pycache__/,_static/,_static/img/,_static/js/,_static/css/"')
+@subcmd(help='Set up shipped exams. Usage example:  ./spex.py fixship 2021-01-14     --exclude "*.pdf,*.js,*.png,*.css,*.pyc,*.json,*_test.py,sciprog.py,jupman.py,*-checkpoint.ipynb,ipynb_checkpoints/*,__pycache__/*,_static/*"')
 def fixship(parser,context,args):
     
     parser.add_argument('date', help="date in format 'yyyy-mm-dd'" )
@@ -124,8 +125,11 @@ def fixship(parser,context,args):
                         created_dir = True
 
                     target_path = "%s/%s" % (shipped, fn)
-                    if (not include or (include and any([fn.endswith(ext) for ext in include])))\
-                       and not any([fn.endswith(ext) for ext in exclude]):
+                    user_filepath = os.path.normpath(fn).split(os.path.sep)
+                    user_filepath = "/".join(user_filepath[1:])
+                    
+                    if (not include or (include and any([fnmatch.fnmatch(user_filepath, ext) for ext in include])))\
+                       and not any([fnmatch.fnmatch(user_filepath, ext) for ext in exclude]):
                         
                         info('extracting %s' % target_path)
                         if not dry_run:
