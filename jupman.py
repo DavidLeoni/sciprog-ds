@@ -222,6 +222,90 @@ def draw_text(text, fontsize=None):
     ax.axis('off')        
     plt.show()    
     
+
+def draw_df(df, fontsize=16, scale=(1.8, 3.9), figsize=(12, 2)):
+    """ EXPERIMENTAL draws a Pandas DataFrame as an image
+        Taken from https://stackoverflow.com/a/36904120
+        @since 3.3
+    """    
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    from pandas.plotting import table
+    import numpy as np
+    fig, ax = plt.subplots(figsize=figsize) # set size frame
+    ax.xaxis.set_visible(False)  # hide the x axis
+    ax.yaxis.set_visible(False)  # hide the y axis
+    ax.set_frame_on(False)  # no visible frame, uncomment if size is ok
+    col_widths = [0.008 * (8 + df[col].map(lambda x: len(str(x))).max()) for col in df]
+    tabla = table(ax, df, loc='upper right', colWidths=col_widths)  # where df is your data frame
+    tabla.auto_set_font_size(False) # Activate set fontsize manually
+    tabla.set_fontsize(fontsize) # if ++fontsize is necessary ++colWidths
+    tabla.scale(scale[0], scale[1]) # change size table
+    #plt.savefig('table.png', transparent=True)    
+        
+def get_doc(fun):
+    """ Returns the help of a function formatted in a faithful manner
+        
+        @since 3.3
+    """
+    import pydoc
+    lines = pydoc.render_doc(fun, renderer=pydoc.plaintext).split('\n')
+    
+    return 'def ' + lines[2] + ':\n    """ ' + '\n    '.join(lines[3:]).strip()+ '\n    """'
+
+
+    
+def show_preview(val, lines=5, pr=True):
+    """ SUPER EXPERIMENTAL, Displays first lines of a data structure        
+        @since 3.3
+    """    
+    import pprint
+    import contextlib
+    from pprint import pformat
+    import reprlib
+    
+    #trick to prevent automated  sorting < python 3.8, see https://stackoverflow.com/a/60737399
+    @contextlib.contextmanager
+    def pprint_ordered():
+        pprint.sorted = lambda arg, *args, **kwargs: arg
+        yield
+        pprint.sorted = sorted    
+
+    with pprint_ordered():
+           
+        if type(val) == dict:
+            vals = val
+        elif type(val) == list:
+            vals = val
+        else:
+            raise ValueError("Unrecognized type: " % type(vals))                
+                
+        
+        
+        if type(val) == dict:
+            vals = val
+        elif type(val) == list:
+            vals = val
+        else:
+            raise ValueError("Unrecognized type: " % type(vals))        
+        
+        output = ''
+        
+        s = pformat(vals)
+        ls = s.split('\n')       
+        output += '\n'.join(ls[:lines] + ['  .','  .'])
+        if len(ls) > 1:
+            if type(vals) == dict:
+                output += '\n}'
+            elif type(vals) == list:
+                output += '\n]'            
+
+        if pr:
+            print(output)
+        else:
+            return output
+        
+        
 def pytut_json(jm_code):
     """ Runs jm_code and return a JSON execution trace
 
