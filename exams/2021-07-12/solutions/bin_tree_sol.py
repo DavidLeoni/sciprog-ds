@@ -1,5 +1,5 @@
 import jupman;
-jupman.mem_limit()
+
 
 class BinaryTree:
     """ A simple binary tree with left and right branches

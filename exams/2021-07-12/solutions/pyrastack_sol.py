@@ -1,5 +1,4 @@
 import jupman;
-jupman.mem_limit()
 
 DEBUG = True
 
