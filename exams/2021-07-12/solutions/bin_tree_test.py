@@ -279,7 +279,8 @@ class UnionRecTest(BinaryTreeTest):
         ta.union_rec(tb)
         self.assertTreeEqual(ta, bt(10,
                                         bt(8)))
-
+    
+        
     def test_03_9_n_3__4(self):
         ta = bt(9,
                   None,
@@ -288,8 +289,7 @@ class UnionRecTest(BinaryTreeTest):
         ta.union_rec(tb)
         self.assertTreeEqual(ta, bt(13,  
                                         None,
-                                        bt(3)))
-
+                                        bt(3)))        
 
     def test_04_9__4_5(self):
         ta = bt(9)
@@ -298,6 +298,11 @@ class UnionRecTest(BinaryTreeTest):
         ta.union_rec(tb)
         self.assertTreeEqual(ta, bt(13,                                          
                                         bt(5)))
+        #NEW: check no shared nodes
+        self.assertNotEqual(id(ta.left()), id(tb.left()))
+        # tb shouldn't change
+        self.assertTreeEqual(tb, bt(4,
+                                      bt(5)))
 
 
     def test_05_9__4_n_5(self):
@@ -310,7 +315,12 @@ class UnionRecTest(BinaryTreeTest):
                                         None,
                                         bt(5)))
 
-
+        #NEW: check no shared nodes
+        self.assertNotEqual(id(ta.right()), id(tb.right()))
+        # tb shouldn't change
+        self.assertTreeEqual(tb, bt(4,
+                                      None, 
+                                      bt(5)))
 
     def test_06_9_3__4_5(self):
         ta = bt(9,                  
