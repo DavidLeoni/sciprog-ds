@@ -128,6 +128,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../past-exams.html">Past Exams</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../past-exams.html#Data-science">Data science</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html">Exam - Mon 06, Sep 2021</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#Part-A---I-CHING-Divination">Part A - I CHING Divination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#A1-load_db">A1 load_db</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#A2-divine">A2 divine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#A3-plot_divination">A3 plot_divination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#Part-B">Part B</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#B1-Theory">B1 Theory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#B2-Train-race">B2 Train race</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-09-06/solutions/exam-2021-09-06-sol.html#B3-linked-algebra">B3 linked algebra</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../exams/2021-07-12/solutions/exam-2021-07-12-sol.html">Exam - Mon 12, Jul 2021</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../exams/2021-07-12/solutions/exam-2021-07-12-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../exams/2021-07-12/solutions/exam-2021-07-12-sol.html#Part-A---DOOM">Part A - DOOM</a></li>
@@ -1734,19 +1746,23 @@ div.rendered_html tbody tr:hover {
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">complex_str</span><span class="p">(</span><span class="n">cn</span><span class="p">):</span>
 </pre></div>
 </div>
-<p>Notice that: * all functions above take a <code class="docutils literal notranslate"><span class="pre">cn</span></code> complex number dictionary as first parameter * the functions <code class="docutils literal notranslate"><span class="pre">phase</span></code> and <code class="docutils literal notranslate"><span class="pre">log</span></code> are quite peculiar to complex number, and to know what they do you need to have deep knowledge of what a complex number is. * the function <code class="docutils literal notranslate"><span class="pre">complex_str</span></code> is more intuitive, because it covers the common need of giving a nice string representation to the data format we just defined. Also, we used the word <code class="docutils literal notranslate"><span class="pre">str</span></code> as part of the name to give a hint to the reader
-that probably the function behaves in a way similar to the Python function <code class="docutils literal notranslate"><span class="pre">str()</span></code>.</p>
+<p>Notice that:</p>
+<ul class="simple">
+<li><p>all functions above take a <code class="docutils literal notranslate"><span class="pre">cn</span></code> complex number dictionary as first parameter</p></li>
+<li><p>the functions <code class="docutils literal notranslate"><span class="pre">phase</span></code> and <code class="docutils literal notranslate"><span class="pre">log</span></code> are quite peculiar to complex number, and to know what they do you need to have deep knowledge of what a complex number is.</p></li>
+<li><p>the function <code class="docutils literal notranslate"><span class="pre">complex_str</span></code> is more intuitive, because it covers the common need of giving a nice string representation to the data format we just defined. Also, we used the word <code class="docutils literal notranslate"><span class="pre">str</span></code> as part of the name to give a hint to the reader that probably the function behaves in a way similar to the Python function <code class="docutils literal notranslate"><span class="pre">str()</span></code>.</p></li>
+</ul>
 <p>When we encounter a new datatype in our programs, we often follow the procedure of thinking listed above. Such procedure is so common that software engineering people though convenient to provide a specific programming paradigm to represent it, called <em>Object Oriented</em> programming. We are now going to rewrite the complex number example using such paradigm.</p>
 </div>
 <div class="section" id="1.5.-Object-Oriented-Programming">
 <h3>1.5. Object Oriented Programming<a class="headerlink" href="#1.5.-Object-Oriented-Programming" title="Permalink to this headline">¶</a></h3>
-<p>In Object Oriented Programming, we usually</p>
+<p>In Object Oriented Programming, we usually:</p>
 <ol class="arabic simple">
-<li><p>Introduce new datatypes by declaring a <em>class</em>, named for example <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code></p></li>
-<li><p>Are given a dictionary and define how data is stored in the dictionary (i.e. in fields <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">imaginary</span></code>)</p></li>
-<li><p>Define a way to <em>construct</em> specific <em>instances</em> , like <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">2i</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">6i</span></code> (instances are also called <em>objects</em>)</p></li>
-<li><p>Define some <em>methods</em> to operate on the <em>instances</em> (like <code class="docutils literal notranslate"><span class="pre">phase</span></code>)</p></li>
-<li><p>Define some special <em>methods</em> to customize how Python treats <em>instances</em> (for example for displaying them as strings when printing)</p></li>
+<li><p>introduce new datatypes by declaring a <em>class</em>, named for example <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code></p></li>
+<li><p>are given a dictionary and define how data is stored in the dictionary (i.e. in fields <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">imaginary</span></code>)</p></li>
+<li><p>define a way to <em>construct</em> specific <em>instances</em> , like <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">2i</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">6i</span></code> (instances are also called <em>objects</em>)</p></li>
+<li><p>define some <em>methods</em> to operate on the <em>instances</em> (like <code class="docutils literal notranslate"><span class="pre">phase</span></code>)</p></li>
+<li><p>define some special <em>methods</em> to customize how Python treats <em>instances</em> (for example for displaying them as strings when printing)</p></li>
 </ol>
 <p>Let’s now create our first <em>class</em>.</p>
 </div>
@@ -1771,7 +1787,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>Here we declare to Python that we are starting defining a template for a new <em>class</em> called <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>. This template will hold a collection of functions (called methods) that manipulate <em>instances</em> of complex numbers (instances are <code class="docutils literal notranslate"><span class="pre">1.0</span> <span class="pre">+</span> <span class="pre">2.0i</span></code>, <code class="docutils literal notranslate"><span class="pre">3.0</span> <span class="pre">+</span> <span class="pre">4.0i</span></code>, …).</p>
 <div class="admonition note">
-<p><strong>IMPORTANT</strong>: Although classes can have any name (i.e. complex_number, complexNumber, …), by convention you SHOULD use a camel cased name like ComplexNumber, with capital letters as initials and no underscores.</p>
+<p><strong>IMPORTANT</strong>: Although classes can have any name (i.e. <code class="docutils literal notranslate"><span class="pre">complex_number</span></code>, <code class="docutils literal notranslate"><span class="pre">complexNumber</span></code>, …), by convention you <em>SHOULD</em> use a camel cased name like <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>, with capital letters as initials and no underscores.</p>
 </div>
 </div>
 <div class="section" id="2.2.-Constructor-__init__">
@@ -1812,7 +1828,8 @@ that probably the function behaves in a way similar to the Python function <code
 <p><strong>WARNING</strong>: <strong>init</strong> MUST take at least one parameter, by convention it is usually named <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
 </div>
 <div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT</strong>: <code class="docutils literal notranslate"><span class="pre">self</span></code> is just a name we give to the first parameter. It could be any name our fantasy suggest and the program would behave exactly the same!</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT</strong>: <code class="docutils literal notranslate"><span class="pre">self</span></code> could be any name!</p>
+<p>Self is just a name we give to the first parameter. It could be any name our fantasy suggest and the program would behave exactly the same!</p>
 <p>If the editor you are using will evidence it in some special color, it is because it is aware of the convention but <em>not</em> because <code class="docutils literal notranslate"><span class="pre">self</span></code> is some special Python keyword.</p>
 </div>
 <div class="admonition note">
@@ -1847,18 +1864,21 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f36803fd750&gt;
+&lt;__main__.ComplexNumber object at 0x7f85181f4c90&gt;
 </pre></div></div>
 </div>
 <p>What happend here?</p>
 <p><strong>init 2.2.1)</strong> We told Python we want to create a new particular <em>instance</em> of the template defined by <em>class</em> <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>. As parameters for the instance we indicated <code class="docutils literal notranslate"><span class="pre">3.0</span></code> and <code class="docutils literal notranslate"><span class="pre">5.0</span></code>.</p>
 <div class="admonition warning">
-<p><strong>WARNING</strong>: to create the instance, we used the name of the class <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> following it by an open round parenthesis and parameters like a function call: <code class="docutils literal notranslate"><span class="pre">c=ComplexNumber(3.0,5.0)</span></code> Writing just: <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">ComplexNumber</span></code> would NOT instantiate anything and we would end up messing with the <em>template ``ComplexNumber``</em>, which is a collection of functions for complex numbers.</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>: you need round parenthesis to create the instance!</p>
+<p>We used the name of the class <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> following it by an open round parenthesis and parameters like a function call: <code class="docutils literal notranslate"><span class="pre">c=ComplexNumber(3.0,5.0)</span></code></p>
+<p>Writing just <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">ComplexNumber</span></code> would <em>NOT</em> instantiate anything and we would end up messing with the <em>template</em> <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>, which is a collection of functions for complex numbers.</p>
 </div>
 <p><strong>init 2.2.2)</strong> Python created a new special dictionary for the instance</p>
 <p><strong>init 2.2.3)</strong> Python passed the special dictionary as first parameter of the method <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, so it will be bound to parameter <code class="docutils literal notranslate"><span class="pre">self</span></code>. As second and third arguments passed <em>3.0</em> and <em>5.0</em>, which will be bound respectively to parameters <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">imaginary</span></code></p>
 <div class="admonition warning">
-<p><strong>WARNING</strong>: When instantiating an object with a call like c=ComplexNumber(3.0,5.0) you don’t need to pass a dictionary as first parameter! Python will implicitly create it and pass it as first parameter to <code class="docutils literal notranslate"><span class="pre">__init__</span></code></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>: You don’t need to pass a dictionary to instantiate a class!</p>
+<p>When instantiating an object with a call like <code class="docutils literal notranslate"><span class="pre">c=ComplexNumber(3.0,5.0)</span></code> you don’t need to pass a dictionary as first parameter! Python will implicitly create it and pass it as first parameter to <code class="docutils literal notranslate"><span class="pre">__init__</span></code></p>
 </div>
 <p><strong>init 2.2.4)</strong> In the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, the instructions</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span>
@@ -1867,7 +1887,8 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p>first create a key in the dictionary called <code class="docutils literal notranslate"><span class="pre">real</span></code> associating to the key the value of the parameter <code class="docutils literal notranslate"><span class="pre">real</span></code> (in the call is <em>3.0).</em> Then the value <em>5.0</em> is bound to the key <code class="docutils literal notranslate"><span class="pre">imaginary</span></code>.</p>
 <div class="admonition note">
-<p><strong>IMPORTANT:</strong> we said Python provides <code class="docutils literal notranslate"><span class="pre">__init__</span></code> with a special kind of dictionary as first parameter. One of the reason it is special is that you can access keys using the dot like <code class="docutils literal notranslate"><span class="pre">self.my_key</span></code>. With ordinary dictionaries you would have to write the brackets like <code class="docutils literal notranslate"><span class="pre">self[&quot;my_key&quot;]</span></code></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT:</strong> self is special!</p>
+<p>We said Python provides <code class="docutils literal notranslate"><span class="pre">__init__</span></code> with a special kind of dictionary as first parameter. One of the reason it is special is that you can access keys using the dot like <code class="docutils literal notranslate"><span class="pre">self.my_key</span></code>. With ordinary dictionaries you would have to write the brackets like <code class="docutils literal notranslate"><span class="pre">self[&quot;my_key&quot;]</span></code></p>
 </div>
 <div class="admonition note">
 <p><strong>IMPORTANT:</strong> like with dictionaries, we can arbitrarily choose the name of the keys, and which values to associate to them.</p>
@@ -1915,7 +1936,8 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <p><strong>init 2.2.5)</strong> Python automatically returns from <code class="docutils literal notranslate"><span class="pre">__init__</span></code> the special dictionary <code class="docutils literal notranslate"><span class="pre">self</span></code></p>
 <div class="admonition warning">
-<p><strong>WARNING</strong>: <code class="docutils literal notranslate"><span class="pre">__init__</span></code> must <strong>NOT</strong> have a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement ! Python will implicitly return <code class="docutils literal notranslate"><span class="pre">self</span></code> !</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>: <code class="docutils literal notranslate"><span class="pre">__init__</span></code> must <strong>NOT</strong> have a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement !</p>
+<p>Python will implicitly return <code class="docutils literal notranslate"><span class="pre">self</span></code> !</p>
 </div>
 <p><strong>init 2.2.6)</strong> The result of the call (so the special dictionary) is bound to external variable ‘c`:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">ComplexNumber</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
@@ -1936,7 +1958,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f36803fd750&gt;
+&lt;__main__.ComplexNumber object at 0x7f85181f4c90&gt;
 </pre></div></div>
 </div>
 <p>From the output, you see we have indeed an <em>instance</em> of the <em>class</em> <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>. To see the difference between <em>instance</em> and <em>class</em>, you can try printing the <em>class</em> instead:</p>
@@ -1958,8 +1980,8 @@ that probably the function behaves in a way similar to the Python function <code
 </pre></div></div>
 </div>
 <div class="admonition note">
-<p><strong>IMPORTANT</strong>: You can create an infinite number of different <em>instances</em> (i.e.
-<code class="docutils literal notranslate"><span class="pre">ComplexNumber(1.0,</span> <span class="pre">1.0)</span></code>, <code class="docutils literal notranslate"><span class="pre">ComplexNumber(2.0,</span> <span class="pre">2.0)</span></code>, <code class="docutils literal notranslate"><span class="pre">ComplexNumber(3.0,</span> <span class="pre">3.0)</span></code>, … ), but you will have only one <em>class</em> definition for them (<code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>).</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT</strong>: instances are different from a class</p>
+<p>You can create an infinite number of different <em>instances</em> (i.e. <code class="docutils literal notranslate"><span class="pre">ComplexNumber(1.0,</span> <span class="pre">1.0)</span></code>, <code class="docutils literal notranslate"><span class="pre">ComplexNumber(2.0,</span> <span class="pre">2.0)</span></code>, <code class="docutils literal notranslate"><span class="pre">ComplexNumber(3.0,</span> <span class="pre">3.0)</span></code>, … ), but you will have only one <em>class</em> definition for them (<code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>).</p>
 </div>
 <p>We can now access the fields of the special dictionary by using the dot notation as we were doing with the ‘self`:</p>
 <div class="nbinput docutils container">
@@ -2145,7 +2167,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f368044f990&gt;
+&lt;__main__.ComplexNumber object at 0x7f851815cad0&gt;
 </pre></div></div>
 </div>
 <p>To see if the method worked and we got back we got back a different complex number, we can print the single fields:</p>
@@ -2201,7 +2223,7 @@ that probably the function behaves in a way similar to the Python function <code
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f36803cfdd0&gt;
+&lt;__main__.ComplexNumber object at 0x7f851816a5d0&gt;
 </pre></div></div>
 </div>
 <p>It would be nice to instruct Python to express the number like <em>“3.0 + 5.0i”</em> whenever we want to see the <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> represented as a string. How can we do it? Luckily for us, defining the <code class="docutils literal notranslate"><span class="pre">__str__(self)</span> <span class="pre">method</span></code> (see bottom of class definition)</p>
@@ -2247,7 +2269,7 @@ that probably the function behaves in a way similar to the Python function <code
 <p><strong>IMPORTANT</strong>: all methods starting and ending with a double underscore <code class="docutils literal notranslate"><span class="pre">__</span></code> have a special meaning in Python: depending on their name, they override some default behaviour. In this case, with <code class="docutils literal notranslate"><span class="pre">__str__</span></code> we are overriding how Python represents a <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> instance into a string.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING:</strong></p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING:</strong> follow the specs!</p>
 <p>Since we are overriding Python default behaviour, it is very important that we follow the specs of the method we are overriding <em>to the letter</em>. In our case, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__">the specs for __str__</a> obviously state you MUST return a string. <strong>Do read them!</strong></p>
 </div>
 <div class="nbinput nblast docutils container">
