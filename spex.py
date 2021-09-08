@@ -2,7 +2,6 @@
 
 # This script allows initialization and management of exams.
 
-print("CIAO")
 
 __author__ = "David Leoni"
 __status__ = "Development"
