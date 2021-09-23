@@ -490,6 +490,12 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Errors and testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Testing">Testing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Where-Is-Your-Software?">Where Is Your Software?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#even_numbers-example">even_numbers example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Error-kinds">Error kinds</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Testing-with-Unittest">Testing with Unittest</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Running-tests">Running tests</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#When-tests-don't-run">When tests don’t run</a></li>
@@ -1409,6 +1415,295 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>Part A testing with asserts</strong>: <a class="reference external" href="https://en.softpython.org/errors-and-testing/errors-and-testing-sol.html#Testing-with-asserts">moved to SoftPython</a></p></li>
 <li><p><strong>Part B testing with unittest</strong>: read this notebook</p></li>
 </ul>
+<div class="section" id="Testing">
+<h2>Testing<a class="headerlink" href="#Testing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If it seems to work, then it actually works? <em>Probably not</em>.</p></li>
+<li><p>The devil is in the details, especially for complex algorithms.</p></li>
+<li><p>We will do a crash course on testing in Python</p></li>
+</ul>
+<div class="admonition warning">
+<p><strong>WARNING</strong>: Bad software can cause losses of million $/€ or even harm people. Suggested reading: <a class="reference external" href="https://www.cs.tau.ac.il/~nachumd/horror.html">Software Horror Stories</a></p>
+</div>
+<div class="section" id="Where-Is-Your-Software?">
+<h3>Where Is Your Software?<a class="headerlink" href="#Where-Is-Your-Software?" title="Permalink to this headline">¶</a></h3>
+<p>As a data scientist, you might likely end up with code which is moderately complex from an algorithmic point of view, but maybe not too big in size. Either way, when red line is crossed you should start testing properly:</p>
+<p><img alt="where is your software" src="../_images/where-is-your-software.png" /></p>
+<p>In a typical scenario, you are a junior programmer and your senior colleague ask you to write a function to perform some task, giving only an informal description:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; RETURN the sum of x and y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Even better, your colleague might provide you with some automated tests you might run to check your function meets his/her expectations. If you are smart, you will even write tests for your own functions to make sure every little piece you add to your software is a solid block you can build upon.</p>
+</div>
+<div class="section" id="even_numbers-example">
+<h3>even_numbers example<a class="headerlink" href="#even_numbers-example" title="Permalink to this headline">¶</a></h3>
+<p>Let’s see a slightly more complex function:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">even_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of the first n even numbers</span>
+
+<span class="sd">    Zero is considered to be the first even number.</span>
+
+<span class="sd">    &gt;&gt;&gt; even_numbers(5)</span>
+<span class="sd">    [0,2,4,6,8]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>In this case, if you run the function as it is, you are reminded to implement it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">even_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+Exception                                 Traceback (most recent call last)
+&lt;ipython-input-2-d2cbc915c576&gt; in &lt;module&gt;()
+----&gt; 1 even_numbers(5)
+
+&lt;ipython-input-1-a20a4ea4b42a&gt; in even_numbers(n)
+      8     [0,2,4,6,8]
+      9     &quot;&quot;&quot;
+---&gt; 10     raise Exception(&quot;TODO IMPLEMENT ME!&quot;)
+
+Exception: TODO IMPLEMENT ME!
+</pre></div>
+</div>
+<p>Why? The instruction</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>tells Python to immediatly stop execution, and signal an error to the caller of the function <code class="docutils literal notranslate"><span class="pre">even_number</span></code>. If there were commands right after <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">Exception(&quot;TODO</span> <span class="pre">IMPLEMENT</span> <span class="pre">ME&quot;)</span></code>, they would not be executed. Here, we are directly calling the function from the prompt, and we didn’t tell Python how to handle the <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, so Python just stopped and showed the error message given as parameter to the <code class="docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Spend time reading the function text!</strong></p>
+<p>Always carefully read the function text and ask yourself questions! What is the supposed input? What should be the output? Is there any output to return at all, or should you instead modify <em>in-place</em> a passed parameter (i.e. for example, when you sort a list)? Are there any edge cases, es what happens for <code class="docutils literal notranslate"><span class="pre">n=0</span></code>)? What about <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> ?</p>
+</div>
+<p>Let’s code a possible solution. As it often happens, first version may be buggy, in this case for example purposes we intentionally introduce a bug:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">even_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of the first n even numbers</span>
+
+<span class="sd">    Zero is considered to be the first even number.</span>
+
+<span class="sd">    &gt;&gt;&gt; even_numbers(5)</span>
+<span class="sd">    [0,2,4,6,8]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">r</span><span class="p">[</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># &lt;-- evil bug, puts number &#39;3&#39; in the middle, and 3 is not even ..</span>
+    <span class="k">return</span> <span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<p>Typically the first test we do is printing the output and do some ‘visual inspection’ of the result, in this case we find many numbers are correct but we might miss errors such as the wrong <code class="docutils literal notranslate"><span class="pre">3</span></code> in the middle:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0, 2, 3, 6, 8]
+</pre></div></div>
+</div>
+<p>Furthermore, if we enter commands a the prompt, each time we fix something in the code, we need to enter commands again to check everything is ok. This is inefficient, boring, and prone to errors.</p>
+<div class="section" id="Let's-add-assertions">
+<h4>Let’s add assertions<a class="headerlink" href="#Let's-add-assertions" title="Permalink to this headline">¶</a></h4>
+<p>To go beyond the dumb “visual inspection” testing, it’s better to write some extra code to allow Python checking for us if the function actually returns what we expect, and throws an error otherwise. We can do so with <code class="docutils literal notranslate"><span class="pre">assert</span></code> command, which verifies if its argument is True. If it is not, it raises an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> immediately stopping execution.</p>
+<p>Here we check the result of <code class="docutils literal notranslate"><span class="pre">even_numbers(5)</span></code> is actually the list of even numbers <code class="docutils literal notranslate"><span class="pre">[0,2,4,6,8]</span></code> we expect:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">even_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Since our code is faulty, <code class="docutils literal notranslate"><span class="pre">even_numbers</span></code> returns the wrong list <code class="docutils literal notranslate"><span class="pre">[0,2,3,6,8]</span></code> which is different from <code class="docutils literal notranslate"><span class="pre">[0,2,4,6,8]</span></code> so assertion fails showing <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="n">d4198f229404</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="k">assert</span> <span class="n">even_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">!=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+
+<span class="ne">AssertionError</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>We got some output, but we would like to have it more informative. To do so, we may add a message, separated by a comma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">even_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="s2">&quot;even_numbers is not working !!&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+&lt;ipython-input-18-8544fcd1b7c8&gt; in &lt;module&gt;()
+----&gt; 1 assert even_numbers(5) == [0,2,4,6,8], &quot;even_numbers is not working !!&quot;
+
+AssertionError: even_numbers is not working !!
+</pre></div>
+</div>
+<p>So if we modify code to fix bugs we can just launch the assert commands and have a quick feedback about possible errors.</p>
+</div>
+</div>
+<div class="section" id="Error-kinds">
+<h3>Error kinds<a class="headerlink" href="#Error-kinds" title="Permalink to this headline">¶</a></h3>
+<p>As a fact of life, errors happen. Sometimes, your program may have inconsistent data, like wrong parameter type passed to a function (i.e. string instead of integer). A good principle to follow in these cases is to try have the program detect weird situations, and stop as early as such a situation is found (i.e. in the Therac 25 case, if you detect excessive radiation, showing a warning sign is not enough, it’s better to stop). Note stopping might not always be the desirable solution (if one
+pidgeon enters one airplane engine, you don’t want to stop all the other engines). If you want to check function parameters are correct, you do the so called <em>precondition checking</em>.</p>
+<p>There are roughly two cases for errors, external user misusing you program, and just plain wrong code. Let’s analyize both:</p>
+<div class="section" id="Error-kind-a)-An-external-user-misuses-you-program.">
+<h4>Error kind a) An external user misuses you program.<a class="headerlink" href="#Error-kind-a)-An-external-user-misuses-you-program." title="Permalink to this headline">¶</a></h4>
+<p>You can assume whover uses your software, final users or other programmers , they will try their very best to wreck your precious code by passing all sort of non-sense to functions. Everything can come in, strings instead of numbers, empty arrays, <code class="docutils literal notranslate"><span class="pre">None</span></code> objects … In this case you should signal the user he made some mistake. The most crude signal you can have is raising an <code class="docutils literal notranslate"><span class="pre">Exception</span></code> with <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">Exception(&quot;Some</span> <span class="pre">error</span> <span class="pre">occurred&quot;)</span></code>, which will stop the program and print the stacktrace in
+the console. Maybe final users won’t understand a stacktrace, but at least programmers hopefully will get a clue about what is happening.</p>
+<p>In these case you can raise an appropriate Exception, like <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError">TypeError</a> for wrong types and <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a> for more generic errors. Other basic exceptions can be found in <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#built-in-exceptions">Python documentation</a>. Notice you can also define your own, if needed (we won’t consider custom exceptions in this course).</p>
+<p><strong>NOTE</strong>: Many times, you can consider yourself the ‘careless external user’ to guard against.</p>
+<p>Let’s enrich the function with some appropriate type checking:</p>
+<p>Note that for checking input types, you can use the function <code class="docutils literal notranslate"><span class="pre">type()</span></code> :</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+int
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;ciao&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+str
+</pre></div></div>
+</div>
+<p>Let’s add the code for checking the <a class="reference external" href="#even_numbers-example">even_numbers example</a>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">even_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of the first n even numbers</span>
+
+<span class="sd">    Zero is considered to be the first even number.</span>
+
+<span class="sd">    &gt;&gt;&gt; even_numbers(5)</span>
+<span class="sd">    [0,2,4,6,8]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Passed a non integer number: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Passed a negative number: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+</pre></div>
+</div>
+</div>
+<p>Let’s pass a wrong type and see what happens:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">even_numbers</span><span class="p">(</span><span class="s2">&quot;ciao&quot;</span><span class="p">)</span>
+
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">TypeError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-14-a908b20f00c4&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 even_numbers(&quot;ciao&quot;)</span>
+
+<span class="go">&lt;ipython-input-13-b0b3a85f2b2a&gt; in even_numbers(n)</span>
+<span class="go">      9     &quot;&quot;&quot;</span>
+<span class="go">     10     if type(n) is not int:</span>
+<span class="go">---&gt; 11         raise TypeError(&quot;Passed a non integer number: &quot; + str(n))</span>
+<span class="go">     12</span>
+<span class="go">     13     if n &lt; 0:</span>
+
+<span class="go">TypeError: Passed a non integer number: ciao</span>
+</pre></div>
+</div>
+<p>Now let’s try to pass a negative number - it should suddenly stop with a meaningful message:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">even_numbers</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">ValueError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-15-3f648fdf6de7&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 even_numbers(-5)</span>
+
+<span class="go">&lt;ipython-input-13-b0b3a85f2b2a&gt; in even_numbers(n)</span>
+<span class="go">     12</span>
+<span class="go">     13     if n &lt; 0:</span>
+<span class="go">---&gt; 14         raise ValueError(&quot;Passed a negative number: &quot; + str(n))</span>
+<span class="go">     15</span>
+<span class="go">     16     r = [2 * x for x in range(n)]</span>
+
+<span class="go">ValueError: Passed a negative number: -5</span>
+</pre></div>
+</div>
+<p>Now, even if you ship your code to careless users, and as soon as they commit a mistrake, they will get properly notified.</p>
+</div>
+<div class="section" id="Error-kind-b):-Your-code-is-just-plain-wrong">
+<h4>Error kind b): Your code is just plain wrong<a class="headerlink" href="#Error-kind-b):-Your-code-is-just-plain-wrong" title="Permalink to this headline">¶</a></h4>
+<p>In this case, it’s 100% your fault, and these sort of bugs should never pop up in production. For example your code passes internally wrong stuff, like strings instead of integers, or wrong ranges (typically integer outside array bounds). So if you have an internal function nobody else should directly call, and you suspect it is being passed wrong parameters or at some point it has inconsistent data, to quickly spot the error you could add an assertion:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">even_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of the first n even numbers</span>
+
+<span class="sd">    Zero is considered to be the first even number.</span>
+
+<span class="sd">    &gt;&gt;&gt; even_numbers(5)</span>
+<span class="sd">    [0,2,4,6,8]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;type of n is not correct: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Found negative n: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">r</span>
+
+</pre></div>
+</div>
+</div>
+<p>As before, the function will stop as soon we call it we wrong parameters. The big difference is, this time we are assuming <code class="docutils literal notranslate"><span class="pre">even_numbers</span></code> is just for personal use and nobody else except us should directly call it.</p>
+<p>Since assertion consume CPU time, IF we care about performances AND once we are confident our program behaves correctly, we can even remove them from compiled code by using the <code class="docutils literal notranslate"><span class="pre">-O</span></code> compiler flag. For more info, see <a class="reference external" href="https://wiki.python.org/moin/UsingAssertionsEffectively">Python wiki</a></p>
+<p><strong>EXERCISE</strong>: try to call latest definition of <code class="docutils literal notranslate"><span class="pre">even_numbers</span></code> with wrong parameters, and see what happens.</p>
+<p><strong>NOTE</strong>: here we are using the correct definition of <code class="docutils literal notranslate"><span class="pre">even_numbers</span></code>, not the buggy one with the <code class="docutils literal notranslate"><span class="pre">3</span></code> in the middle of returned list !</p>
+</div>
+</div>
+</div>
 <div class="section" id="Testing-with-Unittest">
 <h2>Testing with Unittest<a class="headerlink" href="#Testing-with-Unittest" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
@@ -1418,7 +1713,7 @@ div.rendered_html tbody tr:hover {
 <a class="reference external" href="https://docs.pytest.org/">pytest</a> (note it can also execute tests made with unittest, so if your visualstudio code for some reason doesn’t work with unittest, you can try setting pytest as test framework)</p>
 <p>So let’s give unittest a try. Suppose you have a file called <code class="docutils literal notranslate"><span class="pre">file_test.py</span></code> like this:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1469,7 +1764,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>You should see an output like the following:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1487,7 +1782,7 @@ F
 FAIL: test_long_list (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;&lt;ipython-input-2-ec89a972a892&gt;&#34;, line 19, in test_long_list
+  File &#34;/tmp/ipykernel_21160/3269760140.py&#34;, line 19, in test_long_list
     self.assertEqual(even_numbers(5),[0,2,4,6,8])
 AssertionError: Lists differ: [0, 2, 3, 6, 8] != [0, 2, 4, 6, 8]
 
@@ -1503,7 +1798,7 @@ First differing element 2:
 
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.001s
+Ran 1 test in 0.002s
 
 FAILED (failures=1)
 </pre></div></div>
@@ -1526,7 +1821,7 @@ FAILED (failures=1)
 <h3>Adding tests<a class="headerlink" href="#Adding-tests" title="Permalink to this headline">¶</a></h3>
 <p>How can we add (good) tests? Since best ones are usually short, it would be better starting small boundary cases. For example like <code class="docutils literal notranslate"><span class="pre">n=1</span></code> , which according to function documentation should produce a list containing zero:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1545,7 +1840,7 @@ FAILED (failures=1)
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1563,7 +1858,7 @@ FF
 FAIL: test_long_list (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;&lt;ipython-input-4-306d9f1c7777&gt;&#34;, line 7, in test_long_list
+  File &#34;/tmp/ipykernel_21160/1413161586.py&#34;, line 7, in test_long_list
     self.assertEqual(even_numbers(5),[0,2,4,6,8])
 AssertionError: Lists differ: [0, 2, 3, 6, 8] != [0, 2, 4, 6, 8]
 
@@ -1582,7 +1877,7 @@ First differing element 2:
 FAIL: test_one_element (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;&lt;ipython-input-4-306d9f1c7777&gt;&#34;, line 4, in test_one_element
+  File &#34;/tmp/ipykernel_21160/1413161586.py&#34;, line 4, in test_one_element
     self.assertEqual(even_numbers(1),[0])
 AssertionError: Lists differ: [3] != [0]
 
@@ -1601,7 +1896,7 @@ FAILED (failures=2)
 </div>
 <p>From the tests we can now see there is clearly something wrong with the number 3 that keeps popping up, making both tests fail. You can see immediately which tests have failed by looking at the first two <code class="docutils literal notranslate"><span class="pre">FF</span></code> at the top of the output. Let’s fix the code by removing the buggy line:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1625,7 +1920,7 @@ FAILED (failures=2)
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
