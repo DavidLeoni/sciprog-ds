@@ -411,6 +411,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab-A.2">Lab A.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab-A.3">Lab A.3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -1436,7 +1437,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Lab-A.2">
 <h2>Lab A.2<a class="headerlink" href="#Lab-A.2" title="Permalink to this headline">¶</a></h2>
-<p>Thursday 30 Sep 2021</p>
+<p>Thursday, Sep 30th, 2021</p>
 <p><strong>Tools recap</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pythontutor.com/visualize.html#mode=edit">Python Tutor</a></p></li>
@@ -1470,6 +1471,59 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2021-2022/sci-pro/slides/A01-introduction.pdf">Andrea Passerini - Introduction to Python slides</a></p></li>
 <li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2021-2022/sci-pro/slides/A02-datastructures.pdf">Andrea Passerini - data structures slides</a></p></li>
+</ul>
+</div>
+<div class="section" id="Lab-A.3">
+<h2>Lab A.3<a class="headerlink" href="#Lab-A.3" title="Permalink to this headline">¶</a></h2>
+<p>Friday, Oct 1st, 2021</p>
+<p><strong>Lists</strong>:</p>
+<p>In class: <a class="reference external" href="https://en.softpython.org/lists/lists5-chal.html">Lists 5 - Challenges</a></p>
+<p>The rest is left as homework:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.softpython.org/lists/lists1-sol.html">Lists 1 - Introduction</a></p></li>
+<li><p><a class="reference external" href="https://en.softpython.org/lists/lists2-sol.html">Lists 2 - Operators</a></p></li>
+<li><p><a class="reference external" href="https://en.softpython.org/lists/lists3-sol.html">Lists 3 - Basic methods</a></p></li>
+<li><p><a class="reference external" href="https://en.softpython.org/lists/lists4-sol.html">Lists 4 - Search methods</a></p></li>
+</ul>
+<p><strong>Tuples</strong>:</p>
+<p>In class: <a class="reference external" href="https://en.softpython.org/tuples/tuples2-chal.html">Tuples 2 - Challenges</a></p>
+<p>The rest is left as homework:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.softpython.org/tuples/tuples1-sol.html">Tuples 1 - Introduction</a></p></li>
+</ul>
+<p><strong>References</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2021-2022/sci-pro/slides/A01-introduction.pdf">Andrea Passerini - Introduction to Python slides</a></p></li>
+<li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2021-2022/sci-pro/slides/A02-datastructures.pdf">Andrea Passerini - data structures slides</a></p></li>
+</ul>
+<p><strong>EXTRA challenges</strong></p>
+<p>Since for now I want you to focus on expressions, first challenges on softpython don’t require loops. Still, if you want, you can generalize them with following extra tasks:</p>
+<ul class="simple">
+<li><p><strong>Lists - Super DUPER sorted:</strong> 2) Generalize previous approach so it works with and number of words. For this you will need cycles and/or if statements</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Lists - Toys in the Attic</strong>: 2) Generalize the previous approach. Imagine you have an <code class="docutils literal notranslate"><span class="pre">attic</span></code> which has an unspecified number of categories (here it’s 5 but it could 1000):</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">attic</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;doll&#39;</span><span class="p">,</span>     <span class="s1">&#39;lego&#39;</span><span class="p">,</span>      <span class="s1">&#39;minicar&#39;</span><span class="p">,</span>
+         <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;frame&#39;</span><span class="p">,</span>    <span class="s1">&#39;brushes&#39;</span><span class="p">,</span>
+         <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;bike&#39;</span><span class="p">,</span>     <span class="s1">&#39;pump&#39;</span><span class="p">,</span>      <span class="s1">&#39;racket&#39;</span><span class="p">,</span>  <span class="s1">&#39;ball&#39;</span><span class="p">,</span>
+         <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;vase&#39;</span><span class="p">,</span>     <span class="s1">&#39;fertilizer&#39;</span><span class="p">,</span>
+         <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;old chair&#39;</span><span class="p">,</span><span class="s1">&#39;lamp deco&#39;</span><span class="p">,</span> <span class="s1">&#39;stool&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and you want to obtain a list of lists like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;doll&#39;</span><span class="p">,</span><span class="s1">&#39;lego&#39;</span><span class="p">,</span><span class="s1">&#39;minicar&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;frame&#39;</span><span class="p">,</span> <span class="s1">&#39;brushes&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;bike&#39;</span><span class="p">,</span> <span class="s1">&#39;pump&#39;</span><span class="p">,</span> <span class="s1">&#39;racket&#39;</span><span class="p">,</span> <span class="s1">&#39;ball&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;vase&#39;</span><span class="p">,</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;old chair&#39;</span><span class="p">,</span><span class="s1">&#39;lamp deco&#39;</span><span class="p">,</span><span class="s1">&#39;stool&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>(without caring about the variables <code class="docutils literal notranslate"><span class="pre">toys</span></code>, <code class="docutils literal notranslate"><span class="pre">painting</span></code> and <code class="docutils literal notranslate"><span class="pre">sports</span></code>)</p>
+<ul class="simple">
+<li><p>In this case, <strong>you can and should</strong> use cycles and/or if statements when needed.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
