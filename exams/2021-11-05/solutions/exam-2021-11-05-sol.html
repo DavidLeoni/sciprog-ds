@@ -124,6 +124,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Midterm sim - Fri 05, Nov 2021</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Part-A---Terence-Hill-and-Bud-Spencer-movies">Part A - Terence Hill and Bud Spencer movies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#The-files">The files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#load">load</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#save_table">save_table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#show_graph">show_graph</a></li>
@@ -1468,11 +1469,14 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Part-A---Terence-Hill-and-Bud-Spencer-movies">
 <h2>Part A - Terence Hill and Bud Spencer movies<a class="headerlink" href="#Part-A---Terence-Hill-and-Bud-Spencer-movies" title="Permalink to this headline">¶</a></h2>
 <p>Among the greatest gifts of Italy to the world we can certainly count Terence Hill and Bud Spencer movies.</p>
-<p>Info about them can be found in <a class="reference external" href="https://wikidata.org/">Wikidata</a>, a project by the Wikimedia foundation which aims to store only machine-readable data, like numbers, strings, and so on interlinked with many references. Each entity in Wikidata has an identifier, for example Terence Hill is the <a class="reference external" href="http://www.wikidata.org/entity/Q243430">entity Q243430</a> and Bud Spencer is <a class="reference external" href="http://www.wikidata.org/entity/Q221074">Q221074</a>.</p>
-<p>Wikidata can be queried using the SPARQL language: the data was obtained with <a class="reference external" href="https://query.wikidata.org/#SELECT%20%3Fstar%20%3FstarLabel%20%3Fitem%20%3FitemLabel%20%28MIN%28%3Fdate%29%20AS%20%3FfirstReleased%29%0AWHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP161%20%3Fstar%3B%0A%20%20%20%20%20%20%20%20wdt%3AP577%20%3Fdate.%0A%20%20%20%20%0A%20%20FILTER%20%28%3Fstar%20%3D%20wd%3AQ221074%20%7C%7C%20%3Fstar%20%3D%20wd%3AQ243430%29%20%20%0A%20%20%20%20%20%20%20%20%20%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3F_image.%20%7D%0A%7D%20GROUP%20BY%20%3Fstar%20%3FstarLabel%20%3Fitem%20%3FitemLabel%20%3F_image%0AORDER%20BY%20%28%3Fdate%29">this
+<p>Their film career can be found in <a class="reference external" href="https://wikidata.org/">Wikidata</a>, a project by the Wikimedia foundation which aims to store only machine-readable data, like numbers, strings, and so on interlinked with many references. Each entity in Wikidata has an identifier, for example Terence Hill is the <a class="reference external" href="http://www.wikidata.org/entity/Q243430">entity Q243430</a> and Bud Spencer is <a class="reference external" href="http://www.wikidata.org/entity/Q221074">Q221074</a>.</p>
+<p>Wikidata can be queried using the SPARQL language: we performed <a class="reference external" href="https://query.wikidata.org/#SELECT%20%3Fstar%20%3FstarLabel%20%3Fitem%20%3FitemLabel%20%28MIN%28%3Fdate%29%20AS%20%3FfirstReleased%29%0AWHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP161%20%3Fstar%3B%0A%20%20%20%20%20%20%20%20wdt%3AP577%20%3Fdate.%0A%20%20%20%20%0A%20%20FILTER%20%28%3Fstar%20%3D%20wd%3AQ221074%20%7C%7C%20%3Fstar%20%3D%20wd%3AQ243430%29%20%20%0A%20%20%20%20%20%20%20%20%20%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3F_image.%20%7D%0A%7D%20GROUP%20BY%20%3Fstar%20%3FstarLabel%20%3Fitem%20%3FitemLabel%20%3F_image%0AORDER%20BY%20%28%3Fdate%29">this
 query</a>
-repeated for several languages, and downloaded in CSV format (among the many which can be chosen). Even if not necessary for the purposes of the exercise, you are invited to play a bit with the interface, like trying different visualizations (i.e. try clicking the eye in the middle-left corner and then select Graph) - or see other examples.</p>
-<p>You are given some CSVs of movies, all having names ending in <code class="docutils literal notranslate"><span class="pre">-LT.csv</span></code>, where LT can be a language tag like <code class="docutils literal notranslate"><span class="pre">it</span></code>, <code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">de</span></code>, <code class="docutils literal notranslate"><span class="pre">es</span></code>… They mostly contain the same data except for the movie labels which are in the corresponding language. The final goal will be displaying the network of movies and put in evidence the ones co-starring the famous duo.</p>
+repeated for several languages, and downloaded CSV files (among the many formats which can be chosen). Even if not necessary for the purposes of the exercise, you are invited to play a bit with the interface, like trying different visualizations (i.e. try clicking the eye in the middle-left corner and then select Graph) - or see <a class="reference external" href="https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/queries/examples/human">other examples</a>.</p>
+</div>
+<div class="section" id="The-files">
+<h2>The files<a class="headerlink" href="#The-files" title="Permalink to this headline">¶</a></h2>
+<p>You are given some CSVs of movies, all having names ending in <code class="docutils literal notranslate"><span class="pre">-xy.csv</span></code>, where <code class="docutils literal notranslate"><span class="pre">xy</span></code> can be a language tag like <code class="docutils literal notranslate"><span class="pre">it</span></code>, <code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">de</span></code>, <code class="docutils literal notranslate"><span class="pre">es</span></code>… They mostly contain the same data except for the movie labels which are in the corresponding language. The final goal will be displaying the network of movies and put in evidence the ones co-starring the famous duo.</p>
 <p>Each file row contains info about a single actor starring in a movie. Multiple lines with same movie id will mean multiple actors are co-starring. We can see an excerpt of <strong>first four</strong> lines of english version: notice second movie has id <a class="reference external" href="http://www.wikidata.org/entity/Q180638">Q180638</a> and is co-starred by both Bud Spencer and Terence Hill</p>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1777,7 +1781,7 @@ saved file to merged.csv
 <span class="k">def</span> <span class="nf">show_graph</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">since_year</span><span class="p">,</span> <span class="n">until_year</span><span class="p">,</span> <span class="n">language</span><span class="p">):</span>
 
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;layout&#39;</span><span class="p">:</span><span class="s1">&#39;neato&#39;</span> <span class="p">}</span>  <span class="c1"># don&#39;t delete these!</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;layout&#39;</span><span class="p">:</span><span class="s1">&#39;neato&#39;</span><span class="p">}</span>  <span class="c1"># don&#39;t delete these!</span>
 
 
     <span class="k">for</span> <span class="n">movie_id</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">:</span>
@@ -1818,7 +1822,7 @@ saved file to merged.csv
 <span class="k">def</span> <span class="nf">show_graph</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">since_year</span><span class="p">,</span> <span class="n">until_year</span><span class="p">,</span> <span class="n">language</span><span class="p">):</span>
 
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;layout&#39;</span><span class="p">:</span><span class="s1">&#39;neato&#39;</span> <span class="p">}</span>  <span class="c1"># don&#39;t delete these!</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;layout&#39;</span><span class="p">:</span><span class="s1">&#39;neato&#39;</span><span class="p">}</span>  <span class="c1"># don&#39;t delete these!</span>
 
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
 
@@ -1847,15 +1851,6 @@ saved file to merged.csv
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/exams_2021-11-05_solutions_exam-2021-11-05-sol_26_0.png" src="../../../_images/exams_2021-11-05_solutions_exam-2021-11-05-sol_26_0.png" />
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
 </div>
 </div>
 </div>
