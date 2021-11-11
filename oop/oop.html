@@ -458,6 +458,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../slides.html#id12">At home:</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.1">Lab B.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -619,10 +620,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#3.-MultiSet">3. MultiSet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#3.1-__init__-add-and-get">3.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#4.-Challenges">4. Challenges</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#4.-Challenges">4. Challenges</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="oop-matrix-chal.html">OOP Matrix Challenge</a><ul>
@@ -1886,7 +1885,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f85181f4c90&gt;
+&lt;__main__.ComplexNumber object at 0x7f61f44ab190&gt;
 </pre></div></div>
 </div>
 <p>What happend here?</p>
@@ -1980,7 +1979,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f85181f4c90&gt;
+&lt;__main__.ComplexNumber object at 0x7f61f44ab190&gt;
 </pre></div></div>
 </div>
 <p>From the output, you see we have indeed an <em>instance</em> of the <em>class</em> <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code>. To see the difference between <em>instance</em> and <em>class</em>, you can try printing the <em>class</em> instead:</p>
@@ -2189,7 +2188,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f851815cad0&gt;
+&lt;__main__.ComplexNumber object at 0x7f61f44dfc10&gt;
 </pre></div></div>
 </div>
 <p>To see if the method worked and we got back we got back a different complex number, we can print the single fields:</p>
@@ -2245,7 +2244,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.ComplexNumber object at 0x7f851816a5d0&gt;
+&lt;__main__.ComplexNumber object at 0x7f61f4499cd0&gt;
 </pre></div></div>
 </div>
 <p>It would be nice to instruct Python to express the number like <em>“3.0 + 5.0i”</em> whenever we want to see the <code class="docutils literal notranslate"><span class="pre">ComplexNumber</span></code> represented as a string. How can we do it? Luckily for us, defining the <code class="docutils literal notranslate"><span class="pre">__str__(self)</span> <span class="pre">method</span></code> (see bottom of class definition)</p>
@@ -2690,8 +2689,9 @@ by looking for the method <code class="docutils literal notranslate"><span class
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">multiset_test.RemovenTest</span></code></p>
+</div>
 <div class="section" id="4.-Challenges">
-<h3>4. Challenges<a class="headerlink" href="#4.-Challenges" title="Permalink to this headline">¶</a></h3>
+<h2>4. Challenges<a class="headerlink" href="#4.-Challenges" title="Permalink to this headline">¶</a></h2>
 <p>Have a look at the <a class="reference external" href="http://sciprog.davidleoni.it/oop/oop-matrix-chal.html">OOP Matrix Challenge</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -2700,7 +2700,6 @@ by looking for the method <code class="docutils literal notranslate"><span class
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>

@@ -458,6 +458,7 @@
 <li class="toctree-l3"><a class="reference internal" href="slides.html#id12">At home:</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="slides.html#Lab-B.1">Lab B.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -619,10 +620,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="oop/oop.html#3.-MultiSet">3. MultiSet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="oop/oop.html#3.1-__init__-add-and-get">3.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="oop/oop.html#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="oop/oop.html#4.-Challenges">4. Challenges</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="oop/oop.html#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oop/oop.html#4.-Challenges">4. Challenges</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="oop/oop-matrix-chal.html">OOP Matrix Challenge</a><ul>
@@ -1474,6 +1473,10 @@ div.rendered_html tbody tr:hover {
 <ol class="arabic simple">
 <li><p>Install <a class="reference external" href="https://www.anaconda.com/products/individual#Downloads">Anaconda for Python 3.8</a> (anaconda installer may ask you to install also visual studio code, in case accept the kind offer)</p></li>
 <li><p>If you didn’t in the previous point, install now Visual Studio Code, which is available for all platforms. You can read about it <a class="reference external" href="https://code.visualstudio.com/">here</a>. Downloads for all platforms can be found <a class="reference external" href="https://code.visualstudio.com/Download">here</a></p></li>
+<li><p>Install <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python extension for Visual Studio Code</a> by Microsoft</p></li>
+</ol>
+<p><img alt="image0" src="_images/vscode-extension.png" /></p>
+<ol class="arabic simple" start="4">
 <li><p>Now you can read all of <a class="reference external" href="https://en.softpython.org/installation.html">Installation on SoftPython</a> <strong>EXCEPT</strong>:</p>
 <ul class="simple">
 <li><p>For Mac users: for this course you <strong>don’t</strong> need to install homebrew, just install Anaconda</p></li>
@@ -1498,7 +1501,7 @@ div.rendered_html tbody tr:hover {
 <p>You can find useful information on this tool <a class="reference external" href="https://code.visualstudio.com/docs#vscode">here</a>. Please spend some time having a look at that page.</p>
 <p>Once you are done with it you can close this window pressing on the “x”. First thing to do is to set the python interpreter to use. Click on View –&gt; Command Palette and type “Python” in the text search space. Select <strong>Python: Select Workspace Interpreter</strong> as shown in the picture below.</p>
 <p><img alt="python interpreter uiu8ue" src="_images/pythoninterpreter.png" /></p>
-<p>Finally, select the Python version you want to use (e.g. Python3).</p>
+<p>Finally, select the Python version you want to use i.e. Python3 (if you have anaconda, it should automatically use your Anaconda environment)</p>
 <p>Now you can click on <strong>Open Folder</strong> to create a new folder to place all the scripts you are going to create. You can call it something like “exercises”. Next you can create a new file, <em>example1.py</em> (<em>.py</em> extension stands for python).</p>
 <p>Visual Studio Code will understand that you are writing Python code and will help you with valid syntax for your program.</p>
 <div class="admonition warning">
@@ -1536,10 +1539,10 @@ a: 10  b: 33  a/b= 0.30303030303030304
 <p>A couple of things worth nothing. The first three lines opened and closed by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> are some text describing the content of the script. Moreover, comments are proceeded by the hash key (#) and they are just ignored by the python interpreter. <strong>Please remember to comment your code, as it helps readability and will make your life easier when you have to modify or just understand the code you wrote some time in the past.</strong></p>
 <p>Please notice that Visual Studio Code will help you writing your Python scripts. For example, when you start writing the <strong>print</strong> line it will complete the code for you (<strong>if the Pylint extension mentioned above is installed</strong>), suggesting the functions that match the letters written. This useful feature is called <em>code completion</em> and, alongside suggesting possible matches, it also visualizes a description of the function and parameters it needs. Here is an example:</p>
 <p><img alt="code completion j3u34" src="_images/codecompletion.png" /></p>
-<p>Save the file (Ctrl+S as shortcut). It is convenient to ask the IDE to highlight potential <em>syntactic</em> problems found in the code. You can toggle this function on/off by clicking on <strong>View –&gt; Problems</strong>. The <em>Problems</em> panel should look like this</p>
+<p>Save the file (<code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> as shortcut). It is convenient to ask the IDE to highlight potential <em>syntactic</em> problems found in the code. You can toggle this function on/off by clicking on <strong>View –&gt; Problems</strong>. The <em>Problems</em> panel should look like this</p>
 <p><img alt="problems ui4i3u4" src="_images/problems.png" /></p>
-<p>Visual Studio Code is warning us that the variable names <em>a,b,c</em> at lines 4,5,6 do not follow Python naming conventions for constants. This is because they have been defined at the top level (there is no structure to our script yet) and therefore are interpreted as constants. The naming convention for constants states that they should be in capital letters. To amend the code, you can just replace all the names with the corresponding capitalized name (i.e. A,B,C). If you do that, and you save the
-file again (Ctrl+S), you will see all these problems disappearing as well as the green underlining of the variable names. If your code does not have an empty line before the end, you might get another warning “<em>Final new line missing</em>”. Note that these were just warnings and the interpreter <strong>in this case</strong> will happily and correctly execute the code anyway, but it is always good practice to understand what the warnings are telling us before deciding to ignore them!</p>
+<p>Visual Studio Code is warning us that the variable names <code class="docutils literal notranslate"><span class="pre">a</span></code>,<code class="docutils literal notranslate"><span class="pre">b</span></code>,<code class="docutils literal notranslate"><span class="pre">c</span></code> at lines 4,5,6 do not follow Python naming conventions for constants. This is because they have been defined at the top level (there is no structure to our script yet) and therefore are interpreted as constants. The naming convention for constants states that they should be in capital letters. To amend the code, you can just replace all the names with the corresponding capitalized name (i.e. A,B,C). If you do that,
+and you save the file again (Ctrl+S), you will see all these problems disappearing as well as the green underlining of the variable names. If your code does not have an empty line before the end, you might get another warning “<em>Final new line missing</em>”. Note that these were just warnings and the interpreter <strong>in this case</strong> will happily and correctly execute the code anyway, but it is always good practice to understand what the warnings are telling us before deciding to ignore them!</p>
 <p>Had we by mistake mispelled the <em>print</em> function name (something that should not happen with the code completion tool that suggests functions names!) writing <em>printt</em> (note the double t), upon saving the file, the IDE would have underlined in red the function name and flagged it up as a problem.</p>
 <p><img alt="errors ubgiru" src="_images/errors.png" /></p>
 <p>This is because the builtin function <em>printt</em> does not exist and the python interpreter does not know what to do when it reads it. Note that <em>printt</em> is actually underlined in red, meaning that there is an error which will cause the interpreter to stop the execution with a failure. <strong>Please remember that before running any piece of code all errors must be fixed</strong>.</p>

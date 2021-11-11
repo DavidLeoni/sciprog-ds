@@ -458,6 +458,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../slides.html#id12">At home:</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.1">Lab B.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -619,10 +620,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../oop/oop.html#3.-MultiSet">3. MultiSet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../oop/oop.html#3.1-__init__-add-and-get">3.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../oop/oop.html#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../oop/oop.html#4.-Challenges">4. Challenges</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../oop/oop.html#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../oop/oop.html#4.-Challenges">4. Challenges</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../oop/oop-matrix-chal.html">OOP Matrix Challenge</a><ul>
@@ -1834,7 +1833,7 @@ F
 FAIL: test_long_list (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;/tmp/ipykernel_21160/3269760140.py&#34;, line 19, in test_long_list
+  File &#34;/tmp/ipykernel_25001/3269760140.py&#34;, line 19, in test_long_list
     self.assertEqual(even_numbers(5),[0,2,4,6,8])
 AssertionError: Lists differ: [0, 2, 3, 6, 8] != [0, 2, 4, 6, 8]
 
@@ -1910,7 +1909,7 @@ FF
 FAIL: test_long_list (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;/tmp/ipykernel_21160/1413161586.py&#34;, line 7, in test_long_list
+  File &#34;/tmp/ipykernel_25001/1413161586.py&#34;, line 7, in test_long_list
     self.assertEqual(even_numbers(5),[0,2,4,6,8])
 AssertionError: Lists differ: [0, 2, 3, 6, 8] != [0, 2, 4, 6, 8]
 
@@ -1929,7 +1928,7 @@ First differing element 2:
 FAIL: test_one_element (__main__.MyTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &#34;/tmp/ipykernel_21160/1413161586.py&#34;, line 4, in test_one_element
+  File &#34;/tmp/ipykernel_25001/1413161586.py&#34;, line 4, in test_one_element
     self.assertEqual(even_numbers(1),[0])
 AssertionError: Lists differ: [3] != [0]
 
@@ -2080,7 +2079,7 @@ OK
 <ul class="simple">
 <li><p>if you see red squiggles in the code, most probably syntax is not correct and thus no test will get discovered ! If this is the case, fix the syntax error, SAVE, and then tell Visual Studio to discover test.</p></li>
 <li><p>you might also try <em>Right click-&gt;Run current Test File</em>.</p></li>
-<li><p>try <a class="reference external" href="#Running-unittests-in-Visual-Studio-Code">selecting another testing framework</a> , try pytest, which is also capable to discover and execute unittests.</p></li>
+<li><p>try <a class="reference external" href="#Running-unittests-in-Visual-Studio-Code">selecting another testing framework</a> like pytest, which is also capable to discover and execute unittests.</p></li>
 <li><p>if you are really out of luck with the editor, there is always the option of running tests from the console.</p></li>
 </ul>
 <div class="admonition warning">
@@ -2096,9 +2095,7 @@ OK
 <p><strong>Simpler parallel computing</strong>: point above is particularly inmportant in parallel computation, when the system can schedule thread executions differently <em>each</em> time you run the program: this implies that when you have multiple threads it can be very very hard to reproduce a bug where a thread wrongly changes a data which is supposed to be exclusively managed by another one: it might fail in one run and succeed in another just because the system scheduled differently the code execution!
 Functional programming frameworks like <a class="reference external" href="https://spark.apache.org">Spark</a> solve these problems very nicely.</p>
 <p><strong>Easier to reason about code</strong>: it is much easier to reason about functions, as we can use standard equational reasoning on input/outputs as traditionally done in algebra. To understand what we’re talking about, you can see these slides: <a class="reference external" href="https://docs.google.com/presentation/d/1hTHty5aML9WDDTvkflvvdGDh0AfZwV_8ZEr10-rUPVA">Visual functional programming</a> (will talk more about it in class)</p>
-<a  class="jupman-sol jupman-sol-toggler"
- onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"></div></div>
+</div>
 </div>
 
 
