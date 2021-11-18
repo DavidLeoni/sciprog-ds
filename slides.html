@@ -459,6 +459,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab-B.1">Lab B.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab-B.2">Lab B.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#OOP">OOP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Indexing">Indexing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -657,6 +662,21 @@
 <li class="toctree-l3"><a class="reference internal" href="oop/oop-matrix-chal.html#Sparse-multiplication">Sparse multiplication</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="oop/oop-matrix-chal.html#Sparse-matrix-vector-multiplication">Sparse matrix vector multiplication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="oop/oop-matrix-chal.html#Sparse-vector-matrix-multiplication">Sparse vector matrix multiplication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="indexing/indexing.html">Indexing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="indexing/indexing.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexing/indexing.html#1.-Exercise---chains">1. Exercise - chains</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="indexing/indexing.html#1.1-has_duplicates">1.1 has_duplicates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="indexing/indexing.html#1.2-chain">1.2 chain</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="indexing/indexing.html#2.-Exercise---Bank">2. Exercise - Bank</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="indexing/indexing.html#2.1-bank-constructor,-log-and-pos">2.1 bank constructor, log and pos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="indexing/indexing.html#2.2-bank-revert">2.2 bank revert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="indexing/indexing.html#2.3-bank-max_interval">2.3 bank max_interval</a></li>
 </ul>
 </li>
 </ul>
@@ -1839,6 +1859,31 @@ div.rendered_html tbody tr:hover {
 <li><p>in particular, DO READ <a class="reference internal" href="errors-and-testing/errors-and-testing-sol.html#TROUBLESHOOTING"><span class="std std-ref">TROUBLESHOOTING</span></a> - you are very likely to encounter problems</p></li>
 </ul>
 <p><strong>Let’s go object oriented</strong>: <a class="reference internal" href="oop/oop.html"><span class="doc">OOP</span></a> (only first part, next time we will do challenges together)</p>
+</div>
+<div class="section" id="Lab-B.2">
+<h2>Lab B.2<a class="headerlink" href="#Lab-B.2" title="Permalink to this headline">¶</a></h2>
+<p>Thursday Nov 18th, 2021</p>
+<div class="section" id="OOP">
+<h3>OOP<a class="headerlink" href="#OOP" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Finish <a class="reference internal" href="oop/oop.html"><span class="doc">OOP ComplexNumber</span></a></p></li>
+<li><p><a class="reference external" href="https://sciprog.davidleoni.it/oop/oop-matrix-chal.html">OOP Matrix Challenge</a></p></li>
+</ul>
+</div>
+<div class="section" id="Indexing">
+<h3>Indexing<a class="headerlink" href="#Indexing" title="Permalink to this headline">¶</a></h3>
+<p>Have a look at <a class="reference internal" href="indexing/indexing.html"><span class="doc">Indexing chapter</span></a>: probably you will have a hard time understanding the exercises and your solution will look different from proposed ones: try asking yourself why indexing with dictionaries might save computation time</p>
+<p>From now on, in general try avoiding:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">in</span></code> operator on sequences like strings, lists, tuples: it scans the whole sequence!</p></li>
+<li><p>search methods (<code class="docutils literal notranslate"><span class="pre">.find</span></code>, <code class="docutils literal notranslate"><span class="pre">.index</span></code>, <code class="docutils literal notranslate"><span class="pre">.remove</span></code>…)</p>
+<ul>
+<li><p>in particular methods from strings (<code class="docutils literal notranslate"><span class="pre">.replace</span></code>,etc): PartB is about algorithms, not Python tricks!</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pop(k)</span></code> (but <code class="docutils literal notranslate"><span class="pre">pop(-1)</span></code> is fine)</p></li>
+<li><p>needlessly using slices, they create new data structures!</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1846,6 +1891,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
