@@ -52,8 +52,10 @@ Part B
 
 
     oop/oop.ipynb
-    oop/oop-matrix-chal.ipynb    
-    algo-analysis/algo-analysis-sol.ipynb
+    oop/oop-matrix-chal.ipynb        
+    indexing/indexing.ipynb 
+    recursion/recursion-sol.ipynb
+    algo-analysis/algo-analysis-sol.ipynb    
     sorting/sorting.ipynb
     sorting/sorting-chal.ipynb
     linked-lists/linked-lists.ipynb    
