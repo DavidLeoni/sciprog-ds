@@ -464,6 +464,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Indexing">Indexing</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab-B.3">Lab B.3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -679,6 +680,46 @@
 <li class="toctree-l4"><a class="reference internal" href="indexing/indexing.html#2.3-bank-max_interval">2.3 bank max_interval</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recursion/recursion.html">Recursion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recursion/recursion.html#Simple-functional-programming">Simple functional programming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---how-to">SimpleFP - how-to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---variable-assignment">SimpleFP - variable assignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---list-creation">SimpleFP - list creation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---boxing">SimpleFP - boxing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---concatenation">SimpleFP - concatenation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---accessing-list-elements">SimpleFP - accessing list elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---slicing">SimpleFP - slicing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---almost-no-operators-/-predefined-functions">SimpleFP - almost no operators / predefined functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---functions-and-conditionals">SimpleFP - functions and conditionals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP---recursion">SimpleFP - recursion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Simple-FP---Example---scount">Simple FP - Example - <code class="docutils literal notranslate"><span class="pre">scount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Simple-FP---debugging">Simple FP - debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#SimpleFP:-a-recursion-scheme">SimpleFP: a recursion scheme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Example---sdouble">Example - <code class="docutils literal notranslate"><span class="pre">sdouble</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---debug-double">Exercise - debug double</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---sfilter_even">Exercise - sfilter_even</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---smerry">Exercise - smerry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---ssum">Exercise - ssum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---smin">Exercise - smin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---ssearch">Exercise - ssearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---szip">Exercise - szip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---sunnest">Exercise - sunnest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---sall">Exercise - sall</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recursion/recursion.html#Accumulators">Accumulators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Example---adouble">Example - <code class="docutils literal notranslate"><span class="pre">adouble</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---debug-adouble">Exercise - debug adouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---afilter_even">Exercise - afilter_even</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---amerry">Exercise - amerry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---asearch">Exercise - asearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---azip">Exercise - azip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recursion/recursion.html#Exercise---aunnest">Exercise - aunnest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recursion/recursion.html#multiple-recursion,-binary-searches">multiple recursion, binary searches</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="algo-analysis/algo-analysis-sol.html">Algorithm analysis and recursion</a><ul>
@@ -1884,6 +1925,35 @@ div.rendered_html tbody tr:hover {
 <li><p><code class="docutils literal notranslate"><span class="pre">pop(k)</span></code> (but <code class="docutils literal notranslate"><span class="pre">pop(-1)</span></code> is fine)</p></li>
 <li><p>needlessly using slices, they create new data structures!</p></li>
 </ul>
+</div>
+</div>
+<div class="section" id="Lab-B.3">
+<h2>Lab B.3<a class="headerlink" href="#Lab-B.3" title="Permalink to this headline">¶</a></h2>
+<p>Friday Nov 19th, 2021</p>
+<p><a class="reference internal" href="recursion/recursion.html"><span class="doc">Recursion worksheet on sciprog</span></a></p>
+<p><strong>NOTE</strong>: the worksheet is in progress, I will surely add material on multiple recursion</p>
+<p>In general, when you don’t know how to tackle a recursive problem, first try the SimpleFP way and then ModAcc</p>
+<p><strong>Simple functional programming (SimpleFP)</strong></p>
+<ul class="simple">
+<li><p>immutability</p></li>
+<li><p>very limited instructions set</p></li>
+<li><p>never re-assign variables</p></li>
+<li><p>always create NEW memory regions</p></li>
+<li><p>don’t care about performance</p></li>
+</ul>
+<p><strong>Recursion with modifiable accumulators (ModAcc)</strong></p>
+<ul class="simple">
+<li><p>indexes instead of slicing</p></li>
+<li><p>extra accumulators variables</p></li>
+<li><p>helper functions</p></li>
+<li><p>you can mutate accumulators</p></li>
+<li><p>care more about performance</p></li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2021-2022/sci-pro/slides/A09-oop.pdf">Andrea Passerini slides on programming paradigms</a></p></li>
+<li><p><a class="reference external" href="http://disi.unitn.it/~passerini/teaching/2021-2022/sci-pro/slides/A06-recursion.pdf">Andrea Passerini slides on recursion theory</a></p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1891,7 +1961,6 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
