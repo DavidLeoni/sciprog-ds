@@ -416,6 +416,23 @@ def init(jupman, conf={}):
     
     nbsphinx.Exporter.from_notebook_node = _from_notebook_node
 
+def make_stripped_cell_id(cid):
+    """ Given a solution id, creates a predictable new one 
+            
+        @since 3.3
+    """
+    
+    #See https://nbformat.readthedocs.io/en/latest/format_description.html#cell-ids
+    
+    mx = 64    
+    postfix = "-stripped"  # note: - is legal
+        
+    cand = cid + postfix
+    if len(cand) > mx:
+        return cid[:len(cid)-len(postfix)] + postfix
+    else:
+        return cand
+
 
 class JupmanPreprocessor(Preprocessor):
     """ @since 3.2 """
@@ -922,6 +939,9 @@ class Jupman:
 
         for cell in sh_cells:
             stripped_cell = copy.deepcopy(cell)
+            if "id" in cell:
+                stripped_cell["id"] = make_stripped_cell_id(cell["id"])
+
             if cell.cell_type == "code":
                 if self.is_to_strip(cell.source):                            
                                                             
