@@ -53,8 +53,18 @@ Part B
 
     oop/oop.ipynb
     oop/oop-matrix-chal.ipynb        
-    indexing/indexing.ipynb 
-    recursion/recursion.ipynb
+    indexing/indexing.ipynb     
+    
+.. toctree::
+    :maxdepth: 2
+    :glob:
+
+    toc-recursion.rst
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+    
     algo-analysis/algo-analysis-sol.ipynb    
     sorting/sorting.ipynb
     sorting/sorting-chal.ipynb
