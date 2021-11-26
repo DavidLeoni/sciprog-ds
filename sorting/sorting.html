@@ -466,6 +466,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.3">Lab B.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.4">Lab B.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slides.html#Lab-B.5">Lab B.5</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandments.html">Commandments</a><ul>
@@ -850,15 +851,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#4.2-quicksort-and-qs">4.2 quicksort and qs</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#5-chaining">5 chaining</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#5.1-has_duplicates">5.1 has_duplicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.2-chain">5.2 chain</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#6-SwapArray">6 SwapArray</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#6.1-is_sorted">6.1 is_sorted</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#6.2-max_to_right">6.2 max_to_right</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#6.6-swapsort">6.6 swapsort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5-SwapArray">5 SwapArray</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#5.1-is_sorted">5.1 is_sorted</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.2-max_to_right">5.2 max_to_right</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.3-swapsort">5.3 swapsort</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#Challenges">Challenges</a></li>
@@ -1559,15 +1555,13 @@ div.rendered_html tbody tr:hover {
 <h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h2>
 <p>We will see several algorithms for sorting and discuss their time and space complexity along the way.</p>
 <div class="admonition warning">
-<p><strong>BEFORE CONTINUING, READ FIRST THE</strong> <a class="reference external" href="https://sciprog.davidleoni.it/algo-analysis/algo-analysis-sol.html">WORKSHEET ON ALGORITHM ANALYSIS</a></p>
+<p><strong>BEFORE CONTINUING, READ FIRST THE WORKSHEETS ON</strong> <a class="reference external" href="https://sciprog.davidleoni.it/recursion/recursion1-simplefp-sol.html">RECURSION</a> <strong>AND</strong> <a class="reference external" href="https://sciprog.davidleoni.it/algo-analysis/algo-analysis-sol.html">ON ALGORITHM ANALYSIS</a></p>
 </div>
 <div class="section" id="References">
 <h3>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture1.pdf">Luca Bianco’s Introduction to algorithms slides</a></p></li>
-<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture2.pdf">Luca Bianco’s Algorithms and complexity slides</a></p></li>
-<li><p><a class="reference external" href="https://sciproalgo2020.readthedocs.io/en/latest/slides/Lecture3.pdf">Luca Bianco’s Complexity and sorting</a></p></li>
-<li><p><a class="reference external" href="https://runestone.academy/runestone/books/published/pythonds/AlgorithmAnalysis/toctree.html">Python DS Chapter 2.6: Algorithm analysis</a></p></li>
+<li><p>Erik Dassi’s Algorithm analysis slides 1 and 2, sorting</p></li>
+<li><p>Python DS Chapter 2.6: Algorithm analysis</p></li>
 </ul>
 </div>
 <div class="section" id="What-to-do">
@@ -1577,11 +1571,17 @@ div.rendered_html tbody tr:hover {
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sorting
     sorting.ipynb
+    insertion_sort.py
+    insertion_sort_test.py
+    insertion_sort_sol.py
     selection_sort.py
     selection_sort_test.py
     selection_sort_sol.py
     jupman.py
     sciprog.py
+    .
+    .
+    .
 </pre></div>
 </div>
 <ul class="simple">
@@ -1595,8 +1595,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1-Selection-Sort">
 <h2>1 Selection Sort<a class="headerlink" href="#1-Selection-Sort" title="Permalink to this headline">¶</a></h2>
-<p>We will try to implement Selection Sort on our own. Montresor slides already contain the Python solution, but don’t look at them (we will implement a slightly different solution anyway). In this exercises, you will only be allowed to look at this picture:</p>
+<p>We will try to implement Selection Sort on our own. Don’t look at existing solutions. In this exercises, you will only be allowed to look at this picture:</p>
 <p><img alt="sleection sort matrix 34hh4u" src="../_images/selection-sort-matrix.png" /></p>
+<p>Image credits: dr Alberto Montresor</p>
 <p>To start with, open <code class="docutils literal notranslate"><span class="pre">selection_sort.py</span></code> in an editor of your choice.</p>
 <p>Now proceed reading.</p>
 <div class="section" id="1.1-Implement-swap">
@@ -1679,7 +1680,7 @@ div.rendered_html tbody tr:hover {
 <li><p>At the end of the filename, there is a dot followed by a test class name <code class="docutils literal notranslate"><span class="pre">SwapTest</span></code>, which means Python will only execute tests contained in <code class="docutils literal notranslate"><span class="pre">SwapTest</span></code>. Of course, in this case those are all the tests we have, but if we add many test classes to our file, it will be useful to able to filter executed tests.</p></li>
 <li><p>According to your distribution (i.e. Anaconda), you might need to write <code class="docutils literal notranslate"><span class="pre">python</span></code> instead of <code class="docutils literal notranslate"><span class="pre">python3</span></code></p></li>
 </ul>
-<p><strong>QUESTION 1.1.6</strong>: Read <a class="reference external" href="https://sciprog.davidleoni.it/testing/testing.html#Error-kinds">Error kinds</a> section in Testing. Suppose you will be the only one calling <code class="docutils literal notranslate"><span class="pre">swap</span></code>, and you suspect your program somewhere is calling swap with wrong parameters. Which kind of error would that be? Add to <code class="docutils literal notranslate"><span class="pre">swap</span></code> some appropriate <em>precondition checking</em>.</p>
+<p><strong>QUESTION 1.1.6</strong>: Read <a class="reference external" href="https://sciprog.davidleoni.it/errors-and-testing/errors-and-testing-sol.html#Error-kinds">Error kinds</a> section in Testing. Suppose you will be the only one calling <code class="docutils literal notranslate"><span class="pre">swap</span></code>, and you suspect your program somewhere is calling swap with wrong parameters. Which kind of error would that be? Add to <code class="docutils literal notranslate"><span class="pre">swap</span></code> some appropriate <em>precondition checking</em>.</p>
 </div>
 <div class="section" id="1.2-Implement-argmin">
 <h3>1.2 Implement <code class="docutils literal notranslate"><span class="pre">argmin</span></code><a class="headerlink" href="#1.2-Implement-argmin" title="Permalink to this headline">¶</a></h3>
@@ -1911,7 +1912,7 @@ A = [3,8,9,7,6,2]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;list_reverseiterator at 0x7fd6a0a63898&gt;
+&lt;list_reverseiterator at 0x7f1ab83e9d50&gt;
 </pre></div></div>
 </div>
 <p>The returned value is an iterator, so something which is able to produce a reversed version of the list but it is still not a list. If you actually want to get back a list, you need to explicitly cast it to <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
@@ -2241,82 +2242,8 @@ index     A       B           RESULT
 </div>
 </div>
 </div>
-<div class="section" id="5-chaining">
-<h2>5 chaining<a class="headerlink" href="#5-chaining" title="Permalink to this headline">¶</a></h2>
-<p>You will be doing exercises about chainable lists, using plain old Python lists. This time we don’t actually care about sorting, we just want to detect duplicates and chain sequences fast.</p>
-<p>Start editing the file <code class="docutils literal notranslate"><span class="pre">exerciseB2.py</span></code> and read the following.</p>
-<div class="section" id="5.1-has_duplicates">
-<h3>5.1 has_duplicates<a class="headerlink" href="#5.1-has_duplicates" title="Permalink to this headline">¶</a></h3>
-<p>Implement the function <code class="docutils literal notranslate"><span class="pre">has_duplicates</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_duplicates</span><span class="p">(</span><span class="n">external_list</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns True if internal lists inside external_list contain duplicates,</span>
-<span class="sd">        False otherwise. For more info see exam and tests.</span>
-
-<span class="sd">        INPUT: a list of list of strings, possibily containing repetitions, like:</span>
-
-<span class="sd">            [</span>
-<span class="sd">                [&#39;ab&#39;, &#39;c&#39;, &#39;de&#39;],</span>
-<span class="sd">                [&#39;v&#39;, &#39;a&#39;],</span>
-<span class="sd">                [&#39;c&#39;, &#39;de&#39;, &#39;b&#39;]</span>
-<span class="sd">            ]</span>
-
-<span class="sd">        OUTPUT: Boolean  (in the example above it would be True)</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><strong>MUST RUN IN</strong> <span class="math notranslate nohighlight">\(O(m*n)\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> is the number of internal lists and <span class="math notranslate nohighlight">\(n\)</span> is the length of the longest internal list (just to calculate complexity think about the scenario where all lists have equal size)</p></li>
-<li><p><strong>HINT</strong>: Given the above constraint, whenever you find an item, you cannot start another for loop to check if the item exists elsewhere - that would cost around <span class="math notranslate nohighlight">\(O(m^2*n)\)</span>. Instead, you need to keep track of found items with some other data structure of your choice, which must allow fast read and writes.</p></li>
-</ul>
-<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">chains_test.TestHasDuplicates</span></code></p>
-</div>
-<div class="section" id="5.2-chain">
-<h3>5.2 chain<a class="headerlink" href="#5.2-chain" title="Permalink to this headline">¶</a></h3>
-<p>Implement the function <code class="docutils literal notranslate"><span class="pre">chain</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chain</span><span class="p">(</span><span class="n">external_list</span><span class="p">):</span>
-    <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">        Takes a list of list of strings and return a list containing all the strings</span>
-<span class="s2">        from external_list in sequence, joined by the ending and starting strings</span>
-<span class="s2">        of the internal lists. For more info see examples and tests.</span>
-
-<span class="s2">        INPUT: a list of list of strings , like:</span>
-
-<span class="s2">                [</span>
-<span class="s2">                    [&#39;ab&#39;, &#39;c&#39;, &#39;de&#39;],</span>
-<span class="s2">                    [&#39;gh&#39;, &#39;i&#39;],</span>
-<span class="s2">                    [&#39;de&#39;, &#39;f&#39;, &#39;gh&#39;]</span>
-<span class="s2">                ]</span>
-
-<span class="s2">        OUTPUT: a list of strings, like   [&#39;ab&#39;, &#39;c&#39;, &#39;de&#39;, &#39;f&#39;, &#39;gh&#39;, &#39;i&#39;]</span>
-</pre></div>
-</div>
-<p>It is assumed that</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">external_list</span></code> always contains at least one internal list</p></li>
-<li><p>internal lists always contain at least two strings</p></li>
-<li><p>no string is duplicated among all internal lists</p></li>
-</ul>
-<p>Output sequence is constructed as follows:</p>
-<ul class="simple">
-<li><p>it starts will all the items from the first internal list</p></li>
-<li><p>successive items are taken from an internal list which starts with a string equal to the previous taken internal list last string</p></li>
-<li><p>sequence must not contain repetitions (so joint strings are taken only once).</p></li>
-<li><p><em>all</em> internal lists must be used. If this is not possible (because there are no joint strings), raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p></li>
-</ul>
-<p>Be careful that:</p>
-<ul class="simple">
-<li><p><strong>MUST BE WRITTEN WITH STANDARD PYTHON FUNCTIONS</strong></p></li>
-<li><p><strong>MUST RUN IN</strong> <span class="math notranslate nohighlight">\(O(m * n)\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> is the number of internal lists and <span class="math notranslate nohighlight">\(n\)</span> is the length of the longest internal list (just to calculate complexity think about the scenario where all lists have equal size)</p></li>
-<li><p><strong>HINT</strong>: Given the above constraint, whenever you find a string, you cannot start another for loop to check if the string exists elsewhere (that would likely introduce a quadratic <span class="math notranslate nohighlight">\(m^2\)</span> factor) Instead, you need to first keep track of both starting strings and the list they are contained within using some other data structure of your choice, which must allow fast read and writes.</p></li>
-<li><p>if possible avoid slicing (which doubles memory usage) and use <code class="docutils literal notranslate"><span class="pre">itertools.islice</span></code> instead</p></li>
-</ul>
-<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">chains_test.TestChain</span></code></p>
-</div>
-</div>
-<div class="section" id="6-SwapArray">
-<h2>6 SwapArray<a class="headerlink" href="#6-SwapArray" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="5-SwapArray">
+<h2>5 SwapArray<a class="headerlink" href="#5-SwapArray" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>NOTE: This exercise was given at an exam. Solving it could have been quite easy, if students had just read</strong> <a class="reference external" href="https://runestone.academy/runestone/static/pythonds/SortSearch/sorting.html">the book</a> (which is available when doing the exam)!</p>
 <p>Interpret it as a warning that reading these worksheets alone is <em>not</em> enough to pass the exam.</p>
@@ -2490,8 +2417,8 @@ SwapArray: [8, 7, 3, 6]
 </pre></div></div>
 </div>
 <p>Now start editing the file <code class="docutils literal notranslate"><span class="pre">swap_array.py</span></code>:</p>
-<div class="section" id="6.1-is_sorted">
-<h3>6.1 is_sorted<a class="headerlink" href="#6.1-is_sorted" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="5.1-is_sorted">
+<h3>5.1 is_sorted<a class="headerlink" href="#5.1-is_sorted" title="Permalink to this headline">¶</a></h3>
 <p>Implement the <code class="docutils literal notranslate"><span class="pre">is_sorted</span></code> function, which is a function <em>external</em> to the class <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_sorted</span><span class="p">(</span><span class="n">sarr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns True if the provided SwapArray sarr is sorted, False otherwise</span>
@@ -2545,8 +2472,8 @@ True
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="6.2-max_to_right">
-<h3>6.2 max_to_right<a class="headerlink" href="#6.2-max_to_right" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="5.2-max_to_right">
+<h3>5.2 max_to_right<a class="headerlink" href="#5.2-max_to_right" title="Permalink to this headline">¶</a></h3>
 <p>Implement <code class="docutils literal notranslate"><span class="pre">max_to_right</span></code> function, which is a function <em>external</em> to the class <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>. There are two ways to implement it, try to minimize the reads from the <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_to_right</span><span class="p">(</span><span class="n">sarr</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Modifies the provided SwapArray sarr so that its biggest element</span>
@@ -2712,8 +2639,8 @@ SwapArray: [7, 9, 6, 5, 8]
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="6.6-swapsort">
-<h3>6.6 swapsort<a class="headerlink" href="#6.6-swapsort" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="5.3-swapsort">
+<h3>5.3 swapsort<a class="headerlink" href="#5.3-swapsort" title="Permalink to this headline">¶</a></h3>
 <p>When you know how to push a maximum element to the rightmost position of an array, you almost have a sorting algorithm. So now you can try to implement <code class="docutils literal notranslate"><span class="pre">swapsort</span></code> function, taking inspiration from <code class="docutils literal notranslate"><span class="pre">max_to_right</span></code>. Note <code class="docutils literal notranslate"><span class="pre">swapsort</span></code> is a function <em>external</em> to the class <code class="docutils literal notranslate"><span class="pre">SwapArray</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">swapsort</span><span class="p">(</span><span class="n">sarr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Sorts in-place provided SwapArray.</span>
