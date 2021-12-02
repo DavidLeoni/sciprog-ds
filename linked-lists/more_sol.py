@@ -358,6 +358,123 @@ class LinkedList:
         
         #/jupman-raise
         
+    def linalg(self):
+        """  
+            Assume nodes hold data as a string "kc" where k is a single digit 
+            and c any character.
+            
+            MODIFY the linked list by stripping the k from original nodes, 
+            and inserting k-1 new nodes next to each node.
+                    
+            - ASSUME every k is >= 1
+            - MUST execute in O(s) where s is the sum of all k found.
+            
+        """                
+        #jupman-raise
+        
+        current = self._head
+        
+        while current != None:
+            
+            k = int(current._data[0])
+            c = current._data[1]
+            current._data = c
+            
+            nxt = current._next
+            
+            for i in range(k-1):
+                new = Node(c)
+                current._next = new
+                current = new
+            current._next = nxt
+            current = nxt
+            
+        #/jupman-raise            
+        
+        
+    def sepel(self, el):
+        """ Separates this list into two lists:
+
+            - this list will have all nodes without el as data
+            - the other list will contain all nodes with el as data
+            
+            - IMPORTANT: DO *NOT* create new nodes, REUSE existing ones!!
+            - MUST execute in O(n), where n is the length of the list
+                           
+        """
+        #jupman-raise
+
+        ret = LinkedList()
+
+        current = self._head
+        ret_last = None
+        prev = None
+        while current != None:
+            
+            #  a  b  c  b  c  c  b  d  c
+            #        |     |  |        |
+            
+            if current.get_data() == el:
+                if ret_last == None:
+                    ret._head = current
+                else:
+                    ret_last.set_next(current)
+                ret_last = current                
+                nx = current.get_next()
+                if prev == None:
+                    self._head = nx
+                else:
+                    prev.set_next(nx)
+                current.set_next(None)
+                current = nx                
+            else:
+                prev = current
+                current = current.get_next()
+        return ret
+        #/jupman-raise
+
+    def pivot(self):
+        """
+            Selects first node data as pivot, and then MOVES before the pivot
+            all the nodes which have data value STRICTLY LESS (<) than the pivot.
+            Finally, RETURN the number of moved nodes.
+
+            IMPORTANT:
+            - *DO NOT* create new nodes
+            - nodes less than pivot must be in the reversed order they were found
+            - nodes greater or equal than pivot will maintain the original order
+            - MUST EXECUTE in O(n), where n is the list size
+        """
+        #jupman-raise
+
+        if self._head == None:
+            return 0
+
+        piv = self._head.get_data()
+
+        prev = self._head
+        current = self._head.get_next()
+        ret = 0
+
+
+        while current != None:
+            if current.get_data() < piv:
+                tmp = current.get_next()
+                prev.set_next(tmp)
+                current.set_next(self._head)
+                self._head = current
+
+                current = tmp
+                ret += 1
+            else:
+                prev = current
+                current = current.get_next()
+
+        return ret
+        #/jupman-raise
+
+
+        
         
 def mirror(lst):
     """ RETURN a NEW LinkedList having double the nodes of provided lst

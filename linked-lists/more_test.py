@@ -697,4 +697,290 @@ class CoupleSortTest(LinkedListTest):
         ll.couple_sort()
         self.assertEqual(to_py(ll), [3,4,2,5,6,7,3,6,2,4,3,5,2])
         
-#unittest.main()        
+        
+class LinalgTest(LinkedListTest):
+    
+    def test_01_empty(self):
+        ll = LinkedList()
+        res = ll.linalg()          
+        self.assertEqual(to_py(ll), [])
+        self.assertEqual(res, None) # should return NOTHING!        
+    
+    def test_02_1a(self):
+        ll = LinkedList()        
+        ll.add('1a')
+        n0 = ll._head
+        res = ll.linalg()                
+        self.assertEqual(to_py(ll), ['a'])
+        self.assertEqual(res, None) # should return NOTHING!                
+        self.assertEqual(id(ll._head), id(n0))  # check didn't replaced original nodes          
+        
+    
+    def test_03_2b(self):
+        ll = LinkedList()
+        ll.add('2b')
+        n0 = ll._head
+        ll.linalg()        
+        self.assertEqual(to_py(ll), ['b','b'])
+        self.assertEqual(id(ll._head), id(n0))  # check didn't replaced original nodes        
+        
+    def test_04_3a(self):
+        ll = LinkedList()
+        ll.add('3a')
+        ll.linalg()        
+        self.assertEqual(to_py(ll), ['a','a','a'])    
+    
+    def test_05_2a_1b(self):
+        ll = LinkedList()
+        ll.add('1b')
+        ll.add('2a')
+        n0 = ll._head
+        n1 = ll._head._next
+        ll.linalg()        
+        self.assertEqual(to_py(ll), ['a','a','b'])
+        self.assertEqual(id(ll._head), id(n0))       # check didn't replaced original nodes
+        self.assertEqual(id(ll._head._next._next), id(n1))  
+        
+
+    def test_06_1a_2b(self):
+        ll = LinkedList()
+        ll.add('2b')
+        ll.add('1a')
+        ll.linalg()        
+        self.assertEqual(to_py(ll), ['a','b','b'])
+        
+    def test_07_1a_1b(self):
+        ll = LinkedList()
+        ll.add('1a')
+        ll.add('1b')
+        ll.linalg()        
+        self.assertEqual(to_py(ll), ['b','a'])
+
+    def test_08_1a_1b_1c(self):
+        ll = LinkedList()                
+        ll.add('1c')
+        ll.add('1b')
+        ll.add('1a')
+        ll.linalg()        
+        self.assertEqual(to_py(ll), ['a','b','c'])
+
+
+    def test_09_1a_3b_2c(self):
+        ll = LinkedList()                
+        ll.add('2c')
+        ll.add('3b')
+        ll.add('1a')
+        res = ll.linalg()        
+        self.assertEqual(to_py(ll), ['a','b','b','b','c','c'])
+        
+    def test_10_3a_5b_2c(self):
+        ll = LinkedList()
+        ll.add('2c')
+        ll.add('5b')
+        ll.add('3a')
+        res = ll.linalg()        
+        self.assertEqual(to_py(ll), ['a','a','a','b','b','b','b','b','c','c'])
+        
+        
+class SepelTest(LinkedListTest):
+    
+    # NEW
+    def test_00_empty(self):
+        la = to_ll([])
+        lb = la.sepel('z')
+        self.assertEqual(to_py(la), [])
+        self.assertEqual(to_py(lb), [])
+    
+    def test_01_a_sa(self):
+        la = to_ll(['a'])
+        lan0 = la._head
+        lb = la.sepel('a')
+        
+        self.assertEqual(to_py(la), [])
+        self.assertEqual(to_py(lb), ['a'])
+        
+        lan0._data = 'x'  # checks node reuse
+        self.assertEqual(to_py(lb), ['x'])
+
+    def test_02_a_sb(self):
+        la = to_ll(['a'])
+        lan0 = la._head
+        lb = la.sepel('b')
+
+        self.assertEqual(to_py(la), ['a'])
+        self.assertEqual(to_py(lb), [])
+
+        lan0._data = 'x'  # checks no new nodes
+        self.assertEqual(to_py(la), ['x'])
+
+    def test_03_ab_sa(self):
+        la = to_ll(['a','b'])
+        lan0 = la._head
+        lan1 = la._head._next
+        lb = la.sepel('a')
+
+        self.assertEqual(to_py(la), ['b'])
+        self.assertEqual(to_py(lb), ['a'])
+
+        lan0._data = 'x'  # checks no new nodes
+        lan1._data = 'y'  
+        self.assertEqual(to_py(la), ['y'])
+        self.assertEqual(to_py(lb), ['x'])
+
+
+    def test_04_ab_sb(self):
+        la = to_ll(['a','b'])
+        lan0 = la._head
+        lan1 = la._head._next
+        lb = la.sepel('b')
+
+        self.assertEqual(to_py(la), ['a'])
+        self.assertEqual(to_py(lb), ['b'])
+
+        lan0._data = 'x'  # checks no new nodes
+        lan1._data = 'y'  
+        self.assertEqual(to_py(la), ['x'])
+        self.assertEqual(to_py(lb), ['y'])
+
+
+    def test_05_aba_sa(self):
+        la = to_ll(['a','b','a'])
+        lan0 = la._head
+        lan1 = la._head._next
+        lan2 = la._head._next._next
+        lb = la.sepel('a')
+
+        self.assertEqual(to_py(la), ['b'])
+        self.assertEqual(to_py(lb), ['a','a'])
+
+        lan0._data = 'x'  # checks no new nodes
+        lan1._data = 'y'  
+        lan2._data = 'z'  
+        self.assertEqual(to_py(la), ['y'])
+        self.assertEqual(to_py(lb), ['x','z'])        
+
+    def test_06_aba_sb(self):
+        la = to_ll(['a','b','a'])
+        lan0 = la._head
+        lan1 = la._head._next
+        lan2 = la._head._next._next
+        lb = la.sepel('b')
+
+        self.assertEqual(to_py(la), ['a','a'])
+        self.assertEqual(to_py(lb), ['b'])
+
+        lan0._data = 'x'  # checks no new nodes
+        lan1._data = 'y'  
+        lan2._data = 'z'  
+        self.assertEqual(to_py(la), ['x','z'])        
+        self.assertEqual(to_py(lb), ['y'])
+
+    def test_07_complex(self):
+        la = to_ll(['c','a','b','c','c','d','c','e','c'])        
+        lan0 = la._head
+        lan3 = la._head._next._next._next
+        lan4 = la._head._next._next._next._next
+        lb = la.sepel('c')
+
+        self.assertEqual(to_py(la), ['a','b','d','e'])
+        self.assertEqual(to_py(lb), ['c','c','c','c','c'])
+        lan0._data = 'x'
+        lan3._data = 'y'
+        lan4._data = 'z'
+        self.assertEqual(to_py(la), ['a','b','d','e'])
+        self.assertEqual(to_py(lb), ['x','y','z','c','c'])        
+        
+class PivotTest(LinkedListTest):
+
+    def test_01_empty(self):
+        ll = LinkedList()
+        res = ll.pivot()
+        self.assertEqual(to_py(ll), [])
+        self.assertEqual(res, 0)
+
+    def test_02_one(self):
+        ll = to_ll([5])
+        orig_node = ll._head
+        res = ll.pivot()
+        self.assertEqual(id(orig_node), id(ll._head))   # shouldn't create new nodes
+        self.assertEqual(res, 0)
+
+    def test_03_8_6(self):
+        ll = to_ll([8,6])
+        orig_node0 = ll._head
+        orig_node1 = ll._head.get_next()
+        res = ll.pivot()
+        self.assertEqual(to_py(ll), [6,8])
+        self.assertEqual(res, 1)
+        self.assertEqual(id(orig_node0), id(ll._head.get_next()))   # shouldn't create new nodes
+        self.assertEqual(id(orig_node1), id(ll._head))              # shouldn't create new nodes
+
+    def test_04_5_5(self):
+        ll = to_ll([5,5])
+        orig_node0 = ll._head
+        orig_node1 = ll._head.get_next()
+        res = ll.pivot()
+        self.assertEqual(to_py(ll), [5,5])
+        self.assertEqual(res, 0)
+        # should only move nodes which are STRICTLY LESS (<) than pivot
+        self.assertEqual(id(orig_node0), id(ll._head))              # shouldn't create new nodes
+        self.assertEqual(id(orig_node1), id(ll._head.get_next()))   # shouldn't create new nodes
+
+    def test_05_4_7(self):
+        ll = to_ll([4, 7])
+        orig_node0 = ll._head
+        orig_node1 = ll._head.get_next()
+        res = ll.pivot()
+        self.assertEqual(to_py(ll), [4, 7])
+        self.assertEqual(res, 0)
+        self.assertEqual(id(orig_node0), id(ll._head))
+        self.assertEqual(id(orig_node1), id(ll._head.get_next()))
+
+    def test_06_7_8_4(self):
+        ll = to_ll([7, 9, 4])
+        orig_node0 = ll._head
+        orig_node1 = ll._head.get_next()
+        orig_node2 = ll._head.get_next().get_next()
+        res = ll.pivot()
+        self.assertEqual(to_py(ll), [4, 7, 9])
+        self.assertEqual(res, 1)
+        self.assertEqual(id(orig_node2), id(ll._head))
+        self.assertEqual(id(orig_node0), id(ll._head.get_next()))
+        self.assertEqual(id(orig_node1), id(ll._head.get_next().get_next()))
+
+    def test_06_7_9_4_6(self):
+        ll = to_ll([7, 9, 4, 6])
+        res = ll.pivot()
+        # NOTICE nodes are placed before pivot in reverse order as we find them
+        self.assertEqual(to_py(ll), [6, 4, 7, 9])
+        self.assertEqual(res, 2)
+
+
+    def test_07_7_6_9_4(self):
+        ll = to_ll([7, 6, 9, 4])
+        res = ll.pivot()
+        # NOTICE nodes before pivot are placed in reverse order as we find them
+        self.assertEqual(to_py(ll), [4, 6, 7, 9])
+        self.assertEqual(res, 2)
+
+    def test_08_7_4_6_9(self):
+        ll = to_ll([7, 4, 6, 9])
+        res = ll.pivot()
+        # NOTICE nodes before pivot are placed in reverse order as we find them
+        self.assertEqual(to_py(ll), [6, 4, 7, 9])
+        self.assertEqual(res, 2)
+
+    def test_09_9_4_8(self):
+        ll = to_ll([7, 9, 4, 8])
+        res = ll.pivot()
+        # order of nodes after pivot should be the same as in the original list
+        self.assertEqual(to_py(ll), [4, 7, 9, 8])
+        self.assertEqual(res, 1)
+
+
+    def test_complex(self):
+        ll = to_ll([7, 12, 1, 3, 8, 9, 6, 4, 7, 2, 10])
+        res = ll.pivot()
+        # order of nodes after pivot should be the same as in the original list
+        self.assertEqual(to_py(ll), [2, 4, 6, 3, 1, 7, 12, 8, 9, 7, 10])
+        self.assertEqual(res, 5)        
