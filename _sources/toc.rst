@@ -50,9 +50,8 @@ Part B
     :maxdepth: 2
     :glob:
 
-
-    oop/oop.ipynb
-    oop/oop-matrix-chal.ipynb        
+    toc-oop.rst
+        
     indexing/indexing.ipynb     
     
 .. toctree::
@@ -61,18 +60,24 @@ Part B
 
     toc-recursion.rst
 
+    
+    algo-analysis/algo-analysis-sol.ipynb
+    stacks/stacks.ipynb
+
 .. toctree::
     :maxdepth: 2
     :glob:
+
+    toc-linked-lists.rst
+   
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+
+    toc-queues.rst
+
     
-    algo-analysis/algo-analysis-sol.ipynb    
-    sorting/sorting.ipynb
-    sorting/sorting-chal.ipynb
-    linked-lists/linked-lists.ipynb    
-    linked-lists/linked-lists-chal.ipynb
-    stacks/stacks.ipynb
-    queues/queues.ipynb    
-    queues/circular-queues.ipynb    
     trees/bin-trees.ipynb
     trees/gen-trees.ipynb
     graph-algos/graph-algos.ipynb
