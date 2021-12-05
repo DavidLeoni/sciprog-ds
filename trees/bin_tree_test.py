@@ -18,9 +18,9 @@ def bt(*args):
                             
     """
     if (len(args) == 0):
-        raise Exception("You need to provide at least one argument for the data!")
+        raise ValueError("You need to provide at least one argument for the data!")
     if (len(args) > 3):
-        raise Exception("You must provide at most two nodes ! Found instead: %s " % (len(args) - 1))
+        raise ValueError("You must provide at most two nodes ! Found instead: %s " % (len(args) - 1))
         
     data = args[0]
     children = args[1:]
@@ -29,11 +29,11 @@ def bt(*args):
     
     if len(children) > 0:
         if children[0] != None and not isinstance(children[0], BinTree):
-            raise Exception('Wrong type %s for left child!' % type(children[0]))
+            raise ValueError('Wrong type %s for left child!' % type(children[0]))
         ret._left = children[0]
     if len(children) == 2:
         if children[1] != None and not isinstance(children[1], BinTree):
-            raise Exception('Wrong type %s for right child!' % type(children[1]))
+            raise ValueError('Wrong type %s for right child!' % type(children[1]))
         ret._right = children[1]
     return ret
 
@@ -116,34 +116,34 @@ class BinTreeTest(unittest.TestCase):
             nonlocal row
             
             if c2 == None:
-                raise Exception("Found a None node in EXPECTED tree!\n\n" 
+                raise AssertionError("Found a None node in EXPECTED tree!\n\n" 
                                 + str_btrees(actual,expected,row))
             
             if c1 == None:
-                raise Exception("Found a None node in ACTUAL tree! \n\n"
+                raise AssertionError("Found a None node in ACTUAL tree! \n\n"
                                 + str_btrees(actual,expected,row))                     
 
             if not isinstance(c2, BinTree):
-                raise Exception("EXPECTED value is an instance of  %s , which is not a BinTree !\n\n%s" % (type(c2).__name__ , str_btrees(actual,expected,row)))
+                raise AssertionError("EXPECTED value is an instance of  %s , which is not a BinTree !\n\n%s" % (type(c2).__name__ , str_btrees(actual,expected,row)))
                                 
             if not isinstance(c1, BinTree):
-                raise Exception("ACTUAL node is an instance of  %s  , which is not a  BinTree  !\n\n%s"
+                raise AssertionError("ACTUAL node is an instance of  %s  , which is not a  BinTree  !\n\n%s"
                                 % (type(c1).__name__, str_btrees(actual, expected, row )))
                          
             if type(c1.data()) != type(c2.data()):
                 errMsg = "ACTUAL data type:  %s  is different from EXPECTED data type:  %s\n\n" \
                          % (type(c1.data()).__name__, type(c2.data()).__name__)
-                raise Exception(errMsg + str_btrees(actual,expected,row))
+                raise AssertionError(errMsg + str_btrees(actual,expected,row))
                 
             if c1.data() != c2.data():
-                raise Exception("ACTUAL data is different from expected!\n\n" 
+                raise AssertionError("ACTUAL data is different from expected!\n\n" 
                                 + str_btrees(actual,expected,row))
             
             
             cs1 = get_children(c1)
             cs2 = get_children(c2)
             if (len(cs1) != len(cs2)):
-                raise Exception("Number of children is different !\n\n"
+                raise AssertionError("Number of children is different !\n\n"
                                 + str_btrees(actual, expected, row) )
             
             
@@ -179,16 +179,16 @@ class BinTreeTestTest(BinTreeTest):
         self.assertTreeEqual(bt('a'), bt('a'))
         self.assertTreeEqual(bt('a', bt('b')), bt('a', bt('b')))
         
-        with self.assertRaises(Exception):
+        with self.assertRaises(AssertionError):
             self.assertTreeEqual(bt('a'), bt('b'))            
-        with self.assertRaises(Exception):
+        with self.assertRaises(AssertionError):
             self.assertTreeEqual(bt('a', bt('b')), bt('a', bt('c')))
         
         # different structure
-        with self.assertRaises(Exception):
+        with self.assertRaises(AssertionError):
             self.assertTreeEqual(bt('a', bt('b')), bt('a', bt('b',bt('c'))))
 
-        with self.assertRaises(Exception):
+        with self.assertRaises(AssertionError):
             self.assertTreeEqual(bt('a', bt('b',bt('c'))), bt('a', bt('b')))        
     
     def test_print(self):
@@ -197,22 +197,22 @@ class BinTreeTestTest(BinTreeTest):
     
     def test_bt(self):
         
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             bt(0,bt(1), bt(2), bt(3))
         
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             bt(2,666)
         
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             bt(2,None, 666)
             
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             bt(2,666, 666)
         
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             bt(1,bt(2), 666)
 
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             bt(1, 666, bt(2))
 
                             

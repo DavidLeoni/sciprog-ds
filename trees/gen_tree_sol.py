@@ -128,11 +128,11 @@ class GenericTree:
     def insert_sibling(self, new_sibling):
         """ Inserts new_sibling as the *immediate* next sibling.
             
-            If self is a root, raises an Exception.           
+            If self is a root, raises a ValueError.
         """
         #jupman-raise
         if (self.is_root()):
-            raise Exception("Can't add siblings to a root node !!")
+            raise ValueError("Can't add siblings to a root node !!")
             
         new_sibling._parent = self._parent
         new_sibling._sibling = self._sibling
@@ -143,7 +143,7 @@ class GenericTree:
         """ Inserts new_siblings at the beginning of the siblings sequence.
             
             Nodes are inserted in the same order as they are passed. 
-            If self is a root, raises an Exception
+            If self is a root, raises a ValueError
             
             For example:
             
@@ -166,7 +166,7 @@ class GenericTree:
         """
         #jupman-raise
         if (self.is_root()):
-            raise Exception("Can't add siblings to a root node !!")
+            raise ValueError("Can't add siblings to a root node !!")
         
         for s in reversed(new_siblings):
             self.insert_sibling(s)
@@ -175,11 +175,11 @@ class GenericTree:
     def detach_child(self):
         """ Detaches the first child. 
         
-            if there is no child, raises an Exception 
+            if there is no child, raises a LookupError 
         """
         #jupman-raise
         if (self._child == None):
-            raise Exception("There is no child !")            
+            raise LookupError("There is no child !")            
         else:
                         
             detached = self._child
@@ -191,11 +191,11 @@ class GenericTree:
     def detach_sibling(self):
         """ Detaches the first sibling.
         
-            If there is no sibling, raises an Exception 
+            If there is no sibling, raises a LookupError 
         """
         #jupman-raise
         if (self._sibling == None):
-            raise Exception("There is no sibling !")
+            raise LookupError("There is no sibling !")
         else:
             detached = self._sibling            
             self._sibling = self._sibling._sibling             
@@ -206,7 +206,7 @@ class GenericTree:
     def detach(self, data):
         """ Detaches the first child that holds the provided data.
         
-            If no such node is found, raises an Exception
+            If no such node is found, raises a LookupError
         """
         #jupman-raise
         if (self._child != None):
@@ -224,7 +224,7 @@ class GenericTree:
                 else:
                     prev = current
                     current = current._sibling                        
-        raise Exception("Couldn't find any children holding this data:" + str(data))
+        raise LookupError("Couldn't find any children holding this data:" + str(data))
         #/jupman-raise
 
     def ancestors(self):

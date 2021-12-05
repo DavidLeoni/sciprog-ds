@@ -11,10 +11,10 @@ sys.path.append('trees')
 import unittest
 
 from bin_tree_test import bt
-from bin_tree_test import BinaryTreeTest
+from bin_tree_test import BinTreeTest
 
 
-class BinaryTreeFailTest(BinaryTreeTest):
+class BinTreeFailTest(BinTreeTest):
 
     def test_01_both_none(self):
         self.assertTreeEqual(None, None)
