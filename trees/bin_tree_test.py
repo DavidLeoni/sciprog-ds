@@ -115,11 +115,11 @@ class BinTreeTest(unittest.TestCase):
             
             nonlocal row
             
-            if c2 == None:
+            if c2 is None:
                 raise AssertionError("Found a None node in EXPECTED tree!\n\n" 
                                 + str_btrees(actual,expected,row))
             
-            if c1 == None:
+            if c1 is None:
                 raise AssertionError("Found a None node in ACTUAL tree! \n\n"
                                 + str_btrees(actual,expected,row))                     
 
