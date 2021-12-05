@@ -1,5 +1,5 @@
 
-class BinaryTree:
+class BinTree:
     """ A simple binary tree with left and right branches
     """
     
@@ -44,7 +44,7 @@ class BinaryTree:
                         branches.append(' ')
 
                     if current != None:
-                        if isinstance(current, BinaryTree):
+                        if isinstance(current, BinTree):
                             strings.append(str_branches(current, branches))
                         else:
                             strings.append('ERROR: FOUND CHILD OF TYPE %s' % type(current))
@@ -57,14 +57,14 @@ class BinaryTree:
     def insert_left(self, data):
         """ Takes as input DATA (*NOT* a node !!) and MODIFIES current node this way:
         
-            - First creates a new BinaryTree (let's call it B) into which provided data is wrapped.
+            - First creates a new BinTree (let's call it B) into which provided data is wrapped.
             - Then:
                 - if there is no left node in self, new node B is attached to the left of self
                 - if there already is a left node L, it is substituted by new node B, and L becomes the 
                   left node of B
         """
         #jupman-raise
-        B =  BinaryTree(data)
+        B =  BinTree(data)
         if self._left == None:
             self._left = B
         else:
@@ -75,14 +75,14 @@ class BinaryTree:
     def insert_right(self, data):
         """ Takes as input DATA (*NOT* a node !!) and MODIFIES current node this way:
         
-            - First creates a new BinaryTree (let's call it B) into which provided data is wrapped.
+            - First creates a new BinTree (let's call it B) into which provided data is wrapped.
             - Then:
                 - if there is no right node in self, new node B is attached to the right of self
                 - if there already is a right node L, it is substituted by new node B, and L becomes the 
                   right node of B
         """
         #jupman-raise
-        B = BinaryTree(data)
+        B = BinTree(data)
         if self._right == None:
             self._right = B
         else:
@@ -478,7 +478,68 @@ class BinaryTree:
                 stack.append( node.left() )
         
         return ret
-        #/jupman-raise      
+        #/jupman-raise    
+
+    def swap_stack(self, a, b):
+        """ Given two elements a and b, locates the two nodes where they are contained
+            and swaps *only the data* in the found nodes.
+
+            - if a or b are not found, raise LookupError
+
+            - IMPORTANT 1: assume tree is NOT ordered
+            - IMPORTANT 2: assume all nodes have different data
+            - Implement it with a while and a stack
+            - MUST execute in O(n) where n is the size of the tree
+        """
+        #jupman-raise
+        node_a = None
+        node_b = None
+
+        stack = [self]
+
+        while len(stack) > 0:
+            node = stack.pop()
+
+            if node._data == a:
+                node_a = node
+            if node._data == b:
+                node_b = node
+            if node_a != None and node_b != None:
+                node_a._data, node_b._data = node_b._data, node_a._data
+                return
+
+            if node._left != None:
+                stack.append(node._left)
+            if node._right != None:
+                stack.append(node._right)
+
+        raise LookupError("Couldn't find elements! node_a=%s node_b=%s" % (node_a, node_b))
+        #/jupman-raise
+
+    def is_heap_stack(self):
+        """ A tree is a min heap if each node data is less or equal than its children data.
+            RETURN True if the tree is a min heap, False otherwise
+
+            - DO *NOT* use recursion
+            - implement it with a while and a stack (as a python list)            
+            - MUST run in O(n), where n is the tree size
+        """
+        #jupman-raise
+        stack = [self]
+        while len(stack) > 0:
+            top = stack.pop()
+            if top.left():
+                if top.left().data() < top.data():
+                    return False
+                stack.append(top.left())
+            
+            if top.right():
+                if top.right().data() < top.data():
+                    return False
+                stack.append(top.right())
+            
+        return True
+        #/jupman-raise          
         
     def add_row(self, elems):
         """ Takes as input a list of data and MODIFIES the tree by adding
@@ -549,3 +610,112 @@ class BinaryTree:
                 self._right.prune_rec(el)
 
         #/jupman-raise
+
+    def family_sum_rec(self):
+        """ MODIFIES the tree by adding to each node data its *original* parent and children data
+
+            - MUST execute in O(n) where n is the size of the tree
+            - a recursive implementation is acceptable
+            - HINT: you will probably want to define a helper function
+        """
+        #jupman-raise
+        def helper(node, pdata):
+            tmp = node.data()
+            d = node.data()
+
+            if pdata != None:
+                d += pdata
+            if node._left != None:
+                d += node._left.data()
+                helper(node._left, tmp)
+            if node._right != None:
+                d += node._right.data()
+                helper(node._right, tmp)
+            node._data = d
+
+        helper(self, None)
+        #/jupman-raise
+
+    def union_rec(self, other):
+        """ Supposing this is a binary tree of integers, takes another binary tree
+            and MODIFIES self so it becomes the union of the two.            
+
+            Imagine to overlay the two trees, and:
+            - whenever two nodes occupy the same position, the self one is updated 
+                by summing the corresponding node data from other
+            - if other has more nodes than self, create corresponding NEW nodes in self
+           
+            - a recursive solution is acceptable
+            - DO *NOT* share nodes between the trees
+            - DO *NOT* throw away existing nodes in self
+            - MUST run in O(max(n,m)) where n,m are the number of nodes in self 
+              and other
+        """
+        #jupman-raise
+        if other == None:  
+            return
+        
+        self._data += other._data
+        
+        if self._left and other._left:
+            self._left.union_rec(other._left)
+        elif not self._left and other._left:
+            self.insert_left(0)
+            self._left.union_rec(other._left)
+        
+        if self._right and other._right:
+            self._right.union_rec(other._right)
+        elif not self._right and other._right:
+            self.insert_right(0)
+            self._right.union_rec(other._right)
+
+        #/jupman-raise
+
+
+
+
+# notice this is a *function* defined *outside* the class
+def reconstruct(root, iterator):
+    """ Takes a root (i.e. 'a') and a sequence of tuples (node, branch, subnode) 
+        *in no particular order* 
+        i.e. ('b','R','c'), ('a','L','b'), ('a','R','b') ...
+        
+        and RETURN a NEW BinTree reconstructed from such tuples
+            
+        - node and subnode are represented as node data
+        - a branch is indicated by either 'L' or 'R'           
+        
+        - MUST perform in O(n) where n is the length of the stream 
+          produced by the iterator
+        - NOTE: you can read the sequence only once (you are given an iterator)                
+        - in case a branch is repeated (i.e. ('a','L','b') and ('a','L','c'))
+          the new definition replaces old one        
+    """ 
+    
+    #jupman-raise
+    
+    diz = {root: BinTree(root)}
+    for t in iterator:
+                        
+        if t[0] in diz:
+            node = diz[t[0]]
+        else:
+            node = BinTree(t[0])
+            diz[t[0]] = node        
+        
+        if t[2] in diz:
+            sub = diz[t[2]]
+        else:
+            sub = BinTree(t[2])
+            diz[t[2]] = sub
+                        
+        if t[1] == 'L':
+            node._left = sub
+        else:
+            node._right = sub
+            
+    return diz[root]
+    #/jupman-raise             
+        
+        
+    

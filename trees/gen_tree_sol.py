@@ -604,3 +604,32 @@ class GenericTree:
                 current = current._sibling
         return False
         #/jupman-raise        
+
+
+    def marvelous(self):
+        """ MODIFIES each node data replacing it with the concatenation 
+            of its leaves data 
+            
+            - MUST USE a recursive solution
+            - assume node data is always a string
+
+        """
+        #jupman-raise
+        
+        ret = []
+        
+        if self._child == None:
+            return 
+        
+        current = self._child
+            
+        work = []
+        while current != None:
+            current.marvelous()
+            work.extend(current._data)
+            current = current._sibling
+        
+        self._data = ''.join(work)
+        #/jupman-raise            
+
+

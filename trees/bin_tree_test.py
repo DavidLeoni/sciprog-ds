@@ -3,7 +3,7 @@ import unittest
 
 
 def bt(*args):
-    """ Shorthand function that returns a BinaryTree containing the provided 
+    """ Shorthand function that returns a BinTree containing the provided 
         data and children. First parameter is the data, the following ones are the children.
         
         Usage examples:
@@ -25,14 +25,14 @@ def bt(*args):
     data = args[0]
     children = args[1:]
     
-    ret = BinaryTree(data)    
+    ret = BinTree(data)    
     
     if len(children) > 0:
-        if children[0] != None and not isinstance(children[0], BinaryTree):
+        if children[0] != None and not isinstance(children[0], BinTree):
             raise Exception('Wrong type %s for left child!' % type(children[0]))
         ret._left = children[0]
     if len(children) == 2:
-        if children[1] != None and not isinstance(children[1], BinaryTree):
+        if children[1] != None and not isinstance(children[1], BinTree):
             raise Exception('Wrong type %s for right child!' % type(children[1]))
         ret._right = children[1]
     return ret
@@ -97,7 +97,7 @@ def str_btrees(bt1, bt2, error_row=-1):
     return "".join(strings)
 
 
-class BinaryTreeTest(unittest.TestCase):
+class BinTreeTest(unittest.TestCase):
 
     
     def assertTreeEqual(self, actual, expected):
@@ -123,11 +123,11 @@ class BinaryTreeTest(unittest.TestCase):
                 raise Exception("Found a None node in ACTUAL tree! \n\n"
                                 + str_btrees(actual,expected,row))                     
 
-            if not isinstance(c2, BinaryTree):
-                raise Exception("EXPECTED value is an instance of  %s , which is not a BinaryTree !\n\n%s" % (type(c2).__name__ , str_btrees(actual,expected,row)))
+            if not isinstance(c2, BinTree):
+                raise Exception("EXPECTED value is an instance of  %s , which is not a BinTree !\n\n%s" % (type(c2).__name__ , str_btrees(actual,expected,row)))
                                 
-            if not isinstance(c1, BinaryTree):
-                raise Exception("ACTUAL node is an instance of  %s  , which is not a  BinaryTree  !\n\n%s"
+            if not isinstance(c1, BinTree):
+                raise Exception("ACTUAL node is an instance of  %s  , which is not a  BinTree  !\n\n%s"
                                 % (type(c1).__name__, str_btrees(actual, expected, row )))
                          
             if type(c1.data()) != type(c2.data()):
@@ -165,7 +165,7 @@ class BinaryTreeTest(unittest.TestCase):
             raise AssertionError(getattr(e, 'message', e.args[0])) from None
         
         
-class BinaryTreeTestTest(BinaryTreeTest):    
+class BinTreeTestTest(BinTreeTest):    
     """ Tests the test itself ... """
     
     def test_str_btrees(self):
@@ -216,10 +216,10 @@ class BinaryTreeTestTest(BinaryTreeTest):
             bt(1, 666, bt(2))
 
                             
-class InsertLeftTest(BinaryTreeTest):
+class InsertLeftTest(BinTreeTest):
 
     def test_insert_left(self):        
-        ta = BinaryTree('a')        
+        ta = BinTree('a')        
         self.assertEqual(ta.left(), None)
         self.assertEqual(ta.right(), None)
         ret = ta.insert_left('c')
@@ -239,10 +239,10 @@ class InsertLeftTest(BinaryTreeTest):
         self.assertEqual(tc.left(), None)
         self.assertEqual(tc.right(), None)
 
-class InsertRightTest(BinaryTreeTest):
+class InsertRightTest(BinTreeTest):
 
     def test_insert_right(self):        
-        ta = BinaryTree('a')        
+        ta = BinTree('a')        
         self.assertEqual(ta.left(), None)
         self.assertEqual(ta.right(), None)
         ret = ta.insert_right('c')
@@ -263,7 +263,7 @@ class InsertRightTest(BinaryTreeTest):
         self.assertEqual(tc.right(), None)
 
 
-class SumRecTest(BinaryTreeTest):
+class SumRecTest(BinTreeTest):
 
     """
         5
@@ -389,7 +389,7 @@ class SumRecTest(BinaryTreeTest):
 
         self.assertEqual(t.sum_rec(), 55)
         
-class HeightRecTest(BinaryTreeTest):
+class HeightRecTest(BinTreeTest):
 
     """
         a
@@ -466,7 +466,7 @@ class HeightRecTest(BinaryTreeTest):
                                        bt('g'))).height_rec(), 4)
 
 
-class DepthRecTest(BinaryTreeTest):
+class DepthRecTest(BinTreeTest):
         
     """
         a
@@ -567,7 +567,7 @@ class DepthRecTest(BinaryTreeTest):
         t.depth_rec(0)
         self.assertTreeEqual(t, bt(0, bt(1, bt(2, bt(3, bt(4)))), bt(1, bt(2))))
 
-class ContainsRecTest(BinaryTreeTest):
+class ContainsRecTest(BinTreeTest):
 
     """
         a
@@ -717,7 +717,7 @@ class ContainsRecTest(BinaryTreeTest):
         self.assertTrue(t.contains_rec('d'))
         self.assertFalse(t.contains_rec('z'))
 
-class JoinRecTest(BinaryTreeTest):
+class JoinRecTest(BinTreeTest):
 
     """
         a
@@ -842,7 +842,7 @@ class JoinRecTest(BinaryTreeTest):
                             bt('i')))
         self.assertEqual(t.join_rec(),'abcdefghi')
 
-class BinSearchTest(BinaryTreeTest):
+class BinSearchTest(BinTreeTest):
     def test_complex(self):
         t = bt(7, 
              bt(3, 
@@ -866,7 +866,7 @@ class BinSearchTest(BinaryTreeTest):
 
 
     
-class UnivaluedRecTest(BinaryTreeTest):
+class UnivaluedRecTest(BinTreeTest):
 
     def test_complex_1(self):
         t = bt(3, 
@@ -899,7 +899,7 @@ class UnivaluedRecTest(BinaryTreeTest):
         self.assertTrue(t.univalued_rec())
 
 
-class SameRecTest(BinaryTreeTest):
+class SameRecTest(BinTreeTest):
 
     def test_complex_1(self):
         t1 = bt(3, 
@@ -950,7 +950,7 @@ class SameRecTest(BinaryTreeTest):
         self.assertTrue(t1.same_rec(t2))
 
 
-class FunRecTest(BinaryTreeTest):
+class FunRecTest(BinTreeTest):
 
     """
         f
@@ -1046,7 +1046,7 @@ class FunRecTest(BinaryTreeTest):
                             bt('w')))
         self.assertEqual(t.fun_rec(),'f(g(x,y),f(h(z),w))')
 
-class SumLeavesRecTest(BinaryTreeTest):
+class SumLeavesRecTest(BinTreeTest):
 
     """
         5
@@ -1177,7 +1177,7 @@ class SumLeavesRecTest(BinaryTreeTest):
 
 
 
-class ScheduleRecTest(BinaryTreeTest):
+class ScheduleRecTest(BinTreeTest):
 
     def test_01_a(self):
         t = bt('a')
@@ -1229,7 +1229,7 @@ class ScheduleRecTest(BinaryTreeTest):
 
         self.assertEqual(t.schedule_rec(), ['a','b','c','d','e','f','g','h','i'])
 
-class PathsSlowRecTest(BinaryTreeTest):
+class PathsSlowRecTest(BinTreeTest):
 
     def test_01_empty(self):
         t = bt(5)
@@ -1285,7 +1285,7 @@ class PathsSlowRecTest(BinaryTreeTest):
                                               ['a', 'c', 'f', 'i', 'm'],
                                               ['a', 'c', 'g']])
         
-class PathsFastRecTest(BinaryTreeTest):
+class PathsFastRecTest(BinTreeTest):
 
     def test_01_empty(self):
         t = bt(5)
@@ -1341,7 +1341,7 @@ class PathsFastRecTest(BinaryTreeTest):
                                               ['a', 'c', 'f', 'i', 'm'],
                                               ['a', 'c', 'g']])        
         
-class SumStackTest(BinaryTreeTest):
+class SumStackTest(BinTreeTest):
 
     """
         5
@@ -1471,7 +1471,7 @@ class SumStackTest(BinaryTreeTest):
 
 
 
-class HeightStackTest(BinaryTreeTest):
+class HeightStackTest(BinTreeTest):
 
     def test_01(self):        
         self.assertEqual(bt('a').height_stack(), 0)
@@ -1512,7 +1512,467 @@ class HeightStackTest(BinaryTreeTest):
                                         bt('g'))).height_stack(), 4)
         
 
-class BinInsertRecTest(BinaryTreeTest):
+class LeavesStackTest(BinTreeTest):
+
+    """
+        a
+        ├
+        └
+    """
+    def test_01_a_empty_empty(self):
+        t = bt('a')
+        self.assertEqual(t.leaves_stack(),['a'])
+
+    """
+        a
+        ├b
+        └
+    """
+    def test_02_a_b_empty(self):
+        t = bt('a', 
+                    bt('b'))
+        self.assertEqual(t.leaves_stack(), ['b'])
+
+    """
+        a
+        ├
+        └c
+    """
+    def test_03_a_empty_b(self):
+        t = bt('a', 
+                    None, 
+                    bt('c'))        
+        self.assertEqual(t.leaves_stack(), ['c'])
+
+    """
+        a
+        ├b
+        └c
+    """
+    def test_04_a_b_c(self):
+        t = bt('a', 
+                    bt('b'), 
+                    bt('c'))
+        self.assertEqual(t.leaves_stack(),['b','c'])
+
+    """
+        a
+        ├b
+        |├c
+        |└
+        └d
+    """
+    def test_05_a_bc_d(self):
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')), 
+                    bt('d'))
+        self.assertEqual(t.leaves_stack(),['c','d'])
+
+    """
+        a
+        ├b            
+        └c
+         ├d
+         └
+    """
+    def test_06_a_b_cd(self):
+        t = bt('a', 
+                        bt('b'), 
+                        bt('c', 
+                                bt('d')))
+        self.assertEqual(t.leaves_stack(), ['b','d'])
+
+    """
+        a
+        ├b            
+        |├c
+        |└
+        └ 
+    """
+    def test_07_abc_left(self):
+        t = bt('a', 
+                    bt('b', 
+                            bt('c')))
+        self.assertEqual(t.leaves_stack(), ['c'])
+
+    """
+        a
+        ├
+        └b            
+         ├
+         └c
+    """
+    def test_08_abc_right(self):
+        t = bt('a', 
+                    None, 
+                    bt('b', 
+                            None, 
+                            bt('c')))
+        self.assertEqual(t.leaves_stack(), ['c'])
+
+    """
+        a
+        ├b
+        │├c
+        │└d
+        │ ├
+        │ └e
+        └f
+         ├g
+         │├h
+         │└
+         └i
+    """
+    def test_09_complex(self):
+        t = bt('a', 
+                    bt('b',
+                            bt('c'), 
+                            bt('d', 
+                                    None,
+                                    bt('e'))),
+                    bt('f', 
+                            bt('g', 
+                                    bt('h')), 
+                            bt('i')))
+        self.assertEqual(t.leaves_stack(), ['c','e','h','i'])
+
+class SwapStackTest(BinTreeTest):
+
+    def test_01_missing(self):
+
+        with self.assertRaises(LookupError):
+            bt('a').swap_stack('a', 'z')
+
+        with self.assertRaises(LookupError):
+            bt('b').swap_stack('y', 'b')
+
+        with self.assertRaises(LookupError):
+            bt('c').swap_stack('z', 'x')
+
+        with self.assertRaises(LookupError):
+            bt('a', bt('b', bt('c')), bt('d')).swap_stack('c', 'y')
+
+        with self.assertRaises(LookupError):
+            bt('a', bt('b', bt('c')), bt('d')).swap_stack('w', 'd')
+
+    def test_02_one(self):
+
+        t = bt('a')
+
+        t.swap_stack('a', 'a')
+
+        self.assertTreeEqual(t, bt('a'))
+        
+        t2 = bt('a')
+        with self.assertRaises(LookupError):
+            t2.swap_stack('b', 'b')
+
+    def test_03_ab(self):
+        tb = bt('b')
+        ta = bt('a', tb )
+
+        ret = ta.swap_stack('a', 'b')
+        
+
+        self.assertTreeEqual(ta, bt('b', bt('a')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(ret, None) # should return nothing !
+
+    def test_04_ba(self):
+        tb = bt('b')
+        ta = bt('a', tb )
+
+        ta.swap_stack('b', 'a')
+
+        self.assertTreeEqual(ta, bt('b', bt('a')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+
+    def test_05_abc_ab(self):
+        tb = bt('b')
+        tc = bt('c')
+        ta = bt('a', tb, tc)
+
+        ta.swap_stack('a', 'b')
+
+        self.assertTreeEqual(ta, bt('b', bt('a'), bt('c')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(id(ta.right()), id(tc))  # shouldn't create new nodes
+
+    def test_06_abc_ba(self):
+        tb = bt('b')
+        tc = bt('c')
+        ta = bt('a', tb, tc)
+
+        ta.swap_stack('b', 'a')
+
+        self.assertTreeEqual(ta, bt('b', bt('a'), bt('c')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(id(ta.right()), id(tc))  # shouldn't create new nodes
+
+    def test_07_abc_ac(self):
+        tb = bt('b')
+        tc = bt('c')
+        ta = bt('a', tb, tc)
+
+        ta.swap_stack('a', 'c')
+
+        self.assertTreeEqual(ta, bt('c', bt('b'), bt('a')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(id(ta.right()), id(tc))  # shouldn't create new nodes
+
+    def test_08_abc_ca(self):
+        tb = bt('b')
+        tc = bt('c')
+        ta = bt('a', tb, tc)
+
+        ta.swap_stack('c', 'a')
+
+        self.assertTreeEqual(ta, bt('c', bt('b'), bt('a')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(id(ta.right()), id(tc))  # shouldn't create new nodes
+
+    def test_09_abc_bc(self):
+        tb = bt('b')
+        tc = bt('c')
+        ta = bt('a', tb, tc)
+
+        ta.swap_stack('b', 'c')
+
+        self.assertTreeEqual(ta, bt('a', bt('c'), bt('b')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(id(ta.right()), id(tc))  # shouldn't create new nodes
+
+    def test_10_abc_cb(self):
+        tb = bt('b')
+        tc = bt('c')
+        ta = bt('a', tb, tc)
+
+        ta.swap_stack('c', 'b')
+
+        self.assertTreeEqual(ta, bt('a', bt('c'), bt('b')))
+        self.assertEqual(id(ta.left()), id(tb))  # shouldn't create new nodes
+        self.assertEqual(id(ta.right()), id(tc))  # shouldn't create new nodes
+
+    def test_11_abcd_ad(self):
+        td = bt('d')
+        tb = bt('b', 
+                     td)
+        tc = bt('c')
+
+        ta = bt('a', 
+                     tb, 
+                     tc)
+
+        ta.swap_stack('a', 'd')
+
+        self.assertTreeEqual(ta, bt('d',
+                                        bt('b',
+                                                bt('a')),
+                                        bt('c')))
+        # shouldn't create new nodes
+        self.assertEqual(id(ta.left()), id(tb))  
+        self.assertEqual(id(ta.right()), id(tc)) 
+        self.assertEqual(id(ta.left().left()), id(td)) 
+
+
+    def test_12_abcd_bd(self):
+        td = bt('d')
+        tb = bt('b')
+        tc = bt('c', 
+                     None,
+                     td)
+
+        ta = bt('a', 
+                     tb, 
+                     tc)
+
+        ta.swap_stack('b', 'd')
+
+        self.assertTreeEqual(ta, bt('a',
+                                        bt('d'),
+                                        bt('c',
+                                               None,
+                                               bt('b'))))
+        # shouldn't create new nodes
+        self.assertEqual(id(ta.left()), id(tb))  
+        self.assertEqual(id(ta.right()), id(tc)) 
+        self.assertEqual(id(ta.right().right()), id(td))
+
+    def test_13_complex(self):
+
+        t = bt('a', 
+                    bt('b',
+                            bt('c'),
+                            bt('d')),
+                    bt('e',
+                            None,
+                            bt('f',
+                                    bt('g'))))
+                            
+
+        t.swap_stack('f', 'b')
+
+        self.assertTreeEqual(t,
+                             bt('a', 
+                                    bt('f',
+                                            bt('c'),
+                                            bt('d')),
+                                    bt('e',
+                                            None,
+                                            bt('b',
+                                                    bt('g')))))
+
+
+class IsHeapStackTest(BinTreeTest):
+    
+    def test_01_5(self):
+        t = bt(5)
+        self.assertEqual(t.is_heap_stack(), True)
+
+    def test_02_5_8(self):
+        t = bt(5,
+                 bt(8))
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+    def test_03_3_9(self):
+        t = bt(3,
+                 bt(9))
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+    def test_04_7_7(self):
+        t = bt(7,
+                 bt(7))
+        self.assertEqual(t.is_heap_stack(), True)
+
+    def test_05_4_2(self):
+        t = bt(4,
+                bt(2))
+        self.assertEqual(t.is_heap_stack(), False)
+
+
+    def test_06_5_n_2(self):
+        t = bt(5,
+                None,
+                bt(2))
+        self.assertEqual(t.is_heap_stack(), False)
+
+    def test_07_7_n_8(self):
+        t = bt(7,
+                None,
+                bt(8))
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+    def test_08_9_n_9(self):
+        t = bt(9,
+                None,
+                bt(9))
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+
+    def test_09_9_9_9(self):
+        t = bt(9,
+                bt(9),
+                bt(9))
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+    def test_10_9_15_20(self):
+        t = bt(9,
+                bt(15),
+                bt(20))
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+    def test_11_7_3_20(self):
+        t = bt(7,
+                bt(3),
+                bt(20))
+        self.assertEqual(t.is_heap_stack(), False)
+
+
+    def test_12_7_9_3(self):
+        t = bt(7,
+                bt(9),
+                bt(3))
+        self.assertEqual(t.is_heap_stack(), False)
+
+
+    #NEW
+    def test_12b_(self):
+        t = bt(4,
+                  bt(6,
+                         bt(5)))
+        self.assertEqual(t.is_heap_stack(), False)
+                  
+
+    #NEW
+    def test_12c_(self):
+        t = bt(7,
+                  bt(15,
+                         None,
+                         bt(9)))
+        self.assertEqual(t.is_heap_stack(), False)
+
+    #NEW
+    def test_12d_(self):
+        t = bt(16,
+                  None,
+                  bt(20,
+                         None,
+                         bt(19)))
+        self.assertEqual(t.is_heap_stack(), False)
+
+        
+    def test_13_complex_pos(self):
+        t = bt(7,
+                bt(9, 
+                        bt(10,
+                                bt(40)),
+                        bt(14)),
+                bt(20, 
+                        None,
+                        bt(30,
+                                bt(50),
+                                bt(90))))
+                            
+        self.assertEqual(t.is_heap_stack(), True)
+
+
+    def test_14_complex_neg1(self):
+        t = bt(7,
+                bt(9, 
+                        bt(10,
+                                bt(9)),
+                        bt(14)),
+                bt(20, 
+                        None,
+                        bt(3,
+                                bt(11),
+                                bt(90))))
+                            
+        self.assertEqual(t.is_heap_stack(), False)
+
+
+    def test_15_complex_neg2(self):
+        t = bt(7,
+                bt(9, 
+                        bt(10,
+                                bt(40)),
+                        bt(14)),
+                bt(20, 
+                        None,
+                        bt(30,
+                                bt(5),
+                                bt(90))))
+                            
+        self.assertEqual(t.is_heap_stack(), False)
+                
+class BinInsertRecTest(BinTreeTest):
     def test_complex(self):
         
         t1 = bt(7)
@@ -1542,7 +2002,7 @@ class BinInsertRecTest(BinaryTreeTest):
         self.assertTreeEqual(t1, t2)        
         
         
-class AddRowTest(BinaryTreeTest):
+class AddRowTest(BinTreeTest):
 
 
     def test_01_a_empty(self):
@@ -1658,7 +2118,7 @@ class AddRowTest(BinaryTreeTest):
                                                 
 
                             
-class PruneRecTest(BinaryTreeTest):
+class PruneRecTest(BinTreeTest):
 
     def test_a_pa(self):
         """ root is not pruned """
@@ -1755,3 +2215,365 @@ class PruneRecTest(BinaryTreeTest):
         ta.prune_rec('z')
         self.assertTreeEqual(ta, tb)
 
+class UnionRecTest(BinTreeTest):
+
+    def test_01_5__7(self):
+        ta = bt(5)
+        tb = bt(7)
+        ret = ta.union_rec(tb)        
+        self.assertTreeEqual(ta, bt(12)) # MODIFIES the tree
+        self.assertEqual(ret, None)  # return nothing!
+    
+    def test_02_3_8__7(self):
+        ta = bt(3,
+                  bt(8))
+        tb = bt(7)
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(10,
+                                        bt(8)))
+    
+        
+    def test_03_9_n_3__4(self):
+        ta = bt(9,
+                  None,
+                  bt(3))
+        tb = bt(4)
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(13,  
+                                        None,
+                                        bt(3)))        
+
+    def test_04_9__4_5(self):
+        ta = bt(9)
+        tb = bt(4,
+                  bt(5))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(13,                                          
+                                        bt(5)))
+        #NEW: check no shared nodes
+        self.assertNotEqual(id(ta.left()), id(tb.left()))
+        # tb shouldn't change
+        self.assertTreeEqual(tb, bt(4,
+                                      bt(5)))
+
+
+    def test_05_9__4_n_5(self):
+        ta = bt(9)
+        tb = bt(4,
+                  None,
+                  bt(5))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(13,
+                                        None,
+                                        bt(5)))
+
+        #NEW: check no shared nodes
+        self.assertNotEqual(id(ta.right()), id(tb.right()))
+        # tb shouldn't change
+        self.assertTreeEqual(tb, bt(4,
+                                      None, 
+                                      bt(5)))
+
+    def test_06_9_3__4_5(self):
+        ta = bt(9,                  
+                  bt(3))
+        tb = bt(4,
+                  bt(5))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(13,                                          
+                                        bt(8)))
+
+
+    def test_07_9_3__4_n_5(self):
+        ta = bt(9,                  
+                  bt(3))
+        tb = bt(4,
+                  None,
+                  bt(5))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(13,
+                                        bt(3),
+                                        bt(5)))
+
+
+    def test_08_3_n_7__5_2(self):
+        ta = bt(3,
+                  None,
+                  bt(7))
+        tb = bt(5,
+                  bt(2))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(8,
+                                        bt(2),
+                                        bt(7)))
+
+
+    def test_09_3_n_7__5_n_2(self):
+        ta = bt(3,
+                  None,
+                  bt(7))
+        tb = bt(5,
+                  None,
+                  bt(2))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(8,
+                                        None,
+                                        bt(9)))
+
+    def test_10_3_n_7_4__5_n_2(self):
+        ta = bt(3,
+                  None,
+                  bt(7,
+                        bt(4)))
+        tb = bt(5,
+                  None,
+                  bt(2))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(8,
+                                        None,
+                                        bt(9,
+                                             bt(4))))
+
+    def test_11_3_n_7__5_2_8(self):
+        ta = bt(3,
+                  None,
+                  bt(7))
+        tb = bt(5,                  
+                  bt(2,
+                        bt(8)))
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(8,
+                                        bt(2,
+                                             bt(8)),
+                                        bt(7)))
+
+    def test_12_complex(self):
+        ta = bt(3,
+                bt(5,
+                        bt(7,
+                            None,
+                            bt(1,
+                                bt(17)))),
+                bt(6))
+
+        tb = bt(8,
+                bt(10,
+                        bt(9,
+                            bt(13))),
+                bt(12,
+                        bt(11,
+                                None,
+                                bt(2)),
+                        bt(4)))        
+
+        ta.union_rec(tb)
+        self.assertTreeEqual(ta, bt(11,
+                                        bt(15,
+                                                bt(16,
+                                                    bt(13),
+                                                    bt(1,
+                                                         bt(17)))),
+                                        bt(18,
+                                                bt(11,
+                                                        None,
+                                                        bt(2)),
+                                                bt(4))))
+
+class FamilySumTest(BinTreeTest):
+
+    def test_01_0(self):
+        t = bt(0)
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(0))
+
+    def test_02_1(self):
+        t = bt(1)
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(1))    
+    
+    def test_03_1_2(self):
+        t = bt(1, 
+                    bt(2))
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(3, 
+                                      bt(3)))
+
+    def test_04_5_none_3(self):
+        t = bt(5, 
+                   None,
+                   bt(3))
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(8, 
+                                    None,
+                                    bt(8)))
+
+        
+    def test_05_3_7_5(self):
+        t = bt(3, 
+                bt(7), 
+                bt(5),)
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(15, 
+                                      bt(10),
+                                      bt(8)))
+
+    def test_06_4_6_1_3(self):
+        t = bt(4, 
+                bt(6), 
+                      bt(1,
+                      bt(3)))
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(11, 
+                                      bt(10),
+                                      bt(8, 
+                                           bt(4))))
+
+    def test_07_4_6_3_1(self):
+        t = bt(4, 
+                bt(6, 
+                    bt(3)), 
+                bt(1))
+
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(11, 
+                                      bt(13,
+                                            bt(9)),
+                                      bt(5)))
+
+    def test_08_5_none_3_7(self):
+        t = bt(5, 
+                None,
+                bt(3, 
+                    bt(7)))
+
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(8, 
+                                      None,
+                                      bt(15,
+                                            bt(10))))
+
+    def test_09_complex(self):
+        t = bt(5,
+                bt(1,
+                     bt(4,
+                          None,
+                          bt(3)),
+                     bt(2)),
+                 bt(9,
+                     bt(11)))
+                                              
+        t.family_sum_rec()
+        self.assertTreeEqual(t, bt(15,
+                                     bt(12,
+                                           bt(8,
+                                               None,
+                                               bt(7)),
+                                           bt(3)),
+                                     bt(25,
+                                            bt(20))))
+
+
+class ReconstructTest(BinTreeTest):
+    
+    def test_01_one(self):
+        self.assertTreeEqual(reconstruct('a', iter([])),
+                             bt('a'))
+                             
+    def test_02_ab(self):
+        self.assertTreeEqual(reconstruct('a', iter([('a','L','b')])),
+                             bt('a',
+                                    bt('b')))
+                
+    def test_03_b_none_a(self):
+        self.assertTreeEqual(reconstruct('b', iter([('b','R','a')])),
+                             bt('b',
+                                    None,
+                                    bt('a')))
+                             
+                             
+    def test_04_a_bc(self):
+        self.assertTreeEqual(reconstruct('a', iter([('a','L','b'), ('a','R','c')])),
+                             bt('a',
+                                    bt('b'), 
+                                    bt('c')))
+       
+        
+    def test_05_a_bc_inv(self):
+        self.assertTreeEqual(reconstruct('a', iter([('a','R','c'), ('a','L','b')])),
+                             bt('a',
+                                    bt('b'), 
+                                    bt('c')))
+        
+        
+    def test_06_a_cb(self):
+        self.assertTreeEqual(reconstruct('a', iter([('a','R','b'), ('a','L','c')])),
+                             bt('a',
+                                    bt('c'), 
+                                    bt('b')))
+
+    def test_07_ab_replace(self):
+        """ replaces branch with another """
+        self.assertTreeEqual(reconstruct('a', iter([('a','L','b'), ('a','L','c')])),
+                             bt('a',
+                                    bt('c')))        
+        
+    def test_08_a_bc_d(self):
+        self.assertTreeEqual(reconstruct('a', iter([('c','L','d'), ('a','L','b'), ('a','R','c')])),
+                             bt('a',
+                                    bt('b'), 
+                                    bt('c',
+                                           bt('d'))))
+
+    def test_09_a_bc_none_d(self):
+        self.assertTreeEqual(reconstruct('a', iter([('a','L','b'), ('c','R','d'), ('a','R','c')])),
+                             bt('a',
+                                    bt('b'), 
+                                    bt('c',
+                                           None,
+                                           bt('d'))))
+                             
+                             
+    def test_10_a_b_d_c(self):
+        self.assertTreeEqual(reconstruct('a', iter([('b','L','d'), ('a','L','b'), ('a','R','c')])),
+                             bt('a',
+                                    bt('b',
+                                             bt('d')), 
+                                    bt('c')))                
+                                
+    def test_11_a_b_none_d_c(self):
+        self.assertTreeEqual(reconstruct('a', iter([('a','L','b'), ('a','R','c'), ('b','R','d')])),
+                             bt('a',
+                                    bt('b',
+                                           None,
+                                           bt('d')), 
+                                    bt('c')))
+                                
+
+    def test_12_complex(self):
+        self.assertTreeEqual(reconstruct('a', iter([('e','L','g'), ('h','R','i'), ('b','R','d'), 
+                                                    ('a','L','b'), ('d','L','f'), ('a','R','c'),
+                                                    ('e','R','h'), ('c', 'L', 'e')])),
+                             bt('a',
+                                    bt('b',
+                                           None,
+                                           bt('d',
+                                                   bt('f'))), 
+                                    bt('c',
+                                           bt('e',
+                                                   bt('g'),
+                                                   bt('h',
+                                                           None,
+                                                           bt('i'))))))
+                                
+    def test_13_a_b_d_c_replace_a_e_f_g(self):
+        """  replaces a -> b -> d
+             with     a -> e -> f -> g
+        """
+        self.assertTreeEqual(reconstruct('a', iter([('b','L','d'), ('a','L','b'), ('a','R','c'), 
+                                                    ('e','L','f'), ('a','L','e'), ('f','L','g')])),
+                             bt('a',
+                                    bt('e', 
+                                            bt('f', 
+                                                   bt('g'))),
+                                    bt('c')))
+                             

@@ -1483,3 +1483,149 @@ class HasTriangleTest(GenericTreeTest):
         self.assertTrue(tg.has_triangle(['g','h','i']))  
         self.assertTrue(tc.has_triangle(['g','h','i']))  # check recursion 
         self.assertTrue(ta.has_triangle(['g','h','i']))  # check recursion           
+
+
+class MarvelousTest(GenericTreeTest):
+        
+    def test_01_a(self):
+        t = gt('a')
+        res = t.marvelous()        
+        self.assertTreeEqual(t, gt('a'))
+        self.assertEqual(res, None)  # must return nothing 
+    
+    def test_02_b(self):
+        tb = gt('b')
+        ta = gt('a', 
+                    tb)
+        
+        res = ta.marvelous()        
+        self.assertTreeEqual(ta, gt('b', 
+                                        gt('b')))
+        self.assertEqual(res, None)              # must return nothing 
+        self.assertEqual(id(tb), id(ta._child))  # no new nodes 
+        
+    def test_03_bc(self):
+        tb = gt('b')
+        tc = gt('c')
+        
+        ta = gt('a', 
+                    tb,
+                    tc)
+        
+        res = ta.marvelous()        
+        self.assertTreeEqual(ta, gt('bc', 
+                                         gt('b'),
+                                         gt('c')))
+
+        self.assertEqual(res, None)                       # must return nothing 
+        self.assertEqual(id(tb), id(ta._child))           # no new nodes 
+        self.assertEqual(id(tc), id(ta._child._sibling))  # no new nodes 
+ 
+ 
+    def test_04_cb(self):
+        t = gt('a',                   
+                   gt('c'),
+                   gt('b'),)
+        
+        t.marvelous()        
+        self.assertTreeEqual(t, gt('cb', 
+                                         gt('c'),
+                                         gt('b')))
+        
+
+    def test_05_cbd(self):
+        t = gt('a',                   
+                   gt('c'),
+                   gt('b'),
+                   gt('d'))
+
+        t.marvelous()        
+        self.assertTreeEqual(t, gt('cbd', 
+                                          gt('c'),
+                                          gt('b'),
+                                          gt('d')))
+
+
+    def test_06_cd(self):
+        t = gt('a',                   
+                   gt('b',
+                            gt('d')),
+                   gt('c'))
+
+        t.marvelous()        
+        self.assertTreeEqual(t, gt('dc', 
+                                        gt('d',
+                                               gt('d')),
+                                        gt('c')))
+
+
+
+    def test_07_bd(self):
+        t = gt('a',                   
+                   gt('b'),
+                            
+                   gt('c',
+                           gt('d'),))
+        
+        ret = t.marvelous()        
+        self.assertTreeEqual(t, gt('bd', 
+                                         gt('b'),                                           
+                                         gt('d',
+                                                gt('d'))))
+ 
+ 
+    def test_08_cdfg(self):
+        t = gt('a',                   
+                   gt('b',
+                            gt('c'),
+                            gt('d')),
+                            
+                   gt('e',
+                           gt('f'),
+                           gt('g')))
+        
+        t.marvelous()        
+        self.assertTreeEqual(t, gt('cdfg',                   
+                                           gt('cd',
+                                                   gt('c'),
+                                                   gt('d')),
+                                                        
+                                           gt('fg',
+                                                   gt('f'),
+                                                   gt('g'))))
+
+    def test_09_complex(self):
+        t = gt('a',
+                    gt('b',
+                            gt('M'),
+                            
+                            gt('A'),
+                            gt('R')),
+                    gt('c',
+                            gt('e',
+                                gt('V'),),
+                            gt('E')),
+                    gt('d', 
+                            gt('L'),
+                            gt('f', 
+                                gt('O'),
+                                gt('U'),),
+                            gt('S')))
+        t.marvelous()
+        self.assertTreeEqual(t, gt('MARVELOUS',
+                                        gt('MAR',
+                                                gt('M'),
+                                                
+                                                gt('A'),
+                                                gt('R')),
+                                        gt('VE',
+                                                gt('V',
+                                                    gt('V'),),
+                                                gt('E')),
+                                        gt('LOUS', 
+                                                gt('L'),
+                                                gt('OU', 
+                                                    gt('O'),
+                                                    gt('U'),),
+                                                gt('S'))))
+
