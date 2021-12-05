@@ -940,7 +940,9 @@
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.1-sum_stack">3.1 sum_stack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.3-height_stack">3.3 height_stack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.3-leaves_stack">3.3 leaves_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.4-others">3.4 others</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#swap_stack">swap_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.4-is_heap_stack">3.4 is_heap_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#3.5-others">3.5 others</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="bin-trees.html#4.-Queue-visit">4. Queue visit</a></li>
@@ -948,6 +950,9 @@
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.1-bin_insert_rec">5.1 bin_insert_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.2-add_row">5.2 add_row</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.3-prune_rec">5.3 prune_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.3-family_sum_rec">5.3 family_sum_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.4-union_rec">5.4 union_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bin-trees.html#5.5-reconstruct">5.5 reconstruct</a></li>
 </ul>
 </li>
 </ul>
@@ -990,6 +995,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#2.9-follow">2.9 follow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#2.10-is_triangle">2.10 is_triangle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#2.11-has_triangle">2.11 has_triangle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#2.12-marvelous">2.12 marvelous</a></li>
 </ul>
 </li>
 </ul>
@@ -1424,7 +1430,7 @@ div.rendered_html tbody tr:hover {
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Do we need sidelinks and backlinks ?</strong>:</p>
 <p>Here we use sidelinks and backlinks like <code class="docutils literal notranslate"><span class="pre">_sibling</span></code> and <code class="docutils literal notranslate"><span class="pre">_parent</span></code> for exercise purposes, but keep in mind such extra links need to be properly managed when you write algorithms and thus increase the likelihood of introducing bugs.</p>
-<p>As a general rule of thumb, if you are to design a data structure, always first try to start making it unidirectional (like for example the BinaryTree we’ve seen before). Then, if you notice you really need extra links (for example to quickly traverse a tree from a node up to the root), you can always add them in a later development iteration.</p>
+<p>As a general rule of thumb, if you are to design a data structure, always first try to start making it unidirectional (like for example the BinTree we’ve seen before). Then, if you notice you really need extra links (for example to quickly traverse a tree from a node up to the root), you can always add them in a later development iteration.</p>
 </div>
 <div class="admonition note">
 <p><strong>ROOT NODE</strong>: In this context, we call a node <em>root</em> if has no incoming edges <em>and</em> it has no parent nor sibling</p>
@@ -1490,7 +1496,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>: here we insert a <strong>node</strong> !!</p>
-<p>Differently from the <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code>, this time instead of passing <em>data</em> we pass a <em>node</em>. This can cause more troubles than before, as when we add a <code class="docutils literal notranslate"><span class="pre">new_child</span></code> we must be careful it doesn’t have wrong pointers. For example, think the case when you insert node B as child of node A, but by mistake you previously set B <code class="docutils literal notranslate"><span class="pre">_child</span></code> field to point to A. Such a cycle would not be a tree anymore and would basically disrupt any algorithm you would try to run.</p>
+<p>Differently from the <code class="docutils literal notranslate"><span class="pre">BinTree</span></code>, this time instead of passing <em>data</em> we pass a <em>node</em>. This can cause more troubles than before, as when we add a <code class="docutils literal notranslate"><span class="pre">new_child</span></code> we must be careful it doesn’t have wrong pointers. For example, think the case when you insert node B as child of node A, but by mistake you previously set B <code class="docutils literal notranslate"><span class="pre">_child</span></code> field to point to A. Such a cycle would not be a tree anymore and would basically disrupt any algorithm you would try to run.</p>
 </div>
 <p>You can call it like this:</p>
 <div class="nbinput docutils container">
@@ -1717,7 +1723,7 @@ a         x
 <p>Implement method <code class="docutils literal notranslate"><span class="pre">insert_child</span></code>, which is the basic building block for our <code class="docutils literal notranslate"><span class="pre">GenericTree</span></code>:</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>WARNING</strong>: here we insert a <strong>node</strong> !!</p>
-<p>Differently from the <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code>, this time instead of passing <em>data</em> we pass a <em>node</em>. This implies that inside the <code class="docutils literal notranslate"><span class="pre">insert_child</span></code> method you will have to take care of pointers of <code class="docutils literal notranslate"><span class="pre">new_child</span></code>: for example, you will need to set the <code class="docutils literal notranslate"><span class="pre">_parent</span></code> pointer of <code class="docutils literal notranslate"><span class="pre">new_child</span></code> to point to the current node you are attaching to (that is, <code class="docutils literal notranslate"><span class="pre">self</span></code>)</p>
+<p>Differently from the <code class="docutils literal notranslate"><span class="pre">BinTree</span></code>, this time instead of passing <em>data</em> we pass a <em>node</em>. This implies that inside the <code class="docutils literal notranslate"><span class="pre">insert_child</span></code> method you will have to take care of pointers of <code class="docutils literal notranslate"><span class="pre">new_child</span></code>: for example, you will need to set the <code class="docutils literal notranslate"><span class="pre">_parent</span></code> pointer of <code class="docutils literal notranslate"><span class="pre">new_child</span></code> to point to the current node you are attaching to (that is, <code class="docutils literal notranslate"><span class="pre">self</span></code>)</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">insert_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_child</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Inserts new_child at the beginning of the children sequence. &quot;&quot;&quot;</span>
@@ -2762,6 +2768,115 @@ True
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 True
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="2.12-marvelous">
+<h3>2.12 marvelous<a class="headerlink" href="#2.12-marvelous" title="Permalink to this headline">¶</a></h3>
+<p>Edit this method:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def marvelous(self):
+    &#34;&#34;&#34; MODIFIES each node data replacing it with the concatenation
+        of its leaves data
+
+        - MUST USE a recursive solution
+        - assume node data is always a string
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">generic_tree_test.MarvelousTest</span></code></p>
+<p><strong>Example</strong>: <strong>NOTE: leaves may be any character!</strong> Here we show them as uppercase but they might also be lowercase.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">gen_tree_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gen_tree_test</span> <span class="kn">import</span> <span class="n">gt</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+          <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">),</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">),</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)),</span>
+          <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span>
+                      <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">),),</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)),</span>
+          <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">),</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span>
+                      <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;O&#39;</span><span class="p">),</span>
+                      <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">),),</span>
+                <span class="n">gt</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+a
+├b
+│├M
+│├A
+│└R
+├c
+│├e
+││└V
+│└E
+└d
+ ├L
+ ├f
+ │├O
+ │└U
+ └S
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span><span class="o">.</span><span class="n">marvelous</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MARVELOUS
+├MAR
+│├M
+│├A
+│└R
+├VE
+│├V
+││└V
+│└E
+└LOUS
+ ├L
+ ├OU
+ │├O
+ │└U
+ └S
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">

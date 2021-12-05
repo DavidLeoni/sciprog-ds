@@ -940,7 +940,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#3.1-sum_stack">3.1 sum_stack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.3-height_stack">3.3 height_stack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.3-leaves_stack">3.3 leaves_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.4-others">3.4 others</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swap_stack">swap_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.4-is_heap_stack">3.4 is_heap_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.5-others">3.5 others</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#4.-Queue-visit">4. Queue visit</a></li>
@@ -948,6 +950,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#5.1-bin_insert_rec">5.1 bin_insert_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#5.2-add_row">5.2 add_row</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#5.3-prune_rec">5.3 prune_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.3-family_sum_rec">5.3 family_sum_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.4-union_rec">5.4 union_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.5-reconstruct">5.5 reconstruct</a></li>
 </ul>
 </li>
 </ul>
@@ -990,6 +995,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gen-trees.html#2.9-follow">2.9 follow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gen-trees.html#2.10-is_triangle">2.10 is_triangle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gen-trees.html#2.11-has_triangle">2.11 has_triangle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen-trees.html#2.12-marvelous">2.12 marvelous</a></li>
 </ul>
 </li>
 </ul>
@@ -1430,11 +1436,11 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="0.4-Terminology---shapes">
 <h3>0.4 Terminology - shapes<a class="headerlink" href="#0.4-Terminology---shapes" title="Permalink to this headline">¶</a></h3>
 <p><img alt="bt shapes kj3iu32i" src="../_images/bt-shapes.png" /></p>
-<p>In this worksheet we are first going to provide an implementation of a <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> class:</p>
+<p>In this worksheet we are first going to provide an implementation of a <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> class:</p>
 <ul class="simple">
-<li><p>Differently from the <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code>, which actually had two classes <code class="docutils literal notranslate"><span class="pre">Node</span></code> and <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> that was pointing to the first node, in this case we just have one <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> class.</p></li>
-<li><p>Each <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> instance <em>may</em> have a left <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> instance and <em>may</em> have a right <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> instance, while absence of a branch is marked with <code class="docutils literal notranslate"><span class="pre">None</span></code>. This reflects the recursive nature of trees.</p></li>
-<li><p>To grow a tree, first you need to create an instance of <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code>, and then you call <code class="docutils literal notranslate"><span class="pre">.insert_left</span></code> or <code class="docutils literal notranslate"><span class="pre">.insert_right</span></code> methods on it and pass <em>data</em>. Keep reading to see how to do it.</p></li>
+<li><p>Differently from the <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code>, which actually had two classes <code class="docutils literal notranslate"><span class="pre">Node</span></code> and <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> that was pointing to the first node, in this case we just have one <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> class.</p></li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> instance <em>may</em> have a left <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> instance and <em>may</em> have a right <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> instance, while absence of a branch is marked with <code class="docutils literal notranslate"><span class="pre">None</span></code>. This reflects the recursive nature of trees.</p></li>
+<li><p>To grow a tree, first you need to create an instance of <code class="docutils literal notranslate"><span class="pre">BinTree</span></code>, and then you call <code class="docutils literal notranslate"><span class="pre">.insert_left</span></code> or <code class="docutils literal notranslate"><span class="pre">.insert_right</span></code> methods on it and pass <em>data</em>. Keep reading to see how to do it.</p></li>
 </ul>
 </div>
 <div class="section" id="0.2-Code-skeleton">
@@ -1444,11 +1450,11 @@ div.rendered_html tbody tr:hover {
 <li><p><code class="docutils literal notranslate"><span class="pre">trees/bin_tree.py</span></code> : the exercise to edit</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">trees/bin_tree_test.py</span></code>: the tests to run. Do not modify this file.</p></li>
 </ul>
-<p>Before starting to implement methods in <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> class, read all the following sub sections (starting with ‘0.x’)</p>
+<p>Before starting to implement methods in <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> class, read all the following sub sections (starting with ‘0.x’)</p>
 </div>
 <div class="section" id="0.3-Building-trees">
 <h3>0.3 Building trees<a class="headerlink" href="#0.3-Building-trees" title="Permalink to this headline">¶</a></h3>
-<p>Let’s learn how to build <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code>. For these trials, feel free to launch a Python 3 interpreter and load this module:</p>
+<p>Let’s learn how to build <code class="docutils literal notranslate"><span class="pre">BinTree</span></code>. For these trials, feel free to launch a Python 3 interpreter and load this module:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -1461,9 +1467,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="0.3.1-Pointers">
 <h3>0.3.1 Pointers<a class="headerlink" href="#0.3.1-Pointers" title="Permalink to this headline">¶</a></h3>
-<p>A <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> class holds 2 pointers that link it to other nodes: <code class="docutils literal notranslate"><span class="pre">_left</span></code>, and <code class="docutils literal notranslate"><span class="pre">_right</span></code></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> class holds 2 pointers that link it to other nodes: <code class="docutils literal notranslate"><span class="pre">_left</span></code>, and <code class="docutils literal notranslate"><span class="pre">_right</span></code></p>
 <p>It also holds a value <code class="docutils literal notranslate"><span class="pre">data</span></code> which is provided by the user to store arbitrary data (could be ints, strings, lists, even other trees, we don’t care):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BinaryTree</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BinTree</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">data</span>
@@ -1471,16 +1477,16 @@ div.rendered_html tbody tr:hover {
         <span class="bp">self</span><span class="o">.</span><span class="n">_right</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 </div>
-<p><strong>NOTE</strong>: <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> as defined here is unidirectional, that is, has no backlinks (so no <code class="docutils literal notranslate"><span class="pre">_parent</span></code> field).</p>
+<p><strong>NOTE</strong>: <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> as defined here is unidirectional, that is, has no backlinks (so no <code class="docutils literal notranslate"><span class="pre">_parent</span></code> field).</p>
 <p>Formally, a tree as described in discrete mathematics books is always unidirectional (can’t have any cycle) and every node can have at most one incoming link. When we program, though, for convenience we may decide to have or not have backlinks (later with <code class="docutils literal notranslate"><span class="pre">GenericTree</span></code> we will see an example)</p>
-<p>To create a <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code> of one node, just call the constructor passing whatever you want like this:</p>
+<p>To create a <code class="docutils literal notranslate"><span class="pre">BinTree</span></code> of one node, just call the constructor passing whatever you want like this:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tblah</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="s2">&quot;blah&quot;</span><span class="p">)</span>
-<span class="n">tn</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="n">tblah</span> <span class="o">=</span> <span class="n">BinTree</span><span class="p">(</span><span class="s2">&quot;blah&quot;</span><span class="p">)</span>
+<span class="n">tn</span> <span class="o">=</span> <span class="n">BinTree</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1488,12 +1494,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="0.3.2-Building-with-insert_left">
 <h3>0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_left</span></code><a class="headerlink" href="#0.3.2-Building-with-insert_left" title="Permalink to this headline">¶</a></h3>
-<p>To grow a <code class="docutils literal notranslate"><span class="pre">BinaryTree</span></code>, as basic building block you will have to implement <code class="docutils literal notranslate"><span class="pre">insert_left</span></code>:</p>
+<p>To grow a <code class="docutils literal notranslate"><span class="pre">BinTree</span></code>, as basic building block you will have to implement <code class="docutils literal notranslate"><span class="pre">insert_left</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">insert_left</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Takes as input DATA (*NOT* a node !!) and MODIFIES current</span>
 <span class="sd">        node this way:</span>
 
-<span class="sd">        - First creates a new BinaryTree (let&#39;s call it B) into which</span>
+<span class="sd">        - First creates a new BinTree (let&#39;s call it B) into which</span>
 <span class="sd">          provided data is wrapped.</span>
 <span class="sd">        - Then:</span>
 <span class="sd">            - if there is no left node in self, new node B is attached to</span>
@@ -1509,7 +1515,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">t</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span></span><span class="n">t</span> <span class="o">=</span> <span class="n">BinTree</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 <span class="n">t</span><span class="o">.</span><span class="n">insert_left</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1707,7 +1713,7 @@ a
         <span class="s2">&quot;&quot;&quot; Takes as input DATA (*NOT* a node !!) and MODIFIES current node</span>
 <span class="s2">            this way:</span>
 
-<span class="s2">            - First creates a new BinaryTree (let&#39;s call it B) into which</span>
+<span class="s2">            - First creates a new BinTree (let&#39;s call it B) into which</span>
 <span class="s2">              provided data is wrapped.</span>
 <span class="s2">            - Then:</span>
 <span class="s2">                - if there is no left node in self, new node B is attached to</span>
@@ -1724,7 +1730,7 @@ a
         <span class="sd">&quot;&quot;&quot; Takes as input DATA (*NOT* a node !!) and MODIFIES current node</span>
 <span class="sd">            this way:</span>
 
-<span class="sd">            - First creates a new BinaryTree (let&#39;s call it B) into which</span>
+<span class="sd">            - First creates a new BinTree (let&#39;s call it B) into which</span>
 <span class="sd">              provided data is wrapped.</span>
 <span class="sd">            - Then:</span>
 <span class="sd">                - if there is no right node in self, new node B is attached</span>
@@ -2846,8 +2852,170 @@ g&amp;: n/2 - 3\\
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="3.4-others">
-<h3>3.4 others<a class="headerlink" href="#3.4-others" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="swap_stack">
+<h3>swap_stack<a class="headerlink" href="#swap_stack" title="Permalink to this headline">¶</a></h3>
+<p>Implement this method:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def swap_stack(self, a, b):
+    &#34;&#34;&#34; Given two elements a and b, locates the two nodes where they are contained
+        and swaps *only the data* in the found nodes.
+
+        - if a or b are not found, raise LookupError
+
+        - IMPORTANT 1: assume tree is NOT ordered
+        - IMPORTANT 2: assume all nodes have different data
+        - Implement it with a while and a stack
+        - MUST execute in O(n) where n is the size of the tree
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.SwapStackTest</span></code></p>
+<p>Example:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+                    <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+                            <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">),</span>
+                            <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)),</span>
+                    <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span>
+                            <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span>
+                                    <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">draw_bt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/trees_bin-trees_96_0.png" src="../_images/trees_bin-trees_96_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span><span class="o">.</span><span class="n">swap_stack</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">draw_bt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/trees_bin-trees_98_0.png" src="../_images/trees_bin-trees_98_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="3.4-is_heap_stack">
+<h3>3.4 is_heap_stack<a class="headerlink" href="#3.4-is_heap_stack" title="Permalink to this headline">¶</a></h3>
+<p>Implement this method:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def is_heap_stack(self):
+    &#34;&#34;&#34; A tree is a min heap if each node data is less or equal than its children data.
+        RETURN True if the tree is a min heap, False otherwise
+
+        - DO *NOT* use recursion
+        - implement it with a while and a stack (as a python list)
+        - MUST run in O(n), where n is the tree size
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
+<span class="kn">from</span> <span class="nn">bin_tree_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">40</span><span class="p">)),</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">14</span><span class="p">)),</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span>
+                <span class="kc">None</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">90</span><span class="p">))))</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">is_heap_stack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">40</span><span class="p">)),</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">14</span><span class="p">)),</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span>
+                <span class="kc">None</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">90</span><span class="p">))))</span>
+<span class="n">t</span><span class="o">.</span><span class="n">is_heap_stack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="3.5-others">
+<h3>3.5 others<a class="headerlink" href="#3.5-others" title="Permalink to this headline">¶</a></h3>
 <p>Hopefully you got an idea of how stack recursion works, now you could try to implement by yourself previously defined recursive functions, this time using a while and a stack (or a queue, depending on what you are trying to achieve).</p>
 </div>
 </div>
@@ -2855,7 +3023,7 @@ g&amp;: n/2 - 3\\
 <h2>4. Queue visit<a class="headerlink" href="#4.-Queue-visit" title="Permalink to this headline">¶</a></h2>
 <p>Let’s see what happens when we visit a tree using a queue instead of a stack:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2879,11 +3047,11 @@ g&amp;: n/2 - 3\\
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/trees_bin-trees_94_0.png" src="../_images/trees_bin-trees_94_0.png" />
+<img alt="../_images/trees_bin-trees_106_0.png" src="../_images/trees_bin-trees_106_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2940,7 +3108,7 @@ level: 3   node: i
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.BinInsertRecTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2959,7 +3127,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2979,7 +3147,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3001,7 +3169,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3023,7 +3191,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3045,7 +3213,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3069,7 +3237,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3095,7 +3263,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3121,7 +3289,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3149,7 +3317,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3201,7 +3369,7 @@ level: 3   node: i
 <p><strong>Test</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.AddRowTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3235,7 +3403,7 @@ a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3244,7 +3412,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3292,7 +3460,7 @@ a
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.PruneRecTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3302,7 +3470,7 @@ a
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3323,7 +3491,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3352,7 +3520,7 @@ a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3361,7 +3529,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3384,7 +3552,7 @@ a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3393,7 +3561,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3421,6 +3589,239 @@ ValueError                                Traceback (most recent call last)
 
 ValueError: Tried to prune the tree root !
 </pre></div>
+</div>
+</div>
+<div class="section" id="5.3-family_sum_rec">
+<h3>5.3 family_sum_rec<a class="headerlink" href="#5.3-family_sum_rec" title="Permalink to this headline">¶</a></h3>
+<p>Implement this method:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def family_sum_rec(self):
+    &#34;&#34;&#34; MODIFIES the tree by adding to each node data its *original* parent and children data
+
+        - MUST execute in O(n) where n is the size of the tree
+        - a recursive implementation is acceptable
+        - HINT: you will probably want to define a helper function
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.FamilySumRec</span></code></p>
+<p>Example:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span>
+         <span class="n">bt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+              <span class="n">bt</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>
+                   <span class="kc">None</span><span class="p">,</span>
+                   <span class="n">bt</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span>
+              <span class="n">bt</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+         <span class="n">bt</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span>
+              <span class="n">bt</span><span class="p">(</span><span class="mi">11</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+<span></span><span class="n">draw_bt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/trees_bin-trees_140_0.png" src="../_images/trees_bin-trees_140_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span><span class="o">.</span><span class="n">family_sum_rec</span><span class="p">()</span>
+<span class="n">draw_bt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/trees_bin-trees_141_0.png" src="../_images/trees_bin-trees_141_0.png" />
+</div>
+</div>
+<p>You need to sum to each node data its original parent data + original left child data + original right child data , for example:</p>
+<ul class="simple">
+<li><p>Root: 15 = 5 + 0 + 1 + 9</p></li>
+<li><p>left child of root: 12 = 1 + 5 + 4 + 2</p></li>
+<li><p>right child of root: 25 = 9 + 5 + 11 + 0</p></li>
+<li><p>leftmost grandchild of root: 8 = 4 + 1 + 0 + 3</p></li>
+</ul>
+</div>
+<div class="section" id="5.4-union_rec">
+<h3>5.4 union_rec<a class="headerlink" href="#5.4-union_rec" title="Permalink to this headline">¶</a></h3>
+<p>Implement following method:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def union_rec(self, other):
+    &#34;&#34;&#34; Supposing this is a binary tree of integers, takes another binary tree
+        and MODIFIES self so it becomes the union of the two.
+
+        Imagine to overlay the two trees, and:
+        - whenever two nodes occupy the same position, the self one is updated
+            by summing the corresponding node data from other
+        - if other has more nodes than self, create corresponding NEW nodes in self
+
+        - a recursive solution is acceptable
+        - DO *NOT* share nodes between the trees
+        - DO *NOT* throw away existing nodes in self
+        - MUST run in O(max(n,m)) where n,m are the number of nodes in self
+          and other
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.UnionRecTest</span></code></p>
+<p><strong>Example:</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">bin_tree_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ta</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span>
+                    <span class="kc">None</span><span class="p">,</span>
+                    <span class="n">bt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">17</span><span class="p">)))),</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">tb</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span>
+                    <span class="n">bt</span><span class="p">(</span><span class="mi">13</span><span class="p">))),</span>
+        <span class="n">bt</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span>
+                        <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">bt</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+<span class="n">ta</span><span class="o">.</span><span class="n">union_rec</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">ta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11
+├15
+│├16
+││├13
+││└1
+││ ├17
+││ └
+│└
+└18
+ ├11
+ │├
+ │└2
+ └4
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="5.5-reconstruct">
+<h3>5.5 reconstruct<a class="headerlink" href="#5.5-reconstruct" title="Permalink to this headline">¶</a></h3>
+<p>Implement the following function (note it’s <strong>external</strong> to the class!)</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def reconstruct(root, iterator):
+    &#34;&#34;&#34; Takes a root (i.e. &#39;a&#39;) and a sequence of tuples (node, branch, subnode)
+        *in no particular order*
+        i.e. (&#39;b&#39;,&#39;R&#39;,&#39;c&#39;), (&#39;a&#39;,&#39;L&#39;,&#39;b&#39;), (&#39;a&#39;,&#39;R&#39;,&#39;b&#39;) ...
+
+        and RETURN a NEW BinTree reconstructed from such tuples
+
+        - node and subnode are represented as node data
+        - a branch is indicated by either &#39;L&#39; or &#39;R&#39;
+
+        - MUST perform in O(n) where n is the length of the stream
+          produced by the iterator
+        - NOTE: you can read the sequence only once (you are given an iterator)
+        - in case a branch is repeated (i.e. (&#39;a&#39;,&#39;L&#39;,&#39;b&#39;) and (&#39;a&#39;,&#39;L&#39;,&#39;c&#39;))
+          the new definition replaces old one
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.ReconstructTest</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">bin_tree_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
+
+<span class="c1"># note we explicitly pass an iterator just to make sure the implementation reads the sequence only once</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">reconstruct</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nb">iter</span><span class="p">([(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">),</span>
+                           <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">),</span>
+                           <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sciprog</span> <span class="kn">import</span> <span class="n">draw_bt</span>
+<span class="n">draw_bt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/trees_bin-trees_153_0.png" src="../_images/trees_bin-trees_153_0.png" />
+</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
