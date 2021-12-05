@@ -46,13 +46,29 @@ class TreeFailTest(GenericTreeTest):
 
     def test_10_mixed_tree(self):
         self.assertTreeEqual(gt(2, gt('hellllloooooooooooooo', gt(1234), gt(None))), gt('a', gt(1)))
-        
-    def test_11_bad_parent(self):
+
+    def test_11a_bad_actual_parent(self):
+        tb = GenericTree('b')
+        ta = GenericTree('a')
+        ta.insert_child(tb)
+        tb._parent = None
+        self.assertTreeEqual(ta, gt('a', gt('b')))
+
+
+    def test_11b_bad_expected_parent(self):
         tb = GenericTree('b')
         ta = GenericTree('a')
         ta.insert_child(tb)
         tb._parent = None
         self.assertTreeEqual(gt('a', gt('b')), ta)
+
+    def test_11c_different_parents(self):
+        tb = GenericTree('b')
+        ta = GenericTree('a')
+        ta.insert_child(tb)
+        tb._parent = GenericTree('c')
+        self.assertTreeEqual(gt('a', gt('b')), ta)
+
 
     def test_12_wrong_datatype_child(self):
         ta = gt('a')
@@ -111,7 +127,7 @@ class TreeFailTest(GenericTreeTest):
                                         gt(666)))                
                              
     def test_20_check_arrow_abc(self):
-        """Checks arrow is show at correct height"""
+        """Checks arrow is shown at correct height"""
         
         self.assertTreeEqual(gt('a',
                                     gt('b'),
@@ -123,7 +139,7 @@ class TreeFailTest(GenericTreeTest):
                                     gt('e')))
         
     def test_21_check_arrow_complex(self):
-        """Checks arrow is show at correct height"""
+        """Checks arrow is shown at correct height"""
         
         self.assertTreeEqual(gt('a',
                                     gt('b', 
@@ -145,3 +161,33 @@ class TreeFailTest(GenericTreeTest):
                                             gt('z'),
                                             gt('m')),
                                     gt('d')))        
+
+
+    def test_22_bad_root_parent_1(self):        
+        
+        ga = gt('a')
+        ga._parent = gt('b')
+
+        self.assertTreeEqual(ga, gt('a'))
+
+    def test_23_bad_root_parent_2(self):        
+        
+        ga = gt('a')
+        ga._parent = gt('b')
+
+        self.assertTreeEqual(gt('a'), ga)
+
+
+    def test_24_bad_root_sibling_1(self):        
+        
+        ga = gt('a')
+        ga._sibling = gt('b')
+
+        self.assertTreeEqual(ga, gt('a'))
+
+    def test_25_bad_root_sibling_2(self):        
+        
+        ga = gt('a')
+        ga._sibling = gt('b')
+
+        self.assertTreeEqual(gt('a'), ga)

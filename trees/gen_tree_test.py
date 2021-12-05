@@ -133,11 +133,11 @@ class GenericTreeTest(unittest.TestCase):
         
             nonlocal row
         
-            if c2 == None:
+            if c2 is None:
                 raise AssertionError("Found a None node in EXPECTED tree!\n\n" 
                                 + str_trees(actual,expected,row))
             
-            if c1 == None:
+            if c1 is None:
                 raise AssertionError("Found a None node in ACTUAL tree! \n\n"
                                 + str_trees(actual,expected,row))                     
 
@@ -153,33 +153,34 @@ class GenericTreeTest(unittest.TestCase):
                          % (type(c1.data()).__name__, type(c2.data()).__name__)
                 raise AssertionError(errMsg + str_trees(actual,expected,row))
                 
+            # note != instead of 'is not'
             if c1.data() != c2.data():
                 raise AssertionError("ACTUAL data is different from expected!\n\n"
                                 + str_trees(actual,expected,row))
             
-            if not (c1 == actual or c1.parent() != None):
+            if c1 is not actual and c1.parent() is None:
                 raise AssertionError("Parent of ACTUAL node is None!"
                            + "\n\n" +  str_trees(actual,expected,row) )
 
-            if not (c2 == expected or c2.parent() != None): 
+            if c2 is not expected and c2.parent() is None: 
                 raise AssertionError("Parent of EXPECTED node is  %s !\n\n%s" % (c2.parent(),str_trees(actual,expected,row)) ) 
             
-            if not (c1.parent() == None or isinstance(c1.parent(), GenericTree)): 
+            if c1.parent() is not None and not isinstance(c1.parent(), GenericTree): 
                 raise AssertionError(("ACTUAL parent is an instance of %s , which is not a GenericTree!" % type(c1.parent()))
                                 + "\n\n" +  str_trees(actual,expected,row) )
 
-            if not (c2.parent() == None or isinstance(c2.parent(), GenericTree)): 
+            if c2.parent() is not None and not isinstance(c2.parent(), GenericTree): 
                 raise AssertionError(("EXPECTED parent is an instance of %s , which is not a GenericTree!" % type(c2.parent()))
                                 + "\n\n" +  str_trees(actual,expected,row) )
             
-            if (c1.parent() == None):
-                if (c2.parent() != None):
+            if (c1.parent() is None):
+                if (c2.parent() is not None):
                     raise AssertionError("Different parents! "
                                     + "Actual parent = None   Expected parent.data() = " + str(c2.parent().data()) 
                                     + "\n\n" + str_trees(actual,expected,row) )
                                     
             else:    
-                if (c2.parent() == None):                    
+                if (c2.parent() is None):                    
                     raise AssertionError("Different parents! "
                                     + "Actual parent.data() = " + str(c1.parent().data()) 
                                     + "   Expected parent = None"
@@ -190,19 +191,43 @@ class GenericTreeTest(unittest.TestCase):
                                  + "Actual parent.data() = " + str(c1.parent().data()) 
                                     + "   Expected parent.data() = " + str(c2.parent().data()
                                     + "\n\n" + str_trees(actual,expected,row) ))
+            
+            if c1 is actual and c2 is expected:
+                if (c1.sibling() is None):
+                    if (c2.sibling() is not None):
+                        raise AssertionError("Different siblings! "
+                                        + "Actual sibling = None   Expected sibling.data() = " + str(c2.sibling().data()) 
+                                        + "\n\n" + str_trees(actual,expected,row) )
+                                        
+                else:    
+                    if (c2.sibling() is None):                    
+                        raise AssertionError("Different siblings! "
+                                        + "Actual sibling.data() = " + str(c1.sibling().data()) 
+                                        + "   Expected sibling = None"
+                                        + "\n\n" + str_trees(actual,expected,row)) 
+                    else: # let's just check data for now
+                        self.assertEqual(c1.sibling().data(), c2.sibling().data(),
+                                    "Different siblings ! " 
+                                    + "Actual sibling.data() = " + str(c1.sibling().data()) 
+                                        + "   Expected sibling.data() = " + str(c2.sibling().data()
+                                        + "\n\n" + str_trees(actual,expected,row) ))
+
+
             i = 0                                    
             
             current1 = c1.child()
             current2 = c2.child()
                             
-            while ( current1 != None and current2 != None):
+            while ( current1 is not None and current2 is not None):
                 row += 1
+                # the only direct sibling check we need to do is only in the root,
+                # others are implied by the fact we are scanning
                 rec_assert(current1, current2)
                 current1 = current1.sibling()
                 current2 = current2.sibling()
                 i += 1 
 
-            if (current1 == None and current2 != None) or (current1 != None and current2 == None):                                            
+            if (current1 is None and current2 is not None) or (current1 is not None and current2 is None):                                            
                 raise AssertionError("Children sizes are different !\n\n"
                                 + str_trees(actual, expected, row))                
         
@@ -211,9 +236,8 @@ class GenericTreeTest(unittest.TestCase):
             rec_assert(actual, expected)
         except Exception as e:
             # not all exceptions have 'message' 
-            raise AssertionError(getattr(e, 'message', e.args[0])) from None                
-        
-        
+            raise AssertionError(getattr(e, 'message', e.args[0])) from None                    
+
 class GenericTreeTestTest(GenericTreeTest):    
     """ Tests the test itself ... """
 
