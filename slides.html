@@ -469,6 +469,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Lab-B.5">Lab B.5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab-B.6">Lab B.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab-B.7">Lab B.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab-B.8">Lab B.8</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandments.html">Commandments</a><ul>
@@ -1875,6 +1876,31 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p><strong>Again: Please start doing exercises in</strong> <a class="reference external" href="https://sciprog.davidleoni.it/references.html">Part B references</a></p>
 <p><strong>At home</strong>: try finishing whole Queues worksheets</p>
+</div>
+<div class="section" id="Lab-B.8">
+<h2>Lab B.8<a class="headerlink" href="#Lab-B.8" title="Permalink to this headline">¶</a></h2>
+<p>Thursday Dec 9th, 2021</p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>XI COMMANDMENT: Never ever search keys in a dictionary with looping!</strong></p>
+<p><strong>DO NOT</strong> write code like this, it’s <span class="math notranslate nohighlight">\(O(n)\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;searched key&#39;</span><span class="p">:</span>
+        <span class="n">do</span> <span class="n">something</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>USE</strong> instead <code class="docutils literal notranslate"><span class="pre">in</span></code> operator which only takes <span class="math notranslate nohighlight">\(O(1)\)</span></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;searched key&#39;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">something</span>
+</pre></div>
+</div>
+<p>Looping on dictionaries kills performance and in Part B is often a fatal mistake, many people still have this bad habit. Please (re) read <a class="reference external" href="https://en.softpython.org/for/for6-dictionaries-sol.html#Are-they-equivalent?---Found">softpython - iteration in dictionaries</a> and <a class="reference external" href="https://sciprog.davidleoni.it/algo-analysis/algo-analysis-sol.html#Dictionaries-performance">complexity - dictionaries</a></p>
+</div>
+<p><strong>Today</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="trees/bin-trees.html"><span class="doc">Binary trees</span></a></p></li>
+</ul>
+<p>At home: try to finish whole Binary trees worksheet</p>
+<p><strong>Yet again: Please start doing exercises in</strong> <a class="reference external" href="https://sciprog.davidleoni.it/references.html">Part B references</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
