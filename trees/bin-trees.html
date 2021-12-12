@@ -949,16 +949,17 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#3.-Stack-visit">3. Stack visit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#3.1-sum_stack">3.1 sum_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.3-height_stack">3.3 height_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.2-height_stack">3.2 height_stack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.3-leaves_stack">3.3 leaves_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#swap_stack">swap_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.4-is_heap_stack">3.4 is_heap_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.5-others">3.5 others</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.4-swap_stack">3.4 swap_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.5-is_heap_stack">3.5 is_heap_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.6-others">3.6 others</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#4.-Queue-visit">4. Queue visit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#5.-Modifying-the-tree">5. Modifying the tree</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#5.1-bin_insert_rec">5.1 bin_insert_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.1-mod_sum_rec">5.1 mod_sum_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.2-bin_insert_rec">5.2 bin_insert_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#5.2-add_row">5.2 add_row</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#5.3-prune_rec">5.3 prune_rec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#5.3-family_sum_rec">5.3 family_sum_rec</a></li>
@@ -2799,10 +2800,10 @@ g&amp;: n/2 - 3\\
 </pre></div>
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.SumStackTest</span></code></p>
-<p><img alt="bt su iuiu4383" src="../_images/bt-sum.png" /></p>
+<p><img alt="bt su ikkuiu4383" src="../_images/bt-sum.png" /></p>
 </div>
-<div class="section" id="3.3-height_stack">
-<h3>3.3 height_stack<a class="headerlink" href="#3.3-height_stack" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="3.2-height_stack">
+<h3>3.2 height_stack<a class="headerlink" href="#3.2-height_stack" title="Permalink to this headline">¶</a></h3>
 <p>The idea of this function is not that different from the <a class="reference external" href="https://sciprog.davidleoni.it/stacks/stacks.html#5.2-do_level">Tasks do_level exercise</a> we’ve seen in the lab about stacks</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">height_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; RETURN an integer which is the height of the tree</span>
@@ -2863,8 +2864,8 @@ g&amp;: n/2 - 3\\
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="swap_stack">
-<h3>swap_stack<a class="headerlink" href="#swap_stack" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="3.4-swap_stack">
+<h3>3.4 swap_stack<a class="headerlink" href="#3.4-swap_stack" title="Permalink to this headline">¶</a></h3>
 <p>Implement this method:</p>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -2946,8 +2947,8 @@ def swap_stack(self, a, b):
 </div>
 </div>
 </div>
-<div class="section" id="3.4-is_heap_stack">
-<h3>3.4 is_heap_stack<a class="headerlink" href="#3.4-is_heap_stack" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="3.5-is_heap_stack">
+<h3>3.5 is_heap_stack<a class="headerlink" href="#3.5-is_heap_stack" title="Permalink to this headline">¶</a></h3>
 <p>Implement this method:</p>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -3025,8 +3026,8 @@ False
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="3.5-others">
-<h3>3.5 others<a class="headerlink" href="#3.5-others" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="3.6-others">
+<h3>3.6 others<a class="headerlink" href="#3.6-others" title="Permalink to this headline">¶</a></h3>
 <p>Hopefully you got an idea of how stack recursion works, now you could try to implement by yourself previously defined recursive functions, this time using a while and a stack (or a queue, depending on what you are trying to achieve).</p>
 </div>
 </div>
@@ -3103,8 +3104,154 @@ level: 3   node: i
 </div>
 <div class="section" id="5.-Modifying-the-tree">
 <h2>5. Modifying the tree<a class="headerlink" href="#5.-Modifying-the-tree" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="5.1-bin_insert_rec">
-<h3>5.1 bin_insert_rec<a class="headerlink" href="#5.1-bin_insert_rec" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>MODIFY != RETURN</strong></p>
+<p>When the text tells you to just MODIFY a tree, you are not supposed to return anything!</p>
+<p>Still, you might call <code class="docutils literal notranslate"><span class="pre">return</span></code> to quit early the method (Python will implicitly return <code class="docutils literal notranslate"><span class="pre">None</span></code> but that’s fine)</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>HAVE YOU READ THE POINT ABOVE??</strong></p>
+<p>So many students fail their exam because they don’t even properly read the method text.</p>
+<p>Again, FIRST look for <em>RETURN</em> / <em>MODIFY</em> keywords, THEN write code accordingly</p>
+</div>
+<div class="section" id="5.1-mod_sum_rec">
+<h3>5.1 mod_sum_rec<a class="headerlink" href="#5.1-mod_sum_rec" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start with a simple method. First just read the text:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def mod_sum_rec(self):
+    &#34;&#34;&#34; Supposing the tree holds integer numbers in all nodes,
+        MODIFIES each node data becomes the sum of the numbers in all its subtree
+
+        - implement it as a recursive Depth First Search (DFS) traversal
+          NOTE: with big trees a recursive solution would surely
+                exceed the call stack, but here we don&#39;t mind
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>QUESTION 1</strong>: Should you call something like this inside your method?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return mysum
+</pre></div>
+</div>
+<a  class="jupman-sol jupman-sol-toggler"
+ onclick="jupman.toggleSolution(this);"
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: No! Nobody told you to return stuff</p>
+</div><p><strong>QUESTION 2</strong>: If you just call return like this, is it fine?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span>
+</pre></div>
+</div>
+<a  class="jupman-sol jupman-sol-toggler"
+ onclick="jupman.toggleSolution(this);"
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: yes, if you wish to terminate a call early</p>
+</div><p><strong>QUESTION</strong>: Given</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span>
+           <span class="n">bt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">7</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>which of these method calls would make sense?</p>
+<ol class="arabic">
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">mod_sum_rec</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">mod_sum_rec</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<a  class="jupman-sol jupman-sol-toggler"
+ onclick="jupman.toggleSolution(this);"
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: only the second one makes sense as it would always print an actual number (the first one will always print <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p>
+</div><p><img alt="bt sum 983234uu4" src="../_images/bt-sum.png" /></p>
+<p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.ModSumRecTest</span></code></p>
+<p>Now let’s see some actual call example.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span>
+           <span class="n">bt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span>
+                      <span class="n">bt</span><span class="p">(</span><span class="mi">5</span><span class="p">))),</span>
+           <span class="n">bt</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span>
+                <span class="n">bt</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span>
+                       <span class="n">bt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span>
+                             <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">bt</span><span class="p">(</span><span class="mi">4</span><span class="p">)),</span>
+                       <span class="n">bt</span><span class="p">(</span><span class="mi">8</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+├10
+│├1
+│└7
+│ ├5
+│ └
+└9
+ ├6
+ │├2
+ ││├
+ ││└4
+ │└8
+ └
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span><span class="o">.</span><span class="n">mod_sum_rec</span><span class="p">()</span>  <span class="c1"># NOTE: returns *nothing* (None is not even displayed in jupyter)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>   <span class="c1"># the actual orginal tree was MODIFIED</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+55
+├23
+│├1
+│└12
+│ ├5
+│ └
+└29
+ ├20
+ │├6
+ ││├
+ ││└4
+ │└8
+ └
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="5.2-bin_insert_rec">
+<h3>5.2 bin_insert_rec<a class="headerlink" href="#5.2-bin_insert_rec" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bin_insert_rec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Assuming the tree is a binary search tree of integer numbers,</span>
 <span class="sd">        MODIFIES the tree by inserting a new node with the value m</span>
@@ -3119,7 +3266,7 @@ level: 3   node: i
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.BinInsertRecTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3138,7 +3285,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3158,7 +3305,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3180,7 +3327,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3202,7 +3349,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3224,7 +3371,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3248,7 +3395,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3274,7 +3421,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3300,7 +3447,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3328,7 +3475,7 @@ level: 3   node: i
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3380,7 +3527,7 @@ level: 3   node: i
 <p><strong>Test</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.AddRowTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3414,7 +3561,7 @@ a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3423,7 +3570,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3471,7 +3618,7 @@ a
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.PruneRecTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3481,7 +3628,7 @@ a
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3502,7 +3649,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3531,7 +3678,7 @@ a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3540,7 +3687,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3563,7 +3710,7 @@ a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3572,7 +3719,7 @@ a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3622,7 +3769,7 @@ def family_sum_rec(self):
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.FamilySumRec</span></code></p>
 <p>Example:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3640,7 +3787,7 @@ def family_sum_rec(self):
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3653,11 +3800,11 @@ def family_sum_rec(self):
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/trees_bin-trees_140_0.png" src="../_images/trees_bin-trees_140_0.png" />
+<img alt="../_images/trees_bin-trees_159_0.png" src="../_images/trees_bin-trees_159_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3670,7 +3817,7 @@ def family_sum_rec(self):
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/trees_bin-trees_141_0.png" src="../_images/trees_bin-trees_141_0.png" />
+<img alt="../_images/trees_bin-trees_160_0.png" src="../_images/trees_bin-trees_160_0.png" />
 </div>
 </div>
 <p>You need to sum to each node data its original parent data + original left child data + original right child data , for example:</p>
@@ -3709,7 +3856,7 @@ def union_rec(self, other):
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.UnionRecTest</span></code></p>
 <p><strong>Example:</strong></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3719,7 +3866,7 @@ def union_rec(self, other):
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3745,7 +3892,7 @@ def union_rec(self, other):
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3803,7 +3950,7 @@ def reconstruct(root, iterator):
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.ReconstructTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3818,7 +3965,7 @@ def reconstruct(root, iterator):
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3831,7 +3978,7 @@ def reconstruct(root, iterator):
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/trees_bin-trees_153_0.png" src="../_images/trees_bin-trees_153_0.png" />
+<img alt="../_images/trees_bin-trees_172_0.png" src="../_images/trees_bin-trees_172_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
