@@ -233,27 +233,7 @@ class BinTree:
             return self.right() != None and self.right().bin_search_rec(m)
         #/jupman-raise
 
-    def bin_insert_rec(self, m):
-        """ Assuming the tree is a binary search tree of integer numbers, 
-            MODIFIES the tree by inserting a new node with the value m
-            in the appropriate position. Node is always added as a leaf.
 
-            - MUST EXECUTE IN O(height(t))
-            - NOTE: with big trees a recursive solution would surely 
-                    exceed the call stack, but here we don't mind
-        """
-        #jupman-raise
-        if m < self._data:            
-            if self.left() == None:
-                self.insert_left(m)
-            else:
-                self._left.bin_insert_rec(m)
-        else:
-            if self.right() == None:
-                self.insert_right(m)
-            else:                
-                self.right().bin_insert_rec(m)
-        #/jupman-raise
 
     def univalued_rec(self):
         """ RETURN True if the tree is univalued, otherwise RETURN False. 
@@ -541,6 +521,53 @@ class BinTree:
         return True
         #/jupman-raise          
         
+
+    def mod_sum_rec(self):
+        """ Supposing the tree holds integer numbers in all nodes,
+            MODIFIES each node data becomes the sum of the numbers in all its subtree
+
+            - implement it as a recursive Depth First Search (DFS) traversal
+              NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind            
+        """ 
+        #jupman-raise
+        left_sum = 0
+        right_sum = 0
+
+        if self._left != None:
+            self._left.mod_sum_rec()
+            left_sum = self._left._data
+            
+        if self._right != None:
+            self._right.mod_sum_rec()
+            right_sum = self._right._data
+        
+        self._data = self._data + left_sum + right_sum
+        #/jupman-raise
+
+    def bin_insert_rec(self, m):
+        """ Assuming the tree is a binary search tree of integer numbers, 
+            MODIFIES the tree by inserting a new node with the value m
+            in the appropriate position. Node is always added as a leaf.
+
+            - MUST EXECUTE IN O(height(t))
+            - NOTE: with big trees a recursive solution would surely 
+                    exceed the call stack, but here we don't mind
+        """
+        #jupman-raise
+        if m < self._data:            
+            if self.left() == None:
+                self.insert_left(m)
+            else:
+                self._left.bin_insert_rec(m)
+        else:
+            if self.right() == None:
+                self.insert_right(m)
+            else:                
+                self.right().bin_insert_rec(m)
+        #/jupman-raise
+
+
     def add_row(self, elems):
         """ Takes as input a list of data and MODIFIES the tree by adding
             a row of new leaves, each having as data one element of elems,

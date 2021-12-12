@@ -1972,6 +1972,118 @@ class IsHeapStackTest(BinTreeTest):
                             
         self.assertEqual(t.is_heap_stack(), False)
                 
+class ModSumRecTest(BinTreeTest):
+
+    def test_01_5_empty_empty(self):
+        t = bt(5)
+        t.mod_sum_rec()        
+        self.assertTreeEqual(t, bt(5))
+
+    def test_02_4_7_empty(self):
+        t = bt(4, bt(7))
+        t.mod_sum_rec()
+        self.assertTreeEqual(t, bt(11, 
+                                        bt(7)))
+
+    def test_03_6_empty_3(self):
+        t = bt(6, 
+                 None, 
+                 bt(3))
+        t.mod_sum_rec()                 
+        self.assertTreeEqual(t, bt(9, 
+                                    None, 
+                                    bt(3)))
+
+    def test_03b_6_empty_3(self):
+        t = bt(6, 
+                 None, 
+                 bt(3))
+        res = t.mod_sum_rec()  
+        self.assertEqual(res, None)  # since it MODIFIES the tree should always return None
+        self.assertTreeEqual(t, bt(9, 
+                                     None, 
+                                     bt(3)))                                 
+
+    def test_04_4_8_3(self):
+        t = bt(4, 
+                    bt(8), 
+                    bt(3))
+        t.mod_sum_rec()
+        self.assertTreeEqual(t, bt(15, 
+                                      bt(8), 
+                                      bt(3)))
+
+    def test_05_7_26_4(self):
+        t = bt(7, 
+                bt(2, 
+                     bt(6)),
+                bt(4))
+        t.mod_sum_rec()                
+        self.assertTreeEqual(t, bt(19, 
+                                        bt(8,
+                                            bt(6)),
+                                        bt(4)))
+
+    def test_06_9_5_32(self):
+        t = bt(9, 
+                  bt(5), 
+                  bt(3, 
+                        bt(2)))
+        t.mod_sum_rec()
+        self.assertTreeEqual(t, bt(19, 
+                                        bt(5), 
+                                        bt(5, 
+                                                bt(2))))
+
+
+    def test_07_523_left(self):
+        t = bt(5, 
+                  bt(2, 
+                       bt(3)))
+        t.mod_sum_rec()                       
+        self.assertTreeEqual(t, bt(10, 
+                                        bt(5, 
+                                            bt(3))))
+
+    def test_08_523_right(self):
+        t = bt(5, 
+                  None, 
+                  bt(2, 
+                        None, 
+                        bt(3)))
+        t.mod_sum_rec()
+        self.assertTreeEqual(t, bt(10, 
+                                        None, 
+                                        bt(5, 
+                                            None, 
+                                            bt(3))))
+
+    def test_09_complex(self):
+        t = bt(3, 
+                bt(10,
+                        bt(1), 
+                        bt(7, 
+                            bt(5))),
+                bt(9, 
+                        bt(6, 
+                            bt(2,
+                                    None,
+                                    bt(4)),
+                            bt(8))))
+        t.mod_sum_rec()
+        self.assertTreeEqual(t, bt(55, 
+                                        bt(23,
+                                                bt(1), 
+                                                bt(12, 
+                                                    bt(5))),
+                                        bt(29, 
+                                                bt(20, 
+                                                    bt(6,
+                                                            None,
+                                                            bt(4)),
+                                                    bt(8)))))
+
+
 class BinInsertRecTest(BinTreeTest):
     def test_complex(self):
         
