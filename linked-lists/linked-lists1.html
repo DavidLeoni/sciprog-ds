@@ -121,6 +121,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../past-exams.html">Past Exams</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../past-exams.html#Data-science">Data science</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exams/2021-12-16/solutions/exam-2021-12-16.html">Midterm B- Thu 16, Dec 2021</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-12-16/solutions/exam-2021-12-16.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-12-16/solutions/exam-2021-12-16.html#B1-Theory">B1 Theory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-12-16/solutions/exam-2021-12-16.html#B1.1-complexity">B1.1 complexity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exams/2021-12-16/solutions/exam-2021-12-16.html#B1.2-postfix">B1.2 postfix</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../exams/2021-11-12/solutions/exam-2021-11-12-sol.html">Exam - Fri 12, Nov 2021</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../exams/2021-11-12/solutions/exam-2021-11-12-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../exams/2021-11-12/solutions/exam-2021-11-12-sol.html#Part-A---Mexican-Drug-Wars">Part A - Mexican Drug Wars</a></li>
@@ -870,7 +877,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#5-EqList">5 EqList</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#6-Cloning">6 Cloning</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#7-More-exercises">7 More exercises</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#7.15-linked-algebra">7.15 linked algebra</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#8-Last-exercises">8 Last exercises</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Challenge">Challenge</a></li>
 </ul>
@@ -908,12 +914,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../trees/bin-trees.html">Binary Trees</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../trees/bin-trees.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/bin-trees.html#0.-Introduction">0. Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../trees/bin-trees.html#Download-exercises-zip">Download exercises zip</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../trees/bin-trees.html#What-to-do">What to do</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/bin-trees.html#id1">0. Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../trees/bin-trees.html#0.-Introduction">0. Introduction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../trees/bin-trees.html#0.1-References">0.1 References</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trees/bin-trees.html#0.2-Terminology---relations">0.2 Terminology - relations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trees/bin-trees.html#0.3-Terminology---levels">0.3 Terminology - levels</a></li>
@@ -1488,7 +1493,7 @@ LinkedList:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;linked_list_sol.LinkedList at 0x7fba5c3ab710&gt;
+&lt;linked_list_sol.LinkedList at 0x7f6cc1094390&gt;
 </pre></div></div>
 </div>
 </div>
@@ -2542,27 +2547,90 @@ LinkedList: a,c,e
 <div class="section" id="7.6-norep">
 <h3>7.6 norep<a class="headerlink" href="#7.6-norep" title="Permalink to this headline">¶</a></h3>
 <p>Implement the method <code class="docutils literal notranslate"><span class="pre">norep</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">norep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; MODIFIES this list by removing all the consecutive</span>
-<span class="sd">        repetitions from it.</span>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+def norep(self):
+    &#34;&#34;&#34; MODIFIES this list by removing all the consecutive
+        repetitions from it.
 
-<span class="sd">        - MUST perform in O(n), where n is the list size.</span>
-
-<span class="sd">        For example, after calling norep:</span>
-
-<span class="sd">        &#39;a&#39;,&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;c&#39;,&#39;c&#39;   will become  &#39;a&#39;,&#39;b&#39;,&#39;c&#39;</span>
-
-<span class="sd">        &#39;a&#39;,&#39;a&#39;,&#39;b&#39;,&#39;a&#39;   will become   &#39;a&#39;,&#39;b&#39;,&#39;a&#39;</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO IMPLEMENT ME !&quot;</span><span class="p">)</span>
+        - MUST perform in O(n), where n is the list size.
+    &#34;&#34;&#34;
+</pre></div></div>
+</div>
+<p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.NorepTest</span></code></p>
+<p><strong>Example:</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
-<p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.NorepTest</span></code></p>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ll</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="7.8-find_couple">
-<h3>7.8 find_couple<a class="headerlink" href="#7.8-find_couple" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+LinkedList: a,a,a,c,c,a,a,b,d,d,c,c,c,e
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ll</span><span class="o">.</span><span class="n">norep</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+LinkedList: a,c,a,b,d,c,e
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="7.7-find_couple">
+<h3>7.7 find_couple<a class="headerlink" href="#7.7-find_couple" title="Permalink to this headline">¶</a></h3>
 <p>Implement following <code class="docutils literal notranslate"><span class="pre">find_couple</span></code> method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_couple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Search the list for the first two consecutive elements having data equal to</span>
@@ -2577,8 +2645,8 @@ LinkedList: a,c,e
 </div>
 <p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.FindCoupleTest</span></code></p>
 </div>
-<div class="section" id="7.9-swap">
-<h3>7.9 swap<a class="headerlink" href="#7.9-swap" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="7.8-swap">
+<h3>7.8 swap<a class="headerlink" href="#7.8-swap" title="Permalink to this headline">¶</a></h3>
 <p>Implement the method <code class="docutils literal notranslate"><span class="pre">swap</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">swap</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -2592,8 +2660,8 @@ LinkedList: a,c,e
 </div>
 <p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.SwapTest</span></code></p>
 </div>
-<div class="section" id="7.10-gaps">
-<h3>7.10 gaps<a class="headerlink" href="#7.10-gaps" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="7.9-gaps">
+<h3>7.9 gaps<a class="headerlink" href="#7.9-gaps" title="Permalink to this headline">¶</a></h3>
 <p>Given a linked list of size n which only contains integers, a gap is an <strong>index</strong> <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">0&lt;i&lt;n</span></code>, such that <code class="docutils literal notranslate"><span class="pre">L[i−1]&lt;L[i]</span></code>. For the purpose of this exercise, we assume an empy list or a list with one element have zero gaps</p>
 <p><strong>Example</strong>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data:  9 7 6 8 9 2 2 5
@@ -2620,8 +2688,8 @@ index:  0 1 2 3 4 5 6 7
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.GapsTest</span></code></p>
 </div>
-<div class="section" id="7.11-flatv">
-<h3>7.11 flatv<a class="headerlink" href="#7.11-flatv" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="7.10-flatv">
+<h3>7.10 flatv<a class="headerlink" href="#7.10-flatv" title="Permalink to this headline">¶</a></h3>
 <p>Suppose a <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> only contains integer numbers, say 3,8,8,7,5,8,6,3,9. Implement method <code class="docutils literal notranslate"><span class="pre">flatv</span></code> which scans the list: when it finds the <em>first</em> occurence of a node which contains a number which is less then the previous one, and the less than successive one, it inserts after the current one another node with the same data as the current one, and exits.</p>
 <p>Example:</p>
 <p>for Linked list 3,8,8,7,5,8,6,3,9</p>
@@ -2634,8 +2702,8 @@ index:  0 1 2 3 4 5 6 7
 </div>
 <p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.FlatvTest</span></code></p>
 </div>
-<div class="section" id="7.12-bubble_sort">
-<h3>7.12 bubble_sort<a class="headerlink" href="#7.12-bubble_sort" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="7.11-bubble_sort">
+<h3>7.11 bubble_sort<a class="headerlink" href="#7.11-bubble_sort" title="Permalink to this headline">¶</a></h3>
 <p>You will implement bubble sort on a <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def bubble_sort(self):
     &quot;&quot;&quot; Sorts in-place this linked list using the method of bubble sort
@@ -2648,7 +2716,7 @@ index:  0 1 2 3 4 5 6 7
 <p><strong>NOTE</strong>: this version of the algorithm is inefficient as we do not use <code class="docutils literal notranslate"><span class="pre">j</span></code> in the inner loop: your linked list implementation can have this inefficiency as well.</p>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.BubbleSortTest</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2676,8 +2744,8 @@ index:  0 1 2 3 4 5 6 7
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="7.13-merge">
-<h3>7.13 merge<a class="headerlink" href="#7.13-merge" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="7.12-merge">
+<h3>7.12 merge<a class="headerlink" href="#7.12-merge" title="Permalink to this headline">¶</a></h3>
 <p>Implement this method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">l2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Assumes this linkedlist and l2 linkedlist contain integer numbers</span>
@@ -2694,8 +2762,8 @@ index:  0 1 2 3 4 5 6 7
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.MergeTest</span></code></p>
 </div>
-<div class="section" id="7.14-couple_sort">
-<h3>7.14 couple_sort<a class="headerlink" href="#7.14-couple_sort" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="7.13-couple_sort">
+<h3>7.13 couple_sort<a class="headerlink" href="#7.13-couple_sort" title="Permalink to this headline">¶</a></h3>
 <p>Implement this method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">couple_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;MODIFIES the linked list by considering couples of nodes at *even* indexes</span>
@@ -2710,7 +2778,7 @@ index:  0 1 2 3 4 5 6 7
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.CoupleSortTest</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2720,7 +2788,7 @@ index:  0 1 2 3 4 5 6 7
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2729,7 +2797,7 @@ index:  0 1 2 3 4 5 6 7
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2746,7 +2814,7 @@ LinkedList: 4,3,5,2,6,7,6,3,2,4,5,3,2
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2755,7 +2823,7 @@ LinkedList: 4,3,5,2,6,7,6,3,2,4,5,3,2
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2773,9 +2841,8 @@ LinkedList: 3,4,2,5,6,7,3,6,2,4,3,5,2
 </div>
 <p>Notice it sorted each couple at even positions. This particular linked list has odd size (13 items), so last item 2 was not considered.</p>
 </div>
-</div>
-<div class="section" id="7.15-linked-algebra">
-<h2>7.15 linked algebra<a class="headerlink" href="#7.15-linked-algebra" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="7.14-linked-algebra">
+<h3>7.14 linked algebra<a class="headerlink" href="#7.14-linked-algebra" title="Permalink to this headline">¶</a></h3>
 <p>Implement this method:</p>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -2797,7 +2864,7 @@ def linalg(self):
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.LinAlgTest</span></code></p>
 <p><strong>Example:</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2822,7 +2889,7 @@ LinkedList: 3a,5b,2c
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2831,7 +2898,7 @@ LinkedList: 3a,5b,2c
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2848,6 +2915,7 @@ LinkedList: a,a,a,b,b,b,b,b,c,c
 </pre></div></div>
 </div>
 <p>with 3 nodes modified and 7 new nodes inserted</p>
+</div>
 <div class="section" id="7.15---sepel">
 <h3>7.15 - sepel<a class="headerlink" href="#7.15---sepel" title="Permalink to this headline">¶</a></h3>
 <p>Implement this method:</p>
@@ -2870,7 +2938,7 @@ def sepel(self, el):
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.SepelTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2889,7 +2957,7 @@ def sepel(self, el):
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2906,7 +2974,7 @@ LinkedList: c,a,b,c,c,d,c,e,c
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2915,7 +2983,7 @@ LinkedList: c,a,b,c,c,d,c,e,c
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2932,7 +3000,7 @@ LinkedList: a,b,d,e
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2973,7 +3041,7 @@ def pivot(self):
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.PivotTest</span></code></p>
 <p>Example:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2985,7 +3053,7 @@ def pivot(self):
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3002,7 +3070,7 @@ LinkedList: 7,12,1,3,8,9,6,4,7,2,10
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3011,7 +3079,7 @@ LinkedList: 7,12,1,3,8,9,6,4,7,2,10
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3020,7 +3088,7 @@ LinkedList: 7,12,1,3,8,9,6,4,7,2,10
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -3030,7 +3098,7 @@ LinkedList: 7,12,1,3,8,9,6,4,7,2,10
 </div>
 <p>Note elements <span class="math notranslate nohighlight">\(&lt; 7\)</span> are in reverse order in which they were found, elements <span class="math notranslate nohighlight">\(\geq7\)</span> are in the original order</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3072,7 +3140,7 @@ LinkedList: 2,4,6,3,1,7,12,8,9,7,10
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">last_test.RotateTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3081,7 +3149,7 @@ LinkedList: 2,4,6,3,1,7,12,8,9,7,10
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3104,7 +3172,7 @@ LinkedList: a,b,c,d
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3113,7 +3181,7 @@ LinkedList: a,b,c,d
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3154,7 +3222,7 @@ LinkedList: d,a,b,c
 </div>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3180,7 +3248,7 @@ LinkedList: a,b,c,d,e,f,g,h
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3189,7 +3257,7 @@ LinkedList: a,b,c,d,e,f,g,h
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3206,7 +3274,7 @@ LinkedList: a,b,c,d,e,f,g,h
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3215,7 +3283,7 @@ LinkedList: a,b,c,d,e,f,g,h
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3232,7 +3300,7 @@ LinkedList: f,g,h,a,b,c,d,e
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3241,7 +3309,7 @@ LinkedList: f,g,h,a,b,c,d,e
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3258,7 +3326,7 @@ LinkedList: f,g,h,a,b,c,d,e
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3267,7 +3335,7 @@ LinkedList: f,g,h,a,b,c,d,e
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3284,7 +3352,7 @@ LinkedList: a,b,c,d,e,f,g,h
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3293,7 +3361,7 @@ LinkedList: a,b,c,d,e,f,g,h
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3314,7 +3382,7 @@ LinkedList: f,g,h,a,b,c,d,e
 <p>It should terminate real fast even with a humongous <code class="docutils literal notranslate"><span class="pre">k</span></code>, if you don’t implement it with the required complexity rest assured this will never print <code class="docutils literal notranslate"><span class="pre">'Finished!'</span></code></p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3353,7 +3421,7 @@ Finished! Result is LinkedList: e,f,g,h,a,b,c,d
 <p><strong>Test</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">last_test.PlusOneTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3381,7 +3449,7 @@ LinkedList: 2,9,3,7,9,9
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3390,7 +3458,7 @@ LinkedList: 2,9,3,7,9,9
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -3399,7 +3467,7 @@ LinkedList: 2,9,3,7,9,9
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3408,7 +3476,7 @@ LinkedList: 2,9,3,7,9,9
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
