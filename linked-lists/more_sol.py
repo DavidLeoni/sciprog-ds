@@ -128,15 +128,8 @@ class LinkedList:
     def norep(self):
         """ MODIFIES this list by removing all the consecutive 
             repetitions from it.
-            
-            - MUST perform in O(n), where n is the list size.
-        
-            For example, after calling norep:
 
-            'a','a','b','c','c','c'   will become  'a','b','c'
-            
-            'a','a','b','a'   will become   'a','b','a'            
-            
+            - MUST perform in O(n), where n is the list size.
         """
         #jupman-raise
         if self._head == None:

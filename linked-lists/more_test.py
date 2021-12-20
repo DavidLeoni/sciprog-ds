@@ -293,6 +293,26 @@ class NorepTest(LinkedListTest):
         ul.norep()
         self.assertEqual(to_py(ul), ['a', 'b', 'c'])    
 
+    def test_10_aaaccaabddccce(self):
+        ll = LinkedList()                                               
+        ll.add('e')
+        ll.add('c')
+        ll.add('c')
+        ll.add('c')
+        ll.add('d')
+        ll.add('d')
+        ll.add('b')
+        ll.add('a')
+        ll.add('a')
+        ll.add('c')
+        ll.add('c')
+        ll.add('a')
+        ll.add('a')        
+        ll.add('a')
+        ll.norep()
+        self.assertEqual(to_py(ll), ['a', 'c', 'a', 'b', 'd', 'c', 'e'])
+        
+        
 class FindCoupleTest(LinkedListTest):
     
     def test_01_empty(self):
