@@ -1,7 +1,3 @@
-import sys
-sys.path.append('../../../')
-import jupman
-jupman.mem_limit()
 
 class Node:
     """ A Node of an LinkedList. Holds data provided by the user. """

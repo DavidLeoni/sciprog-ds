@@ -1,7 +1,3 @@
-import sys
-sys.path.append('../../../')
-import jupman
-jupman.mem_limit()
 
 class BinTree:
     """ A simple binary tree with left and right branches
