@@ -126,6 +126,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#B1-Theory">B1 Theory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#B1.1-complexity">B1.1 complexity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#B1.2-postfix">B1.2 postfix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#B2-norep">B2 norep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#B3-family_sum_rec">B3 family_sum_rec</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../2021-11-12/solutions/exam-2021-11-12-sol.html">Exam - Fri 12, Nov 2021</a><ul>
@@ -1446,15 +1448,13 @@ Infix notation:     a op1 b op2 c op3 d (e.g. 7 + 4 * 5 + 9)
 Postfix notation:   a b c op1 op2 d op3     (e.g. 7 4 5 * + 9 +)
 </pre></div>
 </div>
-<div class="section" id="B2">
-<h3>B2<a class="headerlink" href="#B2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="B2-norep">
+<h2>B2 norep<a class="headerlink" href="#B2-norep" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Open Visual Studio Code and start editing the folder on your desktop</p></li>
 <li><p>For running tests: open <em>Accessories -&gt; Terminal</em></p></li>
 </ul>
-</div>
-<div class="section" id="norep">
-<h3>norep<a class="headerlink" href="#norep" title="Permalink to this headline">¶</a></h3>
 <p>Open file <code class="docutils literal notranslate"><span class="pre">linked_list.py</span></code> and implement the method <code class="docutils literal notranslate"><span class="pre">norep</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">norep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; MODIFIES this list by removing all the consecutive</span>
@@ -1466,7 +1466,7 @@ Postfix notation:   a b c op1 op2 d op3     (e.g. 7 4 5 * + 9 +)
 </div>
 <p><strong>Testing:</strong> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">more_test.NorepTest</span></code></p>
 <p><strong>Example:</strong></p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -1474,14 +1474,6 @@ Postfix notation:   a b c op1 op2 d op3     (e.g. 7 4 5 * + 9 +)
 <span></span><span class="kn">from</span> <span class="nn">linked_list_sol</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Free mem: 6281 MB  Limiting to: 3140 MB
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1550,8 +1542,8 @@ LinkedList: a,c,a,b,d,c,e
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="family_sum_rec">
-<h3>family_sum_rec<a class="headerlink" href="#family_sum_rec" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="B3-family_sum_rec">
+<h2>B3 family_sum_rec<a class="headerlink" href="#B3-family_sum_rec" title="Permalink to this headline">¶</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">bin_tree.py</span></code> and implement this method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">family_sum_rec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; MODIFIES the tree by adding to each node data its *original* parent and children data</span>
@@ -1564,7 +1556,7 @@ LinkedList: a,c,a,b,d,c,e
 </div>
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bin_tree_test.FamilySumRec</span></code></p>
 <p><strong>Example:</strong></p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
@@ -1572,14 +1564,6 @@ LinkedList: a,c,a,b,d,c,e
 <span></span><span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Free mem: 6278 MB  Limiting to: 3139 MB
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -1646,7 +1630,6 @@ Free mem: 6278 MB  Limiting to: 3139 MB
 <li><p>right child of root: 25 = 9 + 5 + 11 + 0</p></li>
 <li><p>leftmost grandchild of root: 8 = 4 + 1 + 0 + 3</p></li>
 </ul>
-</div>
 </div>
 </div>
 
