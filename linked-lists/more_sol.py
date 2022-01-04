@@ -323,11 +323,13 @@ class LinkedList:
         
     def couple_sort(self):
         """MODIFIES the linked list by considering couples of nodes at even indexes
-           and their successors: if a node data is lower than its successor data, swaps the nodes *data*.
+           and their successors: if a node data is lower than its successor data, 
+           swaps the nodes *data*.
            
            - ONLY swap *data*, DO NOT change node links.
            - if linked list has odd size, simply ignore the exceeding node.
            - MUST execute in O(n), where n is the size of the list
+           - NOTE: we don't want to sort the whole list, just the single couples.           
         """
         #jupman-raise
 
