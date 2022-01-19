@@ -148,10 +148,41 @@ def fixship(parser,context,args):
         info("DONE.\n")
     print()
 
+@subcmd(help='replaces strings in built exam version')
+def build_exam(parser,context,args):
+
+    parser.add_argument('date', help="date in format 'yyyy-mm-dd'" )
+    parsed = vars(parser.parse_args(args))
+    ld = jmt.parse_date_str(parsed['date'])
+    server_path = f'./_private/{ld}/server'
+    if not os.path.isdir(server_path):
+        raise ValueError(f"ERROR! Path not existing {server_path}")
+    
+    exts = ['html', 'js','css', 'py', 'ipynb', 'md']
+    filepaths = []
+    for ext in exts: 
+        filepaths.extend(glob.iglob(f'{server_path}/**/*.%s' % ext, recursive=True))
+    filepaths.sort()
+    for filepath in filepaths:
+        print('fixing', filepath)
+        if os.path.isfile(filepath):
+            with open(filepath) as file:
+                s = file.read()
+                s = s.replace('sciprog.davidleoni.it', 'spex.altervista.org/server/ds') \
+                     .replace('en.softpython.org', 'spex.altervista.org/server/softpython-en') \
+                     .replace('lucamarchetti79.github.io/teaching/qcbSciProLab', 'spex.altervista.org/server/qcb') \
+                     .replace('github.com/DavidLeoni/sciprog-ds', '')                                      \
+                     .replace('github.com/DavidLeoni/softpython-en', '')                                      \
+                     .replace('github.com/lucamarchetti79/teaching/qcbSciProLab', '')                        # better to avoid it   
+                with open(filepath, "w") as file:
+                    file.write(s)
+                    
+                    
+
+
 handler = ArgumentHandler(description='Manages ' + jm.filename + ' exams.',
                          use_subcommand_help=True)
 handler.run()
-
 
 
 
