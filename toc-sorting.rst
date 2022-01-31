@@ -5,5 +5,5 @@ Sorting
     :maxdepth: 3
     :glob:
 
-    sorting/sorting1.ipynb
-    sorting/sorting2-chal.ipynb
+    intro <sorting/sorting1.ipynb>
+    challenges <sorting/sorting2-chal.ipynb>

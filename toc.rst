@@ -50,24 +50,28 @@ Part B
     :maxdepth: 2
     :glob:
 
-    toc-oop.rst
-        
+    toc-oop.rst        
     indexing/indexing.ipynb     
+
     
 .. toctree::
     :maxdepth: 2
     :glob:
 
-    toc-recursion.rst
-
-    
+    toc-recursion.rst    
     algo-analysis/algo-analysis-sol.ipynb
-    stacks/stacks.ipynb
 
 .. toctree::
     :maxdepth: 2
     :glob:
 
+    toc-sorting.rst
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+
+    stacks/stacks.ipynb
     toc-linked-lists.rst
    
 
