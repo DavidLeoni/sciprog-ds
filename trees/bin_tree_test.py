@@ -868,7 +868,111 @@ class BinSearchTest(BinTreeTest):
     
 class UnivaluedRecTest(BinTreeTest):
 
-    def test_complex_1(self):
+    def test_01_3(self):
+        t = bt(3)
+        self.assertTrue(t.univalued_rec())
+        
+    def test_02_5(self):
+        t = bt(5)
+        self.assertTrue(t.univalued_rec())
+        
+    def test_03_4_4(self):
+        t = bt(4, 
+                   bt(4))
+        self.assertTrue(t.univalued_rec())
+        
+    def test_04_9_4(self):
+        t = bt(9, 
+                   bt(4))
+        self.assertFalse(t.univalued_rec())
+        
+    def test_05_7_n_7(self):
+        t = bt(7, 
+                   None,
+                   bt(7))
+        self.assertTrue(t.univalued_rec())
+        
+    def test_06_7_n_3(self):
+        t = bt(7, 
+                   None,
+                   bt(3))
+        self.assertFalse(t.univalued_rec())        
+    
+    def test_07_8_8_8(self):
+        t = bt(8,
+                   bt(8),
+                   bt(8))
+        self.assertTrue(t.univalued_rec())
+               
+    def test_08_9_8_8(self):
+        t = bt(9,
+                   bt(8),
+                   bt(8))
+        self.assertFalse(t.univalued_rec())               
+        
+    def test_09_8_9_8(self):
+        t = bt(8,
+                   bt(9),
+                   bt(8))
+        self.assertFalse(t.univalued_rec())                       
+        
+    def test_10_8_8_9(self):
+        t = bt(8,
+                   bt(8),
+                   bt(9))
+        self.assertFalse(t.univalued_rec())                       
+    
+    def test_11_4_4_7(self):
+        t = bt(4,
+                   bt(4,
+                         bt(7)))
+        self.assertFalse(t.univalued_rec())
+               
+    def test_12_4_4_4(self):
+        t = bt(4,
+                   bt(4,
+                         bt(4)))
+        self.assertTrue(t.univalued_rec())               
+               
+    def test_13_4_4_n_7(self):
+        t = bt(4,                   
+                   bt(4,
+                         None,
+                         bt(7)))
+        self.assertFalse(t.univalued_rec())                                          
+               
+    def test_14_5_5_n_5(self):
+        t = bt(5,                   
+                   bt(5,
+                         None,
+                         bt(5)))
+        self.assertTrue(t.univalued_rec())               
+    
+    def test_15_4_n_4_n_7(self):
+        t = bt(4,                   
+                   None,
+                   bt(4,
+                         None,
+                         bt(7)))
+        self.assertFalse(t.univalued_rec())                                                         
+               
+    def test_16_2_n_2_n_2(self):
+        t = bt(2,                   
+                   None,
+                   bt(2,
+                         None,
+                         bt(2)))
+        self.assertTrue(t.univalued_rec())                                                                        
+    
+    def test_17_3_n_2_n_1(self):
+        t = bt(3,
+                   None,
+                   bt(2,
+                         None,
+                         bt(1)))
+        self.assertFalse(t.univalued_rec())
+               
+    def test_18_complex_1(self):
         t = bt(3, 
                 bt(3, 
                     bt(7), 
@@ -883,7 +987,7 @@ class UnivaluedRecTest(BinTreeTest):
 
         self.assertFalse(t.univalued_rec())
 
-    def test_complex_2(self):
+    def test_19_complex_2(self):
         t = bt(3, 
              bt(3, 
                     bt(3), 
