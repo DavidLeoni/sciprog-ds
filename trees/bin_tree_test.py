@@ -972,7 +972,15 @@ class UnivaluedRecTest(BinTreeTest):
                          bt(1)))
         self.assertFalse(t.univalued_rec())
                
-    def test_18_complex_1(self):
+    def test_18_3_3_4__3_3(self):
+        t = bt(3,
+                   bt(3, 
+                          bt(4)),
+                   bt(3,
+                         bt(3)))
+        self.assertFalse(t.univalued_rec())            
+            
+    def test_19_complex_1(self):
         t = bt(3, 
                 bt(3, 
                     bt(7), 
@@ -987,7 +995,7 @@ class UnivaluedRecTest(BinTreeTest):
 
         self.assertFalse(t.univalued_rec())
 
-    def test_19_complex_2(self):
+    def test_20_complex_2(self):
         t = bt(3, 
              bt(3, 
                     bt(3), 
