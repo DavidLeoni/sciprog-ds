@@ -103,8 +103,8 @@ class Bank:
             raise LookupError("Couldn't find bi_end %s" % str(bi_end))
                     
             
-        istart = min(self._index[bi_start])   # takes O(1 + r)
-        iend = max(self._index[bi_end])       #         
+        istart = self._index[bi_start][0]
+        iend = self._index[bi_end][-1]
         
         if iend < istart + 2:
             raise LookupError("Couldn't find a valid interval! istart:%s iend:%s" % (istart, iend))

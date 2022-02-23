@@ -21,12 +21,20 @@ class LogTest(unittest.TestCase):
         b.log('a')
         self.assertEqual(b.pos(('a','b')), [])
         b.log('b')
-        self.assertEqual(b.pos(('a','b')), [0])
+        
+        ret = b.pos(('a','b'))
+        self.assertEqual(ret, [0])
+        # check it's returning a NEW list
+        ret.append(666)   
+        self.assertEqual(b.pos(('a','b')), [0])   
+        
         self.assertEqual(b.pos(('b','a')), [])
         self.assertEqual(b.pos(('a','c')), [])
         self.assertEqual(b.pos(('a','a')), [])
         self.assertEqual(b.pos(('b','b')), [])
 
+        
+        
 
     def test_02_bab(self):
         b = Bank()
