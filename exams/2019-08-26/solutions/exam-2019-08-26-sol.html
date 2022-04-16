@@ -1,23 +1,34 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Exam - Mon 26, Aug 2019 &mdash; Sciprog DS Lab</title>
   
 
   
-  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+
+  
+    <link rel="canonical" href="https://sciprog.davidleoni.it/exams/2019-08-26/solutions/exam-2019-08-26-sol.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -34,12 +45,6 @@
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Midterm sim - Tue 31, October 2019" href="../../2019-10-31/solutions/exam-2019-10-31-sol.html" />
@@ -84,6 +89,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -306,7 +312,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html">Exam - Mon 10, Feb 2020</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A---Wordnet">Part A - Wordnet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A1-parse_db">A1 parse_db</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A2-to_adj">A2 to_adj</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A.3-hist">A.3 hist</a></li>
@@ -347,7 +353,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html">Midterm - Thu 07, Nov 2019</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Download-exercises-and-solution">Download exercises and solution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Part-A---Town-events">Part A - Town events</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.1-leap_year">A.1 leap_year</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.2-full_date">A.2 full_date</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.3-partial_date">A.3 partial_date</a></li>
@@ -1148,6 +1154,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -1454,102 +1461,6 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p><strong>Taking part to this exam erases any vote you had before</strong></p></li>
 </ul>
-<div class="section" id="Grading">
-<h3>Grading<a class="headerlink" href="#Grading" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p><strong>Correct implementations</strong>: Correct implementations with the required complexity grant you full grade.</p></li>
-<li><p><strong>Partial implementations</strong>: Partial implementations <em>might</em> still give you a few points. If you just can’t solve an exercise, try to solve it at least for some subcase (i.e. array of fixed size 2) commenting why you did so.</p></li>
-<li><p><strong>Bonus point</strong>: One bonus point can be earned by writing stylish code. You got style if you:</p>
-<ul>
-<li><p>do not infringe the <a class="reference external" href="https://sciprog.davidleoni.it/commandments.html">Commandments</a></p></li>
-<li><p>write <a class="reference external" href="http://docs.python-guide.org/writing/style">pythonic code</a></p></li>
-<li><p>avoid convoluted code like i.e.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if x &gt; 5:
-    return True
-else:
-    return False
-</pre></div>
-</div>
-<p>when you could write just</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return x &gt; 5
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="Valid-code">
-<h3>Valid code<a class="headerlink" href="#Valid-code" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: MAKE SURE ALL EXERCISE FILES AT LEAST COMPILE !!! 10 MINS BEFORE THE END OF THE EXAM I WILL ASK YOU TO DO A FINAL CLEAN UP OF THE CODE</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: <em>ONLY</em> IMPLEMENTATIONS OF THE PROVIDED FUNCTION SIGNATURES WILL BE EVALUATED !!!!!!!!!</p>
-</div>
-<p>For example, if you are given to implement:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO implement me&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>and you ship this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="c1"># a super fast, correct and stylish implementation</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO implement me&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>We will assess only the latter one <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>, and conclude it doesn’t work at all :P !!!!!!!</p>
-<p><strong>Helper functions</strong></p>
-<p>Still, you are allowed to define any extra helper function you might need. If your <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> implementation calls some other function you defined like <code class="docutils literal notranslate"><span class="pre">my_f</span></code> here, it is ok:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Not called by f, will get ignored:</span>
-<span class="k">def</span> <span class="nf">my_g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="c1"># bla</span>
-
-<span class="c1"># Called by f, will be graded:</span>
-<span class="k">def</span> <span class="nf">my_f</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
-    <span class="c1"># bla</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="How-to-edit-and-run">
-<h3>How to edit and run<a class="headerlink" href="#How-to-edit-and-run" title="Permalink to this headline">¶</a></h3>
-<p>To edit the files, you can use any editor of your choice, you can find them under <em>Applications-&gt;Programming</em>:</p>
-<ul class="simple">
-<li><p><strong>Visual Studio Code</strong></p></li>
-<li><p>Editra is easy to use, you can find it under <em>Applications-&gt;Programming-&gt;Editra</em>.</p></li>
-<li><p>Others could be <em>GEdit</em> (simpler), or <em>PyCharm</em> (more complex).</p></li>
-</ul>
-<p>To run the tests, use <strong>the Terminal</strong> which can be found in <em>Accessories -&gt; Terminal</em></p>
-<div class="admonition note">
-<p><strong>IMPORTANT</strong>: Pay close attention to the comments of the functions.</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: <em>DON’T</em> modify function signatures! Just provide the implementation.</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: DON’T change the existing test methods, just add new ones !!! You can add as many as you want.</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: <em>DON’T</em> create other files. If you still do it, they won’t be evaluated.</p>
-</div>
-</div>
-<div class="section" id="Debugging">
-<h3>Debugging<a class="headerlink" href="#Debugging" title="Permalink to this headline">¶</a></h3>
-<p>If you need to print some debugging information, you are allowed to put extra print statements in the function bodies.</p>
-<div class="admonition warning">
-<p><strong>WARNING:</strong> even if print statements are allowed, be careful with prints that might break your function!</p>
-</div>
-<p>For example, avoid stuff like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="What-to-do">
 <h3>What to do<a class="headerlink" href="#What-to-do" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
@@ -1582,6 +1493,10 @@ else:
 </div>
 <div class="section" id="Part-A---University-of-Trento-staff">
 <h2>Part A - University of Trento staff<a class="headerlink" href="#Part-A---University-of-Trento-staff" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTICE: this part of the exam was ported to</strong> <a class="reference external" href="https://en.softpython.org/projects/university-staff/university-staff-sol.html">softpython</a> <strong>website</strong></p>
+<p>There you can find a more curated version (notice it may be longer than here)</p>
+</div>
 <p>Open Jupyter and start editing this notebook <code class="docutils literal notranslate"><span class="pre">exam-2019-08-26.ipynb</span></code></p>
 <p>You will work on the dataset of <em>University of Trento staff</em>, modified so not to contain names or surnames.</p>
 <p>Data provider: <a class="reference external" href="https://dati.trentino.it/dataset/personale-accademico-e-tecnico-amministrativo-dell-universita-di-trento">University of Trento</a></p>
@@ -1918,7 +1833,7 @@ Institutional Relations and Strategic Documents
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_35_0.png" src="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_35_0.png" />
+<img alt="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_28_0.png" src="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_28_0.png" />
 </div>
 </div>
 </div>
@@ -2097,7 +2012,7 @@ Institutional Relations and Strategic Documents
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_47_0.png" src="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_47_0.png" />
+<img alt="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_40_0.png" src="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_40_0.png" />
 </div>
 </div>
 </div>
@@ -2291,7 +2206,7 @@ Institutional Relations and Strategic Documents
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_59_0.png" src="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_59_0.png" />
+<img alt="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_52_0.png" src="../../../_images/exams_2019-08-26_solutions_exam-2019-08-26-sol_52_0.png" />
 </div>
 </div>
 </div>
@@ -3094,29 +3009,29 @@ OK
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../2019-10-31/solutions/exam-2019-10-31-sol.html" class="btn btn-neutral float-right" title="Midterm sim - Tue 31, October 2019" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../2019-07-02/solutions/exam-2019-07-02-sol.html" class="btn btn-neutral float-left" title="Exam - Tue 02, July 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../../2019-10-31/solutions/exam-2019-10-31-sol.html" class="btn btn-neutral float-right" title="Midterm sim - Tue 31, October 2019" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../2019-07-02/solutions/exam-2019-07-02-sol.html" class="btn btn-neutral float-left" title="Exam - Tue 02, July 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright # 2020 - 2022, David Leoni
+        &#169; Copyright # 2020 - 2022, David Leoni.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -3124,7 +3039,6 @@ OK
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,23 +1,34 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Midterm - Thu 07, Nov 2019 &mdash; Sciprog DS Lab</title>
   
 
   
-  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+
+  
+    <link rel="canonical" href="https://sciprog.davidleoni.it/exams/2019-11-07/solutions/exam-2019-11-07-sol.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -34,12 +45,6 @@
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Midterm B - Fri 20, Dec 2019" href="../../2019-12-20/solutions/exam-2019-12-20.html" />
@@ -84,6 +89,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -306,7 +312,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html">Exam - Mon 10, Feb 2020</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A---Wordnet">Part A - Wordnet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A1-parse_db">A1 parse_db</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A2-to_adj">A2 to_adj</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A.3-hist">A.3 hist</a></li>
@@ -347,7 +353,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Midterm - Thu 07, Nov 2019</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Download-exercises-and-solution">Download exercises and solution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Part-A---Town-events">Part A - Town events</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#A.1-leap_year">A.1 leap_year</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#A.2-full_date">A.2 full_date</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#A.3-partial_date">A.3 partial_date</a></li>
@@ -1148,6 +1154,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -1443,16 +1450,6 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#Please execute this cell</span>
-<span class="kn">import</span> <span class="nn">jupman</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="Midterm---Thu-07,-Nov-2019">
 <h1>Midterm - Thu 07, Nov 2019<a class="headerlink" href="#Midterm---Thu-07,-Nov-2019" title="Permalink to this headline">¶</a></h1>
 <p><strong>Scientific Programming - Data Science &#64; University of Trento</strong></p>
@@ -1464,102 +1461,6 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p><strong>Taking part to this exam erases any vote you had before</strong></p></li>
 </ul>
-<div class="section" id="Grading">
-<h3>Grading<a class="headerlink" href="#Grading" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p><strong>Correct implementations</strong>: Correct implementations with the required complexity grant you full grade.</p></li>
-<li><p><strong>Partial implementations</strong>: Partial implementations <em>might</em> still give you a few points. If you just can’t solve an exercise, try to solve it at least for some subcase (i.e. array of fixed size 2) commenting why you did so.</p></li>
-<li><p><strong>Bonus point</strong>: One bonus point can be earned by writing stylish code. You got style if you:</p>
-<ul>
-<li><p>do not infringe the <a class="reference external" href="https://sciprog.davidleoni.it/commandments.html">Commandments</a></p></li>
-<li><p>write <a class="reference external" href="http://docs.python-guide.org/writing/style">pythonic code</a></p></li>
-<li><p>avoid convoluted code like i.e.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if x &gt; 5:
-    return True
-else:
-    return False
-</pre></div>
-</div>
-<p>when you could write just</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return x &gt; 5
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="Valid-code">
-<h3>Valid code<a class="headerlink" href="#Valid-code" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: MAKE SURE ALL EXERCISE FILES AT LEAST COMPILE !!! 10 MINS BEFORE THE END OF THE EXAM I WILL ASK YOU TO DO A FINAL CLEAN UP OF THE CODE</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: <em>ONLY</em> IMPLEMENTATIONS OF THE PROVIDED FUNCTION SIGNATURES WILL BE EVALUATED !!!!!!!!!</p>
-</div>
-<p>For example, if you are given to implement:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO implement me&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>and you ship this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="c1"># a super fast, correct and stylish implementation</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;TODO implement me&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>We will assess only the latter one <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>, and conclude it doesn’t work at all :P !!!!!!!</p>
-<p><strong>Helper functions</strong></p>
-<p>Still, you are allowed to define any extra helper function you might need. If your <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> implementation calls some other function you defined like <code class="docutils literal notranslate"><span class="pre">my_f</span></code> here, it is ok:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Not called by f, will get ignored:</span>
-<span class="k">def</span> <span class="nf">my_g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="c1"># bla</span>
-
-<span class="c1"># Called by f, will be graded:</span>
-<span class="k">def</span> <span class="nf">my_f</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
-    <span class="c1"># bla</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">my_f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="How-to-edit-and-run">
-<h3>How to edit and run<a class="headerlink" href="#How-to-edit-and-run" title="Permalink to this headline">¶</a></h3>
-<p>To edit the files, you can use any editor of your choice, you can find them under <em>Applications-&gt;Programming</em>:</p>
-<ul class="simple">
-<li><p><strong>Visual Studio Code</strong></p></li>
-<li><p>Editra is easy to use, you can find it under <em>Applications-&gt;Programming-&gt;Editra</em>.</p></li>
-<li><p>Others could be <em>GEdit</em> (simpler), or <em>PyCharm</em> (more complex).</p></li>
-</ul>
-<p>To run the tests, use <strong>the Terminal</strong> which can be found in <em>Accessories -&gt; Terminal</em></p>
-<div class="admonition note">
-<p><strong>IMPORTANT</strong>: Pay close attention to the comments of the functions.</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: <em>DON’T</em> modify function signatures! Just provide the implementation.</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: DON’T change the existing test methods, just add new ones !!! You can add as many as you want.</p>
-</div>
-<div class="admonition warning">
-<p><strong>WARNING</strong>: <em>DON’T</em> create other files. If you still do it, they won’t be evaluated.</p>
-</div>
-</div>
-<div class="section" id="Debugging">
-<h3>Debugging<a class="headerlink" href="#Debugging" title="Permalink to this headline">¶</a></h3>
-<p>If you need to print some debugging information, you are allowed to put extra print statements in the function bodies.</p>
-<div class="admonition warning">
-<p><strong>WARNING:</strong> even if print statements are allowed, be careful with prints that might break your function!</p>
-</div>
-<p>For example, avoid stuff like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="What-to-do">
 <h3>What to do<a class="headerlink" href="#What-to-do" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
@@ -1585,8 +1486,12 @@ else:
 </ul>
 </div>
 </div>
-<div class="section" id="Part-A">
-<h2>Part A<a class="headerlink" href="#Part-A" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Part-A---Town-events">
+<h2>Part A - Town events<a class="headerlink" href="#Part-A---Town-events" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTICE: this part of the exam was ported to</strong> <a class="reference external" href="https://en.softpython.org/projects/town-events/town-events-sol.html">softpython</a> <strong>website</strong></p>
+<p>There you can find a more curated version (notice it may be longer than here)</p>
+</div>
 <p>Open Jupyter and start editing this notebook <code class="docutils literal notranslate"><span class="pre">exam-2019-11-07.ipynb</span></code></p>
 <p>You will work on a dataset of events which occur in the Municipality of Trento, in years 2019-20. Each event can be held during a particular day, two days, or many specified as a range. Events are written using natural language, so we will try to extract such dates, taking into account that information sometimes can be partial or absent.</p>
 <p>Data provider: <a class="reference external" href="https://dati.trentino.it/dataset/eventi-del-comune-di-trento">Comune di Trento</a></p>
@@ -1617,41 +1522,43 @@ else:
 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 253 entries, 0 to 252
 Data columns (total 35 columns):
-remoteId                       253 non-null object
-published                      253 non-null object
-modified                       253 non-null object
-Priorità                       253 non-null int64
-Evento speciale                0 non-null float64
-Titolo                         253 non-null object
-Titolo breve                   1 non-null object
-Sottotitolo                    227 non-null object
-Descrizione                    224 non-null object
-Locandina                      16 non-null object
-Inizio                         253 non-null object
-Termine                        252 non-null object
-Quando                         253 non-null object
-Orario                         251 non-null object
-Durata                         6 non-null object
-Dove                           252 non-null object
-lat                            253 non-null float64
-lon                            253 non-null float64
-address                        241 non-null object
-Pagina web                     201 non-null object
-Contatto email                 196 non-null object
-Contatto telefonico            196 non-null object
-Informazioni                   62 non-null object
-Costi                          132 non-null object
-Immagine                       252 non-null object
-Evento - manifestazione        252 non-null object
-Manifestazione cui fa parte    108 non-null object
-Tipologia                      252 non-null object
-Materia                        252 non-null object
-Destinatari                    24 non-null object
-Circoscrizione                 109 non-null object
-Struttura ospitante            220 non-null object
-Associazione                   1 non-null object
-Ente organizzatore             0 non-null float64
-Identificativo                 0 non-null float64
+ #   Column                       Non-Null Count  Dtype
+---  ------                       --------------  -----
+ 0   remoteId                     253 non-null    object
+ 1   published                    253 non-null    object
+ 2   modified                     253 non-null    object
+ 3   Priorità                     253 non-null    int64
+ 4   Evento speciale              0 non-null      float64
+ 5   Titolo                       253 non-null    object
+ 6   Titolo breve                 1 non-null      object
+ 7   Sottotitolo                  227 non-null    object
+ 8   Descrizione                  224 non-null    object
+ 9   Locandina                    16 non-null     object
+ 10  Inizio                       253 non-null    object
+ 11  Termine                      252 non-null    object
+ 12  Quando                       253 non-null    object
+ 13  Orario                       251 non-null    object
+ 14  Durata                       6 non-null      object
+ 15  Dove                         252 non-null    object
+ 16  lat                          253 non-null    float64
+ 17  lon                          253 non-null    float64
+ 18  address                      241 non-null    object
+ 19  Pagina web                   201 non-null    object
+ 20  Contatto email               196 non-null    object
+ 21  Contatto telefonico          196 non-null    object
+ 22  Informazioni                 62 non-null     object
+ 23  Costi                        132 non-null    object
+ 24  Immagine                     252 non-null    object
+ 25  Evento - manifestazione      252 non-null    object
+ 26  Manifestazione cui fa parte  108 non-null    object
+ 27  Tipologia                    252 non-null    object
+ 28  Materia                      252 non-null    object
+ 29  Destinatari                  24 non-null     object
+ 30  Circoscrizione               109 non-null    object
+ 31  Struttura ospitante          220 non-null    object
+ 32  Associazione                 1 non-null      object
+ 33  Ente organizzatore           0 non-null      float64
+ 34  Identificativo               0 non-null      float64
 dtypes: float64(5), int64(1), object(29)
 memory usage: 69.3+ KB
 </pre></div></div>
@@ -2123,17 +2030,54 @@ Name: Quando, Length: 253, dtype: object
 <blockquote>
 <div><p><a class="reference external" href="https://en.wikipedia.org/wiki/Functional_illiteracy">Functional illiteracy</a> is reading and writing skills that are inadequate “to manage daily living and employment tasks that require reading skills beyond a basic level”</p>
 </div></blockquote>
-<p>✪✪ Knowing that functional illiteracy is on the rise, a news website wants to fire obsolete human journalists and attract customers by feeding them with automatically generated <em>fake news</em>. You are asked to develop the algorithm for producing the texts: while ethically questionable, the company pays well, so you accept.</p>
+<p>✪✪ Knowing that functional illiteracy is on the rise, a news agency wants to fire obsolete human journalists and attract customers by feeding them with automatically generated <em>fake news</em>. You are asked to develop the algorithm for producing the texts: while ethically questionable, the company pays well, so you accept.</p>
 <p>Typically, a <em>fake news</em> starts with a real subject, a real fact (the <em>antecedent</em>), and follows it with some invented statement (the <em>consequence</em>). You are provided by the company three databases, one with subjects, one with antecedents and one of consequences. To each antecedent and consequence is associated a topic.</p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">fake_news</span></code> which takes the databases and RETURN a list holding strings with all possible combinations of subjects, antecedents and consequences where the topic of antecedent matches the one of consequence. See desired output for more info.</p>
 <p><strong>NOTE</strong>: Your code MUST work with <em>any</em> database</p>
+<p><strong>Expected output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fake_news</span><span class="p">(</span><span class="n">subjects</span><span class="p">,</span> <span class="n">antecedents</span><span class="p">,</span><span class="n">consequences</span><span class="p">)</span>
+
+<span class="go">[&#39;Government passed fiscal reform, now spending is out of control&#39;,</span>
+<span class="go"> &#39;Government passed fiscal reform, this increased taxes by 10%&#39;,</span>
+<span class="go"> &#39;Government passed fiscal reform, this increased deficit by a staggering 20%&#39;,</span>
+<span class="go"> &#39;Government passed fiscal reform, as a consequence our GDP has fallen dramatically&#39;,</span>
+<span class="go"> &#39;Government passed jobs act, now spending is out of control&#39;,</span>
+<span class="go"> &#39;Government passed jobs act, this increased taxes by 10%&#39;,</span>
+<span class="go"> &#39;Government passed jobs act, this increased deficit by a staggering 20%&#39;,</span>
+<span class="go"> &#39;Government passed jobs act, as a consequence our GDP has fallen dramatically&#39;,</span>
+<span class="go"> &#39;Government regulated pollution emissions, businesses had to fire many employees&#39;,</span>
+<span class="go"> &#39;Government regulated pollution emissions, businesses are struggling to meet law requirements&#39;,</span>
+<span class="go"> &#39;Government restricted building in natural areas, businesses had to fire many employees&#39;,</span>
+<span class="go"> &#39;Government restricted building in natural areas, businesses are struggling to meet law requirements&#39;,</span>
+<span class="go"> &#39;Government introduced more controls in agrifood production, businesses had to fire many employees&#39;,</span>
+<span class="go"> &#39;Government introduced more controls in agrifood production, businesses are struggling to meet law requirements&#39;,</span>
+<span class="go"> &#39;Government changed immigration policy, immigrants are stealing our jobs&#39;,</span>
+<span class="go"> &#39;Party X passed fiscal reform, now spending is out of control&#39;,</span>
+<span class="go"> &#39;Party X passed fiscal reform, this increased taxes by 10%&#39;,</span>
+<span class="go"> &#39;Party X passed fiscal reform, this increased deficit by a staggering 20%&#39;,</span>
+<span class="go"> &#39;Party X passed fiscal reform, as a consequence our GDP has fallen dramatically&#39;,</span>
+<span class="go"> &#39;Party X passed jobs act, now spending is out of control&#39;,</span>
+<span class="go"> &#39;Party X passed jobs act, this increased taxes by 10%&#39;,</span>
+<span class="go"> &#39;Party X passed jobs act, this increased deficit by a staggering 20%&#39;,</span>
+<span class="go"> &#39;Party X passed jobs act, as a consequence our GDP has fallen dramatically&#39;,</span>
+<span class="go"> &#39;Party X regulated pollution emissions, businesses had to fire many employees&#39;,</span>
+<span class="go"> &#39;Party X regulated pollution emissions, businesses are struggling to meet law requirements&#39;,</span>
+<span class="go"> &#39;Party X restricted building in natural areas, businesses had to fire many employees&#39;,</span>
+<span class="go"> &#39;Party X restricted building in natural areas, businesses are struggling to meet law requirements&#39;,</span>
+<span class="go"> &#39;Party X introduced more controls in agrifood production, businesses had to fire many employees&#39;,</span>
+<span class="go"> &#39;Party X introduced more controls in agrifood production, businesses are struggling to meet law requirements&#39;,</span>
+<span class="go"> &#39;Party X changed immigration policy, immigrants are stealing our jobs&#39;]</span>
+</pre></div>
+</div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput nblast docutils container">
+ data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+
 <span></span><span class="n">db_subjects</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;Government&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Party X&#39;</span><span class="p">,</span>
@@ -2171,72 +2115,12 @@ Name: Quando, Length: 253, dtype: object
 
 
 
-<span class="c1">#fake_news(db_subjects, db_antecedents, db_consequences)</span>
-</pre></div>
-</div>
-</div>
-</div><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">db_subjects</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Government&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Party X&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">db_antecedents</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;passed fiscal reform&quot;</span><span class="p">,</span><span class="s2">&quot;economy&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;passed jobs act&quot;</span><span class="p">,</span><span class="s2">&quot;economy&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;regulated pollution emissions&quot;</span><span class="p">,</span> <span class="s2">&quot;environment&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;restricted building in natural areas&quot;</span><span class="p">,</span> <span class="s2">&quot;environment&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;introduced more controls in agrifood production&quot;</span><span class="p">,</span><span class="s2">&quot;environment&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;changed immigration policy&quot;</span><span class="p">,</span><span class="s2">&quot;foreign policy&quot;</span><span class="p">),</span>
-<span class="p">]</span>
-
-<span class="n">db_consequences</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;now spending is out of control&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;this increased taxes by 10%&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;this increased deficit by a staggering 20%&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;as a consequence our GDP has fallen dramatically&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;environment&quot;</span><span class="p">,</span><span class="s2">&quot;businesses had to fire many employees&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;environment&quot;</span><span class="p">,</span><span class="s2">&quot;businesses are struggling to meet law requirements&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;foreign policy&quot;</span><span class="p">,</span><span class="s2">&quot;immigrants are stealing our jobs&quot;</span><span class="p">),</span>
-<span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">fake_news</span><span class="p">(</span><span class="n">subjects</span><span class="p">,</span> <span class="n">antecedents</span><span class="p">,</span><span class="n">consequences</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
-
-
-<span class="c1">#fake_news(db_subjects, db_antecedents, db_consequences)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  *******************    EXPECTED OUTPUT   *******************&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
 <span class="n">fake_news</span><span class="p">(</span><span class="n">db_subjects</span><span class="p">,</span> <span class="n">db_antecedents</span><span class="p">,</span> <span class="n">db_consequences</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-  *******************    EXPECTED OUTPUT   *******************
-
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2273,6 +2157,46 @@ Name: Quando, Length: 253, dtype: object
  &#39;Party X changed immigration policy, immigrants are stealing our jobs&#39;]
 </pre></div></div>
 </div>
+</div><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+
+<span></span><span class="n">db_subjects</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Government&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Party X&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">db_antecedents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;passed fiscal reform&quot;</span><span class="p">,</span><span class="s2">&quot;economy&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;passed jobs act&quot;</span><span class="p">,</span><span class="s2">&quot;economy&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;regulated pollution emissions&quot;</span><span class="p">,</span> <span class="s2">&quot;environment&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;restricted building in natural areas&quot;</span><span class="p">,</span> <span class="s2">&quot;environment&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;introduced more controls in agrifood production&quot;</span><span class="p">,</span><span class="s2">&quot;environment&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;changed immigration policy&quot;</span><span class="p">,</span><span class="s2">&quot;foreign policy&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">db_consequences</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;now spending is out of control&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;this increased taxes by 10%&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;this increased deficit by a staggering 20%&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;economy&quot;</span><span class="p">,</span><span class="s2">&quot;as a consequence our GDP has fallen dramatically&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;environment&quot;</span><span class="p">,</span><span class="s2">&quot;businesses had to fire many employees&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;environment&quot;</span><span class="p">,</span><span class="s2">&quot;businesses are struggling to meet law requirements&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;foreign policy&quot;</span><span class="p">,</span><span class="s2">&quot;immigrants are stealing our jobs&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">fake_news</span><span class="p">(</span><span class="n">subjects</span><span class="p">,</span> <span class="n">antecedents</span><span class="p">,</span><span class="n">consequences</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
+
+
+<span class="n">fake_news</span><span class="p">(</span><span class="n">db_subjects</span><span class="p">,</span> <span class="n">db_antecedents</span><span class="p">,</span> <span class="n">db_consequences</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -2281,29 +2205,29 @@ Name: Quando, Length: 253, dtype: object
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../2019-12-20/solutions/exam-2019-12-20.html" class="btn btn-neutral float-right" title="Midterm B - Fri 20, Dec 2019" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../2019-10-31/solutions/exam-2019-10-31-sol.html" class="btn btn-neutral float-left" title="Midterm sim - Tue 31, October 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../../2019-12-20/solutions/exam-2019-12-20.html" class="btn btn-neutral float-right" title="Midterm B - Fri 20, Dec 2019" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../2019-10-31/solutions/exam-2019-10-31-sol.html" class="btn btn-neutral float-left" title="Midterm sim - Tue 31, October 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright # 2020 - 2022, David Leoni
+        &#169; Copyright # 2020 - 2022, David Leoni.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -2311,7 +2235,6 @@ Name: Quando, Length: 253, dtype: object
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

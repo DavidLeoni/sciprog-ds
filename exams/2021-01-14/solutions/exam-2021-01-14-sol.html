@@ -1,23 +1,34 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Exam - Tue 14, Jan 2021 &mdash; Sciprog DS Lab</title>
   
 
   
-  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+
+  
+    <link rel="canonical" href="https://sciprog.davidleoni.it/exams/2021-01-14/solutions/exam-2021-01-14-sol.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -34,12 +45,6 @@
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Exam - Wed 10, Feb 2021" href="../../2021-02-10/solutions/exam-2021-02-10-sol.html" />
@@ -84,6 +89,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -306,7 +312,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html">Exam - Mon 10, Feb 2020</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A---Wordnet">Part A - Wordnet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A1-parse_db">A1 parse_db</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A2-to_adj">A2 to_adj</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A.3-hist">A.3 hist</a></li>
@@ -347,7 +353,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html">Midterm - Thu 07, Nov 2019</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Download-exercises-and-solution">Download exercises and solution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Part-A---Town-events">Part A - Town events</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.1-leap_year">A.1 leap_year</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.2-full_date">A.2 full_date</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.3-partial_date">A.3 partial_date</a></li>
@@ -1148,6 +1154,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -1451,32 +1458,28 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Part-A---Witchcraft">
 <h2>Part A - Witchcraft<a class="headerlink" href="#Part-A---Witchcraft" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTICE: this part of the exam was ported to</strong> <a class="reference external" href="https://en.softpython.org/projects/witchcraft/witchcraft-sol.html">softpython</a> <strong>website</strong></p>
+<p>There you can find a more curated version (notice it may be longer than here)</p>
+</div>
 <p>The early sixteenth century saw a dramatic rise in awareness and terror of witchcraft in the troubled lands of <a class="reference external" href="https://www.youtube.com/watch?v=4s9Hd8onAKQ">early modern Scotland</a>: thousands of people were executed, imprisoned, tortured, banished, and had lands and possessions confiscated. Persecution took place in courts of law: you shall analyze the evidence gathered during those dark days.</p>
 <p>Data source: Julian Goodare, Lauren Martin, Joyce Miller and Louise Yeoman, ‘The Survey of Scottish Witchcraft’ <a class="reference external" href="http://www.shca.ed.ac.uk/witches/">http://www.shca.ed.ac.uk/witches/</a> (archived January 2003, accessed ’11/1/2016’).</p>
 <p>In particular, we took <a class="reference external" href="WDB_Case.csv">WDB_Case.csv</a> as published on <a class="reference external" href="https://data.world/history/scottish-witchcraft">data.world</a>, which contains cases brought against suspected witches, along with annotations by researchers, mostly as boolean fields.</p>
 <p>The dataset has lots of columns, we show here only the relevant ones <code class="docutils literal notranslate"><span class="pre">Case_date</span></code>, <code class="docutils literal notranslate"><span class="pre">CaseCommonName</span></code>, <code class="docutils literal notranslate"><span class="pre">Suspects_text</span></code> and an excerpt of the many boolean columns:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">case_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sel_case_df</span> <span class="o">=</span> <span class="n">case_df</span><span class="p">[[</span><span class="s1">&#39;Case_date&#39;</span><span class="p">,</span> <span class="s1">&#39;CaseCommonName&#39;</span><span class="p">,</span> <span class="s1">&#39;Suspects_text&#39;</span><span class="p">,</span> <span class="s1">&#39;Demonic_p&#39;</span><span class="p">,</span> <span class="s1">&#39;Demonic_s&#39;</span><span class="p">,</span> <span class="s1">&#39;Maleficium_p&#39;</span><span class="p">,</span><span class="s1">&#39;Maleficium_s&#39;</span><span class="p">,</span> <span class="s1">&#39;WitchesMeeting&#39;</span><span class="p">]]</span>
+<span class="n">sel_case_df</span> <span class="o">=</span> <span class="n">case_df</span><span class="p">[[</span><span class="s1">&#39;Case_date&#39;</span><span class="p">,</span> <span class="s1">&#39;CaseCommonName&#39;</span><span class="p">,</span> <span class="s1">&#39;Suspects_text&#39;</span><span class="p">,</span> <span class="s1">&#39;Demonic_p&#39;</span><span class="p">,</span> <span class="s1">&#39;Demonic_s&#39;</span><span class="p">,</span> <span class="s1">&#39;Maleficium_p&#39;</span><span class="p">,</span><span class="s1">&#39;Maleficium_s&#39;</span><span class="p">,</span> <span class="s1">&#39;WitchesMeeting&#39;</span><span class="p">]]</span>
 <span class="n">sel_case_df</span><span class="p">[</span><span class="mi">1986</span><span class="p">:</span><span class="mi">1994</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1607,18 +1610,38 @@ div.rendered_html tbody tr:hover {
 <p>Open Jupyter and start editing this notebook <code class="docutils literal notranslate"><span class="pre">exam-2021-01-14.ipynb</span></code></p>
 <p>Since boolean columns are so many, as a first step you will build a recognizer for them.</p>
 <ul class="simple">
-<li><p>Consider a column as boolean if <strong>all</strong> of its values are either <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>Consider a column as boolean if <strong>ALL</strong> of its values are either <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 <li><p>Parse with <a class="reference external" href="https://en.softpython.org/formats/formats-sol.html#Reading-as-dictionaries">CSV DictReader</a></p></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>WARNING: Have you carefully read the text above?</strong></p>
+<p>Most students during the exam didn’t, and wrote algorithms which declare a column as boolean as soon as a <code class="docutils literal notranslate"><span class="pre">0</span></code> or a <code class="docutils literal notranslate"><span class="pre">1</span></code> are found and manually discarded columns which didn’t fit their flawed logic (like <code class="docutils literal notranslate"><span class="pre">NamedIndividual</span></code>).</p>
+</div>
+<p>To avoid getting bad grades for simple exercises, always ask yourself:</p>
+<ol class="arabic simple">
+<li><p>Am I sure about the results of my algorithm <em>without</em> looking at the expected solution ? In this case, it should be obvious that if you don’t scan <strong>all</strong> cells in a column and you still declare it’s boolean you are basically resorting to being lucky.</p></li>
+<li><p>Am I putting <em>constants</em> in the code (like <code class="docutils literal notranslate"><span class="pre">'NamedIndividual'</span></code>)? Whenever you have such urge, please ask first for permission</p></li>
+<li><p>Is the exercise open to interpretation, maybe because it has so many possible weird cases and relative assertions, or is the text pretty clear? In this case the scope was quite definite, so you are expected to find a generic solution which could work with <em>any</em> dataset.</p></li>
+</ol>
+<p><strong>Example</strong> (for full output see <a class="reference external" href="expected_bool_cols.py">expected_bool_cols.py</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bool_cols</span> <span class="o">=</span> <span class="n">get_bool_cols</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">),</span> <span class="s1">&#39;cols. EXCERPT:&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">[:</span><span class="mi">17</span><span class="p">]),</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="go">Found 77 cols. EXCERPT:</span>
+<span class="go">AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched ClaimedNaturalCauses ClaimedPossessed CommunalSex Consulting_p Consulting_s Cursing Dancing DemonicPact Demonic_p Demonic_possess_p Demonic_possess_s Demonic_s ...</span>
+</pre></div>
+</div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+
 <span></span><span class="k">def</span> <span class="nf">get_bool_cols</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;RETURN a sorted list of all the names of boolean columns&quot;&quot;&quot;</span>
+
 
     <span class="kn">import</span> <span class="nn">csv</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1632,9 +1655,12 @@ div.rendered_html tbody tr:hover {
 
                 <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">diz</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span> <span class="ow">or</span> <span class="n">diz</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+                        <span class="c1"># Note: for an optimal algorithm we could also stop scanning</span>
+                        <span class="c1">#       the rows for this column</span>
                         <span class="n">cols</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+
 
 
 <span class="n">bool_cols</span> <span class="o">=</span> <span class="n">get_bool_cols</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">)</span>
@@ -1642,7 +1668,14 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">[:</span><span class="mi">17</span><span class="p">]),</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">expected_bool_cols</span> <span class="kn">import</span> <span class="n">expected_bool_cols</span>
-<span class="k">assert</span> <span class="n">bool_cols</span> <span class="o">==</span> <span class="n">expected_bool_cols</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR! different lengths: bools_cols: </span><span class="si">%s</span><span class="s1">    expected_bools_cols: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">expected_bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR at index&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    ACTUAL:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  EXPECTED:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1655,11 +1688,13 @@ Found 77 cols. EXCERPT:
 AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched ClaimedNaturalCauses ClaimedPossessed CommunalSex Consulting_p Consulting_s Cursing Dancing DemonicPact Demonic_p Demonic_possess_p Demonic_possess_s Demonic_s ...
 </pre></div></div>
 </div>
-</div><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</div><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+
 <span></span><span class="k">def</span> <span class="nf">get_bool_cols</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;RETURN a sorted list of all the names of boolean columns&quot;&quot;&quot;</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
@@ -1669,27 +1704,25 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">[:</span><span class="mi">17</span><span class="p">]),</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">expected_bool_cols</span> <span class="kn">import</span> <span class="n">expected_bool_cols</span>
-<span class="k">assert</span> <span class="n">bool_cols</span> <span class="o">==</span> <span class="n">expected_bool_cols</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR! different lengths: bools_cols: </span><span class="si">%s</span><span class="s1">    expected_bools_cols: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">expected_bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR at index&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    ACTUAL:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  EXPECTED:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">expected_bool_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Found 77 cols. EXCERPT:
-AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched ClaimedNaturalCauses ClaimedPossessed CommunalSex Consulting_p Consulting_s Cursing Dancing DemonicPact Demonic_p Demonic_possess_p Demonic_possess_s Demonic_s ...
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="A2-fix_date">
 <h2>A2 fix_date<a class="headerlink" href="#A2-fix_date" title="Permalink to this headline">¶</a></h2>
-<p>Implement <code class="docutils literal notranslate"><span class="pre">fix_date</span></code>, which takes a possibly partial date as a string <code class="docutils literal notranslate"><span class="pre">m/d/yyyy</span></code> and RETURN a string formatted as <code class="docutils literal notranslate"><span class="pre">dd/mm/yyyy</span></code>. If data is missing, omits it in the output as well, see examples.</p>
+<p>Implement <code class="docutils literal notranslate"><span class="pre">fix_date</span></code>, which takes a possibly partial date as a string <code class="docutils literal notranslate"><span class="pre">d/m/yyyy</span></code> and RETURN a string formatted as <code class="docutils literal notranslate"><span class="pre">mm/dd/yyyy</span></code>. If data is missing, omits it in the output as well, see examples.</p>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1716,11 +1749,13 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;7/1652&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;07/1652&#39;</span>
 <span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;1560&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;1560&#39;</span>
 <span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>
+<span class="c1"># Note there is a damned extra space in the dataset (Oswald,Katharine)</span>
+<span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;13/11/ 1629&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;11/13/1629&#39;</span>
 </pre></div>
 </div>
 </div>
 </div><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1734,13 +1769,15 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;7/1652&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;07/1652&#39;</span>
 <span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;1560&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;1560&#39;</span>
 <span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>
+<span class="c1"># Note there is a damned extra space in the dataset (Oswald,Katharine)</span>
+<span class="k">assert</span> <span class="n">fix_date</span><span class="p">(</span><span class="s1">&#39;13/11/ 1629&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;11/13/1629&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="A3-parse_db">
 <h2>A3 parse_db<a class="headerlink" href="#A3-parse_db" title="Permalink to this headline">¶</a></h2>
-<p>Given a CSV of cases, outputs a list of dictionaries, each representing a case with these fields:</p>
+<p>Given a CSV of cases, outputs a list of dictionaries (parse with <a class="reference external" href="https://en.softpython.org/formats/formats2-csv-sol.html#Reading-as-dictionaries">CSV DictReader</a>), each representing a case with these fields:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: the isolated name of the witch taken from <code class="docutils literal notranslate"><span class="pre">CaseCommonName</span></code> column if parseable, otherwise the full cell content</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">surname</span></code>: the isolated surname of the witch taken from <code class="docutils literal notranslate"><span class="pre">CaseCommonName</span></code> column if parseable, otherwise empty string</p></li>
@@ -1749,18 +1786,44 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">primary</span></code>, <code class="docutils literal notranslate"><span class="pre">secondary</span></code> and <code class="docutils literal notranslate"><span class="pre">tags</span></code> fields are to be filled with names of <strong>boolean</strong> columns for which the corresponding cell is marked with <code class="docutils literal notranslate"><span class="pre">'1'</span></code> according to these criteria:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">primary</span></code>: if a column ending with <code class="docutils literal notranslate"><span class="pre">_p</span></code> is marked <code class="docutils literal notranslate"><span class="pre">'1'</span></code>, this field contains that column name without the <code class="docutils literal notranslate"><span class="pre">'_p'</span></code>. If column name is <code class="docutils literal notranslate"><span class="pre">'NotEnoughInfo_p'</span></code> or in other cases, use <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">primary</span></code>: a <strong>single string</strong> as follows: if a column ending with <code class="docutils literal notranslate"><span class="pre">_p</span></code> is marked <code class="docutils literal notranslate"><span class="pre">'1'</span></code>, this field contains that column name without the <code class="docutils literal notranslate"><span class="pre">'_p'</span></code>. If column name is <code class="docutils literal notranslate"><span class="pre">'NotEnoughInfo_p'</span></code> or in other cases, use <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">secondary</span></code>: <strong>sorted</strong> column names ending with <code class="docutils literal notranslate"><span class="pre">_s</span></code>. If col name is <code class="docutils literal notranslate"><span class="pre">'NotEnoughInfo_s'</span></code> or it’s already present as <code class="docutils literal notranslate"><span class="pre">primary</span></code>, it’s discarded. Remove trailing <code class="docutils literal notranslate"><span class="pre">_s</span></code> from values in the list.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tags</span></code>: <strong>sorted</strong> column names which are not primary nor secondary</p></li>
 </ul>
-<p>Parse with <a class="reference external" href="https://en.softpython.org/formats/formats-sol.html#Reading-as-dictionaries">CSV DictReader</a></p>
+<p><strong>Example</strong> (full output is in <a class="reference external" href="expected_cases_db.py">expected_cases_db.py</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cases_db</span> <span class="o">=</span> <span class="n">parse_db</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cases_db</span><span class="p">[</span><span class="mi">1991</span><span class="p">:</span><span class="mi">1994</span><span class="p">]</span>
+<span class="go">[{&#39;primary&#39;: &#39;Demonic&#39;,</span>
+<span class="go">  &#39;secondary&#39;: [&#39;ImplicatedByAnother&#39;, &#39;Maleficium&#39;, &#39;UNorthodoxRelPract&#39;],</span>
+<span class="go">  &#39;tags&#39;: [&#39;DevilPresent&#39;, &#39;UnorthodoxReligiousPractice&#39;, &#39;WitchesMeeting&#39;],</span>
+<span class="go">  &#39;name&#39;: &#39;Janet&#39;,</span>
+<span class="go">  &#39;surname&#39;: &#39;McNicol&#39;,</span>
+<span class="go">  &#39;suspects&#39;: 1,</span>
+<span class="go">  &#39;case_date&#39;: &#39;10/15/1673&#39;},</span>
+<span class="go"> {&#39;primary&#39;: None,</span>
+<span class="go">  &#39;secondary&#39;: [],</span>
+<span class="go">  &#39;tags&#39;: [],</span>
+<span class="go">  &#39;name&#39;: &#39;Margaret&#39;,</span>
+<span class="go">  &#39;surname&#39;: &#39;Clerk&#39;,</span>
+<span class="go">  &#39;suspects&#39;: 1,</span>
+<span class="go">  &#39;case_date&#39;: &#39;06/04/1674&#39;},</span>
+<span class="go"> {&#39;primary&#39;: None,</span>
+<span class="go">  &#39;secondary&#39;: [&#39;Demonic&#39;],</span>
+<span class="go">  &#39;tags&#39;: [&#39;Dancing&#39;, &#39;DevilPresent&#39;, &#39;Singing&#39;, &#39;WitchesMeeting&#39;],</span>
+<span class="go">  &#39;name&#39;: &#39;Agnes&#39;,</span>
+<span class="go">  &#39;surname&#39;: &#39;Hendrie&#39;,</span>
+<span class="go">  &#39;suspects&#39;: 1,</span>
+<span class="go">  &#39;case_date&#39;: &#39;07/29/1675&#39;}]</span>
+</pre></div>
+</div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+ data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
 <span></span><span class="kn">import</span> <span class="nn">csv</span>
 
 <span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -1789,10 +1852,15 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
                             <span class="n">work</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
                 <span class="n">cn</span> <span class="o">=</span> <span class="n">diz</span><span class="p">[</span><span class="s1">&#39;CaseCommonName&#39;</span><span class="p">]</span>
                 <span class="k">if</span> <span class="s1">&#39;,&#39;</span> <span class="ow">in</span> <span class="n">cn</span><span class="p">:</span>
-                    <span class="n">work</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-                    <span class="n">work</span><span class="p">[</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">spli</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                    <span class="n">work</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spli</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spli</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="n">work</span><span class="p">[</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spli</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">work</span><span class="p">[</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spli</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">work</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cn</span>
+                    <span class="n">work</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
                     <span class="n">work</span><span class="p">[</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
                 <span class="n">sus</span> <span class="o">=</span> <span class="n">diz</span><span class="p">[</span><span class="s1">&#39;Suspects_text&#39;</span><span class="p">]</span>
@@ -1812,40 +1880,25 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 
 
 <span class="n">cases_db</span> <span class="o">=</span> <span class="n">parse_db</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">csv</span>
 
-<span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
-
-<span class="n">cases_db</span> <span class="o">=</span> <span class="n">parse_db</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p><strong>Example</strong> (full output is in <a class="reference external" href="expected_cases_db.py">expected_cases_db.py</a>):</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">cases_db</span><span class="p">[</span><span class="mi">1992</span><span class="p">:</span><span class="mi">1994</span><span class="p">]</span>
+<span class="n">cases_db</span><span class="p">[</span><span class="mi">1991</span><span class="p">:</span><span class="mi">1994</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[{&#39;primary&#39;: None,
+[{&#39;primary&#39;: &#39;Demonic&#39;,
+  &#39;secondary&#39;: [&#39;ImplicatedByAnother&#39;, &#39;Maleficium&#39;, &#39;UNorthodoxRelPract&#39;],
+  &#39;tags&#39;: [&#39;DevilPresent&#39;, &#39;UnorthodoxReligiousPractice&#39;, &#39;WitchesMeeting&#39;],
+  &#39;name&#39;: &#39;Janet&#39;,
+  &#39;surname&#39;: &#39;McNicol&#39;,
+  &#39;suspects&#39;: 1,
+  &#39;case_date&#39;: &#39;10/15/1673&#39;},
+ {&#39;primary&#39;: None,
   &#39;secondary&#39;: [],
   &#39;tags&#39;: [],
   &#39;name&#39;: &#39;Margaret&#39;,
@@ -1861,12 +1914,30 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
   &#39;case_date&#39;: &#39;07/29/1675&#39;}]
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</div><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;primary&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span>
+
+<span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
+
+<span class="n">cases_db</span> <span class="o">=</span> <span class="n">parse_db</span><span class="p">(</span><span class="s1">&#39;WDB_Case.csv&#39;</span><span class="p">)</span>
+
+<span class="n">cases_db</span><span class="p">[</span><span class="mi">1991</span><span class="p">:</span><span class="mi">1994</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># TESTS</span>
+<span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;primary&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span>
 <span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;secondary&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[]</span>
 <span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;3 unnamed witches&#39;</span>
 <span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span>
@@ -1895,7 +1966,21 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">924</span><span class="p">][</span><span class="s1">&#39;case_date&#39;</span><span class="p">]</span> <span class="o">==</span>  <span class="s1">&#39;07/1652&#39;</span>  <span class="c1"># 7/1652</span>
 <span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">491</span><span class="p">][</span><span class="s1">&#39;suspects&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">15</span>           <span class="c1"># 15</span>
 
+<span class="c1">#composite name</span>
+<span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">249</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Francis&#39;</span>     <span class="c1"># &quot;Stewart, Earl of Bothwell,Francis&quot;</span>
+<span class="k">assert</span> <span class="n">cases_db</span><span class="p">[</span><span class="mi">249</span><span class="p">][</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Stewart, Earl of Bothwell&#39;</span>
+
 <span class="kn">from</span> <span class="nn">expected_cases_db</span> <span class="kn">import</span> <span class="n">expected_cases_db</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">expected_cases_db</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">cases_db</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">expected_cases_db</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR at index </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ACTUAL:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">cases_db</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXPECTED:&#39;</span><span class="p">,</span> <span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">expected_cases_db</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cases_db</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_cases_db</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR! different lengths: cases_db: </span><span class="si">%s</span><span class="s1">    expected_cases_db: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cases_db</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_cases_db</span><span class="p">)))</span>
 <span class="k">assert</span> <span class="n">cases_db</span> <span class="o">==</span> <span class="n">expected_cases_db</span>
 </pre></div>
 </div>
@@ -1908,10 +1993,11 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <li><p>plot the ticks with 10 years intervals, according to the actual data (<strong>DO NOT use constants like</strong> <code class="docutils literal notranslate"><span class="pre">1560</span></code> <strong>!!</strong>)</p></li>
 <li><p>careful some cases have no year</p></li>
 </ul>
+<p><img alt="expected-plot.png" src="../../../_images/expected-plot.png" /></p>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+ data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1940,29 +2026,7 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="c1">#plot_cases(cases_db)</span>
-</pre></div>
-</div>
-</div>
-</div><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="k">def</span> <span class="nf">plot_cases</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
-
-<span class="c1">#plot_cases(cases_db)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plot_cases</span><span class="p">(</span><span class="n">cases_db</span><span class="p">)</span>
+<span class="n">plot_cases</span><span class="p">(</span><span class="n">cases_db</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1970,7 +2034,20 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/exams_2021-01-14_solutions_exam-2021-01-14-sol_28_0.png" src="../../../_images/exams_2021-01-14_solutions_exam-2021-01-14-sol_28_0.png" />
+<img alt="../../../_images/exams_2021-01-14_solutions_exam-2021-01-14-sol_21_0.png" src="../../../_images/exams_2021-01-14_solutions_exam-2021-01-14-sol_21_0.png" />
+</div>
+</div>
+</div><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+<span></span><span class="k">def</span> <span class="nf">plot_cases</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
+
+<span class="n">plot_cases</span><span class="p">(</span><span class="n">cases_db</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -2003,14 +2080,24 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 </div>
 <div class="section" id="B2-Bank">
 <h2>B2 Bank<a class="headerlink" href="#B2-Bank" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p><strong>WARNING: AN UPDATED VERSION OF THIS EXERCISE CAN BE</strong> <a class="reference external" href="https://sciprog.davidleoni.it/indexing/indexing.html#2.-Exercise---Bank">FOUND HERE</a></p>
+</div>
 <p>A bank stores all its transactions in a log: possible types of transactions are opening an account, transfering some amount of money, withdrawal, etc. For simplicity, we represent each transaction type with a character, and in the log which is a Python list we put only such characters (we don’t care about their meaning).</p>
 <p>The bank knows some sequences of events are extremely rare, and probably denote suspicious activity. For simplicitly, we assume such sequences only contain two transactions and represent them in tuples called <em>biseqs</em>.</p>
-<p><strong>NOTE</strong>: a biseq can occur multiple times, but you can consider the number of repetitions negligible with respect to log size.</p>
+<div class="admonition warning">
+<p><strong>NOTE: a biseq can occur multiple times, but you can consider the number of repetitions negligible with respect to log size.</strong></p>
+</div>
 <p><strong>THESE EXERCISES ARE ABOUT CUSTOM INDEXING, NOT STRINGS: DO NOT</strong> convert everything to a string, use regexes, nor use string methods like <code class="docutils literal notranslate"><span class="pre">.index()</span></code>, <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>, etc</p>
 </div>
 <div class="section" id="B2.1-constructor,-log-and-pos">
 <h2>B2.1 constructor, log and pos<a class="headerlink" href="#B2.1-constructor,-log-and-pos" title="Permalink to this headline">¶</a></h2>
 <p>Implement following methods, adding some appropriate indexing data structure.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>BEFORE IMPLEMENTING, DOUBLE CHECK COMPLEXITY REQUIREMENTS!</strong></p>
+<p>The idea is that given <em>an entire biseq</em> (not just the first character !), we want to find all of its (rare) occurrences <em>very fast</em> in <span class="math notranslate nohighlight">\(O(1)\)</span></p>
+<p>Since performance is important here, passing tests does <em>not</em> imply your work is correct!</p>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bank</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2040,7 +2127,7 @@ AdmitLesserCharge AggravatingDisease AnimalDeath AnimalIllness ClaimedBewitched 
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bank_test.LogTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2060,7 +2147,7 @@ Bank:
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2069,7 +2156,7 @@ Bank:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2086,7 +2173,7 @@ Bank: a
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2103,7 +2190,7 @@ Bank: a
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2112,7 +2199,7 @@ Bank: a
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2129,7 +2216,7 @@ Bank: a
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2151,7 +2238,7 @@ Bank: a,b,a,a,a,a,b
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2168,7 +2255,7 @@ Bank: a,b,a,a,a,a,b
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2200,7 +2287,7 @@ Bank: a,b,a,a,a,a,b
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">RevertTest</span></code></p>
 <p><strong>Example:</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2223,7 +2310,7 @@ Bank: a,b,a,a,a,a,b
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2232,7 +2319,7 @@ Bank: a,b,a,a,a,a,b
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2241,7 +2328,7 @@ Bank: a,b,a,a,a,a,b
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2258,7 +2345,7 @@ Bank: a,b,c,a
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2296,7 +2383,7 @@ Bank: a,b,c,a
 <p><strong>Testing</strong>: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">bank_test.MaxIntervalTest</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2322,7 +2409,7 @@ Bank: a,b,c,a
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2347,29 +2434,29 @@ Bank: a,b,c,a
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../2021-02-10/solutions/exam-2021-02-10-sol.html" class="btn btn-neutral float-right" title="Exam - Wed 10, Feb 2021" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../2020-12-16/solutions/exam-2020-12-16.html" class="btn btn-neutral float-left" title="Midterm B - Wed 16, Dec 2020" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../../2021-02-10/solutions/exam-2021-02-10-sol.html" class="btn btn-neutral float-right" title="Exam - Wed 10, Feb 2021" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../2020-12-16/solutions/exam-2020-12-16.html" class="btn btn-neutral float-left" title="Midterm B - Wed 16, Dec 2020" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright # 2020 - 2022, David Leoni
+        &#169; Copyright # 2020 - 2022, David Leoni.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -2377,7 +2464,6 @@ Bank: a,b,c,a
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

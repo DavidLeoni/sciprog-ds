@@ -1,23 +1,34 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Midterm Sim - Tue 13, Nov 2018 &mdash; Sciprog DS Lab</title>
   
 
   
-  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+
+  
+    <link rel="canonical" href="https://sciprog.davidleoni.it/exams/2018-11-13/solutions/exam-2018-11-13-sol.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -34,12 +45,6 @@
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Midterm - Fri 16 Nov 2018" href="../../2018-11-16/solutions/exam-2018-11-16-sol.html" />
@@ -84,6 +89,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -306,7 +312,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html">Exam - Mon 10, Feb 2020</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#Part-A---Wordnet">Part A - Wordnet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A1-parse_db">A1 parse_db</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A2-to_adj">A2 to_adj</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html#A.3-hist">A.3 hist</a></li>
@@ -347,7 +353,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html">Midterm - Thu 07, Nov 2019</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Download-exercises-and-solution">Download exercises and solution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Part-A">Part A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#Part-A---Town-events">Part A - Town events</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.1-leap_year">A.1 leap_year</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.2-full_date">A.2 full_date</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2019-11-07/solutions/exam-2019-11-07-sol.html#A.3-partial_date">A.3 partial_date</a></li>
@@ -1148,6 +1154,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -2025,6 +2032,10 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="2.-phones">
 <h2>2. phones<a class="headerlink" href="#2.-phones" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>NOTICE: this part of the exam was ported to</strong> <a class="reference external" href="https://en.softpython.org/projects/phone-calls/phone-calls-sol.html">softpython</a> <strong>website</strong></p>
+<p>There you can find a more curated version (notice it may be longer than here)</p>
+</div>
 <p>A radio station used to gather calls by recording just the name of the caller and the phone number as seen on the phone display. For marketing purposes, the station owner wants now to better understand the places from where listeners where calling. He then hires you as Algorithmic Market Strategist and asks you to show statistics about the provinces of the calling sites. There is a problem, though. Numbers where written down by hand and sometimes they are not uniform, so it would be better to
 find a canonical representation.</p>
 <p><strong>NOTE</strong>: Phone prefixes can be a very tricky subject, if you are ever to deal with them seriously please use proper <a class="reference external" href="https://github.com/daviddrysdale/python-phonenumbers">phone number parsing libraries</a> and do read <a class="reference external" href="https://github.com/googlei18n/libphonenumber/blob/master/FALSEHOODS.md">Falsehoods Programmers Believe About Phone Numbers</a></p>
@@ -2365,29 +2376,29 @@ find a canonical representation.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../2018-11-16/solutions/exam-2018-11-16-sol.html" class="btn btn-neutral float-right" title="Midterm - Fri 16 Nov 2018" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../../past-exams.html" class="btn btn-neutral float-left" title="Past Exams" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../../2018-11-16/solutions/exam-2018-11-16-sol.html" class="btn btn-neutral float-right" title="Midterm - Fri 16 Nov 2018" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../../past-exams.html" class="btn btn-neutral float-left" title="Past Exams" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright # 2020 - 2022, David Leoni
+        &#169; Copyright # 2020 - 2022, David Leoni.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -2395,7 +2406,6 @@ find a canonical representation.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
