@@ -74,7 +74,7 @@ jm.solution = jmt.tag_regex("# SOLUTION")
 jm.markdown_answer = jmt.tag_regex('**ANSWER**:')
 #################################################################
 
-jm.zip_ignored = ['__pycache__', '**.ipynb_checkpoints', '.pyc', '.cache', '.pytest_cache', '.vscode']
+jm.zip_ignored = ['__pycache__', '**.ipynb_checkpoints', '.pyc', '.cache', '.pytest_cache', '.vscode', '**.kdev4']
 
 jm.formats = ["html", "epub", "latex"]
 

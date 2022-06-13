@@ -38,6 +38,11 @@ nbsphinx.egg-info/
 .com.apple.timemachine.supported
 .import-temp/
 
+##### KDEVELOP
+.kdev4
+*.kdev4
+
+
 ##### VSCODE
 .vscode
 
