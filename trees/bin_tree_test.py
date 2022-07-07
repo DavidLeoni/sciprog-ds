@@ -1013,7 +1013,218 @@ class UnivaluedRecTest(BinTreeTest):
 
 class SameRecTest(BinTreeTest):
 
-    def test_complex_1(self):
+    def test_1(self):
+        
+        self.assertFalse(bt(1).same_rec(bt(2)))
+        self.assertFalse(bt(2).same_rec(bt(3)))
+        self.assertTrue(bt(1).same_rec(bt(1)))
+        self.assertTrue(bt(2).same_rec(bt(2)))
+
+    def test_2_A12_B12(self):
+        
+        t1 = bt(1, 
+                    bt(2))
+        t2 = bt(1, 
+                    bt(2))
+        
+        self.assertTrue(t1.same_rec(t2))
+                
+    def test_3_A13_B12(self):
+        
+        t1 = bt(1, 
+                    bt(3))
+        t2 = bt(1, 
+                    bt(2))
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+    
+    def test_3_A1n2_B12(self):
+        
+        t1 = bt(1, 
+                    None,
+                    bt(2))
+        t2 = bt(1, 
+                    bt(2))
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+    
+    def test_3_A3n1_B32(self):
+        
+        t1 = bt(3, 
+                    None,
+                    bt(1))
+        t2 = bt(3, 
+                    bt(2))
+        
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+
+    def test_4_A3213_B3213(self):
+        
+        t1 = bt(3, 
+                    bt(2),
+                    bt(1,
+                         bt(3)))
+        t2 = bt(3, 
+                    bt(2),
+                    bt(1,                         
+                         bt(3)))
+        
+        self.assertTrue(t1.same_rec(t2))
+
+
+    def test_5_A3213_B3243(self):
+        
+        t1 = bt(3, 
+                    bt(2),
+                    bt(1,
+                         bt(3)))
+        t2 = bt(3, 
+                    bt(2),
+                    bt(4,                         
+                         bt(3)))
+                
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+
+    def test_6_A32113_B3213(self):
+        
+        t1 = bt(3, 
+                    bt(2,
+                         bt(1),
+                    bt(1,
+                         bt(3))))
+        t2 = bt(3, 
+                    bt(2),
+                    bt(1,                         
+                         bt(3)))
+                    
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+
+    def test_7_A321n3_B321n3(self):
+        
+        t1 = bt(3, 
+                    bt(2),
+                    bt(1,
+                         None,
+                         bt(3)))
+        t2 = bt(3, 
+                    bt(2),
+                    bt(1, 
+                         None,
+                         bt(3)))
+                
+        self.assertTrue(t1.same_rec(t2))
+
+    def test_8_A32183_B321n3(self):
+        
+        t1 = bt(3, 
+                    bt(2),
+                    bt(1,
+                         bt(8),
+                         bt(3)))
+        t2 = bt(3, 
+                    bt(2),
+                    bt(1, 
+                         None,
+                         bt(3)))
+                
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+        
+    def test_9_A32_B321n3(self):
+        
+        t1 = bt(3, 
+                    bt(2))
+        t2 = bt(3, 
+                    bt(2),
+                    bt(1, 
+                         None,
+                         bt(3)))
+        
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+        
+
+    def test_10_A312_B312(self):
+        
+        t1 = bt(3,                     
+                    bt(1,
+                         bt(2)))
+        t2 = bt(3,                     
+                    bt(1,
+                         bt(2)))
+        
+        self.assertTrue(t1.same_rec(t2))
+        
+        
+    def test_11_A3n12_B312(self):
+        
+        t1 = bt(3,             
+                    None,
+                    bt(1,
+                         bt(2)))
+        t2 = bt(3,                     
+                    bt(1,
+                         bt(2)))
+                
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+
+    def test_12_A3122_B312(self):
+        
+        t1 = bt(3,                                 
+                    bt(1,
+                         bt(2,
+                             bt(2))))
+        t2 = bt(3,                     
+                    bt(1,
+                         bt(2)))
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+        
+    def test_13_A315_B312(self):
+        
+        t1 = bt(3,                                 
+                    bt(1,
+                         bt(5)))
+        t2 = bt(3,                     
+                    bt(1,
+                         bt(2)))
+        
+        
+        self.assertFalse(t1.same_rec(t2))
+        self.assertFalse(t2.same_rec(t1))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
+        
+
+    def test_14_complex_1(self):
         t1 = bt(3, 
                 bt(3, 
                     bt(7), 
@@ -1034,8 +1245,10 @@ class SameRecTest(BinTreeTest):
                            bt(3))))
 
         self.assertFalse(t1.same_rec(t2))
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
 
-    def test_complex_2(self):
+    def test_15_complex_2(self):
         t1 = bt(3, 
                 bt(3, 
                     bt(7), 
@@ -1060,7 +1273,8 @@ class SameRecTest(BinTreeTest):
                            bt(3))))
 
         self.assertTrue(t1.same_rec(t2))
-
+        self.assertTrue(t1.same_rec(t1))
+        self.assertTrue(t2.same_rec(t2))
 
 class FunRecTest(BinTreeTest):
 
