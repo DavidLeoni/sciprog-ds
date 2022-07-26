@@ -1,0 +1,17 @@
+%abc-2.1
+C:Drum Shaman
+M:4/4
+H:Folk songs collected while travelling
+
+X:1                     
+T:Jungle Beat 
+D:Sounds from the Jungle, 1968    % discography (should be parsed automatically as generic string field)
+K:E
+|G1  G2 G1 G1 A1 E2 |E1 E1 D6 |
+
+X:2                      
+T:Byte Polka
+M:2/4                             % overrides M from header
+C:The Crazy Gipsy                 % overrides C from header
+K:G
+|A3 A3 G2 E3 A3 G2  |   % melodies can also have a comment
