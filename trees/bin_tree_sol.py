@@ -266,11 +266,32 @@ class BinTree:
                     def helper(t1, t2):
 
                     which recursively calls itself and assumes both of the
-                    inputs can be None may reduce the number of ifs to write.
+                    inputs can be None may lead to cleaner code.
         """
         #jupman-raise
+        if other == None:
+            return False
+        
+        if self.data() != other.data():
+            return False
+        
+        if self.left() == None:            
+            if other.left() != None:
+                return False
+        elif not self.left().same_rec(other.left()):
+            return False
+        
+        if self.right() == None:            
+            if other.right() != None:
+                return False
+        elif not self.right().same_rec(other.right()):
+            return False                
+        
+        return True
+           
+        """ alternative version with helper function, a little cleaner:
         def helper(t1, t2):
-            if (t1 == None) != (t2 == None):  # XOR
+            if (t1 == None) != (t2 == None):  # exclusive OR (XOR)
                 return False
             if t1 == None and t2 == None:
                 return True
@@ -279,6 +300,7 @@ class BinTree:
             return helper(t1.left(), t2.left()) and helper(t1.right(), t2.right())
 
         return helper(self, other)
+        """
         #/jupman-raise
         
     def sum_leaves_rec(self):
