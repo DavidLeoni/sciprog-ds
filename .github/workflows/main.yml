@@ -23,7 +23,7 @@ jobs:
         python3 -m pytest _test/*_test.py                  
     
   build_docs_job:
-    if: (github.repository == 'DavidLeoni/sciprog-ds') && ((github.ref == 'refs/heads/master')
+    if: (github.repository == 'DavidLeoni/sciprog-ds') && (github.ref == 'refs/heads/master')
     needs: run_tests
     runs-on: ubuntu-20.04
     env:
