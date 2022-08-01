@@ -90,7 +90,4 @@ Part B
 .. toctree::
     :hidden:
 
-    changelog.md
 
-Index
-========
