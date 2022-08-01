@@ -43,11 +43,11 @@ jobs:
       if: env.GIT_TAG == 'master'
       run: echo "VERSION=latest" >> $GITHUB_ENV
     - name: sets WEB_PATH
-      run: echo "WEB_PATH=${{env.LANGUAGE}}/${{env.VERSION}}" >> $GITHUB_ENV
+      run: echo "WEB_PATH=" >> $GITHUB_ENV
     - name: Run Sphinx in RTD docker      
       uses: DavidLeoni/readthedocs-to-actions@v1.2
       with:
-        RTD_PRJ_NAME: jupman        
+        RTD_PRJ_NAME: sciprog-ds        
         GIT_URL: https://github.com/${{ github.repository }}.git
         GIT_TAG: ${{ env.GIT_TAG }}
         VERSION: ${{ env.VERSION }}
