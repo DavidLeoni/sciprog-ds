@@ -127,6 +127,12 @@ extensions = [
     #, 'rst2pdf.pdfbuilder'
 ]
 
+mathjax_path = "js/mathjax/tex-mml-chtml.js"
+nbsphinx_requirejs_path = "js/require.min.js"  
+#must reset otherwise adds integrity and crossorigin html attributes
+nbsphinx_requirejs_options = { }
+
+
 # Exclude build directory and Jupyter backup files:
 exclude_patterns = [jm.build,
                     jm.generated,
