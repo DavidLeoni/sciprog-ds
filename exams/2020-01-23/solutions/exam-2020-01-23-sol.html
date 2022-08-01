@@ -1,83 +1,45 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Exam - Thu 23, Jan 2020 &mdash; Sciprog DS Lab</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/jupman.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/jupman-web.css" type="text/css" />
     <link rel="canonical" href="https://sciprog.davidleoni.it/exams/2020-01-23/solutions/exam-2020-01-23-sol.html" />
-
-  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/js/jupman.js"></script>
-        <script type="text/javascript" src="../../../_static/js/pytutor-embed.bundle.min.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="../../../_static/js/mathjax/tex-mml-chtml.js"></script>
+        <script src="../../../_static/js/jupman.js"></script>
+        <script src="../../../_static/js/pytutor-embed.bundle.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Exam - Mon 10, Feb 2020" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html" />
-    <link rel="prev" title="Midterm B - Fri 20, Dec 2019" href="../../2019-12-20/solutions/exam-2019-12-20.html" /> 
+    <link rel="next" title="Midterm B - Fri 20, Dec 2019" href="../../2019-12-20/solutions/exam-2019-12-20.html" />
+    <link rel="prev" title="Exam - Mon 10, Feb 2020" href="../../2020-02-10/solutions/exam-2020-02-10-sol.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../toc-page.html" class="icon icon-home"> Sciprog DS Lab
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -85,18 +47,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../index.html#Timetable-and-lecture-rooms">Timetable and lecture rooms</a></li>
@@ -129,14 +80,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../past-exams.html#Data-science">Data science</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html">Exam - Tue 12, Jul 2022</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#Download-exercises-and-solutions">Download exercises and solutions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#Part-A---Music-Sequencer">Part A - Music Sequencer</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#1.-parse_melody">1. parse_melody</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#2.-parse_tunes">2. parse_tunes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#3.-plot_tune">3. plot_tune</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#Part-A---Music-Sequencer">Part A - Music Sequencer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#A1-parse_melody">A1 parse_melody</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#A2-parse_tunes">A2 parse_tunes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#A3-plot_tune">A3 plot_tune</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#Part-B">Part B</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#B1.1-Theory">B1.1 Theory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#B1.2-complexity">B1.2 complexity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#B2-BinTree-same_rec">B2 BinTree same_rec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2022-07-12/solutions/exam-2022-07-12-sol.html#B3-GenericTree-follow">B3 GenericTree follow</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../2022-06-08/solutions/exam-2022-06-08-sol.html">Exam - Wed 08, Jun 2022</a><ul>
@@ -546,659 +498,711 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../slides.html#Lab-B.9">Lab B.9</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../commandments.html">Commandments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../commandments.html#MOVED-TO-https://en.softpython.org/commandments.html">MOVED TO https://en.softpython.org/commandments.html</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../toc-oop.html">OOP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../oop/oop1-intro.html">OOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#What-to-do">What to do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#1.-Abstract-Data-Types-(ADT)-Theory">1. Abstract Data Types (ADT) Theory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#1.1.-Intro">1.1. Intro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#1.2.-Complex-number-theory">1.2. Complex number theory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#1.3.-Datatypes-the-old-way">1.3. Datatypes the old way</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#1.4.-Finding-the-pattern">1.4. Finding the pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#1.5.-Object-Oriented-Programming">1.5. Object Oriented Programming</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#2.-ComplexNumber-class">2. ComplexNumber class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.1.-Class-declaration">2.1. Class declaration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.2.-Constructor-__init__">2.2. Constructor <code class="docutils literal notranslate"><span class="pre">__init__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.3.-Defining-methods">2.3. Defining methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.4.-ComplexNumber-code-skeleton">2.4. ComplexNumber code skeleton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.5.-Complex-numbers-magnitude">2.5. Complex numbers magnitude</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.6.-Complex-numbers-equality">2.6. Complex numbers equality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.7.-Complex-numbers-isclose">2.7. Complex numbers isclose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.8.-Complex-numbers-addition">2.8. Complex numbers addition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.9.-Adding-a-scalar">2.9. Adding a scalar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.10.-Complex-numbers-multiplication">2.10. Complex numbers multiplication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#3.-MultiSet">3. MultiSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#3.1-__init__-add-and-get">3.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html#4.-Challenges">4. Challenges</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html">OOP Matrix Challenge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#What-to-do">What to do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#DenseMatrix">DenseMatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Constructors-and-printing">Constructors and printing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Constructor-as-list-of-lists">Constructor as list of lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#str-and-repr">str and repr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#constructor-as-list-of-triplets">constructor as list of triplets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#shape">shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Brackets-operator">Brackets operator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#nonzero">nonzero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#isclose">isclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Equality">Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sum">Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Multiplication">Multiplication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Matrix-vector-multiplication">Matrix vector multiplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Vector-matrix-multiplication">Vector matrix multiplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Matrix-matrix-multiplication">Matrix matrix multiplication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#SparseMatrix">SparseMatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-constructors-and-printing">Sparse constructors and printing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-shape">Sparse shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-Brackets-operator">Sparse Brackets operator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-nonzero">Sparse nonzero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-isclose">Sparse isclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-equality">Sparse equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-sum">Sparse sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-multiplication">Sparse multiplication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-matrix-vector-multiplication">Sparse matrix vector multiplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-vector-matrix-multiplication">Sparse vector matrix multiplication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexing/indexing.html">Indexing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../indexing/indexing.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../indexing/indexing.html#1.-Exercise---chains">1. Exercise - chains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#1.1-has_duplicates">1.1 has_duplicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#1.2-chain">1.2 chain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../indexing/indexing.html#2.-Exercise---Bank">2. Exercise - Bank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#2.1-bank-constructor,-log-and-pos">2.1 bank constructor, log and pos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#2.2-bank-revert">2.2 bank revert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#2.3-bank-max_interval">2.3 bank max_interval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../toc-recursion.html">Recursion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html">simple functional programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---how-to">SimpleFP - how-to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---variable-assignment">SimpleFP - variable assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---list-creation">SimpleFP - list creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---boxing">SimpleFP - boxing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---concatenation">SimpleFP - concatenation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---accessing-list-elements">SimpleFP - accessing list elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---slicing">SimpleFP - slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---minimal-instruction-set">SimpleFP - minimal instruction set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---functions-and-conditionals">SimpleFP - functions and conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---recursion">SimpleFP - recursion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Simple-FP---Example---scount">Simple FP - Example - <code class="docutils literal notranslate"><span class="pre">scount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Simple-FP---debugging">Simple FP - debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP:-a-recursion-scheme">SimpleFP: a recursion scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Example---sdouble">Example - <code class="docutils literal notranslate"><span class="pre">sdouble</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---debug-double">Exercise - debug double</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sfilter_even">Exercise - sfilter_even</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---smerry">Exercise - smerry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---ssum">Exercise - ssum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---smin">Exercise - smin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---ssearch">Exercise - ssearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sbin_search">Exercise - sbin_search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---szip">Exercise - szip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sunnest">Exercise - sunnest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sfib">Exercise - sfib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sall">Exercise - sall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---srev">Exercise - srev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---spalindrome">Exercise - spalindrome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---snest">Exercise - snest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---spalace">Exercise - spalace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---srep">Exercise - srep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---ssortin">Exercise - ssortin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Continue">Continue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../recursion/recursion2-modacc.html">accumulators and indeces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Example---adouble">Example - <code class="docutils literal notranslate"><span class="pre">adouble</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---debug-adouble">Exercise - debug adouble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---afilter_even">Exercise - afilter_even</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---amerry">Exercise - amerry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---afib">Exercise - afib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---asearch">Exercise - asearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---abin_search">Exercise - abin_search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---azip">Exercise - azip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---aunnest">Exercise - aunnest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---arev">Exercise - arev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---apalindrome">Exercise - apalindrome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---anest">Exercise - anest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---apalace">Exercise - apalace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---arep">Exercise - arep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---asortin">Exercise - asortin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---ahist">Exercise - ahist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---agap">Exercise - agap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Continue">Continue</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../recursion/recursion3-divide.html">divide and conquer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Managing-solutions">Managing solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Divide-and-conquer---SimpleFP-style">Divide and conquer - SimpleFP style</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Example---dsdouble">Example - <code class="docutils literal notranslate"><span class="pre">dsdouble</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---debug-dsdouble">Exercise - debug dsdouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dssum">Exercise - dssum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dsmin">Exercise - dsmin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dszip">Exercise - dszip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dsunnest">Exercise - dsunnest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dsall">Exercise - dsall</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dsrev">Exercise - dsrev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dsrep">Exercise - dsrep</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Divide-and-conquer---Accumulator-style">Divide and conquer - Accumulator style</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Example---dacount">Example - <code class="docutils literal notranslate"><span class="pre">dacount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Example---dadouble">Example - <code class="docutils literal notranslate"><span class="pre">dadouble</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---debug-dadouble">Exercise - debug dadouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Exercise---dahist">Exercise - dahist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#TODO-will-add-more">TODO will add more</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion3-divide.html#More-exercises">More exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Continue">Continue</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../recursion/recursion4-chal.html">challenges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Cthulhu">Challenge - Cthulhu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Ghatanothoa">Challenge - Ghatanothoa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Hastur">Challenge - Hastur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Tsathoggua">Challenge - Tsathoggua</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Yig">Challenge - Yig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Shub-Niggurath">Challenge - Shub-Niggurath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Shoggoth">Challenge - Shoggoth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Azathoth">Challenge - Azathoth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html#References">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html">Algorithm analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#List-performance">List performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Fast-or-not?">Fast or not?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Sublist-iteration-performance">Sublist iteration performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Some-formulas">Some formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Lists---exercises">Lists - exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---rollsroyce">Exercise - rollsroyce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---honda">Exercise - honda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---lamborghini">Exercise - lamborghini</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---maserati">Exercise - maserati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---toyota">Exercise - toyota</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---mercedes">Exercise - mercedes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---acura">Exercise - acura</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---alfaromeo">Exercise - alfaromeo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---jeep">Exercise - jeep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---chevrolet">Exercise - chevrolet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---kia">Exercise - kia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---aston_martin">Exercise - aston_martin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---subaru">Exercise - subaru</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---dodge">Exercise - dodge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---lotus">Exercise - lotus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---jaguar">Exercise - jaguar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---hyundai">Exercise - hyundai</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---buick">Exercise - buick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---saab">Exercise - saab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Sets-performance">Sets performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Sets---exercises">Sets - exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---land_rover">Exercise - land_rover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---volkswagen">Exercise - volkswagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---pontiac">Exercise - pontiac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---volvo">Exercise - volvo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---chrysler">Exercise - chrysler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Dictionaries-performance">Dictionaries performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Dictionaries---exercises">Dictionaries - exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---tesla">Exercise - tesla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---bmw">Exercise - bmw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---nissan">Exercise - nissan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---ferrari">Exercise - ferrari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---bentley">Exercise - bentley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---mclaren">Exercise - mclaren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---fiat">Exercise - fiat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---mustang">Exercise - mustang</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Recursion">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Recursion---exercises">Recursion - exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---yamaha">Exercise - yamaha</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---cadillac">Exercise - cadillac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---ducati">Exercise - ducati</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Analysis---more-exercises">Analysis - more exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../toc-sorting.html">Sorting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sorting/sorting1.html">intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#References">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#What-to-do">What to do</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#Exercises">Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#1-Selection-Sort">1 Selection Sort</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#1.1-Implement-swap">1.1 Implement <code class="docutils literal notranslate"><span class="pre">swap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#1.2-Implement-argmin">1.2 Implement <code class="docutils literal notranslate"><span class="pre">argmin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#1.3:-Full-selection_sort">1.3: Full <code class="docutils literal notranslate"><span class="pre">selection_sort</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#2-Insertion-sort">2 Insertion sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#3-Merge-sort">3 Merge sort</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Taking-last-element">Taking last element</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Costly-internal-del">Costly internal del</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Costly-internal-pop">Costly internal pop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#3.1-merge-1">3.1 merge 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#3.2-merge2">3.2 merge2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#4-quick-sort">4 quick sort</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#4.1-pivot">4.1 pivot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#4.2-quicksort-and-qs">4.2 quicksort and qs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#5-SwapArray">5 SwapArray</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#5.1-is_sorted">5.1 is_sorted</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#5.2-max_to_right">5.2 max_to_right</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#5.3-swapsort">5.3 swapsort</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html#Challenges">Challenges</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sorting/sorting2-chal.html">challenges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting2-chal.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting2-chal.html#Crime-parade">Crime parade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting2-chal.html#McFat's">McFat’s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting2-chal.html#Partitocracy">Partitocracy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stacks/stacks.html">Stacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#0.-Introduction">0. Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#References">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#What-to-do">What to do</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#1.-CappedStack">1. CappedStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#CappedStack-Examples">CappedStack Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#Capped-Stack-basic-methods">Capped Stack basic methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.1-__init__">1.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.2-cap">1.2 cap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.3-size">1.3 size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.4-__str__">1.4 <code class="docutils literal notranslate"><span class="pre">__str__</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.5-is_empty">1.5 is_empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.6-push">1.6 push</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.7-peek">1.7 peek</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.8-pop">1.8 pop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.9-peekn">1.9 peekn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.10-popn">1.10 popn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.11-set_cap">1.11 set_cap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#2.-SortedStack">2. SortedStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#2.1-transfer">2.1 transfer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#2.2-merge">2.2 merge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#3.-WStack">3. WStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#3.1-implement-class-WStack">3.1 implement class WStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#3.2-accumulate">3.2 accumulate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#4.-Backpack">4. Backpack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#4.1-class">4.1 class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#4.2-remove">4.2 remove</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#5.-Train-race">5. Train race</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#6.-PyraStack">6. PyraStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#7.-Tasks">7. Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#7.1-do">7.1 do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#7.2-do_level">7.2 do_level</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html#8.-Stacktris">8. Stacktris</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#8.1-_shorten">8.1 _shorten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#8.2-drop1">8.2 drop1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#6.3-drop2h">6.3 drop2h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../toc-linked-lists.html">Linked lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../linked-lists/linked-lists1.html">intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#0-Introduction">0 Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#References">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#What-to-do">What to do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#0.1-Initialization">0.1 Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#0.2-Growing">0.2 Growing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#0.3-Visiting">0.3 Visiting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#1-v1:-a-slow-LinkedList">1 v1: a slow LinkedList</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#1.a)-Testing">1.a) Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#1.b)-Differences-with-the-book">1.b) Differences with the book</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#1.c)-Please-remember...">1.c) Please remember…</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#2-v2-faster-size">2 v2 faster size</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#2.1-Save-a-copy-of-your-work">2.1 Save a copy of your work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#2.2.-Improve-size">2.2. Improve size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3-v3-Faster-append">3 v3 Faster append</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.1-Save-a-copy-of-your-work">3.1 Save a copy of your work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.2-add-_last-field">3.2 add <code class="docutils literal notranslate"><span class="pre">_last</span></code> field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.3-add-method-skeleton">3.3 add method skeleton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.4-test-driven-development">3.4 test driven development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.4.1-LastTest">3.4.1 LastTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.4.2-improve-myAssert">3.4.2 improve myAssert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.5-update-methods-that-mutate-the-LinkedList">3.5 update methods that mutate the LinkedList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3.6-Run-tests">3.6 Run tests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4-v4-Go-bidirectional">4 v4 Go bidirectional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.1-Save-your-work">4.1 Save your work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.2-Node-backlinks">4.2 Node backlinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.3-Better-str">4.3 Better <strong>str</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.4-Modify-add">4.4 Modify add</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.5-Add-to_python_reversed">4.5 Add to_python_reversed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.6-Add-invariant">4.6 Add invariant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.7-Modify-other-methods">4.7 Modify other methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4.8-Run-the-tests">4.8 Run the tests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#5-EqList">5 EqList</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#5.1-eq">5.1 eq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#5.2-remsub">5.2 remsub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#6-Cloning">6 Cloning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#6.1-rev">6.1 rev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#6.2-clone">6.2 clone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#6.3-Slice">6.3 Slice</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7-More-exercises">7 More exercises</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.1-occurrences">7.1 occurrences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.2-shrink">7.2 shrink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.3-dup_first">7.3 dup_first</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.4-dup_all">7.4 dup_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.5-mirror">7.5 mirror</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.6-norep">7.6 norep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.7-find_couple">7.7 find_couple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.8-swap">7.8 swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.9-gaps">7.9 gaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.10-flatv">7.10 flatv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.11-bubble_sort">7.11 bubble_sort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.12-merge">7.12 merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.13-couple_sort">7.13 couple_sort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.14-linked-algebra">7.14 linked algebra</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.15-sepel">7.15 sepel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7.16-linked-pivot">7.16 linked pivot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#8-Last-exercises">8 Last exercises</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#8.1-rotate">8.1 rotate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#8.2-rotaten">8.2 rotaten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#8.3-plus_one">8.3 plus_one</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#Challenge">Challenge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html">challenges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html#rshift">rshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html#lshift">lshift</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../toc.html"> </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../toc.html#part-a">Part A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#Visual-Studio-Code">Visual Studio Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#The-debugger">The debugger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#VS-Code---collaborative-coding">VS Code - collaborative coding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../installation.html#VS-Code---Sharing-test-runs">VS Code - Sharing test runs</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../basics/basics-sol.html">Python basics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../basics/basics-sol.html#MOVED-TO-en.softpython.org/basics/basics-sol.html">MOVED TO en.softpython.org/basics/basics-sol.html</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../toc-queues.html">Queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../queues/queues1-intro.html">intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#Introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#What-to-do">What to do</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../strings/strings-sol.html">Strings</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../strings/strings-sol.html#MOVED-TO-https://en.softpython.org/#strings">MOVED TO https://en.softpython.org/#strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#1.-LinkedQueue">1. LinkedQueue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#1.1-enqn">1.1 enqn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#1.2-deqn">1.2 deqn</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../lists/lists-sol.html">Lists</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../lists/lists-sol.html#MOVED-TO-https://en.softpython.org/#lists">MOVED TO https://en.softpython.org/#lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#2.-CircularQueue">2. CircularQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#3.-ItalianQueue">3. ItalianQueue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.1-Slow-v1">3.1 Slow v1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.1.1-init">3.1.1 init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.1.2-Slow-enqueue">3.1.2 Slow enqueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.1.2-dequeue">3.1.2 dequeue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.2-Fast-v2">3.2 Fast v2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.2.1-Save-a-copy">3.2.1 Save a copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.2.2-make-it-fast">3.2.2 make it fast</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tuples/tuples-sol.html">Tuples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../tuples/tuples-sol.html#MOVED-TO-https://en.softpython.org/tuples/tuples-sol.html">MOVED TO https://en.softpython.org/tuples/tuples-sol.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#4.-Supermarket-queues">4. Supermarket queues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#CashQueue">CashQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Supermarket">Supermarket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Supermarket-as-a-queue">Supermarket as a queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#4.1-Supermarket-size">4.1 Supermarket size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#4.2-Supermarket-dequeue">4.2 Supermarket dequeue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#4.3-Supermarket-enqueue">4.3 Supermarket enqueue</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../sets/sets-sol.html">Sets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../sets/sets-sol.html#MOVED-TO-https://en.softpython.org/sets/sets1-sol.html">MOVED TO https://en.softpython.org/sets/sets1-sol.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#5.-Shopping-mall-queues">5. Shopping mall queues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Client">Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Shop">Shop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Mall">Mall</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Mall-as-a-queue">Mall as a queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#id1">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#6.1-Mall-enqueue">6.1 Mall enqueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#6.2-Mall-dequeue">6.2 Mall dequeue</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../dictionaries/dictionaries-sol.html">Dictionaries</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../dictionaries/dictionaries-sol.html#MOVED-TO-https://en.softpython.org/#dictionaries">MOVED TO https://en.softpython.org/#dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#6.-Company-queues">6. Company queues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#7.1-add_employee">7.1 add_employee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#7.2-add_task">7.2 add_task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#7.3-work">7.3 work</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../control-flow/control-flow-sol.html">Control flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../control-flow/control-flow-sol.html#MOVED-TO-https://en.softpython.org/#control-flow">MOVED TO https://en.softpython.org/#control-flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#7.-Concert">7. Concert</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#7.1-dequeue">7.1 dequeue</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../functions/functions-sol.html">Functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Introduction">Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#What-to-do">What to do</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#What-is-a-function-?">What is a function ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html#8.-OfficeQueue">8. OfficeQueue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#8.1---time_to_service">8.1 - time_to_service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#8.2-split">8.2 split</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Namespace-and-variable-scope">Namespace and variable scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Argument-passing">Argument passing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#Positional-arguments">Positional arguments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#Passing-arguments-by-keyword">Passing arguments by keyword</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#Specifying-default-values">Specifying default values</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Simple-exercises">Simple exercises</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#sum2">sum2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#comparep">comparep</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#comparer">comparer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#even">even</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#gre">gre</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#is_vocal">is_vocal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#sphere_volume">sphere_volume</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#ciri">ciri</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#age">age</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../queues/queues2-circular.html">circular queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues2-circular.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues2-circular.html#1.-Introduction">1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues2-circular.html#2.-Example">2. Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues2-circular.html#3.-Circular-span">3. Circular span</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues2-circular.html#4.-Implement-CircularQueue">4. Implement CircularQueue</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Verify-comprehension">Verify comprehension</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#gre3">gre3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#final_price">final_price</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#arrival_time">arrival_time</a></li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../trees/bin-trees.html">Binary Trees</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#Download-exercises-zip">Download exercises zip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#What-to-do">What to do</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#0.-Introduction">0. Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.1-References">0.1 References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.2-Terminology---relations">0.2 Terminology - relations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.3-Terminology---levels">0.3 Terminology - levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.4-Terminology---shapes">0.4 Terminology - shapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.2-Code-skeleton">0.2 Code skeleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.3-Building-trees">0.3 Building trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.3.1-Pointers">0.3.1 Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.3.2-Building-with-insert_left">0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_left</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.3.3-Building-with-bt">0.3.3 Building with <code class="docutils literal notranslate"><span class="pre">bt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#1.-Insertions">1. Insertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#1.1-insert_left">1.1 insert_left</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#1.2-insert_right">1.2 insert_right</a></li>
+</ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../functions/functions-sol.html#Lambda-functions">Lambda functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#Exercises:-lambdas">Exercises: lambdas</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#apply_borders">apply_borders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../functions/functions-sol.html#process">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#2.-Recursive-visit">2. Recursive visit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.1-sum_rec">2.1 sum_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.2-height_rec">2.2 height_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.3-depth_rec">2.3 depth_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.4-contains_rec">2.4 contains_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.5-join_rec">2.5 join_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.6-fun_rec">2.6 fun_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.7-bin_search_rec">2.7 bin_search_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.8-univalued_rec">2.8 univalued_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.9-same_rec">2.9 same_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.10-sum_leaves_rec">2.10 sum_leaves_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.11-schedule_rec">2.11 schedule_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.12-paths">2.12 paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.12.1-paths_slow_rec">2.12.1 paths_slow_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.12.2-paths_fast_rec">2.12.2 paths_fast_rec</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#3.-Stack-visit">3. Stack visit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.1-sum_stack">3.1 sum_stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.2-height_stack">3.2 height_stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.3-leaves_stack">3.3 leaves_stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.4-swap_stack">3.4 swap_stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.5-is_heap_stack">3.5 is_heap_stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.6-others">3.6 others</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#4.-Queue-visit">4. Queue visit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html#5.-Modifying-the-tree">5. Modifying the tree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.1-mod_sum_rec">5.1 mod_sum_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.2-bin_insert_rec">5.2 bin_insert_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.2-add_row">5.2 add_row</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.3-prune_rec">5.3 prune_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.3-family_sum_rec">5.3 family_sum_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.4-union_rec">5.4 union_rec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.5-reconstruct">5.5 reconstruct</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../trees/gen-trees.html">Generic Trees</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/gen-trees.html#Download-exercises-zip">Download exercises zip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/gen-trees.html#0.-Introduction">0. Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#What-to-do">What to do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.1-References">0.1 References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.2-Code-skeleton">0.2 Code skeleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.3-Building-trees">0.3 Building trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.3.1-Pointers">0.3.1 Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.3.2-Building-with-insert_child">0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_child</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.3.3-Building-with-gt">0.3.3 Building with <code class="docutils literal notranslate"><span class="pre">gt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.4-Displaying-trees-side-by-side-with-str_trees">0.4 Displaying trees side by side with <code class="docutils literal notranslate"><span class="pre">str_trees</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.5-Look-at-the-tests">0.5 Look at the tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.6-Look-at-gen_tree_test.GenericTreeTest">0.6 Look at gen_tree_test.GenericTreeTest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/gen-trees.html#1-Implement-basic-methods">1 Implement basic methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.1-insert_child">1.1 insert_child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.2-insert_children">1.2 insert_children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.3-insert_sibling">1.3 insert_sibling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.4-insert_siblings">1.4 <code class="docutils literal notranslate"><span class="pre">insert_siblings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.5-detach_child">1.5 <code class="docutils literal notranslate"><span class="pre">detach_child</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.6-detach_sibling">1.6 <code class="docutils literal notranslate"><span class="pre">detach_sibling</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.7-detach">1.7 <code class="docutils literal notranslate"><span class="pre">detach</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1.8-ancestors">1.8 <code class="docutils literal notranslate"><span class="pre">ancestors</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../trees/gen-trees.html#2-Implement-more-complex-functions">2 Implement more complex functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.1-grandchildren">2.1 <code class="docutils literal notranslate"><span class="pre">grandchildren</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.2-Zig-Zag">2.2 Zig Zag</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.2.1-zig">2.2.1 zig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.2.2-zag">2.2.2 zag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.2.3-zigzag">2.2.3 zigzag</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html">Errors and testing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Testing">Testing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Where-Is-Your-Software?">Where Is Your Software?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#even_numbers-example">even_numbers example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Error-kinds">Error kinds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.3-uncles">2.3 uncles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.4-common_ancestor">2.4 common_ancestor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.5-mirror">2.5 mirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.6-clone">2.6 clone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.7-rightmost">2.7 rightmost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.8-fill_left">2.8 fill_left</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.9-follow">2.9 follow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.10-is_triangle">2.10 is_triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.11-has_triangle">2.11 has_triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2.12-marvelous">2.12 marvelous</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Testing-with-Unittest">Testing with Unittest</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Running-tests">Running tests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#When-tests-don't-run">When tests don’t run</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Adding-tests">Adding tests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Exercise:-boundary-cases">Exercise: boundary cases</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Exercise:-expecting-assertions">Exercise: expecting assertions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Exercise:-good-tests">Exercise: good tests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Running-unittests-in-Visual-Studio-Code">Running unittests in Visual Studio Code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#TROUBLESHOOTING">TROUBLESHOOTING</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../errors-and-testing/errors-and-testing-sol.html#Functional-programming">Functional programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graph-algos/graph-algos.html">Graph algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../graph-algos/graph-algos.html#Download-exercises-zip">Download exercises zip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#What-to-do">What to do</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../matrices-lists/matrices-lists-sol.html">Matrices: lists</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../matrices-lists/matrices-lists-sol.html#Moved-to-https://en.softpython.org/matrices-lists/matrices-lists1-sol.html">Moved to https://en.softpython.org/matrices-lists/matrices-lists1-sol.html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graph-algos/graph-algos.html#Introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.1-Graph-theory">0.1 Graph theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.2-Directed-graphs">0.2 Directed graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.3-Serious-graphs">0.3 Serious graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.4-Code-skeleton">0.4 Code skeleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.5-Building-graphs">0.5 Building graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.5.1-Building-basics">0.5.1 Building basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.5.2-dig()">0.5.2 dig()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.6-Equality">0.6 Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7-Basic-querying">0.7 Basic querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7.1-adj">0.7.1 adj</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7.2-is_empty()">0.7.2 is_empty()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7.3-verteces()">0.7.3 verteces()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.8-Blow-up-your-computer">0.8 Blow up your computer</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../matrices-numpy/matrices-numpy-sol.html">Matrices: numpy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../matrices-numpy/matrices-numpy-sol.html#Moved-to-https://en.softpython.org/matrices-numpy/matrices-numpy-sol.html">Moved to https://en.softpython.org/matrices-numpy/matrices-numpy-sol.html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.-Implement-building">1. Implement building</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.1-has_edge">1.1 has_edge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.2-full_graph">1.2 full_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.3-dag">1.3 dag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.4-list_graph">1.4 list_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.5-star_graph">1.5 star_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.6-odd_line">1.6 odd_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.7-even_line">1.7 even_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.8-quads">1.8 quads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.9-pie">1.9 pie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.10-Flux-Capacitor">1.10 Flux Capacitor</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../formats/formats-sol.html">Data formats</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../formats/formats-sol.html#MOVED-TO-https://en.softpython.org/formats/formats-sol.html">MOVED TO https://en.softpython.org/formats/formats-sol.html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.-Manipulate-graphs">2. Manipulate graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.1-remove_vertex">2.1 remove_vertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.2-transpose">2.2 transpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.3-has_self_loops">2.3 has_self_loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.4-remove_self_loops">2.4 remove_self_loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.5-undir">2.5 undir</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../graph-formats/graph-formats-sol.html">Graph formats</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../graph-formats/graph-formats-sol.html#Moved-to-https://en.softpython.org/formats/formats4-graph-sol.html">Moved to https://en.softpython.org/formats/formats4-graph-sol.html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.-Query-graphs">3. Query graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.1-distances()">3.1 distances()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.2-equidistances()">3.2 equidistances()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.3-Play-with-dfs-and-bfs">3.3 Play with dfs and bfs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.4-Exits-graph">3.4 Exits graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.4.1-Exits-graph-cp">3.4.1 Exits graph cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.4.2-Exit-graph-exits">3.4.2 Exit graph exits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.5-connected-components">3.5 connected components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.6-has_cycle">3.6 has_cycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.7-top_sort">3.7 top_sort</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../visualization/visualization-sol.html">Visualization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../visualization/visualization-sol.html#Moved-to-https://en.softpython.org/visualization/visualization-sol.html">Moved to https://en.softpython.org/visualization/visualization-sol.html</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../pandas/pandas-sol.html">Pandas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../pandas/pandas-sol.html#Moved-to-https://en.softpython.org/pandas/pandas1-sol.html">Moved to https://en.softpython.org/pandas/pandas1-sol.html</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">Part B References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references.html#LeetCode-for-Part-B">LeetCode for Part B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references.html#LeetCode-LinkedLists">LeetCode LinkedLists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references.html#LeetCode-Queues">LeetCode Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references.html#LeetCode-Trees">LeetCode Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references.html#LeetCode-Graphs">LeetCode Graphs</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../binary-relations/binary-relations-sol.html">Binary relations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../binary-relations/binary-relations-sol.html#MOVED-TO-https://en.softpython.org/binary-relations/binary-relations-sol.html">MOVED TO https://en.softpython.org/binary-relations/binary-relations-sol.html</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references.html#Geeks-for-geeks">Geeks for geeks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../references.html#Geeks-for-geeks-Queues">Geeks for geeks Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../references.html#Geeks-for-geeks-Graphs">Geeks for geeks Graphs</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../toc.html#part-b">Part B</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../toc-oop.html">OOP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop1-intro.html">OOP</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#What-to-do">What to do</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#1.-Abstract-Data-Types-(ADT)-Theory">1. Abstract Data Types (ADT) Theory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#2.-ComplexNumber-class">2. ComplexNumber class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#3.-MultiSet">3. MultiSet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#3.1-__init__-add-and-get">3.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#3.2-removen">3.2 <code class="docutils literal notranslate"><span class="pre">removen</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop1-intro.html#4.-Challenges">4. Challenges</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html">OOP Matrix Challenge</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#What-to-do">What to do</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#DenseMatrix">DenseMatrix</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Constructors-and-printing">Constructors and printing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#shape">shape</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Brackets-operator">Brackets operator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#nonzero">nonzero</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#isclose">isclose</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Equality">Equality</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sum">Sum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Multiplication">Multiplication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#SparseMatrix">SparseMatrix</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-constructors-and-printing">Sparse constructors and printing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-shape">Sparse shape</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-Brackets-operator">Sparse Brackets operator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-nonzero">Sparse nonzero</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-isclose">Sparse isclose</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-equality">Sparse equality</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-sum">Sparse sum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../oop/oop2-matrix-chal.html#Sparse-multiplication">Sparse multiplication</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../indexing/indexing.html">Indexing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#1.-Exercise---chains">1. Exercise - chains</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../indexing/indexing.html#1.1-has_duplicates">1.1 has_duplicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../indexing/indexing.html#1.2-chain">1.2 chain</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../indexing/indexing.html#2.-Exercise---Bank">2. Exercise - Bank</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../indexing/indexing.html#2.1-bank-constructor,-log-and-pos">2.1 bank constructor, log and pos</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../indexing/indexing.html#2.2-bank-revert">2.2 bank revert</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../indexing/indexing.html#2.3-bank-max_interval">2.3 bank max_interval</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../toc-recursion.html">Recursion</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html">simple functional programming</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---how-to">SimpleFP - how-to</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---variable-assignment">SimpleFP - variable assignment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---list-creation">SimpleFP - list creation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---boxing">SimpleFP - boxing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---concatenation">SimpleFP - concatenation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---accessing-list-elements">SimpleFP - accessing list elements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---slicing">SimpleFP - slicing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---minimal-instruction-set">SimpleFP - minimal instruction set</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---functions-and-conditionals">SimpleFP - functions and conditionals</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP---recursion">SimpleFP - recursion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Simple-FP---Example---scount">Simple FP - Example - <code class="docutils literal notranslate"><span class="pre">scount</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Simple-FP---debugging">Simple FP - debugging</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#SimpleFP:-a-recursion-scheme">SimpleFP: a recursion scheme</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Example---sdouble">Example - <code class="docutils literal notranslate"><span class="pre">sdouble</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---debug-double">Exercise - debug double</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sfilter_even">Exercise - sfilter_even</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---smerry">Exercise - smerry</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---ssum">Exercise - ssum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---smin">Exercise - smin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---ssearch">Exercise - ssearch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sbin_search">Exercise - sbin_search</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---szip">Exercise - szip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sunnest">Exercise - sunnest</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sfib">Exercise - sfib</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---sall">Exercise - sall</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---srev">Exercise - srev</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---spalindrome">Exercise - spalindrome</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---snest">Exercise - snest</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---spalace">Exercise - spalace</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---srep">Exercise - srep</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion1-simplefp.html#Exercise---ssortin">Exercise - ssortin</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion2-modacc.html">accumulators and indeces</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Example---adouble">Example - <code class="docutils literal notranslate"><span class="pre">adouble</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---debug-adouble">Exercise - debug adouble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---afilter_even">Exercise - afilter_even</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---amerry">Exercise - amerry</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---afib">Exercise - afib</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---asearch">Exercise - asearch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---abin_search">Exercise - abin_search</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---azip">Exercise - azip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---aunnest">Exercise - aunnest</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---arev">Exercise - arev</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---apalindrome">Exercise - apalindrome</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---anest">Exercise - anest</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---apalace">Exercise - apalace</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---arep">Exercise - arep</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---asortin">Exercise - asortin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---ahist">Exercise - ahist</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Exercise---agap">Exercise - agap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion2-modacc.html#Continue">Continue</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion3-divide.html">divide and conquer</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Managing-solutions">Managing solutions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Divide-and-conquer---SimpleFP-style">Divide and conquer - SimpleFP style</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Divide-and-conquer---Accumulator-style">Divide and conquer - Accumulator style</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#More-exercises">More exercises</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion3-divide.html#Continue">Continue</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../recursion/recursion4-chal.html">challenges</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Cthulhu">Challenge - Cthulhu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Ghatanothoa">Challenge - Ghatanothoa</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Hastur">Challenge - Hastur</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Tsathoggua">Challenge - Tsathoggua</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Yig">Challenge - Yig</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Shub-Niggurath">Challenge - Shub-Niggurath</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Shoggoth">Challenge - Shoggoth</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#Challenge---Azathoth">Challenge - Azathoth</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../recursion/recursion4-chal.html#References">References</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html">Algorithm analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#List-performance">List performance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Fast-or-not?">Fast or not?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Sublist-iteration-performance">Sublist iteration performance</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Some-formulas">Some formulas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Lists---exercises">Lists - exercises</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---rollsroyce">Exercise - rollsroyce</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---honda">Exercise - honda</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---lamborghini">Exercise - lamborghini</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---maserati">Exercise - maserati</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---toyota">Exercise - toyota</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---mercedes">Exercise - mercedes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---acura">Exercise - acura</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---alfaromeo">Exercise - alfaromeo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---jeep">Exercise - jeep</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---chevrolet">Exercise - chevrolet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---kia">Exercise - kia</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---aston_martin">Exercise - aston_martin</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---subaru">Exercise - subaru</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---dodge">Exercise - dodge</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---lotus">Exercise - lotus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---jaguar">Exercise - jaguar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---hyundai">Exercise - hyundai</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---buick">Exercise - buick</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---saab">Exercise - saab</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Sets-performance">Sets performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Sets---exercises">Sets - exercises</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---land_rover">Exercise - land_rover</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---volkswagen">Exercise - volkswagen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---pontiac">Exercise - pontiac</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---volvo">Exercise - volvo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---chrysler">Exercise - chrysler</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Dictionaries-performance">Dictionaries performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Dictionaries---exercises">Dictionaries - exercises</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---tesla">Exercise - tesla</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---bmw">Exercise - bmw</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---nissan">Exercise - nissan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---ferrari">Exercise - ferrari</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---bentley">Exercise - bentley</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---mclaren">Exercise - mclaren</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---fiat">Exercise - fiat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---mustang">Exercise - mustang</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Recursion">Recursion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Recursion---exercises">Recursion - exercises</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---yamaha">Exercise - yamaha</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---cadillac">Exercise - cadillac</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Exercise---ducati">Exercise - ducati</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../algo-analysis/algo-analysis-sol.html#Analysis---more-exercises">Analysis - more exercises</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../toc-sorting.html">Sorting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting1.html">intro</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Exercises">Exercises</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#1-Selection-Sort">1 Selection Sort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#2-Insertion-sort">2 Insertion sort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#3-Merge-sort">3 Merge sort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#4-quick-sort">4 quick sort</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#5-SwapArray">5 SwapArray</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting1.html#Challenges">Challenges</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../sorting/sorting2-chal.html">challenges</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting2-chal.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting2-chal.html#Crime-parade">Crime parade</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting2-chal.html#McFat's">McFat’s</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../sorting/sorting2-chal.html#Partitocracy">Partitocracy</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../stacks/stacks.html">Stacks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#0.-Introduction">0. Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#References">References</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#What-to-do">What to do</a></li>
+</li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#1.-CappedStack">1. CappedStack</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#CappedStack-Examples">CappedStack Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#Capped-Stack-basic-methods">Capped Stack basic methods</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.1-__init__">1.1 <code class="docutils literal notranslate"><span class="pre">__init__</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.2-cap">1.2 cap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.3-size">1.3 size</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.4-__str__">1.4 <code class="docutils literal notranslate"><span class="pre">__str__</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.5-is_empty">1.5 is_empty</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.6-push">1.6 push</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.7-peek">1.7 peek</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.8-pop">1.8 pop</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.9-peekn">1.9 peekn</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.10-popn">1.10 popn</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#1.11-set_cap">1.11 set_cap</a></li>
-</ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#september-2020">1.0 September 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#september-2018">0.1, September 2018</a></li>
+</ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#2.-SortedStack">2. SortedStack</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#2.1-transfer">2.1 transfer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#2.2-merge">2.2 merge</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#3.-WStack">3. WStack</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#3.1-implement-class-WStack">3.1 implement class WStack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#3.2-accumulate">3.2 accumulate</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#4.-Backpack">4. Backpack</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#4.1-class">4.1 class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#4.2-remove">4.2 remove</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#5.-Train-race">5. Train race</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#6.-PyraStack">6. PyraStack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#7.-Tasks">7. Tasks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#7.1-do">7.1 do</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#7.2-do_level">7.2 do_level</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../stacks/stacks.html#8.-Stacktris">8. Stacktris</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#8.1-_shorten">8.1 _shorten</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#8.2-drop1">8.2 drop1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../stacks/stacks.html#6.3-drop2h">6.3 drop2h</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../toc-linked-lists.html">Linked lists</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists1.html">intro</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#0-Introduction">0 Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#1-v1:-a-slow-LinkedList">1 v1: a slow LinkedList</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#2-v2-faster-size">2 v2 faster size</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#3-v3-Faster-append">3 v3 Faster append</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#4-v4-Go-bidirectional">4 v4 Go bidirectional</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#5-EqList">5 EqList</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#6-Cloning">6 Cloning</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#7-More-exercises">7 More exercises</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#8-Last-exercises">8 Last exercises</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists1.html#Challenge">Challenge</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html">challenges</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html#rshift">rshift</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../linked-lists/linked-lists2-chal.html#lshift">lshift</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../toc-queues.html">Queues</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues1-intro.html">intro</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#Introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#1.-LinkedQueue">1. LinkedQueue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#2.-CircularQueue">2. CircularQueue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#3.-ItalianQueue">3. ItalianQueue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#4.-Supermarket-queues">4. Supermarket queues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#5.-Shopping-mall-queues">5. Shopping mall queues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#6.-Company-queues">6. Company queues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#7.-Concert">7. Concert</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues1-intro.html#8.-OfficeQueue">8. OfficeQueue</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../queues/queues2-circular.html">circular queue</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues2-circular.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues2-circular.html#1.-Introduction">1. Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues2-circular.html#2.-Example">2. Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues2-circular.html#3.-Circular-span">3. Circular span</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../queues/queues2-circular.html#4.-Implement-CircularQueue">4. Implement CircularQueue</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../trees/bin-trees.html">Binary Trees</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#Download-exercises-zip">Download exercises zip</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#What-to-do">What to do</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#0.-Introduction">0. Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.1-References">0.1 References</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.2-Terminology---relations">0.2 Terminology - relations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.3-Terminology---levels">0.3 Terminology - levels</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.4-Terminology---shapes">0.4 Terminology - shapes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.2-Code-skeleton">0.2 Code skeleton</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.3-Building-trees">0.3 Building trees</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.3.1-Pointers">0.3.1 Pointers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.3.2-Building-with-insert_left">0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_left</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#0.3.3-Building-with-bt">0.3.3 Building with <code class="docutils literal notranslate"><span class="pre">bt</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#1.-Insertions">1. Insertions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#1.1-insert_left">1.1 insert_left</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#1.2-insert_right">1.2 insert_right</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#2.-Recursive-visit">2. Recursive visit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.1-sum_rec">2.1 sum_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.2-height_rec">2.2 height_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.3-depth_rec">2.3 depth_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.4-contains_rec">2.4 contains_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.5-join_rec">2.5 join_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.6-fun_rec">2.6 fun_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.7-bin_search_rec">2.7 bin_search_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.8-univalued_rec">2.8 univalued_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.9-same_rec">2.9 same_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.10-sum_leaves_rec">2.10 sum_leaves_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.11-schedule_rec">2.11 schedule_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.12-paths">2.12 paths</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.12.1-paths_slow_rec">2.12.1 paths_slow_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#2.12.2-paths_fast_rec">2.12.2 paths_fast_rec</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#3.-Stack-visit">3. Stack visit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#3.1-sum_stack">3.1 sum_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#3.2-height_stack">3.2 height_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#3.3-leaves_stack">3.3 leaves_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#3.4-swap_stack">3.4 swap_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#3.5-is_heap_stack">3.5 is_heap_stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#3.6-others">3.6 others</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#4.-Queue-visit">4. Queue visit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/bin-trees.html#5.-Modifying-the-tree">5. Modifying the tree</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.1-mod_sum_rec">5.1 mod_sum_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.2-bin_insert_rec">5.2 bin_insert_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.2-add_row">5.2 add_row</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.3-prune_rec">5.3 prune_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.3-family_sum_rec">5.3 family_sum_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.4-union_rec">5.4 union_rec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/bin-trees.html#5.5-reconstruct">5.5 reconstruct</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../trees/gen-trees.html">Generic Trees</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#Download-exercises-zip">Download exercises zip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#0.-Introduction">0. Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#What-to-do">What to do</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.1-References">0.1 References</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.2-Code-skeleton">0.2 Code skeleton</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.3-Building-trees">0.3 Building trees</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.3.1-Pointers">0.3.1 Pointers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.3.2-Building-with-insert_child">0.3.2 Building with <code class="docutils literal notranslate"><span class="pre">insert_child</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.3.3-Building-with-gt">0.3.3 Building with <code class="docutils literal notranslate"><span class="pre">gt</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.4-Displaying-trees-side-by-side-with-str_trees">0.4 Displaying trees side by side with <code class="docutils literal notranslate"><span class="pre">str_trees</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.5-Look-at-the-tests">0.5 Look at the tests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#0.6-Look-at-gen_tree_test.GenericTreeTest">0.6 Look at gen_tree_test.GenericTreeTest</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#1-Implement-basic-methods">1 Implement basic methods</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.1-insert_child">1.1 insert_child</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.2-insert_children">1.2 insert_children</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.3-insert_sibling">1.3 insert_sibling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.4-insert_siblings">1.4 <code class="docutils literal notranslate"><span class="pre">insert_siblings</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.5-detach_child">1.5 <code class="docutils literal notranslate"><span class="pre">detach_child</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.6-detach_sibling">1.6 <code class="docutils literal notranslate"><span class="pre">detach_sibling</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.7-detach">1.7 <code class="docutils literal notranslate"><span class="pre">detach</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#1.8-ancestors">1.8 <code class="docutils literal notranslate"><span class="pre">ancestors</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../trees/gen-trees.html#2-Implement-more-complex-functions">2 Implement more complex functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.1-grandchildren">2.1 <code class="docutils literal notranslate"><span class="pre">grandchildren</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.2-Zig-Zag">2.2 Zig Zag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.3-uncles">2.3 uncles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.4-common_ancestor">2.4 common_ancestor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.5-mirror">2.5 mirror</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.6-clone">2.6 clone</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.7-rightmost">2.7 rightmost</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.8-fill_left">2.8 fill_left</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.9-follow">2.9 follow</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.10-is_triangle">2.10 is_triangle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.11-has_triangle">2.11 has_triangle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trees/gen-trees.html#2.12-marvelous">2.12 marvelous</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../graph-algos/graph-algos.html">Graph algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#Download-exercises-zip">Download exercises zip</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#What-to-do">What to do</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#Introduction">Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.1-Graph-theory">0.1 Graph theory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.2-Directed-graphs">0.2 Directed graphs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.3-Serious-graphs">0.3 Serious graphs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.4-Code-skeleton">0.4 Code skeleton</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.5-Building-graphs">0.5 Building graphs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.5.1-Building-basics">0.5.1 Building basics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.5.2-dig()">0.5.2 dig()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.6-Equality">0.6 Equality</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7-Basic-querying">0.7 Basic querying</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7.1-adj">0.7.1 adj</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7.2-is_empty()">0.7.2 is_empty()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.7.3-verteces()">0.7.3 verteces()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#0.8-Blow-up-your-computer">0.8 Blow up your computer</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.-Implement-building">1. Implement building</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.1-has_edge">1.1 has_edge</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.2-full_graph">1.2 full_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.3-dag">1.3 dag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.4-list_graph">1.4 list_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.5-star_graph">1.5 star_graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.6-odd_line">1.6 odd_line</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.7-even_line">1.7 even_line</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.8-quads">1.8 quads</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.9-pie">1.9 pie</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#1.10-Flux-Capacitor">1.10 Flux Capacitor</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.-Manipulate-graphs">2. Manipulate graphs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.1-remove_vertex">2.1 remove_vertex</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.2-transpose">2.2 transpose</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.3-has_self_loops">2.3 has_self_loops</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.4-remove_self_loops">2.4 remove_self_loops</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#2.5-undir">2.5 undir</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.-Query-graphs">3. Query graphs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.1-distances()">3.1 distances()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.2-equidistances()">3.2 equidistances()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.3-Play-with-dfs-and-bfs">3.3 Play with dfs and bfs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.4-Exits-graph">3.4 Exits graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.4.1-Exits-graph-cp">3.4.1 Exits graph cp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.4.2-Exit-graph-exits">3.4.2 Exit graph exits</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.5-connected-components">3.5 connected components</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.6-has_cycle">3.6 has_cycle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../graph-algos/graph-algos.html#3.7-top_sort">3.7 top_sort</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../references.html">Part B References</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../references.html#LeetCode-for-Part-B">LeetCode for Part B</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../references.html#LeetCode-LinkedLists">LeetCode LinkedLists</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../references.html#LeetCode-Queues">LeetCode Queues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../references.html#LeetCode-Trees">LeetCode Trees</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../references.html#LeetCode-Graphs">LeetCode Graphs</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../references.html#Geeks-for-geeks">Geeks for geeks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../references.html#Geeks-for-geeks-Queues">Geeks for geeks Queues</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../references.html#Geeks-for-geeks-Graphs">Geeks for geeks Graphs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#september-2020">1.0 September 2020</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#september-2018">0.1, September 2018</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../toc.html#index">Index</a></li>
+<li class="toctree-l1"><a class="reference external" href="toc.html#http://">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../toc-page.html">Sciprog DS Lab</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -1211,7 +1215,7 @@
          see https://github.com/DavidLeoni/jupman/issues/39
     <li><a href="../../../toc-page.html">Docs</a> &raquo;</li>
     
-        <li><a href="../../../toc.html"> </a> &raquo;</li>
+        <li><a href="../../../toc.html">&lt;no title&gt;</a> &raquo;</li>
     
         <li><a href="../../../past-exams.html">Past Exams</a> &raquo;</li>
     
@@ -1220,27 +1224,41 @@
 
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
     border: none;
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -1341,7 +1359,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 /* override MathJax center alignment in output cells */
@@ -1407,6 +1425,7 @@ div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
     padding: 5px;
+    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1416,7 +1435,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -1480,25 +1499,24 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Please execute this cell</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please execute this cell</span>
 <span class="kn">import</span> <span class="nn">sciprog</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Exam---Thu-23,-Jan-2020">
-<h1>Exam - Thu 23, Jan 2020<a class="headerlink" href="#Exam---Thu-23,-Jan-2020" title="Permalink to this headline">¶</a></h1>
+<section id="Exam---Thu-23,-Jan-2020">
+<h1>Exam - Thu 23, Jan 2020<a class="headerlink" href="#Exam---Thu-23,-Jan-2020" title="Permalink to this headline"></a></h1>
 <p><strong>Scientific Programming - Data Science &#64; University of Trento</strong></p>
-<div class="section" id="Download-exercises-and-solution">
-<h2><a class="reference external" href="../../../_static/generated/sciprog-ds-2020-01-23-exam.zip">Download exercises and solution</a><a class="headerlink" href="#Download-exercises-and-solution" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Introduction">
-<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h2>
+<section id="Download-exercises-and-solution">
+<h2><a class="reference external" href="../../../_static/generated/sciprog-ds-2020-01-23-exam.zip">Download exercises and solution</a><a class="headerlink" href="#Download-exercises-and-solution" title="Permalink to this headline"></a></h2>
+</section>
+<section id="Introduction">
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><strong>Taking part to this exam erases any vote you had before</strong></p></li>
 </ul>
-<div class="section" id="What-to-do">
-<h3>What to do<a class="headerlink" href="#What-to-do" title="Permalink to this headline">¶</a></h3>
+<section id="What-to-do">
+<h3>What to do<a class="headerlink" href="#What-to-do" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">sciprog-ds-2020-01-23-exam.zip</span></code> and extract it on your desktop. Folder content should be like this:</p></li>
 </ol>
@@ -1528,14 +1546,14 @@ div.rendered_html tbody tr:hover {
 <li><p>if you have unitn login: zip and send to <a class="reference external" href="http://examina.icts.unitn.it/studente">examina.icts.unitn.it/studente</a></p></li>
 <li><p>If you don’t have unitn login: tell instructors and we will download your work manually</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="Part-A">
-<h2>Part A<a class="headerlink" href="#Part-A" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Part-A">
+<h2>Part A<a class="headerlink" href="#Part-A" title="Permalink to this headline"></a></h2>
 <p>Open Jupyter and start editing this notebook <code class="docutils literal notranslate"><span class="pre">exam-2020-01-23.ipynb</span></code></p>
-</div>
-<div class="section" id="Metamath">
-<h2>Metamath<a class="headerlink" href="#Metamath" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Metamath">
+<h2>Metamath<a class="headerlink" href="#Metamath" title="Permalink to this headline"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>NOTICE: this part of the exam was ported to</strong> <a class="reference external" href="https://en.softpython.org/projects/metamath/metamath-sol.html">softpython</a> <strong>website</strong></p>
 <p>There you can find a more curated version (notice it may be longer than here)</p>
@@ -1551,8 +1569,8 @@ div.rendered_html tbody tr:hover {
 <p class="admonition-title fa fa-exclamation-circle"><strong>DISCLAIMER: No panic</strong> !</p>
 <p>You <strong>DO NOT</strong> need to understand <em>any</em> of the mathematics which follows. Here we are <em>only</em> interested in parsing the data and visualize it</p>
 </div>
-<div class="section" id="Metamath-db">
-<h3>Metamath db<a class="headerlink" href="#Metamath-db" title="Permalink to this headline">¶</a></h3>
+<section id="Metamath-db">
+<h3>Metamath db<a class="headerlink" href="#Metamath-db" title="Permalink to this headline"></a></h3>
 <p>First you will load <code class="docutils literal notranslate"><span class="pre">data/db.mm</span></code> and parse text file into Python, here is the full content:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$( Declare the constant symbols we will use $)
     $c 0 + = -&gt; ( ) term wff |- $.
@@ -1628,18 +1646,17 @@ $( Define the modus ponens inference rule $)
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="A.1-Metamath-db">
-<h2>A.1 Metamath db<a class="headerlink" href="#A.1-Metamath-db" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="A.1-Metamath-db">
+<h2>A.1 Metamath db<a class="headerlink" href="#A.1-Metamath-db" title="Permalink to this headline"></a></h2>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
 
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1699,8 +1716,7 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_db</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
 
 <span class="n">db_mm</span> <span class="o">=</span> <span class="n">parse_db</span><span class="p">(</span><span class="s1">&#39;data/db.mm&#39;</span><span class="p">)</span>
@@ -1721,8 +1737,7 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;************   EXPECTED OUTPUT:  ****************&quot;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">db_mm</span><span class="p">)</span>
 </pre></div>
@@ -1750,9 +1765,9 @@ $( Define the modus ponens inference rule $)
  &#39;wq&#39;: {&#39;keyword&#39;: &#39;$f&#39;, &#39;sequence&#39;: &#39;wff Q&#39;}}
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="A.2-Metamath-proof">
-<h2>A.2 Metamath proof<a class="headerlink" href="#A.2-Metamath-proof" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="A.2-Metamath-proof">
+<h2>A.2 Metamath proof<a class="headerlink" href="#A.2-Metamath-proof" title="Permalink to this headline"></a></h2>
 <p>A proof file is made of steps, one per row. Each statement, in order to be proven, needs other steps to be proven until very basic facts called axioms are reached, which need no further proof (typically proofs in Metamath are shown in much shorter format, but here we use a more explicit way)</p>
 <p>So a proof can be nicely displayed as a tree of the steps it is made of, where the top node is the step to be proven and the axioms are the leaves of the tree.</p>
 <p>Complete content of <code class="docutils literal notranslate"><span class="pre">data/proof.txt</span></code>:</p>
@@ -1841,8 +1856,7 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">parse_proof</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_proof</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
 
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -1982,8 +1996,7 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">parse_proof</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_proof</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;TODO IMPLEMENT ME !&#39;</span><span class="p">)</span>
 
 <span class="n">proof</span> <span class="o">=</span> <span class="n">parse_proof</span><span class="p">(</span><span class="s1">&#39;data/proof.txt&#39;</span><span class="p">)</span>
@@ -2090,22 +2103,21 @@ $( Define the modus ponens inference rule $)
   &#39;step_ids&#39;: [5, 8, 10, 33]}]
 </pre></div></div>
 </div>
-<div class="section" id="Checking-proof">
-<h3>Checking proof<a class="headerlink" href="#Checking-proof" title="Permalink to this headline">¶</a></h3>
+<section id="Checking-proof">
+<h3>Checking proof<a class="headerlink" href="#Checking-proof" title="Permalink to this headline"></a></h3>
 <p>If you’ve done everything properly, by executing following cells you should be be able to see nice graphs.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>IMPORTANT: You do not need to implement anything!</strong></p>
 <p>Just look if results match expected graphs</p>
 </div>
-<div class="section" id="Overview-plot">
-<h4>Overview plot<a class="headerlink" href="#Overview-plot" title="Permalink to this headline">¶</a></h4>
+<section id="Overview-plot">
+<h4>Overview plot<a class="headerlink" href="#Overview-plot" title="Permalink to this headline"></a></h4>
 <p>Here we only show step numbers using function <code class="docutils literal notranslate"><span class="pre">draw_proof</span></code> defined in <code class="docutils literal notranslate"><span class="pre">sciprog</span></code> library</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sciprog</span> <span class="kn">import</span> <span class="n">draw_proof</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sciprog</span> <span class="kn">import</span> <span class="n">draw_proof</span>
 <span class="c1"># uncomment and check</span>
 <span class="c1">#draw_proof(proof, db_mm, only_ids=True)  # all graph, only numbers</span>
 </pre></div>
@@ -2115,8 +2127,7 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;************************ EXPECTED COMPLETE GRAPH  **********************************&#39;</span><span class="p">)</span>
 <span class="n">draw_proof</span><span class="p">(</span><span class="n">proof</span><span class="p">,</span> <span class="n">db_mm</span><span class="p">,</span> <span class="n">only_ids</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -2138,17 +2149,16 @@ $( Define the modus ponens inference rule $)
 <img alt="../../../_images/exams_2020-01-23_solutions_exam-2020-01-23-sol_25_1.png" src="../../../_images/exams_2020-01-23_solutions_exam-2020-01-23-sol_25_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Detail-plot">
-<h4>Detail plot<a class="headerlink" href="#Detail-plot" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="Detail-plot">
+<h4>Detail plot<a class="headerlink" href="#Detail-plot" title="Permalink to this headline"></a></h4>
 <p>Here we show data from both the <code class="docutils literal notranslate"><span class="pre">proof</span></code> and the <code class="docutils literal notranslate"><span class="pre">db_mm</span></code> we calculated earlier. To avoid having a huge graph we only focus on subtree starting from <code class="docutils literal notranslate"><span class="pre">step_id</span></code> 24.</p>
 <p>To understand what is shown, look at node <code class="docutils literal notranslate"><span class="pre">20</span></code>: - first line contains statement <code class="docutils literal notranslate"><span class="pre">wff</span> <span class="pre">(</span> <span class="pre">t</span> <span class="pre">+</span> <span class="pre">0</span> <span class="pre">)</span> <span class="pre">=</span> <span class="pre">t</span></code> taken from line 20 of <code class="docutils literal notranslate"><span class="pre">proof</span></code> file - second line <code class="docutils literal notranslate"><span class="pre">weq:</span> <span class="pre">wff</span> <span class="pre">t</span> <span class="pre">=</span> <span class="pre">r</span></code> is taken from <code class="docutils literal notranslate"><span class="pre">db_mm</span></code>, and means rule labeled <code class="docutils literal notranslate"><span class="pre">weq</span></code> was used to derive the statement in the first line.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># uncomment and check</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment and check</span>
 <span class="c1">#draw_proof(proof, db_mm, step_id=24)</span>
 </pre></div>
 </div>
@@ -2157,12 +2167,10 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;************************* EXPECTED DETAIL GRAPH  *******************************&#39;</span><span class="p">)</span>
 <span class="n">draw_proof</span><span class="p">(</span><span class="n">proof</span><span class="p">,</span> <span class="n">db_mm</span><span class="p">,</span> <span class="n">step_id</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2181,14 +2189,14 @@ $( Define the modus ponens inference rule $)
 <img alt="../../../_images/exams_2020-01-23_solutions_exam-2020-01-23-sol_28_1.png" src="../../../_images/exams_2020-01-23_solutions_exam-2020-01-23-sol_28_1.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="A.3-Metamath-top-statements">
-<h2>A.3 Metamath top statements<a class="headerlink" href="#A.3-Metamath-top-statements" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="A.3-Metamath-top-statements">
+<h2>A.3 Metamath top statements<a class="headerlink" href="#A.3-Metamath-top-statements" title="Permalink to this headline"></a></h2>
 <p>We can measure the importance of theorems and definitions (in general, <em>statements</em>) by counting how many times they are referenced in proofs.</p>
-<div class="section" id="A3.1-histogram">
-<h3>A3.1 histogram<a class="headerlink" href="#A3.1-histogram" title="Permalink to this headline">¶</a></h3>
+<section id="A3.1-histogram">
+<h3>A3.1 histogram<a class="headerlink" href="#A3.1-histogram" title="Permalink to this headline"></a></h3>
 <p>Write some code to plot the histogram of <em>statement</em> labels referenced by steps in <code class="docutils literal notranslate"><span class="pre">proof</span></code>, from most to least frequently referenced.</p>
 <p>A label gets a count each time a step references another step with that label.</p>
 <p>For example, in the subgraph above:</p>
@@ -2202,20 +2210,16 @@ $( Define the modus ponens inference rule $)
 <p class="admonition-title fa fa-exclamation-circle"><strong>NOTE: the previous counts are just for the subgraph example.</strong></p>
 <p>In your exercise, you will need to consider all the steps</p>
 </div>
-</div>
-<div class="section" id="A3.2-print-list">
-<h3>A3.2 print list<a class="headerlink" href="#A3.2-print-list" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="A3.2-print-list">
+<h3>A3.2 print list<a class="headerlink" href="#A3.2-print-list" title="Permalink to this headline"></a></h3>
 <p>Below the graph, print the list of labels from most to least frequent, associating them to corresponding statement sequence taken from <code class="docutils literal notranslate"><span class="pre">db_mm</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># write here</span>
-
-
-
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write here</span>
+<br/><br/><br/></pre></div>
 </div>
 </div>
 <a  class="jupman-sol jupman-sol-toggler"
@@ -2224,9 +2228,7 @@ $( Define the modus ponens inference rule $)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="c1"># SOLUTION</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># SOLUTION</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -2292,8 +2294,7 @@ a1 :     |- ( t = r -&gt; ( t = s -&gt; r = s ) )
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -2319,16 +2320,16 @@ mp :     |- Q
 a1 :     |- ( t = r -&gt; ( t = s -&gt; r = s ) )
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Part-B">
-<h2>Part B<a class="headerlink" href="#Part-B" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="B1-Theory">
-<h2>B1 Theory<a class="headerlink" href="#B1-Theory" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Part-B">
+<h2>Part B<a class="headerlink" href="#Part-B" title="Permalink to this headline"></a></h2>
+</section>
+<section id="B1-Theory">
+<h2>B1 Theory<a class="headerlink" href="#B1-Theory" title="Permalink to this headline"></a></h2>
 <p><strong>Write the solution in separate ``theory.txt`` file</strong></p>
-<div class="section" id="B1.1-my_fun">
-<h3>B1.1 my_fun<a class="headerlink" href="#B1.1-my_fun" title="Permalink to this headline">¶</a></h3>
+<section id="B1.1-my_fun">
+<h3>B1.1 my_fun<a class="headerlink" href="#B1.1-my_fun" title="Permalink to this headline"></a></h3>
 <p>Given a list <code class="docutils literal notranslate"><span class="pre">L</span></code> of <code class="docutils literal notranslate"><span class="pre">n</span></code> elements, please compute the asymptotic computational complexity of the following function, explaining your reasoning.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_fun</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -2342,14 +2343,14 @@ a1 :     |- ( t = r -&gt; ( t = s -&gt; r = s ) )
         <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="B1.2-differences">
-<h3>B1.2 differences<a class="headerlink" href="#B1.2-differences" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="B1.2-differences">
+<h3>B1.2 differences<a class="headerlink" href="#B1.2-differences" title="Permalink to this headline"></a></h3>
 <p>Briefly describe the main differences between the stack and queue data structures. Please provide an example of where you would use one or the other.</p>
-</div>
-</div>
-<div class="section" id="B2-plus_one">
-<h2>B2 plus_one<a class="headerlink" href="#B2-plus_one" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="B2-plus_one">
+<h2>B2 plus_one<a class="headerlink" href="#B2-plus_one" title="Permalink to this headline"></a></h2>
 <p><strong>Open a text editor</strong> and edit file <code class="docutils literal notranslate"><span class="pre">digi_lists.py</span></code></p>
 <p>You are given this class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DigiList</span><span class="p">:</span>
@@ -2384,8 +2385,7 @@ a1 :     |- ( t = r -&gt; ( t = s -&gt; r = s ) )
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">digi_list_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">digi_list_sol</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">dl</span> <span class="o">=</span> <span class="n">DigiList</span><span class="p">()</span>
 
@@ -2412,8 +2412,7 @@ DigiList: 2,9,3,7,9,9
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dl</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dl</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2430,8 +2429,7 @@ DigiList: 2,9,3,7,9,9
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dl</span><span class="o">.</span><span class="n">plus_one</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dl</span><span class="o">.</span><span class="n">plus_one</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2439,8 +2437,7 @@ DigiList: 2,9,3,7,9,9
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2452,9 +2449,9 @@ DigiList: 2,9,3,7,9,9
 DigiList: 2,9,3,8,0,0
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="B3-add_row">
-<h2>B3 add_row<a class="headerlink" href="#B3-add_row" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="B3-add_row">
+<h2>B3 add_row<a class="headerlink" href="#B3-add_row" title="Permalink to this headline"></a></h2>
 <p><strong>Open a text editor</strong> and edit file <code class="docutils literal notranslate"><span class="pre">bin_tree.py</span></code>.</p>
 <p><img alt="tree iu9fidomnv" src="../../../_images/tree.jpg" /></p>
 <p>Now implement this method:</p>
@@ -2480,8 +2477,7 @@ DigiList: 2,9,3,8,0,0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">bin_tree_sol</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bin_tree_sol</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">bin_tree_test</span> <span class="kn">import</span> <span class="n">bt</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">bt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
@@ -2514,8 +2510,7 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">t</span><span class="o">.</span><span class="n">add_row</span><span class="p">([</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">add_row</span><span class="p">([</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -2523,8 +2518,7 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2548,55 +2542,38 @@ a
  └g
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../../2020-02-10/solutions/exam-2020-02-10-sol.html" class="btn btn-neutral float-right" title="Exam - Mon 10, Feb 2020" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../../2019-12-20/solutions/exam-2019-12-20.html" class="btn btn-neutral float-left" title="Midterm B - Fri 20, Dec 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../2020-02-10/solutions/exam-2020-02-10-sol.html" class="btn btn-neutral float-left" title="Exam - Mon 10, Feb 2020" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../2019-12-20/solutions/exam-2019-12-20.html" class="btn btn-neutral float-right" title="Midterm B - Fri 20, Dec 2019" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright # 2020 - 2022, David Leoni.
-
-    </p>
+    <p>&#169; Copyright # 2020 - 2022, David Leoni.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

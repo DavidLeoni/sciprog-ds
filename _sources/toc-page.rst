@@ -8,3 +8,6 @@
    
    toc.rst
 
+   changelog.md
+      
+   Index <toc.html#http://>
