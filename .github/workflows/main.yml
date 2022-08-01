@@ -24,7 +24,7 @@ jobs:
     
   build_docs_job:
     if: (github.repository == 'DavidLeoni/sciprog-ds') && (github.ref == 'refs/heads/master')
-    needs: run_tests
+    #needs: run_tests
     runs-on: ubuntu-20.04
     env:
       SOURCE_BRANCH: ${{ github.head_ref || github.ref_name }} 
