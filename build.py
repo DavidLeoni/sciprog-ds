@@ -145,14 +145,8 @@ def run_sphinx(manuals, formats):
                         print("Putting code documentation links ...")
 
                         f.seek(0)
-                        f.write(data)
+                        f.write(data)                    
                     
-                    info("Fixing html paths for offline browsing ....")
-
-                    replace_html(relout, 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/', '_static/js/')
-                    replace_html(relout, 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/', '_static/js/')
-                    replace_html(relout, 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML', '_static/js/MathJax.js')
-                    replace_html(relout, 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML',  '_static/js/MathJax.js')
 
                 elif fmt == 'latex':                  
                     run('latexmk -r latexmkrc -pdf -f -dvi- -ps- -jobname=' + jm.filename + ' -interaction=nonstopmode', cwd=relout)

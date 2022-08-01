@@ -1,28 +1,53 @@
+
 on: [push]
 
 jobs:
+  
+  run_tests:     
+    if: (github.repository == 'DavidLeoni/jupman') && ((github.ref == 'refs/heads/master') || (github.ref == 'refs/heads/dev') || (github.ref == 'refs/heads/themed'))
+    runs-on: ubuntu-20.04
+    env:
+      SOURCE_BRANCH: ${{ github.head_ref || github.ref_name }} 
+    name: Run tests
+    steps:  
+    - name: Install test deps
+      run: |
+        sudo apt-get install pandoc        
+        git clone  --depth=1 --single-branch --branch ${SOURCE_BRANCH} https://github.com/${{ github.repository }}.git   ${SOURCE_BRANCH}
+        cd ${SOURCE_BRANCH}
+        python3 -m pip install --user -r requirements-build.txt
+        python3 -m pip install --user -r _test/requirements-test.txt
+    - name: Run pytest
+      run: |        
+        cd ${SOURCE_BRANCH}
+        python3 -m pytest _test/*_test.py                  
+    
   build_docs_job:
-    if: (github.repository == 'DavidLeoni/sciprog-ds') && ((github.ref == 'refs/heads/master') || (github.ref == 'refs/heads/dev'))
-    runs-on: ubuntu-18.04
-    name: Build docs    
-    steps:   
+    if: (github.repository == 'DavidLeoni/sciprog-ds') && ((github.ref == 'refs/heads/master')
+    needs: run_tests
+    runs-on: ubuntu-20.04
+    env:
+      SOURCE_BRANCH: ${{ github.head_ref || github.ref_name }} 
+      WEB_BRANCH: gh-pages
+    name: Build docs          
+    steps:  
     - name: Install deps
       run: |
         sudo apt-get install tree
     - name: sets environment 
-      run: |        
+      run: |
         echo "GIT_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
         echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_ENV
-        echo "LANGUAGE=en" >> $GITHUB_ENV
+        echo "LANGUAGE=en" >> $GITHUB_ENV                
     - name: apply docs version renaming
       if: env.GIT_TAG == 'master'
       run: echo "VERSION=latest" >> $GITHUB_ENV
     - name: sets WEB_PATH
-      run: echo "WEB_PATH=" >> $GITHUB_ENV
+      run: echo "WEB_PATH=${{env.LANGUAGE}}/${{env.VERSION}}" >> $GITHUB_ENV
     - name: Run Sphinx in RTD docker      
       uses: DavidLeoni/readthedocs-to-actions@v1.2
       with:
-        RTD_PRJ_NAME: sciprog-ds        
+        RTD_PRJ_NAME: jupman        
         GIT_URL: https://github.com/${{ github.repository }}.git
         GIT_TAG: ${{ env.GIT_TAG }}
         VERSION: ${{ env.VERSION }}
@@ -35,23 +60,29 @@ jobs:
       run: |        
         tree -aC $GITHUB_WORKSPACE
     - name: Commit documentation changes
-      run: |
-        git clone --depth 1 --branch sciprog.davidleoni.it https://github.com/${{ github.repository }}.git sciprog.davidleoni.it        
+      run: |           
+        git clone  --depth=1 --single-branch --branch ${WEB_BRANCH} https://github.com/${{ github.repository }}.git   ${WEB_BRANCH}
+
+        cd ${WEB_BRANCH}
+        if [ -d "${{ env.WEB_PATH }}" ] 
+        then
+            git rm -r * ${{ env.WEB_PATH }}
+        fi                
+        mkdir -p ${{ env.WEB_PATH }}        
         
-        mkdir -p sciprog.davidleoni.it/${{ env.WEB_PATH }}
-        cp -r $GITHUB_WORKSPACE/html/* sciprog.davidleoni.it/${{ env.WEB_PATH }}
+        cp -r $GITHUB_WORKSPACE/html/* ${{ env.WEB_PATH }}
         if compgen -G "$GITHUB_WORKSPACE/latex/*.pdf" > /dev/null; then
-             cp -r $GITHUB_WORKSPACE/latex/*.pdf sciprog.davidleoni.it/${{ env.WEB_PATH }}
+             cp -r $GITHUB_WORKSPACE/latex/*.pdf ${{ env.WEB_PATH }}
         else
              echo "ERROR: NO PDF FILES WHERE GENERATED!"
         fi
         if compgen -G "$GITHUB_WORKSPACE/epub/*.epub" > /dev/null; then
-             cp -r $GITHUB_WORKSPACE/epub/*.epub sciprog.davidleoni.it/${{ env.WEB_PATH }}
+             cp -r $GITHUB_WORKSPACE/epub/*.epub ${{ env.WEB_PATH }}
         else
              echo "ERROR: NO EPUB FILES WHERE GENERATED!"
         fi
-        # note: html zip is already provided by Github
-        cd sciprog.davidleoni.it        
+
+        # note: html zip is already provided by Github        
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .      
@@ -63,9 +94,12 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
-        branch: sciprog.davidleoni.it
-        directory: sciprog.davidleoni.it
+        branch: ${{ env.WEB_BRANCH }}
+        directory: ${{ env.WEB_BRANCH }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: update server
+    - name: deploy to custom server
       run: |
-        curl --silent --digest --user ${{ secrets.DAVAPI_CREDENTIALS}} ${{ secrets.DAVAPI_URL }}    
+        # Custom deploy, you don't need this
+        if [ ! -z "${{ secrets.DAVAPI_URL }}" ]; then 
+            curl --silent --digest --user ${{ secrets.DAVAPI_CREDENTIALS}} ${{ secrets.DAVAPI_URL }}
+        fi

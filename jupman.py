@@ -52,7 +52,7 @@ def init(toc=False):
             #    so it is better to include scripts instead of using relative imports
 
             root = os.path.dirname(os.path.abspath(__file__))
-            _static = os.path.join(root, '_static')                
+            _static = os.path.join(root, '_static')                                        
             
             css = open("%s/css/jupman.css" % _static, "r").read()
             tocjs = open("%s/js/toc.js" % _static, "r").read()
@@ -163,6 +163,12 @@ def mem_limit(MB=None):
     if os.name == 'nt':
         print('WARNING: limiting memory on Windows is not supported')
         return
+
+    #https://stackoverflow.com/a/64444776
+    import platform
+    if platform.system().lower() == 'darwin':
+        print('WARNING: limiting memory on Mac is not supported')
+        return        
     
     import resource
     with open('/proc/meminfo', 'r') as mem:
@@ -222,9 +228,8 @@ def draw_text(text, fontsize=None):
     ax.axis('off')        
     plt.show()    
     
-
 def draw_df(df, fontsize=16, scale=(1.8, 3.9), figsize=(12, 2)):
-    """ EXPERIMENTAL draws a Pandas DataFrame as an image
+    """ Draws a Pandas DataFrame as an image
         Taken from https://stackoverflow.com/a/36904120
         @since 3.3
     """    
@@ -251,61 +256,8 @@ def get_doc(fun):
     import pydoc
     lines = pydoc.render_doc(fun, renderer=pydoc.plaintext).split('\n')
     
-    return 'def ' + lines[2] + ':\n    """ ' + '\n    '.join(lines[3:]).strip()+ '\n    """'
-
-
+    return 'def ' + lines[2] + ':\n    """ ' + '\n    '.join(lines[3:]).strip()+ '\n    """'        
     
-def show_preview(val, lines=5, pr=True):
-    """ SUPER EXPERIMENTAL, Displays first lines of a data structure        
-        @since 3.3
-    """    
-    import pprint
-    import contextlib
-    from pprint import pformat
-    import reprlib
-    
-    #trick to prevent automated  sorting < python 3.8, see https://stackoverflow.com/a/60737399
-    @contextlib.contextmanager
-    def pprint_ordered():
-        pprint.sorted = lambda arg, *args, **kwargs: arg
-        yield
-        pprint.sorted = sorted    
-
-    with pprint_ordered():
-           
-        if type(val) == dict:
-            vals = val
-        elif type(val) == list:
-            vals = val
-        else:
-            raise ValueError("Unrecognized type: " % type(vals))                
-                
-        
-        
-        if type(val) == dict:
-            vals = val
-        elif type(val) == list:
-            vals = val
-        else:
-            raise ValueError("Unrecognized type: " % type(vals))        
-        
-        output = ''
-        
-        s = pformat(vals)
-        ls = s.split('\n')       
-        output += '\n'.join(ls[:lines] + ['  .','  .'])
-        if len(ls) > 1:
-            if type(vals) == dict:
-                output += '\n}'
-            elif type(vals) == list:
-                output += '\n]'            
-
-        if pr:
-            print(output)
-        else:
-            return output
-        
-        
 def pytut_json(jm_code):
     """ Runs jm_code and return a JSON execution trace
 

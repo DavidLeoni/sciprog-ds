@@ -13,10 +13,6 @@ li.toctree-l1 > a > .toctree-expand {
 
 /* Fixes for https://github.com/DavidLeoni/jupman/issues/17 */
  
-/* code overflow */
-div.input_area  {
-    overflow:visible !important
-}
 
 /* too much output  */
 div.output_area.docutils.container:not(.rendered_html){ 
@@ -26,10 +22,16 @@ div.output_area.docutils.container:not(.rendered_html){
 
 #jupman-langs {    
     float: right;
-    margin-right: -28px;
-    margin-top: -28px;
+    margin-right: -10px;
+    margin-top: -22px;
+ }
+ 
+@media screen and (min-width:1100px) { /* min-width as in rtd theme */
+    
+    #jupman-langs {     
+        margin-right: -28px;
+    }
 }
-
 /* Fix for centered images
    https://github.com/DavidLeoni/jupman/issues/52 
    */
