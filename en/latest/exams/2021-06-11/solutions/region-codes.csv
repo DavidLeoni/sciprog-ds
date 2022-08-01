@@ -1,0 +1,105 @@
+Value,Region
+10000,Europe
+20000,Mainland North America
+30000,Caribbean
+40000,Spanish American Mainland
+50000,Brazil
+60000,Africa
+80000,Other
+10100,Spain
+10200,Portugal
+10300,Great Britain
+10400,England
+10500,Scotland
+10600,Ireland
+10700,France
+10800,Netherlands
+10900,Denmark
+11000,Northern Germany
+11100,Belgium
+11200,Norway
+11300,Sweden
+11400,Italy
+11500,Russia
+11600,Mediterranean
+11700,Latvia
+20100,Rhode Island
+20200,Maine
+20300,New Hampshire
+20400,Massachusetts
+20500,Connecticut
+20600,New York
+20700,Delaware
+20800,New Jersey
+20900,Pennsylvania
+21000,Maryland
+21100,Virginia
+21200,North Carolina
+21300,South Carolina
+21400,Georgia
+21500,Florida
+21600,Gulf coast
+21700,Canada
+21800,Kentucky
+21900,Other North America
+22000,Tennessee
+22100,Texas
+31100,Hispaniola
+31200,Puerto Rico
+31300,Cuba
+31400,Other Spanish Caribbean
+32100,Dutch Caribbean
+32200,Dutch Guianas
+32300,Other Dutch Americas
+33200,Tortola
+33300,Anguilla
+33400,Antigua
+33500,St. Kitts
+33600,Nevis
+33700,Montserrat
+33800,Dominica
+34100,St. Lucia
+34200,Barbados
+34300,St. Vincent
+34400,Grenada
+34500,Trinidad
+34600,Tobago
+35100,Jamaica
+35200,Bahamas
+35300,British Guiana
+35400,British Honduras
+35500,Other British Caribbean
+36100,Martinique
+36200,Guadeloupe
+36300,French Guiana
+36400,Saint-Domingue
+36500,Other French Caribbean
+37000,Danish West Indies
+38100,St. Barthélemy (Sweden)
+39000,Other Caribbean
+41200,Spanish Circum-Caribbean
+42000,Rio de la Plata
+43000,Peru
+44000,Chile
+45000,Ecuador
+50100,Amazonia
+50200,Bahia
+50300,Pernambuco
+50400,Southeast Brazil
+50500,Other Brazil
+60100,Senegambia and off shore Atlantic
+60200,Sierra Leone
+60300,Windward Coast
+60400,Gold Coast
+60500,Bight of Benin
+60600,Bight of Biafra and Gulf of Guinea islands
+60700,West Central Africa and St. Helena
+60800,Southeast Africa and Indian Ocean islands
+60900,Other Africa
+80100,East Indies
+80200,Americas
+80300,Asia e Africa
+80400,Spanish Americas
+80500,British Americas
+80600,India
+80700,Non-geographical
