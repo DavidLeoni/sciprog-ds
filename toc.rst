@@ -6,11 +6,44 @@
     :glob:
 
     Home <index.ipynb>
-
-    past-exams.ipynb
+    
     slides.ipynb
+    past-exams.ipynb    
+
+|space|
+==========
+
+.. |space| unicode:: U+0020 .. space
 
 
+Part A
+=================
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+
+    Installation <installation.ipynb>
+    Python basics <basics/basics-sol.ipynb>
+    Strings <strings/strings-sol.ipynb>
+    Lists <lists/lists-sol.ipynb> 
+    Tuples <tuples/tuples-sol.ipynb>     
+    Sets <sets/sets-sol.ipynb>
+    Dictionaries <dictionaries/dictionaries-sol.ipynb>
+    Control flow <control-flow/control-flow-sol.ipynb>    
+    Functions <functions/functions-sol.ipynb>    
+    Errors and testing <errors-and-testing/errors-and-testing-sol.ipynb>    
+    Matrices: lists <matrices-lists/matrices-lists-sol.ipynb>
+    Data formats <formats/formats-sol.ipynb>    
+    Matrices: numpy <matrices-numpy/matrices-numpy-sol.ipynb>        
+    Visualization <visualization/visualization-sol.ipynb>
+    Pandas <pandas/pandas-sol.ipynb>    
+    Binary relations <binary-relations/binary-relations-sol.ipynb>  
+    Graph formats <graph-formats/graph-formats-sol.ipynb>    
+        
+
+Part B
+==========
 
 .. toctree::
     :maxdepth: 2
@@ -56,4 +89,13 @@
 .. toctree::
     :hidden:
 
+Appendix
+====================
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+
+    commandments.ipynb
+    changelog.md      
 
