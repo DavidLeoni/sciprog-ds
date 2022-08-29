@@ -808,7 +808,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---mustang">Exercise - mustang</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Recursion">Recursion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Recursion">Recursion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#The-Master-Theorem">The Master Theorem</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Recursion---exercises">Recursion - exercises</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---yamaha">Exercise - yamaha</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---cadillac">Exercise - cadillac</a></li>
@@ -2934,12 +2937,40 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <li><p>find the <em>best</em> solution, according to some measure of ‘goodness’? Then we measure each of the solutions and give back the highest scoring one.</p></li>
 <li><p>always provide a <em>combination</em> of existing solutions, according to some combination method? Then we combine the found solutions and give them back</p></li>
 </ul>
+<section id="The-Master-Theorem">
+<h3>The Master Theorem<a class="headerlink" href="#The-Master-Theorem" title="Permalink to this headline"></a></h3>
+<p>To get a precise calculation of complexity of recursive algorithms, let’s recall the Master Theorem:</p>
+<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> two integer constants such that <span class="math notranslate nohighlight">\(\normalsize a \geq 1\)</span> and <span class="math notranslate nohighlight">\(\normalsize b \geq 2\)</span>, and let <span class="math notranslate nohighlight">\(\normalsize c, \beta\)</span> be two real constants such that <span class="math notranslate nohighlight">\(\normalsize c &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\normalsize \beta \geq 0\)</span>. Let <span class="math notranslate nohighlight">\(\normalsize T(n)\)</span> be defined by the following recurrence:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\large
+T(n) =  \begin{cases}
+a T(n/b)+cn^\beta &amp; n &gt; 1 \\
+\Theta(n) &amp; n \leq 1
+\end{cases}\end{split}\]</div>
+<p>Given <span class="math notranslate nohighlight">\(\large {\alpha = \frac{\log{a}}{\log{b}} = \log_b{a}}\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\large
+T(n) =  \begin{cases}
+\Theta(n^\alpha) &amp; \alpha &gt; \beta          \\
+\Theta(n^\alpha \log{n}) &amp; \alpha = \beta  \\
+\Theta(n^\beta) &amp; \alpha &lt; \beta
+\end{cases}\end{split}\]</div>
+<p>The theorem covers cases when:</p>
+<ul class="simple">
+<li><p>input of size <span class="math notranslate nohighlight">\(n\)</span> is split in <span class="math notranslate nohighlight">\(b\)</span> subproblems</p></li>
+<li><p>the algorithm is applied recursively <span class="math notranslate nohighlight">\(n\)</span> times</p></li>
+<li><p><span class="math notranslate nohighlight">\(\normalsize cn^\beta\)</span> is the cost of the algorithm after the recursive steps</p></li>
+</ul>
+</section>
 </section>
 <section id="Recursion---exercises">
 <h2>Recursion - exercises<a class="headerlink" href="#Recursion---exercises" title="Permalink to this headline"></a></h2>
 <section id="Exercise---yamaha">
 <h3>Exercise - yamaha<a class="headerlink" href="#Exercise---yamaha" title="Permalink to this headline"></a></h3>
-<p>What does this function do? What’s the time complexity?</p>
+<ol class="loweralpha simple">
+<li><p>What does this function do?</p></li>
+<li><p>What’s the time complexity? Give both an informal argument and a formal one using the Master Theorem.</p></li>
+</ol>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">lst</span></code>: a list of <span class="math notranslate nohighlight">\(n\)</span> numbers</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: an index from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <span class="math notranslate nohighlight">\(n\)</span> <strong>included</strong></p></li>
@@ -2988,18 +3019,20 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 </div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: It sums all the numbers in <span class="math notranslate nohighlight">\(O(n)\)</span></p>
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>:</p>
+<p><strong>Informal argument</strong>: Since this is a simple function, just by inspecting it we can conclude it sums all the numbers. Since the list is always completely traversed we can state the complexity is <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p>
 <p>Notice that as all recursive functions in Python, we would be also limited by the amount of recursive calls that Python imposes, which was fixed by language designers to 1000 (Python is not a language optimized for recursive calls).</p>
+<p><strong>Formal argument</strong> using the Master Theorem (Required during the exam!): TODO</p>
 </div></section>
 <section id="Exercise---cadillac">
 <h3>Exercise - cadillac<a class="headerlink" href="#Exercise---cadillac" title="Permalink to this headline"></a></h3>
 <p>Look at the following code:</p>
-<ol class="arabic simple">
-<li><p>Is recursion eventually terminating after some time?</p></li>
-<li><p>What’s the time complexity?</p></li>
+<ol class="loweralpha simple">
+<li><p>To get a better understanding, try adding an integer optional parameter <code class="docutils literal notranslate"><span class="pre">level=0</span></code> with the recursion level, and print the function passages indented according to the recursion <code class="docutils literal notranslate"><span class="pre">level</span></code></p></li>
 <li><p>What is this function doing?</p></li>
+<li><p>Is recursion eventually terminating after some time?</p></li>
+<li><p>What’s the time complexity? Try giving both an informal argument and a precise one using the Master Theorem</p></li>
 </ol>
-<p>To get a better understanding, try adding an integer optional parameter <code class="docutils literal notranslate"><span class="pre">level=0</span></code> with the recursion level, and print the function passages indented according to the recursion <code class="docutils literal notranslate"><span class="pre">level</span></code></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">lst</span></code> : list of <span class="math notranslate nohighlight">\(n\)</span> integers</p></li>
 </ul>
@@ -3022,27 +3055,7 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 </pre></div>
 </div>
 </div>
-<a  class="jupman-sol jupman-sol-toggler"
- onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: It returns the sum of all numbers in <span class="math notranslate nohighlight">\(O(n \log_2{n})\)</span></p>
-<p>We can picture the time spent in slice creation ad recursive calls like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                n                       recursion level
-|-------------------------------|       1
-|---------------|---------------|       2
-|-------|-------|-------|-------|       3
-|---|---|---|---|---|---|---|---|       .
-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|       log_2(n)
-</pre></div>
-</div>
-<p>Think of the internal bars as the costs for calculating splitting points, placing recursive calls and summing the results obtained from calls from level below.</p>
-<p>It looks like a rectangle, thereafore to compute the complexity we can multiply the sides to get <span class="math notranslate nohighlight">\(O(n \log_2{n})\)</span></p>
-<p>The answers to ask for termination are the following ones:</p>
-<ol class="arabic simple">
-<li><p>By repeatedly reducing input size, do we eventually end up in a branch with a return?</p></li>
-<li><p>Are we reducing input size when calling cadillac?</p></li>
-</ol>
-<p>Since the answer to both is yes, we can conclude the function will always terminate</p>
-</div><p>Code with added debug prints and <code class="docutils literal notranslate"><span class="pre">level=0</span></code> param:</p>
+<p><strong>a) Solution for code with added debug prints and</strong> <code class="docutils literal notranslate"><span class="pre">level=0</span></code> <strong>param</strong>:</p>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
  data-jupman-show="Show solution" data-jupman-hide="Hide">Show solution</a><div class="jupman-sol jupman-sol-code" style="display:none"><div class="nbinput docutils container">
@@ -3190,7 +3203,44 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 49
 </pre></div></div>
 </div>
-</section>
+<p><strong>b,c,d) Answers to remaining questions:</strong></p>
+<a  class="jupman-sol jupman-sol-toggler"
+ onclick="jupman.toggleSolution(this);"
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>:</p>
+<ol class="loweralpha simple" start="2">
+<li><p>It returns the sum of all numbers in <span class="math notranslate nohighlight">\(\Theta(n \log_2{n})\)</span></p></li>
+<li><p>The answers to ask for termination are the following ones:</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>By repeatedly reducing input size, do we eventually end up in a branch with a return?</p></li>
+<li><p>Are we reducing input size when calling cadillac?</p></li>
+</ol>
+<p>Since the answer to both is yes, we can conclude the function will always terminate</p>
+<ol class="loweralpha simple" start="4">
+<li><p><strong>Informal argument</strong>: we can picture the time spent in slice creation ad recursive calls like this:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                n                       recursion level
+|-------------------------------|       1
+|---------------|---------------|       2
+|-------|-------|-------|-------|       3
+|---|---|---|---|---|---|---|---|       .
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|       log_2(n)
+</pre></div>
+</div>
+<p>Think of the internal vertical bars as the costs for calculating splitting points, placing recursive calls and summing the results obtained from calls from level below. The horizontal dashes represent the cost of copying cells when we slice.</p>
+<p>It looks like a rectangle which is always fully traversed, thereafore to compute the complexity we can multiply the sides to get <span class="math notranslate nohighlight">\(\Theta(n \log_2{n})\)</span></p>
+<p><strong>Formal argument (required during exam!)</strong>:</p>
+<p>We can apply the Master Theorem like so:</p>
+<p><span class="math notranslate nohighlight">\(\normalsize a = 2\)</span> (two calls)</p>
+<p><span class="math notranslate nohighlight">\(\normalsize b = 2\)</span> (input size is split in half at each call)</p>
+<p><span class="math notranslate nohighlight">\(\normalsize c = 1\)</span>: recursive calls arguments are <em>slices</em>, which means a copy of the list is made prior to the call so we have a dependency on <span class="math notranslate nohighlight">\(n\)</span> (which wins over other rows with <span class="math notranslate nohighlight">\(O(1)\)</span> complexity)</p>
+<p><span class="math notranslate nohighlight">\(\beta = 1\)</span> (recursive operations depend linearly on input size)</p>
+<p>to get:</p>
+<p><span class="math notranslate nohighlight">\(\large T(n) = 2 T(n/2) + 1n^1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\large \alpha = \frac{log{a}} {log{b}} = \frac{\log{2}}{\log{2}} = 1\)</span></p>
+<p>We are in the case <span class="math notranslate nohighlight">\(\normalsize \alpha = \beta\)</span> as <span class="math notranslate nohighlight">\(\normalsize 1 = 1\)</span>, so we can confirm the estimation:</p>
+<p><span class="math notranslate nohighlight">\(\large T(n) = \Theta(n^\alpha \log{n}) = \Theta(n^1 \log{n}) = \Theta(n\log{n})\)</span></p>
+</div></section>
 <section id="Exercise---ducati">
 <h3>Exercise - ducati<a class="headerlink" href="#Exercise---ducati" title="Permalink to this headline"></a></h3>
 <p>The following function is similar to the previous one, but doesn’t create slices</p>
@@ -3199,10 +3249,8 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 <li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> : left integer index <em>included</em></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">j</span></code> : right integer index <em>excluded</em></p></li>
 </ul>
-<ol class="arabic simple">
-<li><p>Does it behave the same?</p></li>
-<li><p>What’s the time complexity?</p></li>
-</ol>
+<p>a). Does it behave the same?</p>
+<p>b). What’s the time complexity? Try giving both an informal argument and a precise one through the Master Theorem</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
@@ -3228,8 +3276,12 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 </div>
 <a  class="jupman-sol jupman-sol-toggler"
  onclick="jupman.toggleSolution(this);"
- data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>: It’s still a sum of the elements, but executes faster, the complexity is <span class="math notranslate nohighlight">\(O(\log{n} + n) = O(n)\)</span></p>
-<p>Notice this time we are not creating slices, we only calculate the splitting points <span class="math notranslate nohighlight">\(log_2(n)\)</span>, times and only at the very end of recursion we extract <span class="math notranslate nohighlight">\(n\)</span> values from the list to sum them up, so cost is the <em>maximum</em> between the two: <span class="math notranslate nohighlight">\(O(\log{n} + n) = O(n)\)</span></p>
+ data-jupman-show="Show answer" data-jupman-hide="Hide">Show answer</a><div class="jupman-sol jupman-sol-question" style="display:none"><p><strong>ANSWER</strong>:</p>
+<ol class="loweralpha simple">
+<li><p>It’s still a sum of the elements, but executes faster, the complexity is <span class="math notranslate nohighlight">\(\Theta(n)\)</span></p></li>
+<li><p><strong>Informal argument</strong>: notice this time we are not creating slices, we only calculate the splitting points <span class="math notranslate nohighlight">\(log_2(n)\)</span>, times and only at the very end of recursion we extract <span class="math notranslate nohighlight">\(n\)</span> values from the list to sum them up, so splitting points are much sparser than the number of cells and we can see that visually represent the internal nodes of a full binary tree of height <span class="math notranslate nohighlight">\(\log_2{n}\)</span> which is always fully traversed, with the leaves being the single cells. <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_tree#Properties_of_binary_trees">Discrete math
+theory</a> tells us are the number of internal nodes of a full binary is number the leaves minus 1, so roughly complexity should be <span class="math notranslate nohighlight">\(O(n + n - 1) = O(n)\)</span></p></li>
+</ol>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                n                       recursion level
 |                               |       1
 |               |               |       2
@@ -3239,7 +3291,6 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ducati_rec</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
-    <span class="c1">#jupman-raise</span>
     <span class="n">interval</span> <span class="o">=</span>  <span class="n">j</span> <span class="o">-</span> <span class="n">i</span>              <span class="c1"># 1</span>
 
     <span class="k">if</span> <span class="n">interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>              <span class="c1"># 1</span>
@@ -3250,14 +3301,24 @@ g(n) &amp;= \sum_{i=1}^n{f(i)} \\
 
     <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">interval</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>        <span class="c1"># 1</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">ducati_rec</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>        <span class="c1"># recursive call: ?</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="n">ducati_rec</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>        <span class="c1"># 1</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">ducati_rec</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>        <span class="c1"># recursive call: ?</span>
     <span class="k">return</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span>                   <span class="c1"># 1</span>
-    <span class="c1">#/jupman-raise</span>
 
 <span class="k">def</span> <span class="nf">ducati</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>                         <span class="c1"># 1</span>
     <span class="k">return</span> <span class="n">ducati_rec</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">))</span>    <span class="c1"># 1</span>
 </pre></div>
 </div>
+<p><strong>Formal argument (required during exam!)</strong>:</p>
+<p>We can apply the Master Theorem like so:</p>
+<p><span class="math notranslate nohighlight">\(\normalsize a = 2\)</span> (two calls)</p>
+<p><span class="math notranslate nohighlight">\(\normalsize b = 2\)</span> (input size is split in half at each call)</p>
+<p><span class="math notranslate nohighlight">\(\normalsize c = 7\)</span></p>
+<p><span class="math notranslate nohighlight">\(\beta = 0\)</span> (although we have some constant time operations, they don’t depend on input size)</p>
+<p>to get:</p>
+<p><span class="math notranslate nohighlight">\(\large T(n) = 2 T(n/2) + 7n^0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\large \alpha = \frac{log{a}} {log{b}} = \frac{\log{2}}{\log{2}} = 1\)</span></p>
+<p>We are in the case <span class="math notranslate nohighlight">\(\normalsize \alpha &gt; \beta\)</span> as <span class="math notranslate nohighlight">\(\normalsize 1 &gt; 0\)</span>, so we can confirm the estimation:</p>
+<p><span class="math notranslate nohighlight">\(\large T(n) = \Theta(n^\beta) = \Theta(n^1) = \Theta(n)\)</span></p>
 </div></section>
 </section>
 <section id="Analysis---more-exercises">
