@@ -956,7 +956,7 @@ class PivotTest(LinkedListTest):
         self.assertEqual(id(orig_node0), id(ll._head))
         self.assertEqual(id(orig_node1), id(ll._head.get_next()))
 
-    def test_06_7_8_4(self):
+    def test_06_7_9_4(self):
         ll = to_ll([7, 9, 4])
         orig_node0 = ll._head
         orig_node1 = ll._head.get_next()
